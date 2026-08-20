@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UtkalaMart - ଓଡ଼ିଶାର ସାମଗ୍ରୀ, ଆପଣଙ୍କ ଘରେ</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,"Noto Sans Oriya",sans-serif;
+    background:#f6f7f9;
+    color:#17233c;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    cursor:pointer;
+    border:none;
+}
+
+/* TOP BAR */
+
+.topbar{
+    background:#087f3f;
+    color:white;
+    padding:9px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:14px;
+}
+
+.topbar span{
+    margin:0 10px;
+}
+
+/* HEADER */
+
+.header{
+    background:white;
+    padding:18px 5%;
+    display:flex;
+    align-items:center;
+    gap:25px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    min-width:245px;
+}
+
+.logo-icon{
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#ff7900,#087f3f);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:29px;
+    margin-right:10px;
+}
+
+.logo h1{
+    font-size:31px;
+    color:#113b80;
+}
+
+.logo h1 span{
+    color:#f56a00;
+}
+
+.logo p{
+    color:#087f3f;
+    font-size:13px;
+    margin-top:2px;
+}
+
+/* SEARCH */
+
+.search{
+    flex:1;
+    display:flex;
+    height:46px;
+    border:2px solid #eee;
+    border-radius:25px;
+    overflow:hidden;
+}
+
+.search input{
+    flex:1;
+    border:none;
+    outline:none;
+    padding:0 20px;
+    font-size:15px;
+}
+
+.search button{
+    width:65px;
+    background:#ff6b00;
+    color:white;
+    font-size:20px;
+}
+
+/* HEADER ACTIONS */
+
+.actions{
+    display:flex;
+    gap:15px;
+}
+
+.action{
+    text-align:center;
+    font-size:13px;
+    color:#123a78;
+}
+
+.action-icon{
+    font-size:23px;
+    display:block;
+    margin-bottom:3px;
+}
+
+/* NAV */
+
+.nav{
+    background:#063b78;
+    color:white;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.nav a{
+    padding:15px 19px;
+    border-right:1px solid rgba(255,255,255,.15);
+    transition:.2s;
+}
+
+.nav a:hover,
+.nav a.active{
+    background:#ff6b00;
+}
+
+/* HERO */
+
+.hero{
+    min-height:390px;
+    padding:45px 7%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:
+    linear-gradient(90deg,rgba(255,255,255,.97),rgba(255,255,255,.70)),
+    linear-gradient(135deg,#ffd9a8,#b9e7cc);
+}
+
+.hero-text{
+    max-width:600px;
+}
+
+.hero-text small{
+    color:#087f3f;
+    font-weight:bold;
+    font-size:18px;
+}
+
+.hero-text h2{
+    font-size:50px;
+    color:#123a78;
+    margin:12px 0;
+}
+
+.hero-text h2 span{
+    color:#f56a00;
+}
+
+.hero-text p{
+    font-size:19px;
+    color:#444;
+    line-height:1.7;
+}
+
+.shop-btn{
+    margin-top:25px;
+    background:#ff6b00;
+    color:white;
+    padding:14px 28px;
+    border-radius:28px;
+    font-size:16px;
+    font-weight:bold;
+}
+
+.hero-art{
+    font-size:150px;
+}
+
+/* SECTION */
+
+.section{
+    padding:45px 5%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:28px;
+}
+
+.section-title h2{
+    font-size:30px;
+    color:#123a78;
+}
+
+.section-title span{
+    color:#ff6b00;
+}
+
+/* CATEGORY */
+
+.categories{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:15px;
+}
+
+.category{
+    background:white;
+    border-radius:15px;
+    padding:20px 10px;
+    text-align:center;
+    box-shadow:0 3px 12px rgba(0,0,0,.07);
+    transition:.25s;
+}
+
+.category:hover{
+    transform:translateY(-6px);
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+
+.category .emoji{
+    font-size:45px;
+    margin-bottom:10px;
+}
+
+.category h3{
+    font-size:16px;
+}
+
+.category p{
+    color:#777;
+    font-size:12px;
+    margin-top:5px;
+}
+
+/* PRODUCTS */
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.product{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+    position:relative;
+}
+
+.product-img{
+    height:210px;
+    background:#f2f3f5;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:90px;
+}
+
+.product-info{
+    padding:17px;
+}
+
+.product-info h3{
+    font-size:17px;
+    margin-bottom:8px;
+}
+
+.rating{
+    color:#ffad00;
+    font-size:14px;
+}
+
+.price{
+    margin-top:10px;
+    font-size:20px;
+    font-weight:bold;
+    color:#123a78;
+}
+
+.old-price{
+    color:#999;
+    text-decoration:line-through;
+    font-size:13px;
+    margin-left:7px;
+}
+
+.add-cart{
+    width:100%;
+    margin-top:13px;
+    padding:11px;
+    background:#ff6b00;
+    color:white;
+    border-radius:7px;
+    font-weight:bold;
+}
+
+.discount{
+    position:absolute;
+    top:12px;
+    left:12px;
+    background:#087f3f;
+    color:white;
+    padding:5px 9px;
+    border-radius:5px;
+    font-size:12px;
+}
+
+/* BANNERS */
+
+.banners{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.banner{
+    min-height:160px;
+    padding:25px;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:linear-gradient(135deg,#fff1df,#ffe0bd);
+}
+
+.banner:nth-child(2){
+    background:linear-gradient(135deg,#d9f6e6,#a8e6c2);
+}
+
+.banner:nth-child(3){
+    background:linear-gradient(135deg,#dcecff,#bcd8ff);
+}
+
+.banner h3{
+    font-size:22px;
+}
+
+.banner button{
+    background:#ff6b00;
+    color:white;
+    padding:10px 17px;
+    border-radius:20px;
+    margin-top:12px;
+}
+
+.banner-icon{
+    font-size:60px;
+}
+
+/* FEATURES */
+
+.features{
+    background:white;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    padding:35px 5%;
+    gap:20px;
+}
+
+.feature{
+    text-align:center;
+}
+
+.feature-icon{
+    font-size:42px;
+}
+
+.feature h3{
+    margin:8px 0 5px;
+    color:#123a78;
+}
+
+.feature p{
+    color:#777;
+    font-size:13px;
+}
+
+/* NEWSLETTER */
+
+.newsletter{
+    margin:40px 5%;
+    padding:35px;
+    border-radius:15px;
+    background:#fff4dc;
+    text-align:center;
+}
+
+.newsletter h2{
+    color:#123a78;
+}
+
+.newsletter p{
+    margin:10px 0 20px;
+}
+
+.newsletter-form{
+    max-width:500px;
+    margin:auto;
+    display:flex;
+}
+
+.newsletter-form input{
+    flex:1;
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:7px 0 0 7px;
+    outline:none;
+}
+
+.newsletter-form button{
+    padding:0 22px;
+    background:#ff6b00;
+    color:white;
+    border-radius:0 7px 7px 0;
+}
+
+/* FOOTER */
+
+.footer{
+    background:#062d61;
+    color:white;
+    padding:45px 5% 15px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:35px;
+}
+
+.footer h2{
+    margin-bottom:12px;
+}
+
+.footer h2 span{
+    color:#ff7900;
+}
+
+.footer h3{
+    margin-bottom:15px;
+}
+
+.footer p,
+.footer li{
+    color:#d9e4f3;
+    font-size:14px;
+    line-height:2;
+}
+
+.footer ul{
+    list-style:none;
+}
+
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,.2);
+    margin-top:30px;
+    padding-top:15px;
+    text-align:center;
+    font-size:13px;
+}
+
+/* CART */
+
+.cart-box{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:#ff6b00;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
+    box-shadow:0 5px 15px rgba(0,0,0,.3);
+    z-index:99;
+}
+
+.cart-count{
+    position:absolute;
+    top:-5px;
+    right:-5px;
+    background:#087f3f;
+    color:white;
+    width:23px;
+    height:23px;
+    border-radius:50%;
+    font-size:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .topbar{
+        font-size:11px;
+        text-align:center;
+    }
+
+    .header{
+        flex-wrap:wrap;
+        gap:12px;
+    }
+
+    .logo{
+        min-width:auto;
+        flex:1;
+    }
+
+    .logo h1{
+        font-size:25px;
+    }
+
+    .search{
+        order:3;
+        flex-basis:100%;
+    }
+
+    .actions{
+        gap:8px;
+    }
+
+    .action span:last-child{
+        display:none;
+    }
+
+    .nav{
+        overflow-x:auto;
+        justify-content:flex-start;
+        white-space:nowrap;
+    }
+
+    .nav a{
+        padding:12px 15px;
+        font-size:13px;
+    }
+
+    .hero{
+        min-height:330px;
+        padding:35px 6%;
+    }
+
+    .hero-text h2{
+        font-size:35px;
+    }
+
+    .hero-text p{
+        font-size:15px;
+    }
+
+    .hero-art{
+        display:none;
+    }
+
+    .categories{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .product-img{
+        height:160px;
+    }
+
+    .banners{
+        grid-template-columns:1fr;
+    }
+
+    .features{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:500px){
+
+    .topbar{
+        display:block;
+        line-height:1.8;
+    }
+
+    .header{
+        padding:12px 4%;
+    }
+
+    .logo h1{
+        font-size:22px;
+    }
+
+    .logo p{
+        font-size:10px;
+    }
+
+    .logo-icon{
+        width:45px;
+        height:45px;
+        font-size:22px;
+    }
+
+    .hero-text h2{
+        font-size:29px;
+    }
+
+    .section{
+        padding:30px 4%;
+    }
+
+    .section-title h2{
+        font-size:24px;
+    }
+
+    .products{
+        gap:10px;
+    }
+
+    .product-info{
+        padding:12px;
+    }
+
+    .product-info h3{
+        font-size:14px;
+    }
+
+    .price{
+        font-size:17px;
+    }
+
+    .product-img{
+        height:135px;
+        font-size:65px;
+    }
+
+    .features{
+        padding:25px 4%;
+        gap:10px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .newsletter{
+        margin:25px 4%;
+        padding:25px 15px;
+    }
+
+    .newsletter-form{
+        flex-direction:column;
+        gap:8px;
+    }
+
+    .newsletter-form input,
+    .newsletter-form button{
+        border-radius:7px;
+        padding:13px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+
+<div class="topbar">
+    <div>🚚 Free Delivery on orders above ₹499</div>
+    <div>
+        ❤️ Support Odia Products
+        <span>❤️ Support Local</span>
+    </div>
+</div>
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            🛒
+        </div>
+
+        <div>
+            <h1>Utkala<span>Mart</span></h1>
+            <p>ଓଡ଼ିଶାର ସାମଗ୍ରୀ, ଆପଣଙ୍କ ଘରେ</p>
+        </div>
+
+    </div>
+
+
+    <div class="search">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="ଆପଣ କଣ ଖୋଜୁଛନ୍ତି?"
+        >
+
+        <button onclick="searchProduct()">
+            🔍
+        </button>
+
+    </div>
+
+
+    <div class="actions">
+
+        <div class="action">
+            <span class="action-icon">👤</span>
+            <span>Login</span>
+        </div>
+
+        <div class="action">
+            <span class="action-icon">❤️</span>
+            <span>Wishlist</span>
+        </div>
+
+        <div class="action">
+            <span class="action-icon">🛒</span>
+            <span>Cart</span>
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- NAVIGATION -->
+
+<nav class="nav">
+
+    <a href="#" class="active">🏠 Home</a>
+
+    <a href="#products">🛍️ Products</a>
+
+    <a href="#categories">🧵 Handloom</a>
+
+    <a href="#categories">🎨 Handicraft</a>
+
+    <a href="#products">🌿 Food</a>
+
+    <a href="#categories">🪔 Traditional</a>
+
+    <a href="#products">🎁 Gift</a>
+
+    <a href="#">🏪 Seller</a>
+
+    <a href="#products">🏷️ Offers</a>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <small>🌿 AUTHENTIC ODISHA PRODUCTS</small>
+
+        <h2>
+            ଓଡ଼ିଶାର <span>ସାମଗ୍ରୀ</span><br>
+            ଏବେ ଆପଣଙ୍କ ଘରେ
+        </h2>
+
+        <p>
+            Handloom, Handicraft, Food, Traditional Products
+            ଏବଂ ଅନେକ ଓଡ଼ିଆ ସାମଗ୍ରୀ ଏକ ସ୍ଥାନରେ।
+        </p>
+
+        <button
+            class="shop-btn"
+            onclick="document.getElementById('products').scrollIntoView()"
+        >
+            🛍️ Shop Now →
+        </button>
+
+    </div>
+
+    <div class="hero-art">
+        🛕
+    </div>
+
+</section>
+
+
+<!-- CATEGORIES -->
+
+<section class="section" id="categories">
+
+    <div class="section-title">
+
+        <h2>
+            🛍️ Shop by <span>Category</span>
+        </h2>
+
+    </div>
+
+
+    <div class="categories">
+
+        <div class="category">
+            <div class="emoji">🧵</div>
+            <h3>Handloom</h3>
+            <p>ହସ୍ତତନ୍ତ</p>
+        </div>
+
+        <div class="category">
+            <div class="emoji">🎨</div>
+            <h3>Handicraft</h3>
+            <p>ହସ୍ତଶିଳ୍ପ</p>
+        </div>
+
+        <div class="category">
+            <div class="emoji">🍘</div>
+            <h3>Food Products</h3>
+            <p>ଖାଦ୍ୟ ସାମଗ୍ରୀ</p>
+        </div>
+
+        <div class="category">
+            <div class="emoji">🪔</div>
+            <h3>Traditional</h3>
+            <p>ପାରମ୍ପରିକ</p>
+        </div>
+
+        <div class="category">
+            <div class="emoji">🎁</div>
+            <h3>Gift Items</h3>
+            <p>ଉପହାର</p>
+        </div>
+
+        <div class="category">
+            <div class="emoji">🌿</div>
+            <h3>Village Products</h3>
+            <p>ଗ୍ରାମୀଣ ସାମଗ୍ରୀ</p>
+        </div>
+
+        <div class="category">
+            <div class="emoji">📚</div>
+            <h3>Odia Books</h3>
+            <p>ଓଡ଼ିଆ ବହି</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PRODUCTS -->
+
+<section class="section" id="products">
+
+    <div class="section-title">
+
+        <h2>
+            ⭐ Featured <span>Products</span>
+        </h2>
+
+    </div>
+
+
+    <div class="products" id="productList">
+
+
+        <!-- PRODUCT 1 -->
+
+        <div class="product" data-name="Sambalpuri Saree">
+
+            <span class="discount">24% OFF</span>
+
+            <div class="product-img">
+                🥻
+            </div>
+
+            <div class="product-info">
+
+                <h3>Sambalpuri Saree</h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐ (128)
+                </div>
+
+                <div class="price">
+                    ₹1,899
+                    <span class="old-price">₹2,499</span>
+                </div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('Sambalpuri Saree',1899)"
+                >
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 2 -->
+
+        <div class="product" data-name="Pattachitra Painting">
+
+            <span class="discount">28% OFF</span>
+
+            <div class="product-img">
+                🖼️
+            </div>
+
+            <div class="product-info">
+
+                <h3>Pattachitra Painting</h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐ (86)
+                </div>
+
+                <div class="price">
+                    ₹1,299
+                    <span class="old-price">₹1,799</span>
+                </div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('Pattachitra Painting',1299)"
+                >
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 3 -->
+
+        <div class="product" data-name="Khaja Odia Sweet">
+
+            <span class="discount">20% OFF</span>
+
+            <div class="product-img">
+                🍘
+            </div>
+
+            <div class="product-info">
+
+                <h3>Khaja (Odia Sweet)</h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐ (156)
+                </div>
+
+                <div class="price">
+                    ₹399
+                    <span class="old-price">₹499</span>
+                </div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('Khaja Odia Sweet',399)"
+                >
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 4 -->
+
+        <div class="product" data-name="Brass Lord Jagannath">
+
+            <span class="discount">25% OFF</span>
+
+            <div class="product-img">
+                🛕
+            </div>
+
+            <div class="product-info">
+
+                <h3>Brass Lord Jagannath</h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐ (72)
+                </div>
+
+                <div class="price">
+                    ₹1,499
+                    <span class="old-price">₹1,999</span>
+                </div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('Brass Lord Jagannath',1499)"
+                >
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 5 -->
+
+        <div class="product" data-name="Organic Turmeric Powder">
+
+            <span class="discount">29% OFF</span>
+
+            <div class="product-img">
+                🌿
+            </div>
+
+            <div class="product-info">
+
+                <h3>Organic Turmeric Powder</h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐ (93)
+                </div>
+
+                <div class="price">
+                    ₹249
+                    <span class="old-price">₹349</span>
+                </div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('Organic Turmeric Powder',249)"
+                >
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 6 -->
+
+        <div class="product" data-name="Coconut Shell Craft">
+
+            <span class="discount">20% OFF</span>
+
+            <div class="product-img">
+                🐘
+            </div>
+
+            <div class="product-info">
+
+                <h3>Coconut Shell Craft</h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐ (61)
+                </div>
+
+                <div class="price">
+                    ₹799
+                    <span class="old-price">₹999</span>
+                </div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('Coconut Shell Craft',799)"
+                >
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROMOTIONAL BANNERS -->
+
+<section class="section">
+
+    <div class="banners">
+
+        <div class="banner">
+
+            <div>
+                <h3>Beautiful Handloom</h3>
+                <p>ସମ୍ବଲପୁରୀ ଓଡ଼ିଆ ହସ୍ତତନ୍ତ</p>
+
+                <button>Explore Now →</button>
+            </div>
+
+            <div class="banner-icon">🥻</div>
+
+        </div>
+
+
+        <div class="banner">
+
+            <div>
+                <h3>Tasty Odia Food</h3>
+                <p>ସ୍ୱାଦିଷ୍ଟ ଓଡ଼ିଆ ଖାଦ୍ୟ</p>
+
+                <button>Shop Food →</button>
+            </div>
+
+            <div class="banner-icon">🍘</div>
+
+        </div>
+
+
+        <div class="banner">
+
+            <div>
+                <h3>Unique Handicrafts</h3>
+                <p>ଓଡ଼ିଆ ହସ୍ତଶିଳ୍ପ</p>
+
+                <button>Shop Crafts →</button>
+            </div>
+
+            <div class="banner-icon">🎨</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- WHY CHOOSE -->
+
+<section class="features">
+
+    <div class="feature">
+        <div class="feature-icon">🌿</div>
+        <h3>100% Authentic</h3>
+        <p>ଅସଲି ଓଡ଼ିଆ ସାମଗ୍ରୀ</p>
+    </div>
+
+    <div class="feature">
+        <div class="feature-icon">🚚</div>
+        <h3>Fast Delivery</h3>
+        <p>ଦ୍ରୁତ ଡେଲିଭରି</p>
+    </div>
+
+    <div class="feature">
+        <div class="feature-icon">🔒</div>
+        <h3>Secure Payment</h3>
+        <p>ସୁରକ୍ଷିତ ପେମେଣ୍ଟ</p>
+    </div>
+
+    <div class="feature">
+        <div class="feature-icon">🏆</div>
+        <h3>Best Quality</h3>
+        <p>ଭଲ ଗୁଣବତ୍ତା</p>
+    </div>
+
+    <div class="feature">
+        <div class="feature-icon">❤️</div>
+        <h3>Support Local</h3>
+        <p>ସ୍ଥାନୀୟ ବ୍ୟବସାୟକୁ ସମର୍ଥନ</p>
+    </div>
+
+</section>
+
+
+<!-- NEWSLETTER -->
+
+<section class="newsletter">
+
+    <h2>📩 Get Special Offers!</h2>
+
+    <p>
+        ନୂଆ Product ଓ Special Offer ବିଷୟରେ ଜାଣନ୍ତୁ।
+    </p>
+
+    <div class="newsletter-form">
+
+        <input
+            type="email"
+            id="email"
+            placeholder="ଆପଣଙ୍କ Email"
+        >
+
+        <button onclick="subscribe()">
+            Subscribe
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <div class="footer-grid">
+
+        <div>
+
+            <h2>
+                🛒 Utkala<span>Mart</span>
+            </h2>
+
+            <p>
+                ଓଡ଼ିଶାର authentic product ପାଇଁ
+                ଏକ online marketplace।
+            </p>
+
+            <p>
+                🟢 Vocal for Local<br>
+                🟠 Proud of Odisha
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>Quick Links</h3>
+
+            <ul>
+                <li>🏠 Home</li>
+                <li>🛍️ All Products</li>
+                <li>ℹ️ About Us</li>
+                <li>📞 Contact Us</li>
+                <li>↩️ Return & Refund</li>
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h3>Customer Care</h3>
+
+            <p>📞 +91 XXXXX XXXXX</p>
+            <p>📧 support@utkalamart.in</p>
+            <p>🕘 Mon - Sat: 9AM - 8PM</p>
+            <p>📍 Odisha, India</p>
+
+        </div>
+
+
+        <div>
+
+            <h3>We Accept</h3>
+
+            <p>💳 UPI</p>
+            <p>💳 Visa</p>
+            <p>💳 Mastercard</p>
+            <p>💳 RuPay</p>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 UtkalaMart. All Rights Reserved.
+        | Made with ❤️ for Odisha
+
+    </div>
+
+</footer>
+
+
+<!-- FLOATING CART -->
+
+<div class="cart-box">
+
+    🛒
+
+    <span
+        class="cart-count"
+        id="cartCount"
+    >
+        0
+    </span>
+
+</div>
+
+
+<script>
+
+let cartCount = 0;
+
+let cartItems = [];
+
+
+function addToCart(name, price){
+
+    cartCount++;
+
+    cartItems.push({
+        name:name,
+        price:price
+    });
+
+    document.getElementById("cartCount").innerText = cartCount;
+
+    alert(
+        "🛒 " + name +
+        " Cart ରେ Add ହୋଇଗଲା!"
+    );
+}
+
+
+function searchProduct(){
+
+    const search =
+        document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const products =
+        document.querySelectorAll(".product");
+
+    if(search === ""){
+
+        products.forEach(product=>{
+            product.style.display = "";
+        });
+
+        return;
+    }
+
+
+    let found = false;
+
+    products.forEach(product=>{
+
+        const name =
+            product
+            .getAttribute("data-name")
+            .toLowerCase();
+
+        if(name.includes(search)){
+
+            product.style.display = "";
+            found = true;
+
+        }else{
+
+            product.style.display = "none";
+
+        }
+
+    });
+
+
+    if(!found){
+
+        alert(
+            "❌ ଏହି Product ବର୍ତ୍ତମାନ ମିଳିଲା ନାହିଁ।"
+        );
+
+    }
+
+}
+
+
+document
+.getElementById("searchInput")
+.addEventListener("keyup",function(event){
+
+    if(event.key === "Enter"){
+        searchProduct();
+    }
+
+});
+
+
+function subscribe(){
+
+    const email =
+        document
+        .getElementById("email")
+        .value
+        .trim();
+
+    if(email === ""){
+
+        alert("ଦୟାକରି Email ଦିଅନ୍ତୁ।");
+        return;
+
+    }
+
+
+    alert(
+        "✅ Thank you!\n" +
+        "ଆପଣ UtkalaMart Offers ପାଇଁ Subscribe କରିଛନ୍ତି।"
+    );
+
+    document.getElementById("email").value = "";
+
+}
+
+</script>
+
+</body>
+                      </html>
