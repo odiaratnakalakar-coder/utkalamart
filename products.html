@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UtkalaMart - All Products</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,"Noto Sans Oriya",sans-serif;
+    background:#f5f6f8;
+    color:#17233c;
+}
+
+.header{
+    background:#fff;
+    padding:15px 5%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    box-shadow:0 2px 8px #0001;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#123a78;
+}
+
+.logo span{
+    color:#ff6500;
+}
+
+.logo small{
+    display:block;
+    color:#087f3f;
+    font-size:11px;
+}
+
+.search{
+    flex:1;
+    max-width:550px;
+    display:flex;
+    height:44px;
+    border:2px solid #eee;
+    border-radius:25px;
+    overflow:hidden;
+}
+
+.search input{
+    flex:1;
+    border:0;
+    outline:0;
+    padding:0 18px;
+    font-size:15px;
+}
+
+.search button{
+    width:60px;
+    border:0;
+    background:#ff6500;
+    color:white;
+    font-size:19px;
+}
+
+.cart{
+    font-size:25px;
+    color:#123a78;
+}
+
+.nav{
+    background:#063b78;
+    color:white;
+    display:flex;
+    justify-content:center;
+    overflow-x:auto;
+    white-space:nowrap;
+}
+
+.nav a{
+    color:white;
+    text-decoration:none;
+    padding:14px 20px;
+}
+
+.nav a:hover{
+    background:#ff6500;
+}
+
+.title{
+    text-align:center;
+    padding:35px 10px 20px;
+}
+
+.title h1{
+    color:#123a78;
+    font-size:32px;
+}
+
+.title span{
+    color:#ff6500;
+}
+
+.title p{
+    color:#777;
+    margin-top:8px;
+}
+
+.filter{
+    background:white;
+    margin:0 5% 25px;
+    padding:15px;
+    border-radius:12px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.filter button{
+    border:1px solid #ddd;
+    background:white;
+    padding:10px 18px;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+.filter button.active,
+.filter button:hover{
+    background:#ff6500;
+    color:white;
+    border-color:#ff6500;
+}
+
+.products{
+    padding:0 5% 50px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.product{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 3px 12px #00000012;
+    position:relative;
+    transition:.25s;
+}
+
+.product:hover{
+    transform:translateY(-5px);
+}
+
+.product-image{
+    height:220px;
+    background:#eee;
+    overflow:hidden;
+}
+
+.product-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.badge{
+    position:absolute;
+    top:12px;
+    left:12px;
+    background:#087f3f;
+    color:white;
+    padding:5px 9px;
+    border-radius:5px;
+    font-size:12px;
+}
+
+.info{
+    padding:15px;
+}
+
+.info h2{
+    font-size:17px;
+    margin-bottom:7px;
+}
+
+.category{
+    color:#087f3f;
+    font-size:13px;
+}
+
+.rating{
+    color:#ffad00;
+    margin:8px 0;
+    font-size:14px;
+}
+
+.price{
+    font-size:20px;
+    font-weight:bold;
+    color:#123a78;
+}
+
+.old{
+    color:#999;
+    text-decoration:line-through;
+    font-size:13px;
+    margin-left:6px;
+}
+
+.add{
+    width:100%;
+    margin-top:12px;
+    padding:11px;
+    background:#ff6500;
+    color:white;
+    border:0;
+    border-radius:7px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.add:hover{
+    background:#e65300;
+}
+
+.empty{
+    display:none;
+    text-align:center;
+    padding:50px;
+    color:#777;
+    grid-column:1/-1;
+}
+
+.footer{
+    background:#062d61;
+    color:white;
+    text-align:center;
+    padding:30px 15px;
+}
+
+.footer h2{
+    font-size:25px;
+}
+
+.footer h2 span{
+    color:#ff6500;
+}
+
+.footer p{
+    margin-top:8px;
+    color:#d8e3f0;
+}
+
+@media(max-width:900px){
+
+    .products{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+}
+
+@media(max-width:650px){
+
+    .header{
+        flex-wrap:wrap;
+    }
+
+    .logo{
+        font-size:23px;
+    }
+
+    .search{
+        order:3;
+        flex-basis:100%;
+        max-width:none;
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+        padding:0 3% 35px;
+        gap:12px;
+    }
+
+    .product-image{
+        height:170px;
+    }
+
+    .info{
+        padding:11px;
+    }
+
+    .info h2{
+        font-size:15px;
+    }
+
+    .price{
+        font-size:17px;
+    }
+
+}
+
+@media(max-width:400px){
+
+    .products{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .product-image{
+        height:145px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="logo">
+        🛒 Utkala<span>Mart</span>
+        <small>ଓଡ଼ିଶାର ସାମଗ୍ରୀ, ଆପଣଙ୍କ ଘରେ</small>
+    </div>
+
+    <div class="search">
+        <input
+            id="search"
+            type="text"
+            placeholder="Product ଖୋଜନ୍ତୁ..."
+            onkeyup="searchProducts()"
+        >
+        <button>🔍</button>
+    </div>
+
+    <div class="cart">
+        🛒 <span id="cartCount">0</span>
+    </div>
+
+</header>
+
+<nav class="nav">
+
+    <a href="index.html">🏠 Home</a>
+    <a href="products.html">🛍️ Products</a>
+    <a href="#handloom">🧵 Handloom</a>
+    <a href="#handicraft">🎨 Handicraft</a>
+    <a href="#food">🍘 Food</a>
+    <a href="#traditional">🪔 Traditional</a>
+    <a href="#gift">🎁 Gift</a>
+
+</nav>
+
+<section class="title">
+
+    <h1>ଆମର <span>Products</span></h1>
+
+    <p>
+        ଓଡ଼ିଶାର ଭଲ ଓ authentic products ଏକ ସ୍ଥାନରେ
+    </p>
+
+</section>
+
+<div class="filter">
+
+    <button class="active" onclick="filterProducts('all',this)">
+        ସବୁ
+    </button>
+
+    <button onclick="filterProducts('handloom',this)">
+        🧵 Handloom
+    </button>
+
+    <button onclick="filterProducts('handicraft',this)">
+        🎨 Handicraft
+    </button>
+
+    <button onclick="filterProducts('food',this)">
+        🍘 Food
+    </button>
+
+    <button onclick="filterProducts('traditional',this)">
+        🪔 Traditional
+    </button>
+
+    <button onclick="filterProducts('gift',this)">
+        🎁 Gift
+    </button>
+
+</div>
+
+<section class="products" id="productList">
+
+    <!-- 1 -->
+
+    <div class="product" data-category="handloom" data-name="Sambalpuri Saree">
+
+        <span class="badge">24% OFF</span>
+
+        <div class="product-image">
+            <img
+            src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=700&q=80"
+            alt="Saree">
+        </div>
+
+        <div class="info">
+
+            <div class="category">Handloom</div>
+
+            <h2>Sambalpuri Saree</h2>
+
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+
+            <div class="price">
+                ₹1,899
+                <span class="old">₹2,499</span>
+            </div>
+
+            <button class="add"
+            onclick="addCart('Sambalpuri Saree')">
+                🛒 Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- 2 -->
+
+    <div class="product" data-category="handicraft" data-name="Odia Handicraft">
+
+        <span class="badge">20% OFF</span>
+
+        <div class="product-image">
+            <img
+            src="https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=700&q=80"
+            alt="Handicraft">
+        </div>
+
+        <div class="info">
+
+            <div class="category">Handicraft</div>
+
+            <h2>Odia Handicraft</h2>
+
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+
+            <div class="price">
+                ₹799
+                <span class="old">₹999</span>
+            </div>
+
+            <button class="add"
+            onclick="addCart('Odia Handicraft')">
+                🛒 Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- 3 -->
+
+    <div class="product" data-category="food" data-name="Odia Food">
+
+        <span class="badge">15% OFF</span>
+
+        <div class="product-image">
+            <img
+            src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80"
+            alt="Food">
+        </div>
+
+        <div class="info">
+
+            <div class="category">Food</div>
+
+            <h2>Odia Traditional Food</h2>
+
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+
+            <div class="price">
+                ₹399
+                <span class="old">₹499</span>
+            </div>
+
+            <button class="add"
+            onclick="addCart('Odia Traditional Food')">
+                🛒 Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- 4 -->
+
+    <div class="product" data-category="traditional" data-name="Traditional Item">
+
+        <span class="badge">18% OFF</span>
+
+        <div class="product-image">
+            <img
+            src="https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=700&q=80"
+            alt="Traditional">
+        </div>
+
+        <div class="info">
+
+            <div class="category">Traditional</div>
+
+            <h2>Traditional Puja Item</h2>
+
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+
+            <div class="price">
+                ₹599
+                <span class="old">₹729</span>
+            </div>
+
+            <button class="add"
+            onclick="addCart('Traditional Puja Item')">
+                🛒 Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- 5 -->
+
+    <div class="product" data-category="gift" data-name="Odia Gift">
+
+        <span class="badge">20% OFF</span>
+
+        <div class="product-image">
+            <img
+            src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=700&q=80"
+            alt="Gift">
+        </div>
+
+        <div class="info">
+
+            <div class="category">Gift</div>
+
+            <h2>Odia Gift Collection</h2>
+
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+
+            <div class="price">
+                ₹699
+                <span class="old">₹899</span>
+            </div>
+
+            <button class="add"
+            onclick="addCart('Odia Gift Collection')">
+                🛒 Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- 6 -->
+
+    <div class="product" data-category="handicraft" data-name="Traditional Craft">
+
+        <span class="badge">10% OFF</span>
+
+        <div class="product-image">
+            <img
+            src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=700&q=80"
+            alt="Craft">
+        </div>
+
+        <div class="info">
+
+            <div class="category">Handicraft</div>
+
+            <h2>Traditional Craft</h2>
+
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+
+            <div class="price">
+                ₹899
+                <span class="old">₹999</span>
+            </div>
+
+            <button class="add"
+            onclick="addCart('Traditional Craft')">
+                🛒 Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="empty" id="empty">
+        ❌ Product ମିଳିଲା ନାହିଁ।
+    </div>
+
+</section>
+
+<footer class="footer">
+
+    <h2>
+        🛒 Utkala<span>Mart</span>
+    </h2>
+
+    <p>
+        ଓଡ଼ିଶାର ସାମଗ୍ରୀ, ଆପଣଙ୍କ ଘରେ ❤️
+    </p>
+
+    <p>
+        © 2026 UtkalaMart. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<script>
+
+let cart = 0;
+
+function addCart(product){
+
+    cart++;
+
+    document.getElementById("cartCount").innerText = cart;
+
+    alert(
+        "🛒 " +
+        product +
+        " Cart ରେ Add ହୋଇଗଲା!"
+    );
+
+}
+
+
+function filterProducts(category,button){
+
+    const products =
+        document.querySelectorAll(".product");
+
+    document
+    .querySelectorAll(".filter button")
+    .forEach(btn=>{
+        btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    let found = 0;
+
+    products.forEach(product=>{
+
+        if(
+            category === "all" ||
+            product.dataset.category === category
+        ){
+
+            product.style.display = "";
+            found++;
+
+        }else{
+
+            product.style.display = "none";
+
+        }
+
+    });
+
+    document.getElementById("empty").style.display =
+        found === 0 ? "block" : "none";
+
+}
+
+
+function searchProducts(){
+
+    const text =
+        document
+        .getElementById("search")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const products =
+        document.querySelectorAll(".product");
+
+    let found = 0;
+
+    products.forEach(product=>{
+
+        const name =
+            product.dataset.name.toLowerCase();
+
+        const category =
+            product.dataset.category.toLowerCase();
+
+        if(
+            name.includes(text) ||
+            category.includes(text)
+        ){
+
+            product.style.display = "";
+            found++;
+
+        }else{
+
+            product.style.display = "none";
+
+        }
+
+    });
+
+    document.getElementById("empty").style.display =
+        found === 0 ? "block" : "none";
+
+}
+
+</script>
+
+</body>
+      </html>
