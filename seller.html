@@ -8,7 +8,7 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>Seller Product Upload - UtkalaMart</title>
+<title>ବିକ୍ରେତା ପାଇଁ - UtkalaMart</title>
 
 <style>
 
@@ -20,173 +20,217 @@
 
 body{
     font-family:Arial,"Noto Sans Oriya",sans-serif;
-    background:#f4f6f8;
-    color:#17233c;
+    background:#151515;
+    color:#fff;
 }
 
 .header{
-    background:#063b78;
-    color:white;
-    padding:18px 5%;
+    background:linear-gradient(135deg,#063b16,#087f3f);
+    padding:25px 15px;
     text-align:center;
 }
 
 .header h1{
-    font-size:28px;
+    font-size:32px;
+    color:#fff;
+}
+
+.header h1 span{
+    color:#ff8a00;
 }
 
 .header p{
-    margin-top:6px;
-    color:#b9f5d0;
+    margin-top:8px;
+    color:#baffd3;
+    font-size:16px;
 }
 
 .container{
-    max-width:650px;
-    margin:30px auto;
+    max-width:700px;
+    margin:25px auto;
     padding:0 15px;
 }
 
 .form-box{
-    background:white;
+    background:#222;
     padding:25px;
-    border-radius:18px;
-    box-shadow:0 5px 20px rgba(0,0,0,.10);
+    border-radius:20px;
+    box-shadow:0 5px 25px rgba(0,0,0,.4);
 }
 
-.form-title{
+.title{
     text-align:center;
     margin-bottom:25px;
 }
 
-.form-title h2{
-    color:#063b78;
+.title h2{
+    color:#8fffc0;
+    font-size:27px;
 }
 
-.form-title p{
-    color:#777;
-    margin-top:7px;
+.title p{
+    color:#bbb;
+    margin-top:8px;
 }
 
 label{
     display:block;
+    margin-top:18px;
+    margin-bottom:8px;
+    font-size:20px;
     font-weight:bold;
-    margin-top:17px;
-    margin-bottom:7px;
+    color:#dce8ff;
 }
 
 input,
 select,
 textarea{
     width:100%;
-    padding:13px;
-    border:1px solid #d6dce5;
-    border-radius:9px;
+    background:#303030;
+    color:#fff;
+    border:1px solid #555;
+    border-radius:10px;
+    padding:14px;
+    font-size:16px;
     outline:none;
-    font-size:15px;
 }
 
 input:focus,
 select:focus,
 textarea:focus{
-    border-color:#087f3f;
+    border-color:#00b85a;
+}
+
+select{
+    cursor:pointer;
 }
 
 textarea{
-    min-height:100px;
+    min-height:120px;
     resize:vertical;
 }
 
 .photo-box{
-    border:2px dashed #087f3f;
-    border-radius:12px;
+    border:2px dashed #00a94f;
+    border-radius:14px;
     padding:20px;
     text-align:center;
-    background:#f2fff7;
+    background:#102518;
+}
+
+.photo-box p{
+    color:#baffd3;
+    margin-bottom:12px;
+    font-size:16px;
 }
 
 .photo-box input{
+    background:transparent;
     border:none;
-    padding:5px;
 }
 
 .preview{
-    width:180px;
-    height:180px;
-    object-fit:cover;
-    border-radius:12px;
-    margin-top:15px;
     display:none;
-    border:1px solid #ddd;
+    width:200px;
+    height:200px;
+    object-fit:cover;
+    border-radius:15px;
+    margin:18px auto 0;
+    border:2px solid #00b85a;
 }
 
 .upload-btn{
     width:100%;
     margin-top:25px;
-    padding:15px;
+    padding:16px;
+    background:#e83b00;
+    color:#fff;
     border:none;
-    border-radius:10px;
-    background:#ff6b00;
-    color:white;
-    font-size:17px;
+    border-radius:12px;
+    font-size:18px;
     font-weight:bold;
 }
 
 .upload-btn:disabled{
-    background:#aaa;
+    background:#666;
 }
 
 .back-btn{
     display:block;
-    width:100%;
-    margin-top:12px;
-    padding:13px;
+    margin-top:14px;
+    padding:14px;
     text-align:center;
     background:#063b78;
-    color:white;
-    border-radius:10px;
+    color:#fff;
+    border-radius:12px;
 }
 
 .message{
-    margin-top:18px;
-    padding:13px;
-    border-radius:9px;
     display:none;
+    margin-top:18px;
+    padding:15px;
+    border-radius:10px;
     text-align:center;
     font-weight:bold;
 }
 
 .success{
-    background:#d9f8e5;
-    color:#087f3f;
+    background:#063d20;
+    color:#8fffc0;
 }
 
 .error{
-    background:#ffe0e0;
-    color:#b00020;
+    background:#4a1111;
+    color:#ffaaaa;
 }
 
-.note{
-    margin-top:20px;
-    background:#fff6df;
-    padding:15px;
-    border-radius:10px;
-    font-size:13px;
-    line-height:1.7;
+.info{
+    margin-top:22px;
+    padding:18px;
+    background:#30250b;
+    border-radius:12px;
+    color:#ffe8a3;
+    line-height:1.8;
+}
+
+.loading{
+    text-align:center;
+    display:none;
+    margin-top:15px;
+    color:#8fffc0;
 }
 
 @media(max-width:500px){
 
     .header h1{
-        font-size:23px;
+        font-size:26px;
+    }
+
+    .header p{
+        font-size:14px;
     }
 
     .form-box{
         padding:18px;
     }
 
+    .title h2{
+        font-size:23px;
+    }
+
+    label{
+        font-size:18px;
+    }
+
+    input,
+    select,
+    textarea{
+        font-size:15px;
+    }
+
     .preview{
-        width:150px;
-        height:150px;
+        width:170px;
+        height:170px;
     }
 
 }
@@ -201,7 +245,9 @@ textarea{
 
 <header class="header">
 
-    <h1>🛒 UtkalaMart</h1>
+    <h1>
+        🛒 Utkala<span>Mart</span>
+    </h1>
 
     <p>
         ଆମ ଗାଁର ସ୍ୱାଦ, ସୁରତରେ ଆମ ପରିବାର ପାଇଁ ❤️
@@ -215,12 +261,14 @@ textarea{
 <div class="form-box">
 
 
-<div class="form-title">
+<div class="title">
 
-    <h2>🏪 Seller Product Upload</h2>
+    <h2>
+        🏪 ବିକ୍ରେତା ପଞ୍ଜୀକରଣ ଓ Product Upload
+    </h2>
 
     <p>
-        ଆପଣଙ୍କ ଓଡ଼ିଆ ସାମଗ୍ରୀ UtkalaMartରେ ଯୋଡନ୍ତୁ
+        ଆପଣଙ୍କ ଗାଁର ଭଲ ସାମଗ୍ରୀ UtkalaMartରେ ଦିଅନ୍ତୁ
     </p>
 
 </div>
@@ -229,8 +277,10 @@ textarea{
 <form id="productForm">
 
 
+<!-- PHOTO -->
+
 <label>
-📷 Product Photo
+📷 Product ଫଟୋ
 </label>
 
 <div class="photo-box">
@@ -249,11 +299,13 @@ textarea{
     <img
         id="preview"
         class="preview"
-        alt="Product Preview"
+        alt="Product"
     >
 
 </div>
 
+
+<!-- NAME -->
 
 <label>
 🏷️ Product ନାମ
@@ -262,19 +314,21 @@ textarea{
 <input
     type="text"
     id="productName"
-    placeholder="ଉଦାହରଣ: ଗଞ୍ଜାମ ଆଚାର"
+    placeholder="ଉଦାହରଣ: ଗଞ୍ଜାମ ଆମ୍ବ ଆଚାର"
     required
 >
 
 
+<!-- CATEGORY -->
+
 <label>
-📂 Product Category
+📂 Product ବର୍ଗ
 </label>
 
 <select id="category" required>
 
     <option value="">
-        Category ବାଛନ୍ତୁ
+        ବର୍ଗ ବାଛନ୍ତୁ
     </option>
 
     <option value="ଗଞ୍ଜାମ ଖାଦ୍ୟ">
@@ -289,7 +343,7 @@ textarea{
         🎨 ହସ୍ତଶିଳ୍ପ
     </option>
 
-    <option value="ପାରମ୍ପରିକ">
+    <option value="ପାରମ୍ପରିକ ସାମଗ୍ରୀ">
         🪔 ପାରମ୍ପରିକ ସାମଗ୍ରୀ
     </option>
 
@@ -304,6 +358,8 @@ textarea{
 </select>
 
 
+<!-- PRICE -->
+
 <label>
 💰 Product ଦାମ
 </label>
@@ -311,11 +367,13 @@ textarea{
 <input
     type="number"
     id="price"
-    placeholder="ଉଦାହରଣ: 399"
     min="1"
+    placeholder="ଉଦାହରଣ: 399"
     required
 >
 
+
+<!-- STOCK -->
 
 <label>
 📦 Stock
@@ -324,11 +382,13 @@ textarea{
 <input
     type="number"
     id="stock"
-    placeholder="କେତୋଟି ଅଛି?"
     min="1"
+    placeholder="କେତୋଟି ଅଛି?"
     required
 >
 
+
+<!-- VILLAGE -->
 
 <label>
 📍 ଗାଁ / ଅଞ୍ଚଳ
@@ -342,8 +402,10 @@ textarea{
 >
 
 
+<!-- SELLER -->
+
 <label>
-👤 Seller ନାମ
+👤 ବିକ୍ରେତାଙ୍କ ନାମ
 </label>
 
 <input
@@ -354,18 +416,23 @@ textarea{
 >
 
 
+<!-- MOBILE -->
+
 <label>
-📞 Seller Mobile
+📞 ବିକ୍ରେତାଙ୍କ ମୋବାଇଲ
 </label>
 
 <input
     type="tel"
     id="sellerMobile"
-    placeholder="10 digit mobile number"
     maxlength="10"
+    inputmode="numeric"
+    placeholder="10 digit mobile number"
     required
 >
 
+
+<!-- DESCRIPTION -->
 
 <label>
 📝 Product ବିବରଣୀ
@@ -373,15 +440,15 @@ textarea{
 
 <textarea
     id="description"
-    placeholder="Product ବିଷୟରେ କିଛି ଲେଖନ୍ତୁ..."
+    placeholder="Product କିପରି ତିଆରି ହୁଏ, କେଉଁଠାରୁ ଆସିଛି, ଗୁଣବତ୍ତା ଇତ୍ୟାଦି ଲେଖନ୍ତୁ..."
     required
 ></textarea>
 
 
 <button
     type="submit"
-    class="upload-btn"
     id="uploadBtn"
+    class="upload-btn"
 >
     🚀 Product Upload କରନ୍ତୁ
 </button>
@@ -391,18 +458,32 @@ textarea{
 
 
 <div
+    id="loading"
+    class="loading"
+>
+    ⏳ Product ସୁରକ୍ଷିତ ଭାବେ Upload ହେଉଛି...
+</div>
+
+
+<div
     id="message"
     class="message"
 ></div>
 
 
-<div class="note">
+<div class="info">
 
-    💡 <b>ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ:</b><br>
+    💡 <b>ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ</b><br>
 
-    Product upload ହେବା ପରେ ଆମେ
-    Customer Search ରେ ସେହି Product
-    ଦେଖାଇବା ବ୍ୟବସ୍ଥା କରିବୁ।
+    ଆପଣ Product Upload କଲା ପରେ ଏହା
+    UtkalaMartରେ ଯାଞ୍ଚ ପାଇଁ ଯିବ।<br><br>
+
+    ✅ ଠିକ୍ Product ହେଲେ Customerଙ୍କ ପାଇଁ
+    Products pageରେ ଦେଖାଯିବ।<br><br>
+
+    ❤️ ଆମ ଲକ୍ଷ୍ୟ —
+    ଗାଁର ସାମଗ୍ରୀକୁ ସୁରତର ଓଡ଼ିଆ ପରିବାର
+    ପାଖରେ ପହଞ୍ଚାଇବା।
 
 </div>
 
@@ -422,6 +503,9 @@ textarea{
 
 <script type="module">
 
+
+/* FIREBASE */
+
 import { db } from "./firebase.js";
 
 import {
@@ -433,6 +517,8 @@ from
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 
+/* ELEMENTS */
+
 const form =
 document.getElementById("productForm");
 
@@ -442,51 +528,19 @@ document.getElementById("productImage");
 const preview =
 document.getElementById("preview");
 
-const message =
-document.getElementById("message");
-
 const uploadBtn =
 document.getElementById("uploadBtn");
 
+const message =
+document.getElementById("message");
 
-/* IMAGE PREVIEW */
-
-imageInput.addEventListener(
-"change",
-function(){
-
-    const file =
-    this.files[0];
-
-    if(!file){
-        return;
-    }
-
-    const reader =
-    new FileReader();
-
-    reader.onload =
-    function(e){
-
-        preview.src =
-        e.target.result;
-
-        preview.style.display =
-        "block";
-
-    };
-
-    reader.readAsDataURL(file);
-
-});
+const loading =
+document.getElementById("loading");
 
 
 /* MESSAGE */
 
-function showMessage(
-    text,
-    type
-){
+function showMessage(text,type){
 
     message.innerText =
     text;
@@ -500,7 +554,174 @@ function showMessage(
 }
 
 
-/* UPLOAD */
+/* IMAGE PREVIEW */
+
+imageInput.addEventListener(
+"change",
+function(){
+
+    const file =
+    this.files[0];
+
+    if(!file){
+
+        preview.style.display =
+        "none";
+
+        return;
+    }
+
+    if(!file.type.startsWith("image/")){
+
+        showMessage(
+            "❌ ଦୟାକରି Image file ବାଛନ୍ତୁ।",
+            "error"
+        );
+
+        this.value = "";
+
+        return;
+    }
+
+
+    const reader =
+    new FileReader();
+
+
+    reader.onload =
+    function(e){
+
+        preview.src =
+        e.target.result;
+
+        preview.style.display =
+        "block";
+
+    };
+
+
+    reader.readAsDataURL(file);
+
+});
+
+
+/* COMPRESS IMAGE */
+
+function compressImage(file){
+
+    return new Promise(
+    (resolve,reject)=>{
+
+        const reader =
+        new FileReader();
+
+
+        reader.onload =
+        function(event){
+
+            const img =
+            new Image();
+
+
+            img.onload =
+            function(){
+
+                const canvas =
+                document.createElement("canvas");
+
+
+                const maxWidth =
+                900;
+
+
+                let width =
+                img.width;
+
+                let height =
+                img.height;
+
+
+                if(width > maxWidth){
+
+                    height =
+                    height * maxWidth / width;
+
+                    width =
+                    maxWidth;
+
+                }
+
+
+                canvas.width =
+                width;
+
+                canvas.height =
+                height;
+
+
+                const ctx =
+                canvas.getContext("2d");
+
+
+                ctx.drawImage(
+                    img,
+                    0,
+                    0,
+                    width,
+                    height
+                );
+
+
+                const data =
+                canvas.toDataURL(
+                    "image/jpeg",
+                    0.65
+                );
+
+
+                resolve(data);
+
+            };
+
+
+            img.onerror =
+            function(){
+
+                reject(
+                    new Error(
+                        "Photo process ହୋଇପାରିଲା ନାହିଁ।"
+                    )
+                );
+
+            };
+
+
+            img.src =
+            event.target.result;
+
+        };
+
+
+        reader.onerror =
+        function(){
+
+            reject(
+                new Error(
+                    "Photo ପଢ଼ିହେଲା ନାହିଁ।"
+                )
+            );
+
+        };
+
+
+        reader.readAsDataURL(file);
+
+    });
+
+}
+
+
+/* FORM SUBMIT */
 
 form.addEventListener(
 "submit",
@@ -508,45 +729,137 @@ async function(e){
 
     e.preventDefault();
 
-    uploadBtn.disabled =
-    true;
 
-    uploadBtn.innerText =
-    "⏳ Upload ହେଉଛି...";
+    message.style.display =
+    "none";
+
+
+    const productName =
+    document
+    .getElementById("productName")
+    .value
+    .trim();
+
+
+    const category =
+    document
+    .getElementById("category")
+    .value;
+
+
+    const price =
+    Number(
+        document
+        .getElementById("price")
+        .value
+    );
+
+
+    const stock =
+    Number(
+        document
+        .getElementById("stock")
+        .value
+    );
+
+
+    const village =
+    document
+    .getElementById("village")
+    .value
+    .trim();
+
+
+    const sellerName =
+    document
+    .getElementById("sellerName")
+    .value
+    .trim();
+
+
+    const sellerMobile =
+    document
+    .getElementById("sellerMobile")
+    .value
+    .trim();
+
+
+    const description =
+    document
+    .getElementById("description")
+    .value
+    .trim();
+
+
+    const file =
+    imageInput.files[0];
+
+
+    /* VALIDATION */
+
+    if(!file){
+
+        showMessage(
+            "❌ Product ଫଟୋ ବାଛନ୍ତୁ।",
+            "error"
+        );
+
+        return;
+    }
+
+
+    if(!/^[0-9]{10}$/.test(sellerMobile)){
+
+        showMessage(
+            "❌ 10 digit ମୋବାଇଲ୍ ନମ୍ବର ଦିଅନ୍ତୁ।",
+            "error"
+        );
+
+        return;
+    }
+
+
+    if(price <= 0){
+
+        showMessage(
+            "❌ ଠିକ୍ Product ଦାମ ଦିଅନ୍ତୁ।",
+            "error"
+        );
+
+        return;
+    }
+
+
+    if(stock <= 0){
+
+        showMessage(
+            "❌ Stock ଠିକ୍ ଭାବରେ ଦିଅନ୍ତୁ।",
+            "error"
+        );
+
+        return;
+    }
 
 
     try{
 
-        const file =
-        imageInput.files[0];
+        uploadBtn.disabled =
+        true;
 
-        if(!file){
+        loading.style.display =
+        "block";
 
-            throw new Error(
-                "Product photo ବାଛନ୍ତୁ।"
-            );
-
-        }
+        uploadBtn.innerText =
+        "⏳ Upload ହେଉଛି...";
 
 
-        /* IMAGE SIZE CHECK */
-
-        if(file.size > 700000){
-
-            throw new Error(
-                "Photo 700KB ଠାରୁ କମ୍ ରଖନ୍ତୁ।"
-            );
-
-        }
-
-
-        /* CONVERT IMAGE */
+        /* COMPRESS */
 
         const imageData =
-        await convertToBase64(file);
+        await compressImage(file);
 
 
-        /* SAVE FIRESTORE */
+        /* FIRESTORE */
 
         await addDoc(
             collection(
@@ -556,69 +869,31 @@ async function(e){
             {
 
                 name:
-                document
-                .getElementById(
-                    "productName"
-                )
-                .value
-                .trim(),
+                productName,
+
+                nameSearch:
+                productName.toLowerCase(),
 
                 category:
-                document
-                .getElementById(
-                    "category"
-                )
-                .value,
+                category,
 
                 price:
-                Number(
-                    document
-                    .getElementById(
-                        "price"
-                    )
-                    .value
-                ),
+                price,
 
                 stock:
-                Number(
-                    document
-                    .getElementById(
-                        "stock"
-                    )
-                    .value
-                ),
+                stock,
 
                 village:
-                document
-                .getElementById(
-                    "village"
-                )
-                .value
-                .trim(),
+                village,
 
                 sellerName:
-                document
-                .getElementById(
-                    "sellerName"
-                )
-                .value
-                .trim(),
+                sellerName,
 
                 sellerMobile:
-                document
-                .getElementById(
-                    "sellerMobile"
-                )
-                .value
-                .trim(),
+                sellerMobile,
 
                 description:
-                document
-                .getElementById(
-                    "description"
-                )
-                .value
-                .trim(),
+                description,
 
                 image:
                 imageData,
@@ -634,25 +909,31 @@ async function(e){
 
 
         showMessage(
-            "✅ Product ସଫଳଭାବେ Upload ହୋଇଗଲା!",
+            "✅ Product ସଫଳଭାବେ Upload ହୋଇଗଲା! 🎉",
             "success"
         );
 
 
         form.reset();
 
+        preview.src =
+        "";
+
         preview.style.display =
         "none";
 
 
     }
-
     catch(error){
 
-        console.error(error);
+        console.error(
+            "UPLOAD ERROR:",
+            error
+        );
+
 
         showMessage(
-            "❌ Error: " +
+            "❌ Product Upload ହୋଇପାରିଲା ନାହିଁ। " +
             error.message,
             "error"
         );
@@ -663,42 +944,14 @@ async function(e){
     uploadBtn.disabled =
     false;
 
+    loading.style.display =
+    "none";
+
     uploadBtn.innerText =
     "🚀 Product Upload କରନ୍ତୁ";
 
 });
 
-
-/* BASE64 */
-
-function convertToBase64(file){
-
-    return new Promise(
-        (resolve,reject)=>{
-
-            const reader =
-            new FileReader();
-
-            reader.onload =
-            ()=>{
-                resolve(
-                    reader.result
-                );
-            };
-
-            reader.onerror =
-            error=>{
-                reject(error);
-            };
-
-            reader.readAsDataURL(
-                file
-            );
-
-        }
-    );
-
-}
 
 </script>
 
