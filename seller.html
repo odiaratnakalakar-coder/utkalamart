@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="or">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Seller Product Upload - UtkalaMart</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,"Noto Sans Oriya",sans-serif;
+    background:#f4f6f8;
+    color:#17233c;
+}
+
+.header{
+    background:#063b78;
+    color:white;
+    padding:18px 5%;
+    text-align:center;
+}
+
+.header h1{
+    font-size:28px;
+}
+
+.header p{
+    margin-top:6px;
+    color:#b9f5d0;
+}
+
+.container{
+    max-width:650px;
+    margin:30px auto;
+    padding:0 15px;
+}
+
+.form-box{
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 5px 20px rgba(0,0,0,.10);
+}
+
+.form-title{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.form-title h2{
+    color:#063b78;
+}
+
+.form-title p{
+    color:#777;
+    margin-top:7px;
+}
+
+label{
+    display:block;
+    font-weight:bold;
+    margin-top:17px;
+    margin-bottom:7px;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:13px;
+    border:1px solid #d6dce5;
+    border-radius:9px;
+    outline:none;
+    font-size:15px;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:#087f3f;
+}
+
+textarea{
+    min-height:100px;
+    resize:vertical;
+}
+
+.photo-box{
+    border:2px dashed #087f3f;
+    border-radius:12px;
+    padding:20px;
+    text-align:center;
+    background:#f2fff7;
+}
+
+.photo-box input{
+    border:none;
+    padding:5px;
+}
+
+.preview{
+    width:180px;
+    height:180px;
+    object-fit:cover;
+    border-radius:12px;
+    margin-top:15px;
+    display:none;
+    border:1px solid #ddd;
+}
+
+.upload-btn{
+    width:100%;
+    margin-top:25px;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:#ff6b00;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+}
+
+.upload-btn:disabled{
+    background:#aaa;
+}
+
+.back-btn{
+    display:block;
+    width:100%;
+    margin-top:12px;
+    padding:13px;
+    text-align:center;
+    background:#063b78;
+    color:white;
+    border-radius:10px;
+}
+
+.message{
+    margin-top:18px;
+    padding:13px;
+    border-radius:9px;
+    display:none;
+    text-align:center;
+    font-weight:bold;
+}
+
+.success{
+    background:#d9f8e5;
+    color:#087f3f;
+}
+
+.error{
+    background:#ffe0e0;
+    color:#b00020;
+}
+
+.note{
+    margin-top:20px;
+    background:#fff6df;
+    padding:15px;
+    border-radius:10px;
+    font-size:13px;
+    line-height:1.7;
+}
+
+@media(max-width:500px){
+
+    .header h1{
+        font-size:23px;
+    }
+
+    .form-box{
+        padding:18px;
+    }
+
+    .preview{
+        width:150px;
+        height:150px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+    <h1>🛒 UtkalaMart</h1>
+
+    <p>
+        ଆମ ଗାଁର ସ୍ୱାଦ, ସୁରତରେ ଆମ ପରିବାର ପାଇଁ ❤️
+    </p>
+
+</header>
+
+
+<div class="container">
+
+<div class="form-box">
+
+
+<div class="form-title">
+
+    <h2>🏪 Seller Product Upload</h2>
+
+    <p>
+        ଆପଣଙ୍କ ଓଡ଼ିଆ ସାମଗ୍ରୀ UtkalaMartରେ ଯୋଡନ୍ତୁ
+    </p>
+
+</div>
+
+
+<form id="productForm">
+
+
+<label>
+📷 Product Photo
+</label>
+
+<div class="photo-box">
+
+    <p>
+        Productର ସ୍ପଷ୍ଟ ଫଟୋ ବାଛନ୍ତୁ
+    </p>
+
+    <input
+        type="file"
+        id="productImage"
+        accept="image/*"
+        required
+    >
+
+    <img
+        id="preview"
+        class="preview"
+        alt="Product Preview"
+    >
+
+</div>
+
+
+<label>
+🏷️ Product ନାମ
+</label>
+
+<input
+    type="text"
+    id="productName"
+    placeholder="ଉଦାହରଣ: ଗଞ୍ଜାମ ଆଚାର"
+    required
+>
+
+
+<label>
+📂 Product Category
+</label>
+
+<select id="category" required>
+
+    <option value="">
+        Category ବାଛନ୍ତୁ
+    </option>
+
+    <option value="ଗଞ୍ଜାମ ଖାଦ୍ୟ">
+        🍚 ଗଞ୍ଜାମ ଖାଦ୍ୟ
+    </option>
+
+    <option value="ହସ୍ତତନ୍ତ">
+        🧵 ହସ୍ତତନ୍ତ
+    </option>
+
+    <option value="ହସ୍ତଶିଳ୍ପ">
+        🎨 ହସ୍ତଶିଳ୍ପ
+    </option>
+
+    <option value="ପାରମ୍ପରିକ">
+        🪔 ପାରମ୍ପରିକ ସାମଗ୍ରୀ
+    </option>
+
+    <option value="ଗ୍ରାମୀଣ ସାମଗ୍ରୀ">
+        🌾 ଗ୍ରାମୀଣ ସାମଗ୍ରୀ
+    </option>
+
+    <option value="ଅନ୍ୟାନ୍ୟ">
+        📦 ଅନ୍ୟାନ୍ୟ
+    </option>
+
+</select>
+
+
+<label>
+💰 Product ଦାମ
+</label>
+
+<input
+    type="number"
+    id="price"
+    placeholder="ଉଦାହରଣ: 399"
+    min="1"
+    required
+>
+
+
+<label>
+📦 Stock
+</label>
+
+<input
+    type="number"
+    id="stock"
+    placeholder="କେତୋଟି ଅଛି?"
+    min="1"
+    required
+>
+
+
+<label>
+📍 ଗାଁ / ଅଞ୍ଚଳ
+</label>
+
+<input
+    type="text"
+    id="village"
+    placeholder="ଉଦାହରଣ: ଛତ୍ରପୁର, ଗଞ୍ଜାମ"
+    required
+>
+
+
+<label>
+👤 Seller ନାମ
+</label>
+
+<input
+    type="text"
+    id="sellerName"
+    placeholder="ଆପଣଙ୍କ ନାମ"
+    required
+>
+
+
+<label>
+📞 Seller Mobile
+</label>
+
+<input
+    type="tel"
+    id="sellerMobile"
+    placeholder="10 digit mobile number"
+    maxlength="10"
+    required
+>
+
+
+<label>
+📝 Product ବିବରଣୀ
+</label>
+
+<textarea
+    id="description"
+    placeholder="Product ବିଷୟରେ କିଛି ଲେଖନ୍ତୁ..."
+    required
+></textarea>
+
+
+<button
+    type="submit"
+    class="upload-btn"
+    id="uploadBtn"
+>
+    🚀 Product Upload କରନ୍ତୁ
+</button>
+
+
+</form>
+
+
+<div
+    id="message"
+    class="message"
+></div>
+
+
+<div class="note">
+
+    💡 <b>ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ:</b><br>
+
+    Product upload ହେବା ପରେ ଆମେ
+    Customer Search ରେ ସେହି Product
+    ଦେଖାଇବା ବ୍ୟବସ୍ଥା କରିବୁ।
+
+</div>
+
+
+<a
+    href="index.html"
+    class="back-btn"
+>
+    🏠 UtkalaMart Home
+</a>
+
+
+</div>
+
+</div>
+
+
+<script type="module">
+
+import { db } from "./firebase.js";
+
+import {
+    collection,
+    addDoc,
+    serverTimestamp
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+const form =
+document.getElementById("productForm");
+
+const imageInput =
+document.getElementById("productImage");
+
+const preview =
+document.getElementById("preview");
+
+const message =
+document.getElementById("message");
+
+const uploadBtn =
+document.getElementById("uploadBtn");
+
+
+/* IMAGE PREVIEW */
+
+imageInput.addEventListener(
+"change",
+function(){
+
+    const file =
+    this.files[0];
+
+    if(!file){
+        return;
+    }
+
+    const reader =
+    new FileReader();
+
+    reader.onload =
+    function(e){
+
+        preview.src =
+        e.target.result;
+
+        preview.style.display =
+        "block";
+
+    };
+
+    reader.readAsDataURL(file);
+
+});
+
+
+/* MESSAGE */
+
+function showMessage(
+    text,
+    type
+){
+
+    message.innerText =
+    text;
+
+    message.className =
+    "message " + type;
+
+    message.style.display =
+    "block";
+
+}
+
+
+/* UPLOAD */
+
+form.addEventListener(
+"submit",
+async function(e){
+
+    e.preventDefault();
+
+    uploadBtn.disabled =
+    true;
+
+    uploadBtn.innerText =
+    "⏳ Upload ହେଉଛି...";
+
+
+    try{
+
+        const file =
+        imageInput.files[0];
+
+        if(!file){
+
+            throw new Error(
+                "Product photo ବାଛନ୍ତୁ।"
+            );
+
+        }
+
+
+        /* IMAGE SIZE CHECK */
+
+        if(file.size > 700000){
+
+            throw new Error(
+                "Photo 700KB ଠାରୁ କମ୍ ରଖନ୍ତୁ।"
+            );
+
+        }
+
+
+        /* CONVERT IMAGE */
+
+        const imageData =
+        await convertToBase64(file);
+
+
+        /* SAVE FIRESTORE */
+
+        await addDoc(
+            collection(
+                db,
+                "products"
+            ),
+            {
+
+                name:
+                document
+                .getElementById(
+                    "productName"
+                )
+                .value
+                .trim(),
+
+                category:
+                document
+                .getElementById(
+                    "category"
+                )
+                .value,
+
+                price:
+                Number(
+                    document
+                    .getElementById(
+                        "price"
+                    )
+                    .value
+                ),
+
+                stock:
+                Number(
+                    document
+                    .getElementById(
+                        "stock"
+                    )
+                    .value
+                ),
+
+                village:
+                document
+                .getElementById(
+                    "village"
+                )
+                .value
+                .trim(),
+
+                sellerName:
+                document
+                .getElementById(
+                    "sellerName"
+                )
+                .value
+                .trim(),
+
+                sellerMobile:
+                document
+                .getElementById(
+                    "sellerMobile"
+                )
+                .value
+                .trim(),
+
+                description:
+                document
+                .getElementById(
+                    "description"
+                )
+                .value
+                .trim(),
+
+                image:
+                imageData,
+
+                status:
+                "pending",
+
+                createdAt:
+                serverTimestamp()
+
+            }
+        );
+
+
+        showMessage(
+            "✅ Product ସଫଳଭାବେ Upload ହୋଇଗଲା!",
+            "success"
+        );
+
+
+        form.reset();
+
+        preview.style.display =
+        "none";
+
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        showMessage(
+            "❌ Error: " +
+            error.message,
+            "error"
+        );
+
+    }
+
+
+    uploadBtn.disabled =
+    false;
+
+    uploadBtn.innerText =
+    "🚀 Product Upload କରନ୍ତୁ";
+
+});
+
+
+/* BASE64 */
+
+function convertToBase64(file){
+
+    return new Promise(
+        (resolve,reject)=>{
+
+            const reader =
+            new FileReader();
+
+            reader.onload =
+            ()=>{
+                resolve(
+                    reader.result
+                );
+            };
+
+            reader.onerror =
+            error=>{
+                reject(error);
+            };
+
+            reader.readAsDataURL(
+                file
+            );
+
+        }
+    );
+
+}
+
+</script>
+
+
+</body>
+
+</html>
