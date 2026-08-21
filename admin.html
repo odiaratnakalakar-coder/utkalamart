@@ -1853,46 +1853,64 @@ async function approveProduct(
    REJECT PRODUCT
 ========================================== */
 
-async function rejectProduct(
-    id
-){
+async function rejectProduct(id){
 
-    const confirmReject =
-        confirm(
+    const reason = prompt(
+        "❌ Product Reject କରିବାର କାରଣ ଲେଖନ୍ତୁ:"
+    );
 
-            "ଏହି Product କୁ Reject କରିବେ?\n\n" +
+    if(reason === null){
+        return;
+    }
 
-            "Reject କଲେ Product database ରୁ delete ହୋଇଯିବ।"
+    const rejectionReason = reason.trim();
 
+    if(!rejectionReason){
+
+        alert(
+            "⚠️ Reject reason ଦିଅନ୍ତୁ।"
         );
+
+        return;
+    }
+
+
+    const confirmReject = confirm(
+        "ଏହି Product କୁ Reject କରିବେ?\n\n" +
+        "Reason:\n" +
+        rejectionReason
+    );
 
 
     if(!confirmReject){
-
         return;
-
     }
 
 
     try{
 
         await updateDoc(
-    doc(
-        db,
-        "products",
-        id
-    ),
-    {
-        status: "rejected",
-        updatedAt: new Date()
-    }
-);
-            
-                
-                
-                
-            
-        
+            doc(
+                db,
+                "products",
+                id
+            ),
+            {
+
+                status:
+                    "rejected",
+
+                rejectionReason:
+                    rejectionReason,
+
+                rejectedAt:
+                    new Date(),
+
+                updatedAt:
+                    new Date()
+
+            }
+        );
 
 
         alert(
@@ -1903,6 +1921,72 @@ async function rejectProduct(
         await loadProducts();
 
     }
+
+    catch(error){
+
+        console.error(
+            "REJECT ERROR:",
+            error
+        );
+
+
+        alert(
+            "❌ Product Reject ହୋଇପାରିଲା ନାହିଁ।\n\n" +
+            error.message
+        );
+
+    }
+
+      }
+    
+
+
+    
+        
+
+            
+
+            
+
+        
+
+
+    
+
+        
+
+    
+
+
+    
+
+        
+    
+        
+      
+        
+    
+    
+        
+        
+    
+
+            
+                
+                
+                
+            
+        
+
+
+        
+            
+        
+
+
+        
+
+    
 
     catch(error){
 
