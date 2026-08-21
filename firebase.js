@@ -2,17 +2,32 @@
 // UtkalaMart Firebase Configuration
 // ==========================================
 
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
-import { getFirestore }
-from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
-import { getAuth }
-from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+import {
+    getFirestore
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
-import { getStorage }
-from "https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
+
+import {
+    getAuth
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+
+import {
+    getStorage
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
 
 
 // ==========================================
@@ -21,7 +36,8 @@ from "https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
 
 const firebaseConfig = {
 
-    apiKey: "AIzaSyBYJ_KKsS_7SNz108jnw6hpOlmegofRhJg",
+    apiKey:
+        "AIzaSyBYJ_KKs_7SNz108jnw6hpOlmegofRhJg",
 
     authDomain:
         "utkalamart-1ec68.firebaseapp.com",
@@ -42,7 +58,7 @@ const firebaseConfig = {
 
 
 // ==========================================
-// INITIALIZE FIREBASE
+// INITIALIZE
 // ==========================================
 
 const app =
@@ -78,8 +94,13 @@ const storage =
 // ==========================================
 
 export {
+
     app,
+
     db,
+
     auth,
+
     storage
+
 };
