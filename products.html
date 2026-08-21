@@ -24,44 +24,30 @@ body{
         "Noto Sans Oriya",
         "Nirmala UI",
         sans-serif;
-
-    background:#f3f3f3;
+    background:#eaeded;
     color:#111;
 }
 
-
 /* =========================
-   TOP HEADER
+   HEADER
 ========================= */
 
 .top-header{
-
     background:#131921;
     color:white;
-
     padding:8px 4%;
-
     display:flex;
     align-items:center;
-    gap:18px;
-
+    gap:16px;
     position:sticky;
     top:0;
-
     z-index:1000;
 }
 
-
-/* LOGO */
-
 .logo{
-
     min-width:185px;
-
     font-size:25px;
-
     font-weight:bold;
-
     color:#78c7ff;
 }
 
@@ -70,139 +56,82 @@ body{
 }
 
 .logo small{
-
     display:block;
-
     font-size:10px;
-
     color:#b7e9c8;
-
     margin-top:3px;
-
     font-weight:normal;
 }
-
 
 /* SEARCH */
 
 .search-box{
-
     flex:1;
-
     height:45px;
-
     display:flex;
-
     border-radius:7px;
-
     overflow:hidden;
-
     background:white;
 }
 
 .search-box select{
-
-    width:70px;
-
+    width:90px;
     border:none;
-
-    background:#eeeeee;
-
+    background:#eee;
     color:#333;
-
     outline:none;
-
-    padding:0 7px;
+    padding:0 6px;
 }
 
 .search-box input{
-
     flex:1;
-
     border:none;
-
     outline:none;
-
     padding:0 14px;
-
     font-size:15px;
-
     color:#111;
 }
 
 .search-box button{
-
-    width:58px;
-
+    width:60px;
     border:none;
-
     background:#ff9900;
-
     font-size:20px;
-
     cursor:pointer;
 }
-
-
-/* LANGUAGE */
 
 .language{
-
     background:#232f3e;
-
     color:white;
-
     border:1px solid #777;
-
-    padding:7px 8px;
-
+    padding:8px 10px;
     border-radius:5px;
-
     cursor:pointer;
-
-    font-size:12px;
 }
 
-
-/* CART */
-
 .cart{
-
     min-width:65px;
-
     text-align:center;
-
-    font-size:22px;
-
+    font-size:23px;
     cursor:pointer;
 }
 
 .cart span{
-
     color:#ff9900;
-
     font-weight:bold;
-
     font-size:17px;
 }
-
 
 /* =========================
    NAV
 ========================= */
 
 .nav{
-
     background:#232f3e;
-
     color:white;
-
     display:flex;
-
     overflow-x:auto;
-
     white-space:nowrap;
-
     scrollbar-width:none;
 }
 
@@ -211,44 +140,31 @@ body{
 }
 
 .nav a{
-
     color:white;
-
     text-decoration:none;
-
-    padding:12px 17px;
-
+    padding:12px 16px;
     font-size:13px;
-
     border-right:1px solid #39485a;
 }
 
 .nav a:hover,
 .nav a.active{
-
     background:#ff9900;
-
     color:#111;
 }
-
 
 /* =========================
    TITLE
 ========================= */
 
 .title{
-
     background:white;
-
     padding:25px 5% 18px;
-
     border-bottom:1px solid #ddd;
 }
 
 .title h1{
-
     font-size:30px;
-
     color:#172337;
 }
 
@@ -257,49 +173,30 @@ body{
 }
 
 .title p{
-
     color:#666;
-
     margin-top:7px;
-
     font-size:14px;
 }
-
 
 /* =========================
    TOOLBAR
 ========================= */
 
 .toolbar{
-
     padding:14px 5%;
-
     background:white;
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     gap:12px;
-
     flex-wrap:wrap;
-
     border-bottom:1px solid #ddd;
 }
 
-
-/* FILTER */
-
 .filters{
-
     display:flex;
-
     gap:8px;
-
     overflow-x:auto;
-
     scrollbar-width:none;
 }
 
@@ -308,435 +205,279 @@ body{
 }
 
 .filter-btn{
-
     border:1px solid #ccc;
-
     background:white;
-
     color:#333;
-
     padding:8px 14px;
-
     border-radius:20px;
-
     white-space:nowrap;
-
     cursor:pointer;
-
     font-size:13px;
 }
 
-.filter-btn:hover,
-.filter-btn.active{
-
+.filter-btn.active,
+.filter-btn:hover{
     background:#ff9900;
-
     border-color:#ff9900;
-
     color:#111;
 }
 
-
-/* SORT */
-
 .sort-box{
-
     display:flex;
-
     align-items:center;
-
     gap:7px;
-
     white-space:nowrap;
 }
 
 .sort-box label{
-
     font-size:13px;
-
     color:#555;
 }
 
 .sort-box select{
-
     padding:8px 10px;
-
     border:1px solid #bbb;
-
     border-radius:5px;
-
     background:white;
-
     outline:none;
 }
 
-
 /* =========================
-   RESULT BAR
+   RESULT
 ========================= */
 
 .result-bar{
-
     padding:12px 5%;
-
     font-size:14px;
-
     color:#555;
-
-    background:#f3f3f3;
+    background:#eaeded;
 }
 
-
 /* =========================
-   PRODUCT GRID
+   PRODUCTS
 ========================= */
 
 .products{
-
     padding:0 5% 45px;
-
     display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
+    grid-template-columns:repeat(4,1fr);
     gap:18px;
 }
 
-
-/* =========================
-   PRODUCT CARD
-========================= */
-
 .product{
-
     background:white;
-
     border-radius:8px;
-
     overflow:hidden;
-
     border:1px solid #ddd;
-
     position:relative;
-
     transition:.2s;
-
-    cursor:pointer;
 }
 
 .product:hover{
-
     transform:translateY(-3px);
-
-    box-shadow:
-        0 5px 18px
-        rgba(0,0,0,.16);
+    box-shadow:0 5px 18px rgba(0,0,0,.16);
 }
-
 
 /* IMAGE */
 
 .product-image{
-
     height:230px;
-
     background:#f7f7f7;
-
     position:relative;
-
     overflow:hidden;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
+    cursor:pointer;
 }
 
 .product-image img{
-
     width:100%;
-
     height:100%;
-
     object-fit:cover;
-
-    display:block;
 }
-
 
 /* DISCOUNT */
 
 .discount{
-
     position:absolute;
-
     top:10px;
-
     left:10px;
-
     background:#cc0c39;
-
     color:white;
-
     padding:5px 8px;
-
     border-radius:4px;
-
     font-size:11px;
-
     z-index:3;
 }
-
 
 /* WISHLIST */
 
 .wishlist{
-
     position:absolute;
-
     top:9px;
-
     right:9px;
-
-    width:35px;
-
-    height:35px;
-
+    width:36px;
+    height:36px;
     border-radius:50%;
-
     border:none;
-
     background:white;
-
-    box-shadow:
-        0 2px 8px #0003;
-
-    font-size:19px;
-
+    box-shadow:0 2px 8px #0003;
+    font-size:20px;
     cursor:pointer;
-
-    z-index:4;
+    z-index:5;
 }
 
 .wishlist.active{
-
     color:#e00035;
 }
-
 
 /* INFO */
 
 .info{
-
     padding:13px;
 }
 
-
-/* CATEGORY */
-
 .category{
-
     color:#087f3f;
-
     font-size:12px;
-
     margin-bottom:5px;
-
     font-weight:bold;
 }
 
-
-/* NAME */
-
 .product-name{
-
     font-size:17px;
-
     line-height:1.45;
-
     color:#222;
-
     min-height:48px;
+    cursor:pointer;
 }
-
-
-/* ENGLISH NAME */
 
 .english-name{
-
     color:#777;
-
     font-size:11px;
-
     margin-top:3px;
-
     min-height:16px;
 }
-
 
 /* RATING */
 
 .rating-row{
-
     display:flex;
-
     align-items:center;
-
     gap:5px;
-
     margin-top:7px;
 }
 
 .stars{
-
     color:#ff9900;
-
     font-size:14px;
 }
 
 .rating-number{
-
     color:#555;
-
     font-size:12px;
 }
-
 
 /* PRICE */
 
 .price-row{
-
     margin-top:9px;
 }
 
 .price{
-
     font-size:22px;
-
     font-weight:bold;
-
     color:#111;
 }
 
 .mrp{
-
     color:#777;
-
     text-decoration:line-through;
-
     font-size:12px;
-
     margin-left:5px;
 }
 
+.discount-text{
+    color:#cc0c39;
+    font-size:12px;
+    margin-left:5px;
+}
 
 /* WEIGHT */
 
 .weight{
-
     color:#555;
-
     font-size:13px;
-
     margin-top:6px;
 }
 
+/* PACK */
+
+.pack{
+    color:#555;
+    font-size:12px;
+    margin-top:4px;
+}
 
 /* STOCK */
 
 .stock{
-
     font-size:12px;
-
     margin-top:5px;
-
     color:#087f3f;
 }
 
 .stock.low{
-
     color:#d35400;
 }
 
 .stock.out{
-
     color:#d00;
 }
-
 
 /* LOCATION */
 
 .location{
-
     color:#666;
-
     font-size:12px;
-
     margin-top:5px;
 }
-
 
 /* SELLER */
 
 .seller{
-
     color:#555;
-
     font-size:12px;
-
     margin-top:5px;
 }
-
 
 /* BUTTONS */
 
 .card-buttons{
-
     display:flex;
-
     gap:7px;
-
     margin-top:12px;
 }
 
-.add-cart{
-
+.add-cart,
+.buy-now{
     flex:1;
-
-    background:#ffd814;
-
-    border:1px solid #f0c14b;
-
     border-radius:5px;
-
-    padding:9px 5px;
-
+    padding:10px 4px;
     font-size:12px;
-
     font-weight:bold;
-
     cursor:pointer;
 }
 
+.add-cart{
+    background:#ffd814;
+    border:1px solid #f0c14b;
+}
+
 .buy-now{
-
-    flex:1;
-
     background:#ff9900;
-
     border:1px solid #ff9900;
-
-    border-radius:5px;
-
-    padding:9px 5px;
-
-    font-size:12px;
-
-    font-weight:bold;
-
-    cursor:pointer;
 }
 
 .add-cart:hover{
@@ -747,142 +488,101 @@ body{
     background:#ff8c00;
 }
 
+.add-cart:disabled,
+.buy-now:disabled{
+    background:#ddd;
+    border-color:#ccc;
+    color:#888;
+    cursor:not-allowed;
+}
 
 /* =========================
    LOADING
 ========================= */
 
 .loading{
-
     grid-column:1/-1;
-
     text-align:center;
-
     padding:70px 20px;
-
     font-size:18px;
-
     color:#555;
 }
-
 
 /* =========================
    EMPTY
 ========================= */
 
 .empty{
-
     grid-column:1/-1;
-
     text-align:center;
-
     padding:70px 20px;
-
     display:none;
 }
 
 .empty-icon{
-
     font-size:60px;
-
     margin-bottom:15px;
 }
 
 .empty h2{
-
     color:#333;
-
     margin-bottom:8px;
 }
 
 .empty p{
-
     color:#777;
 }
-
 
 /* =========================
    FOOTER
 ========================= */
 
 .footer{
-
     background:#131a22;
-
     color:white;
-
     text-align:center;
-
     padding:35px 15px;
 }
 
 .footer h2{
-
     color:#78c7ff;
-
     font-size:25px;
 }
 
 .footer h2 span{
-
     color:#ff7518;
 }
 
 .footer p{
-
     color:#c7d0db;
-
     margin-top:8px;
-
     font-size:13px;
 }
-
 
 /* =========================
    TOAST
 ========================= */
 
 .toast{
-
     position:fixed;
-
     left:50%;
-
     bottom:25px;
-
-    transform:
-        translateX(-50%)
-        translateY(100px);
-
+    transform:translateX(-50%) translateY(100px);
     background:#111;
-
     color:white;
-
     padding:13px 20px;
-
     border-radius:7px;
-
-    box-shadow:
-        0 5px 20px #0006;
-
+    box-shadow:0 5px 20px #0006;
     z-index:2000;
-
     transition:.3s;
-
     opacity:0;
-
     font-size:14px;
 }
 
 .toast.show{
-
-    transform:
-        translateX(-50%)
-        translateY(0);
-
+    transform:translateX(-50%) translateY(0);
     opacity:1;
 }
-
 
 /* =========================
    MOBILE
@@ -891,150 +591,110 @@ body{
 @media(max-width:1000px){
 
     .products{
-
-        grid-template-columns:
-            repeat(3,1fr);
+        grid-template-columns:repeat(3,1fr);
     }
 
 }
-
 
 @media(max-width:750px){
 
     .top-header{
-
         flex-wrap:wrap;
-
         gap:8px;
     }
 
     .logo{
-
         min-width:auto;
-
         flex:1;
-
         font-size:21px;
     }
 
-    .language{
+    .search-box{
+        order:4;
+        flex-basis:100%;
+    }
 
+    .language{
         order:2;
     }
 
     .cart{
-
         order:3;
     }
 
-    .search-box{
-
-        order:4;
-
-        flex-basis:100%;
-    }
-
     .products{
-
-        grid-template-columns:
-            repeat(2,1fr);
-
+        grid-template-columns:repeat(2,1fr);
         padding-left:3%;
-
         padding-right:3%;
-
         gap:11px;
     }
 
     .product-image{
-
         height:185px;
     }
 
     .product-name{
-
         font-size:15px;
     }
 
     .price{
-
         font-size:19px;
     }
 
-    .toolbar{
-
-        padding-left:3%;
-
-        padding-right:3%;
-    }
-
+    .toolbar,
     .result-bar{
-
         padding-left:3%;
-
         padding-right:3%;
     }
 
 }
 
-
 @media(max-width:430px){
 
     .title h1{
-
         font-size:25px;
     }
 
     .title p{
-
         font-size:12px;
     }
 
     .product-image{
-
         height:155px;
     }
 
     .info{
-
         padding:9px;
     }
 
     .product-name{
-
         font-size:14px;
-
         min-height:42px;
     }
 
     .english-name{
-
         font-size:9px;
     }
 
     .category{
-
         font-size:10px;
     }
 
     .price{
-
         font-size:17px;
     }
 
     .weight,
+    .pack,
     .stock,
     .location,
     .seller{
-
         font-size:10px;
     }
 
     .add-cart,
     .buy-now{
-
         font-size:10px;
-
         padding:8px 2px;
     }
 
@@ -1044,16 +704,13 @@ body{
 
 </head>
 
-
 <body>
-
 
 <!-- =========================
      HEADER
 ========================= -->
 
 <header class="top-header">
-
 
     <div class="logo">
 
@@ -1084,13 +741,11 @@ body{
 
         </select>
 
-
         <input
             type="search"
             id="searchInput"
             placeholder="ଉତ୍ପାଦ ଖୋଜନ୍ତୁ / Search products..."
         >
-
 
         <button
             onclick="searchProducts()"
@@ -1123,7 +778,6 @@ body{
 
     </div>
 
-
 </header>
 
 
@@ -1134,40 +788,34 @@ body{
 <nav class="nav">
 
     <a href="index.html">
-        🏠 <span data-or="ମୁଖ୍ୟ ପୃଷ୍ଠା"
-                 data-en="Home">
-            ମୁଖ୍ୟ ପୃଷ୍ଠା
-        </span>
+        🏠 ମୁଖ୍ୟ ପୃଷ୍ଠା
     </a>
 
     <a
         href="products.html"
         class="active"
     >
-        🛍️ <span data-or="ସମସ୍ତ ଉତ୍ପାଦ"
-                 data-en="All Products">
-            ସମସ୍ତ ଉତ୍ପାଦ
-        </span>
+        🛍️ ସମସ୍ତ ଉତ୍ପାଦ
     </a>
 
-    <a href="?category=ଗଞ୍ଜାମ ଖାଦ୍ୟ">
-        🍚 ଗଞ୍ଜାମ ଖାଦ୍ୟ
+    <a href="products.html?category=ଓଡ଼ିଆ ଖାଦ୍ୟ">
+        🍚 ଓଡ଼ିଆ ଖାଦ୍ୟ
     </a>
 
-    <a href="?category=ହସ୍ତତନ୍ତ">
+    <a href="products.html?category=ବସ୍ତ୍ର ଓ ହସ୍ତତନ୍ତ">
         🧵 ହସ୍ତତନ୍ତ
     </a>
 
-    <a href="?category=ହସ୍ତଶିଳ୍ପ">
+    <a href="products.html?category=ହସ୍ତଶିଳ୍ପ">
         🎨 ହସ୍ତଶିଳ୍ପ
     </a>
 
-    <a href="?category=ପାରମ୍ପରିକ ସାମଗ୍ରୀ">
+    <a href="products.html?category=ପାରମ୍ପରିକ ସାମଗ୍ରୀ">
         🪔 ପାରମ୍ପରିକ
     </a>
 
-    <a href="?category=ଗ୍ରାମୀଣ ସାମଗ୍ରୀ">
-        🌾 ଗ୍ରାମୀଣ
+    <a href="products.html?category=କୃଷିଜାତ ଉତ୍ପାଦ">
+        🌾 କୃଷିଜାତ
     </a>
 
 </nav>
@@ -1180,28 +828,11 @@ body{
 <section class="title">
 
     <h1>
-
-        <span data-or="ଆମର"
-              data-en="Our">
-            ଆମର
-        </span>
-
-        <span>
-            <span data-or="ସାମଗ୍ରୀ"
-                  data-en="Products">
-                ସାମଗ୍ରୀ
-            </span>
-        </span>
-
+        ଆମର <span>ସାମଗ୍ରୀ</span>
     </h1>
 
-
-    <p data-or="ଓଡ଼ିଆ ପରିବାର ପାଇଁ ଓଡ଼ିଶାର ନିଜସ୍ୱ ସାମଗ୍ରୀ ❤️"
-       data-en="Authentic Odisha products for every Odia family ❤️">
-
-        ଓଡ଼ିଆ ପରିବାର ପାଇଁ
-        ଓଡ଼ିଶାର ନିଜସ୍ୱ ସାମଗ୍ରୀ ❤️
-
+    <p id="titleText">
+        ଓଡ଼ିଆ ପରିବାର ପାଇଁ ଓଡ଼ିଶାର ନିଜସ୍ୱ ସାମଗ୍ରୀ ❤️
     </p>
 
 </section>
@@ -1213,7 +844,6 @@ body{
 
 <div class="toolbar">
 
-
     <div class="filters">
 
         <button
@@ -1223,22 +853,19 @@ body{
             ସବୁ
         </button>
 
-
         <button
             class="filter-btn"
-            onclick="filterProducts('ଗଞ୍ଜାମ ଖାଦ୍ୟ',this)"
+            onclick="filterProducts('ଓଡ଼ିଆ ଖାଦ୍ୟ',this)"
         >
             🍚 ଖାଦ୍ୟ
         </button>
 
-
         <button
             class="filter-btn"
-            onclick="filterProducts('ହସ୍ତତନ୍ତ',this)"
+            onclick="filterProducts('ବସ୍ତ୍ର ଓ ହସ୍ତତନ୍ତ',this)"
         >
             🧵 ହସ୍ତତନ୍ତ
         </button>
-
 
         <button
             class="filter-btn"
@@ -1247,7 +874,6 @@ body{
             🎨 ହସ୍ତଶିଳ୍ପ
         </button>
 
-
         <button
             class="filter-btn"
             onclick="filterProducts('ପାରମ୍ପରିକ ସାମଗ୍ରୀ',this)"
@@ -1255,14 +881,19 @@ body{
             🪔 ପାରମ୍ପରିକ
         </button>
 
+        <button
+            class="filter-btn"
+            onclick="filterProducts('କୃଷିଜାତ ଉତ୍ପାଦ',this)"
+        >
+            🌾 କୃଷି
+        </button>
 
         <button
             class="filter-btn"
-            onclick="filterProducts('ଗ୍ରାମୀଣ ସାମଗ୍ରୀ',this)"
+            onclick="filterProducts('ଉପହାର',this)"
         >
-            🌾 ଗ୍ରାମୀଣ
+            🎁 ଉପହାର
         </button>
-
 
         <button
             class="filter-btn"
@@ -1297,8 +928,12 @@ body{
                 ଦାମ ଅଧିକ
             </option>
 
+            <option value="discount">
+                ଅଧିକ Discount
+            </option>
+
             <option value="stock">
-                Stock
+                ଅଧିକ Stock
             </option>
 
         </select>
@@ -1321,7 +956,7 @@ body{
 
 
 <!-- =========================
-     PRODUCTS
+     PRODUCT LIST
 ========================= -->
 
 <section
@@ -1351,7 +986,7 @@ body{
         </h2>
 
         <p>
-            ଅନ୍ୟ ନାମ କିମ୍ବା English ନାମରେ ଖୋଜନ୍ତୁ।
+            ଓଡ଼ିଆ କିମ୍ବା English ନାମରେ ଖୋଜନ୍ତୁ।
         </p>
 
     </div>
@@ -1381,8 +1016,6 @@ body{
 </footer>
 
 
-<!-- TOAST -->
-
 <div
     class="toast"
     id="toast"
@@ -1390,21 +1023,17 @@ body{
 
 
 <!-- =========================
-     JAVASCRIPT
+     FIREBASE + JAVASCRIPT
 ========================= -->
 
 <script type="module">
 
-
 import { db }
 from "./firebase.js";
 
-
 import {
-
     collection,
     getDocs
-
 }
 from
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
@@ -1418,17 +1047,23 @@ let allProducts = [];
 
 let visibleProducts = [];
 
-let cart = JSON.parse(
-    localStorage.getItem("utkalamart_cart") || "[]"
-);
-
-let wishlist = JSON.parse(
-    localStorage.getItem("utkalamart_wishlist") || "[]"
-);
-
 let currentCategory = "all";
 
 let currentLanguage = "or";
+
+let cart =
+JSON.parse(
+    localStorage.getItem(
+        "utkalamart_cart"
+    ) || "[]"
+);
+
+let wishlist =
+JSON.parse(
+    localStorage.getItem(
+        "utkalamart_wishlist"
+    ) || "[]"
+);
 
 
 /* =========================
@@ -1436,25 +1071,44 @@ let currentLanguage = "or";
 ========================= */
 
 const productList =
-document.getElementById("productList");
+document.getElementById(
+    "productList"
+);
 
 const loading =
-document.getElementById("loading");
+document.getElementById(
+    "loading"
+);
 
 const empty =
-document.getElementById("empty");
+document.getElementById(
+    "empty"
+);
 
 const searchInput =
-document.getElementById("searchInput");
+document.getElementById(
+    "searchInput"
+);
+
+const searchLanguage =
+document.getElementById(
+    "searchLanguage"
+);
 
 const resultBar =
-document.getElementById("resultBar");
+document.getElementById(
+    "resultBar"
+);
 
 const cartCount =
-document.getElementById("cartCount");
+document.getElementById(
+    "cartCount"
+);
 
 const sortSelect =
-document.getElementById("sortSelect");
+document.getElementById(
+    "sortSelect"
+);
 
 
 /* =========================
@@ -1463,8 +1117,19 @@ document.getElementById("sortSelect");
 
 function updateCartCount(){
 
+    let total = 0;
+
+    cart.forEach(item=>{
+
+        total +=
+        Number(
+            item.quantity || 1
+        );
+
+    });
+
     cartCount.innerText =
-    cart.length;
+    total;
 
 }
 
@@ -1481,10 +1146,6 @@ async function loadProducts(){
 
         loading.style.display =
         "block";
-
-        empty.style.display =
-        "none";
-
 
         const snapshot =
         await getDocs(
@@ -1505,15 +1166,18 @@ async function loadProducts(){
 
 
             /*
-              CUSTOMER SIDE:
-              କେବଳ approved product
+             CUSTOMER SIDE:
+             କେବଳ APPROVED
             */
 
+            const status =
+            String(
+                data.status || ""
+            ).toLowerCase();
+
+
             if(
-                String(
-                    data.status || ""
-                ).toLowerCase()
-                !==
+                status !==
                 "approved"
             ){
 
@@ -1546,13 +1210,16 @@ async function loadProducts(){
     catch(error){
 
         console.error(
-            "PRODUCT LOAD ERROR:",
             error
         );
 
 
         loading.style.display =
         "none";
+
+
+        resultBar.innerText =
+        "Product load error";
 
 
         productList.innerHTML = `
@@ -1571,7 +1238,9 @@ async function loadProducts(){
                 </h2>
 
                 <p>
-                    ${escapeHTML(error.message)}
+                    ${escapeHTML(
+                        error.message
+                    )}
                 </p>
 
             </div>
@@ -1584,118 +1253,216 @@ async function loadProducts(){
 
 
 /* =========================
-   SEARCH NORMALIZE
+   NORMALIZE
 ========================= */
 
 function normalize(text){
 
-    return String(text || "")
-        .toLowerCase()
-        .trim()
-        .replace(/\s+/g," ");
+    return String(
+        text || ""
+    )
+    .toLowerCase()
+    .trim()
+    .replace(
+        /\s+/g,
+        " "
+    );
 
 }
 
 
 /* =========================
-   ENGLISH → ODIA COMMON WORDS
+   ENGLISH → ODIA
 ========================= */
 
 const englishOdiaMap = {
 
-    achar:"ଆଚାର",
+    achar:[
+        "ଆଚାର"
+    ],
 
-    pickle:"ଆଚାର",
+    pickle:[
+        "ଆଚାର"
+    ],
 
-    mango:"ଆମ୍ବ",
+    mango:[
+        "ଆମ୍ବ"
+    ],
 
-    aam:"ଆମ୍ବ",
+    aam:[
+        "ଆମ୍ବ"
+    ],
 
-    food:"ଖାଦ୍ୟ",
+    food:[
+        "ଖାଦ୍ୟ",
+        "ଓଡ଼ିଆ ଖାଦ୍ୟ"
+    ],
 
-    rice:"ଚାଉଳ",
+    rice:[
+        "ଚାଉଳ"
+    ],
 
-    dal:"ଡାଲି",
+    dal:[
+        "ଡାଲି"
+    ],
 
-    papad:"ପାପଡ",
+    papad:[
+        "ପାପଡ"
+    ],
 
-    pappad:"ପାପଡ",
+    pappad:[
+        "ପାପଡ"
+    ],
 
-    saree:"ଶାଢ଼ୀ",
+    saree:[
+        "ଶାଢ଼ୀ"
+    ],
 
-    sari:"ଶାଢ଼ୀ",
+    sari:[
+        "ଶାଢ଼ୀ"
+    ],
 
-    sambalpuri:"ସମ୍ବଲପୁରୀ",
+    sambalpuri:[
+        "ସମ୍ବଲପୁରୀ"
+    ],
 
-    handloom:"ହସ୍ତତନ୍ତ",
+    handloom:[
+        "ହସ୍ତତନ୍ତ"
+    ],
 
-    handicraft:"ହସ୍ତଶିଳ୍ପ",
+    handicraft:[
+        "ହସ୍ତଶିଳ୍ପ"
+    ],
 
-    craft:"ହସ୍ତଶିଳ୍ପ",
+    craft:[
+        "ହସ୍ତଶିଳ୍ପ"
+    ],
 
-    traditional:"ପାରମ୍ପରିକ",
+    traditional:[
+        "ପାରମ୍ପରିକ"
+    ],
 
-    gift:"ଉପହାର",
+    gift:[
+        "ଉପହାର"
+    ],
 
-    book:"ବହି",
+    oil:[
+        "ତେଲ"
+    ],
 
-    oil:"ତେଲ",
+    spice:[
+        "ମସଲା"
+    ],
 
-    spice:"ମସଲା",
+    spices:[
+        "ମସଲା"
+    ],
 
-    spices:"ମସଲା",
+    sweet:[
+        "ମିଠା"
+    ],
 
-    sweet:"ମିଠା",
+    sweets:[
+        "ମିଠା"
+    ],
 
-    sweets:"ମିଠା",
+    ganjam:[
+        "ଗଞ୍ଜାମ"
+    ],
 
-    ganjam:"ଗଞ୍ଜାମ",
+    odisha:[
+        "ଓଡ଼ିଶା"
+    ],
 
-    odisha:"ଓଡ଼ିଶା",
+    odia:[
+        "ଓଡ଼ିଆ"
+    ],
 
-    odia:"ଓଡ଼ିଆ",
+    product:[
+        "ସାମଗ୍ରୀ",
+        "ଉତ୍ପାଦ"
+    ],
 
-    product:"ସାମଗ୍ରୀ"
+    cloth:[
+        "ବସ୍ତ୍ର"
+    ],
+
+    clothing:[
+        "ବସ୍ତ୍ର"
+    ],
+
+    agriculture:[
+        "କୃଷି",
+        "କୃଷିଜାତ ଉତ୍ପାଦ"
+    ],
+
+    handmade:[
+        "ହସ୍ତନିର୍ମିତ"
+    ]
 
 };
 
 
 /* =========================
-   SEARCH WORDS
+   SEARCH TOKENS
 ========================= */
 
-function getSearchWords(text){
+function getSearchTokens(text){
 
     const original =
     normalize(text);
 
-    let words = [original];
+
+    const tokens = [
+        original
+    ];
 
 
-    Object.keys(
-        englishOdiaMap
-    ).forEach(key=>{
+    original
+    .split(" ")
+    .forEach(word=>{
 
-        if(
-            original.includes(key)
-        ){
+        if(word){
 
-            words.push(
-                englishOdiaMap[key]
-            );
+            tokens.push(word);
 
         }
 
     });
 
 
-    return words;
+    Object.keys(
+        englishOdiaMap
+    )
+    .forEach(key=>{
+
+        if(
+            original.includes(key)
+        ){
+
+            englishOdiaMap[key]
+            .forEach(value=>{
+
+                tokens.push(
+                    normalize(value)
+                );
+
+            });
+
+        }
+
+    });
+
+
+    return [
+        ...new Set(tokens)
+    ];
 
 }
 
 
 /* =========================
-   SEARCH PRODUCT
+   SEARCH
 ========================= */
 
 window.searchProducts =
@@ -1706,13 +1473,24 @@ function(){
 };
 
 
-/* ENTER SEARCH */
+searchInput.addEventListener(
+    "input",
+    applyFilters
+);
+
 
 searchInput.addEventListener(
     "keyup",
     function(event){
 
-        applyFilters();
+        if(
+            event.key ===
+            "Enter"
+        ){
+
+            applyFilters();
+
+        }
 
     }
 );
@@ -1723,14 +1501,19 @@ searchInput.addEventListener(
 ========================= */
 
 window.filterProducts =
-function(category,button){
+function(
+    category,
+    button
+){
 
     currentCategory =
     category;
 
 
     document
-    .querySelectorAll(".filter-btn")
+    .querySelectorAll(
+        ".filter-btn"
+    )
     .forEach(btn=>{
 
         btn.classList.remove(
@@ -1755,15 +1538,19 @@ function(category,button){
 
 
 /* =========================
-   APPLY FILTERS
+   APPLY FILTER
 ========================= */
 
 function applyFilters(){
 
-    const search =
+    const text =
     normalize(
         searchInput.value
     );
+
+
+    const language =
+    searchLanguage.value;
 
 
     let results =
@@ -1773,17 +1560,22 @@ function applyFilters(){
     /* CATEGORY */
 
     if(
-        currentCategory !== "all"
+        currentCategory !==
+        "all"
     ){
 
         results =
         results.filter(
-            product => {
+            product=>{
 
                 return (
-                    product.category
+                    normalize(
+                        product.category
+                    )
                     ===
-                    currentCategory
+                    normalize(
+                        currentCategory
+                    )
                 );
 
             }
@@ -1794,10 +1586,12 @@ function applyFilters(){
 
     /* SEARCH */
 
-    if(search !== ""){
+    if(text){
 
-        const words =
-        getSearchWords(search);
+        const tokens =
+        getSearchTokens(
+            text
+        );
 
 
         results =
@@ -1812,17 +1606,29 @@ function applyFilters(){
 
                 const englishName =
                 normalize(
+                    product.nameEn
+                    ||
                     product.nameEnglish
                     ||
                     product.englishName
-                    ||
-                    ""
                 );
 
 
-                const category =
+                const odiaCategory =
                 normalize(
                     product.category
+                );
+
+
+                const englishCategory =
+                normalize(
+                    product.categoryEn
+                );
+
+
+                const brand =
+                normalize(
+                    product.brand
                 );
 
 
@@ -1832,38 +1638,137 @@ function applyFilters(){
                 );
 
 
+                const district =
+                normalize(
+                    product.district
+                );
+
+
                 const description =
                 normalize(
                     product.description
                 );
 
 
-                const searchField =
+                const descriptionEn =
                 normalize(
-                    product.nameSearch
+                    product.descriptionEn
                 );
 
 
-                return words.some(
-                    word =>
+                const sku =
+                normalize(
+                    product.sku
+                );
 
-                        odiaName.includes(word)
-                        ||
 
-                        englishName.includes(word)
-                        ||
+                const keywords =
+                Array.isArray(
+                    product.keywords
+                )
+                ?
+                product.keywords
+                .map(
+                    normalize
+                )
+                .join(" ")
+                :
+                normalize(
+                    product.keywords
+                );
 
-                        category.includes(word)
-                        ||
 
-                        village.includes(word)
-                        ||
+                let fields = [];
 
-                        description.includes(word)
-                        ||
 
-                        searchField.includes(word)
+                if(
+                    language ===
+                    "odia"
+                ){
 
+                    fields = [
+
+                        odiaName,
+
+                        odiaCategory,
+
+                        village,
+
+                        district,
+
+                        description,
+
+                        keywords
+
+                    ];
+
+                }
+
+                else if(
+                    language ===
+                    "english"
+                ){
+
+                    fields = [
+
+                        englishName,
+
+                        englishCategory,
+
+                        brand,
+
+                        descriptionEn,
+
+                        sku,
+
+                        keywords
+
+                    ];
+
+                }
+
+                else{
+
+                    fields = [
+
+                        odiaName,
+
+                        englishName,
+
+                        odiaCategory,
+
+                        englishCategory,
+
+                        brand,
+
+                        village,
+
+                        district,
+
+                        description,
+
+                        descriptionEn,
+
+                        sku,
+
+                        keywords
+
+                    ];
+
+                }
+
+
+                return tokens.some(
+                    token=>{
+
+                        return fields.some(
+                            field=>
+                            field.includes(
+                                token
+                            )
+                        );
+
+                    }
                 );
 
             }
@@ -1876,8 +1781,9 @@ function applyFilters(){
     results;
 
 
-    sortProducts(false);
-
+    sortProducts(
+        false
+    );
 
 }
 
@@ -1887,51 +1793,94 @@ function applyFilters(){
 ========================= */
 
 window.sortProducts =
-function(shouldApply=true){
+function(){
 
-    if(shouldApply){
+    sortProducts(
+        true
+    );
 
-        visibleProducts =
-        [...visibleProducts];
+};
 
-    }
+
+function sortProducts(
+    shouldRender
+){
+
+    visibleProducts =
+    [...visibleProducts];
 
 
     const type =
     sortSelect.value;
 
 
-    if(type === "low"){
+    if(
+        type === "low"
+    ){
 
         visibleProducts.sort(
             (a,b)=>
-            Number(a.price || 0)
+            Number(
+                a.price || 0
+            )
             -
-            Number(b.price || 0)
+            Number(
+                b.price || 0
+            )
         );
 
     }
 
 
-    else if(type === "high"){
+    else if(
+        type === "high"
+    ){
 
         visibleProducts.sort(
             (a,b)=>
-            Number(b.price || 0)
+            Number(
+                b.price || 0
+            )
             -
-            Number(a.price || 0)
+            Number(
+                a.price || 0
+            )
         );
 
     }
 
 
-    else if(type === "stock"){
+    else if(
+        type === "discount"
+    ){
 
         visibleProducts.sort(
             (a,b)=>
-            Number(b.stock || 0)
+            Number(
+                b.discount || 0
+            )
             -
-            Number(a.stock || 0)
+            Number(
+                a.discount || 0
+            )
+        );
+
+    }
+
+
+    else if(
+        type === "stock"
+    ){
+
+        visibleProducts.sort(
+            (a,b)=>
+            Number(
+                b.stock || 0
+            )
+            -
+            Number(
+                a.stock || 0
+            )
         );
 
     }
@@ -1944,15 +1893,18 @@ function(shouldApply=true){
 
                 const aTime =
                 a.createdAt?.seconds
-                ||
-                0;
+                || 0;
+
 
                 const bTime =
                 b.createdAt?.seconds
-                ||
-                0;
+                || 0;
 
-                return bTime-aTime;
+
+                return (
+                    bTime -
+                    aTime
+                );
 
             }
         );
@@ -1964,17 +1916,21 @@ function(shouldApply=true){
         visibleProducts
     );
 
-};
+}
 
 
 /* =========================
    RENDER
 ========================= */
 
-function renderProducts(products){
+function renderProducts(
+    products
+){
 
     productList
-    .querySelectorAll(".product")
+    .querySelectorAll(
+        ".product"
+    )
     .forEach(card=>{
 
         card.remove();
@@ -1982,7 +1938,9 @@ function renderProducts(products){
     });
 
 
-    if(products.length === 0){
+    if(
+        products.length === 0
+    ){
 
         empty.style.display =
         "block";
@@ -2016,28 +1974,33 @@ function renderProducts(products){
    PRODUCT CARD
 ========================= */
 
-function createProductCard(product){
+function createProductCard(
+    product
+){
 
     const card =
-    document.createElement("div");
+    document.createElement(
+        "div"
+    );
+
 
     card.className =
     "product";
 
 
     const image =
-    product.image
-    ||
-    "https://via.placeholder.com/600x500?text=Odia+Product";
+    product.image ||
+    "";
 
 
     const name =
-    product.name
-    ||
+    product.name ||
     "ଓଡ଼ିଆ ସାମଗ୍ରୀ";
 
 
     const englishName =
+    product.nameEn
+    ||
     product.nameEnglish
     ||
     product.englishName
@@ -2069,18 +2032,6 @@ function createProductCard(product){
     );
 
 
-    const village =
-    product.village
-    ||
-    "ଓଡ଼ିଶା";
-
-
-    const seller =
-    product.sellerName
-    ||
-    "UtkalaMart Seller";
-
-
     const weight =
     product.weight
     ||
@@ -2089,18 +2040,52 @@ function createProductCard(product){
     "";
 
 
-    const unit =
-    product.unit
-    ||
+    const weightUnit =
     product.weightUnit
+    ||
+    product.unit
     ||
     "";
 
 
-    const rating =
+    const packSize =
+    product.packSize
+    ||
+    "";
+
+
+    const village =
+    product.village
+    ||
+    "ଓଡ଼ିଶା";
+
+
+    const district =
+    product.district
+    ||
+    "";
+
+
+    const seller =
+    product.sellerName
+    ||
+    "UtkalaMart Seller";
+
+
+    let rating =
     Number(
-        product.rating || 5
+        product.rating
     );
+
+
+    if(
+        !rating ||
+        rating < 0
+    ){
+
+        rating = 0;
+
+    }
 
 
     const reviewCount =
@@ -2109,10 +2094,28 @@ function createProductCard(product){
     );
 
 
-    const discount =
-    product.discount
-    ||
-    "";
+    let discount =
+    Number(
+        product.discount || 0
+    );
+
+
+    if(
+        !discount &&
+        mrp > price &&
+        mrp > 0
+    ){
+
+        discount =
+        Math.round(
+            (
+                (mrp-price)
+                /
+                mrp
+            ) * 100
+        );
+
+    }
 
 
     const isWishlisted =
@@ -2121,6 +2124,8 @@ function createProductCard(product){
     );
 
 
+    /* STOCK */
+
     let stockText =
     `📦 Stock: ${stock}`;
 
@@ -2128,7 +2133,9 @@ function createProductCard(product){
     "";
 
 
-    if(stock <= 0){
+    if(
+        stock <= 0
+    ){
 
         stockText =
         "❌ Stock ନାହିଁ";
@@ -2138,7 +2145,9 @@ function createProductCard(product){
 
     }
 
-    else if(stock <= 5){
+    else if(
+        stock <= 5
+    ){
 
         stockText =
         `⚠️ ମାତ୍ର ${stock} ଟି ବାକି`;
@@ -2149,7 +2158,10 @@ function createProductCard(product){
     }
 
 
+    /* STARS */
+
     let stars = "";
+
 
     for(
         let i=1;
@@ -2165,24 +2177,69 @@ function createProductCard(product){
     }
 
 
-    const priceHTML =
-    mrp > price
-    ?
-    `
+    /* PRICE */
+
+    let priceHTML = `
+
         <span class="price">
             ₹${price.toLocaleString("en-IN")}
         </span>
 
-        <span class="mrp">
-            ₹${mrp.toLocaleString("en-IN")}
-        </span>
-    `
-    :
-    `
-        <span class="price">
-            ₹${price.toLocaleString("en-IN")}
-        </span>
     `;
+
+
+    if(
+        mrp > price
+    ){
+
+        priceHTML += `
+
+            <span class="mrp">
+                ₹${mrp.toLocaleString("en-IN")}
+            </span>
+
+        `;
+
+    }
+
+
+    if(
+        discount > 0
+    ){
+
+        priceHTML += `
+
+            <span class="discount-text">
+                ${discount}% OFF
+            </span>
+
+        `;
+
+    }
+
+
+    /* IMAGE */
+
+    const safeImage =
+    image ||
+    "data:image/svg+xml;charset=UTF-8," +
+    encodeURIComponent(`
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="600"
+             height="500">
+            <rect width="100%"
+                  height="100%"
+                  fill="#eeeeee"/>
+            <text x="50%"
+                  y="50%"
+                  dominant-baseline="middle"
+                  text-anchor="middle"
+                  font-size="30"
+                  fill="#777">
+                UtkalaMart
+            </text>
+        </svg>
+    `);
 
 
     card.innerHTML = `
@@ -2193,11 +2250,13 @@ function createProductCard(product){
         >
 
             ${
-                discount
+                discount > 0
                 ?
-                `<div class="discount">
-                    ${escapeHTML(discount)}% OFF
-                </div>`
+                `
+                <div class="discount">
+                    ${discount}% OFF
+                </div>
+                `
                 :
                 ""
             }
@@ -2223,7 +2282,7 @@ function createProductCard(product){
 
 
             <img
-                src="${image}"
+                src="${safeImage}"
                 alt="${escapeHTML(name)}"
                 loading="lazy"
             >
@@ -2251,7 +2310,9 @@ function createProductCard(product){
                 ?
                 `
                 <div class="english-name">
-                    ${escapeHTML(englishName)}
+                    ${escapeHTML(
+                        englishName
+                    )}
                 </div>
                 `
                 :
@@ -2266,14 +2327,23 @@ function createProductCard(product){
                 </span>
 
                 <span class="rating-number">
-                    ${rating.toFixed(1)}
+
                     ${
-                        reviewCount
+                        rating > 0
+                        ?
+                        rating.toFixed(1)
+                        :
+                        "New"
+                    }
+
+                    ${
+                        reviewCount > 0
                         ?
                         `(${reviewCount})`
                         :
                         ""
                     }
+
                 </span>
 
             </div>
@@ -2291,8 +2361,12 @@ function createProductCard(product){
                 ?
                 `
                 <div class="weight">
-                    ⚖️ ${escapeHTML(String(weight))}
-                    ${escapeHTML(String(unit))}
+                    ⚖️ ${escapeHTML(
+                        String(weight)
+                    )}
+                    ${escapeHTML(
+                        String(weightUnit)
+                    )}
                 </div>
                 `
                 :
@@ -2300,18 +2374,53 @@ function createProductCard(product){
             }
 
 
-            <div class="stock ${stockClass}">
+            ${
+                packSize
+                ?
+                `
+                <div class="pack">
+                    📦 ${escapeHTML(
+                        String(packSize)
+                    )}
+                </div>
+                `
+                :
+                ""
+            }
+
+
+            <div
+                class="stock ${stockClass}"
+            >
                 ${stockText}
             </div>
 
 
             <div class="location">
-                📍 ${escapeHTML(village)}
+
+                📍 ${escapeHTML(
+                    village
+                )}
+
+                ${
+                    district
+                    ?
+                    `, ${escapeHTML(
+                        district
+                    )}`
+                    :
+                    ""
+                }
+
             </div>
 
 
             <div class="seller">
-                🏪 ${escapeHTML(seller)}
+
+                🏪 ${escapeHTML(
+                    seller
+                )}
+
             </div>
 
 
@@ -2325,8 +2434,10 @@ function createProductCard(product){
                     "
                     ${
                         stock <= 0
-                        ? "disabled"
-                        : ""
+                        ?
+                        "disabled"
+                        :
+                        ""
                     }
                 >
                     🛒 Cart
@@ -2341,8 +2452,10 @@ function createProductCard(product){
                     "
                     ${
                         stock <= 0
-                        ? "disabled"
-                        : ""
+                        ?
+                        "disabled"
+                        :
+                        ""
                     }
                 >
                     ⚡ Buy Now
@@ -2375,8 +2488,10 @@ function(id){
 
         wishlist =
         wishlist.filter(
-            item=>item !== id
+            item =>
+            item !== id
         );
+
 
         showToast(
             "❤️ Wishlistରୁ ବାହାର କରାଗଲା"
@@ -2387,6 +2502,7 @@ function(id){
 
         wishlist.push(id);
 
+
         showToast(
             "❤️ Wishlistରେ ରଖାଗଲା"
         );
@@ -2396,7 +2512,9 @@ function(id){
 
     localStorage.setItem(
         "utkalamart_wishlist",
-        JSON.stringify(wishlist)
+        JSON.stringify(
+            wishlist
+        )
     );
 
 
@@ -2408,7 +2526,7 @@ function(id){
 
 
 /* =========================
-   CART
+   ADD CART
 ========================= */
 
 window.addToCart =
@@ -2416,7 +2534,8 @@ function(id){
 
     const product =
     allProducts.find(
-        p=>p.id === id
+        p =>
+        p.id === id
     );
 
 
@@ -2427,11 +2546,13 @@ function(id){
     }
 
 
-    if(
-        Number(product.stock || 0)
-        <=
-        0
-    ){
+    const stock =
+    Number(
+        product.stock || 0
+    );
+
+
+    if(stock <= 0){
 
         showToast(
             "❌ ଏହି Product Stockରେ ନାହିଁ"
@@ -2444,15 +2565,32 @@ function(id){
 
     const existing =
     cart.find(
-        item=>item.id === id
+        item =>
+        item.id === id
     );
 
 
     if(existing){
 
+        if(
+            existing.quantity
+            >=
+            stock
+        ){
+
+            showToast(
+                "⚠️ ଯେତିକି Stock ଅଛି ସେତିକି ହିଁ ରଖିପାରିବେ"
+            );
+
+            return;
+
+        }
+
+
         existing.quantity++;
 
     }
+
     else{
 
         cart.push({
@@ -2460,13 +2598,41 @@ function(id){
             id:id,
 
             name:
-            product.name,
+            product.name
+            ||
+            "",
+
+            nameEn:
+            product.nameEn
+            ||
+            product.nameEnglish
+            ||
+            "",
 
             price:
-            Number(product.price || 0),
+            Number(
+                product.price || 0
+            ),
+
+            mrp:
+            Number(
+                product.mrp || 0
+            ),
 
             image:
-            product.image || "",
+            product.image
+            ||
+            "",
+
+            weight:
+            product.weight
+            ||
+            "",
+
+            weightUnit:
+            product.weightUnit
+            ||
+            "",
 
             quantity:1
 
@@ -2477,7 +2643,9 @@ function(id){
 
     localStorage.setItem(
         "utkalamart_cart",
-        JSON.stringify(cart)
+        JSON.stringify(
+            cart
+        )
     );
 
 
@@ -2498,21 +2666,51 @@ function(id){
 window.buyNow =
 function(id){
 
+    const product =
+    allProducts.find(
+        p =>
+        p.id === id
+    );
+
+
+    if(!product){
+
+        return;
+
+    }
+
+
+    if(
+        Number(
+            product.stock || 0
+        ) <= 0
+    ){
+
+        showToast(
+            "❌ Stock ନାହିଁ"
+        );
+
+        return;
+
+    }
+
+
     addToCart(id);
+
 
     setTimeout(
         ()=>{
             window.location.href =
             "cart.html";
         },
-        400
+        300
     );
 
 };
 
 
 /* =========================
-   OPEN CART
+   CART
 ========================= */
 
 window.openCart =
@@ -2552,7 +2750,9 @@ function applyURLCategory(){
 
 
     const category =
-    params.get("category");
+    params.get(
+        "category"
+    );
 
 
     if(!category){
@@ -2570,14 +2770,15 @@ function applyURLCategory(){
 
 
     document
-    .querySelectorAll(".filter-btn")
-    .forEach(btn=>{
-
+    .querySelectorAll(
+        ".filter-btn"
+    )
+    .forEach(
+        btn =>
         btn.classList.remove(
             "active"
-        );
-
-    });
+        )
+    );
 
 }
 
@@ -2596,18 +2797,6 @@ function(){
         currentLanguage =
         "en";
 
-        document
-        .querySelectorAll(
-            "[data-en]"
-        )
-        .forEach(el=>{
-
-            el.innerText =
-            el.getAttribute(
-                "data-en"
-            );
-
-        });
 
         document
         .getElementById(
@@ -2616,27 +2805,25 @@ function(){
         .innerText =
         "ଓଡ଼ିଆ";
 
+
+        document
+        .getElementById(
+            "titleText"
+        )
+        .innerText =
+        "Authentic Odisha products for every Odia family ❤️";
+
+
         searchInput.placeholder =
         "Search products...";
 
     }
+
     else{
 
         currentLanguage =
         "or";
 
-        document
-        .querySelectorAll(
-            "[data-or]"
-        )
-        .forEach(el=>{
-
-            el.innerText =
-            el.getAttribute(
-                "data-or"
-            );
-
-        });
 
         document
         .getElementById(
@@ -2644,6 +2831,15 @@ function(){
         )
         .innerText =
         "EN";
+
+
+        document
+        .getElementById(
+            "titleText"
+        )
+        .innerText =
+        "ଓଡ଼ିଆ ପରିବାର ପାଇଁ ଓଡ଼ିଶାର ନିଜସ୍ୱ ସାମଗ୍ରୀ ❤️";
+
 
         searchInput.placeholder =
         "ଉତ୍ପାଦ ଖୋଜନ୍ତୁ / Search products...";
@@ -2687,37 +2883,39 @@ function showToast(text){
 
 
 /* =========================
-   ESCAPE HTML
+   ESCAPE
 ========================= */
 
 function escapeHTML(text){
 
-    return String(text || "")
+    return String(
+        text || ""
+    )
 
-        .replace(
-            /&/g,
-            "&amp;"
-        )
+    .replace(
+        /&/g,
+        "&amp;"
+    )
 
-        .replace(
-            /</g,
-            "&lt;"
-        )
+    .replace(
+        /</g,
+        "&lt;"
+    )
 
-        .replace(
-            />/g,
-            "&gt;"
-        )
+    .replace(
+        />/g,
+        "&gt;"
+    )
 
-        .replace(
-            /"/g,
-            "&quot;"
-        )
+    .replace(
+        /"/g,
+        "&quot;"
+    )
 
-        .replace(
-            /'/g,
-            "&#039;"
-        );
+    .replace(
+        /'/g,
+        "&#039;"
+    );
 
 }
 
@@ -2729,7 +2927,6 @@ function escapeHTML(text){
 loadProducts();
 
 </script>
-
 
 </body>
 
