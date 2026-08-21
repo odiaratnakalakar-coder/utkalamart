@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="or">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>UtkalaMart - Checkout</title>
+
+<style>
+
+/* =========================
+   BASIC
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:
+        Arial,
+        "Noto Sans Oriya",
+        "Nirmala UI",
+        sans-serif;
+
+    background:#eaeded;
+    color:#172337;
+}
+
+button,
+input,
+textarea,
+select{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+
+    background:#131921;
+
+    color:white;
+
+    padding:10px 5%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+.logo{
+
+    font-size:26px;
+
+    font-weight:bold;
+
+    color:#78c7ff;
+
+    text-decoration:none;
+}
+
+.logo span{
+    color:#ff7518;
+}
+
+.logo small{
+
+    display:block;
+
+    color:#b7e9c8;
+
+    font-size:10px;
+
+    margin-top:3px;
+
+    font-weight:normal;
+}
+
+.secure{
+
+    font-size:13px;
+
+    color:#b7e9c8;
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress{
+
+    background:white;
+
+    border-bottom:
+        1px solid #ddd;
+
+    padding:15px 5%;
+
+    text-align:center;
+
+    color:#555;
+
+    font-size:14px;
+}
+
+.progress span{
+
+    color:#087f3f;
+
+    font-weight:bold;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+
+    max-width:1200px;
+
+    margin:25px auto;
+
+    padding:0 15px;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.title{
+
+    margin-bottom:20px;
+}
+
+.title h1{
+
+    font-size:29px;
+
+    color:#172337;
+}
+
+.title h1 span{
+
+    color:#ff6b00;
+}
+
+.title p{
+
+    color:#666;
+
+    margin-top:6px;
+
+    font-size:14px;
+}
+
+
+/* =========================
+   LAYOUT
+========================= */
+
+.checkout-layout{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 370px;
+
+    gap:20px;
+
+    align-items:start;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+
+    background:white;
+
+    border:
+        1px solid #ddd;
+
+    border-radius:8px;
+
+    padding:22px;
+
+    margin-bottom:18px;
+}
+
+.card h2{
+
+    color:#172337;
+
+    font-size:21px;
+
+    margin-bottom:18px;
+
+    border-bottom:
+        2px solid #ff9900;
+
+    padding-bottom:10px;
+}
+
+
+/* =========================
+   FORM GRID
+========================= */
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:16px;
+}
+
+.full{
+
+    grid-column:
+        1/-1;
+}
+
+
+/* =========================
+   FIELD
+========================= */
+
+.field label{
+
+    display:block;
+
+    color:#243b5a;
+
+    font-weight:bold;
+
+    font-size:14px;
+
+    margin-bottom:7px;
+}
+
+.required{
+
+    color:#d00;
+}
+
+.field input,
+.field textarea,
+.field select{
+
+    width:100%;
+
+    padding:13px;
+
+    border:
+        1px solid #ccd2d9;
+
+    border-radius:7px;
+
+    outline:none;
+
+    background:white;
+
+    color:#111;
+
+    font-size:14px;
+}
+
+.field textarea{
+
+    min-height:100px;
+
+    resize:vertical;
+
+    line-height:1.6;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus{
+
+    border-color:#087f3f;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(8,127,63,.08);
+}
+
+.hint{
+
+    color:#888;
+
+    font-size:11px;
+
+    margin-top:5px;
+}
+
+
+/* =========================
+   ADDRESS
+========================= */
+
+.address-note{
+
+    background:#f3fff7;
+
+    color:#087f3f;
+
+    padding:12px;
+
+    border-radius:7px;
+
+    font-size:12px;
+
+    line-height:1.6;
+
+    margin-bottom:17px;
+}
+
+
+/* =========================
+   ORDER ITEMS
+========================= */
+
+.order-item{
+
+    display:grid;
+
+    grid-template-columns:
+        70px 1fr auto;
+
+    gap:12px;
+
+    padding:13px 0;
+
+    border-bottom:
+        1px solid #eee;
+}
+
+.order-item:last-child{
+    border-bottom:0;
+}
+
+.order-image{
+
+    width:70px;
+
+    height:70px;
+
+    border:
+        1px solid #ddd;
+
+    border-radius:6px;
+
+    overflow:hidden;
+
+    background:#f7f7f7;
+}
+
+.order-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+}
+
+.order-name{
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    line-height:1.5;
+}
+
+.order-qty{
+
+    color:#666;
+
+    font-size:12px;
+
+    margin-top:5px;
+}
+
+.order-price{
+
+    font-size:15px;
+
+    font-weight:bold;
+
+    white-space:nowrap;
+}
+
+
+/* =========================
+   PAYMENT
+========================= */
+
+.payment-option{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:14px;
+
+    border:
+        1px solid #ddd;
+
+    border-radius:8px;
+
+    margin-bottom:10px;
+}
+
+.payment-option input{
+
+    width:18px;
+
+    height:18px;
+}
+
+.payment-option strong{
+
+    font-size:14px;
+}
+
+.payment-option small{
+
+    display:block;
+
+    color:#777;
+
+    margin-top:3px;
+
+    font-size:11px;
+}
+
+
+/* =========================
+   SUMMARY
+========================= */
+
+.summary{
+
+    background:white;
+
+    border:
+        1px solid #ddd;
+
+    border-radius:8px;
+
+    padding:20px;
+
+    position:sticky;
+
+    top:20px;
+}
+
+.summary h2{
+
+    font-size:21px;
+
+    margin-bottom:18px;
+}
+
+.summary-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+    margin-bottom:13px;
+
+    font-size:14px;
+
+    color:#444;
+}
+
+.discount{
+
+    color:#087f3f;
+}
+
+.total{
+
+    border-top:
+        1px solid #ddd;
+
+    padding-top:16px;
+
+    margin-top:15px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:#b12704;
+}
+
+
+/* =========================
+   PLACE ORDER
+========================= */
+
+.place-order{
+
+    width:100%;
+
+    margin-top:20px;
+
+    padding:15px;
+
+    border:0;
+
+    border-radius:7px;
+
+    background:#ff9900;
+
+    color:#111;
+
+    font-size:16px;
+
+    font-weight:bold;
+}
+
+.place-order:hover{
+    background:#ff8c00;
+}
+
+.place-order:disabled{
+
+    background:#aaa;
+
+    cursor:not-allowed;
+}
+
+
+/* =========================
+   BACK
+========================= */
+
+.back-cart{
+
+    display:block;
+
+    text-align:center;
+
+    margin-top:
