@@ -1876,13 +1876,23 @@ async function rejectProduct(
 
     try{
 
-        await deleteDoc(
-            doc(
-                db,
-                "products",
-                id
-            )
-        );
+        await updateDoc(
+    doc(
+        db,
+        "products",
+        id
+    ),
+    {
+        status: "rejected",
+        updatedAt: new Date()
+    }
+);
+            
+                
+                
+                
+            
+        
 
 
         alert(
