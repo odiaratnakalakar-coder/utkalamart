@@ -11,6 +11,9 @@ from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 import { getAuth }
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
+import { getStorage }
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
+
 
 // ==========================================
 // FIREBASE CONFIG
@@ -55,11 +58,19 @@ const db =
 
 
 // ==========================================
-// AUTHENTICATION
+// AUTH
 // ==========================================
 
 const auth =
     getAuth(app);
+
+
+// ==========================================
+// STORAGE
+// ==========================================
+
+const storage =
+    getStorage(app);
 
 
 // ==========================================
@@ -69,5 +80,6 @@ const auth =
 export {
     app,
     db,
-    auth
+    auth,
+    storage
 };
