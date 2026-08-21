@@ -8,7 +8,7 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>UtkalaMart - ଆମର ସାମଗ୍ରୀ</title>
+<title>UtkalaMart - ସମସ୍ତ ଉତ୍ପାଦ</title>
 
 <style>
 
@@ -19,30 +19,50 @@
 }
 
 body{
-    font-family:Arial,"Noto Sans Oriya",sans-serif;
-    background:#171717;
-    color:#f2f2f2;
+    font-family:
+        Arial,
+        "Noto Sans Oriya",
+        "Nirmala UI",
+        sans-serif;
+
+    background:#f3f3f3;
+    color:#111;
 }
 
-/* HEADER */
 
-.header{
-    background:#222;
-    padding:12px 4%;
+/* =========================
+   TOP HEADER
+========================= */
+
+.top-header{
+
+    background:#131921;
+    color:white;
+
+    padding:8px 4%;
+
     display:flex;
     align-items:center;
-    gap:20px;
-    box-shadow:0 2px 10px #000;
+    gap:18px;
+
     position:sticky;
     top:0;
-    z-index:100;
+
+    z-index:1000;
 }
 
+
+/* LOGO */
+
 .logo{
-    min-width:190px;
+
+    min-width:185px;
+
     font-size:25px;
+
     font-weight:bold;
-    color:#9bdcff;
+
+    color:#78c7ff;
 }
 
 .logo span{
@@ -50,58 +70,139 @@ body{
 }
 
 .logo small{
+
     display:block;
-    color:#86f5b5;
+
     font-size:10px;
+
+    color:#b7e9c8;
+
     margin-top:3px;
+
+    font-weight:normal;
 }
+
 
 /* SEARCH */
 
-.search{
+.search-box{
+
     flex:1;
-    height:43px;
+
+    height:45px;
+
     display:flex;
-    border:2px solid #555;
-    border-radius:25px;
+
+    border-radius:7px;
+
     overflow:hidden;
-    background:#292929;
+
+    background:white;
 }
 
-.search input{
-    flex:1;
+.search-box select{
+
+    width:70px;
+
     border:none;
+
+    background:#eeeeee;
+
+    color:#333;
+
     outline:none;
-    background:#292929;
-    color:white;
-    padding:0 18px;
-    font-size:15px;
+
+    padding:0 7px;
 }
 
-.search input::placeholder{
-    color:#aaa;
-}
+.search-box input{
 
-.search button{
-    width:60px;
+    flex:1;
+
     border:none;
-    background:#df3508;
-    color:white;
-    font-size:20px;
+
+    outline:none;
+
+    padding:0 14px;
+
+    font-size:15px;
+
+    color:#111;
 }
+
+.search-box button{
+
+    width:58px;
+
+    border:none;
+
+    background:#ff9900;
+
+    font-size:20px;
+
+    cursor:pointer;
+}
+
+
+/* LANGUAGE */
+
+.language{
+
+    background:#232f3e;
+
+    color:white;
+
+    border:1px solid #777;
+
+    padding:7px 8px;
+
+    border-radius:5px;
+
+    cursor:pointer;
+
+    font-size:12px;
+}
+
+
+/* CART */
 
 .cart{
-    font-size:23px;
-    white-space:nowrap;
+
+    min-width:65px;
+
+    text-align:center;
+
+    font-size:22px;
+
+    cursor:pointer;
 }
 
-/* NAV */
+.cart span{
+
+    color:#ff9900;
+
+    font-weight:bold;
+
+    font-size:17px;
+}
+
+
+/* =========================
+   NAV
+========================= */
 
 .nav{
-    background:#00134d;
+
+    background:#232f3e;
+
+    color:white;
+
     display:flex;
+
     overflow-x:auto;
+
     white-space:nowrap;
+
     scrollbar-width:none;
 }
 
@@ -110,326 +211,831 @@ body{
 }
 
 .nav a{
+
     color:white;
+
     text-decoration:none;
-    padding:13px 17px;
+
+    padding:12px 17px;
+
     font-size:13px;
-    border-right:1px solid #18316d;
+
+    border-right:1px solid #39485a;
 }
 
 .nav a:hover,
 .nav a.active{
-    background:#d51e08;
+
+    background:#ff9900;
+
+    color:#111;
 }
 
-/* TITLE */
+
+/* =========================
+   TITLE
+========================= */
 
 .title{
-    text-align:center;
-    padding:38px 15px 22px;
+
+    background:white;
+
+    padding:25px 5% 18px;
+
+    border-bottom:1px solid #ddd;
 }
 
 .title h1{
-    font-size:34px;
-    color:#a9ddff;
+
+    font-size:30px;
+
+    color:#172337;
 }
 
 .title h1 span{
-    color:#ff7518;
+    color:#ff6b00;
 }
 
 .title p{
-    color:#aaa;
-    margin-top:10px;
-    font-size:17px;
+
+    color:#666;
+
+    margin-top:7px;
+
+    font-size:14px;
 }
+
+
+/* =========================
+   TOOLBAR
+========================= */
+
+.toolbar{
+
+    padding:14px 5%;
+
+    background:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+    border-bottom:1px solid #ddd;
+}
+
 
 /* FILTER */
 
-.filter{
-    margin:0 5% 28px;
-    padding:14px;
-    background:#232323;
-    border-radius:12px;
+.filters{
+
     display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:9px;
+
+    gap:8px;
+
+    overflow-x:auto;
+
+    scrollbar-width:none;
 }
 
-.filter button{
-    background:#555;
-    color:white;
-    border:none;
-    padding:10px 18px;
-    border-radius:22px;
+.filters::-webkit-scrollbar{
+    display:none;
+}
+
+.filter-btn{
+
+    border:1px solid #ccc;
+
+    background:white;
+
+    color:#333;
+
+    padding:8px 14px;
+
+    border-radius:20px;
+
+    white-space:nowrap;
+
+    cursor:pointer;
+
+    font-size:13px;
+}
+
+.filter-btn:hover,
+.filter-btn.active{
+
+    background:#ff9900;
+
+    border-color:#ff9900;
+
+    color:#111;
+}
+
+
+/* SORT */
+
+.sort-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    white-space:nowrap;
+}
+
+.sort-box label{
+
+    font-size:13px;
+
+    color:#555;
+}
+
+.sort-box select{
+
+    padding:8px 10px;
+
+    border:1px solid #bbb;
+
+    border-radius:5px;
+
+    background:white;
+
+    outline:none;
+}
+
+
+/* =========================
+   RESULT BAR
+========================= */
+
+.result-bar{
+
+    padding:12px 5%;
+
+    font-size:14px;
+
+    color:#555;
+
+    background:#f3f3f3;
+}
+
+
+/* =========================
+   PRODUCT GRID
+========================= */
+
+.products{
+
+    padding:0 5% 45px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:18px;
+}
+
+
+/* =========================
+   PRODUCT CARD
+========================= */
+
+.product{
+
+    background:white;
+
+    border-radius:8px;
+
+    overflow:hidden;
+
+    border:1px solid #ddd;
+
+    position:relative;
+
+    transition:.2s;
+
     cursor:pointer;
 }
 
-.filter button.active,
-.filter button:hover{
-    background:#df3508;
-}
-
-/* PRODUCTS */
-
-.products{
-    padding:0 5% 50px;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
-}
-
-/* PRODUCT CARD */
-
-.product{
-    background:#252525;
-    border-radius:16px;
-    overflow:hidden;
-    box-shadow:0 4px 15px #0008;
-    position:relative;
-    transition:.25s;
-}
-
 .product:hover{
-    transform:translateY(-5px);
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 5px 18px
+        rgba(0,0,0,.16);
 }
+
 
 /* IMAGE */
 
 .product-image{
-    width:100%;
+
     height:230px;
-    background:#333;
+
+    background:#f7f7f7;
+
+    position:relative;
+
     overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
 }
 
 .product-image img{
+
     width:100%;
+
     height:100%;
+
     object-fit:cover;
+
     display:block;
 }
 
-/* BADGE */
 
-.badge{
+/* DISCOUNT */
+
+.discount{
+
     position:absolute;
-    top:12px;
-    left:12px;
-    background:#087f3f;
+
+    top:10px;
+
+    left:10px;
+
+    background:#cc0c39;
+
     color:white;
-    padding:7px 11px;
-    border-radius:7px;
-    font-size:13px;
-    z-index:2;
+
+    padding:5px 8px;
+
+    border-radius:4px;
+
+    font-size:11px;
+
+    z-index:3;
 }
+
+
+/* WISHLIST */
+
+.wishlist{
+
+    position:absolute;
+
+    top:9px;
+
+    right:9px;
+
+    width:35px;
+
+    height:35px;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:white;
+
+    box-shadow:
+        0 2px 8px #0003;
+
+    font-size:19px;
+
+    cursor:pointer;
+
+    z-index:4;
+}
+
+.wishlist.active{
+
+    color:#e00035;
+}
+
 
 /* INFO */
 
 .info{
-    padding:16px;
+
+    padding:13px;
 }
+
+
+/* CATEGORY */
 
 .category{
-    color:#80f2b3;
+
+    color:#087f3f;
+
+    font-size:12px;
+
+    margin-bottom:5px;
+
+    font-weight:bold;
+}
+
+
+/* NAME */
+
+.product-name{
+
+    font-size:17px;
+
+    line-height:1.45;
+
+    color:#222;
+
+    min-height:48px;
+}
+
+
+/* ENGLISH NAME */
+
+.english-name{
+
+    color:#777;
+
+    font-size:11px;
+
+    margin-top:3px;
+
+    min-height:16px;
+}
+
+
+/* RATING */
+
+.rating-row{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:5px;
+
+    margin-top:7px;
+}
+
+.stars{
+
+    color:#ff9900;
+
     font-size:14px;
-    margin-bottom:6px;
 }
 
-.info h2{
-    color:#edf2ff;
-    font-size:20px;
-    margin-bottom:7px;
+.rating-number{
+
+    color:#555;
+
+    font-size:12px;
 }
 
-.rating{
-    color:#ffb300;
-    margin:7px 0;
+
+/* PRICE */
+
+.price-row{
+
+    margin-top:9px;
 }
 
 .price{
-    color:#9bdcff;
-    font-size:23px;
+
+    font-size:22px;
+
     font-weight:bold;
+
+    color:#111;
 }
+
+.mrp{
+
+    color:#777;
+
+    text-decoration:line-through;
+
+    font-size:12px;
+
+    margin-left:5px;
+}
+
+
+/* WEIGHT */
+
+.weight{
+
+    color:#555;
+
+    font-size:13px;
+
+    margin-top:6px;
+}
+
+
+/* STOCK */
 
 .stock{
-    color:#aaa;
-    font-size:13px;
+
+    font-size:12px;
+
     margin-top:5px;
+
+    color:#087f3f;
 }
+
+.stock.low{
+
+    color:#d35400;
+}
+
+.stock.out{
+
+    color:#d00;
+}
+
+
+/* LOCATION */
 
 .location{
-    color:#80f2b3;
-    font-size:13px;
+
+    color:#666;
+
+    font-size:12px;
+
     margin-top:5px;
 }
 
-.add{
-    width:100%;
-    margin-top:13px;
-    padding:12px;
-    border:none;
-    border-radius:8px;
-    background:#df3508;
-    color:white;
-    font-size:15px;
+
+/* SELLER */
+
+.seller{
+
+    color:#555;
+
+    font-size:12px;
+
+    margin-top:5px;
+}
+
+
+/* BUTTONS */
+
+.card-buttons{
+
+    display:flex;
+
+    gap:7px;
+
+    margin-top:12px;
+}
+
+.add-cart{
+
+    flex:1;
+
+    background:#ffd814;
+
+    border:1px solid #f0c14b;
+
+    border-radius:5px;
+
+    padding:9px 5px;
+
+    font-size:12px;
+
     font-weight:bold;
+
     cursor:pointer;
 }
 
-.add:hover{
-    background:#ff4b18;
+.buy-now{
+
+    flex:1;
+
+    background:#ff9900;
+
+    border:1px solid #ff9900;
+
+    border-radius:5px;
+
+    padding:9px 5px;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    cursor:pointer;
 }
 
-/* LOADING */
+.add-cart:hover{
+    background:#f7ca00;
+}
+
+.buy-now:hover{
+    background:#ff8c00;
+}
+
+
+/* =========================
+   LOADING
+========================= */
 
 .loading{
+
     grid-column:1/-1;
+
     text-align:center;
-    padding:60px 20px;
-    color:#9bdcff;
-    font-size:20px;
+
+    padding:70px 20px;
+
+    font-size:18px;
+
+    color:#555;
 }
 
-/* EMPTY */
+
+/* =========================
+   EMPTY
+========================= */
 
 .empty{
+
     grid-column:1/-1;
+
     text-align:center;
-    padding:60px 20px;
-    color:#aaa;
+
+    padding:70px 20px;
+
     display:none;
 }
 
+.empty-icon{
+
+    font-size:60px;
+
+    margin-bottom:15px;
+}
+
 .empty h2{
-    color:#ff7518;
-    margin-bottom:10px;
+
+    color:#333;
+
+    margin-bottom:8px;
 }
 
-/* DESCRIPTION */
+.empty p{
 
-.description{
-    color:#bbb;
-    font-size:13px;
-    line-height:1.6;
-    margin-top:8px;
+    color:#777;
 }
 
-/* FOOTER */
+
+/* =========================
+   FOOTER
+========================= */
 
 .footer{
-    background:#001c42;
-    text-align:center;
-    padding:35px 15px;
+
+    background:#131a22;
+
     color:white;
+
+    text-align:center;
+
+    padding:35px 15px;
 }
 
 .footer h2{
-    color:#a9ddff;
+
+    color:#78c7ff;
+
+    font-size:25px;
 }
 
 .footer h2 span{
+
     color:#ff7518;
 }
 
 .footer p{
-    color:#cbd7e8;
+
+    color:#c7d0db;
+
     margin-top:8px;
+
+    font-size:13px;
 }
 
-/* MOBILE */
+
+/* =========================
+   TOAST
+========================= */
+
+.toast{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:25px;
+
+    transform:
+        translateX(-50%)
+        translateY(100px);
+
+    background:#111;
+
+    color:white;
+
+    padding:13px 20px;
+
+    border-radius:7px;
+
+    box-shadow:
+        0 5px 20px #0006;
+
+    z-index:2000;
+
+    transition:.3s;
+
+    opacity:0;
+
+    font-size:14px;
+}
+
+.toast.show{
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+
+    opacity:1;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:1000px){
 
     .products{
-        grid-template-columns:repeat(3,1fr);
+
+        grid-template-columns:
+            repeat(3,1fr);
     }
 
 }
 
-@media(max-width:700px){
 
-    .header{
+@media(max-width:750px){
+
+    .top-header{
+
         flex-wrap:wrap;
-        gap:10px;
+
+        gap:8px;
     }
 
     .logo{
+
         min-width:auto;
-        font-size:21px;
+
         flex:1;
+
+        font-size:21px;
     }
 
-    .search{
+    .language{
+
+        order:2;
+    }
+
+    .cart{
+
         order:3;
+    }
+
+    .search-box{
+
+        order:4;
+
         flex-basis:100%;
     }
 
     .products{
-        grid-template-columns:repeat(2,1fr);
-        padding:0 3% 40px;
-        gap:12px;
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+        padding-left:3%;
+
+        padding-right:3%;
+
+        gap:11px;
     }
 
     .product-image{
-        height:180px;
+
+        height:185px;
     }
 
-    .info{
-        padding:12px;
-    }
+    .product-name{
 
-    .info h2{
-        font-size:16px;
+        font-size:15px;
     }
 
     .price{
+
         font-size:19px;
+    }
+
+    .toolbar{
+
+        padding-left:3%;
+
+        padding-right:3%;
+    }
+
+    .result-bar{
+
+        padding-left:3%;
+
+        padding-right:3%;
     }
 
 }
 
+
 @media(max-width:430px){
 
     .title h1{
-        font-size:27px;
+
+        font-size:25px;
     }
 
     .title p{
-        font-size:14px;
-    }
 
-    .filter{
-        margin-left:3%;
-        margin-right:3%;
-    }
-
-    .filter button{
-        padding:8px 12px;
         font-size:12px;
     }
 
     .product-image{
-        height:150px;
+
+        height:155px;
     }
 
-    .info h2{
-        font-size:15px;
+    .info{
+
+        padding:9px;
+    }
+
+    .product-name{
+
+        font-size:14px;
+
+        min-height:42px;
+    }
+
+    .english-name{
+
+        font-size:9px;
     }
 
     .category{
-        font-size:12px;
+
+        font-size:10px;
     }
 
     .price{
+
         font-size:17px;
     }
 
-    .add{
-        font-size:13px;
-        padding:10px;
+    .weight,
+    .stock,
+    .location,
+    .seller{
+
+        font-size:10px;
+    }
+
+    .add-cart,
+    .buy-now{
+
+        font-size:10px;
+
+        padding:8px 2px;
     }
 
 }
@@ -442,9 +1048,12 @@ body{
 <body>
 
 
-<!-- HEADER -->
+<!-- =========================
+     HEADER
+========================= -->
 
-<header class="header">
+<header class="top-header">
+
 
     <div class="logo">
 
@@ -457,152 +1066,274 @@ body{
     </div>
 
 
-    <div class="search">
+    <div class="search-box">
+
+        <select id="searchLanguage">
+
+            <option value="all">
+                ସବୁ
+            </option>
+
+            <option value="odia">
+                ଓଡ଼ିଆ
+            </option>
+
+            <option value="english">
+                English
+            </option>
+
+        </select>
+
 
         <input
-            type="text"
+            type="search"
             id="searchInput"
-            placeholder="Product ଖୋଜନ୍ତୁ..."
+            placeholder="ଉତ୍ପାଦ ଖୋଜନ୍ତୁ / Search products..."
         >
 
-        <button onclick="searchProducts()">
+
+        <button
+            onclick="searchProducts()"
+        >
             🔍
         </button>
 
     </div>
 
 
-    <div class="cart">
+    <button
+        class="language"
+        onclick="toggleLanguage()"
+        id="languageBtn"
+    >
+        EN
+    </button>
+
+
+    <div
+        class="cart"
+        onclick="openCart()"
+    >
 
         🛒
-        <span id="cartCount">0</span>
+
+        <span id="cartCount">
+            0
+        </span>
 
     </div>
+
 
 </header>
 
 
-<!-- NAVIGATION -->
+<!-- =========================
+     NAV
+========================= -->
 
 <nav class="nav">
 
     <a href="index.html">
-        🏠 ମୁଖ୍ୟ ପୃଷ୍ଠା
+        🏠 <span data-or="ମୁଖ୍ୟ ପୃଷ୍ଠା"
+                 data-en="Home">
+            ମୁଖ୍ୟ ପୃଷ୍ଠା
+        </span>
     </a>
 
-    <a href="products.html" class="active">
-        🛍️ ସମସ୍ତ ଉତ୍ପାଦ
+    <a
+        href="products.html"
+        class="active"
+    >
+        🛍️ <span data-or="ସମସ୍ତ ଉତ୍ପାଦ"
+                 data-en="All Products">
+            ସମସ୍ତ ଉତ୍ପାଦ
+        </span>
     </a>
 
-    <a href="products.html?category=ଗଞ୍ଜାମ ଖାଦ୍ୟ">
+    <a href="?category=ଗଞ୍ଜାମ ଖାଦ୍ୟ">
         🍚 ଗଞ୍ଜାମ ଖାଦ୍ୟ
     </a>
 
-    <a href="products.html?category=ହସ୍ତତନ୍ତ">
+    <a href="?category=ହସ୍ତତନ୍ତ">
         🧵 ହସ୍ତତନ୍ତ
     </a>
 
-    <a href="products.html?category=ହସ୍ତଶିଳ୍ପ">
+    <a href="?category=ହସ୍ତଶିଳ୍ପ">
         🎨 ହସ୍ତଶିଳ୍ପ
     </a>
 
-    <a href="products.html?category=ପାରମ୍ପରିକ">
+    <a href="?category=ପାରମ୍ପରିକ ସାମଗ୍ରୀ">
         🪔 ପାରମ୍ପରିକ
     </a>
 
-    <a href="products.html?category=ଗ୍ରାମୀଣ ସାମଗ୍ରୀ">
+    <a href="?category=ଗ୍ରାମୀଣ ସାମଗ୍ରୀ">
         🌾 ଗ୍ରାମୀଣ
     </a>
 
 </nav>
 
 
-<!-- TITLE -->
+<!-- =========================
+     TITLE
+========================= -->
 
 <section class="title">
 
     <h1>
-        ଆମର <span>ସାମଗ୍ରୀ</span>
+
+        <span data-or="ଆମର"
+              data-en="Our">
+            ଆମର
+        </span>
+
+        <span>
+            <span data-or="ସାମଗ୍ରୀ"
+                  data-en="Products">
+                ସାମଗ୍ରୀ
+            </span>
+        </span>
+
     </h1>
 
-    <p>
-        ଓଡ଼ିଆ ପରିବାର ପାଇଁ ଓଡ଼ିଶାର ନିଜସ୍ୱ ସାମଗ୍ରୀ ❤️
+
+    <p data-or="ଓଡ଼ିଆ ପରିବାର ପାଇଁ ଓଡ଼ିଶାର ନିଜସ୍ୱ ସାମଗ୍ରୀ ❤️"
+       data-en="Authentic Odisha products for every Odia family ❤️">
+
+        ଓଡ଼ିଆ ପରିବାର ପାଇଁ
+        ଓଡ଼ିଶାର ନିଜସ୍ୱ ସାମଗ୍ରୀ ❤️
+
     </p>
 
 </section>
 
 
-<!-- FILTER -->
+<!-- =========================
+     TOOLBAR
+========================= -->
 
-<div class="filter">
-
-    <button
-        class="active"
-        onclick="filterProducts('all',this)"
-    >
-        ସବୁ
-    </button>
+<div class="toolbar">
 
 
-    <button
-        onclick="filterProducts('ଗଞ୍ଜାମ ଖାଦ୍ୟ',this)"
-    >
-        🍚 ଗଞ୍ଜାମ ଖାଦ୍ୟ
-    </button>
+    <div class="filters">
+
+        <button
+            class="filter-btn active"
+            onclick="filterProducts('all',this)"
+        >
+            ସବୁ
+        </button>
 
 
-    <button
-        onclick="filterProducts('ହସ୍ତତନ୍ତ',this)"
-    >
-        🧵 ହସ୍ତତନ୍ତ
-    </button>
+        <button
+            class="filter-btn"
+            onclick="filterProducts('ଗଞ୍ଜାମ ଖାଦ୍ୟ',this)"
+        >
+            🍚 ଖାଦ୍ୟ
+        </button>
 
 
-    <button
-        onclick="filterProducts('ହସ୍ତଶିଳ୍ପ',this)"
-    >
-        🎨 ହସ୍ତଶିଳ୍ପ
-    </button>
+        <button
+            class="filter-btn"
+            onclick="filterProducts('ହସ୍ତତନ୍ତ',this)"
+        >
+            🧵 ହସ୍ତତନ୍ତ
+        </button>
 
 
-    <button
-        onclick="filterProducts('ପାରମ୍ପରିକ',this)"
-    >
-        🪔 ପାରମ୍ପରିକ
-    </button>
+        <button
+            class="filter-btn"
+            onclick="filterProducts('ହସ୍ତଶିଳ୍ପ',this)"
+        >
+            🎨 ହସ୍ତଶିଳ୍ପ
+        </button>
 
 
-    <button
-        onclick="filterProducts('ଗ୍ରାମୀଣ ସାମଗ୍ରୀ',this)"
-    >
-        🌾 ଗ୍ରାମୀଣ
-    </button>
+        <button
+            class="filter-btn"
+            onclick="filterProducts('ପାରମ୍ପରିକ ସାମଗ୍ରୀ',this)"
+        >
+            🪔 ପାରମ୍ପରିକ
+        </button>
 
 
-    <button
-        onclick="filterProducts('ଅନ୍ୟାନ୍ୟ',this)"
-    >
-        📦 ଅନ୍ୟାନ୍ୟ
-    </button>
+        <button
+            class="filter-btn"
+            onclick="filterProducts('ଗ୍ରାମୀଣ ସାମଗ୍ରୀ',this)"
+        >
+            🌾 ଗ୍ରାମୀଣ
+        </button>
+
+
+        <button
+            class="filter-btn"
+            onclick="filterProducts('ଅନ୍ୟାନ୍ୟ',this)"
+        >
+            📦 ଅନ୍ୟାନ୍ୟ
+        </button>
+
+    </div>
+
+
+    <div class="sort-box">
+
+        <label>
+            Sort:
+        </label>
+
+        <select
+            id="sortSelect"
+            onchange="sortProducts()"
+        >
+
+            <option value="newest">
+                ନୂଆ
+            </option>
+
+            <option value="low">
+                ଦାମ କମ୍
+            </option>
+
+            <option value="high">
+                ଦାମ ଅଧିକ
+            </option>
+
+            <option value="stock">
+                Stock
+            </option>
+
+        </select>
+
+    </div>
 
 </div>
 
 
-<!-- PRODUCTS -->
+<!-- =========================
+     RESULT
+========================= -->
+
+<div
+    class="result-bar"
+    id="resultBar"
+>
+    Product ଖୋଜାଯାଉଛି...
+</div>
+
+
+<!-- =========================
+     PRODUCTS
+========================= -->
 
 <section
     class="products"
     id="productList"
 >
 
-
     <div
         class="loading"
         id="loading"
     >
-
-        ⏳ ଓଡ଼ିଶାର ସାମଗ୍ରୀ ଆସୁଛି...
-
+        ⏳ Products ଆସୁଛି...
     </div>
 
 
@@ -611,21 +1342,26 @@ body{
         id="empty"
     >
 
+        <div class="empty-icon">
+            😔
+        </div>
+
         <h2>
-            😔 ସାମଗ୍ରୀ ମିଳିଲା ନାହିଁ
+            ସାମଗ୍ରୀ ମିଳିଲା ନାହିଁ
         </h2>
 
         <p>
-            ଅନ୍ୟ Product ନାମ କିମ୍ବା Category ଖୋଜନ୍ତୁ।
+            ଅନ୍ୟ ନାମ କିମ୍ବା English ନାମରେ ଖୋଜନ୍ତୁ।
         </p>
 
     </div>
 
-
 </section>
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer class="footer">
 
@@ -634,7 +1370,8 @@ body{
     </h2>
 
     <p>
-        ଆମ ଗାଁର ସ୍ୱାଦ, ସୁରତରେ ଆମ ପରିବାର ପାଇଁ ❤️
+        ଆମ ଗାଁର ସ୍ୱାଦ,
+        ସୁରତରେ ଆମ ପରିବାର ପାଇଁ ❤️
     </p>
 
     <p>
@@ -644,7 +1381,17 @@ body{
 </footer>
 
 
-<!-- FIREBASE -->
+<!-- TOAST -->
+
+<div
+    class="toast"
+    id="toast"
+></div>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
 
 <script type="module">
 
@@ -654,21 +1401,39 @@ from "./firebase.js";
 
 
 import {
+
     collection,
     getDocs
+
 }
 from
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 
-/* VARIABLES */
+/* =========================
+   VARIABLES
+========================= */
 
 let allProducts = [];
 
-let cartCount = 0;
+let visibleProducts = [];
+
+let cart = JSON.parse(
+    localStorage.getItem("utkalamart_cart") || "[]"
+);
+
+let wishlist = JSON.parse(
+    localStorage.getItem("utkalamart_wishlist") || "[]"
+);
+
+let currentCategory = "all";
+
+let currentLanguage = "or";
 
 
-/* ELEMENTS */
+/* =========================
+   ELEMENTS
+========================= */
 
 const productList =
 document.getElementById("productList");
@@ -682,8 +1447,33 @@ document.getElementById("empty");
 const searchInput =
 document.getElementById("searchInput");
 
+const resultBar =
+document.getElementById("resultBar");
 
-/* LOAD PRODUCTS */
+const cartCount =
+document.getElementById("cartCount");
+
+const sortSelect =
+document.getElementById("sortSelect");
+
+
+/* =========================
+   CART COUNT
+========================= */
+
+function updateCartCount(){
+
+    cartCount.innerText =
+    cart.length;
+
+}
+
+updateCartCount();
+
+
+/* =========================
+   LOAD PRODUCTS
+========================= */
 
 async function loadProducts(){
 
@@ -715,9 +1505,22 @@ async function loadProducts(){
 
 
             /*
-            ବର୍ତ୍ତମାନ pending product
-            ମଧ୍ୟ test ପାଇଁ ଦେଖାଯିବ।
+              CUSTOMER SIDE:
+              କେବଳ approved product
             */
+
+            if(
+                String(
+                    data.status || ""
+                ).toLowerCase()
+                !==
+                "approved"
+            ){
+
+                return;
+
+            }
+
 
             allProducts.push({
 
@@ -734,31 +1537,41 @@ async function loadProducts(){
         "none";
 
 
-        renderProducts(
-            allProducts
-        );
+        applyURLCategory();
 
+        applyFilters();
 
     }
 
     catch(error){
 
-        console.error(error);
+        console.error(
+            "PRODUCT LOAD ERROR:",
+            error
+        );
+
 
         loading.style.display =
         "none";
 
+
         productList.innerHTML = `
 
-            <div class="empty"
-                 style="display:block">
+            <div
+                class="empty"
+                style="display:block"
+            >
+
+                <div class="empty-icon">
+                    ❌
+                </div>
 
                 <h2>
-                    ❌ Product ଲୋଡ୍ ହୋଇପାରିଲା ନାହିଁ
+                    Product ଲୋଡ୍ ହୋଇପାରିଲା ନାହିଁ
                 </h2>
 
                 <p>
-                    ${error.message}
+                    ${escapeHTML(error.message)}
                 </p>
 
             </div>
@@ -770,18 +1583,402 @@ async function loadProducts(){
 }
 
 
-/* RENDER PRODUCTS */
+/* =========================
+   SEARCH NORMALIZE
+========================= */
+
+function normalize(text){
+
+    return String(text || "")
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g," ");
+
+}
+
+
+/* =========================
+   ENGLISH → ODIA COMMON WORDS
+========================= */
+
+const englishOdiaMap = {
+
+    achar:"ଆଚାର",
+
+    pickle:"ଆଚାର",
+
+    mango:"ଆମ୍ବ",
+
+    aam:"ଆମ୍ବ",
+
+    food:"ଖାଦ୍ୟ",
+
+    rice:"ଚାଉଳ",
+
+    dal:"ଡାଲି",
+
+    papad:"ପାପଡ",
+
+    pappad:"ପାପଡ",
+
+    saree:"ଶାଢ଼ୀ",
+
+    sari:"ଶାଢ଼ୀ",
+
+    sambalpuri:"ସମ୍ବଲପୁରୀ",
+
+    handloom:"ହସ୍ତତନ୍ତ",
+
+    handicraft:"ହସ୍ତଶିଳ୍ପ",
+
+    craft:"ହସ୍ତଶିଳ୍ପ",
+
+    traditional:"ପାରମ୍ପରିକ",
+
+    gift:"ଉପହାର",
+
+    book:"ବହି",
+
+    oil:"ତେଲ",
+
+    spice:"ମସଲା",
+
+    spices:"ମସଲା",
+
+    sweet:"ମିଠା",
+
+    sweets:"ମିଠା",
+
+    ganjam:"ଗଞ୍ଜାମ",
+
+    odisha:"ଓଡ଼ିଶା",
+
+    odia:"ଓଡ଼ିଆ",
+
+    product:"ସାମଗ୍ରୀ"
+
+};
+
+
+/* =========================
+   SEARCH WORDS
+========================= */
+
+function getSearchWords(text){
+
+    const original =
+    normalize(text);
+
+    let words = [original];
+
+
+    Object.keys(
+        englishOdiaMap
+    ).forEach(key=>{
+
+        if(
+            original.includes(key)
+        ){
+
+            words.push(
+                englishOdiaMap[key]
+            );
+
+        }
+
+    });
+
+
+    return words;
+
+}
+
+
+/* =========================
+   SEARCH PRODUCT
+========================= */
+
+window.searchProducts =
+function(){
+
+    applyFilters();
+
+};
+
+
+/* ENTER SEARCH */
+
+searchInput.addEventListener(
+    "keyup",
+    function(event){
+
+        applyFilters();
+
+    }
+);
+
+
+/* =========================
+   FILTER
+========================= */
+
+window.filterProducts =
+function(category,button){
+
+    currentCategory =
+    category;
+
+
+    document
+    .querySelectorAll(".filter-btn")
+    .forEach(btn=>{
+
+        btn.classList.remove(
+            "active"
+        );
+
+    });
+
+
+    if(button){
+
+        button.classList.add(
+            "active"
+        );
+
+    }
+
+
+    applyFilters();
+
+};
+
+
+/* =========================
+   APPLY FILTERS
+========================= */
+
+function applyFilters(){
+
+    const search =
+    normalize(
+        searchInput.value
+    );
+
+
+    let results =
+    [...allProducts];
+
+
+    /* CATEGORY */
+
+    if(
+        currentCategory !== "all"
+    ){
+
+        results =
+        results.filter(
+            product => {
+
+                return (
+                    product.category
+                    ===
+                    currentCategory
+                );
+
+            }
+        );
+
+    }
+
+
+    /* SEARCH */
+
+    if(search !== ""){
+
+        const words =
+        getSearchWords(search);
+
+
+        results =
+        results.filter(
+            product=>{
+
+                const odiaName =
+                normalize(
+                    product.name
+                );
+
+
+                const englishName =
+                normalize(
+                    product.nameEnglish
+                    ||
+                    product.englishName
+                    ||
+                    ""
+                );
+
+
+                const category =
+                normalize(
+                    product.category
+                );
+
+
+                const village =
+                normalize(
+                    product.village
+                );
+
+
+                const description =
+                normalize(
+                    product.description
+                );
+
+
+                const searchField =
+                normalize(
+                    product.nameSearch
+                );
+
+
+                return words.some(
+                    word =>
+
+                        odiaName.includes(word)
+                        ||
+
+                        englishName.includes(word)
+                        ||
+
+                        category.includes(word)
+                        ||
+
+                        village.includes(word)
+                        ||
+
+                        description.includes(word)
+                        ||
+
+                        searchField.includes(word)
+
+                );
+
+            }
+        );
+
+    }
+
+
+    visibleProducts =
+    results;
+
+
+    sortProducts(false);
+
+
+}
+
+
+/* =========================
+   SORT
+========================= */
+
+window.sortProducts =
+function(shouldApply=true){
+
+    if(shouldApply){
+
+        visibleProducts =
+        [...visibleProducts];
+
+    }
+
+
+    const type =
+    sortSelect.value;
+
+
+    if(type === "low"){
+
+        visibleProducts.sort(
+            (a,b)=>
+            Number(a.price || 0)
+            -
+            Number(b.price || 0)
+        );
+
+    }
+
+
+    else if(type === "high"){
+
+        visibleProducts.sort(
+            (a,b)=>
+            Number(b.price || 0)
+            -
+            Number(a.price || 0)
+        );
+
+    }
+
+
+    else if(type === "stock"){
+
+        visibleProducts.sort(
+            (a,b)=>
+            Number(b.stock || 0)
+            -
+            Number(a.stock || 0)
+        );
+
+    }
+
+
+    else{
+
+        visibleProducts.sort(
+            (a,b)=>{
+
+                const aTime =
+                a.createdAt?.seconds
+                ||
+                0;
+
+                const bTime =
+                b.createdAt?.seconds
+                ||
+                0;
+
+                return bTime-aTime;
+
+            }
+        );
+
+    }
+
+
+    renderProducts(
+        visibleProducts
+    );
+
+};
+
+
+/* =========================
+   RENDER
+========================= */
 
 function renderProducts(products){
-
-    /*
-    ପୁରୁଣା card clear
-    */
 
     productList
     .querySelectorAll(".product")
     .forEach(card=>{
+
         card.remove();
+
     });
 
 
@@ -789,6 +1986,11 @@ function renderProducts(products){
 
         empty.style.display =
         "block";
+
+
+        resultBar.innerText =
+        "0 Product";
+
 
         return;
 
@@ -799,18 +2001,20 @@ function renderProducts(products){
     "none";
 
 
-    products.forEach(product=>{
+    resultBar.innerText =
+    `${products.length} Product ମିଳିଲା`;
 
-        createProductCard(
-            product
-        );
 
-    });
+    products.forEach(
+        createProductCard
+    );
 
 }
 
 
-/* CREATE PRODUCT CARD */
+/* =========================
+   PRODUCT CARD
+========================= */
 
 function createProductCard(product){
 
@@ -822,53 +2026,206 @@ function createProductCard(product){
 
 
     const image =
-    product.image ||
+    product.image
+    ||
     "https://via.placeholder.com/600x500?text=Odia+Product";
 
 
     const name =
-    product.name ||
+    product.name
+    ||
     "ଓଡ଼ିଆ ସାମଗ୍ରୀ";
 
 
+    const englishName =
+    product.nameEnglish
+    ||
+    product.englishName
+    ||
+    "";
+
+
     const category =
-    product.category ||
+    product.category
+    ||
     "ଅନ୍ୟାନ୍ୟ";
 
 
     const price =
-    Number(product.price || 0);
+    Number(
+        product.price || 0
+    );
+
+
+    const mrp =
+    Number(
+        product.mrp || 0
+    );
 
 
     const stock =
-    Number(product.stock || 0);
+    Number(
+        product.stock || 0
+    );
 
 
     const village =
-    product.village ||
+    product.village
+    ||
     "ଓଡ଼ିଶା";
 
 
-    const description =
-    product.description ||
+    const seller =
+    product.sellerName
+    ||
+    "UtkalaMart Seller";
+
+
+    const weight =
+    product.weight
+    ||
+    product.weightValue
+    ||
     "";
 
 
-    card.dataset.name =
-    name.toLowerCase();
+    const unit =
+    product.unit
+    ||
+    product.weightUnit
+    ||
+    "";
 
 
-    card.dataset.category =
-    category;
+    const rating =
+    Number(
+        product.rating || 5
+    );
+
+
+    const reviewCount =
+    Number(
+        product.reviewCount || 0
+    );
+
+
+    const discount =
+    product.discount
+    ||
+    "";
+
+
+    const isWishlisted =
+    wishlist.includes(
+        product.id
+    );
+
+
+    let stockText =
+    `📦 Stock: ${stock}`;
+
+    let stockClass =
+    "";
+
+
+    if(stock <= 0){
+
+        stockText =
+        "❌ Stock ନାହିଁ";
+
+        stockClass =
+        "out";
+
+    }
+
+    else if(stock <= 5){
+
+        stockText =
+        `⚠️ ମାତ୍ର ${stock} ଟି ବାକି`;
+
+        stockClass =
+        "low";
+
+    }
+
+
+    let stars = "";
+
+    for(
+        let i=1;
+        i<=5;
+        i++
+    ){
+
+        stars +=
+        i <= Math.round(rating)
+        ? "★"
+        : "☆";
+
+    }
+
+
+    const priceHTML =
+    mrp > price
+    ?
+    `
+        <span class="price">
+            ₹${price.toLocaleString("en-IN")}
+        </span>
+
+        <span class="mrp">
+            ₹${mrp.toLocaleString("en-IN")}
+        </span>
+    `
+    :
+    `
+        <span class="price">
+            ₹${price.toLocaleString("en-IN")}
+        </span>
+    `;
 
 
     card.innerHTML = `
 
-        <div class="product-image">
+        <div
+            class="product-image"
+            onclick="openProduct('${product.id}')"
+        >
+
+            ${
+                discount
+                ?
+                `<div class="discount">
+                    ${escapeHTML(discount)}% OFF
+                </div>`
+                :
+                ""
+            }
+
+
+            <button
+                class="wishlist ${
+                    isWishlisted
+                    ? "active"
+                    : ""
+                }"
+                onclick="
+                    event.stopPropagation();
+                    toggleWishlist('${product.id}');
+                "
+            >
+                ${
+                    isWishlisted
+                    ? "❤️"
+                    : "♡"
+                }
+            </button>
+
 
             <img
                 src="${image}"
                 alt="${escapeHTML(name)}"
+                loading="lazy"
             >
 
         </div>
@@ -881,23 +2238,70 @@ function createProductCard(product){
             </div>
 
 
-            <h2>
+            <div
+                class="product-name"
+                onclick="openProduct('${product.id}')"
+            >
                 ${escapeHTML(name)}
-            </h2>
-
-
-            <div class="rating">
-                ⭐⭐⭐⭐⭐
             </div>
 
 
-            <div class="price">
-                ₹${price.toLocaleString("en-IN")}
+            ${
+                englishName
+                ?
+                `
+                <div class="english-name">
+                    ${escapeHTML(englishName)}
+                </div>
+                `
+                :
+                ""
+            }
+
+
+            <div class="rating-row">
+
+                <span class="stars">
+                    ${stars}
+                </span>
+
+                <span class="rating-number">
+                    ${rating.toFixed(1)}
+                    ${
+                        reviewCount
+                        ?
+                        `(${reviewCount})`
+                        :
+                        ""
+                    }
+                </span>
+
             </div>
 
 
-            <div class="stock">
-                📦 ଷ୍ଟକ୍: ${stock}
+            <div class="price-row">
+
+                ${priceHTML}
+
+            </div>
+
+
+            ${
+                weight
+                ?
+                `
+                <div class="weight">
+                    ⚖️ ${escapeHTML(String(weight))}
+                    ${escapeHTML(String(unit))}
+                </div>
+                `
+                :
+                ""
+            }
+
+
+            <div class="stock ${stockClass}">
+                ${stockText}
             </div>
 
 
@@ -906,45 +2310,49 @@ function createProductCard(product){
             </div>
 
 
-            ${
-                description
-                ?
-                `
-                <div class="description">
-                    ${escapeHTML(description)}
-                </div>
-                `
-                :
-                ""
-            }
+            <div class="seller">
+                🏪 ${escapeHTML(seller)}
+            </div>
 
 
-            <button
-                class="add"
-                data-name="${escapeHTML(name)}"
-            >
+            <div class="card-buttons">
 
-                🛒 କାର୍ଟରେ ରଖନ୍ତୁ
+                <button
+                    class="add-cart"
+                    onclick="
+                        event.stopPropagation();
+                        addToCart('${product.id}');
+                    "
+                    ${
+                        stock <= 0
+                        ? "disabled"
+                        : ""
+                    }
+                >
+                    🛒 Cart
+                </button>
 
-            </button>
+
+                <button
+                    class="buy-now"
+                    onclick="
+                        event.stopPropagation();
+                        buyNow('${product.id}');
+                    "
+                    ${
+                        stock <= 0
+                        ? "disabled"
+                        : ""
+                    }
+                >
+                    ⚡ Buy Now
+                </button>
+
+            </div>
 
         </div>
 
     `;
-
-
-    const button =
-    card.querySelector(".add");
-
-
-    button.addEventListener(
-        "click",
-        ()=>{
-
-            addCart(name);
-
-        }
-    );
 
 
     productList.appendChild(
@@ -954,180 +2362,188 @@ function createProductCard(product){
 }
 
 
-/* ESCAPE HTML */
+/* =========================
+   WISHLIST
+========================= */
 
-function escapeHTML(text){
+window.toggleWishlist =
+function(id){
 
-    return String(text)
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
+    if(
+        wishlist.includes(id)
+    ){
 
-}
+        wishlist =
+        wishlist.filter(
+            item=>item !== id
+        );
+
+        showToast(
+            "❤️ Wishlistରୁ ବାହାର କରାଗଲା"
+        );
+
+    }
+    else{
+
+        wishlist.push(id);
+
+        showToast(
+            "❤️ Wishlistରେ ରଖାଗଲା"
+        );
+
+    }
 
 
-/* SEARCH */
+    localStorage.setItem(
+        "utkalamart_wishlist",
+        JSON.stringify(wishlist)
+    );
 
-window.searchProducts =
+
+    renderProducts(
+        visibleProducts
+    );
+
+};
+
+
+/* =========================
+   CART
+========================= */
+
+window.addToCart =
+function(id){
+
+    const product =
+    allProducts.find(
+        p=>p.id === id
+    );
+
+
+    if(!product){
+
+        return;
+
+    }
+
+
+    if(
+        Number(product.stock || 0)
+        <=
+        0
+    ){
+
+        showToast(
+            "❌ ଏହି Product Stockରେ ନାହିଁ"
+        );
+
+        return;
+
+    }
+
+
+    const existing =
+    cart.find(
+        item=>item.id === id
+    );
+
+
+    if(existing){
+
+        existing.quantity++;
+
+    }
+    else{
+
+        cart.push({
+
+            id:id,
+
+            name:
+            product.name,
+
+            price:
+            Number(product.price || 0),
+
+            image:
+            product.image || "",
+
+            quantity:1
+
+        });
+
+    }
+
+
+    localStorage.setItem(
+        "utkalamart_cart",
+        JSON.stringify(cart)
+    );
+
+
+    updateCartCount();
+
+
+    showToast(
+        "🛒 Product Cartରେ ରଖାଗଲା"
+    );
+
+};
+
+
+/* =========================
+   BUY NOW
+========================= */
+
+window.buyNow =
+function(id){
+
+    addToCart(id);
+
+    setTimeout(
+        ()=>{
+            window.location.href =
+            "cart.html";
+        },
+        400
+    );
+
+};
+
+
+/* =========================
+   OPEN CART
+========================= */
+
+window.openCart =
 function(){
 
-    const text =
-    searchInput
-    .value
-    .toLowerCase()
-    .trim();
-
-
-    if(text === ""){
-
-        renderProducts(
-            allProducts
-        );
-
-        return;
-
-    }
-
-
-    const results =
-    allProducts.filter(product=>{
-
-        const name =
-        String(
-            product.name || ""
-        ).toLowerCase();
-
-
-        const category =
-        String(
-            product.category || ""
-        ).toLowerCase();
-
-
-        const village =
-        String(
-            product.village || ""
-        ).toLowerCase();
-
-
-        const description =
-        String(
-            product.description || ""
-        ).toLowerCase();
-
-
-        return (
-
-            name.includes(text) ||
-
-            category.includes(text) ||
-
-            village.includes(text) ||
-
-            description.includes(text)
-
-        );
-
-    });
-
-
-    renderProducts(
-        results
-    );
+    window.location.href =
+    "cart.html";
 
 };
 
 
-/* ENTER SEARCH */
+/* =========================
+   PRODUCT DETAILS
+========================= */
 
-searchInput.addEventListener(
-    "keyup",
-    function(event){
+window.openProduct =
+function(id){
 
-        if(event.key === "Enter"){
-
-            searchProducts();
-
-        }
-
-    }
-);
-
-
-/* FILTER */
-
-window.filterProducts =
-function(category,button){
-
-    document
-    .querySelectorAll(".filter button")
-    .forEach(btn=>{
-
-        btn.classList.remove(
-            "active"
-        );
-
-    });
-
-
-    button.classList.add(
-        "active"
-    );
-
-
-    if(category === "all"){
-
-        renderProducts(
-            allProducts
-        );
-
-        return;
-
-    }
-
-
-    const results =
-    allProducts.filter(product=>{
-
-        return product.category === category;
-
-    });
-
-
-    renderProducts(
-        results
-    );
+    window.location.href =
+    "product-details.html?id="
+    +
+    encodeURIComponent(id);
 
 };
 
 
-/* CART */
+/* =========================
+   URL CATEGORY
+========================= */
 
-function addCart(name){
-
-    cartCount++;
-
-
-    document.getElementById(
-        "cartCount"
-    ).innerText =
-    cartCount;
-
-
-    alert(
-        "🛒 " +
-        name +
-        "\n\nକାର୍ଟରେ ରଖାଗଲା।"
-    );
-
-}
-
-
-/* URL CATEGORY */
-
-function loadURLCategory(){
+function applyURLCategory(){
 
     const params =
     new URLSearchParams(
@@ -1141,26 +2557,20 @@ function loadURLCategory(){
 
     if(!category){
 
+        currentCategory =
+        "all";
+
         return;
 
     }
 
 
-    const results =
-    allProducts.filter(product=>{
-
-        return product.category === category;
-
-    });
-
-
-    renderProducts(
-        results
-    );
+    currentCategory =
+    category;
 
 
     document
-    .querySelectorAll(".filter button")
+    .querySelectorAll(".filter-btn")
     .forEach(btn=>{
 
         btn.classList.remove(
@@ -1169,11 +2579,152 @@ function loadURLCategory(){
 
     });
 
+}
+
+
+/* =========================
+   LANGUAGE
+========================= */
+
+window.toggleLanguage =
+function(){
+
+    if(
+        currentLanguage === "or"
+    ){
+
+        currentLanguage =
+        "en";
+
+        document
+        .querySelectorAll(
+            "[data-en]"
+        )
+        .forEach(el=>{
+
+            el.innerText =
+            el.getAttribute(
+                "data-en"
+            );
+
+        });
+
+        document
+        .getElementById(
+            "languageBtn"
+        )
+        .innerText =
+        "ଓଡ଼ିଆ";
+
+        searchInput.placeholder =
+        "Search products...";
+
+    }
+    else{
+
+        currentLanguage =
+        "or";
+
+        document
+        .querySelectorAll(
+            "[data-or]"
+        )
+        .forEach(el=>{
+
+            el.innerText =
+            el.getAttribute(
+                "data-or"
+            );
+
+        });
+
+        document
+        .getElementById(
+            "languageBtn"
+        )
+        .innerText =
+        "EN";
+
+        searchInput.placeholder =
+        "ଉତ୍ପାଦ ଖୋଜନ୍ତୁ / Search products...";
+
+    }
+
+};
+
+
+/* =========================
+   TOAST
+========================= */
+
+function showToast(text){
+
+    const toast =
+    document.getElementById(
+        "toast"
+    );
+
+
+    toast.innerText =
+    text;
+
+
+    toast.classList.add(
+        "show"
+    );
+
+
+    setTimeout(
+        ()=>{
+            toast.classList.remove(
+                "show"
+            );
+        },
+        2200
+    );
 
 }
 
 
-/* START */
+/* =========================
+   ESCAPE HTML
+========================= */
+
+function escapeHTML(text){
+
+    return String(text || "")
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* =========================
+   START
+========================= */
 
 loadProducts();
 
@@ -1182,4 +2733,4 @@ loadProducts();
 
 </body>
 
-</html>
+      </html>
