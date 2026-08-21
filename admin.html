@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="or">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UtkalaMart Admin</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,"Noto Sans Oriya",sans-serif;
+    background:#111;
+    color:#fff;
+}
+
+header{
+    background:linear-gradient(135deg,#063b16,#087f3f);
+    padding:20px;
+    text-align:center;
+}
+
+header h1{
+    font-size:28px;
+}
+
+header span{
+    color:#ff8a00;
+}
+
+header p{
+    margin-top:6px;
+    color:#caffdc;
+}
+
+.container{
+    max-width:1100px;
+    margin:25px auto;
+    padding:0 15px;
+}
+
+/* LOGIN */
+
+#loginSection{
+    max-width:450px;
+    margin:50px auto;
+    background:#222;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 5px 25px rgba(0,0,0,.5);
+}
+
+#loginSection h2{
+    text-align:center;
+    color:#8fffc0;
+    margin-bottom:25px;
+}
+
+label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:7px;
+    font-weight:bold;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    border-radius:10px;
+    border:1px solid #555;
+    background:#303030;
+    color:white;
+    font-size:16px;
+}
+
+input:focus{
+    outline:none;
+    border-color:#00b85a;
+}
+
+button{
+    border:none;
+    cursor:pointer;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.login-btn{
+    width:100%;
+    margin-top:22px;
+    padding:15px;
+    background:#00a94f;
+    color:#fff;
+    font-size:17px;
+}
+
+.logout-btn{
+    padding:10px 18px;
+    background:#d62828;
+    color:white;
+    margin-top:10px;
+}
+
+.message{
+    display:none;
+    padding:14px;
+    margin-top:15px;
+    border-radius:10px;
+    text-align:center;
+    font-weight:bold;
+}
+
+.error{
+    background:#4b1111;
+    color:#ffb0b0;
+}
+
+.success{
+    background:#063d20;
+    color:#8fffc0;
+}
+
+/* DASHBOARD */
+
+#dashboard{
+    display:none;
+}
+
+.topbar{
+    background:#202020;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.topbar h2{
+    color:#8fffc0;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.stat{
+    background:#222;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.stat h3{
+    color:#aaa;
+    font-size:15px;
+}
+
+.stat strong{
+    display:block;
+    font-size:30px;
+    color:#ff8a00;
+    margin-top:8px;
+}
+
+.section-title{
+    margin:20px 0;
+    color:#8fffc0;
+}
+
+.product{
+    background:#222;
+    border-radius:18px;
+    padding:18px;
+    margin-bottom:20px;
+    display:grid;
+    grid-template-columns:180px 1fr;
+    gap:20px;
+}
+
+.product img{
+    width:180px;
+    height:180px;
+    object-fit:cover;
+    border-radius:15px;
+    background:#333;
+}
+
+.product h3{
+    color:#ff9d25;
+    margin-bottom:10px;
+    font-size:22px;
+}
+
+.details{
+    color:#ddd;
+    line-height:1.8;
+}
+
+.status{
+    display:inline-block;
+    padding:5px 10px;
+    border-radius:20px;
+    background:#5b4200;
+    color:#ffe08a;
+    margin:8px 0;
+}
+
+.actions{
+    margin-top:15px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.approve{
+    background:#00a94f;
+    color:white;
+    padding:12px 18px;
+}
+
+.reject{
+    background:#d62828;
+    color:white;
+    padding:12px 18px;
+}
+
+.empty{
+    background:#222;
+    padding:35px;
+    border-radius:15px;
+    text-align:center;
+    color:#aaa;
+}
+
+.loading{
+    text-align:center;
+    padding:30px;
+    color:#8fffc0;
+}
+
+@media(max-width:700px){
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .product{
+        grid-template-columns:1fr;
+    }
+
+    .product img{
+        width:100%;
+        height:240px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <h1>🛒 Utkala<span>Mart</span></h1>
+
+    <p>🔐 Admin Dashboard</p>
+
+</header>
+
+
+<!-- ================= LOGIN ================= -->
+
+<section id="loginSection">
+
+    <h2>🔐 Admin Login</h2>
+
+    <label>📧 Email</label>
+
+    <input
+        type="email"
+        id="email"
+        placeholder="Admin Email"
+        autocomplete="email"
+    >
+
+    <label>🔑 Password</label>
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Password"
+        autocomplete="current-password"
+    >
+
+    <button
+        class="login-btn"
+        id="loginBtn"
+    >
+        🔐 Login
+    </button>
+
+    <div
+        id="loginMessage"
+        class="message"
+    ></div>
+
+</section>
+
+
+<!-- ================= DASHBOARD ================= -->
+
+<section id="dashboard">
+
+<div class="container">
+
+    <div class="topbar">
+
+        <div>
+            <h2>🏪 Admin Dashboard</h2>
+
+            <p id="adminEmail"></p>
+        </div>
+
+        <button
+            class="logout-btn"
+            id="logoutBtn"
+        >
+            🚪 Logout
+        </button>
+
+    </div>
+
+
+    <!-- STATS -->
+
+    <div class="stats">
+
+        <div class="stat">
+
+            <h3>⏳ Pending Products</h3>
+
+            <strong id="pendingCount">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat">
+
+            <h3>✅ Approved Products</h3>
+
+            <strong id="approvedCount">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat">
+
+            <h3>📦 Total Products</h3>
+
+            <strong id="totalCount">
+                0
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <h2 class="section-title">
+        ⏳ Pending Products
+    </h2>
+
+
+    <div
+        id="productsList"
+    >
+        <div class="loading">
+            ⏳ Products loading...
+        </div>
+    </div>
+
+</div>
+
+</section>
+
+
+<script type="module">
+
+
+/* =========================================
+   FIREBASE
+========================================= */
+
+import {
+    db,
+    auth
+} from "./firebase.js";
+
+
+import {
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+
+import {
+    collection,
+    query,
+    where,
+    orderBy,
+    getDocs,
+    doc,
+    updateDoc,
+    deleteDoc
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+/* =========================================
+   ELEMENTS
+========================================= */
+
+const loginSection =
+document.getElementById("loginSection");
+
+const dashboard =
+document.getElementById("dashboard");
+
+const emailInput =
+document.getElementById("email");
+
+const passwordInput =
+document.getElementById("password");
+
+const loginBtn =
+document.getElementById("loginBtn");
+
+const logoutBtn =
+document.getElementById("logoutBtn");
+
+const loginMessage =
+document.getElementById("loginMessage");
+
+const adminEmail =
+document.getElementById("adminEmail");
+
+const productsList =
+document.getElementById("productsList");
+
+const pendingCount =
+document.getElementById("pendingCount");
+
+const approvedCount =
+document.getElementById("approvedCount");
+
+const totalCount =
+document.getElementById("totalCount");
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+function showLoginMessage(text,type){
+
+    loginMessage.innerText = text;
+
+    loginMessage.className =
+        "message " + type;
+
+    loginMessage.style.display =
+        "block";
+}
+
+
+/* =========================================
+   LOGIN
+========================================= */
+
+loginBtn.addEventListener(
+"click",
+async function(){
+
+    const email =
+        emailInput.value.trim();
+
+    const password =
+        passwordInput.value;
+
+
+    if(!email || !password){
+
+        showLoginMessage(
+            "❌ Email ଓ Password ଦିଅନ୍ତୁ।",
+            "error"
+        );
+
+        return;
+    }
+
+
+    try{
+
+        loginBtn.disabled = true;
+
+        loginBtn.innerText =
+            "⏳ Login ହେଉଛି...";
+
+
+        await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
+
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        showLoginMessage(
+            "❌ Login ବିଫଳ। Email କିମ୍ବା Password ଠିକ୍ ନୁହେଁ।",
+            "error"
+        );
+
+        loginBtn.disabled = false;
+
+        loginBtn.innerText =
+            "🔐 Login";
+    }
+
+});
+
+
+/* =========================================
+   ENTER KEY LOGIN
+========================================= */
+
+passwordInput.addEventListener(
+"keydown",
+function(e){
+
+    if(e.key === "Enter"){
+
+        loginBtn.click();
+
+    }
+
+});
+
+
+/* =========================================
+   AUTH STATE
+========================================= */
+
+onAuthStateChanged(
+auth,
+async function(user){
+
+    if(user){
+
+        loginSection.style.display =
+            "none";
+
+        dashboard.style.display =
+            "block";
+
+        adminEmail.innerText =
+            "Admin: " + user.email;
+
+        await loadProducts();
+
+    }
+    else{
+
+        loginSection.style.display =
+            "block";
+
+        dashboard.style.display =
+            "none";
+
+    }
+
+});
+
+
+/* =========================================
+   LOGOUT
+========================================= */
+
+logoutBtn.addEventListener(
+"click",
+async function(){
+
+    await signOut(auth);
+
+});
+
+
+/* =========================================
+   LOAD PRODUCTS
+========================================= */
+
+async function loadProducts(){
+
+    productsList.innerHTML =
+        `<div class="loading">
+            ⏳ Products loading...
+        </div>`;
+
+
+    try{
+
+        const productsRef =
+            collection(db,"products");
+
+
+        /*
+           Pending products
+        */
+
+        const pendingQuery =
+            query(
+                productsRef,
+                where("status","==","pending"),
+                orderBy("createdAt","desc")
+            );
+
+
+        const pendingSnapshot =
+            await getDocs(pendingQuery);
+
+
+        /*
+           All products
+        */
+
+        const allSnapshot =
+            await getDocs(productsRef);
+
+
+        let approved = 0;
+
+
+        allSnapshot.forEach(
+        function(item){
+
+            const data =
+                item.data();
+
+            if(data.status === "approved"){
+
+                approved++;
+
+            }
+
+        });
+
+
+        pendingCount.innerText =
+            pendingSnapshot.size;
+
+        approvedCount.innerText =
+            approved;
+
+        totalCount.innerText =
+            allSnapshot.size;
+
+
+        if(pendingSnapshot.empty){
+
+            productsList.innerHTML =
+                `<div class="empty">
+                    🎉 ବର୍ତ୍ତମାନ କୌଣସି Pending Product ନାହିଁ।
+                </div>`;
+
+            return;
+
+        }
+
+
+        productsList.innerHTML = "";
+
+
+        pendingSnapshot.forEach(
+        function(item){
+
+            const data =
+                item.data();
+
+            const product =
+                document.createElement("div");
+
+            product.className =
+                "product";
+
+
+            product.innerHTML = `
+
+                <img
+                    src="${data.image || ""}"
+                    alt="Product"
+                >
+
+                <div>
+
+                    <h3>
+                        ${escapeHTML(data.name || "Product")}
+                    </h3>
+
+                    <div class="status">
+                        ⏳ Pending
+                    </div>
+
+                    <div class="details">
+
+                        💰 <b>ଦାମ:</b>
+                        ₹${Number(data.price || 0)}
+                        <br>
+
+                        📦 <b>Stock:</b>
+                        ${Number(data.stock || 0)}
+                        <br>
+
+                        📂 <b>ବର୍ଗ:</b>
+                        ${escapeHTML(data.category || "")}
+                        <br>
+
+                        📍 <b>ଅଞ୍ଚଳ:</b>
+                        ${escapeHTML(data.village || "")}
+                        <br>
+
+                        👤 <b>ବିକ୍ରେତା:</b>
+                        ${escapeHTML(data.sellerName || "")}
+                        <br>
+
+                        📞 <b>Mobile:</b>
+                        ${escapeHTML(data.sellerMobile || "")}
+                        <br>
+
+                        📝 <b>ବିବରଣୀ:</b>
+                        ${escapeHTML(data.description || "")}
+
+                    </div>
+
+                    <div class="actions">
+
+                        <button
+                            class="approve"
+                            data-id="${item.id}"
+                        >
+                            ✅ Approve
+                        </button>
+
+                        <button
+                            class="reject"
+                            data-id="${item.id}"
+                        >
+                            ❌ Reject
+                        </button>
+
+                    </div>
+
+                </div>
+            `;
+
+
+            productsList.appendChild(product);
+
+        });
+
+
+        /* APPROVE */
+
+        document
+        .querySelectorAll(".approve")
+        .forEach(
+        function(button){
+
+            button.addEventListener(
+            "click",
+            function(){
+
+                approveProduct(
+                    this.dataset.id
+                );
+
+            });
+
+        });
+
+
+        /* REJECT */
+
+        document
+        .querySelectorAll(".reject")
+        .forEach(
+        function(button){
+
+            button.addEventListener(
+            "click",
+            function(){
+
+                rejectProduct(
+                    this.dataset.id
+                );
+
+            });
+
+        });
+
+
+    }
+    catch(error){
+
+        console.error(
+            "LOAD ERROR:",
+            error
+        );
+
+
+        productsList.innerHTML =
+            `<div class="empty">
+                ❌ Products load ହୋଇପାରିଲା ନାହିଁ।
+                <br><br>
+                ${escapeHTML(error.message)}
+            </div>`;
+
+    }
+
+}
+
+
+/* =========================================
+   APPROVE
+========================================= */
+
+async function approveProduct(id){
+
+    if(!confirm(
+        "ଏହି Product କୁ Approve କରିବେ?"
+    )){
+
+        return;
+
+    }
+
+
+    try{
+
+        await updateDoc(
+            doc(
+                db,
+                "products",
+                id
+            ),
+            {
+                status:"approved"
+            }
+        );
+
+
+        alert(
+            "✅ Product Approved!"
+        );
+
+
+        await loadProducts();
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "❌ Approve ହୋଇପାରିଲା ନାହିଁ।"
+        );
+
+    }
+
+}
+
+
+/* =========================================
+   REJECT
+========================================= */
+
+async function rejectProduct(id){
+
+    if(!confirm(
+        "ଏହି Product କୁ Reject କରିବେ?\n\nReject କଲେ Product delete ହୋଇଯିବ।"
+    )){
+
+        return;
+
+    }
+
+
+    try{
+
+        await deleteDoc(
+            doc(
+                db,
+                "products",
+                id
+            )
+        );
+
+
+        alert(
+            "❌ Product Reject ହୋଇଗଲା।"
+        );
+
+
+        await loadProducts();
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "❌ Reject ହୋଇପାରିଲା ନାହିଁ।"
+        );
+
+    }
+
+}
+
+
+/* =========================================
+   SECURITY
+========================================= */
+
+function escapeHTML(value){
+
+    return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+</script>
+
+</body>
+</html>
