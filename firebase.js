@@ -1,43 +1,39 @@
 // ==========================================
-// UtkalaMart Firebase Configuration
+// UtkalaMart Firebase
 // ==========================================
 
-import { initializeApp } 
+import { initializeApp }
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
-import {
-    getFirestore
-}
+import { getFirestore }
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
-import {
-    getAuth
-}
+import { getAuth }
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
 
 // ==========================================
-// FIREBASE CONFIG
+// FIREBASE CONFIGURATION
 // ==========================================
 
 const firebaseConfig = {
 
-    apiKey: "YOUR_API_KEY",
+    apiKey: "AIzaSyBVj_KKsS7SNZ108jnw6hpOlmgeOfRhJg",
 
     authDomain:
-        "YOUR_PROJECT_ID.firebaseapp.com",
+        "utkalamart-1ec68.firebaseapp.com",
 
     projectId:
-        "YOUR_PROJECT_ID",
+        "utkalamart-1ec68",
 
     storageBucket:
-        "YOUR_PROJECT_ID.firebasestorage.app",
+        "utkalamart-1ec68.firebasestorage.app",
 
     messagingSenderId:
-        "YOUR_MESSAGING_SENDER_ID",
+        "664871353747",
 
     appId:
-        "YOUR_APP_ID"
+        "1:664871353747:web:96532fdafe78aabe7f3c66"
 
 };
 
@@ -51,7 +47,7 @@ const app =
 
 
 // ==========================================
-// FIRESTORE
+// FIRESTORE DATABASE
 // ==========================================
 
 const db =
@@ -59,7 +55,7 @@ const db =
 
 
 // ==========================================
-// AUTHENTICATION
+// FIREBASE AUTHENTICATION
 // ==========================================
 
 const auth =
