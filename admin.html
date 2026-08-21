@@ -2,12 +2,19 @@
 <html lang="or">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>UtkalaMart Admin</title>
 
 <style>
+
+/* ==============================
+   RESET
+============================== */
 
 *{
     margin:0;
@@ -15,280 +22,747 @@
     box-sizing:border-box;
 }
 
+
+/* ==============================
+   BODY
+============================== */
+
 body{
-    font-family:Arial,"Noto Sans Oriya",sans-serif;
-    background:#111;
+    font-family:
+        Arial,
+        "Noto Sans Oriya",
+        sans-serif;
+
+    background:#101010;
     color:#fff;
+    min-height:100vh;
 }
 
-header{
-    background:linear-gradient(135deg,#063b16,#087f3f);
-    padding:20px;
+
+/* ==============================
+   HEADER
+============================== */
+
+.header{
+
+    background:
+        linear-gradient(
+            135deg,
+            #063b16,
+            #087f3f
+        );
+
+    padding:22px 15px;
+
     text-align:center;
+
+    box-shadow:
+        0 4px 20px rgba(0,0,0,.35);
 }
 
-header h1{
-    font-size:28px;
+.header h1{
+
+    font-size:30px;
+    font-weight:bold;
 }
 
-header span{
+.header h1 span{
+
     color:#ff8a00;
 }
 
-header p{
-    margin-top:6px;
+.header p{
+
+    margin-top:7px;
+
     color:#caffdc;
+
+    font-size:15px;
 }
+
+
+/* ==============================
+   MAIN CONTAINER
+============================== */
 
 .container{
+
+    width:100%;
     max-width:1100px;
-    margin:25px auto;
-    padding:0 15px;
+
+    margin:auto;
+
+    padding:20px 15px 50px;
 }
 
-/* LOGIN */
 
-#loginSection{
+/* ==============================
+   LOGIN BOX
+============================== */
+
+.login-box{
+
     max-width:450px;
-    margin:50px auto;
-    background:#222;
-    padding:30px;
+
+    margin:55px auto;
+
+    background:#202020;
+
+    padding:28px 22px;
+
     border-radius:20px;
-    box-shadow:0 5px 25px rgba(0,0,0,.5);
+
+    box-shadow:
+        0 8px 35px rgba(0,0,0,.5);
 }
 
-#loginSection h2{
+.login-box h2{
+
     text-align:center;
+
     color:#8fffc0;
+
     margin-bottom:25px;
+
+    font-size:25px;
 }
+
+
+/* ==============================
+   LABEL
+============================== */
 
 label{
+
     display:block;
-    margin-top:15px;
-    margin-bottom:7px;
+
+    margin-top:17px;
+
+    margin-bottom:8px;
+
+    font-size:16px;
+
     font-weight:bold;
+
+    color:#e6e6e6;
 }
 
+
+/* ==============================
+   INPUT
+============================== */
+
 input{
+
     width:100%;
+
     padding:14px;
-    border-radius:10px;
-    border:1px solid #555;
+
     background:#303030;
-    color:white;
+
+    color:#fff;
+
+    border:1px solid #555;
+
+    border-radius:10px;
+
     font-size:16px;
+
+    outline:none;
 }
 
 input:focus{
-    outline:none;
+
     border-color:#00b85a;
+
+    box-shadow:
+        0 0 0 2px rgba(0,184,90,.15);
 }
+
+
+/* ==============================
+   BUTTON
+============================== */
 
 button{
+
     border:none;
+
     cursor:pointer;
+
     border-radius:10px;
+
     font-weight:bold;
+
+    transition:.2s;
 }
 
+button:active{
+
+    transform:scale(.97);
+}
+
+button:disabled{
+
+    opacity:.6;
+
+    cursor:not-allowed;
+}
+
+
+/* ==============================
+   LOGIN BUTTON
+============================== */
+
 .login-btn{
+
     width:100%;
-    margin-top:22px;
+
+    margin-top:23px;
+
     padding:15px;
+
     background:#00a94f;
+
     color:#fff;
+
     font-size:17px;
 }
 
-.logout-btn{
-    padding:10px 18px;
-    background:#d62828;
-    color:white;
-    margin-top:10px;
+.login-btn:hover{
+
+    background:#00c45c;
 }
+
+
+/* ==============================
+   MESSAGE
+============================== */
 
 .message{
+
     display:none;
-    padding:14px;
+
     margin-top:15px;
+
+    padding:13px;
+
     border-radius:10px;
+
     text-align:center;
+
     font-weight:bold;
+
+    line-height:1.5;
 }
 
-.error{
-    background:#4b1111;
-    color:#ffb0b0;
+.message.error{
+
+    background:#481010;
+
+    color:#ffb3b3;
 }
 
-.success{
+.message.success{
+
     background:#063d20;
+
     color:#8fffc0;
 }
 
-/* DASHBOARD */
+.message.info{
+
+    background:#102d48;
+
+    color:#a9d9ff;
+}
+
+
+/* ==============================
+   DASHBOARD
+============================== */
 
 #dashboard{
+
     display:none;
 }
 
+
+/* ==============================
+   TOP BAR
+============================== */
+
 .topbar{
+
     background:#202020;
-    padding:20px;
-    border-radius:15px;
-    margin-bottom:20px;
+
+    padding:18px;
+
+    border-radius:16px;
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
+
     gap:15px;
+
     flex-wrap:wrap;
+
+    margin-bottom:20px;
 }
 
 .topbar h2{
+
     color:#8fffc0;
+
+    font-size:22px;
 }
 
+.admin-email{
+
+    color:#aaa;
+
+    margin-top:5px;
+
+    font-size:14px;
+
+    word-break:break-all;
+}
+
+
+/* ==============================
+   LOGOUT
+============================== */
+
+.logout-btn{
+
+    background:#d62828;
+
+    color:#fff;
+
+    padding:11px 18px;
+
+    font-size:15px;
+}
+
+.logout-btn:hover{
+
+    background:#ef3434;
+}
+
+
+/* ==============================
+   STATS
+============================== */
+
 .stats{
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap:15px;
+
     margin-bottom:25px;
 }
 
 .stat{
-    background:#222;
+
+    background:#202020;
+
     padding:20px;
-    border-radius:15px;
+
+    border-radius:16px;
+
     text-align:center;
 }
 
-.stat h3{
+.stat-title{
+
     color:#aaa;
+
+    font-size:14px;
+}
+
+.stat-number{
+
+    display:block;
+
+    margin-top:8px;
+
+    font-size:32px;
+
+    color:#ff9d25;
+
+    font-weight:bold;
+}
+
+
+/* ==============================
+   SECTION
+============================== */
+
+.section-title{
+
+    color:#8fffc0;
+
+    margin:25px 0 15px;
+
+    font-size:23px;
+}
+
+
+/* ==============================
+   PRODUCT CARD
+============================== */
+
+.product-card{
+
+    background:#202020;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    margin-bottom:20px;
+
+    display:grid;
+
+    grid-template-columns:
+        190px 1fr;
+
+    gap:20px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.25);
+}
+
+
+/* ==============================
+   PRODUCT IMAGE
+============================== */
+
+.product-image{
+
+    width:190px;
+
+    height:190px;
+
+    border-radius:15px;
+
+    object-fit:cover;
+
+    background:#333;
+
+    border:1px solid #444;
+}
+
+
+/* ==============================
+   PRODUCT NAME
+============================== */
+
+.product-name{
+
+    color:#ff9d25;
+
+    font-size:23px;
+
+    margin-bottom:7px;
+
+    word-break:break-word;
+}
+
+
+/* ==============================
+   STATUS
+============================== */
+
+.status{
+
+    display:inline-block;
+
+    padding:5px 12px;
+
+    border-radius:20px;
+
+    background:#5b4200;
+
+    color:#ffe08a;
+
+    font-size:13px;
+
+    margin:5px 0 12px;
+}
+
+
+/* ==============================
+   DETAILS
+============================== */
+
+.details{
+
+    color:#ddd;
+
+    line-height:1.8;
+
+    font-size:15px;
+
+    word-break:break-word;
+}
+
+.details b{
+
+    color:#fff;
+}
+
+
+/* ==============================
+   ACTIONS
+============================== */
+
+.actions{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin-top:16px;
+}
+
+.approve-btn{
+
+    background:#00a94f;
+
+    color:#fff;
+
+    padding:12px 18px;
+
     font-size:15px;
 }
 
-.stat strong{
-    display:block;
-    font-size:30px;
-    color:#ff8a00;
-    margin-top:8px;
+.approve-btn:hover{
+
+    background:#00c45c;
 }
 
-.section-title{
-    margin:20px 0;
-    color:#8fffc0;
-}
+.reject-btn{
 
-.product{
-    background:#222;
-    border-radius:18px;
-    padding:18px;
-    margin-bottom:20px;
-    display:grid;
-    grid-template-columns:180px 1fr;
-    gap:20px;
-}
-
-.product img{
-    width:180px;
-    height:180px;
-    object-fit:cover;
-    border-radius:15px;
-    background:#333;
-}
-
-.product h3{
-    color:#ff9d25;
-    margin-bottom:10px;
-    font-size:22px;
-}
-
-.details{
-    color:#ddd;
-    line-height:1.8;
-}
-
-.status{
-    display:inline-block;
-    padding:5px 10px;
-    border-radius:20px;
-    background:#5b4200;
-    color:#ffe08a;
-    margin:8px 0;
-}
-
-.actions{
-    margin-top:15px;
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-}
-
-.approve{
-    background:#00a94f;
-    color:white;
-    padding:12px 18px;
-}
-
-.reject{
     background:#d62828;
-    color:white;
+
+    color:#fff;
+
     padding:12px 18px;
+
+    font-size:15px;
 }
+
+.reject-btn:hover{
+
+    background:#ef3434;
+}
+
+
+/* ==============================
+   EMPTY
+============================== */
 
 .empty{
-    background:#222;
-    padding:35px;
-    border-radius:15px;
+
+    background:#202020;
+
+    padding:35px 20px;
+
+    border-radius:16px;
+
     text-align:center;
+
     color:#aaa;
+
+    line-height:1.7;
 }
 
+
+/* ==============================
+   LOADING
+============================== */
+
 .loading{
+
     text-align:center;
+
     padding:30px;
+
     color:#8fffc0;
+
+    font-size:16px;
 }
+
+
+/* ==============================
+   REFRESH
+============================== */
+
+.refresh-box{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    margin-bottom:15px;
+}
+
+.refresh-btn{
+
+    background:#063b78;
+
+    color:#fff;
+
+    padding:10px 17px;
+}
+
+.refresh-btn:hover{
+
+    background:#084c99;
+}
+
+
+/* ==============================
+   RESPONSIVE
+============================== */
 
 @media(max-width:700px){
 
+    .header h1{
+
+        font-size:26px;
+    }
+
+    .header p{
+
+        font-size:14px;
+    }
+
+    .container{
+
+        padding:
+            15px
+            12px
+            40px;
+    }
+
     .stats{
+
         grid-template-columns:1fr;
     }
 
-    .product{
+    .product-card{
+
         grid-template-columns:1fr;
+
+        padding:15px;
     }
 
-    .product img{
+    .product-image{
+
         width:100%;
-        height:240px;
+
+        height:250px;
+    }
+
+    .product-name{
+
+        font-size:21px;
+    }
+
+    .topbar{
+
+        align-items:flex-start;
+    }
+
+    .logout-btn{
+
+        width:100%;
+    }
+
+    .actions button{
+
+        width:100%;
+    }
+
+}
+
+
+/* ==============================
+   VERY SMALL MOBILE
+============================== */
+
+@media(max-width:400px){
+
+    .login-box{
+
+        margin:
+            30px auto;
+
+        padding:
+            22px 16px;
+    }
+
+    .stat-number{
+
+        font-size:28px;
     }
 
 }
 
 </style>
+
 </head>
+
 
 <body>
 
-<header>
 
-    <h1>🛒 Utkala<span>Mart</span></h1>
+<!-- ==========================================
+     HEADER
+========================================== -->
 
-    <p>🔐 Admin Dashboard</p>
+<header class="header">
+
+    <h1>
+        🛒 Utkala<span>Mart</span>
+    </h1>
+
+    <p>
+        🔐 Admin Dashboard
+    </p>
 
 </header>
 
 
-<!-- ================= LOGIN ================= -->
 
-<section id="loginSection">
+<!-- ==========================================
+     LOGIN
+========================================== -->
 
-    <h2>🔐 Admin Login</h2>
+<section
+    id="loginSection"
+    class="login-box"
+>
 
-    <label>📧 Email</label>
+    <h2>
+        🔐 Admin Login
+    </h2>
+
+
+    <label>
+        📧 Admin Email
+    </label>
 
     <input
         type="email"
@@ -297,7 +771,10 @@ button{
         autocomplete="email"
     >
 
-    <label>🔑 Password</label>
+
+    <label>
+        🔑 Password
+    </label>
 
     <input
         type="password"
@@ -306,12 +783,14 @@ button{
         autocomplete="current-password"
     >
 
+
     <button
-        class="login-btn"
         id="loginBtn"
+        class="login-btn"
     >
         🔐 Login
     </button>
+
 
     <div
         id="loginMessage"
@@ -321,23 +800,37 @@ button{
 </section>
 
 
-<!-- ================= DASHBOARD ================= -->
+
+<!-- ==========================================
+     DASHBOARD
+========================================== -->
 
 <section id="dashboard">
 
 <div class="container">
 
+
+    <!-- TOP BAR -->
+
     <div class="topbar">
 
         <div>
-            <h2>🏪 Admin Dashboard</h2>
 
-            <p id="adminEmail"></p>
+            <h2>
+                🏪 UtkalaMart Admin
+            </h2>
+
+            <div
+                id="adminEmail"
+                class="admin-email"
+            ></div>
+
         </div>
 
+
         <button
-            class="logout-btn"
             id="logoutBtn"
+            class="logout-btn"
         >
             🚪 Logout
         </button>
@@ -345,74 +838,127 @@ button{
     </div>
 
 
-    <!-- STATS -->
+
+    <!-- ======================================
+         STATISTICS
+    ======================================= -->
 
     <div class="stats">
 
+
         <div class="stat">
 
-            <h3>⏳ Pending Products</h3>
+            <div class="stat-title">
+                ⏳ Pending Products
+            </div>
 
-            <strong id="pendingCount">
+            <span
+                id="pendingCount"
+                class="stat-number"
+            >
                 0
-            </strong>
+            </span>
 
         </div>
 
 
         <div class="stat">
 
-            <h3>✅ Approved Products</h3>
+            <div class="stat-title">
+                ✅ Approved Products
+            </div>
 
-            <strong id="approvedCount">
+            <span
+                id="approvedCount"
+                class="stat-number"
+            >
                 0
-            </strong>
+            </span>
 
         </div>
 
 
         <div class="stat">
 
-            <h3>📦 Total Products</h3>
+            <div class="stat-title">
+                📦 Total Products
+            </div>
 
-            <strong id="totalCount">
+            <span
+                id="totalCount"
+                class="stat-number"
+            >
                 0
-            </strong>
+            </span>
 
         </div>
+
 
     </div>
 
 
+
+    <!-- ======================================
+         REFRESH
+    ======================================= -->
+
+    <div class="refresh-box">
+
+        <button
+            id="refreshBtn"
+            class="refresh-btn"
+        >
+            🔄 Refresh
+        </button>
+
+    </div>
+
+
+
+    <!-- ======================================
+         PENDING
+    ======================================= -->
+
     <h2 class="section-title">
+
         ⏳ Pending Products
+
     </h2>
 
 
-    <div
-        id="productsList"
-    >
+    <div id="productsList">
+
         <div class="loading">
+
             ⏳ Products loading...
+
         </div>
+
     </div>
+
 
 </div>
 
 </section>
 
 
+
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
 <script type="module">
 
 
-/* =========================================
+/* ==========================================
    FIREBASE
-========================================= */
+========================================== */
 
 import {
     db,
     auth
-} from "./firebase.js";
+}
+from "./firebase.js";
 
 
 import {
@@ -428,7 +974,6 @@ import {
     collection,
     query,
     where,
-    orderBy,
     getDocs,
     doc,
     updateDoc,
@@ -438,82 +983,149 @@ from
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 
-/* =========================================
+
+/* ==========================================
    ELEMENTS
-========================================= */
+========================================== */
 
 const loginSection =
-document.getElementById("loginSection");
+    document.getElementById(
+        "loginSection"
+    );
+
 
 const dashboard =
-document.getElementById("dashboard");
+    document.getElementById(
+        "dashboard"
+    );
+
 
 const emailInput =
-document.getElementById("email");
+    document.getElementById(
+        "email"
+    );
+
 
 const passwordInput =
-document.getElementById("password");
+    document.getElementById(
+        "password"
+    );
+
 
 const loginBtn =
-document.getElementById("loginBtn");
+    document.getElementById(
+        "loginBtn"
+    );
+
 
 const logoutBtn =
-document.getElementById("logoutBtn");
+    document.getElementById(
+        "logoutBtn"
+    );
+
+
+const refreshBtn =
+    document.getElementById(
+        "refreshBtn"
+    );
+
 
 const loginMessage =
-document.getElementById("loginMessage");
+    document.getElementById(
+        "loginMessage"
+    );
+
 
 const adminEmail =
-document.getElementById("adminEmail");
+    document.getElementById(
+        "adminEmail"
+    );
+
 
 const productsList =
-document.getElementById("productsList");
+    document.getElementById(
+        "productsList"
+    );
+
 
 const pendingCount =
-document.getElementById("pendingCount");
+    document.getElementById(
+        "pendingCount"
+    );
+
 
 const approvedCount =
-document.getElementById("approvedCount");
+    document.getElementById(
+        "approvedCount"
+    );
+
 
 const totalCount =
-document.getElementById("totalCount");
+    document.getElementById(
+        "totalCount"
+    );
 
 
-/* =========================================
+
+/* ==========================================
    MESSAGE
-========================================= */
+========================================== */
 
-function showLoginMessage(text,type){
+function showMessage(
+    element,
+    text,
+    type
+){
 
-    loginMessage.innerText = text;
+    element.innerText =
+        text;
 
-    loginMessage.className =
+    element.className =
         "message " + type;
 
-    loginMessage.style.display =
+    element.style.display =
         "block";
 }
 
 
-/* =========================================
+
+/* ==========================================
    LOGIN
-========================================= */
+========================================== */
 
 loginBtn.addEventListener(
-"click",
-async function(){
+    "click",
+    loginAdmin
+);
+
+
+async function loginAdmin(){
 
     const email =
         emailInput.value.trim();
+
 
     const password =
         passwordInput.value;
 
 
-    if(!email || !password){
+    if(!email){
 
-        showLoginMessage(
-            "❌ Email ଓ Password ଦିଅନ୍ତୁ।",
+        showMessage(
+            loginMessage,
+            "❌ Admin Email ଦିଅନ୍ତୁ।",
+            "error"
+        );
+
+        return;
+    }
+
+
+    if(!password){
+
+        showMessage(
+            loginMessage,
+            "❌ Password ଦିଅନ୍ତୁ।",
             "error"
         );
 
@@ -523,10 +1135,16 @@ async function(){
 
     try{
 
-        loginBtn.disabled = true;
+        loginBtn.disabled =
+            true;
+
 
         loginBtn.innerText =
             "⏳ Login ହେଉଛି...";
+
+
+        loginMessage.style.display =
+            "none";
 
 
         await signInWithEmailAndPassword(
@@ -537,332 +1155,649 @@ async function(){
 
 
     }
-    catch(error){
 
-        console.error(error);
-
-        showLoginMessage(
-            "❌ Login ବିଫଳ। Email କିମ୍ବା Password ଠିକ୍ ନୁହେଁ।",
-            "error"
-        );
-
-        loginBtn.disabled = false;
-
-        loginBtn.innerText =
-            "🔐 Login";
-    }
-
-});
-
-
-/* =========================================
-   ENTER KEY LOGIN
-========================================= */
-
-passwordInput.addEventListener(
-"keydown",
-function(e){
-
-    if(e.key === "Enter"){
-
-        loginBtn.click();
-
-    }
-
-});
-
-
-/* =========================================
-   AUTH STATE
-========================================= */
-
-onAuthStateChanged(
-auth,
-async function(user){
-
-    if(user){
-
-        loginSection.style.display =
-            "none";
-
-        dashboard.style.display =
-            "block";
-
-        adminEmail.innerText =
-            "Admin: " + user.email;
-
-        await loadProducts();
-
-    }
-    else{
-
-        loginSection.style.display =
-            "block";
-
-        dashboard.style.display =
-            "none";
-
-    }
-
-});
-
-
-/* =========================================
-   LOGOUT
-========================================= */
-
-logoutBtn.addEventListener(
-"click",
-async function(){
-
-    await signOut(auth);
-
-});
-
-
-/* =========================================
-   LOAD PRODUCTS
-========================================= */
-
-async function loadProducts(){
-
-    productsList.innerHTML =
-        `<div class="loading">
-            ⏳ Products loading...
-        </div>`;
-
-
-    try{
-
-        const productsRef =
-            collection(db,"products");
-
-
-        /*
-           Pending products
-        */
-
-        const pendingQuery =
-            query(
-                productsRef,
-                where("status","==","pending"),
-                orderBy("createdAt","desc")
-            );
-
-
-        const pendingSnapshot =
-            await getDocs(pendingQuery);
-
-
-        /*
-           All products
-        */
-
-        const allSnapshot =
-            await getDocs(productsRef);
-
-
-        let approved = 0;
-
-
-        allSnapshot.forEach(
-        function(item){
-
-            const data =
-                item.data();
-
-            if(data.status === "approved"){
-
-                approved++;
-
-            }
-
-        });
-
-
-        pendingCount.innerText =
-            pendingSnapshot.size;
-
-        approvedCount.innerText =
-            approved;
-
-        totalCount.innerText =
-            allSnapshot.size;
-
-
-        if(pendingSnapshot.empty){
-
-            productsList.innerHTML =
-                `<div class="empty">
-                    🎉 ବର୍ତ୍ତମାନ କୌଣସି Pending Product ନାହିଁ।
-                </div>`;
-
-            return;
-
-        }
-
-
-        productsList.innerHTML = "";
-
-
-        pendingSnapshot.forEach(
-        function(item){
-
-            const data =
-                item.data();
-
-            const product =
-                document.createElement("div");
-
-            product.className =
-                "product";
-
-
-            product.innerHTML = `
-
-                <img
-                    src="${data.image || ""}"
-                    alt="Product"
-                >
-
-                <div>
-
-                    <h3>
-                        ${escapeHTML(data.name || "Product")}
-                    </h3>
-
-                    <div class="status">
-                        ⏳ Pending
-                    </div>
-
-                    <div class="details">
-
-                        💰 <b>ଦାମ:</b>
-                        ₹${Number(data.price || 0)}
-                        <br>
-
-                        📦 <b>Stock:</b>
-                        ${Number(data.stock || 0)}
-                        <br>
-
-                        📂 <b>ବର୍ଗ:</b>
-                        ${escapeHTML(data.category || "")}
-                        <br>
-
-                        📍 <b>ଅଞ୍ଚଳ:</b>
-                        ${escapeHTML(data.village || "")}
-                        <br>
-
-                        👤 <b>ବିକ୍ରେତା:</b>
-                        ${escapeHTML(data.sellerName || "")}
-                        <br>
-
-                        📞 <b>Mobile:</b>
-                        ${escapeHTML(data.sellerMobile || "")}
-                        <br>
-
-                        📝 <b>ବିବରଣୀ:</b>
-                        ${escapeHTML(data.description || "")}
-
-                    </div>
-
-                    <div class="actions">
-
-                        <button
-                            class="approve"
-                            data-id="${item.id}"
-                        >
-                            ✅ Approve
-                        </button>
-
-                        <button
-                            class="reject"
-                            data-id="${item.id}"
-                        >
-                            ❌ Reject
-                        </button>
-
-                    </div>
-
-                </div>
-            `;
-
-
-            productsList.appendChild(product);
-
-        });
-
-
-        /* APPROVE */
-
-        document
-        .querySelectorAll(".approve")
-        .forEach(
-        function(button){
-
-            button.addEventListener(
-            "click",
-            function(){
-
-                approveProduct(
-                    this.dataset.id
-                );
-
-            });
-
-        });
-
-
-        /* REJECT */
-
-        document
-        .querySelectorAll(".reject")
-        .forEach(
-        function(button){
-
-            button.addEventListener(
-            "click",
-            function(){
-
-                rejectProduct(
-                    this.dataset.id
-                );
-
-            });
-
-        });
-
-
-    }
     catch(error){
 
         console.error(
-            "LOAD ERROR:",
+            "LOGIN ERROR:",
             error
         );
 
 
-        productsList.innerHTML =
-            `<div class="empty">
-                ❌ Products load ହୋଇପାରିଲା ନାହିଁ।
-                <br><br>
-                ${escapeHTML(error.message)}
-            </div>`;
+        let msg =
+            "❌ Login ବିଫଳ ହେଲା।";
+
+
+        if(
+            error.code ===
+            "auth/invalid-credential"
+        ){
+
+            msg =
+                "❌ Email କିମ୍ବା Password ଭୁଲ ଅଛି।";
+        }
+
+
+        if(
+            error.code ===
+            "auth/user-not-found"
+        ){
+
+            msg =
+                "❌ ଏହି Email ରେ Admin User ନାହିଁ।";
+        }
+
+
+        if(
+            error.code ===
+            "auth/wrong-password"
+        ){
+
+            msg =
+                "❌ Password ଭୁଲ ଅଛି।";
+        }
+
+
+        showMessage(
+            loginMessage,
+            msg,
+            "error"
+        );
+
+
+        loginBtn.disabled =
+            false;
+
+
+        loginBtn.innerText =
+            "🔐 Login";
 
     }
 
 }
 
 
-/* =========================================
-   APPROVE
-========================================= */
 
-async function approveProduct(id){
+/* ==========================================
+   ENTER KEY
+========================================== */
 
-    if(!confirm(
-        "ଏହି Product କୁ Approve କରିବେ?"
-    )){
+passwordInput.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key ===
+            "Enter"
+        ){
+
+            loginAdmin();
+
+        }
+
+    }
+);
+
+
+
+/* ==========================================
+   AUTH STATE
+========================================== */
+
+onAuthStateChanged(
+    auth,
+    async function(user){
+
+        if(user){
+
+            loginSection.style.display =
+                "none";
+
+
+            dashboard.style.display =
+                "block";
+
+
+            adminEmail.innerText =
+                "Admin: " +
+                (user.email || "Logged in");
+
+
+            await loadProducts();
+
+        }
+
+        else{
+
+            loginSection.style.display =
+                "block";
+
+
+            dashboard.style.display =
+                "none";
+
+
+            loginBtn.disabled =
+                false;
+
+
+            loginBtn.innerText =
+                "🔐 Login";
+
+        }
+
+    }
+);
+
+
+
+/* ==========================================
+   LOGOUT
+========================================== */
+
+logoutBtn.addEventListener(
+    "click",
+    async function(){
+
+        try{
+
+            await signOut(auth);
+
+        }
+
+        catch(error){
+
+            console.error(
+                "LOGOUT ERROR:",
+                error
+            );
+
+        }
+
+    }
+);
+
+
+
+/* ==========================================
+   REFRESH
+========================================== */
+
+refreshBtn.addEventListener(
+    "click",
+    async function(){
+
+        await loadProducts();
+
+    }
+);
+
+
+
+/* ==========================================
+   LOAD PRODUCTS
+========================================== */
+
+async function loadProducts(){
+
+    productsList.innerHTML =
+
+        `
+        <div class="loading">
+            ⏳ Products loading...
+        </div>
+        `;
+
+
+    try{
+
+        const productsRef =
+            collection(
+                db,
+                "products"
+            );
+
+
+        /* =========================
+           GET ALL PRODUCTS
+        ========================== */
+
+        const allSnapshot =
+            await getDocs(
+                productsRef
+            );
+
+
+        let pending = [];
+
+        let approved = 0;
+
+
+        allSnapshot.forEach(
+            function(item){
+
+                const data =
+                    item.data();
+
+
+                const product = {
+
+                    id:item.id,
+
+                    ...data
+
+                };
+
+
+                if(
+                    data.status ===
+                    "pending"
+                ){
+
+                    pending.push(
+                        product
+                    );
+
+                }
+
+
+                if(
+                    data.status ===
+                    "approved"
+                ){
+
+                    approved++;
+
+                }
+
+            }
+        );
+
+
+        /* =========================
+           COUNTS
+        ========================== */
+
+        pendingCount.innerText =
+            pending.length;
+
+
+        approvedCount.innerText =
+            approved;
+
+
+        totalCount.innerText =
+            allSnapshot.size;
+
+
+
+        /* =========================
+           NO PENDING
+        ========================== */
+
+        if(
+            pending.length === 0
+        ){
+
+            productsList.innerHTML =
+
+                `
+                <div class="empty">
+
+                    🎉 ବର୍ତ୍ତମାନ
+                    କୌଣସି Pending Product ନାହିଁ।
+
+                    <br><br>
+
+                    ନୂଆ Seller Product Upload
+                    କଲେ ଏଠାରେ ଦେଖାଯିବ।
+
+                </div>
+                `;
+
+            return;
+
+        }
+
+
+
+        /* =========================
+           SORT NEWEST FIRST
+           WITHOUT FIRESTORE INDEX
+        ========================== */
+
+        pending.sort(
+            function(a,b){
+
+                const aTime =
+                    getTime(
+                        a.createdAt
+                    );
+
+
+                const bTime =
+                    getTime(
+                        b.createdAt
+                    );
+
+
+                return bTime - aTime;
+
+            }
+        );
+
+
+
+        productsList.innerHTML =
+            "";
+
+
+
+        /* =========================
+           DISPLAY
+        ========================== */
+
+        pending.forEach(
+            function(data){
+
+                createProductCard(
+                    data
+                );
+
+            }
+        );
+
+    }
+
+    catch(error){
+
+        console.error(
+            "LOAD PRODUCTS ERROR:",
+            error
+        );
+
+
+        productsList.innerHTML =
+
+            `
+            <div class="empty">
+
+                ❌ Products load ହୋଇପାରିଲା ନାହିଁ।
+
+                <br><br>
+
+                ${escapeHTML(
+                    error.message ||
+                    "Unknown error"
+                )}
+
+            </div>
+            `;
+
+    }
+
+}
+
+
+
+/* ==========================================
+   PRODUCT CARD
+========================================== */
+
+function createProductCard(
+    data
+){
+
+    const card =
+        document.createElement(
+            "div"
+        );
+
+
+    card.className =
+        "product-card";
+
+
+    const image =
+        document.createElement(
+            "img"
+        );
+
+
+    image.className =
+        "product-image";
+
+
+    image.alt =
+        data.name ||
+        "Product";
+
+
+    image.src =
+        data.image ||
+        "";
+
+
+    image.onerror =
+        function(){
+
+            this.style.display =
+                "none";
+
+        };
+
+
+
+    const content =
+        document.createElement(
+            "div"
+        );
+
+
+    const name =
+        escapeHTML(
+            data.name ||
+            "Product"
+        );
+
+
+    const category =
+        escapeHTML(
+            data.category ||
+            "—"
+        );
+
+
+    const village =
+        escapeHTML(
+            data.village ||
+            "—"
+        );
+
+
+    const sellerName =
+        escapeHTML(
+            data.sellerName ||
+            "—"
+        );
+
+
+    const sellerMobile =
+        escapeHTML(
+            data.sellerMobile ||
+            "—"
+        );
+
+
+    const description =
+        escapeHTML(
+            data.description ||
+            "—"
+        );
+
+
+    const price =
+        Number(
+            data.price || 0
+        );
+
+
+    const stock =
+        Number(
+            data.stock || 0
+        );
+
+
+    content.innerHTML =
+
+        `
+        <h3 class="product-name">
+            ${name}
+        </h3>
+
+
+        <div class="status">
+            ⏳ Pending
+        </div>
+
+
+        <div class="details">
+
+            💰 <b>ଦାମ:</b>
+            ₹${price}
+
+            <br>
+
+            📦 <b>Stock:</b>
+            ${stock}
+
+            <br>
+
+            📂 <b>ବର୍ଗ:</b>
+            ${category}
+
+            <br>
+
+            📍 <b>ଅଞ୍ଚଳ:</b>
+            ${village}
+
+            <br>
+
+            👤 <b>ବିକ୍ରେତା:</b>
+            ${sellerName}
+
+            <br>
+
+            📞 <b>Mobile:</b>
+            ${sellerMobile}
+
+            <br>
+
+            📝 <b>ବିବରଣୀ:</b>
+            ${description}
+
+        </div>
+
+
+        <div class="actions">
+
+            <button
+                class="approve-btn"
+            >
+                ✅ Approve
+            </button>
+
+
+            <button
+                class="reject-btn"
+            >
+                ❌ Reject
+            </button>
+
+        </div>
+        `;
+
+
+
+    /* =========================
+       APPROVE
+    ========================== */
+
+    const approveBtn =
+        content.querySelector(
+            ".approve-btn"
+        );
+
+
+    approveBtn.addEventListener(
+        "click",
+        async function(){
+
+            await approveProduct(
+                data.id
+            );
+
+        }
+    );
+
+
+
+    /* =========================
+       REJECT
+    ========================== */
+
+    const rejectBtn =
+        content.querySelector(
+            ".reject-btn"
+        );
+
+
+    rejectBtn.addEventListener(
+        "click",
+        async function(){
+
+            await rejectProduct(
+                data.id
+            );
+
+        }
+    );
+
+
+
+    card.appendChild(
+        image
+    );
+
+
+    card.appendChild(
+        content
+    );
+
+
+    productsList.appendChild(
+        card
+    );
+
+}
+
+
+
+/* ==========================================
+   APPROVE PRODUCT
+========================================== */
+
+async function approveProduct(
+    id
+){
+
+    const confirmApprove =
+        confirm(
+            "ଏହି Product କୁ Approve କରିବେ?"
+        );
+
+
+    if(!confirmApprove){
 
         return;
 
@@ -878,25 +1813,34 @@ async function approveProduct(id){
                 id
             ),
             {
-                status:"approved"
+
+                status:
+                    "approved"
+
             }
         );
 
 
         alert(
-            "✅ Product Approved!"
+            "✅ Product Approved ହୋଇଗଲା!"
         );
 
 
         await loadProducts();
 
     }
+
     catch(error){
 
-        console.error(error);
+        console.error(
+            "APPROVE ERROR:",
+            error
+        );
+
 
         alert(
-            "❌ Approve ହୋଇପାରିଲା ନାହିଁ।"
+            "❌ Product Approve ହୋଇପାରିଲା ନାହିଁ।\n\n" +
+            error.message
         );
 
     }
@@ -904,15 +1848,26 @@ async function approveProduct(id){
 }
 
 
-/* =========================================
-   REJECT
-========================================= */
 
-async function rejectProduct(id){
+/* ==========================================
+   REJECT PRODUCT
+========================================== */
 
-    if(!confirm(
-        "ଏହି Product କୁ Reject କରିବେ?\n\nReject କଲେ Product delete ହୋଇଯିବ।"
-    )){
+async function rejectProduct(
+    id
+){
+
+    const confirmReject =
+        confirm(
+
+            "ଏହି Product କୁ Reject କରିବେ?\n\n" +
+
+            "Reject କଲେ Product database ରୁ delete ହୋଇଯିବ।"
+
+        );
+
+
+    if(!confirmReject){
 
         return;
 
@@ -938,12 +1893,18 @@ async function rejectProduct(id){
         await loadProducts();
 
     }
+
     catch(error){
 
-        console.error(error);
+        console.error(
+            "REJECT ERROR:",
+            error
+        );
+
 
         alert(
-            "❌ Reject ହୋଇପାରିଲା ନାହିଁ।"
+            "❌ Product Reject ହୋଇପାରିଲା ନାହିଁ।\n\n" +
+            error.message
         );
 
     }
@@ -951,22 +1912,94 @@ async function rejectProduct(id){
 }
 
 
-/* =========================================
-   SECURITY
-========================================= */
 
-function escapeHTML(value){
+/* ==========================================
+   FIRESTORE TIMESTAMP
+========================================== */
+
+function getTime(
+    timestamp
+){
+
+    try{
+
+        if(
+            timestamp &&
+            typeof timestamp.toMillis ===
+            "function"
+        ){
+
+            return timestamp.toMillis();
+
+        }
+
+
+        if(
+            timestamp &&
+            timestamp.seconds
+        ){
+
+            return (
+                timestamp.seconds *
+                1000
+            );
+
+        }
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+    }
+
+
+    return 0;
+
+}
+
+
+
+/* ==========================================
+   HTML SECURITY
+========================================== */
+
+function escapeHTML(
+    value
+){
 
     return String(value)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
 </script>
 
 </body>
+
 </html>
