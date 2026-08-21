@@ -1,5 +1,5 @@
 // ==========================================
-// UtkalaMart Firebase
+// UtkalaMart Firebase Configuration
 // ==========================================
 
 import { initializeApp }
@@ -13,12 +13,12 @@ from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
 
 // ==========================================
-// FIREBASE CONFIGURATION
+// FIREBASE CONFIG
 // ==========================================
 
 const firebaseConfig = {
 
-    apiKey: "AIzaSyBVj_KKsS7SNZ108jnw6hpOlmgeOfRhJg",
+    apiKey: "AIzaSyBYJ_KKsS_7SNz108jnw6hpOlmegofRhJg",
 
     authDomain:
         "utkalamart-1ec68.firebaseapp.com",
@@ -47,7 +47,7 @@ const app =
 
 
 // ==========================================
-// FIRESTORE DATABASE
+// FIRESTORE
 // ==========================================
 
 const db =
@@ -55,7 +55,7 @@ const db =
 
 
 // ==========================================
-// FIREBASE AUTHENTICATION
+// AUTHENTICATION
 // ==========================================
 
 const auth =
