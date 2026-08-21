@@ -8,15 +8,18 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
+<meta name="description"
+      content="UtkalaMart - ଓଡ଼ିଶାର ଗାଁରୁ ସୁରତର ଓଡ଼ିଆ ପରିବାର ପାଇଁ">
+
 <title>
-UtkalaMart - ଆମ ଗାଁର ସ୍ୱାଦ, ସୁରତରେ ଆମ ପରିବାର ପାଇଁ
+UtkalaMart - ଆମ ଗାଁର ସ୍ୱାଦ
 </title>
 
 <style>
 
-/* =========================
+/* =====================================================
    BASIC
-========================= */
+===================================================== */
 
 *{
     margin:0;
@@ -51,52 +54,39 @@ button{
 }
 
 
-/* =========================
+/* =====================================================
    TOP BAR
-========================= */
+===================================================== */
 
 .topbar{
-
     background:#087f3f;
     color:white;
-
     padding:9px 5%;
-
     display:flex;
     justify-content:space-between;
     align-items:center;
-
     font-size:13px;
-    line-height:1.6;
 }
 
 .topbar-right{
     display:flex;
-    gap:18px;
+    gap:20px;
 }
 
 
-/* =========================
+/* =====================================================
    HEADER
-========================= */
+===================================================== */
 
 .header{
-
     background:white;
-
-    padding:16px 5%;
-
+    padding:15px 5%;
     display:flex;
     align-items:center;
-
     gap:25px;
-
-    box-shadow:
-        0 2px 10px rgba(0,0,0,.08);
-
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
     position:sticky;
     top:0;
-
     z-index:100;
 }
 
@@ -104,44 +94,31 @@ button{
 /* LOGO */
 
 .logo{
-
     display:flex;
     align-items:center;
-
     min-width:245px;
 }
 
 .logo-icon{
-
     width:58px;
     height:58px;
-
     border-radius:50%;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff7900,
-            #087f3f
-        );
-
+    background:linear-gradient(
+        135deg,
+        #ff7900,
+        #087f3f
+    );
     display:flex;
     align-items:center;
     justify-content:center;
-
     color:white;
-
     font-size:29px;
-
     margin-right:10px;
 }
 
 .logo h1{
-
     font-size:30px;
-
     color:#123a78;
-
     line-height:1.1;
 }
 
@@ -150,642 +127,407 @@ button{
 }
 
 .logo p{
-
     color:#087f3f;
-
     font-size:11px;
-
     margin-top:4px;
-
-    line-height:1.4;
 }
 
 
-/* =========================
+/* =====================================================
    SEARCH
-========================= */
+===================================================== */
 
 .search{
-
     flex:1;
-
     display:flex;
-
     height:46px;
-
-    border:
-        2px solid #eeeeee;
-
+    border:2px solid #eeeeee;
     border-radius:25px;
-
     overflow:hidden;
-
     background:white;
 }
 
 .search input{
-
     flex:1;
-
     border:0;
-
     outline:0;
-
-    padding:
-        0 20px;
-
+    padding:0 20px;
     font-size:15px;
-
-    color:#333;
 }
 
 .search button{
-
     width:65px;
-
     background:#ff6b00;
-
     color:white;
-
     font-size:20px;
 }
 
 
-/* =========================
-   HEADER ACTION
-========================= */
+/* =====================================================
+   ACTIONS
+===================================================== */
 
 .actions{
-
     display:flex;
-
-    gap:17px;
+    gap:15px;
 }
 
 .action{
-
     text-align:center;
-
     font-size:12px;
-
     color:#123a78;
-
     min-width:45px;
 }
 
 .action-icon{
-
     font-size:22px;
-
     display:block;
-
     margin-bottom:3px;
 }
 
 
-/* =========================
+/* =====================================================
    NAVIGATION
-========================= */
+===================================================== */
 
 .nav{
-
     background:#063b78;
-
     color:white;
-
     display:flex;
-
     justify-content:center;
-
     flex-wrap:wrap;
 }
 
 .nav a{
-
-    padding:
-        14px 18px;
-
-    border-right:
-        1px solid
-        rgba(255,255,255,.12);
-
-    transition:.2s;
-
+    padding:13px 17px;
+    border-right:1px solid rgba(255,255,255,.12);
     font-size:14px;
 }
 
 .nav a:hover,
 .nav a.active{
-
     background:#ff6b00;
 }
 
 
-/* =========================
+/* =====================================================
    HERO
-========================= */
+===================================================== */
 
 .hero{
-
-    min-height:440px;
-
-    padding:
-        55px 7%;
-
+    min-height:430px;
+    padding:55px 7%;
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 
     background:
-
         linear-gradient(
             90deg,
-            rgba(255,255,255,.98),
+            rgba(255,255,255,.97),
             rgba(255,255,255,.65)
         ),
-
         linear-gradient(
             135deg,
             #ffd8a8,
             #b9e8cc
         );
 
-    position:relative;
-
     overflow:hidden;
 }
 
 .hero-text{
-
-    max-width:650px;
-
-    position:relative;
-
-    z-index:2;
+    max-width:680px;
 }
 
 .hero-text small{
-
     color:#087f3f;
-
     font-weight:bold;
-
     font-size:16px;
 }
 
 .hero-text h2{
-
-    font-size:46px;
-
+    font-size:45px;
     color:#123a78;
-
-    margin:
-        14px 0;
-
+    margin:14px 0;
     line-height:1.3;
 }
 
 .hero-text h2 span{
-
     color:#f56a00;
 }
 
 .hero-text p{
-
     font-size:18px;
-
     color:#444;
-
     line-height:1.8;
-
-    max-width:620px;
 }
 
 .hero-buttons{
-
     display:flex;
-
     gap:12px;
-
     margin-top:25px;
-
-    flex-wrap:wrap;
 }
 
 .shop-btn{
-
     background:#ff6b00;
-
     color:white;
-
-    padding:
-        13px 25px;
-
+    padding:13px 25px;
     border-radius:27px;
-
-    font-size:15px;
-
     font-weight:bold;
 }
 
 .about-btn{
-
     background:white;
-
     color:#123a78;
-
-    border:
-        2px solid #123a78;
-
-    padding:
-        11px 23px;
-
+    border:2px solid #123a78;
+    padding:11px 23px;
     border-radius:27px;
-
-    font-size:15px;
-
     font-weight:bold;
 }
 
 .hero-art{
-
-    font-size:145px;
-
-    position:relative;
-
-    z-index:2;
-
-    animation:
-        floatItem 3s ease-in-out infinite;
-}
-
-@keyframes floatItem{
-
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-12px);
-    }
+    font-size:135px;
 }
 
 
-/* =========================
+/* =====================================================
    SECTION
-========================= */
+===================================================== */
 
 .section{
-
-    padding:
-        45px 5%;
+    padding:45px 5%;
 }
 
 .section-title{
-
     text-align:center;
-
     margin-bottom:28px;
 }
 
 .section-title h2{
-
     font-size:29px;
-
     color:#123a78;
 }
 
 .section-title span{
-
     color:#ff6b00;
 }
 
 .section-title p{
-
     color:#777;
-
     margin-top:7px;
-
-    font-size:14px;
 }
 
 
-/* =========================
-   CATEGORIES
-========================= */
-
-.categories{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(7,1fr);
-
-    gap:15px;
-}
-
-.category{
-
-    background:white;
-
-    border-radius:15px;
-
-    padding:
-        20px 9px;
-
-    text-align:center;
-
-    box-shadow:
-        0 3px 12px
-        rgba(0,0,0,.07);
-
-    transition:.25s;
-}
-
-.category:hover{
-
-    transform:
-        translateY(-6px);
-
-    box-shadow:
-        0 9px 22px
-        rgba(0,0,0,.12);
-}
-
-.category .emoji{
-
-    font-size:43px;
-
-    margin-bottom:9px;
-}
-
-.category h3{
-
-    font-size:15px;
-
-    color:#123a78;
-
-    line-height:1.4;
-}
-
-.category p{
-
-    color:#777;
-
-    font-size:11px;
-
-    margin-top:4px;
-}
-
-
-/* =========================
-   GANJAM SECTION
-========================= */
+/* =====================================================
+   GANJAM
+===================================================== */
 
 .ganjam-box{
-
-    background:
-
-        linear-gradient(
-            135deg,
-            #087f3f,
-            #075d32
-        );
+    background:linear-gradient(
+        135deg,
+        #087f3f,
+        #075d32
+    );
 
     color:white;
-
     border-radius:18px;
-
-    padding:
-        35px 7%;
+    padding:35px 7%;
 
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
     gap:30px;
-
-    overflow:hidden;
 }
 
 .ganjam-text{
-
-    max-width:700px;
+    max-width:750px;
 }
 
 .ganjam-text h2{
-
     font-size:31px;
-
     margin-bottom:12px;
 }
 
 .ganjam-text p{
-
     line-height:1.8;
-
     color:#e7fff0;
-
-    font-size:15px;
 }
 
 .ganjam-icon{
-
-    font-size:90px;
+    font-size:85px;
 }
 
 
-/* =========================
+/* =====================================================
+   CATEGORIES
+===================================================== */
+
+.categories{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:15px;
+}
+
+.category{
+    background:white;
+    border-radius:15px;
+    padding:20px 9px;
+    text-align:center;
+    box-shadow:0 3px 12px rgba(0,0,0,.07);
+    transition:.25s;
+}
+
+.category:hover{
+    transform:translateY(-5px);
+}
+
+.category .emoji{
+    font-size:42px;
+    margin-bottom:8px;
+}
+
+.category h3{
+    font-size:15px;
+    color:#123a78;
+}
+
+.category p{
+    color:#777;
+    font-size:11px;
+    margin-top:4px;
+}
+
+
+/* =====================================================
    PRODUCTS
-========================= */
+===================================================== */
 
 .products{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
+    grid-template-columns:repeat(4,1fr);
     gap:20px;
 }
 
 .product{
-
     background:white;
-
     border-radius:15px;
-
     overflow:hidden;
-
-    box-shadow:
-        0 3px 12px
-        rgba(0,0,0,.08);
-
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
     position:relative;
-
     transition:.25s;
 }
 
 .product:hover{
-
-    transform:
-        translateY(-5px);
-
-    box-shadow:
-        0 9px 22px
-        rgba(0,0,0,.12);
+    transform:translateY(-5px);
 }
 
 .product-img{
-
     height:210px;
-
     background:#f2f3f5;
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
-    font-size:88px;
-
+    font-size:80px;
     overflow:hidden;
 }
 
 .product-img img{
-
     width:100%;
-
     height:100%;
-
     object-fit:cover;
 }
 
 .product-info{
-
     padding:16px;
 }
 
 .product-info h3{
-
     font-size:16px;
-
     margin-bottom:7px;
-
     line-height:1.5;
 }
 
 .product-place{
-
     color:#087f3f;
-
     font-size:12px;
-
     margin-bottom:5px;
 }
 
 .rating{
-
     color:#ffad00;
-
     font-size:13px;
 }
 
 .price{
-
     margin-top:9px;
-
     font-size:20px;
-
     font-weight:bold;
-
     color:#123a78;
 }
 
 .old-price{
-
     color:#999;
-
     text-decoration:line-through;
-
     font-size:12px;
-
     margin-left:6px;
 }
 
+.stock{
+    margin-top:5px;
+    font-size:12px;
+    color:#087f3f;
+}
+
 .add-cart{
-
     width:100%;
-
     margin-top:12px;
-
     padding:11px;
-
     background:#ff6b00;
-
     color:white;
-
     border-radius:7px;
-
     font-weight:bold;
-
-    font-size:13px;
 }
 
 .discount{
-
     position:absolute;
-
     top:12px;
-
     left:12px;
-
     background:#087f3f;
-
     color:white;
-
-    padding:
-        5px 8px;
-
+    padding:5px 8px;
     border-radius:5px;
-
     font-size:11px;
-
     z-index:2;
 }
 
+.loading{
+    grid-column:1/-1;
+    text-align:center;
+    padding:40px;
+    background:white;
+    border-radius:15px;
+    color:#777;
+    font-size:18px;
+}
 
-/* =========================
+
+/* =====================================================
    BANNERS
-========================= */
+===================================================== */
 
 .banners{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
     gap:20px;
 }
 
 .banner{
-
     min-height:165px;
-
     padding:24px;
-
     border-radius:15px;
-
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 
     background:
@@ -797,7 +539,6 @@ button{
 }
 
 .banner:nth-child(2){
-
     background:
         linear-gradient(
             135deg,
@@ -807,7 +548,6 @@ button{
 }
 
 .banner:nth-child(3){
-
     background:
         linear-gradient(
             135deg,
@@ -817,100 +557,34 @@ button{
 }
 
 .banner h3{
-
     font-size:19px;
-
     color:#123a78;
-
-    line-height:1.5;
 }
 
 .banner p{
-
     margin-top:5px;
-
     color:#555;
-
     font-size:13px;
 }
 
 .banner button{
-
     background:#ff6b00;
-
     color:white;
-
-    padding:
-        9px 15px;
-
+    padding:9px 15px;
     border-radius:20px;
-
     margin-top:12px;
-
-    font-size:12px;
 }
 
 .banner-icon{
-
     font-size:55px;
 }
 
 
-/* =========================
-   TRUST / WHY
-========================= */
-
-.features{
-
-    background:white;
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(5,1fr);
-
-    padding:
-        35px 5%;
-
-    gap:20px;
-}
-
-.feature{
-
-    text-align:center;
-}
-
-.feature-icon{
-
-    font-size:40px;
-}
-
-.feature h3{
-
-    margin:
-        8px 0 5px;
-
-    color:#123a78;
-
-    font-size:16px;
-}
-
-.feature p{
-
-    color:#777;
-
-    font-size:12px;
-
-    line-height:1.5;
-}
-
-
-/* =========================
-   OUR MISSION
-========================= */
+/* =====================================================
+   MISSION
+===================================================== */
 
 .mission{
-
     background:
         linear-gradient(
             135deg,
@@ -918,589 +592,382 @@ button{
             #fffaf1
         );
 
-    margin:
-        0 5% 40px;
-
-    padding:
-        35px 7%;
-
+    margin:0 5% 40px;
+    padding:35px 7%;
     border-radius:18px;
-
     text-align:center;
 }
 
 .mission h2{
-
     color:#123a78;
-
     font-size:27px;
 }
 
 .mission p{
-
     max-width:800px;
-
-    margin:
-        12px auto 0;
-
+    margin:12px auto 0;
     line-height:1.8;
-
     color:#555;
-
-    font-size:15px;
 }
 
 
-/* =========================
+/* =====================================================
+   FEATURES
+===================================================== */
+
+.features{
+    background:white;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    padding:35px 5%;
+    gap:20px;
+}
+
+.feature{
+    text-align:center;
+}
+
+.feature-icon{
+    font-size:40px;
+}
+
+.feature h3{
+    margin:8px 0 5px;
+    color:#123a78;
+    font-size:16px;
+}
+
+.feature p{
+    color:#777;
+    font-size:12px;
+}
+
+
+/* =====================================================
+   SELLER
+===================================================== */
+
+.seller-button{
+    margin-top:20px;
+    display:inline-block;
+    background:#ff6b00;
+    color:white;
+    padding:12px 22px;
+    border-radius:25px;
+    font-weight:bold;
+}
+
+
+/* =====================================================
    NEWSLETTER
-========================= */
+===================================================== */
 
 .newsletter{
-
-    margin:
-        40px 5%;
-
-    padding:
-        35px;
-
+    margin:40px 5%;
+    padding:35px;
     border-radius:15px;
-
     background:#fff4dc;
-
     text-align:center;
 }
 
 .newsletter h2{
-
     color:#123a78;
-
-    font-size:25px;
 }
 
 .newsletter p{
-
-    margin:
-        9px 0 20px;
-
+    margin:9px 0 20px;
     color:#555;
 }
 
 .newsletter-form{
-
     max-width:500px;
-
     margin:auto;
-
     display:flex;
 }
 
 .newsletter-form input{
-
     flex:1;
-
     padding:13px;
-
-    border:
-        1px solid #ddd;
-
-    border-radius:
-        7px 0 0 7px;
-
+    border:1px solid #ddd;
+    border-radius:7px 0 0 7px;
     outline:none;
-
-    font-family:inherit;
 }
 
 .newsletter-form button{
-
-    padding:
-        0 21px;
-
+    padding:0 21px;
     background:#ff6b00;
-
     color:white;
-
-    border-radius:
-        0 7px 7px 0;
+    border-radius:0 7px 7px 0;
 }
 
 
-/* =========================
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 .footer{
-
     background:#062d61;
-
     color:white;
-
-    padding:
-        45px 5% 15px;
+    padding:45px 5% 15px;
 }
 
 .footer-grid{
-
     display:grid;
-
-    grid-template-columns:
-        2fr 1fr 1fr 1fr;
-
+    grid-template-columns:2fr 1fr 1fr 1fr;
     gap:35px;
 }
 
 .footer h2{
-
     margin-bottom:12px;
 }
 
 .footer h2 span{
-
     color:#ff7900;
 }
 
 .footer h3{
-
     margin-bottom:13px;
-
-    font-size:16px;
 }
 
 .footer p,
 .footer li{
-
     color:#d9e4f3;
-
     font-size:13px;
-
     line-height:2;
 }
 
 .footer ul{
-
     list-style:none;
 }
 
 .footer-bottom{
-
-    border-top:
-        1px solid
-        rgba(255,255,255,.2);
-
+    border-top:1px solid rgba(255,255,255,.2);
     margin-top:30px;
-
     padding-top:15px;
-
     text-align:center;
-
     font-size:12px;
-
-    color:#d9e4f3;
 }
 
 
-/* =========================
+/* =====================================================
    CART
-========================= */
+===================================================== */
 
 .cart-box{
-
     position:fixed;
-
     right:20px;
-
     bottom:20px;
-
-    width:55px;
-
-    height:55px;
-
+    width:58px;
+    height:58px;
     border-radius:50%;
-
     background:#ff6b00;
-
     color:white;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     font-size:24px;
-
-    box-shadow:
-        0 5px 15px
-        rgba(0,0,0,.3);
-
+    box-shadow:0 5px 15px rgba(0,0,0,.3);
     z-index:99;
 }
 
 .cart-count{
-
     position:absolute;
-
     top:-5px;
-
     right:-5px;
-
     background:#087f3f;
-
     color:white;
-
     width:23px;
-
     height:23px;
-
     border-radius:50%;
-
     font-size:11px;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 }
 
 
-/* =========================
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
 @media(max-width:900px){
 
     .topbar{
-
         font-size:11px;
-
         text-align:center;
     }
 
     .topbar-right{
-
         display:none;
     }
 
     .header{
-
         flex-wrap:wrap;
-
         gap:12px;
-
-        padding:
-            12px 4%;
+        padding:12px 4%;
     }
 
     .logo{
-
         min-width:auto;
-
         flex:1;
     }
 
     .logo h1{
-
         font-size:24px;
     }
 
-    .logo p{
-
-        font-size:9px;
-    }
-
     .logo-icon{
-
         width:47px;
-
         height:47px;
-
         font-size:22px;
     }
 
     .search{
-
         order:3;
-
         flex-basis:100%;
     }
 
     .actions{
-
-        gap:7px;
+        gap:6px;
     }
 
     .action{
-
-        min-width:36px;
+        min-width:35px;
     }
 
     .action span:last-child{
-
         display:none;
     }
 
     .nav{
-
         overflow-x:auto;
-
         justify-content:flex-start;
-
         flex-wrap:nowrap;
-
         white-space:nowrap;
     }
 
     .nav a{
-
-        padding:
-            12px 14px;
-
+        padding:12px 14px;
         font-size:12px;
     }
 
     .hero{
-
         min-height:390px;
-
-        padding:
-            35px 6%;
+        padding:35px 6%;
     }
 
     .hero-text h2{
-
         font-size:31px;
     }
 
     .hero-text p{
-
         font-size:14px;
     }
 
     .hero-art{
-
         display:none;
     }
 
     .categories{
-
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
     .products{
-
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
     .product-img{
-
         height:160px;
     }
 
     .banners{
-
         grid-template-columns:1fr;
     }
 
     .features{
-
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
     .footer-grid{
-
-        grid-template-columns:
-            1fr 1fr;
-    }
-
-    .ganjam-box{
-
-        padding:
-            28px 6%;
-    }
-
-    .ganjam-icon{
-
-        font-size:60px;
+        grid-template-columns:1fr 1fr;
     }
 
 }
 
-
-/* SMALL MOBILE */
-
 @media(max-width:500px){
 
     .hero-text h2{
-
         font-size:27px;
     }
 
     .hero-text p{
-
-        font-size:13px;
-
-        line-height:1.7;
-    }
-
-    .hero-buttons{
-
-        gap:8px;
-    }
-
-    .shop-btn,
-    .about-btn{
-
-        padding:
-            10px 17px;
-
         font-size:13px;
     }
 
     .section{
-
-        padding:
-            30px 4%;
+        padding:30px 4%;
     }
 
     .section-title h2{
-
         font-size:23px;
     }
 
-    .categories{
-
-        gap:10px;
-    }
-
-    .category{
-
-        padding:
-            16px 7px;
-    }
-
-    .category .emoji{
-
-        font-size:36px;
-    }
-
-    .category h3{
-
-        font-size:13px;
-    }
-
     .products{
-
         gap:10px;
     }
 
     .product-img{
-
         height:145px;
-
-        font-size:62px;
     }
 
     .product-info{
-
         padding:10px;
     }
 
     .product-info h3{
-
         font-size:14px;
     }
 
-    .product-place{
-
-        font-size:10px;
-    }
-
     .price{
-
         font-size:17px;
     }
 
-    .old-price{
-
-        font-size:10px;
-    }
-
     .add-cart{
-
         font-size:11px;
-
         padding:9px 4px;
     }
 
     .features{
-
-        padding:
-            25px 4%;
-
+        padding:25px 4%;
         gap:10px;
     }
 
-    .feature-icon{
-
-        font-size:32px;
-    }
-
-    .feature h3{
-
-        font-size:13px;
-    }
-
-    .feature p{
-
-        font-size:10px;
-    }
-
     .footer-grid{
-
         grid-template-columns:1fr;
     }
 
     .newsletter{
-
-        margin:
-            25px 4%;
-
-        padding:
-            25px 15px;
+        margin:25px 4%;
+        padding:25px 15px;
     }
 
     .newsletter-form{
-
         flex-direction:column;
-
         gap:8px;
     }
 
     .newsletter-form input,
     .newsletter-form button{
-
         border-radius:7px;
-
         padding:12px;
     }
 
     .ganjam-box{
-
         text-align:center;
-
         flex-direction:column;
     }
 
 }
-
-
-/* =========================
-   END
-========================= */
 
 </style>
 
@@ -1510,15 +977,14 @@ button{
 <body>
 
 
-<!-- =========================
+<!-- =====================================================
      TOP BAR
-========================= -->
+===================================================== -->
 
 <div class="topbar">
 
     <div>
-        🚚 ସୁରତର ଓଡ଼ିଆ ପରିବାର ପାଇଁ
-        ଓଡ଼ିଶାର ସାମଗ୍ରୀ
+        🚚 ସୁରତର ଓଡ଼ିଆ ପରିବାର ପାଇଁ ଓଡ଼ିଶାର ସାମଗ୍ରୀ
     </div>
 
     <div class="topbar-right">
@@ -1536,14 +1002,11 @@ button{
 </div>
 
 
-<!-- =========================
+<!-- =====================================================
      HEADER
-========================= -->
+===================================================== -->
 
 <header class="header">
-
-
-    <!-- LOGO -->
 
     <div class="logo">
 
@@ -1567,8 +1030,6 @@ button{
     </div>
 
 
-    <!-- SEARCH -->
-
     <div class="search">
 
         <input
@@ -1579,7 +1040,6 @@ button{
 
         <button
             onclick="searchProduct()"
-            aria-label="ଖୋଜନ୍ତୁ"
         >
             🔍
         </button>
@@ -1587,11 +1047,12 @@ button{
     </div>
 
 
-    <!-- ACTIONS -->
-
     <div class="actions">
 
-        <div class="action">
+        <div
+            class="action"
+            onclick="openAccount()"
+        >
 
             <span class="action-icon">
                 👤
@@ -1617,7 +1078,10 @@ button{
         </div>
 
 
-        <div class="action">
+        <div
+            class="action"
+            onclick="showCart()"
+        >
 
             <span class="action-icon">
                 🛒
@@ -1634,64 +1098,53 @@ button{
 </header>
 
 
-<!-- =========================
-     NAVIGATION
-========================= -->
+<!-- =====================================================
+     NAV
+===================================================== -->
 
 <nav class="nav">
 
     <a
-        href="#"
+        href="index.html"
         class="active"
     >
         🏠 ମୁଖ୍ୟ ପୃଷ୍ଠା
     </a>
 
-
     <a href="products.html">
         🛍️ ସମସ୍ତ ଉତ୍ପାଦ
     </a>
-
 
     <a href="#categories">
         🍘 ଖାଦ୍ୟ
     </a>
 
-
     <a href="#categories">
         🧵 ବସ୍ତ୍ର ଓ ହସ୍ତତନ୍ତ
     </a>
-
 
     <a href="#categories">
         🎨 ହସ୍ତଶିଳ୍ପ
     </a>
 
-
     <a href="#categories">
         🪔 ପାରମ୍ପରିକ
     </a>
-
 
     <a href="#categories">
         🎁 ଉପହାର
     </a>
 
-
     <a href="seller.html">
-    🏪 ବିକ୍ରେତା ହୁଅନ୍ତୁ
+        🏪 ବିକ୍ରେତା ହୁଅନ୍ତୁ
     </a>
-
-    
-        
-    
 
 </nav>
 
 
-<!-- =========================
+<!-- =====================================================
      HERO
-========================= -->
+===================================================== -->
 
 <section class="hero">
 
@@ -1700,7 +1153,6 @@ button{
         <small>
             🌾 ଓଡ଼ିଶାର ଗାଁରୁ ସୁରତ ପର୍ଯ୍ୟନ୍ତ
         </small>
-
 
         <h2>
 
@@ -1713,7 +1165,6 @@ button{
             ପରିବାର ପାଇଁ
 
         </h2>
-
 
         <p>
 
@@ -1729,7 +1180,6 @@ button{
 
         </p>
 
-
         <div class="hero-buttons">
 
             <button
@@ -1740,11 +1190,8 @@ button{
                 .scrollIntoView()
                 "
             >
-
                 🛍️ ଉତ୍ପାଦ ଦେଖନ୍ତୁ
-
             </button>
-
 
             <button
                 class="about-btn"
@@ -1754,9 +1201,7 @@ button{
                 .scrollIntoView()
                 "
             >
-
                 ❤️ ଆମ ଉଦ୍ଦେଶ୍ୟ
-
             </button>
 
         </div>
@@ -1765,17 +1210,15 @@ button{
 
 
     <div class="hero-art">
-
         🛕🌾
-
     </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      GANJAM
-========================= -->
+===================================================== -->
 
 <section class="section">
 
@@ -1804,7 +1247,6 @@ button{
 
         </div>
 
-
         <div class="ganjam-icon">
             🌾🏡
         </div>
@@ -1814,9 +1256,9 @@ button{
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      CATEGORIES
-========================= -->
+===================================================== -->
 
 <section
     class="section"
@@ -1839,123 +1281,46 @@ button{
 
     <div class="categories">
 
-
         <div class="category">
-
-            <div class="emoji">
-                🍘
-            </div>
-
-            <h3>
-                ଓଡ଼ିଆ ଖାଦ୍ୟ
-            </h3>
-
-            <p>
-                ଗାଁର ସ୍ୱାଦ
-            </p>
-
+            <div class="emoji">🍘</div>
+            <h3>ଓଡ଼ିଆ ଖାଦ୍ୟ</h3>
+            <p>ଗାଁର ସ୍ୱାଦ</p>
         </div>
 
-
         <div class="category">
-
-            <div class="emoji">
-                🧵
-            </div>
-
-            <h3>
-                ବସ୍ତ୍ର ଓ ହସ୍ତତନ୍ତ
-            </h3>
-
-            <p>
-                ପାରମ୍ପରିକ ବସ୍ତ୍ର
-            </p>
-
+            <div class="emoji">🧵</div>
+            <h3>ବସ୍ତ୍ର ଓ ହସ୍ତତନ୍ତ</h3>
+            <p>ପାରମ୍ପରିକ ବସ୍ତ୍ର</p>
         </div>
 
-
         <div class="category">
-
-            <div class="emoji">
-                🎨
-            </div>
-
-            <h3>
-                ହସ୍ତଶିଳ୍ପ
-            </h3>
-
-            <p>
-                କାରିଗରଙ୍କ କଳା
-            </p>
-
+            <div class="emoji">🎨</div>
+            <h3>ହସ୍ତଶିଳ୍ପ</h3>
+            <p>କାରିଗରଙ୍କ କଳା</p>
         </div>
 
-
         <div class="category">
-
-            <div class="emoji">
-                🪔
-            </div>
-
-            <h3>
-                ପାରମ୍ପରିକ ସାମଗ୍ରୀ
-            </h3>
-
-            <p>
-                ଓଡ଼ିଆ ପରମ୍ପରା
-            </p>
-
+            <div class="emoji">🪔</div>
+            <h3>ପାରମ୍ପରିକ ସାମଗ୍ରୀ</h3>
+            <p>ଓଡ଼ିଆ ପରମ୍ପରା</p>
         </div>
 
-
         <div class="category">
-
-            <div class="emoji">
-                🌾
-            </div>
-
-            <h3>
-                କୃଷିଜାତ ଉତ୍ପାଦ
-            </h3>
-
-            <p>
-                ଗାଁରୁ ସିଧା
-            </p>
-
+            <div class="emoji">🌾</div>
+            <h3>କୃଷିଜାତ ଉତ୍ପାଦ</h3>
+            <p>ଗାଁରୁ ସିଧା</p>
         </div>
 
-
         <div class="category">
-
-            <div class="emoji">
-                🎁
-            </div>
-
-            <h3>
-                ଉପହାର
-            </h3>
-
-            <p>
-                ଓଡ଼ିଆ ଉପହାର
-            </p>
-
+            <div class="emoji">🎁</div>
+            <h3>ଉପହାର</h3>
+            <p>ଓଡ଼ିଆ ଉପହାର</p>
         </div>
 
-
         <div class="category">
-
-            <div class="emoji">
-                📚
-            </div>
-
-            <h3>
-                ଓଡ଼ିଆ ବହି
-            </h3>
-
-            <p>
-                ଜ୍ଞାନ ଓ ସାହିତ୍ୟ
-            </p>
-
+            <div class="emoji">📚</div>
+            <h3>ଓଡ଼ିଆ ବହି</h3>
+            <p>ଜ୍ଞାନ ଓ ସାହିତ୍ୟ</p>
         </div>
 
     </div>
@@ -1963,9 +1328,9 @@ button{
 </section>
 
 
-<!-- =========================
-     PRODUCTS
-========================= -->
+<!-- =====================================================
+     FIREBASE PRODUCTS
+===================================================== -->
 
 <section
     class="section"
@@ -1975,10 +1340,8 @@ button{
     <div class="section-title">
 
         <h2>
-
             ⭐ ଚୟନିତ
             <span>ଉତ୍ପାଦ</span>
-
         </h2>
 
         <p>
@@ -1993,261 +1356,8 @@ button{
         id="productList"
     >
 
-
-        <!-- PRODUCT 1 -->
-
-        <div
-            class="product"
-            data-name="ସମ୍ବଲପୁରୀ ଶାଢ଼ୀ"
-        >
-
-            <span class="discount">
-                ୨୪% ଛାଡ଼
-            </span>
-
-
-            <div class="product-img">
-
-                <img
-                    src="images/sambalpuri-saree.webp"
-                    alt="ସମ୍ବଲପୁରୀ ଶାଢ଼ୀ"
-                >
-
-            </div>
-
-
-            <div class="product-info">
-
-                <div class="product-place">
-                    📍 ଓଡ଼ିଶା
-                </div>
-
-                <h3>
-                    ସମ୍ବଲପୁରୀ ଶାଢ଼ୀ
-                </h3>
-
-
-                <div class="rating">
-                    ⭐⭐⭐⭐⭐
-                </div>
-
-
-                <div class="price">
-
-                    ₹୧,୮୯୯
-
-                    <span class="old-price">
-                        ₹୨,୪୯୯
-                    </span>
-
-                </div>
-
-
-                <button
-                    class="add-cart"
-                    onclick="
-                    addToCart(
-                        'ସମ୍ବଲପୁରୀ ଶାଢ଼ୀ',
-                        1899
-                    )
-                    "
-                >
-
-                    🛒 ଝୁଡ଼ିରେ ରଖନ୍ତୁ
-
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- PRODUCT 2 -->
-
-        <div
-            class="product"
-            data-name="ପଟ୍ଟଚିତ୍ର"
-        >
-
-            <span class="discount">
-                ୨୮% ଛାଡ଼
-            </span>
-
-
-            <div class="product-img">
-                🎨
-            </div>
-
-
-            <div class="product-info">
-
-                <div class="product-place">
-                    📍 ଓଡ଼ିଶା
-                </div>
-
-                <h3>
-                    ପଟ୍ଟଚିତ୍ର
-                </h3>
-
-
-                <div class="rating">
-                    ⭐⭐⭐⭐⭐
-                </div>
-
-
-                <div class="price">
-
-                    ₹୧,୨୯୯
-
-                    <span class="old-price">
-                        ₹୧,୭୯୯
-                    </span>
-
-                </div>
-
-
-                <button
-                    class="add-cart"
-                    onclick="
-                    addToCart(
-                        'ପଟ୍ଟଚିତ୍ର',
-                        1299
-                    )
-                    "
-                >
-
-                    🛒 ଝୁଡ଼ିରେ ରଖନ୍ତୁ
-
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- PRODUCT 3 -->
-
-        <div
-            class="product"
-            data-name="ଓଡ଼ିଆ ଖାଜା"
-        >
-
-            <span class="discount">
-                ୨୦% ଛାଡ଼
-            </span>
-
-
-            <div class="product-img">
-                🍘
-            </div>
-
-
-            <div class="product-info">
-
-                <div class="product-place">
-                    📍 ଗଞ୍ଜାମ
-                </div>
-
-                <h3>
-                    ଓଡ଼ିଆ ଖାଜା
-                </h3>
-
-
-                <div class="rating">
-                    ⭐⭐⭐⭐⭐
-                </div>
-
-
-                <div class="price">
-
-                    ₹୩୯୯
-
-                    <span class="old-price">
-                        ₹୪୯୯
-                    </span>
-
-                </div>
-
-
-                <button
-                    class="add-cart"
-                    onclick="
-                    addToCart(
-                        'ଓଡ଼ିଆ ଖାଜା',
-                        399
-                    )
-                    "
-                >
-
-                    🛒 ଝୁଡ଼ିରେ ରଖନ୍ତୁ
-
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- PRODUCT 4 -->
-
-        <div
-            class="product"
-            data-name="ପାରମ୍ପରିକ ପୂଜା ସାମଗ୍ରୀ"
-        >
-
-            <span class="discount">
-                ୧୫% ଛାଡ଼
-            </span>
-
-
-            <div class="product-img">
-                🪔
-            </div>
-
-
-            <div class="product-info">
-
-                <div class="product-place">
-                    📍 ଗଞ୍ଜାମ
-                </div>
-
-                <h3>
-                    ପାରମ୍ପରିକ ପୂଜା ସାମଗ୍ରୀ
-                </h3>
-
-
-                <div class="rating">
-                    ⭐⭐⭐⭐⭐
-                </div>
-
-
-                <div class="price">
-
-                    ₹୫୯୯
-
-                    <span class="old-price">
-                        ₹୭୦୦
-                    </span>
-
-                </div>
-
-
-                <button
-                    class="add-cart"
-                    onclick="
-                    addToCart(
-                        'ପାରମ୍ପରିକ ପୂଜା ସାମଗ୍ରୀ',
-                        599
-                    )
-                    "
-                >
-
-                    🛒 ଝୁଡ଼ିରେ ରଖନ୍ତୁ
-
-                </button>
-
-            </div>
-
+        <div class="loading">
+            ⏳ ଉତ୍ପାଦ ଲୋଡ୍ ହେଉଛି...
         </div>
 
     </div>
@@ -2255,14 +1365,13 @@ button{
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      BANNERS
-========================= -->
+===================================================== -->
 
 <section class="section">
 
     <div class="banners">
-
 
         <div class="banner">
 
@@ -2276,7 +1385,9 @@ button{
                     ଆମ ପାରମ୍ପରିକ ବସ୍ତ୍ର
                 </p>
 
-                <button>
+                <button
+                    onclick="location.href='products.html'"
+                >
                     ଦେଖନ୍ତୁ →
                 </button>
 
@@ -2301,7 +1412,9 @@ button{
                     ଓଡ଼ିଆ ଘରୋଇ ଖାଦ୍ୟ
                 </p>
 
-                <button>
+                <button
+                    onclick="location.href='products.html'"
+                >
                     ଖାଦ୍ୟ ଦେଖନ୍ତୁ →
                 </button>
 
@@ -2326,7 +1439,9 @@ button{
                     ଓଡ଼ିଆ ହସ୍ତଶିଳ୍ପ
                 </p>
 
-                <button>
+                <button
+                    onclick="location.href='products.html'"
+                >
                     ଦେଖନ୍ତୁ →
                 </button>
 
@@ -2343,9 +1458,9 @@ button{
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      MISSION
-========================= -->
+===================================================== -->
 
 <section
     class="mission"
@@ -2355,7 +1470,6 @@ button{
     <h2>
         ❤️ ଆମର ଉଦ୍ଦେଶ୍ୟ
     </h2>
-
 
     <p>
 
@@ -2379,12 +1493,11 @@ button{
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      FEATURES
-========================= -->
+===================================================== -->
 
 <section class="features">
-
 
     <div class="feature">
 
@@ -2473,14 +1586,11 @@ button{
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      SELLER
-========================= -->
+===================================================== -->
 
-<section
-    class="section"
-    id="seller"
->
+<section class="section">
 
     <div class="ganjam-box">
 
@@ -2507,8 +1617,14 @@ button{
 
             </p>
 
-        </div>
+            <a
+                href="seller.html"
+                class="seller-button"
+            >
+                🏪 ବିକ୍ରେତା ହୁଅନ୍ତୁ
+            </a>
 
+        </div>
 
         <div class="ganjam-icon">
             🏪
@@ -2519,9 +1635,9 @@ button{
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      NEWSLETTER
-========================= -->
+===================================================== -->
 
 <section class="newsletter">
 
@@ -2529,15 +1645,10 @@ button{
         📩 ନୂଆ ଉତ୍ପାଦର ଖବର ପାଆନ୍ତୁ
     </h2>
 
-
     <p>
-
         ନୂଆ ଓଡ଼ିଆ ସାମଗ୍ରୀ
-        ଏବଂ ବିଶେଷ ଅଫର ବିଷୟରେ
-        ଜାଣନ୍ତୁ।
-
+        ଏବଂ ବିଶେଷ ଅଫର ବିଷୟରେ ଜାଣନ୍ତୁ।
     </p>
-
 
     <div class="newsletter-form">
 
@@ -2546,7 +1657,6 @@ button{
             id="email"
             placeholder="ଆପଣଙ୍କ ଇମେଲ୍"
         >
-
 
         <button
             onclick="subscribe()"
@@ -2559,15 +1669,13 @@ button{
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      FOOTER
-========================= -->
+===================================================== -->
 
 <footer class="footer">
 
-
     <div class="footer-grid">
-
 
         <div>
 
@@ -2575,23 +1683,17 @@ button{
                 🛒 Utkala<span>Mart</span>
             </h2>
 
-
             <p>
-
                 <strong>
                     “ଆମ ଗାଁର ସ୍ୱାଦ,
                     ସୁରତରେ ଆମ ପରିବାର ପାଇଁ”
                 </strong>
-
             </p>
 
-
             <p>
-
                 ଓଡ଼ିଶାର ଗାଁରୁ
                 ସୁରତର ଓଡ଼ିଆ ପରିବାର ପର୍ଯ୍ୟନ୍ତ
                 ଓଡ଼ିଆ ସାମଗ୍ରୀ ପହଞ୍ଚାଇବା।
-
             </p>
 
         </div>
@@ -2618,11 +1720,7 @@ button{
                 </li>
 
                 <li>
-                    🏪 ବିକ୍ରେତା ହୁଅନ୍ତୁ
-                </li>
-
-                <li>
-                    📞 ଯୋଗାଯୋଗ
+                    🏪 ବିକ୍ରେତା
                 </li>
 
             </ul>
@@ -2692,11 +1790,14 @@ button{
 </footer>
 
 
-<!-- =========================
-     FLOATING CART
-========================= -->
+<!-- =====================================================
+     CART
+===================================================== -->
 
-<div class="cart-box">
+<div
+    class="cart-box"
+    onclick="showCart()"
+>
 
     🛒
 
@@ -2710,38 +1811,47 @@ button{
 </div>
 
 
-<!-- =========================
+<!-- =====================================================
      JAVASCRIPT
-========================= -->
+===================================================== -->
 
-<script>
+<script type="module">
+
+/* =====================================================
+   FIREBASE IMPORT
+===================================================== */
+
+import {
+    db
+} from "./firebase.js";
+
+import {
+    collection,
+    getDocs,
+    query,
+    where
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 
-/* =========================
+/* =====================================================
    CART
-========================= */
-
-let cartCount = 0;
+===================================================== */
 
 let cartItems = [];
 
 
-function addToCart(name,price){
-
-    cartCount++;
+function addToCart(name, price){
 
     cartItems.push({
 
         name:name,
 
-        price:price
+        price:Number(price)
 
     });
 
 
-    document
-        .getElementById("cartCount")
-        .innerText = cartCount;
+    updateCartCount();
 
 
     alert(
@@ -2753,37 +1863,489 @@ function addToCart(name,price){
 }
 
 
-/* =========================
+function updateCartCount(){
+
+    document
+        .getElementById("cartCount")
+        .innerText =
+        cartItems.length;
+
+}
+
+
+function showCart(){
+
+    if(cartItems.length === 0){
+
+        alert(
+            "🛒 ଆପଣଙ୍କ ଝୁଡ଼ି ବର୍ତ୍ତମାନ ଖାଲି ଅଛି।"
+        );
+
+        return;
+
+    }
+
+
+    let message =
+        "🛒 ଆପଣଙ୍କ ଝୁଡ଼ି\n\n";
+
+
+    let total = 0;
+
+
+    cartItems.forEach(
+        (item,index) => {
+
+            message +=
+                (index + 1) +
+                ". " +
+                item.name +
+                " - ₹" +
+                item.price +
+                "\n";
+
+            total +=
+                Number(item.price);
+
+        }
+    );
+
+
+    message +=
+        "\n💰 ମୋଟ: ₹" +
+        total;
+
+
+    alert(message);
+
+}
+
+
+window.addToCart =
+    addToCart;
+
+window.showCart =
+    showCart;
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(value){
+
+    if(value === null ||
+       value === undefined){
+
+        return "";
+
+    }
+
+
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+}
+
+
+/* =====================================================
+   LOAD FIREBASE PRODUCTS
+===================================================== */
+
+async function loadFirebaseProducts(){
+
+    const productList =
+        document.getElementById(
+            "productList"
+        );
+
+
+    try{
+
+        const productsRef =
+            collection(
+                db,
+                "products"
+            );
+
+
+        const approvedQuery =
+            query(
+                productsRef,
+                where(
+                    "status",
+                    "==",
+                    "approved"
+                )
+            );
+
+
+        const snapshot =
+            await getDocs(
+                approvedQuery
+            );
+
+
+        productList.innerHTML = "";
+
+
+        if(snapshot.empty){
+
+            productList.innerHTML = `
+
+                <div class="loading">
+
+                    📦 ବର୍ତ୍ତମାନ
+                    କୌଣସି Approved Product ନାହିଁ।
+
+                    <br><br>
+
+                    ନୂଆ Seller Product
+                    Upload କଲେ ଏଠାରେ ଦେଖାଯିବ।
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        snapshot.forEach(
+            doc => {
+
+                createProductCard(
+                    doc.data(),
+                    doc.id
+                );
+
+            }
+        );
+
+
+    }catch(error){
+
+        console.error(
+            "Firebase Product Error:",
+            error
+        );
+
+
+        productList.innerHTML = `
+
+            <div class="loading">
+
+                ❌ Product ଲୋଡ୍ ହୋଇପାରିଲା ନାହିଁ।
+
+                <br><br>
+
+                Firebase connection
+                ଯାଞ୍ଚ କରନ୍ତୁ।
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =====================================================
+   CREATE PRODUCT CARD
+===================================================== */
+
+function createProductCard(
+    product,
+    productId
+){
+
+    const productList =
+        document.getElementById(
+            "productList"
+        );
+
+
+    const name =
+        escapeHTML(
+            product.name ||
+            "ଅଜଣା ଉତ୍ପାଦ"
+        );
+
+
+    const category =
+        escapeHTML(
+            product.category ||
+            "ଓଡ଼ିଆ ସାମଗ୍ରୀ"
+        );
+
+
+    const village =
+        escapeHTML(
+            product.village ||
+            "ଓଡ଼ିଶା"
+        );
+
+
+    const description =
+        escapeHTML(
+            product.description ||
+            ""
+        );
+
+
+    const price =
+        Number(
+            product.price || 0
+        );
+
+
+    const stock =
+        Number(
+            product.stock || 0
+        );
+
+
+    const image =
+        product.image || "";
+
+
+    const discount =
+        product.discount || "";
+
+
+    let discountHTML = "";
+
+
+    if(discount){
+
+        discountHTML = `
+
+            <span class="discount">
+
+                ${escapeHTML(discount)}
+                % ଛାଡ଼
+
+            </span>
+
+        `;
+
+    }
+
+
+    let imageHTML = `
+
+        <div class="product-img">
+            📦
+        </div>
+
+    `;
+
+
+    if(image){
+
+        imageHTML = `
+
+            <div class="product-img">
+
+                <img
+                    src="${escapeHTML(image)}"
+                    alt="${name}"
+                    loading="lazy"
+                >
+
+            </div>
+
+        `;
+
+    }
+
+
+    let stockHTML = "";
+
+
+    if(stock > 0){
+
+        stockHTML = `
+
+            <div class="stock">
+
+                📦 Stock:
+                ${stock}
+
+            </div>
+
+        `;
+
+    }else{
+
+        stockHTML = `
+
+            <div
+                class="stock"
+                style="color:#d00000"
+            >
+
+                ❌ Stock ନାହିଁ
+
+            </div>
+
+        `;
+
+    }
+
+
+    const card =
+        document.createElement(
+            "div"
+        );
+
+
+    card.className =
+        "product";
+
+
+    card.setAttribute(
+        "data-name",
+        name
+    );
+
+
+    card.innerHTML = `
+
+        ${discountHTML}
+
+        ${imageHTML}
+
+        <div class="product-info">
+
+            <div class="product-place">
+
+                📍 ${village}
+
+            </div>
+
+            <h3>
+                ${name}
+            </h3>
+
+            <div class="rating">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <div class="price">
+
+                ₹${price.toLocaleString("en-IN")}
+
+            </div>
+
+            ${stockHTML}
+
+            ${
+                description
+                ?
+                `<p style="
+                    margin-top:7px;
+                    font-size:12px;
+                    color:#777;
+                ">
+                    ${description}
+                </p>`
+                :
+                ""
+            }
+
+            <button
+                class="add-cart"
+            >
+
+                🛒 ଝୁଡ଼ିରେ ରଖନ୍ତୁ
+
+            </button>
+
+        </div>
+
+    `;
+
+
+    const button =
+        card.querySelector(
+            ".add-cart"
+        );
+
+
+    if(stock <= 0){
+
+        button.disabled = true;
+
+        button.style.background =
+            "#999";
+
+        button.innerText =
+            "❌ Stock ନାହିଁ";
+
+    }else{
+
+        button.addEventListener(
+            "click",
+            function(){
+
+                addToCart(
+                    product.name ||
+                    "ଉତ୍ପାଦ",
+                    price
+                );
+
+            }
+        );
+
+    }
+
+
+    productList.appendChild(
+        card
+    );
+
+}
+
+
+/* =====================================================
    SEARCH
-========================= */
+===================================================== */
 
 function searchProduct(){
 
-    const search =
+    const input =
+        document.getElementById(
+            "searchInput"
+        );
 
-        document
-        .getElementById("searchInput")
-        .value
+
+    const search =
+        input.value
         .toLowerCase()
         .trim();
 
 
     const products =
-
-        document
-        .querySelectorAll(".product");
+        document.querySelectorAll(
+            ".product"
+        );
 
 
     if(search === ""){
 
         products.forEach(
-
             product => {
 
-                product.style.display = "";
+                product.style.display =
+                    "";
 
             }
-
         );
 
         return;
@@ -2795,13 +2357,15 @@ function searchProduct(){
 
 
     products.forEach(
-
         product => {
 
             const name =
-
-                product
-                .getAttribute("data-name")
+                (
+                    product
+                    .getAttribute(
+                        "data-name"
+                    ) || ""
+                )
                 .toLowerCase();
 
 
@@ -2809,18 +2373,19 @@ function searchProduct(){
                 name.includes(search)
             ){
 
-                product.style.display = "";
+                product.style.display =
+                    "";
 
                 found = true;
 
             }else{
 
-                product.style.display = "none";
+                product.style.display =
+                    "none";
 
             }
 
         }
-
     );
 
 
@@ -2835,10 +2400,18 @@ function searchProduct(){
 }
 
 
-/* ENTER SEARCH */
+window.searchProduct =
+    searchProduct;
+
+
+/* =====================================================
+   ENTER SEARCH
+===================================================== */
 
 document
-    .getElementById("searchInput")
+    .getElementById(
+        "searchInput"
+    )
     .addEventListener(
         "keyup",
         function(event){
@@ -2855,16 +2428,17 @@ document
     );
 
 
-/* =========================
+/* =====================================================
    NEWSLETTER
-========================= */
+===================================================== */
 
 function subscribe(){
 
     const email =
-
         document
-        .getElementById("email")
+        .getElementById(
+            "email"
+        )
         .value
         .trim();
 
@@ -2887,14 +2461,46 @@ function subscribe(){
 
 
     document
-        .getElementById("email")
+        .getElementById(
+            "email"
+        )
         .value = "";
 
 }
+
+
+window.subscribe =
+    subscribe;
+
+
+/* =====================================================
+   ACCOUNT
+===================================================== */
+
+function openAccount(){
+
+    alert(
+        "👤 ମୋ ଖାତା\n\n" +
+        "Login / Registration " +
+        "ସୁବିଧା ଶୀଘ୍ର ଯୋଡ଼ାଯିବ।"
+    );
+
+}
+
+
+window.openAccount =
+    openAccount;
+
+
+/* =====================================================
+   START
+===================================================== */
+
+loadFirebaseProducts();
 
 </script>
 
 
 </body>
 
-    </html>
+          </html>
