@@ -1,1309 +1,349 @@
 <!DOCTYPE html>
 <html lang="or">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UtkalaMart - Seller Registration</title>
 
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
+*{margin:0;padding:0;box-sizing:border-box}
 body{
-
-    font-family:
-        "Noto Sans Oriya",
-        "Nirmala UI",
-        Arial,
-        sans-serif;
-
-    min-height:100vh;
-
-    padding:20px 12px;
-
-    color:white;
-
-    background:
-        linear-gradient(
-            135deg,
-            #061b32,
-            #063b78,
-            #087f3f
-        );
+    font-family:"Noto Sans Oriya","Nirmala UI",Arial,sans-serif;
+    min-height:100vh;padding:20px 12px;color:#fff;
+    background:linear-gradient(135deg,#061b32,#063b78,#087f3f)
 }
-
-.container{
-
-    width:100%;
-    max-width:600px;
-    margin:auto;
-}
-
-.header{
-
-    text-align:center;
-    margin:15px 0 25px;
-}
-
-.logo{
-
-    font-size:42px;
-}
-
-.header h1{
-
-    font-size:30px;
-    margin-top:5px;
-}
-
-.header h1 span{
-
-    color:#ff8a00;
-}
-
-.header p{
-
-    color:#d8eaff;
-    margin-top:7px;
-}
-
+.container{width:100%;max-width:600px;margin:auto}
+.header{text-align:center;margin:15px 0 25px}
+.logo{font-size:42px}
+.header h1{font-size:30px;margin-top:5px}
+.header h1 span{color:#ff8a00}
+.header p{color:#d8eaff;margin-top:7px}
 .card{
-
-    background:#202020;
-
-    border-radius:22px;
-
-    padding:25px 20px;
-
-    box-shadow:
-        0 10px 40px
-        rgba(0,0,0,.45);
+    background:#202020;border-radius:22px;padding:25px 20px;
+    box-shadow:0 10px 40px rgba(0,0,0,.45)
 }
-
-.card h2{
-
-    text-align:center;
-
-    color:#8fd0ff;
-
-    font-size:25px;
-
-    margin-bottom:8px;
+.card h2{text-align:center;color:#8fd0ff;font-size:25px;margin-bottom:8px}
+.subtitle{text-align:center;color:#aaa;margin-bottom:25px}
+.field{margin-bottom:17px}
+label{display:block;color:#e8e8e8;font-weight:bold;margin-bottom:7px}
+.required{color:#ff6b00}
+input,select{
+    width:100%;padding:14px;border-radius:10px;border:1px solid #555;
+    background:#303030;color:#fff;font-size:16px;outline:none
 }
-
-.subtitle{
-
-    text-align:center;
-
-    color:#aaa;
-
-    margin-bottom:25px;
+input:focus,select:focus{
+    border-color:#00c45c;box-shadow:0 0 0 2px rgba(0,196,92,.15)
 }
-
-.field{
-
-    margin-bottom:17px;
-}
-
-label{
-
-    display:block;
-
-    color:#e8e8e8;
-
-    font-weight:bold;
-
-    margin-bottom:7px;
-}
-
-.required{
-
-    color:#ff6b00;
-}
-
-input,
-select{
-
-    width:100%;
-
-    padding:14px;
-
-    border-radius:10px;
-
-    border:1px solid #555;
-
-    background:#303030;
-
-    color:white;
-
-    font-size:16px;
-
-    outline:none;
-}
-
-input:focus,
-select:focus{
-
-    border-color:#00c45c;
-
-    box-shadow:
-        0 0 0 2px
-        rgba(0,196,92,.15);
-}
-
-input::placeholder{
-
-    color:#999;
-}
-
-select option{
-
-    background:#303030;
-    color:white;
-}
-
-.grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:15px;
-}
-
-.password-box{
-
-    position:relative;
-}
-
-.password-box input{
-
-    padding-right:55px;
-}
-
+input::placeholder{color:#999}
+select option{background:#303030;color:#fff}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.password-box{position:relative}
+.password-box input{padding-right:55px}
 .show-password{
-
-    position:absolute;
-
-    right:10px;
-
-    top:50%;
-
-    transform:
-        translateY(-50%);
-
-    background:none;
-
-    border:0;
-
-    color:#aaa;
-
-    font-size:20px;
-
-    cursor:pointer;
+    position:absolute;right:10px;top:50%;transform:translateY(-50%);
+    background:none;border:0;color:#aaa;font-size:20px;cursor:pointer
 }
-
 .register-btn{
-
-    width:100%;
-
-    padding:16px;
-
-    margin-top:8px;
-
-    border:0;
-
-    border-radius:12px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff6b00,
-            #e83b00
-        );
-
-    color:white;
-
-    font-size:17px;
-
-    font-weight:bold;
-
-    cursor:pointer;
+    width:100%;padding:16px;margin-top:8px;border:0;border-radius:12px;
+    background:linear-gradient(135deg,#ff6b00,#e83b00);
+    color:#fff;font-size:17px;font-weight:bold;cursor:pointer
 }
-
-.register-btn:disabled{
-
-    background:#777;
-
-    cursor:not-allowed;
-}
-
+.register-btn:disabled{background:#777;cursor:not-allowed}
 .message{
-
-    display:none;
-
-    margin-top:17px;
-
-    padding:14px;
-
-    border-radius:10px;
-
-    text-align:center;
-
-    line-height:1.6;
-
-    font-weight:bold;
+    display:none;margin-top:17px;padding:14px;border-radius:10px;
+    text-align:center;line-height:1.6;font-weight:bold
 }
-
-.success{
-
-    background:#063d20;
-
-    color:#8fffc0;
-}
-
-.error{
-
-    background:#481010;
-
-    color:#ffb3b3;
-}
-
-.login-link{
-
-    text-align:center;
-
-    margin-top:22px;
-
-    color:#aaa;
-
-    font-size:16px;
-}
-
-.login-link a{
-
-    color:#8fc9ff;
-
-    font-weight:bold;
-
-    text-decoration:none;
-}
-
+.success{background:#063d20;color:#8fffc0}
+.error{background:#481010;color:#ffb3b3}
+.login-link{text-align:center;margin-top:22px;color:#aaa;font-size:16px}
+.login-link a{color:#8fc9ff;font-weight:bold;text-decoration:none}
 .info{
-
-    margin-top:20px;
-
-    background:#102d48;
-
-    padding:16px;
-
-    border-radius:12px;
-
-    color:#cce8ff;
-
-    line-height:1.8;
-
-    font-size:13px;
+    margin-top:20px;background:#102d48;padding:16px;border-radius:12px;
+    color:#cce8ff;line-height:1.8;font-size:13px
 }
-
-.home{
-
-    display:block;
-
-    text-align:center;
-
-    margin-top:20px;
-
-    color:white;
-
-    text-decoration:none;
-
-    padding-bottom:20px;
-}
-
+.home{display:block;text-align:center;margin-top:20px;color:#fff;text-decoration:none;padding-bottom:20px}
 @media(max-width:600px){
-
-    .grid{
-
-        grid-template-columns:1fr;
-    }
-
-    .card{
-
-        padding:22px 16px;
-    }
-
-    .header h1{
-
-        font-size:26px;
-    }
+    .grid{grid-template-columns:1fr}
+    .card{padding:22px 16px}
+    .header h1{font-size:26px}
 }
-
 </style>
-
 </head>
 
-
 <body>
-
-
 <div class="container">
 
-
-<!-- =========================
-     HEADER
-========================= -->
-
 <div class="header">
-
-    <div class="logo">
-        🛒
-    </div>
-
-    <h1>
-        Utkala<span>Mart</span>
-    </h1>
-
-    <p>
-        Seller Center • ବିକ୍ରେତା କେନ୍ଦ୍ର
-    </p>
-
+    <div class="logo">🛒</div>
+    <h1>Utkala<span>Mart</span></h1>
+    <p>Seller Center • ବିକ୍ରେତା କେନ୍ଦ୍ର</p>
 </div>
-
-
-
-<!-- =========================
-     REGISTRATION CARD
-========================= -->
 
 <div class="card">
-
-
-<h2>
-    🧑‍💼 Seller Registration
-</h2>
-
-<div class="subtitle">
-    ନୂଆ Seller Account ଖୋଲନ୍ତୁ
-</div>
-
-
+<h2>🧑‍💼 Seller Registration</h2>
+<div class="subtitle">ନୂଆ Seller Account ଖୋଲନ୍ତୁ</div>
 
 <form id="sellerForm">
 
-
-<!-- NAME -->
-
 <div class="field">
-
-<label>
-
-👤 Seller ନାମ
-
-<span class="required">*</span>
-
-</label>
-
-<input
-    type="text"
-    id="sellerName"
-    placeholder="ଆପଣଙ୍କ ନାମ"
-    autocomplete="name"
-    required
->
-
+<label>👤 Seller ନାମ <span class="required">*</span></label>
+<input type="text" id="sellerName" placeholder="ଆପଣଙ୍କ ନାମ"
+       autocomplete="name" required>
 </div>
 
-
-
-<!-- MOBILE -->
-
 <div class="field">
-
-<label>
-
-📱 Mobile Number
-
-<span class="required">*</span>
-
-</label>
-
-<input
-    type="tel"
-    id="sellerMobile"
-    maxlength="10"
-    inputmode="numeric"
-    placeholder="10 digit mobile"
-    autocomplete="tel"
-    required
->
-
+<label>📱 Mobile Number <span class="required">*</span></label>
+<input type="tel" id="sellerMobile" maxlength="10" inputmode="numeric"
+       placeholder="10 digit mobile" autocomplete="tel" required>
 </div>
 
-
-
-<!-- EMAIL -->
-
 <div class="field">
-
-<label>
-
-📧 Email
-
-<span class="required">*</span>
-
-</label>
-
-<input
-    type="email"
-    id="sellerEmail"
-    placeholder="example@gmail.com"
-    autocomplete="email"
-    required
->
-
+<label>📧 Email <span class="required">*</span></label>
+<input type="email" id="sellerEmail" placeholder="example@gmail.com"
+       autocomplete="email" required>
 </div>
 
-
-
-<!-- PASSWORD -->
-
 <div class="field">
-
-<label>
-
-🔑 Password
-
-<span class="required">*</span>
-
-</label>
-
+<label>🔑 Password <span class="required">*</span></label>
 <div class="password-box">
-
-<input
-    type="password"
-    id="password"
-    minlength="6"
-    placeholder="Minimum 6 characters"
-    autocomplete="new-password"
-    required
->
-
-<button
-    type="button"
-    class="show-password"
-    id="showPassword"
->
-    👁️
-</button>
-
+<input type="password" id="password" minlength="6"
+       placeholder="Minimum 6 characters" autocomplete="new-password" required>
+<button type="button" class="show-password" id="showPassword">👁️</button>
 </div>
-
 </div>
-
-
-
-<!-- CONFIRM PASSWORD -->
 
 <div class="field">
-
-<label>
-
-🔐 Confirm Password
-
-<span class="required">*</span>
-
-</label>
-
-<input
-    type="password"
-    id="confirmPassword"
-    minlength="6"
-    placeholder="Password ପୁଣି ଦିଅନ୍ତୁ"
-    autocomplete="new-password"
-    required
->
-
+<label>🔐 Confirm Password <span class="required">*</span></label>
+<input type="password" id="confirmPassword" minlength="6"
+       placeholder="Password ପୁଣି ଦିଅନ୍ତୁ" autocomplete="new-password" required>
 </div>
-
-
-
-<!-- LOCATION -->
 
 <div class="grid">
-
-
 <div class="field">
-
-<label>
-
-📍 ଗାଁ / ଅଞ୍ଚଳ
-
-<span class="required">*</span>
-
-</label>
-
-<input
-    type="text"
-    id="village"
-    placeholder="ଛତ୍ରପୁର"
-    required
->
-
+<label>📍 ଗାଁ / ଅଞ୍ଚଳ <span class="required">*</span></label>
+<input type="text" id="village" placeholder="ଆସିକା" required>
 </div>
 
-
-
 <div class="field">
-
-<label>
-
-🏙️ ଜିଲ୍ଲା
-
-<span class="required">*</span>
-
-</label>
-
-<input
-    type="text"
-    id="district"
-    placeholder="ଗଞ୍ଜାମ"
-    required
->
-
+<label>🏙️ ଜିଲ୍ଲା <span class="required">*</span></label>
+<input type="text" id="district" placeholder="ଗଞ୍ଜାମ" required>
+</div>
 </div>
 
-
-</div>
-
-
-
-<!-- STATE -->
-
 <div class="field">
-
-<label>
-
-🗺️ ରାଜ୍ୟ
-
-</label>
-
+<label>🗺️ ରାଜ୍ୟ</label>
 <select id="state">
-
-<option value="ଓଡ଼ିଶା">
-    ଓଡ଼ିଶା
-</option>
-
-<option value="ଆନ୍ଧ୍ର ପ୍ରଦେଶ">
-    ଆନ୍ଧ୍ର ପ୍ରଦେଶ
-</option>
-
-<option value="ଛତିଶଗଡ଼">
-    ଛତିଶଗଡ଼
-</option>
-
-<option value="ଗୁଜରାଟ">
-    ଗୁଜରାଟ
-</option>
-
-<option value="ମହାରାଷ୍ଟ୍ର">
-    ମହାରାଷ୍ଟ୍ର
-</option>
-
-<option value="ଅନ୍ୟାନ୍ୟ">
-    ଅନ୍ୟାନ୍ୟ
-</option>
-
+<option value="ଓଡ଼ିଶା">ଓଡ଼ିଶା</option>
+<option value="ଆନ୍ଧ୍ର ପ୍ରଦେଶ">ଆନ୍ଧ୍ର ପ୍ରଦେଶ</option>
+<option value="ଛତିଶଗଡ଼">ଛତିଶଗଡ଼</option>
+<option value="ଗୁଜରାଟ">ଗୁଜରାଟ</option>
+<option value="ମହାରାଷ୍ଟ୍ର">ମହାରାଷ୍ଟ୍ର</option>
+<option value="ଅନ୍ୟାନ୍ୟ">ଅନ୍ୟାନ୍ୟ</option>
 </select>
-
 </div>
 
-
-
-<!-- REGISTER BUTTON -->
-
-<button
-    type="submit"
-    id="registerBtn"
-    class="register-btn"
->
-
+<button type="submit" id="registerBtn" class="register-btn">
 📝 Seller Account Create କରନ୍ତୁ
-
 </button>
 
-
-
-<!-- MESSAGE -->
-
-<div
-    id="message"
-    class="message"
-></div>
-
-
+<div id="message" class="message"></div>
 </form>
 
-
-
-<!-- LOGIN -->
-
 <div class="login-link">
-
 ପୂର୍ବରୁ Account ଅଛି?
-
-<a href="seller.html">
-
-🔐 Seller Login
-
-</a>
-
+<a href="seller.html">🔐 Seller Login</a>
 </div>
-
-
 </div>
-
-
-
-<!-- =========================
-     INFO
-========================= -->
 
 <div class="info">
-
-<b>
-🛒 UtkalaMart Seller System
-</b>
-
+<b>🛒 UtkalaMart Seller System</b>
 <br><br>
-
-✅ Registration ପରେ Seller Login କରିପାରିବେ।
-
-<br>
-
-✅ Seller Product Upload କରିପାରିବେ।
-
-<br>
-
-⏳ Product ପ୍ରଥମେ Pending ରହିବ।
-
-<br>
-
-✅ Admin Approve କଲା ପରେ Customerଙ୍କୁ Product ଦେଖାଯିବ।
-
+✅ Registration ପରେ Seller Login କରିପାରିବେ।<br>
+✅ Seller Product Upload କରିପାରିବେ।<br>
+⏳ Seller registration ପରେ Pending ରହିବ।<br>
+✅ Admin Approve କଲା ପରେ Product Customerଙ୍କୁ ଦେଖାଯିବ।
 </div>
 
-
-
-<a
-    href="index.html"
-    class="home"
->
-
-🏠 UtkalaMart Home
-
-</a>
-
-
+<a href="index.html" class="home">🏠 UtkalaMart Home</a>
 </div>
-
-
 
 <script type="module">
-
-
-/* ==========================================
-   FIREBASE IMPORT
-========================================== */
+import { auth, db } from "./firebase.js";
 
 import {
-
-    auth,
-    db
-
-} from "./firebase.js";
-
+    createUserWithEmailAndPassword,
+    deleteUser
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
 import {
-
-    createUserWithEmailAndPassword
-
-} from
-"https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-
-
-import {
-
     doc,
     setDoc,
     serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
-} from
-"https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+const form = document.getElementById("sellerForm");
+const registerBtn = document.getElementById("registerBtn");
+const message = document.getElementById("message");
+const passwordInput = document.getElementById("password");
+const confirmPasswordInput = document.getElementById("confirmPassword");
+const showPassword = document.getElementById("showPassword");
 
-
-
-/* ==========================================
-   ELEMENTS
-========================================== */
-
-const form =
-document.getElementById(
-    "sellerForm"
-);
-
-
-const registerBtn =
-document.getElementById(
-    "registerBtn"
-);
-
-
-const message =
-document.getElementById(
-    "message"
-);
-
-
-const passwordInput =
-document.getElementById(
-    "password"
-);
-
-
-const confirmPasswordInput =
-document.getElementById(
-    "confirmPassword"
-);
-
-
-const showPassword =
-document.getElementById(
-    "showPassword"
-);
-
-
-
-/* ==========================================
-   MESSAGE FUNCTION
-========================================== */
-
-function showMessage(
-    text,
-    type
-){
-
-    message.innerText =
-        text;
-
-    message.className =
-        "message " + type;
-
-    message.style.display =
-        "block";
-
+function showMessage(text, type){
+    message.textContent = text;
+    message.className = "message " + type;
+    message.style.display = "block";
 }
 
+showPassword.addEventListener("click", () => {
+    const show = passwordInput.type === "password";
+    passwordInput.type = show ? "text" : "password";
+    confirmPasswordInput.type = show ? "text" : "password";
+    showPassword.textContent = show ? "🙈" : "👁️";
+});
 
+document.getElementById("sellerMobile").addEventListener("input", function(){
+    this.value = this.value.replace(/[^0-9]/g, "").slice(0, 10);
+});
 
-/* ==========================================
-   SHOW / HIDE PASSWORD
-========================================== */
+form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    message.style.display = "none";
 
-showPassword.addEventListener(
-    "click",
-    function(){
+    const sellerName = document.getElementById("sellerName").value.trim();
+    const sellerMobile = document.getElementById("sellerMobile").value.trim();
+    const sellerEmail = document.getElementById("sellerEmail").value.trim().toLowerCase();
+    const password = passwordInput.value;
+    const confirmPassword = confirmPasswordInput.value;
+    const village = document.getElementById("village").value.trim();
+    const district = document.getElementById("district").value.trim();
+    const state = document.getElementById("state").value;
 
-        if(
-            passwordInput.type ===
-            "password"
-        ){
+    if (sellerName.length < 2)
+        return showMessage("❌ Seller ନାମ ଠିକ୍ ଭାବରେ ଦିଅନ୍ତୁ।", "error");
 
-            passwordInput.type =
-                "text";
+    if (!/^[0-9]{10}$/.test(sellerMobile))
+        return showMessage("❌ 10 digit Mobile Number ଦିଅନ୍ତୁ।", "error");
 
-            confirmPasswordInput.type =
-                "text";
+    if (password.length < 6)
+        return showMessage("❌ Password କମ୍ ସେ କମ୍ 6 characters ହେବା ଦରକାର।", "error");
 
-            showPassword.innerText =
-                "🙈";
+    if (password !== confirmPassword)
+        return showMessage("❌ Password ଦୁଇଟି ସମାନ ନୁହେଁ।", "error");
 
+    if (village.length < 2)
+        return showMessage("❌ ଗାଁ / ଅଞ୍ଚଳ ଦିଅନ୍ତୁ।", "error");
+
+    if (district.length < 2)
+        return showMessage("❌ ଜିଲ୍ଲା ଦିଅନ୍ତୁ।", "error");
+
+    registerBtn.disabled = true;
+    registerBtn.textContent = "⏳ Account Create ହେଉଛି...";
+
+    let createdUser = null;
+
+    try {
+        const userCredential = await createUserWithEmailAndPassword(
+            auth,
+            sellerEmail,
+            password
+        );
+
+        createdUser = userCredential.user;
+
+        await setDoc(
+            doc(db, "sellers", createdUser.uid),
+            {
+                uid: createdUser.uid,
+                name: sellerName,
+                email: sellerEmail,
+                mobile: sellerMobile,
+                village: village,
+                district: district,
+                state: state,
+
+                role: "seller",
+
+                // Admin approval ପାଇଁ Pending
+                status: "pending",
+                approved: false,
+
+                createdAt: serverTimestamp(),
+                updatedAt: serverTimestamp()
+            }
+        );
+
+        showMessage(
+            "✅ Seller Account ସଫଳଭାବେ Create ହୋଇଗଲା! ଆପଣଙ୍କ account Admin Approval ପାଇଁ Pending ଅଛି।",
+            "success"
+        );
+
+        form.reset();
+
+        setTimeout(() => {
+            window.location.href = "seller.html";
+        }, 2200);
+
+    } catch (error) {
+        console.error("SELLER REGISTRATION ERROR:", error);
+
+        // Firestore save fail ହେଲେ ନୂଆ Auth account କୁ rollback କରିବା
+        if (createdUser) {
+            try {
+                await deleteUser(createdUser);
+            } catch (rollbackError) {
+                console.error("ROLLBACK ERROR:", rollbackError);
+            }
         }
 
-        else{
-
-            passwordInput.type =
-                "password";
-
-            confirmPasswordInput.type =
-                "password";
-
-            showPassword.innerText =
-                "👁️";
-
-        }
-
-    }
-);
-
-
-
-/* ==========================================
-   MOBILE ONLY NUMBERS
-========================================== */
-
-document
-.getElementById("sellerMobile")
-.addEventListener(
-    "input",
-    function(){
-
-        this.value =
-            this.value
-            .replace(
-                /[^0-9]/g,
-                ""
-            )
-            .slice(0,10);
-
-    }
-);
-
-
-
-/* ==========================================
-   REGISTRATION
-========================================== */
-
-form.addEventListener(
-    "submit",
-    async function(event){
-
-        event.preventDefault();
-
-
-        message.style.display =
-            "none";
-
-
-        /* =========================
-           GET VALUES
-        ========================== */
-
-        const sellerName =
-            document
-            .getElementById(
-                "sellerName"
-            )
-            .value
-            .trim();
-
-
-        const sellerMobile =
-            document
-            .getElementById(
-                "sellerMobile"
-            )
-            .value
-            .trim();
-
-
-        const sellerEmail =
-            document
-            .getElementById(
-                "sellerEmail"
-            )
-            .value
-            .trim()
-            .toLowerCase();
-
-
-        const password =
-            passwordInput.value;
-
-
-        const confirmPassword =
-            confirmPasswordInput.value;
-
-
-        const village =
-            document
-            .getElementById(
-                "village"
-            )
-            .value
-            .trim();
-
-
-        const district =
-            document
-            .getElementById(
-                "district"
-            )
-            .value
-            .trim();
-
-
-        const state =
-            document
-            .getElementById(
-                "state"
-            )
-            .value;
-
-
-
-        /* =========================
-           VALIDATION
-        ========================== */
-
-        if(
-            sellerName.length < 2
-        ){
-
-            showMessage(
-                "❌ Seller ନାମ ଠିକ୍ ଭାବରେ ଦିଅନ୍ତୁ।",
-                "error"
-            );
-
-            return;
-        }
-
-
-
-        if(
-            !/^[0-9]{10}$/
-            .test(
-                sellerMobile
-            )
-        ){
-
-            showMessage(
-                "❌ 10 digit Mobile Number ଦିଅନ୍ତୁ।",
-                "error"
-            );
-
-            return;
-        }
-
-
-
-        if(
-            password.length < 6
-        ){
-
-            showMessage(
-                "❌ Password କମ୍ ସେ କମ୍ 6 characters ହେବା ଦରକାର।",
-                "error"
-            );
-
-            return;
-        }
-
-
-
-        if(
-            password !==
-            confirmPassword
-        ){
-
-            showMessage(
-                "❌ Password ଦୁଇଟି ସମାନ ନୁହେଁ।",
-                "error"
-            );
-
-            return;
-        }
-
-
-
-        if(
-            village.length < 2
-        ){
-
-            showMessage(
-                "❌ ଗାଁ / ଅଞ୍ଚଳ ଦିଅନ୍ତୁ।",
-                "error"
-            );
-
-            return;
-        }
-
-
-
-        if(
-            district.length < 2
-        ){
-
-            showMessage(
-                "❌ ଜିଲ୍ଲା ଦିଅନ୍ତୁ।",
-                "error"
-            );
-
-            return;
-        }
-
-
-
-        /* =========================
-           DISABLE BUTTON
-        ========================== */
-
-        registerBtn.disabled =
-            true;
-
-        registerBtn.innerText =
-            "⏳ Account Create ହେଉଛି...";
-
-
-
-        try{
-
-
-            /* =========================
-               CREATE FIREBASE AUTH USER
-            ========================== */
-
-            const userCredential =
-                await
-                createUserWithEmailAndPassword(
-                    auth,
-                    sellerEmail,
-                    password
-                );
-
-
-            const user =
-                userCredential.user;
-
-
-
-            /* =========================
-               CREATE SELLER PROFILE
-            ========================== */
-
-            await setDoc(
-
-                doc(
-                    db,
-                    "sellers",
-                    user.uid
-                ),
-
-                {
-
-                    uid:
-                        user.uid,
-
-                    name:
-                        sellerName,
-
-                    email:
-                        sellerEmail,
-
-                    mobile:
-                        sellerMobile,
-
-                    village:
-                        village,
-
-                    district:
-                        district,
-
-                    state:
-                        state,
-
-                    role:
-                        "seller",
-
-                    status:
-                        "active",
-
-                    approved:
-                        true,
-
-                    createdAt:
-                        serverTimestamp(),
-
-                    updatedAt:
-                        serverTimestamp()
-
+        let errorMessage = "❌ Seller Account Create ହୋଇପାରିଲା ନାହିଁ।";
+
+        switch (error.code) {
+            case "auth/email-already-in-use":
+                errorMessage = "❌ ଏହି Email ରେ ପୂର୍ବରୁ Account ଅଛି।";
+                break;
+
+            case "auth/invalid-email":
+                errorMessage = "❌ Email Address ଠିକ୍ ନୁହେଁ।";
+                break;
+
+            case "auth/weak-password":
+                errorMessage = "❌ Password ଆହୁରି ଶକ୍ତିଶାଳୀ ଦିଅନ୍ତୁ।";
+                break;
+
+            case "auth/network-request-failed":
+                errorMessage = "❌ Internet connection ଯାଞ୍ଚ କରନ୍ତୁ।";
+                break;
+
+            case "auth/operation-not-allowed":
+                errorMessage = "❌ Firebase Email/Password Enable ହୋଇନାହିଁ।";
+                break;
+
+            case "auth/too-many-requests":
+                errorMessage = "❌ ବହୁତ ଥର Try କରାଯାଇଛି। କିଛି ସମୟ ପରେ ପୁଣି Try କରନ୍ତୁ।";
+                break;
+
+            case "permission-denied":
+            case "firestore/permission-denied":
+                errorMessage = "❌ Firestore Permission Error। Firestore Rules ଯାଞ୍ଚ କରନ୍ତୁ।";
+                break;
+
+            case "auth/invalid-credential":
+                errorMessage = "❌ Firebase Authentication credential error।";
+                break;
+
+            default:
+                if (error.message && error.message.includes("Missing or insufficient permissions")) {
+                    errorMessage = "❌ Firestore Permission Error। Rules ଠିକ୍ କରନ୍ତୁ।";
                 }
-
-            );
-
-
-
-            /* =========================
-               SUCCESS
-            ========================== */
-
-            showMessage(
-
-                "✅ Seller Account ସଫଳଭାବେ Create ହୋଇଗଲା! " +
-                "ଏବେ Seller Login କରନ୍ତୁ।",
-
-                "success"
-
-            );
-
-
-            form.reset();
-
-
-
-            /* =========================
-               GO LOGIN
-            ========================== */
-
-            setTimeout(
-                function(){
-
-                    window.location.href =
-                        "seller.html";
-
-                },
-                1800
-            );
-
-
         }
 
+        showMessage(errorMessage, "error");
 
-        catch(error){
-
-
-            console.error(
-                "SELLER REGISTRATION ERROR:",
-                error
-            );
-
-
-            let errorMessage =
-                "❌ Seller Account Create ହୋଇପାରିଲା ନାହିଁ।";
-
-
-
-            /* =========================
-               FIREBASE AUTH ERRORS
-            ========================== */
-
-            if(
-                error.code ===
-                "auth/email-already-in-use"
-            ){
-
-                errorMessage =
-                    "❌ ଏହି Email ରେ ପୂର୍ବରୁ Account ଅଛି।";
-
-            }
-
-
-            else if(
-                error.code ===
-                "auth/invalid-email"
-            ){
-
-                errorMessage =
-                    "❌ Email Address ଠିକ୍ ନୁହେଁ।";
-
-            }
-
-
-            else if(
-                error.code ===
-                "auth/weak-password"
-            ){
-
-                errorMessage =
-                    "❌ Password ଆହୁରି ଶକ୍ତିଶାଳୀ ଦିଅନ୍ତୁ।";
-
-            }
-
-
-            else if(
-                error.code ===
-                "auth/network-request-failed"
-            ){
-
-                errorMessage =
-                    "❌ Internet connection ଯାଞ୍ଚ କରନ୍ତୁ।";
-
-            }
-
-
-            else if(
-                error.code ===
-                "permission-denied"
-                ||
-                error.code ===
-                "firestore/permission-denied"
-            ){
-
-                errorMessage =
-                    "❌ Firebase Firestore permission error। Rules ଯାଞ୍ଚ କରନ୍ତୁ।";
-
-            }
-
-
-            else if(
-                error.code ===
-                "auth/operation-not-allowed"
-            ){
-
-                errorMessage =
-                    "❌ Firebase Email/Password Login Enable ହୋଇନାହିଁ।";
-
-            }
-
-
-            else if(
-                error.code ===
-                "auth/too-many-requests"
-            ){
-
-                errorMessage =
-                    "❌ ବହୁତ ଥର Try କରାଯାଇଛି। କିଛି ସମୟ ପରେ ପୁଣି Try କରନ୍ତୁ।";
-
-            }
-
-
-
-            /* =========================
-               SHOW ERROR
-            ========================== */
-
-            showMessage(
-                errorMessage,
-                "error"
-            );
-
-
-            registerBtn.disabled =
-                false;
-
-
-            registerBtn.innerText =
-                "📝 Seller Account Create କରନ୍ତୁ";
-
-        }
-
+        registerBtn.disabled = false;
+        registerBtn.textContent = "📝 Seller Account Create କରନ୍ତୁ";
     }
-);
-
+});
 </script>
 
-
 </body>
-
 </html>
