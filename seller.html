@@ -8,15 +8,9 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>
-UtkalaMart - Seller Center
-</title>
+<title>UtkalaMart - Seller Center</title>
 
 <style>
-
-/* ==========================================
-   BASIC
-========================================== */
 
 *{
     margin:0;
@@ -33,30 +27,19 @@ body{
         sans-serif;
 
     background:#f4f6f8;
-
     color:#17233c;
-
 }
 
 button,
 input,
 select,
 textarea{
-
     font-family:inherit;
-
 }
 
 button{
-
     cursor:pointer;
-
 }
-
-
-/* ==========================================
-   HEADER
-========================================== */
 
 .header{
 
@@ -68,290 +51,125 @@ button{
         );
 
     color:white;
-
     padding:20px 5%;
 
     display:flex;
-
-    justify-content:
-        space-between;
-
+    justify-content:space-between;
     align-items:center;
-
     gap:20px;
-
 }
 
 .logo{
-
     display:flex;
-
     align-items:center;
-
     gap:12px;
-
 }
 
 .logo-icon{
 
     width:52px;
-
     height:52px;
-
     border-radius:50%;
-
     background:#ff6b00;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     font-size:27px;
-
 }
 
 .logo h1{
-
     font-size:27px;
-
 }
 
 .logo h1 span{
-
     color:#ff8a00;
-
 }
 
 .logo p{
-
     font-size:11px;
-
     color:#d9f5e5;
-
     margin-top:3px;
-
 }
 
-.home-btn{
+.header-actions{
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+
+.home-btn,
+.logout-btn{
 
     background:white;
-
     color:#063b78;
 
     padding:10px 18px;
-
     border-radius:22px;
 
     text-decoration:none;
-
     font-weight:bold;
 
+    border:0;
 }
 
-
-/* ==========================================
-   CONTAINER
-========================================== */
+.logout-btn{
+    background:#d62828;
+    color:white;
+}
 
 .container{
 
     max-width:1000px;
-
     margin:30px auto;
-
     padding:0 15px;
-
 }
 
+.login-card{
 
-/* ==========================================
-   TITLE
-========================================== */
-
-.page-title{
-
-    text-align:center;
-
-    margin-bottom:25px;
-
-}
-
-.page-title h2{
-
-    color:#063b78;
-
-    font-size:30px;
-
-}
-
-.page-title h2 span{
-
-    color:#ff6b00;
-
-}
-
-.page-title p{
-
-    color:#666;
-
-    margin-top:7px;
-
-}
-
-
-/* ==========================================
-   FORM CARD
-========================================== */
-
-.form-card{
+    max-width:500px;
+    margin:50px auto;
 
     background:white;
+    padding:28px;
 
     border-radius:18px;
-
-    padding:25px;
 
     box-shadow:
         0 5px 25px
         rgba(0,0,0,.08);
-
-    margin-bottom:25px;
-
 }
 
+.login-card h2{
 
-/* ==========================================
-   SECTION TITLE
-========================================== */
-
-.form-section{
-
-    border-bottom:
-        1px solid #e5e7eb;
-
-    padding-bottom:25px;
-
-    margin-bottom:25px;
-
-}
-
-.form-section:last-child{
-
-    border-bottom:0;
-
-    margin-bottom:0;
-
-}
-
-.section-heading{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:10px;
-
-    margin-bottom:20px;
-
-}
-
-.section-heading .icon{
-
-    width:40px;
-
-    height:40px;
-
-    border-radius:10px;
-
-    background:#eaf4ff;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:21px;
-
-}
-
-.section-heading h3{
-
+    text-align:center;
     color:#063b78;
-
-    font-size:21px;
-
+    margin-bottom:8px;
 }
 
-.section-heading p{
+.login-card p{
 
+    text-align:center;
     color:#777;
-
-    font-size:12px;
-
-    margin-top:2px;
-
+    margin-bottom:25px;
 }
 
-
-/* ==========================================
-   GRID
-========================================== */
-
-.grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:18px;
-
+.field{
+    margin-bottom:17px;
 }
-
-.grid-3{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:18px;
-
-}
-
-.full{
-
-    grid-column:
-        1 / -1;
-
-}
-
-
-/* ==========================================
-   FIELD
-========================================== */
 
 .field label{
 
     display:block;
-
     color:#243b5a;
-
     font-weight:bold;
-
     font-size:14px;
-
     margin-bottom:7px;
-
 }
 
 .required{
-
     color:#e83b00;
-
 }
 
 .field input,
@@ -359,7 +177,6 @@ button{
 .field textarea{
 
     width:100%;
-
     padding:13px;
 
     border:
@@ -368,23 +185,17 @@ button{
     border-radius:9px;
 
     background:#fff;
-
     color:#17233c;
 
     outline:none;
-
     font-size:14px;
-
 }
 
 .field textarea{
 
     min-height:120px;
-
     resize:vertical;
-
     line-height:1.6;
-
 }
 
 .field input:focus,
@@ -396,177 +207,13 @@ button{
     box-shadow:
         0 0 0 3px
         rgba(8,127,63,.08);
-
 }
 
-.hint{
-
-    color:#888;
-
-    font-size:11px;
-
-    margin-top:5px;
-
-}
-
-
-/* ==========================================
-   IMAGE
-========================================== */
-
-.image-upload{
-
-    border:
-        2px dashed #087f3f;
-
-    border-radius:14px;
-
-    padding:25px;
-
-    text-align:center;
-
-    background:#f1fff7;
-
-}
-
-.image-upload .upload-icon{
-
-    font-size:50px;
-
-}
-
-.image-upload h4{
-
-    color:#087f3f;
-
-    margin:8px 0;
-
-}
-
-.image-upload p{
-
-    color:#777;
-
-    font-size:12px;
-
-    margin-bottom:15px;
-
-}
-
-.image-upload input{
-
-    display:block;
-
-    width:100%;
-
-    max-width:400px;
-
-    margin:auto;
-
-}
-
-.preview{
-
-    display:none;
-
-    width:220px;
-
-    height:220px;
-
-    object-fit:cover;
-
-    margin:20px auto 0;
-
-    border-radius:12px;
-
-    border:2px solid #087f3f;
-
-}
-
-
-/* ==========================================
-   PRICE BOX
-========================================== */
-
-.price-box{
-
-    background:#f8fafc;
-
-    padding:18px;
-
-    border-radius:12px;
-
-}
-
-.discount-preview{
-
-    margin-top:12px;
-
-    color:#087f3f;
-
-    font-weight:bold;
-
-    font-size:14px;
-
-}
-
-
-/* ==========================================
-   KEYWORDS
-========================================== */
-
-.keyword-box{
-
-    background:#f8fafc;
-
-    border-radius:12px;
-
-    padding:15px;
-
-}
-
-.keyword-tags{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:7px;
-
-    margin-top:10px;
-
-}
-
-.keyword{
-
-    background:#e8f4ff;
-
-    color:#063b78;
-
-    padding:6px 10px;
-
-    border-radius:15px;
-
-    font-size:11px;
-
-}
-
-
-/* ==========================================
-   SUBMIT
-========================================== */
-
-.submit-box{
-
-    margin-top:25px;
-
-}
-
+.login-btn,
 .submit-btn{
 
     width:100%;
-
-    padding:16px;
+    padding:15px;
 
     background:
         linear-gradient(
@@ -576,103 +223,48 @@ button{
         );
 
     color:white;
-
     border:0;
-
     border-radius:11px;
 
     font-size:17px;
-
     font-weight:bold;
-
-    box-shadow:
-        0 5px 15px
-        rgba(232,59,0,.2);
-
 }
 
+.login-btn:disabled,
 .submit-btn:disabled{
 
     background:#999;
-
     cursor:not-allowed;
-
 }
-
-
-/* ==========================================
-   LOADING
-========================================== */
-
-.loading{
-
-    display:none;
-
-    text-align:center;
-
-    margin-top:15px;
-
-    padding:14px;
-
-    background:#eef8ff;
-
-    color:#063b78;
-
-    border-radius:10px;
-
-}
-
-
-/* ==========================================
-   MESSAGE
-========================================== */
 
 .message{
 
     display:none;
 
     margin-top:15px;
-
     padding:15px;
 
     border-radius:10px;
-
     text-align:center;
-
     font-weight:bold;
-
+    line-height:1.6;
 }
 
 .success{
 
     display:block;
-
     background:#e8fff1;
-
     color:#087f3f;
-
-    border:
-        1px solid #a7e8c0;
-
+    border:1px solid #a7e8c0;
 }
 
 .error{
 
     display:block;
-
     background:#fff0f0;
-
     color:#b42318;
-
-    border:
-        1px solid #ffb3b3;
-
+    border:1px solid #ffb3b3;
 }
-
-
-/* ==========================================
-   INFO
-========================================== */
 
 .info{
 
@@ -690,53 +282,317 @@ button{
     line-height:1.8;
 
     font-size:13px;
-
 }
 
+.page-title{
 
-/* ==========================================
-   MOBILE
-========================================== */
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.page-title h2{
+
+    color:#063b78;
+    font-size:30px;
+}
+
+.page-title h2 span{
+    color:#ff6b00;
+}
+
+.page-title p{
+
+    color:#666;
+    margin-top:7px;
+}
+
+.seller-status{
+
+    background:#eaf7ef;
+
+    border:
+        1px solid #b9e6c8;
+
+    color:#087f3f;
+
+    padding:13px 15px;
+
+    border-radius:10px;
+
+    margin-bottom:20px;
+
+    font-size:13px;
+
+    word-break:break-word;
+}
+
+.form-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    box-shadow:
+        0 5px 25px
+        rgba(0,0,0,.08);
+
+    margin-bottom:25px;
+}
+
+.form-section{
+
+    border-bottom:
+        1px solid #e5e7eb;
+
+    padding-bottom:25px;
+    margin-bottom:25px;
+}
+
+.form-section:last-child{
+
+    border-bottom:0;
+    margin-bottom:0;
+}
+
+.section-heading{
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.section-heading .icon{
+
+    width:40px;
+    height:40px;
+
+    border-radius:10px;
+
+    background:#eaf4ff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:21px;
+}
+
+.section-heading h3{
+
+    color:#063b78;
+    font-size:21px;
+}
+
+.section-heading p{
+
+    color:#777;
+    font-size:12px;
+    margin-top:2px;
+}
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:18px;
+}
+
+.grid-3{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+.full{
+    grid-column:1/-1;
+}
+
+.hint{
+
+    color:#888;
+    font-size:11px;
+    margin-top:5px;
+}
+
+.image-upload{
+
+    border:
+        2px dashed #087f3f;
+
+    border-radius:14px;
+
+    padding:25px;
+
+    text-align:center;
+
+    background:#f1fff7;
+}
+
+.image-upload .upload-icon{
+    font-size:50px;
+}
+
+.image-upload h4{
+
+    color:#087f3f;
+    margin:8px 0;
+}
+
+.image-upload p{
+
+    color:#777;
+    font-size:12px;
+    margin-bottom:15px;
+}
+
+.image-upload input{
+
+    display:block;
+    width:100%;
+    max-width:400px;
+    margin:auto;
+}
+
+.preview{
+
+    display:none;
+
+    width:220px;
+    height:220px;
+
+    object-fit:cover;
+
+    margin:20px auto 0;
+
+    border-radius:12px;
+
+    border:
+        2px solid #087f3f;
+}
+
+.price-box{
+
+    background:#f8fafc;
+    padding:18px;
+    border-radius:12px;
+}
+
+.discount-preview{
+
+    margin-top:12px;
+
+    color:#087f3f;
+
+    font-weight:bold;
+    font-size:14px;
+}
+
+.keyword-box{
+
+    background:#f8fafc;
+
+    border-radius:12px;
+
+    padding:15px;
+}
+
+.keyword-tags{
+
+    display:flex;
+    flex-wrap:wrap;
+
+    gap:7px;
+
+    margin-top:10px;
+}
+
+.keyword{
+
+    background:#e8f4ff;
+
+    color:#063b78;
+
+    padding:6px 10px;
+
+    border-radius:15px;
+
+    font-size:11px;
+}
+
+.submit-box{
+    margin-top:25px;
+}
+
+.loading{
+
+    display:none;
+
+    text-align:center;
+
+    margin-top:15px;
+
+    padding:14px;
+
+    background:#eef8ff;
+
+    color:#063b78;
+
+    border-radius:10px;
+}
+
+#sellerArea{
+    display:none;
+}
 
 @media(max-width:700px){
 
     .header{
 
         flex-direction:column;
-
         text-align:center;
+    }
 
+    .header-actions{
+
+        width:100%;
+        justify-content:center;
     }
 
     .grid,
     .grid-3{
 
         grid-template-columns:1fr;
-
     }
 
     .full{
-
         grid-column:auto;
-
     }
 
     .form-card{
-
         padding:17px;
-
     }
 
     .page-title h2{
-
         font-size:25px;
-
     }
 
     .section-heading h3{
-
         font-size:18px;
+    }
 
+    .home-btn,
+    .logout-btn{
+        flex:1;
     }
 
 }
@@ -748,10 +604,6 @@ button{
 
 <body>
 
-
-<!-- ==========================================
-     HEADER
-========================================== -->
 
 <header class="header">
 
@@ -776,19 +628,108 @@ button{
     </div>
 
 
-    <a
-        href="index.html"
-        class="home-btn"
-    >
-        🏠 Home
-    </a>
+    <div class="header-actions">
+
+        <a
+            href="index.html"
+            class="home-btn"
+        >
+            🏠 Home
+        </a>
+
+        <button
+            id="logoutBtn"
+            class="logout-btn"
+            style="display:none;"
+        >
+            🚪 Logout
+        </button>
+
+    </div>
 
 </header>
 
 
-<!-- ==========================================
-     MAIN
-========================================== -->
+
+<!-- ======================================
+     LOGIN
+====================================== -->
+
+<section
+    id="loginArea"
+    class="container"
+>
+
+    <div class="login-card">
+
+        <h2>
+            🔐 Seller Login
+        </h2>
+
+        <p>
+            Product Upload କରିବା ପାଇଁ
+            Seller Login କରନ୍ତୁ।
+        </p>
+
+
+        <div class="field">
+
+            <label>
+                📧 Email
+            </label>
+
+            <input
+                type="email"
+                id="loginEmail"
+                placeholder="Seller Email"
+                autocomplete="email"
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                🔑 Password
+            </label>
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Password"
+                autocomplete="current-password"
+            >
+
+        </div>
+
+
+        <button
+            id="loginBtn"
+            class="login-btn"
+        >
+            🔐 Login
+        </button>
+
+
+        <div
+            id="loginMessage"
+            class="message"
+        ></div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ======================================
+     SELLER AREA
+====================================== -->
+
+<section
+    id="sellerArea"
+>
 
 <main class="container">
 
@@ -806,15 +747,21 @@ button{
 </div>
 
 
+<div
+    id="sellerStatus"
+    class="seller-status"
+>
+</div>
+
+
+
 <form
     id="productForm"
     class="form-card"
 >
 
 
-<!-- ==========================================
-     SELLER INFORMATION
-========================================== -->
+<!-- SELLER INFORMATION -->
 
 <section class="form-section">
 
@@ -887,8 +834,12 @@ button{
             <input
                 type="email"
                 id="sellerEmail"
-                placeholder="example@gmail.com"
+                readonly
             >
+
+            <div class="hint">
+                Login Email automatic ଭାବରେ ଆସିବ।
+            </div>
 
         </div>
 
@@ -946,9 +897,8 @@ button{
 </section>
 
 
-<!-- ==========================================
-     PRODUCT BASIC
-========================================== -->
+
+<!-- PRODUCT -->
 
 <section class="form-section">
 
@@ -976,8 +926,6 @@ button{
     <div class="grid">
 
 
-        <!-- ODIA NAME -->
-
         <div class="field">
 
             <label>
@@ -988,14 +936,12 @@ button{
             <input
                 type="text"
                 id="productName"
-                placeholder="ଉଦାହରଣ: ଗଞ୍ଜାମ ଆମ୍ବ ଆଚାର"
+                placeholder="ଗଞ୍ଜାମ ଆମ୍ବ ଆଚାର"
                 required
             >
 
         </div>
 
-
-        <!-- ENGLISH NAME -->
 
         <div class="field">
 
@@ -1007,18 +953,12 @@ button{
             <input
                 type="text"
                 id="productNameEn"
-                placeholder="Example: Ganjam Mango Pickle"
+                placeholder="Ganjam Mango Pickle"
                 required
             >
 
-            <div class="hint">
-                English search ପାଇଁ ଏହା ଆବଶ୍ୟକ।
-            </div>
-
         </div>
 
-
-        <!-- CATEGORY -->
 
         <div class="field">
 
@@ -1069,8 +1009,6 @@ button{
         </div>
 
 
-        <!-- ENGLISH CATEGORY -->
-
         <div class="field">
 
             <label>
@@ -1120,8 +1058,6 @@ button{
         </div>
 
 
-        <!-- BRAND -->
-
         <div class="field">
 
             <label>
@@ -1131,13 +1067,11 @@ button{
             <input
                 type="text"
                 id="brand"
-                placeholder="ଉଦାହରଣ: Ganjam Home Food"
+                placeholder="Ganjam Home Food"
             >
 
         </div>
 
-
-        <!-- SKU -->
 
         <div class="field">
 
@@ -1148,7 +1082,7 @@ button{
             <input
                 type="text"
                 id="sku"
-                placeholder="ଉଦାହରଣ: GM-PKL-500"
+                placeholder="GM-PKL-500"
             >
 
         </div>
@@ -1158,9 +1092,8 @@ button{
 </section>
 
 
-<!-- ==========================================
-     WEIGHT
-========================================== -->
+
+<!-- WEIGHT -->
 
 <section class="form-section">
 
@@ -1275,9 +1208,8 @@ button{
 </section>
 
 
-<!-- ==========================================
-     PRICE
-========================================== -->
+
+<!-- PRICE -->
 
 <section class="form-section">
 
@@ -1304,7 +1236,6 @@ button{
 
     <div class="price-box">
 
-
         <div class="grid-3">
 
 
@@ -1320,7 +1251,6 @@ button{
                     id="mrp"
                     min="1"
                     step="0.01"
-                    placeholder="499"
                     required
                 >
 
@@ -1339,7 +1269,6 @@ button{
                     id="price"
                     min="1"
                     step="0.01"
-                    placeholder="399"
                     required
                 >
 
@@ -1358,7 +1287,6 @@ button{
                     id="stock"
                     min="0"
                     step="1"
-                    placeholder="10"
                     required
                 >
 
@@ -1379,9 +1307,8 @@ button{
 </section>
 
 
-<!-- ==========================================
-     DESCRIPTION
-========================================== -->
+
+<!-- DESCRIPTION -->
 
 <section class="form-section">
 
@@ -1418,7 +1345,6 @@ button{
 
             <textarea
                 id="description"
-                placeholder="ଉତ୍ପାଦ କିପରି ତିଆରି ହୁଏ, କେଉଁଠାରୁ ଆସିଛି, ଗୁଣବତ୍ତା ଇତ୍ୟାଦି..."
                 required
             ></textarea>
 
@@ -1434,7 +1360,6 @@ button{
 
             <textarea
                 id="descriptionEn"
-                placeholder="Write product details, ingredients, origin, quality etc..."
                 required
             ></textarea>
 
@@ -1445,9 +1370,8 @@ button{
 </section>
 
 
-<!-- ==========================================
-     IMAGE
-========================================== -->
+
+<!-- IMAGE -->
 
 <section class="form-section">
 
@@ -1504,9 +1428,8 @@ button{
 </section>
 
 
-<!-- ==========================================
-     KEYWORDS
-========================================== -->
+
+<!-- KEYWORDS -->
 
 <section class="form-section">
 
@@ -1540,20 +1463,13 @@ button{
         <input
             type="text"
             id="keywords"
-            placeholder="ଉଦାହରଣ: ଆଚାର, ଆମ୍ବ, achar, mango, pickle"
+            placeholder="ଆଚାର, ଆମ୍ବ, achar, mango, pickle"
         >
-
-        <div class="hint">
-
-            Comma ଦେଇ ଅଲଗା କରନ୍ତୁ।
-
-        </div>
 
     </div>
 
 
     <div
-        id="keywordPreview"
         class="keyword-box"
         style="margin-top:15px;"
     >
@@ -1572,9 +1488,6 @@ button{
 </section>
 
 
-<!-- ==========================================
-     SUBMIT
-========================================== -->
 
 <div class="submit-box">
 
@@ -1583,9 +1496,7 @@ button{
         id="uploadBtn"
         class="submit-btn"
     >
-
         🚀 Product Upload କରନ୍ତୁ
-
     </button>
 
 </div>
@@ -1595,10 +1506,7 @@ button{
     id="loading"
     class="loading"
 >
-
     ⏳ Product Upload ହେଉଛି...
-    ଦୟାକରି page ବନ୍ଦ କରନ୍ତୁ ନାହିଁ।
-
 </div>
 
 
@@ -1611,9 +1519,6 @@ button{
 </form>
 
 
-<!-- ==========================================
-     INFORMATION
-========================================== -->
 
 <div class="info">
 
@@ -1633,23 +1538,16 @@ button{
     3️⃣ Approve ହେଲା ପରେ Customer
     Products page ରେ product ଦେଖିପାରିବେ।
 
-    <br>
-
-    4️⃣ ଆଗକୁ Seller Dashboard ରୁ
-    Order, Stock ଓ Sales ମଧ୍ୟ manage କରିପାରିବେ।
-
 </div>
 
 
 </main>
 
+</section>
 
-<!-- ==========================================
-     JAVASCRIPT
-========================================== -->
+
 
 <script type="module">
-
 
 /* ==========================================
    FIREBASE
@@ -1657,9 +1555,19 @@ button{
 
 import {
     db,
+    auth,
     storage
 }
 from "./firebase.js";
+
+
+import {
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
 
 import {
@@ -1680,9 +1588,34 @@ from
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
 
 
+
 /* ==========================================
    ELEMENTS
 ========================================== */
+
+const loginArea =
+document.getElementById("loginArea");
+
+const sellerArea =
+document.getElementById("sellerArea");
+
+const loginEmail =
+document.getElementById("loginEmail");
+
+const loginPassword =
+document.getElementById("loginPassword");
+
+const loginBtn =
+document.getElementById("loginBtn");
+
+const logoutBtn =
+document.getElementById("logoutBtn");
+
+const loginMessage =
+document.getElementById("loginMessage");
+
+const sellerStatus =
+document.getElementById("sellerStatus");
 
 const form =
 document.getElementById("productForm");
@@ -1717,26 +1650,263 @@ document.getElementById("keywords");
 const keywordTags =
 document.getElementById("keywordTags");
 
+const sellerEmail =
+document.getElementById("sellerEmail");
+
+
+
+/* ==========================================
+   CURRENT USER
+========================================== */
+
+let currentUser = null;
+
+
 
 /* ==========================================
    MESSAGE
 ========================================== */
 
 function showMessage(
+    element,
     text,
     type
 ){
 
-    message.innerText =
-    text;
+    element.innerText = text;
 
-    message.className =
-    "message " + type;
+    element.className =
+        "message " + type;
 
-    message.style.display =
-    "block";
+    element.style.display =
+        "block";
+}
+
+
+
+/* ==========================================
+   LOGIN
+========================================== */
+
+loginBtn.addEventListener(
+    "click",
+    loginSeller
+);
+
+
+async function loginSeller(){
+
+    const email =
+        loginEmail.value.trim();
+
+    const password =
+        loginPassword.value;
+
+
+    if(!email){
+
+        showMessage(
+            loginMessage,
+            "❌ Email ଦିଅନ୍ତୁ।",
+            "error"
+        );
+
+        return;
+    }
+
+
+    if(!password){
+
+        showMessage(
+            loginMessage,
+            "❌ Password ଦିଅନ୍ତୁ।",
+            "error"
+        );
+
+        return;
+    }
+
+
+    try{
+
+        loginBtn.disabled =
+            true;
+
+        loginBtn.innerText =
+            "⏳ Login ହେଉଛି...";
+
+        loginMessage.style.display =
+            "none";
+
+
+        await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
+
+    }
+
+    catch(error){
+
+        console.error(
+            "LOGIN ERROR:",
+            error
+        );
+
+
+        let text =
+            "❌ Login ବିଫଳ ହେଲା।";
+
+
+        if(
+            error.code ===
+            "auth/invalid-credential"
+        ){
+
+            text =
+                "❌ Email କିମ୍ବା Password ଭୁଲ ଅଛି।";
+
+        }
+
+
+        showMessage(
+            loginMessage,
+            text,
+            "error"
+        );
+
+
+        loginBtn.disabled =
+            false;
+
+        loginBtn.innerText =
+            "🔐 Login";
+
+    }
 
 }
+
+
+
+/* ==========================================
+   ENTER KEY
+========================================== */
+
+loginPassword.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+
+            loginSeller();
+
+        }
+
+    }
+);
+
+
+
+/* ==========================================
+   AUTH STATE
+========================================== */
+
+onAuthStateChanged(
+    auth,
+    function(user){
+
+        if(user){
+
+            currentUser =
+                user;
+
+
+            loginArea.style.display =
+                "none";
+
+
+            sellerArea.style.display =
+                "block";
+
+
+            logoutBtn.style.display =
+                "block";
+
+
+            sellerEmail.value =
+                user.email || "";
+
+
+            sellerStatus.innerHTML =
+                "🔐 <b>Login Successful</b><br>" +
+                "📧 Email: " +
+                escapeHTML(user.email || "") +
+                "<br>" +
+                "🆔 Seller ID: " +
+                escapeHTML(user.uid);
+
+
+        }
+
+        else{
+
+            currentUser =
+                null;
+
+
+            loginArea.style.display =
+                "block";
+
+
+            sellerArea.style.display =
+                "none";
+
+
+            logoutBtn.style.display =
+                "none";
+
+
+            loginBtn.disabled =
+                false;
+
+
+            loginBtn.innerText =
+                "🔐 Login";
+
+        }
+
+    }
+);
+
+
+
+/* ==========================================
+   LOGOUT
+========================================== */
+
+logoutBtn.addEventListener(
+    "click",
+    async function(){
+
+        try{
+
+            await signOut(auth);
+
+        }
+
+        catch(error){
+
+            console.error(
+                "LOGOUT ERROR:",
+                error
+            );
+
+        }
+
+    }
+);
+
 
 
 /* ==========================================
@@ -1746,10 +1916,10 @@ function showMessage(
 function calculateDiscount(){
 
     const mrp =
-    Number(mrpInput.value);
+        Number(mrpInput.value);
 
     const price =
-    Number(priceInput.value);
+        Number(priceInput.value);
 
 
     if(
@@ -1759,20 +1929,22 @@ function calculateDiscount(){
     ){
 
         const discount =
-        Math.round(
-            ((mrp - price) / mrp) * 100
-        );
+            Math.round(
+                ((mrp - price) / mrp) * 100
+            );
 
 
         discountPreview.innerText =
-        "💰 Discount: " +
-        discount +
-        "% OFF";
+            "💰 Discount: " +
+            discount +
+            "% OFF";
 
-    }else{
+    }
+
+    else{
 
         discountPreview.innerText =
-        "💰 Discount: —";
+            "💰 Discount: —";
 
     }
 
@@ -1790,198 +1962,174 @@ priceInput.addEventListener(
 );
 
 
+
 /* ==========================================
    IMAGE PREVIEW
 ========================================== */
 
 imageInput.addEventListener(
-"change",
-function(){
+    "change",
+    function(){
 
-    const file =
-    this.files[0];
+        const file =
+            this.files[0];
 
 
-    if(!file){
+        if(!file){
 
-        preview.style.display =
-        "none";
+            preview.style.display =
+                "none";
 
-        return;
+            return;
+
+        }
+
+
+        if(!file.type.startsWith("image/")){
+
+            showMessage(
+                message,
+                "❌ Image file ବାଛନ୍ତୁ।",
+                "error"
+            );
+
+            this.value = "";
+
+            return;
+
+        }
+
+
+        if(
+            file.size >
+            5 * 1024 * 1024
+        ){
+
+            showMessage(
+                message,
+                "❌ Image 5MB ଠାରୁ କମ୍ ହେବା ଦରକାର।",
+                "error"
+            );
+
+            this.value = "";
+
+            return;
+
+        }
+
+
+        const reader =
+            new FileReader();
+
+
+        reader.onload =
+            function(e){
+
+                preview.src =
+                    e.target.result;
+
+                preview.style.display =
+                    "block";
+
+            };
+
+
+        reader.readAsDataURL(file);
 
     }
+);
 
-
-    if(!file.type.startsWith("image/")){
-
-        showMessage(
-            "❌ ଦୟାକରି Image file ବାଛନ୍ତୁ।",
-            "error"
-        );
-
-        this.value =
-        "";
-
-        return;
-
-    }
-
-
-    if(file.size > 5 * 1024 * 1024){
-
-        showMessage(
-            "❌ Image 5MB ଠାରୁ କମ୍ ହେବା ଦରକାର।",
-            "error"
-        );
-
-        this.value =
-        "";
-
-        return;
-
-    }
-
-
-    const reader =
-    new FileReader();
-
-
-    reader.onload =
-    function(e){
-
-        preview.src =
-        e.target.result;
-
-        preview.style.display =
-        "block";
-
-    };
-
-
-    reader.readAsDataURL(file);
-
-});
 
 
 /* ==========================================
-   KEYWORD CREATION
+   KEYWORDS
 ========================================== */
 
 function createKeywords(){
 
-    const odiaName =
-    document
-    .getElementById("productName")
-    .value
-    .trim();
+    const values = [
 
+        document
+        .getElementById("productName")
+        .value,
 
-    const englishName =
-    document
-    .getElementById("productNameEn")
-    .value
-    .trim();
+        document
+        .getElementById("productNameEn")
+        .value,
 
+        document
+        .getElementById("category")
+        .value,
 
-    const odiaCategory =
-    document
-    .getElementById("category")
-    .value;
+        document
+        .getElementById("categoryEn")
+        .value,
 
+        document
+        .getElementById("brand")
+        .value,
 
-    const englishCategory =
-    document
-    .getElementById("categoryEn")
-    .value;
-
-
-    const brand =
-    document
-    .getElementById("brand")
-    .value
-    .trim();
-
-
-    const extra =
-    keywordInput
-    .value
-    .split(",");
-
-
-    const list = [
-
-        odiaName,
-
-        englishName,
-
-        odiaCategory,
-
-        englishCategory,
-
-        brand,
-
-        ...extra
+        ...keywordInput
+        .value
+        .split(",")
 
     ];
 
 
-    const cleaned = [
+    return [
 
         ...new Set(
 
-            list
+            values
 
             .map(
-                item =>
-                item.trim().toLowerCase()
+                value =>
+                value.trim().toLowerCase()
             )
 
             .filter(
-                item =>
-                item.length > 0
+                value =>
+                value.length > 0
             )
 
         )
 
     ];
 
-
-    return cleaned;
-
 }
 
 
-/* ==========================================
-   SHOW KEYWORDS
-========================================== */
 
 function updateKeywordPreview(){
 
     const keywords =
-    createKeywords();
+        createKeywords();
 
 
-    keywordTags.innerHTML =
-    "";
+    keywordTags.innerHTML = "";
 
 
     keywords.forEach(
-    keyword => {
+        keyword => {
 
-        const tag =
-        document.createElement("span");
+            const tag =
+                document.createElement("span");
 
-        tag.className =
-        "keyword";
 
-        tag.innerText =
-        keyword;
+            tag.className =
+                "keyword";
 
-        keywordTags.appendChild(
-            tag
-        );
 
-    });
+            tag.innerText =
+                keyword;
+
+
+            keywordTags.appendChild(
+                tag
+            );
+
+        }
+    );
 
 }
 
@@ -1994,23 +2142,26 @@ function updateKeywordPreview(){
     "brand",
     "keywords"
 ].forEach(
-id => {
+    id => {
 
-    document
-    .getElementById(id)
-    .addEventListener(
-        "input",
-        updateKeywordPreview
-    );
+        const element =
+            document.getElementById(id);
 
-    document
-    .getElementById(id)
-    .addEventListener(
-        "change",
-        updateKeywordPreview
-    );
 
-});
+        element.addEventListener(
+            "input",
+            updateKeywordPreview
+        );
+
+
+        element.addEventListener(
+            "change",
+            updateKeywordPreview
+        );
+
+    }
+);
+
 
 
 /* ==========================================
@@ -2018,569 +2169,596 @@ id => {
 ========================================== */
 
 form.addEventListener(
-"submit",
-async function(e){
+    "submit",
+    async function(e){
 
-    e.preventDefault();
+        e.preventDefault();
 
 
-    message.style.display =
-    "none";
+        message.style.display =
+            "none";
 
 
-    const sellerName =
-    document
-    .getElementById("sellerName")
-    .value
-    .trim();
+        /* ===============================
+           AUTH CHECK
+        =============================== */
 
+        if(!currentUser){
 
-    const sellerMobile =
-    document
-    .getElementById("sellerMobile")
-    .value
-    .trim();
+            showMessage(
+                message,
+                "❌ ପ୍ରଥମେ Seller Login କରନ୍ତୁ।",
+                "error"
+            );
 
+            return;
 
-    const sellerEmail =
-    document
-    .getElementById("sellerEmail")
-    .value
-    .trim();
+        }
 
 
-    const village =
-    document
-    .getElementById("village")
-    .value
-    .trim();
+        const sellerName =
+            document
+            .getElementById("sellerName")
+            .value
+            .trim();
 
 
-    const district =
-    document
-    .getElementById("district")
-    .value
-    .trim();
+        const sellerMobile =
+            document
+            .getElementById("sellerMobile")
+            .value
+            .trim();
 
 
-    const state =
-    document
-    .getElementById("state")
-    .value
-    .trim();
+        const sellerEmailValue =
+            currentUser.email || "";
 
 
-    const productName =
-    document
-    .getElementById("productName")
-    .value
-    .trim();
+        const village =
+            document
+            .getElementById("village")
+            .value
+            .trim();
 
 
-    const productNameEn =
-    document
-    .getElementById("productNameEn")
-    .value
-    .trim();
+        const district =
+            document
+            .getElementById("district")
+            .value
+            .trim();
 
 
-    const category =
-    document
-    .getElementById("category")
-    .value;
+        const state =
+            document
+            .getElementById("state")
+            .value
+            .trim();
 
 
-    const categoryEn =
-    document
-    .getElementById("categoryEn")
-    .value;
+        const productName =
+            document
+            .getElementById("productName")
+            .value
+            .trim();
 
 
-    const brand =
-    document
-    .getElementById("brand")
-    .value
-    .trim();
+        const productNameEn =
+            document
+            .getElementById("productNameEn")
+            .value
+            .trim();
 
 
-    const sku =
-    document
-    .getElementById("sku")
-    .value
-    .trim();
+        const category =
+            document
+            .getElementById("category")
+            .value;
 
 
-    const weight =
-    Number(
-        document
-        .getElementById("weight")
-        .value
-    );
+        const categoryEn =
+            document
+            .getElementById("categoryEn")
+            .value;
 
 
-    const weightUnit =
-    document
-    .getElementById("weightUnit")
-    .value;
+        const brand =
+            document
+            .getElementById("brand")
+            .value
+            .trim();
 
 
-    const packSize =
-    document
-    .getElementById("packSize")
-    .value
-    .trim();
+        const sku =
+            document
+            .getElementById("sku")
+            .value
+            .trim();
 
 
-    const mrp =
-    Number(
-        document
-        .getElementById("mrp")
-        .value
-    );
+        const weight =
+            Number(
+                document
+                .getElementById("weight")
+                .value
+            );
 
 
-    const price =
-    Number(
-        document
-        .getElementById("price")
-        .value
-    );
+        const weightUnit =
+            document
+            .getElementById("weightUnit")
+            .value;
 
 
-    const stock =
-    Number(
-        document
-        .getElementById("stock")
-        .value
-    );
+        const packSize =
+            document
+            .getElementById("packSize")
+            .value
+            .trim();
 
 
-    const description =
-    document
-    .getElementById("description")
-    .value
-    .trim();
+        const mrp =
+            Number(
+                document
+                .getElementById("mrp")
+                .value
+            );
 
 
-    const descriptionEn =
-    document
-    .getElementById("descriptionEn")
-    .value
-    .trim();
+        const price =
+            Number(
+                document
+                .getElementById("price")
+                .value
+            );
 
 
-    const file =
-    imageInput.files[0];
+        const stock =
+            Number(
+                document
+                .getElementById("stock")
+                .value
+            );
 
 
-    /* ==========================================
-       VALIDATION
-    ========================================== */
+        const description =
+            document
+            .getElementById("description")
+            .value
+            .trim();
 
-    if(!file){
 
-        showMessage(
-            "❌ Product photo ବାଛନ୍ତୁ।",
-            "error"
-        );
+        const descriptionEn =
+            document
+            .getElementById("descriptionEn")
+            .value
+            .trim();
 
-        return;
 
-    }
+        const file =
+            imageInput.files[0];
 
 
-    if(
-        !/^[0-9]{10}$/.test(
-            sellerMobile
-        )
-    ){
+        /* ===============================
+           VALIDATION
+        =============================== */
 
-        showMessage(
-            "❌ 10 digit mobile number ଦିଅନ୍ତୁ।",
-            "error"
-        );
+        if(!file){
 
-        return;
+            showMessage(
+                message,
+                "❌ Product photo ବାଛନ୍ତୁ।",
+                "error"
+            );
 
-    }
+            return;
 
-
-    if(
-        mrp <= 0 ||
-        price <= 0
-    ){
-
-        showMessage(
-            "❌ MRP ଓ Selling Price ଠିକ୍ ଭାବରେ ଦିଅନ୍ତୁ।",
-            "error"
-        );
-
-        return;
-
-    }
-
-
-    if(price > mrp){
-
-        showMessage(
-            "❌ Selling Price, MRP ଠାରୁ ଅଧିକ ହୋଇପାରିବ ନାହିଁ।",
-            "error"
-        );
-
-        return;
-
-    }
-
-
-    if(stock < 0){
-
-        showMessage(
-            "❌ Stock ଠିକ୍ ଭାବରେ ଦିଅନ୍ତୁ।",
-            "error"
-        );
-
-        return;
-
-    }
-
-
-    if(weight <= 0){
-
-        showMessage(
-            "❌ Weight / Quantity ଦିଅନ୍ତୁ।",
-            "error"
-        );
-
-        return;
-
-    }
-
-
-    try{
-
-        uploadBtn.disabled =
-        true;
-
-        loading.style.display =
-        "block";
-
-        uploadBtn.innerText =
-        "⏳ Upload ହେଉଛି...";
-
-
-        /* ======================================
-           DISCOUNT
-        ====================================== */
-
-        let discount = 0;
+        }
 
 
         if(
-            mrp > 0 &&
-            price < mrp
+            !/^[0-9]{10}$/.test(
+                sellerMobile
+            )
         ){
 
-            discount =
-            Math.round(
-                ((mrp - price) / mrp) * 100
+            showMessage(
+                message,
+                "❌ 10 digit mobile number ଦିଅନ୍ତୁ।",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if(
+            mrp <= 0 ||
+            price <= 0
+        ){
+
+            showMessage(
+                message,
+                "❌ MRP ଓ Selling Price ଠିକ୍ ଭାବରେ ଦିଅନ୍ତୁ।",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if(price > mrp){
+
+            showMessage(
+                message,
+                "❌ Selling Price, MRP ଠାରୁ ଅଧିକ ହୋଇପାରିବ ନାହିଁ।",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if(stock < 0){
+
+            showMessage(
+                message,
+                "❌ Stock ଠିକ୍ ଭାବରେ ଦିଅନ୍ତୁ।",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if(weight <= 0){
+
+            showMessage(
+                message,
+                "❌ Weight / Quantity ଦିଅନ୍ତୁ।",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        try{
+
+            uploadBtn.disabled =
+                true;
+
+
+            loading.style.display =
+                "block";
+
+
+            uploadBtn.innerText =
+                "⏳ Upload ହେଉଛି...";
+
+
+            /* ===============================
+               DISCOUNT
+            =============================== */
+
+            let discount = 0;
+
+
+            if(
+                mrp > 0 &&
+                price < mrp
+            ){
+
+                discount =
+                    Math.round(
+                        ((mrp - price) / mrp) * 100
+                    );
+
+            }
+
+
+            /* ===============================
+               KEYWORDS
+            =============================== */
+
+            const keywords =
+                createKeywords();
+
+
+            /* ===============================
+               FILE NAME
+            =============================== */
+
+            const safeName =
+                productNameEn
+                .replace(
+                    /[^a-zA-Z0-9]/g,
+                    "-"
+                )
+                .toLowerCase();
+
+
+            const fileName =
+                Date.now() +
+                "-" +
+                safeName +
+                ".jpg";
+
+
+            /* ===============================
+               STORAGE
+            =============================== */
+
+            const storageRef =
+                ref(
+                    storage,
+                    "products/" +
+                    currentUser.uid +
+                    "/" +
+                    fileName
+                );
+
+
+            await uploadBytes(
+                storageRef,
+                file
+            );
+
+
+            const imageURL =
+                await getDownloadURL(
+                    storageRef
+                );
+
+
+            /* ===============================
+               PRODUCT DATA
+            =============================== */
+
+            const productData = {
+
+                name:
+                    productName,
+
+                nameEn:
+                    productNameEn,
+
+                nameSearch:
+                    productName
+                    .toLowerCase(),
+
+                nameEnSearch:
+                    productNameEn
+                    .toLowerCase(),
+
+
+                category:
+                    category,
+
+                categoryEn:
+                    categoryEn,
+
+
+                brand:
+                    brand,
+
+                sku:
+                    sku,
+
+
+                weight:
+                    weight,
+
+                weightUnit:
+                    weightUnit,
+
+                weightDisplay:
+                    weight +
+                    " " +
+                    weightUnit,
+
+                packSize:
+                    packSize,
+
+
+                mrp:
+                    mrp,
+
+                price:
+                    price,
+
+                discount:
+                    discount,
+
+
+                stock:
+                    stock,
+
+
+                village:
+                    village,
+
+                district:
+                    district,
+
+                state:
+                    state,
+
+
+                sellerName:
+                    sellerName,
+
+                sellerMobile:
+                    sellerMobile,
+
+                sellerEmail:
+                    sellerEmailValue,
+
+                sellerUid:
+                    currentUser.uid,
+
+
+                description:
+                    description,
+
+                descriptionEn:
+                    descriptionEn,
+
+
+                keywords:
+                    keywords,
+
+
+                image:
+                    imageURL,
+
+
+                status:
+                    "pending",
+
+
+                rating:
+                    0,
+
+                reviewCount:
+                    0,
+
+                soldCount:
+                    0,
+
+
+                createdAt:
+                    serverTimestamp(),
+
+                updatedAt:
+                    serverTimestamp()
+
+            };
+
+
+            /* ===============================
+               FIRESTORE
+            =============================== */
+
+            await addDoc(
+                collection(
+                    db,
+                    "products"
+                ),
+                productData
+            );
+
+
+            /* ===============================
+               SUCCESS
+            =============================== */
+
+            showMessage(
+                message,
+                "✅ Product ସଫଳଭାବେ Upload ହୋଇଗଲା। Admin approval ପରେ Customerଙ୍କୁ ଦେଖାଯିବ। ❤️",
+                "success"
+            );
+
+
+            form.reset();
+
+
+            sellerEmail.value =
+                sellerEmailValue;
+
+
+            preview.src = "";
+
+            preview.style.display =
+                "none";
+
+
+            discountPreview.innerText =
+                "💰 Discount: —";
+
+
+            keywordTags.innerHTML =
+                "";
+
+
+        }
+
+        catch(error){
+
+            console.error(
+                "PRODUCT UPLOAD ERROR:",
+                error
+            );
+
+
+            showMessage(
+                message,
+                "❌ Product Upload ହୋଇପାରିଲା ନାହିଁ। " +
+                error.message,
+                "error"
             );
 
         }
 
 
-        /* ======================================
-           KEYWORDS
-        ====================================== */
-
-        const keywords =
-        createKeywords();
+        uploadBtn.disabled =
+            false;
 
 
-        /* ======================================
-           IMAGE NAME
-        ====================================== */
+        loading.style.display =
+            "none";
 
-        const safeName =
-        productNameEn
+
+        uploadBtn.innerText =
+            "🚀 Product Upload କରନ୍ତୁ";
+
+    }
+);
+
+
+
+/* ==========================================
+   HTML SECURITY
+========================================== */
+
+function escapeHTML(value){
+
+    return String(value)
+
         .replace(
-            /[^a-zA-Z0-9]/g,
-            "-"
+            /&/g,
+            "&amp;"
         )
-        .toLowerCase();
 
+        .replace(
+            /</g,
+            "&lt;"
+        )
 
-        const fileName =
-        Date.now() +
-        "-" +
-        safeName +
-        ".jpg";
+        .replace(
+            />/g,
+            "&gt;"
+        )
 
+        .replace(
+            /"/g,
+            "&quot;"
+        )
 
-        /* ======================================
-           STORAGE PATH
-        ====================================== */
-
-        const storageRef =
-        ref(
-            storage,
-            "products/" +
-            fileName
+        .replace(
+            /'/g,
+            "&#039;"
         );
 
-
-        /* ======================================
-           UPLOAD IMAGE
-        ====================================== */
-
-        await uploadBytes(
-            storageRef,
-            file
-        );
-
-
-        /* ======================================
-           GET IMAGE URL
-        ====================================== */
-
-        const imageURL =
-        await getDownloadURL(
-            storageRef
-        );
-
-
-        /* ======================================
-           FIRESTORE
-        ====================================== */
-
-        const productData = {
-
-            /* PRODUCT */
-
-            name:
-            productName,
-
-            nameEn:
-            productNameEn,
-
-            nameSearch:
-            productName
-            .toLowerCase(),
-
-            nameEnSearch:
-            productNameEn
-            .toLowerCase(),
-
-
-            /* CATEGORY */
-
-            category:
-            category,
-
-            categoryEn:
-            categoryEn,
-
-
-            /* BRAND */
-
-            brand:
-            brand,
-
-
-            /* SKU */
-
-            sku:
-            sku,
-
-
-            /* WEIGHT */
-
-            weight:
-            weight,
-
-            weightUnit:
-            weightUnit,
-
-            weightDisplay:
-            weight +
-            " " +
-            weightUnit,
-
-            packSize:
-            packSize,
-
-
-            /* PRICE */
-
-            mrp:
-            mrp,
-
-            price:
-            price,
-
-            discount:
-            discount,
-
-
-            /* STOCK */
-
-            stock:
-            stock,
-
-
-            /* LOCATION */
-
-            village:
-            village,
-
-            district:
-            district,
-
-            state:
-            state,
-
-
-            /* SELLER */
-
-            sellerName:
-            sellerName,
-
-            sellerMobile:
-            sellerMobile,
-
-            sellerEmail:
-            sellerEmail,
-
-
-            /* DESCRIPTION */
-
-            description:
-            description,
-
-            descriptionEn:
-            descriptionEn,
-
-
-            /* SEARCH */
-
-            keywords:
-            keywords,
-
-
-            /* IMAGE */
-
-            image:
-            imageURL,
-
-
-            /* STATUS */
-
-            status:
-            "pending",
-
-
-            /* RATING */
-
-            rating:
-            0,
-
-            reviewCount:
-            0,
-
-
-            /* ORDERS */
-
-            soldCount:
-            0,
-
-
-            /* TIME */
-
-            createdAt:
-            serverTimestamp(),
-
-            updatedAt:
-            serverTimestamp()
-
-        };
-
-
-        await addDoc(
-            collection(
-                db,
-                "products"
-            ),
-            productData
-        );
-
-
-        /* ======================================
-           SUCCESS
-        ====================================== */
-
-        showMessage(
-
-            "✅ Product ସଫଳଭାବେ Upload ହୋଇଗଲା। " +
-            "Admin approval ପରେ Customerଙ୍କୁ ଦେଖାଯିବ। ❤️",
-
-            "success"
-
-        );
-
-
-        form.reset();
-
-
-        preview.src =
-        "";
-
-        preview.style.display =
-        "none";
-
-
-        discountPreview.innerText =
-        "💰 Discount: —";
-
-
-        keywordTags.innerHTML =
-        "";
-
-
-    }
-    catch(error){
-
-        console.error(
-            "PRODUCT UPLOAD ERROR:",
-            error
-        );
-
-
-        showMessage(
-
-            "❌ Product Upload ହୋଇପାରିଲା ନାହିଁ। " +
-            error.message,
-
-            "error"
-
-        );
-
-    }
-
-
-    uploadBtn.disabled =
-    false;
-
-    loading.style.display =
-    "none";
-
-    uploadBtn.innerText =
-    "🚀 Product Upload କରନ୍ତୁ";
-
-});
-
+}
 
 </script>
 
 
 </body>
 
-      </html>
+          </html>
