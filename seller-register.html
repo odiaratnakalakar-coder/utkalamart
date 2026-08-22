@@ -26,6 +26,12 @@ body{
         Arial,
         sans-serif;
 
+    min-height:100vh;
+
+    padding:20px 12px;
+
+    color:white;
+
     background:
         linear-gradient(
             135deg,
@@ -33,59 +39,41 @@ body{
             #063b78,
             #087f3f
         );
-
-    min-height:100vh;
-
-    color:white;
-
-    padding:20px 12px;
-
 }
 
 .container{
 
     width:100%;
-
     max-width:600px;
-
     margin:auto;
-
 }
 
 .header{
 
     text-align:center;
-
-    margin:20px 0 25px;
-
+    margin:15px 0 25px;
 }
 
 .logo{
 
     font-size:42px;
-
 }
 
 .header h1{
 
     font-size:30px;
-
-    margin-top:8px;
-
+    margin-top:5px;
 }
 
 .header h1 span{
 
     color:#ff8a00;
-
 }
 
 .header p{
 
     color:#d8eaff;
-
     margin-top:7px;
-
 }
 
 .card{
@@ -99,7 +87,6 @@ body{
     box-shadow:
         0 10px 40px
         rgba(0,0,0,.45);
-
 }
 
 .card h2{
@@ -111,7 +98,6 @@ body{
     font-size:25px;
 
     margin-bottom:8px;
-
 }
 
 .subtitle{
@@ -121,13 +107,11 @@ body{
     color:#aaa;
 
     margin-bottom:25px;
-
 }
 
 .field{
 
     margin-bottom:17px;
-
 }
 
 label{
@@ -139,13 +123,11 @@ label{
     font-weight:bold;
 
     margin-bottom:7px;
-
 }
 
 .required{
 
     color:#ff6b00;
-
 }
 
 input,
@@ -166,7 +148,6 @@ select{
     font-size:16px;
 
     outline:none;
-
 }
 
 input:focus,
@@ -177,7 +158,17 @@ select:focus{
     box-shadow:
         0 0 0 2px
         rgba(0,196,92,.15);
+}
 
+input::placeholder{
+
+    color:#999;
+}
+
+select option{
+
+    background:#303030;
+    color:white;
 }
 
 .grid{
@@ -188,19 +179,16 @@ select:focus{
         repeat(2,1fr);
 
     gap:15px;
-
 }
 
 .password-box{
 
     position:relative;
-
 }
 
 .password-box input{
 
     padding-right:55px;
-
 }
 
 .show-password{
@@ -211,7 +199,8 @@ select:focus{
 
     top:50%;
 
-    transform:translateY(-50%);
+    transform:
+        translateY(-50%);
 
     background:none;
 
@@ -222,7 +211,6 @@ select:focus{
     font-size:20px;
 
     cursor:pointer;
-
 }
 
 .register-btn{
@@ -251,7 +239,6 @@ select:focus{
     font-weight:bold;
 
     cursor:pointer;
-
 }
 
 .register-btn:disabled{
@@ -259,7 +246,6 @@ select:focus{
     background:#777;
 
     cursor:not-allowed;
-
 }
 
 .message{
@@ -277,7 +263,6 @@ select:focus{
     line-height:1.6;
 
     font-weight:bold;
-
 }
 
 .success{
@@ -285,7 +270,6 @@ select:focus{
     background:#063d20;
 
     color:#8fffc0;
-
 }
 
 .error{
@@ -293,7 +277,6 @@ select:focus{
     background:#481010;
 
     color:#ffb3b3;
-
 }
 
 .login-link{
@@ -304,6 +287,7 @@ select:focus{
 
     color:#aaa;
 
+    font-size:16px;
 }
 
 .login-link a{
@@ -313,7 +297,6 @@ select:focus{
     font-weight:bold;
 
     text-decoration:none;
-
 }
 
 .info{
@@ -331,7 +314,6 @@ select:focus{
     line-height:1.8;
 
     font-size:13px;
-
 }
 
 .home{
@@ -346,6 +328,7 @@ select:focus{
 
     text-decoration:none;
 
+    padding-bottom:20px;
 }
 
 @media(max-width:600px){
@@ -353,21 +336,17 @@ select:focus{
     .grid{
 
         grid-template-columns:1fr;
-
     }
 
     .card{
 
         padding:22px 16px;
-
     }
 
     .header h1{
 
         font-size:26px;
-
     }
-
 }
 
 </style>
@@ -381,304 +360,359 @@ select:focus{
 <div class="container">
 
 
-    <!-- HEADER -->
+<!-- =========================
+     HEADER
+========================= -->
 
-    <div class="header">
+<div class="header">
 
-        <div class="logo">
-            🛒
-        </div>
-
-        <h1>
-            Utkala<span>Mart</span>
-        </h1>
-
-        <p>
-            Seller Center • ବିକ୍ରେତା କେନ୍ଦ୍ର
-        </p>
-
+    <div class="logo">
+        🛒
     </div>
 
+    <h1>
+        Utkala<span>Mart</span>
+    </h1>
 
-    <!-- CARD -->
+    <p>
+        Seller Center • ବିକ୍ରେତା କେନ୍ଦ୍ର
+    </p>
 
-    <div class="card">
+</div>
 
-        <h2>
-            🧑‍💼 Seller Registration
-        </h2>
 
-        <div class="subtitle">
-            ନୂଆ Seller Account ଖୋଲନ୍ତୁ
-        </div>
 
+<!-- =========================
+     REGISTRATION CARD
+========================= -->
 
-        <form id="sellerForm">
+<div class="card">
 
 
-            <!-- NAME -->
+<h2>
+    🧑‍💼 Seller Registration
+</h2>
 
-            <div class="field">
+<div class="subtitle">
+    ନୂଆ Seller Account ଖୋଲନ୍ତୁ
+</div>
 
-                <label>
-                    👤 Seller ନାମ
-                    <span class="required">*</span>
-                </label>
 
-                <input
-                    type="text"
-                    id="sellerName"
-                    placeholder="ଆପଣଙ୍କ ନାମ"
-                    required
-                >
 
-            </div>
+<form id="sellerForm">
 
 
-            <!-- MOBILE -->
+<!-- NAME -->
 
-            <div class="field">
+<div class="field">
 
-                <label>
-                    📱 Mobile Number
-                    <span class="required">*</span>
-                </label>
+<label>
 
-                <input
-                    type="tel"
-                    id="sellerMobile"
-                    maxlength="10"
-                    inputmode="numeric"
-                    placeholder="10 digit mobile"
-                    required
-                >
+👤 Seller ନାମ
 
-            </div>
+<span class="required">*</span>
 
+</label>
 
-            <!-- EMAIL -->
+<input
+    type="text"
+    id="sellerName"
+    placeholder="ଆପଣଙ୍କ ନାମ"
+    autocomplete="name"
+    required
+>
 
-            <div class="field">
+</div>
 
-                <label>
-                    📧 Email
-                    <span class="required">*</span>
-                </label>
 
-                <input
-                    type="email"
-                    id="sellerEmail"
-                    placeholder="example@gmail.com"
-                    required
-                >
 
-            </div>
+<!-- MOBILE -->
 
+<div class="field">
 
-            <!-- PASSWORD -->
+<label>
 
-            <div class="field">
+📱 Mobile Number
 
-                <label>
-                    🔑 Password
-                    <span class="required">*</span>
-                </label>
+<span class="required">*</span>
 
-                <div class="password-box">
+</label>
 
-                    <input
-                        type="password"
-                        id="password"
-                        minlength="6"
-                        placeholder="Minimum 6 characters"
-                        required
-                    >
+<input
+    type="tel"
+    id="sellerMobile"
+    maxlength="10"
+    inputmode="numeric"
+    placeholder="10 digit mobile"
+    autocomplete="tel"
+    required
+>
 
-                    <button
-                        type="button"
-                        class="show-password"
-                        id="showPassword"
-                    >
-                        👁️
-                    </button>
+</div>
 
-                </div>
 
-            </div>
 
+<!-- EMAIL -->
 
-            <!-- CONFIRM PASSWORD -->
+<div class="field">
 
-            <div class="field">
+<label>
 
-                <label>
-                    🔐 Confirm Password
-                    <span class="required">*</span>
-                </label>
+📧 Email
 
-                <input
-                    type="password"
-                    id="confirmPassword"
-                    minlength="6"
-                    placeholder="Password ପୁଣି ଦିଅନ୍ତୁ"
-                    required
-                >
+<span class="required">*</span>
 
-            </div>
+</label>
 
+<input
+    type="email"
+    id="sellerEmail"
+    placeholder="example@gmail.com"
+    autocomplete="email"
+    required
+>
 
-            <!-- LOCATION -->
+</div>
 
-            <div class="grid">
 
 
-                <div class="field">
+<!-- PASSWORD -->
 
-                    <label>
-                        📍 ଗାଁ / ଅଞ୍ଚଳ
-                        <span class="required">*</span>
-                    </label>
+<div class="field">
 
-                    <input
-                        type="text"
-                        id="village"
-                        placeholder="ଛତ୍ରପୁର"
-                        required
-                    >
+<label>
 
-                </div>
+🔑 Password
 
+<span class="required">*</span>
 
-                <div class="field">
+</label>
 
-                    <label>
-                        🏙️ ଜିଲ୍ଲା
-                        <span class="required">*</span>
-                    </label>
+<div class="password-box">
 
-                    <input
-                        type="text"
-                        id="district"
-                        placeholder="ଗଞ୍ଜାମ"
-                        required
-                    >
+<input
+    type="password"
+    id="password"
+    minlength="6"
+    placeholder="Minimum 6 characters"
+    autocomplete="new-password"
+    required
+>
 
-                </div>
+<button
+    type="button"
+    class="show-password"
+    id="showPassword"
+>
+    👁️
+</button>
 
+</div>
 
-            </div>
+</div>
 
 
-            <!-- STATE -->
 
-            <div class="field">
+<!-- CONFIRM PASSWORD -->
 
-                <label>
-                    🗺️ ରାଜ୍ୟ
-                </label>
+<div class="field">
 
-                <select id="state">
+<label>
 
-                    <option value="ଓଡ଼ିଶା">
-                        ଓଡ଼ିଶା
-                    </option>
+🔐 Confirm Password
 
-                    <option value="ଆନ୍ଧ୍ର ପ୍ରଦେଶ">
-                        ଆନ୍ଧ୍ର ପ୍ରଦେଶ
-                    </option>
+<span class="required">*</span>
 
-                    <option value="ଛତିଶଗଡ଼">
-                        ଛତିଶଗଡ଼
-                    </option>
+</label>
 
-                    <option value="ଗୁଜରାଟ">
-                        ଗୁଜରାଟ
-                    </option>
+<input
+    type="password"
+    id="confirmPassword"
+    minlength="6"
+    placeholder="Password ପୁଣି ଦିଅନ୍ତୁ"
+    autocomplete="new-password"
+    required
+>
 
-                    <option value="ମହାରାଷ୍ଟ୍ର">
-                        ମହାରାଷ୍ଟ୍ର
-                    </option>
+</div>
 
-                    <option value="ଅନ୍ୟାନ୍ୟ">
-                        ଅନ୍ୟାନ୍ୟ
-                    </option>
 
-                </select>
 
-            </div>
+<!-- LOCATION -->
 
+<div class="grid">
 
-            <!-- REGISTER -->
 
-            <button
-                type="submit"
-                id="registerBtn"
-                class="register-btn"
-            >
+<div class="field">
 
-                📝 Seller Account Create କରନ୍ତୁ
+<label>
 
-            </button>
+📍 ଗାଁ / ଅଞ୍ଚଳ
 
+<span class="required">*</span>
 
-            <!-- MESSAGE -->
+</label>
 
-            <div
-                id="message"
-                class="message"
-            ></div>
+<input
+    type="text"
+    id="village"
+    placeholder="ଛତ୍ରପୁର"
+    required
+>
 
+</div>
 
-        </form>
 
 
-        <!-- LOGIN -->
+<div class="field">
 
-        <div class="login-link">
+<label>
 
-            ପୂର୍ବରୁ Account ଅଛି?
+🏙️ ଜିଲ୍ଲା
 
-            <a href="seller.html">
-                🔐 Seller Login
-            </a>
+<span class="required">*</span>
 
-        </div>
+</label>
 
+<input
+    type="text"
+    id="district"
+    placeholder="ଗଞ୍ଜାମ"
+    required
+>
 
-    </div>
+</div>
 
 
-    <!-- INFO -->
+</div>
 
-    <div class="info">
 
-        <b>🛒 UtkalaMart Seller System</b>
 
-        <br><br>
+<!-- STATE -->
 
-        ✅ Registration ପରେ Seller Login କରିପାରିବେ।
+<div class="field">
 
-        <br>
+<label>
 
-        ✅ Seller Product Upload କରିପାରିବେ।
+🗺️ ରାଜ୍ୟ
 
-        <br>
+</label>
 
-        ⏳ Product ପ୍ରଥମେ Pending ରହିବ।
+<select id="state">
 
-        <br>
+<option value="ଓଡ଼ିଶା">
+    ଓଡ଼ିଶା
+</option>
 
-        ✅ Admin Approve କଲା ପରେ Customerଙ୍କୁ Product ଦେଖାଯିବ।
+<option value="ଆନ୍ଧ୍ର ପ୍ରଦେଶ">
+    ଆନ୍ଧ୍ର ପ୍ରଦେଶ
+</option>
 
-    </div>
+<option value="ଛତିଶଗଡ଼">
+    ଛତିଶଗଡ଼
+</option>
 
+<option value="ଗୁଜରାଟ">
+    ଗୁଜରାଟ
+</option>
 
-    <a
-        href="index.html"
-        class="home"
-    >
-        🏠 UtkalaMart Home
-    </a>
+<option value="ମହାରାଷ୍ଟ୍ର">
+    ମହାରାଷ୍ଟ୍ର
+</option>
+
+<option value="ଅନ୍ୟାନ୍ୟ">
+    ଅନ୍ୟାନ୍ୟ
+</option>
+
+</select>
+
+</div>
+
+
+
+<!-- REGISTER BUTTON -->
+
+<button
+    type="submit"
+    id="registerBtn"
+    class="register-btn"
+>
+
+📝 Seller Account Create କରନ୍ତୁ
+
+</button>
+
+
+
+<!-- MESSAGE -->
+
+<div
+    id="message"
+    class="message"
+></div>
+
+
+</form>
+
+
+
+<!-- LOGIN -->
+
+<div class="login-link">
+
+ପୂର୍ବରୁ Account ଅଛି?
+
+<a href="seller.html">
+
+🔐 Seller Login
+
+</a>
+
+</div>
+
+
+</div>
+
+
+
+<!-- =========================
+     INFO
+========================= -->
+
+<div class="info">
+
+<b>
+🛒 UtkalaMart Seller System
+</b>
+
+<br><br>
+
+✅ Registration ପରେ Seller Login କରିପାରିବେ।
+
+<br>
+
+✅ Seller Product Upload କରିପାରିବେ।
+
+<br>
+
+⏳ Product ପ୍ରଥମେ Pending ରହିବ।
+
+<br>
+
+✅ Admin Approve କଲା ପରେ Customerଙ୍କୁ Product ଦେଖାଯିବ।
+
+</div>
+
+
+
+<a
+    href="index.html"
+    class="home"
+>
+
+🏠 UtkalaMart Home
+
+</a>
 
 
 </div>
@@ -689,30 +723,34 @@ select:focus{
 
 
 /* ==========================================
-   FIREBASE
+   FIREBASE IMPORT
 ========================================== */
 
 import {
+
     auth,
     db
-}
-from "./firebase.js";
+
+} from "./firebase.js";
 
 
 import {
+
     createUserWithEmailAndPassword
-}
-from
+
+} from
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
 
 import {
+
     doc,
     setDoc,
     serverTimestamp
-}
-from
+
+} from
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
 
 
 /* ==========================================
@@ -724,25 +762,30 @@ document.getElementById(
     "sellerForm"
 );
 
+
 const registerBtn =
 document.getElementById(
     "registerBtn"
 );
+
 
 const message =
 document.getElementById(
     "message"
 );
 
+
 const passwordInput =
 document.getElementById(
     "password"
 );
 
+
 const confirmPasswordInput =
 document.getElementById(
     "confirmPassword"
 );
+
 
 const showPassword =
 document.getElementById(
@@ -750,8 +793,9 @@ document.getElementById(
 );
 
 
+
 /* ==========================================
-   MESSAGE
+   MESSAGE FUNCTION
 ========================================== */
 
 function showMessage(
@@ -771,8 +815,9 @@ function showMessage(
 }
 
 
+
 /* ==========================================
-   SHOW PASSWORD
+   SHOW / HIDE PASSWORD
 ========================================== */
 
 showPassword.addEventListener(
@@ -793,7 +838,9 @@ showPassword.addEventListener(
             showPassword.innerText =
                 "🙈";
 
-        }else{
+        }
+
+        else{
 
             passwordInput.type =
                 "password";
@@ -808,6 +855,30 @@ showPassword.addEventListener(
 
     }
 );
+
+
+
+/* ==========================================
+   MOBILE ONLY NUMBERS
+========================================== */
+
+document
+.getElementById("sellerMobile")
+.addEventListener(
+    "input",
+    function(){
+
+        this.value =
+            this.value
+            .replace(
+                /[^0-9]/g,
+                ""
+            )
+            .slice(0,10);
+
+    }
+);
+
 
 
 /* ==========================================
@@ -825,23 +896,33 @@ form.addEventListener(
             "none";
 
 
+        /* =========================
+           GET VALUES
+        ========================== */
+
         const sellerName =
             document
-            .getElementById("sellerName")
+            .getElementById(
+                "sellerName"
+            )
             .value
             .trim();
 
 
         const sellerMobile =
             document
-            .getElementById("sellerMobile")
+            .getElementById(
+                "sellerMobile"
+            )
             .value
             .trim();
 
 
         const sellerEmail =
             document
-            .getElementById("sellerEmail")
+            .getElementById(
+                "sellerEmail"
+            )
             .value
             .trim()
             .toLowerCase();
@@ -857,22 +938,29 @@ form.addEventListener(
 
         const village =
             document
-            .getElementById("village")
+            .getElementById(
+                "village"
+            )
             .value
             .trim();
 
 
         const district =
             document
-            .getElementById("district")
+            .getElementById(
+                "district"
+            )
             .value
             .trim();
 
 
         const state =
             document
-            .getElementById("state")
+            .getElementById(
+                "state"
+            )
             .value;
+
 
 
         /* =========================
@@ -880,7 +968,22 @@ form.addEventListener(
         ========================== */
 
         if(
-            !/^[0-9]{10}$/.test(
+            sellerName.length < 2
+        ){
+
+            showMessage(
+                "❌ Seller ନାମ ଠିକ୍ ଭାବରେ ଦିଅନ୍ତୁ।",
+                "error"
+            );
+
+            return;
+        }
+
+
+
+        if(
+            !/^[0-9]{10}$/
+            .test(
                 sellerMobile
             )
         ){
@@ -891,11 +994,13 @@ form.addEventListener(
             );
 
             return;
-
         }
 
 
-        if(password.length < 6){
+
+        if(
+            password.length < 6
+        ){
 
             showMessage(
                 "❌ Password କମ୍ ସେ କମ୍ 6 characters ହେବା ଦରକାର।",
@@ -903,8 +1008,8 @@ form.addEventListener(
             );
 
             return;
-
         }
+
 
 
         if(
@@ -918,25 +1023,60 @@ form.addEventListener(
             );
 
             return;
-
         }
+
+
+
+        if(
+            village.length < 2
+        ){
+
+            showMessage(
+                "❌ ଗାଁ / ଅଞ୍ଚଳ ଦିଅନ୍ତୁ।",
+                "error"
+            );
+
+            return;
+        }
+
+
+
+        if(
+            district.length < 2
+        ){
+
+            showMessage(
+                "❌ ଜିଲ୍ଲା ଦିଅନ୍ତୁ।",
+                "error"
+            );
+
+            return;
+        }
+
+
+
+        /* =========================
+           DISABLE BUTTON
+        ========================== */
+
+        registerBtn.disabled =
+            true;
+
+        registerBtn.innerText =
+            "⏳ Account Create ହେଉଛି...";
+
 
 
         try{
 
-            registerBtn.disabled =
-                true;
-
-            registerBtn.innerText =
-                "⏳ Account Create ହେଉଛି...";
-
 
             /* =========================
-               FIREBASE AUTH
+               CREATE FIREBASE AUTH USER
             ========================== */
 
             const userCredential =
-                await createUserWithEmailAndPassword(
+                await
+                createUserWithEmailAndPassword(
                     auth,
                     sellerEmail,
                     password
@@ -947,16 +1087,19 @@ form.addEventListener(
                 userCredential.user;
 
 
+
             /* =========================
-               SELLER PROFILE
+               CREATE SELLER PROFILE
             ========================== */
 
             await setDoc(
+
                 doc(
                     db,
                     "sellers",
                     user.uid
                 ),
+
                 {
 
                     uid:
@@ -978,32 +1121,37 @@ form.addEventListener(
                         district,
 
                     state:
-            
+                        state,
 
-                  
-                  
+                    role:
+                        "seller",
 
-                    
-                        
+                    status:
+                        "active",
 
-                    
-                        
+                    approved:
+                        true,
 
-                    
-                  
+                    createdAt:
+                        serverTimestamp(),
 
-                
-            
+                    updatedAt:
+                        serverTimestamp()
+
+                }
+
+            );
 
 
-            
-               
-            
 
-      
+            /* =========================
+               SUCCESS
+            ========================== */
 
-            
-            
+            showMessage(
+
+                "✅ Seller Account ସଫଳଭାବେ Create ହୋଇଗଲା! " +
+                "ଏବେ Seller Login କରନ୍ତୁ।",
 
                 "success"
 
@@ -1012,6 +1160,11 @@ form.addEventListener(
 
             form.reset();
 
+
+
+            /* =========================
+               GO LOGIN
+            ========================== */
 
             setTimeout(
                 function(){
@@ -1026,7 +1179,9 @@ form.addEventListener(
 
         }
 
+
         catch(error){
+
 
             console.error(
                 "SELLER REGISTRATION ERROR:",
@@ -1037,6 +1192,11 @@ form.addEventListener(
             let errorMessage =
                 "❌ Seller Account Create ହୋଇପାରିଲା ନାହିଁ।";
 
+
+
+            /* =========================
+               FIREBASE AUTH ERRORS
+            ========================== */
 
             if(
                 error.code ===
@@ -1085,13 +1245,43 @@ form.addEventListener(
             else if(
                 error.code ===
                 "permission-denied"
+                ||
+                error.code ===
+                "firestore/permission-denied"
             ){
 
                 errorMessage =
-                    "❌ Seller profile save permission ନାହିଁ।";
+                    "❌ Firebase Firestore permission error। Rules ଯାଞ୍ଚ କରନ୍ତୁ।";
 
             }
 
+
+            else if(
+                error.code ===
+                "auth/operation-not-allowed"
+            ){
+
+                errorMessage =
+                    "❌ Firebase Email/Password Login Enable ହୋଇନାହିଁ।";
+
+            }
+
+
+            else if(
+                error.code ===
+                "auth/too-many-requests"
+            ){
+
+                errorMessage =
+                    "❌ ବହୁତ ଥର Try କରାଯାଇଛି। କିଛି ସମୟ ପରେ ପୁଣି Try କରନ୍ତୁ।";
+
+            }
+
+
+
+            /* =========================
+               SHOW ERROR
+            ========================== */
 
             showMessage(
                 errorMessage,
@@ -1101,6 +1291,7 @@ form.addEventListener(
 
             registerBtn.disabled =
                 false;
+
 
             registerBtn.innerText =
                 "📝 Seller Account Create କରନ୍ତୁ";
