@@ -8,15 +8,19 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color"
+      content="#ffffff">
 
 <meta name="description"
       content="Utkala Mart — ଓଡ଼ିଶାର ନିଜସ୍ୱ ଅନଲାଇନ ବଜାର">
 
-<title>Utkala Mart | ଓଡ଼ିଶାର ନିଜସ୍ୱ ଅନଲାଇନ ବଜାର</title>
+<title>
+Utkala Mart | ଓଡ଼ିଶାର ନିଜସ୍ୱ ଅନଲାଇନ ବଜାର
+</title>
+
 
 <!-- =========================
-     FAVICON / LOGO
+     LOGO / ICON
 ========================= -->
 
 <link rel="icon"
@@ -29,15 +33,18 @@
 
 <style>
 
-/* =====================================================
+/* =========================
    BASIC RESET
-===================================================== */
+========================= */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,"Noto Sans Oriya",sans-serif;
+    font-family:
+        Arial,
+        "Noto Sans Oriya",
+        sans-serif;
 }
 
 html{
@@ -50,9 +57,9 @@ body{
 }
 
 
-/* =====================================================
+/* =========================
    HEADER
-===================================================== */
+========================= */
 
 header{
 
@@ -72,7 +79,9 @@ header{
 
     z-index:1000;
 
-    box-shadow:0 2px 10px rgba(0,0,0,.08);
+    box-shadow:
+        0 2px 12px
+        rgba(0,0,0,.08);
 }
 
 
@@ -86,11 +95,11 @@ header{
 
     gap:8px;
 
-    font-size:22px;
+    font-size:24px;
 
     font-weight:800;
 
-    color:#222;
+    white-space:nowrap;
 }
 
 
@@ -98,25 +107,37 @@ header{
 
 .logo img{
 
-    width:44px;
+    width:46px;
 
-    height:44px;
+    height:46px;
 
-    object-fit:contain;
+    object-fit:cover;
 
     border-radius:50%;
+
+    display:block;
 }
 
 
-/* UTKALA COLOR */
+/* Utkala COLOR */
 
-.logo span{
+.logo .utkala{
 
     color:#e65100;
 }
 
 
-/* CART */
+/* Mart COLOR */
+
+.logo .mart{
+
+    color:#222;
+}
+
+
+/* =========================
+   CART BUTTON
+========================= */
 
 .cart{
 
@@ -124,44 +145,59 @@ header{
 
     border:0;
 
-    border-radius:12px;
+    border-radius:14px;
 
-    padding:10px 14px;
+    padding:10px 15px;
 
     font-size:18px;
 
     cursor:pointer;
+
+    min-width:68px;
+
+    transition:.2s;
+}
+
+.cart:active{
+
+    transform:scale(.95);
 }
 
 
-/* =====================================================
+/* =========================
    HERO
-===================================================== */
+========================= */
 
 .hero{
 
-    padding:48px 20px;
+    padding:55px 20px 60px;
 
     text-align:center;
 
     background:
-    linear-gradient(
-        135deg,
-        #fff3df,
-        #ffe7c2
-    );
+        linear-gradient(
+            135deg,
+            #fff3df,
+            #ffe7c2
+        );
 }
 
+
+/* HERO TITLE */
 
 .hero h1{
 
-    font-size:34px;
+    font-size:36px;
 
     line-height:1.35;
 
-    margin-bottom:12px;
+    margin-bottom:15px;
+
+    font-weight:800;
 }
 
+
+/* ORANGE TITLE */
 
 .hero h1 span{
 
@@ -169,45 +205,62 @@ header{
 }
 
 
+/* HERO TEXT */
+
 .hero p{
 
-    font-size:18px;
+    font-size:19px;
 
     line-height:1.8;
 
     color:#555;
+
+    margin-top:10px;
 }
 
 
+/* HERO BUTTON */
+
 .hero button{
 
-    margin-top:22px;
+    margin-top:25px;
 
-    padding:13px 24px;
+    padding:15px 28px;
 
     border:0;
 
-    border-radius:25px;
+    border-radius:30px;
 
     background:#e65100;
 
     color:white;
 
-    font-size:16px;
+    font-size:17px;
 
     font-weight:bold;
 
     cursor:pointer;
+
+    box-shadow:
+        0 5px 15px
+        rgba(230,81,0,.25);
+
+    transition:.2s;
+}
+
+.hero button:active{
+
+    transform:scale(.96);
 }
 
 
-/* =====================================================
+/* =========================
    SECTION
-===================================================== */
+========================= */
 
 .section{
 
-    padding:30px 16px;
+    padding:32px 16px;
 
     max-width:1100px;
 
@@ -215,43 +268,50 @@ header{
 }
 
 
+/* SECTION TITLE */
+
 .section h2{
 
     text-align:center;
 
     margin-bottom:22px;
 
-    font-size:26px;
+    font-size:27px;
+
+    font-weight:800;
 }
 
 
-/* =====================================================
-   CATEGORIES
-===================================================== */
+/* =========================
+   CATEGORY GRID
+========================= */
 
 .categories{
 
     display:grid;
 
     grid-template-columns:
-    repeat(2,1fr);
+        repeat(2,1fr);
 
-    gap:12px;
+    gap:14px;
 }
 
 
+/* CATEGORY CARD */
+
 .category{
 
-    background:white;
+    background:#ffffff;
 
-    border-radius:16px;
+    border-radius:18px;
 
-    padding:22px 10px;
+    padding:23px 10px;
 
     text-align:center;
 
     box-shadow:
-    0 3px 12px rgba(0,0,0,.07);
+        0 3px 12px
+        rgba(0,0,0,.07);
 
     font-size:18px;
 
@@ -262,52 +322,58 @@ header{
     transition:.2s;
 }
 
-
 .category:active{
 
     transform:scale(.97);
 }
 
 
+/* CATEGORY ICON */
+
 .category div{
 
-    font-size:34px;
+    font-size:38px;
 
-    margin-bottom:8px;
+    margin-bottom:9px;
 }
 
 
-/* =====================================================
+/* =========================
    PRODUCTS
-===================================================== */
+========================= */
 
 .products{
 
     display:grid;
 
     grid-template-columns:
-    repeat(2,1fr);
+        repeat(2,1fr);
 
     gap:14px;
 }
 
 
+/* PRODUCT CARD */
+
 .product{
 
     background:#fff;
 
-    border-radius:16px;
+    border-radius:17px;
 
     overflow:hidden;
 
     box-shadow:
-    0 3px 12px rgba(0,0,0,.08);
+        0 3px 12px
+        rgba(0,0,0,.08);
 }
 
 
+/* PRODUCT IMAGE */
+
 .product-img{
 
-    height:145px;
+    height:150px;
 
     background:#f4eadc;
 
@@ -317,19 +383,23 @@ header{
 
     justify-content:center;
 
-    font-size:55px;
+    font-size:58px;
 }
 
+
+/* PRODUCT INFO */
 
 .product-info{
 
-    padding:13px;
+    padding:14px;
 }
 
 
+/* PRODUCT NAME */
+
 .product h3{
 
-    font-size:17px;
+    font-size:18px;
 
     line-height:1.5;
 
@@ -337,23 +407,27 @@ header{
 }
 
 
+/* PRICE */
+
 .price{
 
     color:#e65100;
 
-    font-size:18px;
+    font-size:19px;
 
     font-weight:bold;
 }
 
 
+/* ADD CART BUTTON */
+
 .product button{
 
     width:100%;
 
-    margin-top:10px;
+    margin-top:11px;
 
-    padding:10px;
+    padding:11px 7px;
 
     border:0;
 
@@ -365,46 +439,62 @@ header{
 
     font-weight:bold;
 
-    cursor:pointer;
-}
+    font-size:14px;
 
+    cursor:pointer;
+
+    transition:.2s;
+}
 
 .product button:active{
 
-    transform:scale(.97);
+    transform:scale(.96);
 }
 
 
-/* =====================================================
+/* =========================
    ABOUT
-===================================================== */
+========================= */
 
 .about{
 
-    background:#fff;
+    background:#ffffff;
 
-    border-radius:18px;
+    border-radius:20px;
 
-    padding:26px 18px;
+    padding:28px 20px;
 
     text-align:center;
 
     line-height:1.9;
 
     box-shadow:
-    0 3px 12px rgba(0,0,0,.06);
+        0 3px 12px
+        rgba(0,0,0,.06);
 }
 
+
+/* ABOUT TITLE */
 
 .about h2{
 
-    margin-bottom:12px;
+    margin-bottom:15px;
 }
 
 
-/* =====================================================
+/* ABOUT TEXT */
+
+.about p{
+
+    font-size:18px;
+
+    color:#444;
+}
+
+
+/* =========================
    FOOTER
-===================================================== */
+========================= */
 
 footer{
 
@@ -424,25 +514,24 @@ footer{
 
 footer strong{
 
-    font-size:24px;
+    font-size:23px;
 }
 
 
-/* =====================================================
-   TOAST MESSAGE
-===================================================== */
+/* =========================
+   CART MESSAGE
+========================= */
 
-.toast{
+.cart-message{
 
     position:fixed;
 
-    bottom:25px;
+    bottom:20px;
 
     left:50%;
 
     transform:
-    translateX(-50%)
-    translateY(100px);
+        translateX(-50%);
 
     background:#222;
 
@@ -454,53 +543,94 @@ footer strong{
 
     font-size:15px;
 
+    display:none;
+
     z-index:2000;
 
-    opacity:0;
-
-    transition:.3s;
+    box-shadow:
+        0 5px 20px
+        rgba(0,0,0,.25);
 }
 
 
-.toast.show{
-
-    transform:
-    translateX(-50%)
-    translateY(0);
-
-    opacity:1;
-}
-
-
-/* =====================================================
+/* =========================
    DESKTOP
-===================================================== */
+========================= */
 
 @media(min-width:700px){
 
     .categories{
 
         grid-template-columns:
-        repeat(4,1fr);
+            repeat(4,1fr);
     }
 
 
     .products{
 
         grid-template-columns:
-        repeat(4,1fr);
+            repeat(4,1fr);
+    }
+
+
+    .hero{
+
+        padding:
+            75px 20px 80px;
     }
 
 
     .hero h1{
 
-        font-size:46px;
+        font-size:50px;
     }
 
 
     .hero p{
 
+        font-size:21px;
+    }
+
+
+    .logo img{
+
+        width:52px;
+
+        height:52px;
+    }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media(max-width:380px){
+
+    .logo{
+
         font-size:20px;
+    }
+
+
+    .logo img{
+
+        width:40px;
+
+        height:40px;
+    }
+
+
+    .hero h1{
+
+        font-size:30px;
+    }
+
+
+    .hero p{
+
+        font-size:16px;
     }
 
 }
@@ -513,9 +643,9 @@ footer strong{
 <body>
 
 
-<!-- =====================================================
+<!-- =========================
      HEADER
-===================================================== -->
+========================= -->
 
 <header>
 
@@ -525,7 +655,13 @@ footer strong{
             src="logo.png"
             alt="Utkala Mart Logo">
 
-        <span>Utkala</span> Mart
+        <span class="utkala">
+            Utkala
+        </span>
+
+        <span class="mart">
+            Mart
+        </span>
 
     </div>
 
@@ -534,7 +670,8 @@ footer strong{
         class="cart"
         onclick="showCart()">
 
-        🛒 <span id="cartCount">0</span>
+        🛒
+        <span id="cartCount">0</span>
 
     </button>
 
@@ -542,9 +679,9 @@ footer strong{
 
 
 
-<!-- =====================================================
+<!-- =========================
      HERO
-===================================================== -->
+========================= -->
 
 <section class="hero">
 
@@ -554,7 +691,9 @@ footer strong{
 
         <br>
 
-        <span>ଆପଣଙ୍କ ଘରେ</span>
+        <span>
+            ଆପଣଙ୍କ ଘରେ
+        </span>
 
     </h1>
 
@@ -571,7 +710,11 @@ footer strong{
 
 
     <button
-        onclick="scrollToProducts()">
+        onclick="
+        document
+        .getElementById('products')
+        .scrollIntoView();
+        ">
 
         🛍️ ପ୍ରଡକ୍ଟ ଦେଖନ୍ତୁ
 
@@ -581,56 +724,62 @@ footer strong{
 
 
 
-<!-- =====================================================
+<!-- =========================
      CATEGORIES
-===================================================== -->
+========================= -->
 
 <section class="section">
 
-    <h2>📦 ବିଭାଗ</h2>
+    <h2>
+        📦 ବିଭାଗ
+    </h2>
 
 
     <div class="categories">
 
 
-        <div
-            class="category"
-            onclick="showMessage('ଖାଦ୍ୟ ବିଭାଗ ଶୀଘ୍ର ଆସୁଛି')">
+        <div class="category"
+             onclick="goProducts()">
 
-            <div>🌶️</div>
+            <div>
+                🌶️
+            </div>
 
             ଖାଦ୍ୟ
 
         </div>
 
 
-        <div
-            class="category"
-            onclick="showMessage('ଘରୋଇ ପ୍ରଡକ୍ଟ ଶୀଘ୍ର ଆସୁଛି')">
+        <div class="category"
+             onclick="goProducts()">
 
-            <div>🥣</div>
+            <div>
+                🥣
+            </div>
 
             ଘରୋଇ ପ୍ରଡକ୍ଟ
 
         </div>
 
 
-        <div
-            class="category"
-            onclick="showMessage('ପୋଷାକ ବିଭାଗ ଶୀଘ୍ର ଆସୁଛି')">
+        <div class="category"
+             onclick="goProducts()">
 
-            <div>👕</div>
+            <div>
+                👕
+            </div>
 
             ପୋଷାକ
 
         </div>
 
 
-        <div
-            class="category"
-            onclick="showMessage('ହସ୍ତଶିଳ୍ପ ବିଭାଗ ଶୀଘ୍ର ଆସୁଛି')">
+        <div class="category"
+             onclick="goProducts()">
 
-            <div>🎁</div>
+            <div>
+                🎁
+            </div>
 
             ହସ୍ତଶିଳ୍ପ
 
@@ -643,9 +792,9 @@ footer strong{
 
 
 
-<!-- =====================================================
+<!-- =========================
      PRODUCTS
-===================================================== -->
+========================= -->
 
 <section
     class="section"
@@ -653,9 +802,7 @@ footer strong{
 
 
     <h2>
-
         ⭐ ଲୋକପ୍ରିୟ ପ୍ରଡକ୍ଟ
-
     </h2>
 
 
@@ -667,9 +814,7 @@ footer strong{
         <div class="product">
 
             <div class="product-img">
-
                 🌶️
-
             </div>
 
 
@@ -681,14 +826,15 @@ footer strong{
 
 
                 <div class="price">
-
                     ₹ —
-
                 </div>
 
 
                 <button
-                    onclick="addCart('ଗଞ୍ଜାମ ଲଙ୍କା')">
+                    onclick="
+                    addCart(
+                    'ଗଞ୍ଜାମ ଲଙ୍କା'
+                    )">
 
                     🛒 କାର୍ଟରେ ରଖନ୍ତୁ
 
@@ -705,9 +851,7 @@ footer strong{
         <div class="product">
 
             <div class="product-img">
-
                 🥣
-
             </div>
 
 
@@ -719,14 +863,15 @@ footer strong{
 
 
                 <div class="price">
-
                     ₹ —
-
                 </div>
 
 
                 <button
-                    onclick="addCart('ଓଡ଼ିଆ ପାପଡ଼')">
+                    onclick="
+                    addCart(
+                    'ଓଡ଼ିଆ ପାପଡ଼'
+                    )">
 
                     🛒 କାର୍ଟରେ ରଖନ୍ତୁ
 
@@ -743,9 +888,7 @@ footer strong{
         <div class="product">
 
             <div class="product-img">
-
                 🍘
-
             </div>
 
 
@@ -757,14 +900,15 @@ footer strong{
 
 
                 <div class="price">
-
                     ₹ —
-
                 </div>
 
 
                 <button
-                    onclick="addCart('ଗଞ୍ଜାମ ଘରୋଇ ଖାଦ୍ୟ')">
+                    onclick="
+                    addCart(
+                    'ଗଞ୍ଜାମ ଘରୋଇ ଖାଦ୍ୟ'
+                    )">
 
                     🛒 କାର୍ଟରେ ରଖନ୍ତୁ
 
@@ -781,9 +925,7 @@ footer strong{
         <div class="product">
 
             <div class="product-img">
-
                 🧶
-
             </div>
 
 
@@ -795,14 +937,15 @@ footer strong{
 
 
                 <div class="price">
-
                     ₹ —
-
                 </div>
 
 
                 <button
-                    onclick="addCart('ଓଡ଼ିଆ ହସ୍ତଶିଳ୍ପ')">
+                    onclick="
+                    addCart(
+                    'ଓଡ଼ିଆ ହସ୍ତଶିଳ୍ପ'
+                    )">
 
                     🛒 କାର୍ଟରେ ରଖନ୍ତୁ
 
@@ -819,36 +962,26 @@ footer strong{
 
 
 
-<!-- =====================================================
+<!-- =========================
      ABOUT
-===================================================== -->
+========================= -->
 
 <section class="section">
 
     <div class="about">
 
-
         <h2>
-
             🙏 Utkala Mart
-
         </h2>
 
 
         <p>
 
             ଓଡ଼ିଶାର ନିଜସ୍ୱ ପ୍ରଡକ୍ଟକୁ
-
-            <br>
-
-            ଦେଶର ପ୍ରତ୍ୟେକ ଘରେ ପହଞ୍ଚାଇବା
-
-            <br>
-
-            ଆମର ଲକ୍ଷ୍ୟ।
+            ଦେଶର ପ୍ରତ୍ୟେକ ଘରେ
+            ପହଞ୍ଚାଇବା ଆମର ଲକ୍ଷ୍ୟ।
 
         </p>
-
 
     </div>
 
@@ -856,29 +989,25 @@ footer strong{
 
 
 
-<!-- =====================================================
+<!-- =========================
      FOOTER
-===================================================== -->
+========================= -->
 
 <footer>
 
     <strong>
-
         🛍️ Utkala Mart
-
     </strong>
-
 
     <br>
 
+    ଓଡ଼ିଶାର ନିଜସ୍ୱ ପ୍ରଡକ୍ଟ
 
-    ଓଡ଼ିଶାର ପରିଚୟ,
+    <br>
 
-    ଆପଣଙ୍କ ପସନ୍ଦ
-
+    ଗାଁରୁ ସହର — ଆପଣଙ୍କ ଘରେ
 
     <br><br>
-
 
     © 2026 Utkala Mart
 
@@ -886,82 +1015,96 @@ footer strong{
 
 
 
-<!-- =====================================================
-     TOAST
-===================================================== -->
+<!-- CART MESSAGE -->
 
 <div
-    id="toast"
-    class="toast">
+    class="cart-message"
+    id="cartMessage">
+
+    🛒 କାର୍ଟରେ ଯୋଡ଼ାଗଲା
 
 </div>
 
 
 
-<!-- =====================================================
+<!-- =========================
      JAVASCRIPT
-===================================================== -->
+========================= -->
 
 <script>
-
-
-/* =====================================================
-   CART
-===================================================== */
 
 let cartCount = 0;
 
 
-/* =====================================================
+/* =========================
    ADD CART
-===================================================== */
+========================= */
 
 function addCart(productName){
 
     cartCount++;
 
-    document.getElementById(
-        "cartCount"
-    ).textContent = cartCount;
+    document
+        .getElementById("cartCount")
+        .innerText = cartCount;
 
 
-    showMessage(
-        productName + " କାର୍ଟରେ ଯୋଡ଼ାଗଲା ✅"
-    );
+    const message =
+        document.getElementById(
+            "cartMessage"
+        );
+
+
+    message.innerText =
+        "🛒 " +
+        productName +
+        " କାର୍ଟରେ ଯୋଡ଼ାଗଲା";
+
+
+    message.style.display =
+        "block";
+
+
+    setTimeout(function(){
+
+        message.style.display =
+            "none";
+
+    },2000);
 
 }
 
 
-/* =====================================================
-   SHOW CART
-===================================================== */
+/* =========================
+   CART
+========================= */
 
 function showCart(){
 
     if(cartCount === 0){
 
-        showMessage(
-            "କାର୍ଟ ଏବେ ଖାଲି ଅଛି 🛒"
+        alert(
+            "🛒 ଆପଣଙ୍କ କାର୍ଟ ଖାଲି ଅଛି।"
         );
 
-        return;
+    }else{
+
+        alert(
+            "🛒 କାର୍ଟରେ " +
+            cartCount +
+            "ଟି ପ୍ରଡକ୍ଟ ଅଛି।"
+        );
+
     }
-
-
-    showMessage(
-        "କାର୍ଟରେ " +
-        cartCount +
-        "ଟି ପ୍ରଡକ୍ଟ ଅଛି 🛒"
-    );
 
 }
 
 
-/* =====================================================
-   SCROLL PRODUCTS
-===================================================== */
+/* =========================
+   GO PRODUCTS
+========================= */
 
-function scrollToProducts(){
+function goProducts(){
 
     document
         .getElementById("products")
@@ -970,32 +1113,6 @@ function scrollToProducts(){
         });
 
 }
-
-
-/* =====================================================
-   MESSAGE
-===================================================== */
-
-function showMessage(message){
-
-    const toast =
-        document.getElementById("toast");
-
-
-    toast.textContent = message;
-
-
-    toast.classList.add("show");
-
-
-    setTimeout(function(){
-
-        toast.classList.remove("show");
-
-    },2500);
-
-}
-
 
 </script>
 
