@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ff6b00">
+
+<title>ଉତ୍କଳ Mart - Seller Dashboard</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,"Noto Sans Oriya",sans-serif;
+    background:#f5f6f8;
+    color:#222;
+}
+
+/* HEADER */
+.header{
+    background:linear-gradient(135deg,#ff6b00,#ff9800);
+    color:white;
+    padding:22px 15px;
+    text-align:center;
+}
+
+.header h1{
+    font-size:25px;
+}
+
+.header p{
+    margin-top:6px;
+    font-size:14px;
+}
+
+/* CONTAINER */
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:15px;
+}
+
+/* MENU */
+.menu{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    margin:15px 0;
+}
+
+.menu button{
+    border:0;
+    background:white;
+    padding:14px 8px;
+    border-radius:12px;
+    box-shadow:0 2px 8px #0001;
+    font-size:14px;
+    cursor:pointer;
+}
+
+.menu button:hover{
+    background:#fff3e8;
+}
+
+/* SECTION */
+.section{
+    background:white;
+    padding:20px;
+    border-radius:16px;
+    margin-bottom:18px;
+    box-shadow:0 3px 12px #0001;
+}
+
+.section h2{
+    color:#e65100;
+    margin-bottom:18px;
+}
+
+/* STATS */
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.stat{
+    background:#fff7ef;
+    padding:18px 10px;
+    text-align:center;
+    border-radius:12px;
+}
+
+.stat strong{
+    display:block;
+    color:#e65100;
+    font-size:25px;
+    margin-bottom:6px;
+}
+
+/* FORM */
+form{
+    display:grid;
+    gap:12px;
+}
+
+label{
+    font-weight:bold;
+    font-size:14px;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:13px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:15px;
+}
+
+textarea{
+    min-height:100px;
+    resize:vertical;
+}
+
+.submit{
+    background:#ff6b00;
+    color:white;
+    border:0;
+    padding:14px;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* PRODUCTS */
+.products{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.product{
+    background:white;
+    border:1px solid #eee;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 3px 10px #0001;
+}
+
+.product img{
+    width:100%;
+    height:190px;
+    object-fit:cover;
+}
+
+.product-body{
+    padding:15px;
+}
+
+.product h3{
+    margin-bottom:8px;
+}
+
+.price{
+    color:#e65100;
+    font-size:21px;
+    font-weight:bold;
+    margin:8px 0;
+}
+
+.status{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:12px;
+    margin-top:7px;
+}
+
+.approved{
+    background:#e8f5e9;
+    color:#2e7d32;
+}
+
+.pending{
+    background:#fff3e0;
+    color:#ef6c00;
+}
+
+.whatsapp{
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    background:#25D366;
+    color:white;
+    padding:11px;
+    border-radius:10px;
+    margin-top:12px;
+    font-weight:bold;
+}
+
+/* TABLE */
+.table-wrap{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:600px;
+}
+
+th,
+td{
+    padding:12px;
+    border-bottom:1px solid #eee;
+    text-align:left;
+}
+
+th{
+    background:#fff3e8;
+    color:#e65100;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:25px;
+    color:#777;
+}
+
+/* MOBILE */
+@media(max-width:750px){
+
+    .menu{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .products{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:450px){
+
+    .header h1{
+        font-size:21px;
+    }
+
+    .section{
+        padding:15px;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+
+    <h1>🛍️ ଉତ୍କଳ Mart</h1>
+
+    <p>
+        Seller / Member Income Dashboard
+    </p>
+
+</header>
+
+
+<div class="container">
+
+    <!-- MENU -->
+
+    <div class="menu">
+
+        <button onclick="showSection('dashboard')">
+            📊 Dashboard
+        </button>
+
+        <button onclick="showSection('addProduct')">
+            ➕ Add Product
+        </button>
+
+        <button onclick="showSection('myProducts')">
+            🛍️ My Products
+        </button>
+
+        <button onclick="showSection('orders')">
+            📦 Orders
+        </button>
+
+    </div>
+
+
+    <!-- DASHBOARD -->
+
+    <section
+        id="dashboard"
+        class="section">
+
+        <h2>📊 Seller Dashboard</h2>
+
+        <p style="margin-bottom:15px;">
+            👤 Seller:
+            <strong>Demo Member</strong>
+        </p>
+
+        <div class="stats">
+
+            <div class="stat">
+
+                <strong id="productCount">
+                    3
+                </strong>
+
+                Products
+
+            </div>
+
+            <div class="stat">
+
+                <strong>
+                    12
+                </strong>
+
+                Orders
+
+            </div>
+
+            <div class="stat">
+
+                <strong>
+                    ₹8,450
+                </strong>
+
+                Total Sales
+
+            </div>
+
+            <div class="stat">
+
+                <strong>
+                    ₹7,200
+                </strong>
+
+                Seller Income
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ADD PRODUCT -->
+
+    <section
+        id="addProduct"
+        class="section"
+        style="display:none;">
+
+        <h2>
+            ➕ Product / Service ଯୋଡ଼ନ୍ତୁ
+        </h2>
+
+        <form onsubmit="addProduct(event)">
+
+            <div>
+
+                <label>
+                    Product Name
+                </label>
+
+                <input
+                    id="productName"
+                    type="text"
+                    placeholder="ଯଥା: ଗଞ୍ଜାମ ପାପଡ଼"
+                    required>
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    Category
+                </label>
+
+                <select id="category">
+
+                    <option>
+                        Food
+                    </option>
+
+                    <option>
+                        Clothing
+                    </option>
+
+                    <option>
+                        Handicraft
+                    </option>
+
+                    <option>
+                        Home Product
+                    </option>
+
+                    <option>
+                        Service
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    Price ₹
+                </label>
+
+                <input
+                    id="price"
+                    type="number"
+                    placeholder="180"
+                    required>
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    Stock
+                </label>
+
+                <input
+                    id="stock"
+                    type="number"
+                    placeholder="10"
+                    required>
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    Product Photo URL
+                </label>
+
+                <input
+                    id="photo"
+                    type="url"
+                    placeholder="https://...">
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    WhatsApp Number
+                </label>
+
+                <input
+                    id="whatsapp"
+                    type="tel"
+                    placeholder="919999999999"
+                    required>
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    Description
+                </label>
+
+                <textarea
+                    id="description"
+                    placeholder="Product ବିଷୟରେ ଲେଖନ୍ତୁ">
+                </textarea>
+
+            </div>
+
+
+            <button
+                class="submit"
+                type="submit">
+
+                📤 Submit for Admin Approval
+
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- MY PRODUCTS -->
+
+    <section
+        id="myProducts"
+        class="section"
+        style="display:none;">
+
+        <h2>
+            🛍️ My Products
+        </h2>
+
+        <div
+            class="products"
+            id="productList">
+
+
+            <!-- PRODUCT 1 -->
+
+            <div class="product">
+
+                <img
+                src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80">
+
+                <div class="product-body">
+
+                    <h3>
+                        ଗଞ୍ଜାମ ପାପଡ଼
+                    </h3>
+
+                    <div class="price">
+                        ₹180
+                    </div>
+
+                    <p>
+                        Stock: 25
+                    </p>
+
+                    <span class="status approved">
+                        ✅ Approved
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+
+            <div class="product">
+
+                <img
+                src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80">
+
+                <div class="product-body">
+
+                    <h3>
+                        Sambalpuri Dress
+                    </h3>
+
+                    <div class="price">
+                        ₹850
+                    </div>
+
+                    <p>
+                        Stock: 8
+                    </p>
+
+                    <span class="status approved">
+                        ✅ Approved
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+
+            <div class="product">
+
+                <img
+                src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80">
+
+                <div class="product-body">
+
+                    <h3>
+                        Homemade Food
+                    </h3>
+
+                    <div class="price">
+                        ₹250
+                    </div>
+
+                    <p>
+                        Stock: 15
+                    </p>
+
+                    <span class="status pending">
+                        ⏳ Pending
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ORDERS -->
+
+    <section
+        id="orders"
+        class="section"
+        style="display:none;">
+
+        <h2>
+            📦 Recent Orders
+        </h2>
+
+        <div class="table-wrap">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Order ID
+                        </th>
+
+                        <th>
+                            Product
+                        </th>
+
+                        <th>
+                            Customer
+                        </th>
+
+                        <th>
+                            Amount
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            #UM1001
+                        </td>
+
+                        <td>
+                            ଗଞ୍ଜାମ ପାପଡ଼
+                        </td>
+
+                        <td>
+                            Customer 1
+                        </td>
+
+                        <td>
+                            ₹360
+                        </td>
+
+                        <td>
+                            ✅ Confirmed
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            #UM1002
+                        </td>
+
+                        <td>
+                            Sambalpuri Dress
+                        </td>
+
+                        <td>
+                            Customer 2
+                        </td>
+
+                        <td>
+                            ₹850
+                        </td>
+
+                        <td>
+                            🚚 Processing
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            #UM1003
+                        </td>
+
+                        <td>
+                            Homemade Food
+                        </td>
+
+                        <td>
+                            Customer 3
+                        </td>
+
+                        <td>
+                            ₹500
+                        </td>
+
+                        <td>
+                            📦 Delivered
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<footer>
+
+    © 2026 ଉତ୍କଳ Mart
+    <br>
+    <small>
+        Member Seller Income Network Demo
+    </small>
+
+</footer>
+
+
+<script>
+
+/* SECTION SWITCH */
+
+function showSection(id){
+
+    const sections = [
+        "dashboard",
+        "addProduct",
+        "myProducts",
+        "orders"
+    ];
+
+    sections.forEach(function(section){
+
+        document.getElementById(section)
+        .style.display = "none";
+
+    });
+
+    document.getElementById(id)
+    .style.display = "block";
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* ADD PRODUCT DEMO */
+
+function addProduct(event){
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("productName").value;
+
+    const price =
+        document.getElementById("price").value;
+
+    const stock =
+        document.getElementById("stock").value;
+
+    const whatsapp =
+        document.getElementById("whatsapp").value;
+
+    alert(
+        "✅ Product Submitted!\n\n" +
+
+        "Product: " + name + "\n" +
+
+        "Price: ₹" + price + "\n" +
+
+        "Stock: " + stock + "\n\n" +
+
+        "⏳ Admin Approval ପାଇଁ ପଠାଯାଇଛି।"
+    );
+
+    event.target.reset();
+
+}
+
+
+/* WHATSAPP ORDER FUNCTION */
+
+function whatsappOrder(number,product){
+
+    const message =
+        "ନମସ୍କାର, ମୁଁ " +
+        product +
+        " କିଣିବାକୁ ଚାହୁଁଛି।";
+
+    const url =
+        "https://wa.me/" +
+        number +
+        "?text=" +
+        encodeURIComponent(message);
+
+    window.open(url,"_blank");
+
+}
+
+</script>
+
+</body>
+</html>
