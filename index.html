@@ -1481,7 +1481,429 @@ document
 "block";
 
 </script>
+<script type="module">
 
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+    getFirestore,
+    collection,
+    getDocs
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =========================
+   FIREBASE CONFIG
+========================= */
+
+const firebaseConfig = {
+
+    apiKey:
+    "AIzaSyBYJ_KKsS_7SNz108jnw6hpOlmegofRhJg",
+
+    authDomain:
+    "utkalamart-1ec68.firebaseapp.com",
+
+    projectId:
+    "utkalamart-1ec68",
+
+    storageBucket:
+    "utkalamart-1ec68.firebasestorage.app",
+
+    messagingSenderId:
+    "664871353747",
+
+    appId:
+    "1:664871353747:web:96532fdafe78aabe7f3c66"
+
+};
+
+
+const app =
+    initializeApp(firebaseConfig);
+
+const db =
+    getFirestore(app);
+
+
+/* =========================
+   PRODUCT DATA
+========================= */
+
+let martProducts = [];
+
+
+/* =========================
+   LOAD PRODUCTS
+========================= */
+
+async function loadMartProducts(){
+
+    try{
+
+        const snapshot =
+            await getDocs(
+                collection(
+                    db,
+                    "martProducts"
+                )
+            );
+
+
+        martProducts = [];
+
+
+        snapshot.forEach(function(doc){
+
+            martProducts.push({
+
+                id: doc.id,
+
+                ...doc.data()
+
+            });
+
+        });
+
+
+        console.log(
+            "Utkala Mart Products:",
+            martProducts
+        );
+
+
+    }catch(error){
+
+        console.error(
+            "Firebase Product Error:",
+            error
+        );
+
+    }
+
+}
+
+
+/* =========================
+   SEARCH FIREBASE PRODUCTS
+========================= */
+
+window.searchFirebaseProducts =
+async function(){
+
+    const input =
+        document.getElementById(
+            "searchInput"
+        );
+
+
+    const search =
+        input.value
+        .trim()
+        .toLowerCase();
+
+
+    const result =
+        document.getElementById(
+            "searchResult"
+        );
+
+
+    const noResult =
+        document.getElementById(
+            "noResult"
+        );
+
+
+    const info =
+        document.getElementById(
+            "searchInfo"
+        );
+
+
+    const searchText =
+        document.getElementById(
+            "searchText"
+        );
+
+
+    /* EMPTY SEARCH */
+
+    if(search === ""){
+
+        info.style.display =
+            "none";
+
+        result.style.display =
+            "block";
+
+        noResult.style.display =
+            "none";
+
+        return;
+
+    }
+
+
+    /* SEARCH TEXT */
+
+    info.style.display =
+        "block";
+
+    searchText.innerText =
+        search;
+
+
+    /* FIND PRODUCTS */
+
+    const matches =
+        martProducts.filter(
+        function(product){
+
+            const name =
+                String(
+                    product.name || ""
+                ).toLowerCase();
+
+
+            const category =
+                String(
+                    product.category || ""
+                ).toLowerCase();
+
+
+            const subcategory =
+                String(
+                    product.subcategory || ""
+                ).toLowerCase();
+
+
+            return (
+
+                name.includes(search) ||
+
+                category.includes(search) ||
+
+                subcategory.includes(search)
+
+            );
+
+        });
+
+
+    result.style.display =
+        "none";
+
+
+    /* NO PRODUCT */
+
+    if(matches.length === 0){
+
+        noResult.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+    noResult.style.display =
+        "none";
+
+
+    /* RESULT BOX */
+
+    const box =
+        document.querySelector(
+            ".search-result-box"
+        );
+
+
+    box.innerHTML = `
+
+        <h3>
+            🛍️ ${matches.length}
+            ଟି ପ୍ରଡକ୍ଟ ମିଳିଲା
+        </h3>
+
+        <div
+        id="firebaseProductList"
+        style="
+            display:grid;
+            grid-template-columns:
+            repeat(2,1fr);
+            gap:14px;
+            margin-top:15px;
+        ">
+        </div>
+
+    `;
+
+
+    const list =
+        document.getElementById(
+            "firebaseProductList"
+        );
+
+
+    /* CREATE PRODUCT CARDS */
+
+    matches.forEach(
+    function(product){
+
+        const card =
+            document.createElement(
+                "div"
+            );
+
+
+        card.style.cssText = `
+
+            background:#fff;
+
+            border-radius:17px;
+
+            overflow:hidden;
+
+            text-align:left;
+
+            box-shadow:
+            0 3px 12px
+            rgba(0,0,0,.08);
+
+        `;
+
+
+        const image =
+            product.imageUrl ||
+            "logo.png";
+
+
+        const price =
+            product.price !== undefined &&
+            product.price !== ""
+            ? "₹" + product.price
+            : "₹ —";
+
+
+        card.innerHTML = `
+
+            <div
+            style="
+                width:100%;
+                height:155px;
+                background:#f4eadc;
+                overflow:hidden;
+            ">
+
+                <img
+                src="${image}"
+                alt="${product.name || "Product"}"
+                style="
+                    width:100%;
+                    height:100%;
+                    object-fit:cover;
+                    display:block;
+                "
+                onerror="
+                    this.src='logo.png';
+                ">
+
+            </div>
+
+
+            <div
+            style="
+                padding:13px;
+            ">
+
+                <h3
+                style="
+                    font-size:17px;
+                    line-height:1.5;
+                    margin-bottom:6px;
+                ">
+
+                    ${product.name || "ପ୍ରଡକ୍ଟ"}
+
+                </h3>
+
+
+                <div
+                style="
+                    color:#777;
+                    font-size:13px;
+                ">
+
+                    ${product.category || ""}
+
+                </div>
+
+
+                <div
+                style="
+                    color:#999;
+                    font-size:12px;
+                    margin-top:4px;
+                ">
+
+                    ${product.subcategory || ""}
+
+                </div>
+
+
+                <div
+                style="
+                    color:#e65100;
+                    font-size:19px;
+                    font-weight:bold;
+                    margin-top:6px;
+                ">
+
+                    ${price}
+
+                </div>
+
+
+                <button
+                style="
+                    width:100%;
+                    margin-top:10px;
+                    padding:11px 5px;
+                    border:0;
+                    border-radius:10px;
+                    background:#e65100;
+                    color:white;
+                    font-weight:bold;
+                    cursor:pointer;
+                "
+                onclick="addCart()">
+
+                    🛒 କାର୍ଟରେ ରଖନ୍ତୁ
+
+                </button>
+
+            </div>
+
+        `;
+
+
+        list.appendChild(card);
+
+    });
+
+};
+
+
+/* =========================
+   LOAD PRODUCTS
+========================= */
+
+loadMartProducts();
+
+        </script>
 </body>
 
 </html>
