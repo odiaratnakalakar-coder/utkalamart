@@ -46,7 +46,9 @@ body{
     color:#222;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 header{
     background:#fff;
@@ -101,10 +103,12 @@ header{
     cursor:pointer;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero{
-    padding:48px 18px 55px;
+    padding:48px 18px 45px;
 
     text-align:center;
 
@@ -137,40 +141,22 @@ header{
     line-height:1.8;
 }
 
-.hero button{
-    margin-top:22px;
-
-    border:0;
-
-    background:#e65100;
-
-    color:white;
-
-    padding:14px 25px;
-
-    border-radius:30px;
-
-    font-size:16px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-}
-
-/* SEARCH */
+/* =========================
+   SEARCH
+========================= */
 
 .search-area{
     max-width:1000px;
 
     margin:auto;
 
-    padding:22px 15px 5px;
+    padding:22px 15px 8px;
 }
 
 .search-box{
     width:100%;
 
-    padding:15px 18px;
+    padding:16px 20px;
 
     border:2px solid #eee;
 
@@ -182,17 +168,40 @@ header{
 
     outline:none;
 
-    box-shadow:0 3px 12px rgba(0,0,0,.06);
+    box-shadow:
+    0 3px 12px rgba(0,0,0,.06);
 }
 
 .search-box:focus{
     border-color:#e65100;
 }
 
-/* SECTION */
+/* =========================
+   SEARCH INFO
+========================= */
+
+.search-info{
+    display:none;
+
+    max-width:1000px;
+
+    margin:5px auto 0;
+
+    padding:0 18px;
+
+    color:#e65100;
+
+    font-size:15px;
+
+    font-weight:bold;
+}
+
+/* =========================
+   SECTION
+========================= */
 
 .section{
-    padding:30px 15px;
+    padding:25px 15px;
 
     max-width:1100px;
 
@@ -207,7 +216,9 @@ header{
     font-size:27px;
 }
 
-/* MAIN CATEGORY */
+/* =========================
+   CATEGORIES
+========================= */
 
 .categories{
     display:grid;
@@ -250,10 +261,13 @@ header{
 
 .category-icon{
     font-size:40px;
+
     margin-bottom:8px;
 }
 
-/* SUB CATEGORY */
+/* =========================
+   SUB CATEGORY
+========================= */
 
 .subcategories{
     display:none;
@@ -318,41 +332,82 @@ header{
 .sub-item:hover,
 .sub-item.active{
     background:#e65100;
+
     color:#fff;
 }
 
-/* PRODUCTS */
+/* =========================
+   SEARCH RESULT AREA
+========================= */
 
-.products{
-    display:grid;
+.search-result{
+    display:none;
 
-    grid-template-columns:
-    repeat(2,1fr);
+    max-width:1100px;
 
-    gap:14px;
+    margin:10px auto 20px;
+
+    padding:0 15px;
 }
 
-.product{
+.search-result-box{
     background:#fff;
 
-    border-radius:17px;
+    border-radius:20px;
+
+    padding:25px 18px;
+
+    text-align:center;
+
+    box-shadow:
+    0 3px 12px rgba(0,0,0,.06);
+}
+
+.search-result-icon{
+    font-size:55px;
+
+    margin-bottom:10px;
+}
+
+.search-result-box h3{
+    font-size:21px;
+
+    color:#e65100;
+
+    margin-bottom:8px;
+}
+
+.search-result-box p{
+    color:#666;
+
+    line-height:1.8;
+
+    font-size:16px;
+}
+
+/* =========================
+   PRODUCT PLACEHOLDER
+========================= */
+
+.product-preview{
+    display:none;
+
+    max-width:500px;
+
+    margin:15px auto;
+
+    background:#fff;
+
+    border-radius:18px;
 
     overflow:hidden;
 
     box-shadow:
     0 3px 12px rgba(0,0,0,.08);
-
-    transition:.2s;
 }
 
-.product:hover{
-    transform:translateY(-3px);
-}
-
-.product-img{
-    width:100%;
-
-    height:155px;
+.product-preview-image{
+    height:220px;
 
     background:#f4eadc;
 
@@ -362,64 +417,39 @@ header{
 
     justify-content:center;
 
-    overflow:hidden;
+    font-size:80px;
 }
 
-.product-img img{
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    display:block;
+.product-preview-info{
+    padding:18px;
 }
 
-.demo-icon{
-    font-size:60px;
+.product-preview-info h3{
+    font-size:20px;
+
+    margin-bottom:8px;
 }
 
-.product-info{
-    padding:13px;
-}
-
-.product h3{
-    font-size:17px;
-
-    line-height:1.5;
+.product-preview-info p{
+    color:#777;
 
     margin-bottom:6px;
 }
 
-.category-name{
-    color:#777;
-
-    font-size:13px;
-
-    margin-bottom:5px;
-}
-
-.subcategory-name{
-    color:#999;
-
-    font-size:12px;
-
-    margin-bottom:5px;
-}
-
-.price{
+.product-preview-price{
     color:#e65100;
 
-    font-size:19px;
+    font-size:21px;
 
     font-weight:bold;
 }
 
-.product button{
+.product-preview button{
     width:100%;
 
-    margin-top:10px;
+    margin-top:12px;
 
-    padding:11px 5px;
+    padding:12px;
 
     border:0;
 
@@ -429,24 +459,32 @@ header{
 
     color:white;
 
+    font-size:16px;
+
     font-weight:bold;
 
     cursor:pointer;
 }
 
-/* NO RESULT */
+/* =========================
+   NO RESULT
+========================= */
 
 .no-result{
+    display:none;
+
     text-align:center;
 
-    padding:35px 10px;
+    padding:25px 10px;
 
     color:#777;
 
-    display:none;
+    font-size:16px;
 }
 
-/* ABOUT */
+/* =========================
+   ABOUT
+========================= */
 
 .about{
     background:#fff;
@@ -469,10 +507,13 @@ header{
 
 .about p{
     font-size:17px;
+
     color:#444;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer{
     margin-top:30px;
@@ -492,7 +533,9 @@ footer strong{
     font-size:22px;
 }
 
-/* CART MESSAGE */
+/* =========================
+   CART MESSAGE
+========================= */
 
 .cart-message{
     position:fixed;
@@ -520,7 +563,9 @@ footer strong{
     white-space:nowrap;
 }
 
-/* DESKTOP */
+/* =========================
+   DESKTOP
+========================= */
 
 @media(min-width:700px){
 
@@ -534,13 +579,8 @@ footer strong{
         repeat(4,1fr);
     }
 
-    .products{
-        grid-template-columns:
-        repeat(4,1fr);
-    }
-
     .hero{
-        padding:70px 20px;
+        padding:70px 20px 55px;
     }
 
     .hero h1{
@@ -550,9 +590,12 @@ footer strong{
     .hero p{
         font-size:21px;
     }
+
 }
 
-/* SMALL MOBILE */
+/* =========================
+   SMALL MOBILE
+========================= */
 
 @media(max-width:380px){
 
@@ -578,7 +621,9 @@ footer strong{
 <body>
 
 
-<!-- HEADER -->
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
@@ -610,7 +655,9 @@ footer strong{
 </header>
 
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
@@ -637,17 +684,12 @@ footer strong{
 
     </p>
 
-    <button
-    onclick="goProducts()">
-
-        🛍️ ପ୍ରଡକ୍ଟ ଦେଖନ୍ତୁ
-
-    </button>
-
 </section>
 
 
-<!-- SEARCH -->
+<!-- =========================
+     SEARCH
+========================= -->
 
 <div class="search-area">
 
@@ -661,7 +703,20 @@ footer strong{
 </div>
 
 
-<!-- CATEGORY -->
+<div
+class="search-info"
+id="searchInfo">
+
+    🔎 ଆପଣ ଖୋଜୁଛନ୍ତି:
+
+    <span id="searchText"></span>
+
+</div>
+
+
+<!-- =========================
+     CATEGORY
+========================= -->
 
 <section class="section">
 
@@ -670,6 +725,7 @@ footer strong{
     </h2>
 
     <div class="categories">
+
 
         <!-- FOOD -->
 
@@ -750,7 +806,6 @@ footer strong{
         <div
         class="sub-grid"
         id="subGrid">
-
         </div>
 
     </div>
@@ -758,498 +813,97 @@ footer strong{
 </section>
 
 
-<!-- PRODUCTS -->
+<!-- =========================
+     SEARCH RESULT
+========================= -->
 
 <section
-class="section"
-id="products">
+class="search-result"
+id="searchResult">
 
-    <h2>
-        ⭐ ପ୍ରଡକ୍ଟ
-    </h2>
+    <div class="search-result-box">
 
-    <div
-    class="products"
-    id="productGrid">
-
-
-        <!-- PAPAD -->
-
-        <div
-        class="product"
-        data-category="food"
-        data-subcategory="ପାପଡ଼"
-        data-name="ଉଡଦ ଡାଲି ପାପଡ଼">
-
-            <div class="product-img">
-                <div class="demo-icon">🍘</div>
-            </div>
-
-            <div class="product-info">
-
-                <h3>
-                    ଉଡଦ ଡାଲି ପାପଡ଼
-                </h3>
-
-                <div class="category-name">
-                    🍱 Food
-                </div>
-
-                <div class="subcategory-name">
-                    ପାପଡ଼
-                </div>
-
-                <div class="price">
-                    ₹120
-                </div>
-
-                <button
-                onclick="addCart('ଉଡଦ ଡାଲି ପାପଡ଼')">
-
-                    🛒 କାର୍ଟରେ ରଖନ୍ତୁ
-
-                </button>
-
-            </div>
-
+        <div class="search-result-icon">
+            🔎
         </div>
 
-
-        <!-- PAPAD -->
-
-        <div
-        class="product"
-        data-category="food"
-        data-subcategory="ପାପଡ଼"
-        data-name="ଚାଉଳ ପାପଡ଼">
-
-            <div class="product-img">
-                <div class="demo-icon">🍘</div>
-            </div>
-
-            <div class="product-info">
-
-                <h3>
-                    ଚାଉଳ ପାପଡ଼
-                </h3>
-
-                <div class="category-name">
-                    🍱 Food
-                </div>
-
-                <div class="subcategory-name">
-                    ପାପଡ଼
-                </div>
-
-                <div class="price">
-                    ₹100
-                </div>
-
-                <button
-                onclick="addCart('ଚାଉଳ ପାପଡ଼')">
-
-                    🛒 କାର୍ଟରେ ରଖନ୍ତୁ
-
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- SWEET -->
-
-        <div
-        class="product"
-        data-category="food"
-        data-subcategory="ମିଠା"
-        data-name="ଗଞ୍ଜାମ ମିଠା">
-
-            <div class="product-img">
-                <div class="demo-icon">🍬</div>
-            </div>
-
-            <div class="product-info">
-
-                <h3>
-                    ଗଞ୍ଜାମ ମିଠା
-                </h3>
-
-                <div class="category-name">
-                    🍱 Food
-                </div>
-
-                <div class="subcategory-name">
-                    ମିଠା
-                </div>
-
-                <div class="price">
-                    ₹ —
-                </div>
-
-                <button
-                onclick="addCart('ଗଞ୍ଜାମ ମିଠା')">
-
-                    🛒 କାର୍ଟରେ ରଖନ୍ତୁ
-
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- NAMKEEN -->
-
-        <div
-        class="product"
-        data-category="food"
-        data-subcategory="ନମକିନ୍"
-        data-name="ଗଞ୍ଜାମ ନମକିନ୍">
-
-            <div class="product-img">
-                <div class="demo-icon">🥨</div>
-            </div>
-
-            <div class="product-info">
-
-                <h3>
-                    ଗଞ୍ଜାମ ନମକିନ୍
-                </h3>
-
-                <div class="category-name">
-                    🍱 Food
-                </div>
-
-                <div class="subcategory-name">
-                    ନମକିନ୍
-                </div>
-
-                <div class="price">
-                    ₹ —
-                </div>
-
-                <button
-                onclick="addCart('ଗଞ୍ଜାମ ନମକିନ୍')">
-
-                    🛒 କାର୍ଟରେ ରଖନ୍ତୁ
-
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- LUNGI -->
-
-        <div
-        class="product"
-        data-category="cloth"
-        data-subcategory="ଲୁଙ୍ଗି"
-        data-name="ଗଞ୍ଜାମ ଲୁଙ୍ଗି">
-
-            <div class="product-img">
-                <div class="demo-icon">🩳</div>
-            </div>
-
-            <div class="product-info">
-
-                <h3>
-                    ଗଞ୍ଜାମ ଲୁଙ୍ଗି
-                </h3>
-
-                <div class="category-name">
-                    👕 ବସ୍ତ୍ର
-                </div>
-
-                <div class="subcategory-name">
-                    ଲୁଙ୍ଗି
-                </div>
-
-                <div class="price">
-                    ₹ —
-                </div>
-
-                <button
-                onclick="addCart('ଗଞ୍ଜାମ ଲୁଙ୍ଗି')">
-
-                    🛒 କାର୍ଟରେ ରଖନ୍ତୁ
-
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- GAMUCHA -->
-
-        <div
-        class="product"
-        data-category="cloth"
-        data-subcategory="ଗାମୁଛା"
-        data-name="ଗଞ୍ଜାମ ଗାମୁଛା">
-
-            <div class="product-img">
-                <div class="demo-icon">🧣</div>
-            </div>
-
-            <div class="product-info">
-
-                <h3>
-                    ଗଞ୍ଜାମ ଗାମୁଛା
-                </h3>
-
-                <div class="category-name">
-                    👕 ବସ୍ତ୍ର
-                </div>
-
-                <div class="subcategory-name">
-                    ଗାମୁଛା
-                </div>
-
-                <div class="price">
-                    ₹ —
-                </div>
-
-                <button
-                onclick="addCart('ଗଞ୍ଜାମ ଗାମୁଛା')">
-
-                    🛒 କାର୍ଟରେ ରଖନ୍ତୁ
-
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- BRASS -->
-
-        <div
-        class="product"
-        data-category="craft"
-        data-subcategory="ପିତଳ ସାମଗ୍ରୀ"
-        data-name="ଗଞ୍ଜାମ ପିତଳ ସାମଗ୍ରୀ">
-
-            <div class="product-img">
-                <div class="demo-icon">🪔</div>
-            </div>
-
-            <div class="product-info">
-
-                <h3>
-                    ଗଞ୍ଜାମ ପିତଳ ସାମଗ୍ରୀ
-                </h3>
-
-                <div class="category-name">
-                    🎨 ହସ୍ତଶିଳ୍ପ
-                </div>
-
-                <div class="subcategory-name">
-                    ପିତଳ ସାମଗ୍ରୀ
-                </div>
-
-                <div class="price">
-                    ₹ —
-                </div>
-
-                <button
-                onclick="addCart('ଗଞ୍ଜାମ ପିତଳ ସାମଗ୍ରୀ')">
-
-                    🛒 କାର୍ଟରେ ରଖନ୍ତୁ
-
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- WOOD -->
-
-        <div
-        class="product"
-        data-category="craft"
-        data-subcategory="କାଠ ସାମଗ୍ରୀ"
-        data-name="ହାତ ତିଆରି କାଠ ସାମଗ୍ରୀ">
-
-            <div class="product-img">
-                <div class="demo-icon">🪵</div>
-            </div>
-
-            <div class="product-info">
-
-                <h3>
-                    ହାତ ତିଆରି କାଠ ସାମଗ୍ରୀ
-                </h3>
-
-                <div class="category-name">
-                    🎨 ହସ୍ତଶିଳ୍ପ
-                </div>
-
-                <div class="subcategory-name">
-                    କାଠ ସାମଗ୍ରୀ
-                </div>
-
-                <div class="price">
-                    ₹ —
-                </div>
-
-                <button
-                onclick="addCart('ହାତ ତିଆରି କାଠ ସାମଗ୍ରୀ')">
-
-                    🛒 କାର୍ଟରେ ରଖନ୍ତୁ
-
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- MUG -->
-
-        <div
-        class="product"
-        data-category="village"
-        data-subcategory="ମୁଗ"
-        data-name="ଦେଶୀ ମୁଗ">
-
-            <div class="product-img">
-                <div class="demo-icon">🌱</div>
-            </div>
-
-            <div class="product-info">
-
-                <h3>
-                    ଦେଶୀ ମୁଗ
-                </h3>
-
-                <div class="category-name">
-                    🌾 Village Products
-                </div>
-
-                <div class="subcategory-name">
-                    ମୁଗ
-                </div>
-
-                <div class="price">
-                    ₹ —
-                </div>
-
-                <button
-                onclick="addCart('ଦେଶୀ ମୁଗ')">
-
-                    🛒 କାର୍ଟରେ ରଖନ୍ତୁ
-
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- BIRI -->
-
-        <div
-        class="product"
-        data-category="village"
-        data-subcategory="ବିରି"
-        data-name="ଦେଶୀ ବିରି">
-
-            <div class="product-img">
-                <div class="demo-icon">🌱</div>
-            </div>
-
-            <div class="product-info">
-
-                <h3>
-                    ଦେଶୀ ବିରି
-                </h3>
-
-                <div class="category-name">
-                    🌾 Village Products
-                </div>
-
-                <div class="subcategory-name">
-                    ବିରି
-                </div>
-
-                <div class="price">
-                    ₹ —
-                </div>
-
-                <button
-                onclick="addCart('ଦେଶୀ ବିରି')">
-
-                    🛒 କାର୍ଟରେ ରଖନ୍ତୁ
-
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- MANDIA -->
-
-        <div
-        class="product"
-        data-category="village"
-        data-subcategory="ମାଣ୍ଡିଆ"
-        data-name="ଦେଶୀ ମାଣ୍ଡିଆ">
-
-            <div class="product-img">
-                <div class="demo-icon">🌾</div>
-            </div>
-
-            <div class="product-info">
-
-                <h3>
-                    ଦେଶୀ ମାଣ୍ଡିଆ
-                </h3>
-
-                <div class="category-name">
-                    🌾 Village Products
-                </div>
-
-                <div class="subcategory-name">
-                    ମାଣ୍ଡିଆ
-                </div>
-
-                <div class="price">
-                    ₹ —
-                </div>
-
-                <button
-                onclick="addCart('ଦେଶୀ ମାଣ୍ଡିଆ')">
-
-                    🛒 କାର୍ଟରେ ରଖନ୍ତୁ
-
-                </button>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-
-    <div
-    class="no-result"
-    id="noResult">
-
-        😔 କୌଣସି ପ୍ରଡକ୍ଟ ମିଳିଲା ନାହିଁ।
+        <h3>
+            ପ୍ରଡକ୍ଟ ଖୋଜନ୍ତୁ
+        </h3>
+
+        <p>
+            ଉପରେ Search Box ରେ
+            ପ୍ରଡକ୍ଟର ନାମ ଲେଖନ୍ତୁ।
+            <br>
+            ଉଦାହରଣ — ପାପଡ଼, ମିଠା,
+            ନମକିନ୍, ଗାମୁଛା
+        </p>
 
     </div>
 
 </section>
 
 
-<!-- ABOUT -->
+<!-- =========================
+     DEMO SEARCH RESULT
+     ପରେ FIREBASE PRODUCT
+     ଏଠାରେ AUTOMATIC ଆସିବ
+========================= -->
+
+<div
+class="product-preview"
+id="productPreview">
+
+    <div
+    class="product-preview-image"
+    id="previewIcon">
+
+        🛍️
+
+    </div>
+
+    <div class="product-preview-info">
+
+        <h3 id="previewName">
+            ପ୍ରଡକ୍ଟ
+        </h3>
+
+        <p id="previewCategory">
+            ବିଭାଗ
+        </p>
+
+        <div
+        class="product-preview-price"
+        id="previewPrice">
+
+            ₹ —
+
+        </div>
+
+        <button
+        onclick="addCart()">
+
+            🛒 କାର୍ଟରେ ରଖନ୍ତୁ
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<div
+class="no-result"
+id="noResult">
+
+    😔 କୌଣସି ପ୍ରଡକ୍ଟ ମିଳିଲା ନାହିଁ।
+
+</div>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
 
 <section class="section">
 
@@ -1280,7 +934,9 @@ id="products">
 </section>
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
@@ -1395,6 +1051,8 @@ let selectedCategory = "food";
 
 let selectedSubcategory = "ସବୁ";
 
+let cartCount = 0;
+
 
 /* =========================
    OPEN CATEGORY
@@ -1406,6 +1064,7 @@ function openCategory(category,element){
 
     selectedSubcategory = "ସବୁ";
 
+
     document
     .querySelectorAll(".category")
     .forEach(function(item){
@@ -1413,6 +1072,7 @@ function openCategory(category,element){
         item.classList.remove("active");
 
     });
+
 
     element.classList.add("active");
 
@@ -1423,7 +1083,8 @@ function openCategory(category,element){
 
     document
     .getElementById("subTitle")
-    .innerText = data.title;
+    .innerText =
+    data.title;
 
 
     const grid =
@@ -1433,7 +1094,7 @@ function openCategory(category,element){
     grid.innerHTML = "";
 
 
-    /* ALL BUTTON */
+    /* ALL */
 
     const all =
     document.createElement("div");
@@ -1443,6 +1104,7 @@ function openCategory(category,element){
 
     all.innerText =
     "🛍️ ସବୁ";
+
 
     all.onclick =
     function(){
@@ -1454,10 +1116,11 @@ function openCategory(category,element){
 
     };
 
+
     grid.appendChild(all);
 
 
-    /* SUB CATEGORIES */
+    /* SUB CATEGORY */
 
     data.items.forEach(function(item){
 
@@ -1470,6 +1133,7 @@ function openCategory(category,element){
         div.innerText =
         item;
 
+
         div.onclick =
         function(){
 
@@ -1480,6 +1144,7 @@ function openCategory(category,element){
 
         };
 
+
         grid.appendChild(div);
 
     });
@@ -1489,9 +1154,6 @@ function openCategory(category,element){
     .getElementById("subcategories")
     .classList.add("show");
 
-
-    searchProducts();
-
 }
 
 
@@ -1499,7 +1161,10 @@ function openCategory(category,element){
    SUB CATEGORY
 ========================= */
 
-function filterSubcategory(subcategory,element){
+function filterSubcategory(
+    subcategory,
+    element
+){
 
     selectedSubcategory =
     subcategory;
@@ -1517,13 +1182,25 @@ function filterSubcategory(subcategory,element){
     element.classList.add("active");
 
 
+    const searchInput =
+    document.getElementById(
+        "searchInput"
+    );
+
+
+    searchInput.value =
+    subcategory === "ସବୁ"
+    ? ""
+    : subcategory;
+
+
     searchProducts();
 
 }
 
 
 /* =========================
-   SEARCH + FILTER
+   SEARCH
 ========================= */
 
 function searchProducts(){
@@ -1532,83 +1209,188 @@ function searchProducts(){
     document
     .getElementById("searchInput")
     .value
-    .trim()
-    .toLowerCase();
+    .trim();
 
 
-    const products =
-    document
-    .querySelectorAll(".product");
+    const info =
+    document.getElementById(
+        "searchInfo"
+    );
+
+    const text =
+    document.getElementById(
+        "searchText"
+    );
 
 
-    let found = 0;
+    const result =
+    document.getElementById(
+        "searchResult"
+    );
 
-
-    products.forEach(function(product){
-
-        const name =
-        product
-        .getAttribute("data-name")
-        .toLowerCase();
-
-
-        const category =
-        product
-        .getAttribute("data-category");
-
-
-        const subcategory =
-        product
-        .getAttribute("data-subcategory");
-
-
-        const matchSearch =
-        name.includes(search);
-
-
-        const matchCategory =
-        category === selectedCategory;
-
-
-        const matchSub =
-        selectedSubcategory === "ସବୁ" ||
-        subcategory === selectedSubcategory;
-
-
-        if(
-            matchSearch &&
-            matchCategory &&
-            matchSub
-        ){
-
-            product.style.display =
-            "block";
-
-            found++;
-
-        }else{
-
-            product.style.display =
-            "none";
-
-        }
-
-    });
-
+    const preview =
+    document.getElementById(
+        "productPreview"
+    );
 
     const noResult =
-    document.getElementById("noResult");
+    document.getElementById(
+        "noResult"
+    );
 
 
-    if(found === 0){
+    if(search === ""){
 
-        noResult.style.display =
+        info.style.display =
+        "none";
+
+        result.style.display =
         "block";
 
-    }else{
+        preview.style.display =
+        "none";
 
         noResult.style.display =
         "none";
+
+        return;
+
+    }
+
+
+    info.style.display =
+    "block";
+
+    text.innerText =
+    search;
+
+
+    /*
+       DEMO RESULT
+
+       ପରେ Firebase ରୁ
+       Real Product automatic
+       ଭାବେ ଏଠାରେ ଆସିବ।
+    */
+
+    const keyword =
+    search.toLowerCase();
+
+
+    let found = false;
+
+
+    if(
+        keyword.includes("ପାପଡ଼") ||
+        keyword.includes("papad")
+    ){
+
+        found = true;
+
+        document
+        .getElementById("previewIcon")
+        .innerText =
+        "🍘";
+
+        document
+        .getElementById("previewName")
+        .innerText =
+        "ଉଡଦ ଡାଲି ପାପଡ଼";
+
+        document
+        .getElementById("previewCategory")
+        .innerText =
+        "🍱 Food • ପାପଡ଼";
+
+        document
+        .getElementById("previewPrice")
+        .innerText =
+        "₹120";
+
+    }
+
+
+    if(
+        keyword.includes("ମିଠା") ||
+        keyword.includes("sweet")
+    ){
+
+        found = true;
+
+        document
+        .getElementById("previewIcon")
+        .innerText =
+        "🍬";
+
+        document
+        .getElementById("previewName")
+        .innerText =
+        "ଗଞ୍ଜାମ ମିଠା";
+
+        document
+        .getElementById("previewCategory")
+        .innerText =
+        "🍱 Food • ମିଠା";
+
+        document
+        .getElementById("previewPrice")
+        .innerText =
+        "₹ —";
+
+    }
+
+
+    if(
+        keyword.includes("ନମକିନ୍") ||
+        keyword.includes("namkeen")
+    ){
+
+        found = true;
+
+        document
+        .getElementById("previewIcon")
+        .innerText =
+        "🥨";
+
+        document
+        .getElementById("previewName")
+        .innerText =
+        "ଗଞ୍ଜାମ ନମକିନ୍";
+
+        document
+        .getElementById("previewCategory")
+        .innerText =
+        "🍱 Food • ନମକିନ୍";
+
+        document
+        .getElementById("previewPrice")
+        .innerText =
+        "₹ —";
+
+    }
+
+
+    if(found){
+
+        result.style.display =
+        "none";
+
+        preview.style.display =
+        "block";
+
+        noResult.style.display =
+        "none";
+
+    }else{
+
+        result.style.display =
+        "none";
+
+        preview.style.display =
+        "none";
+
+        noResult.style.display =
+        "block";
 
     }
 
@@ -1619,10 +1401,7 @@ function searchProducts(){
    CART
 ========================= */
 
-let cartCount = 0;
-
-
-function addCart(productName){
+function addCart(){
 
     cartCount++;
 
@@ -1634,13 +1413,13 @@ function addCart(productName){
 
 
     const message =
-    document.getElementById("cartMessage");
+    document.getElementById(
+        "cartMessage"
+    );
 
 
     message.innerText =
-    "🛒 " +
-    productName +
-    " କାର୍ଟରେ ଯୋଡ଼ାଗଲା";
+    "🛒 କାର୍ଟରେ ଯୋଡ଼ାଗଲା";
 
 
     message.style.display =
@@ -1683,30 +1462,23 @@ function showCart(){
 
 
 /* =========================
-   GO PRODUCTS
-========================= */
-
-function goProducts(){
-
-    document
-    .getElementById("products")
-    .scrollIntoView({
-
-        behavior:"smooth"
-
-    });
-
-}
-
-
-/* =========================
-   START FOOD
+   START
 ========================= */
 
 openCategory(
     "food",
     document.querySelector(".category")
 );
+
+
+/* =========================
+   INITIAL STATE
+========================= */
+
+document
+.getElementById("searchResult")
+.style.display =
+"block";
 
 </script>
 
