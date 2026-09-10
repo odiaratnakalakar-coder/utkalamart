@@ -31,10 +31,7 @@ href="logo.png">
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:
-        Arial,
-        "Noto Sans Oriya",
-        sans-serif;
+    font-family:Arial,"Noto Sans Oriya",sans-serif;
 }
 
 html{
@@ -46,13 +43,11 @@ body{
     color:#222;
 }
 
-/* =========================
-   HEADER
-========================= */
+/* ================= HEADER ================= */
 
 header{
     background:#fff;
-    padding:9px 15px;
+    padding:8px 12px;
 
     display:flex;
     align-items:center;
@@ -68,16 +63,15 @@ header{
 .logo{
     display:flex;
     align-items:center;
-    gap:7px;
+    gap:6px;
 
-    font-size:23px;
+    font-size:22px;
     font-weight:800;
 }
 
 .logo img{
-    width:45px;
-    height:45px;
-
+    width:42px;
+    height:42px;
     object-fit:cover;
     border-radius:50%;
 }
@@ -93,23 +87,16 @@ header{
 .cart{
     border:0;
     background:#fff3e8;
-
     border-radius:14px;
-
-    padding:10px 15px;
-
-    font-size:18px;
-
+    padding:9px 13px;
+    font-size:17px;
     cursor:pointer;
 }
 
-/* =========================
-   HERO
-========================= */
+/* ================= HERO ================= */
 
 .hero{
-    padding:48px 18px 45px;
-
+    padding:45px 15px 42px;
     text-align:center;
 
     background:
@@ -121,12 +108,10 @@ header{
 }
 
 .hero h1{
-    font-size:35px;
+    font-size:34px;
     line-height:1.4;
-
     font-weight:800;
-
-    margin-bottom:14px;
+    margin-bottom:12px;
 }
 
 .hero h1 span{
@@ -135,37 +120,29 @@ header{
 
 .hero p{
     color:#555;
-
-    font-size:18px;
-
+    font-size:17px;
     line-height:1.8;
 }
 
-/* =========================
-   SEARCH
-========================= */
+/* ================= SEARCH ================= */
 
 .search-area{
     max-width:1000px;
-
     margin:auto;
-
-    padding:22px 15px 8px;
+    padding:20px 12px 5px;
 }
 
 .search-box{
     width:100%;
 
-    padding:16px 20px;
+    padding:15px 18px;
 
     border:2px solid #eee;
-
     background:#fff;
 
     border-radius:30px;
 
-    font-size:17px;
-
+    font-size:16px;
     outline:none;
 
     box-shadow:
@@ -176,65 +153,47 @@ header{
     border-color:#e65100;
 }
 
-/* =========================
-   SEARCH INFO
-========================= */
-
 .search-info{
     display:none;
 
     max-width:1000px;
+    margin:5px auto;
 
-    margin:5px auto 0;
-
-    padding:0 18px;
+    padding:0 15px;
 
     color:#e65100;
-
-    font-size:15px;
-
+    font-size:14px;
     font-weight:bold;
 }
 
-/* =========================
-   SECTION
-========================= */
+/* ================= SECTION ================= */
 
 .section{
-    padding:25px 15px;
-
+    padding:22px 12px;
     max-width:1100px;
-
     margin:auto;
 }
 
 .section h2{
     text-align:center;
-
-    margin-bottom:22px;
-
-    font-size:27px;
+    margin-bottom:20px;
+    font-size:26px;
 }
 
-/* =========================
-   CATEGORIES
-========================= */
+/* ================= MAIN CATEGORIES ================= */
 
 .categories{
     display:grid;
-
-    grid-template-columns:
-    repeat(2,1fr);
-
-    gap:14px;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
 }
 
 .category{
     background:#fff;
 
-    border-radius:18px;
+    border-radius:17px;
 
-    padding:20px 10px;
+    padding:17px 8px;
 
     text-align:center;
 
@@ -245,68 +204,58 @@ header{
 
     transition:.2s;
 
-    font-size:17px;
-
+    font-size:16px;
     font-weight:bold;
 }
 
+.category:active{
+    transform:scale(.98);
+}
+
 .category:hover{
-    transform:translateY(-3px);
+    transform:translateY(-2px);
 }
 
 .category.active{
     background:#e65100;
-    color:white;
+    color:#fff;
 }
 
 .category-icon{
-    font-size:40px;
-
-    margin-bottom:8px;
+    font-size:36px;
+    margin-bottom:7px;
 }
 
-/* =========================
-   SUB CATEGORY
-========================= */
+/* ================= SUB CATEGORY ================= */
 
 .subcategories{
-    display:none;
-
-    margin-top:18px;
+    margin-top:16px;
 
     background:#fff;
 
-    padding:15px;
+    padding:14px;
 
-    border-radius:18px;
+    border-radius:17px;
 
     box-shadow:
     0 3px 12px rgba(0,0,0,.06);
 }
 
-.subcategories.show{
-    display:block;
-}
-
 .sub-title{
     text-align:center;
 
-    font-size:20px;
-
+    font-size:19px;
     font-weight:bold;
 
-    margin-bottom:13px;
+    margin-bottom:12px;
 
     color:#e65100;
 }
 
 .sub-grid{
     display:grid;
-
-    grid-template-columns:
-    repeat(2,1fr);
-
-    gap:10px;
+    grid-template-columns:repeat(2,1fr);
+    gap:9px;
 }
 
 .sub-item{
@@ -314,91 +263,61 @@ header{
 
     background:#fff8ef;
 
-    padding:12px 8px;
+    padding:11px 6px;
 
-    border-radius:12px;
+    border-radius:11px;
 
     text-align:center;
 
-    font-size:16px;
-
+    font-size:15px;
     font-weight:bold;
 
     cursor:pointer;
-
-    transition:.2s;
 }
 
 .sub-item:hover,
 .sub-item.active{
     background:#e65100;
-
     color:#fff;
 }
 
-/* =========================
-   SEARCH RESULT AREA
-========================= */
+/* ================= PRODUCTS ================= */
 
-.search-result{
-    display:none;
-
+.products-section{
     max-width:1100px;
+    margin:5px auto 25px;
 
-    margin:10px auto 20px;
-
-    padding:0 15px;
+    padding:0 12px;
 }
 
-.search-result-box{
+.products-title{
     background:#fff;
 
-    border-radius:20px;
+    border-radius:17px 17px 0 0;
 
-    padding:25px 18px;
+    padding:16px;
 
     text-align:center;
 
-    box-shadow:
-    0 3px 12px rgba(0,0,0,.06);
-}
-
-.search-result-icon{
-    font-size:55px;
-
-    margin-bottom:10px;
-}
-
-.search-result-box h3{
     font-size:21px;
+    font-weight:bold;
 
     color:#e65100;
-
-    margin-bottom:8px;
 }
 
-.search-result-box p{
-    color:#666;
+.product-grid{
+    display:grid;
 
-    line-height:1.8;
+    grid-template-columns:
+    repeat(2,1fr);
 
-    font-size:16px;
+    gap:12px;
 }
 
-/* =========================
-   PRODUCT PLACEHOLDER
-========================= */
-
-.product-preview{
-    display:none;
-
-    max-width:500px;
-
-    margin:15px auto;
-
+.product-card{
     background:#fff;
 
-    border-radius:18px;
+    border-radius:16px;
 
     overflow:hidden;
 
@@ -406,50 +325,69 @@ header{
     0 3px 12px rgba(0,0,0,.08);
 }
 
-.product-preview-image{
-    height:220px;
+.product-image{
+    width:100%;
+    height:155px;
 
     background:#f4eadc;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
-    font-size:80px;
+    overflow:hidden;
 }
 
-.product-preview-info{
-    padding:18px;
+.product-image img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
 }
 
-.product-preview-info h3{
-    font-size:20px;
-
-    margin-bottom:8px;
+.product-info{
+    padding:12px;
 }
 
-.product-preview-info p{
-    color:#777;
-
-    margin-bottom:6px;
-}
-
-.product-preview-price{
-    color:#e65100;
-
-    font-size:21px;
+.product-name{
+    font-size:17px;
+    line-height:1.5;
 
     font-weight:bold;
+
+    margin-bottom:5px;
 }
 
-.product-preview button{
+.product-category{
+    font-size:12px;
+    color:#777;
+}
+
+.product-subcategory{
+    font-size:12px;
+    color:#999;
+
+    margin-top:3px;
+}
+
+.product-price{
+    color:#e65100;
+
+    font-size:19px;
+
+    font-weight:bold;
+
+    margin-top:7px;
+}
+
+.add-cart-btn{
     width:100%;
 
-    margin-top:12px;
+    margin-top:9px;
 
-    padding:12px;
+    padding:10px 5px;
 
     border:0;
 
@@ -457,41 +395,65 @@ header{
 
     background:#e65100;
 
-    color:white;
+    color:#fff;
 
-    font-size:16px;
+    font-size:14px;
 
     font-weight:bold;
 
     cursor:pointer;
 }
 
-/* =========================
-   NO RESULT
-========================= */
+.add-cart-btn:active{
+    transform:scale(.97);
+}
+
+/* ================= LOADING ================= */
+
+.loading{
+    background:#fff;
+
+    padding:30px 15px;
+
+    border-radius:16px;
+
+    text-align:center;
+
+    color:#777;
+
+    box-shadow:
+    0 3px 12px rgba(0,0,0,.06);
+}
+
+/* ================= NO RESULT ================= */
 
 .no-result{
     display:none;
 
-    text-align:center;
+    background:#fff;
 
-    padding:25px 10px;
+    padding:30px 15px;
+
+    border-radius:16px;
+
+    text-align:center;
 
     color:#777;
 
     font-size:16px;
+
+    box-shadow:
+    0 3px 12px rgba(0,0,0,.06);
 }
 
-/* =========================
-   ABOUT
-========================= */
+/* ================= ABOUT ================= */
 
 .about{
     background:#fff;
 
-    border-radius:20px;
+    border-radius:19px;
 
-    padding:27px 18px;
+    padding:25px 16px;
 
     text-align:center;
 
@@ -502,40 +464,35 @@ header{
 }
 
 .about h2{
-    margin-bottom:12px;
+    margin-bottom:10px;
 }
 
 .about p{
-    font-size:17px;
-
+    font-size:16px;
     color:#444;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* ================= FOOTER ================= */
 
 footer{
-    margin-top:30px;
+    margin-top:25px;
 
     background:#222;
 
-    color:white;
+    color:#fff;
 
     text-align:center;
 
-    padding:30px 15px;
+    padding:28px 15px;
 
     line-height:1.9;
 }
 
 footer strong{
-    font-size:22px;
+    font-size:21px;
 }
 
-/* =========================
-   CART MESSAGE
-========================= */
+/* ================= CART MESSAGE ================= */
 
 .cart-message{
     position:fixed;
@@ -548,7 +505,7 @@ footer strong{
 
     background:#222;
 
-    color:white;
+    color:#fff;
 
     padding:12px 20px;
 
@@ -563,53 +520,64 @@ footer strong{
     white-space:nowrap;
 }
 
-/* =========================
-   DESKTOP
-========================= */
+/* ================= DESKTOP ================= */
 
 @media(min-width:700px){
 
     .categories{
-        grid-template-columns:
-        repeat(4,1fr);
+        grid-template-columns:repeat(4,1fr);
     }
 
     .sub-grid{
+        grid-template-columns:repeat(4,1fr);
+    }
+
+    .product-grid{
         grid-template-columns:
         repeat(4,1fr);
     }
 
     .hero{
-        padding:70px 20px 55px;
+        padding:65px 20px 55px;
     }
 
     .hero h1{
-        font-size:50px;
+        font-size:48px;
     }
 
     .hero p{
-        font-size:21px;
+        font-size:20px;
+    }
+
+    .product-image{
+        height:190px;
     }
 
 }
 
-/* =========================
-   SMALL MOBILE
-========================= */
+/* ================= SMALL MOBILE ================= */
 
 @media(max-width:380px){
 
     .logo{
-        font-size:19px;
+        font-size:18px;
     }
 
     .logo img{
-        width:40px;
-        height:40px;
+        width:38px;
+        height:38px;
     }
 
     .hero h1{
         font-size:29px;
+    }
+
+    .product-image{
+        height:135px;
+    }
+
+    .product-name{
+        font-size:15px;
     }
 
 }
@@ -618,12 +586,11 @@ footer strong{
 
 </head>
 
+
 <body>
 
 
-<!-- =========================
-     HEADER
-========================= -->
+<!-- ================= HEADER ================= -->
 
 <header>
 
@@ -655,9 +622,7 @@ footer strong{
 </header>
 
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- ================= HERO ================= -->
 
 <section class="hero">
 
@@ -687,9 +652,7 @@ footer strong{
 </section>
 
 
-<!-- =========================
-     SEARCH
-========================= -->
+<!-- ================= SEARCH ================= -->
 
 <div class="search-area">
 
@@ -698,7 +661,7 @@ footer strong{
     id="searchInput"
     class="search-box"
     placeholder="🔎 ପ୍ରଡକ୍ଟ ଖୋଜନ୍ତୁ... ଯେପରି — ପାପଡ଼"
-    oninput="searchProducts()">
+    autocomplete="off">
 
 </div>
 
@@ -708,15 +671,12 @@ class="search-info"
 id="searchInfo">
 
     🔎 ଆପଣ ଖୋଜୁଛନ୍ତି:
-
     <span id="searchText"></span>
 
 </div>
 
 
-<!-- =========================
-     CATEGORY
-========================= -->
+<!-- ================= CATEGORY ================= -->
 
 <section class="section">
 
@@ -726,12 +686,9 @@ id="searchInfo">
 
     <div class="categories">
 
-
-        <!-- FOOD -->
-
         <div
         class="category active"
-        onclick="openCategory('food',this)">
+        data-category="food">
 
             <div class="category-icon">
                 🍱
@@ -742,11 +699,9 @@ id="searchInfo">
         </div>
 
 
-        <!-- CLOTH -->
-
         <div
         class="category"
-        onclick="openCategory('cloth',this)">
+        data-category="cloth">
 
             <div class="category-icon">
                 👕
@@ -757,11 +712,9 @@ id="searchInfo">
         </div>
 
 
-        <!-- HANDICRAFT -->
-
         <div
         class="category"
-        onclick="openCategory('craft',this)">
+        data-category="craft">
 
             <div class="category-icon">
                 🎨
@@ -772,11 +725,9 @@ id="searchInfo">
         </div>
 
 
-        <!-- VILLAGE -->
-
         <div
         class="category"
-        onclick="openCategory('village',this)">
+        data-category="village">
 
             <div class="category-icon">
                 🌾
@@ -791,9 +742,7 @@ id="searchInfo">
 
     <!-- SUB CATEGORY -->
 
-    <div
-    class="subcategories show"
-    id="subcategories">
+    <div class="subcategories">
 
         <div
         class="sub-title"
@@ -813,97 +762,53 @@ id="searchInfo">
 </section>
 
 
-<!-- =========================
-     SEARCH RESULT
-========================= -->
+<!-- ================= PRODUCTS ================= -->
 
 <section
-class="search-result"
-id="searchResult">
+class="products-section"
+id="productsSection">
 
-    <div class="search-result-box">
+    <div
+    class="products-title"
+    id="productsTitle">
 
-        <div class="search-result-icon">
-            🔎
-        </div>
+        🛍️ Food Products
 
-        <h3>
-            ପ୍ରଡକ୍ଟ ଖୋଜନ୍ତୁ
-        </h3>
+    </div>
 
-        <p>
-            ଉପରେ Search Box ରେ
-            ପ୍ରଡକ୍ଟର ନାମ ଲେଖନ୍ତୁ।
-            <br>
-            ଉଦାହରଣ — ପାପଡ଼, ମିଠା,
-            ନମକିନ୍, ଗାମୁଛା
-        </p>
+
+    <div
+    class="product-grid"
+    id="productGrid">
+    </div>
+
+
+    <div
+    class="loading"
+    id="loading">
+
+        ⏳ ପ୍ରଡକ୍ଟ ଲୋଡ୍ ହେଉଛି...
+
+    </div>
+
+
+    <div
+    class="no-result"
+    id="noResult">
+
+        😔
+
+        <br><br>
+
+        ଏହି ବିଭାଗରେ ବର୍ତ୍ତମାନ
+        କୌଣସି ପ୍ରଡକ୍ଟ ମିଳିଲା ନାହିଁ।
 
     </div>
 
 </section>
 
 
-<!-- =========================
-     DEMO SEARCH RESULT
-     ପରେ FIREBASE PRODUCT
-     ଏଠାରେ AUTOMATIC ଆସିବ
-========================= -->
-
-<div
-class="product-preview"
-id="productPreview">
-
-    <div
-    class="product-preview-image"
-    id="previewIcon">
-
-        🛍️
-
-    </div>
-
-    <div class="product-preview-info">
-
-        <h3 id="previewName">
-            ପ୍ରଡକ୍ଟ
-        </h3>
-
-        <p id="previewCategory">
-            ବିଭାଗ
-        </p>
-
-        <div
-        class="product-preview-price"
-        id="previewPrice">
-
-            ₹ —
-
-        </div>
-
-        <button
-        onclick="addCart()">
-
-            🛒 କାର୍ଟରେ ରଖନ୍ତୁ
-
-        </button>
-
-    </div>
-
-</div>
-
-
-<div
-class="no-result"
-id="noResult">
-
-    😔 କୌଣସି ପ୍ରଡକ୍ଟ ମିଳିଲା ନାହିଁ।
-
-</div>
-
-
-<!-- =========================
-     ABOUT
-========================= -->
+<!-- ================= ABOUT ================= -->
 
 <section class="section">
 
@@ -934,9 +839,7 @@ id="noResult">
 </section>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
@@ -959,7 +862,7 @@ id="noResult">
 </footer>
 
 
-<!-- CART MESSAGE -->
+<!-- ================= CART MESSAGE ================= -->
 
 <div
 class="cart-message"
@@ -970,528 +873,23 @@ id="cartMessage">
 </div>
 
 
-<script>
+<!-- ================= JAVASCRIPT ================= -->
 
-/* =========================
-   CATEGORY DATA
-========================= */
-
-const categoryData = {
-
-    food:{
-
-        title:"🍱 Food — ବିଭାଗ ବାଛନ୍ତୁ",
-
-        items:[
-            "ମିଠା",
-            "ନମକିନ୍",
-            "ପାପଡ଼",
-            "ଆଚାର",
-            "ମସଲା",
-            "ଘରୋଇ ଖାଦ୍ୟ"
-        ]
-
-    },
-
-    cloth:{
-
-        title:"👕 ବସ୍ତ୍ର — ବିଭାଗ ବାଛନ୍ତୁ",
-
-        items:[
-            "ସାର୍ଟ",
-            "ପ୍ୟାଣ୍ଟ",
-            "ଲୁଙ୍ଗି",
-            "ଗାମୁଛା",
-            "ମହିଳା ପୋଷାକ",
-            "ଶିଶୁ ପୋଷାକ",
-            "ହସ୍ତତନ୍ତ ବସ୍ତ୍ର"
-        ]
-
-    },
-
-    craft:{
-
-        title:"🎨 ହସ୍ତଶିଳ୍ପ — ବିଭାଗ ବାଛନ୍ତୁ",
-
-        items:[
-            "ହାତ ତିଆରି ମୂର୍ତ୍ତି",
-            "ପିତଳ ସାମଗ୍ରୀ",
-            "କାଠ ସାମଗ୍ରୀ",
-            "ମାଟି ସାମଗ୍ରୀ",
-            "ଗଞ୍ଜାମ କଳାକୃତି",
-            "ହାତ ତିଆରି ଉପହାର"
-        ]
-
-    },
-
-    village:{
-
-        title:"🌾 Village Products — ବିଭାଗ ବାଛନ୍ତୁ",
-
-        items:[
-            "ମୁଗ",
-            "ବିରି",
-            "ମାଣ୍ଡିଆ",
-            "ଚାଉଳ",
-            "ଡାଲି",
-            "ଚିନାବାଦାମ",
-            "ଦେଶୀ ଶସ୍ୟ"
-        ]
-
-    }
-
-};
-
-
-/* =========================
-   CURRENT CATEGORY
-========================= */
-
-let selectedCategory = "food";
-
-let selectedSubcategory = "ସବୁ";
-
-let cartCount = 0;
-
-
-/* =========================
-   OPEN CATEGORY
-========================= */
-
-function openCategory(category,element){
-
-    selectedCategory = category;
-
-    selectedSubcategory = "ସବୁ";
-
-
-    document
-    .querySelectorAll(".category")
-    .forEach(function(item){
-
-        item.classList.remove("active");
-
-    });
-
-
-    element.classList.add("active");
-
-
-    const data =
-    categoryData[category];
-
-
-    document
-    .getElementById("subTitle")
-    .innerText =
-    data.title;
-
-
-    const grid =
-    document.getElementById("subGrid");
-
-
-    grid.innerHTML = "";
-
-
-    /* ALL */
-
-    const all =
-    document.createElement("div");
-
-    all.className =
-    "sub-item active";
-
-    all.innerText =
-    "🛍️ ସବୁ";
-
-
-    all.onclick =
-    function(){
-
-        filterSubcategory(
-            "ସବୁ",
-            this
-        );
-
-    };
-
-
-    grid.appendChild(all);
-
-
-    /* SUB CATEGORY */
-
-    data.items.forEach(function(item){
-
-        const div =
-        document.createElement("div");
-
-        div.className =
-        "sub-item";
-
-        div.innerText =
-        item;
-
-
-        div.onclick =
-        function(){
-
-            filterSubcategory(
-                item,
-                this
-            );
-
-        };
-
-
-        grid.appendChild(div);
-
-    });
-
-
-    document
-    .getElementById("subcategories")
-    .classList.add("show");
-
-}
-
-
-/* =========================
-   SUB CATEGORY
-========================= */
-
-function filterSubcategory(
-    subcategory,
-    element
-){
-
-    selectedSubcategory =
-    subcategory;
-
-
-    document
-    .querySelectorAll(".sub-item")
-    .forEach(function(item){
-
-        item.classList.remove("active");
-
-    });
-
-
-    element.classList.add("active");
-
-
-    const searchInput =
-    document.getElementById(
-        "searchInput"
-    );
-
-
-    searchInput.value =
-    subcategory === "ସବୁ"
-    ? ""
-    : subcategory;
-
-
-    searchProducts();
-
-}
-
-
-/* =========================
-   SEARCH
-========================= */
-
-function searchProducts(){
-
-    const search =
-    document
-    .getElementById("searchInput")
-    .value
-    .trim();
-
-
-    const info =
-    document.getElementById(
-        "searchInfo"
-    );
-
-    const text =
-    document.getElementById(
-        "searchText"
-    );
-
-
-    const result =
-    document.getElementById(
-        "searchResult"
-    );
-
-    const preview =
-    document.getElementById(
-        "productPreview"
-    );
-
-    const noResult =
-    document.getElementById(
-        "noResult"
-    );
-
-
-    if(search === ""){
-
-        info.style.display =
-        "none";
-
-        result.style.display =
-        "block";
-
-        preview.style.display =
-        "none";
-
-        noResult.style.display =
-        "none";
-
-        return;
-
-    }
-
-
-    info.style.display =
-    "block";
-
-    text.innerText =
-    search;
-
-
-    /*
-       DEMO RESULT
-
-       ପରେ Firebase ରୁ
-       Real Product automatic
-       ଭାବେ ଏଠାରେ ଆସିବ।
-    */
-
-    const keyword =
-    search.toLowerCase();
-
-
-    let found = false;
-
-
-    if(
-        keyword.includes("ପାପଡ଼") ||
-        keyword.includes("papad")
-    ){
-
-        found = true;
-
-        document
-        .getElementById("previewIcon")
-        .innerText =
-        "🍘";
-
-        document
-        .getElementById("previewName")
-        .innerText =
-        "ଉଡଦ ଡାଲି ପାପଡ଼";
-
-        document
-        .getElementById("previewCategory")
-        .innerText =
-        "🍱 Food • ପାପଡ଼";
-
-        document
-        .getElementById("previewPrice")
-        .innerText =
-        "₹120";
-
-    }
-
-
-    if(
-        keyword.includes("ମିଠା") ||
-        keyword.includes("sweet")
-    ){
-
-        found = true;
-
-        document
-        .getElementById("previewIcon")
-        .innerText =
-        "🍬";
-
-        document
-        .getElementById("previewName")
-        .innerText =
-        "ଗଞ୍ଜାମ ମିଠା";
-
-        document
-        .getElementById("previewCategory")
-        .innerText =
-        "🍱 Food • ମିଠା";
-
-        document
-        .getElementById("previewPrice")
-        .innerText =
-        "₹ —";
-
-    }
-
-
-    if(
-        keyword.includes("ନମକିନ୍") ||
-        keyword.includes("namkeen")
-    ){
-
-        found = true;
-
-        document
-        .getElementById("previewIcon")
-        .innerText =
-        "🥨";
-
-        document
-        .getElementById("previewName")
-        .innerText =
-        "ଗଞ୍ଜାମ ନମକିନ୍";
-
-        document
-        .getElementById("previewCategory")
-        .innerText =
-        "🍱 Food • ନମକିନ୍";
-
-        document
-        .getElementById("previewPrice")
-        .innerText =
-        "₹ —";
-
-    }
-
-
-    if(found){
-
-        result.style.display =
-        "none";
-
-        preview.style.display =
-        "block";
-
-        noResult.style.display =
-        "none";
-
-    }else{
-
-        result.style.display =
-        "none";
-
-        preview.style.display =
-        "none";
-
-        noResult.style.display =
-        "block";
-
-    }
-
-}
-
-
-/* =========================
-   CART
-========================= */
-
-function addCart(){
-
-    cartCount++;
-
-
-    document
-    .getElementById("cartCount")
-    .innerText =
-    cartCount;
-
-
-    const message =
-    document.getElementById(
-        "cartMessage"
-    );
-
-
-    message.innerText =
-    "🛒 କାର୍ଟରେ ଯୋଡ଼ାଗଲା";
-
-
-    message.style.display =
-    "block";
-
-
-    setTimeout(function(){
-
-        message.style.display =
-        "none";
-
-    },2000);
-
-}
-
-
-/* =========================
-   SHOW CART
-========================= */
-
-function showCart(){
-
-    if(cartCount === 0){
-
-        alert(
-        "🛒 ଆପଣଙ୍କ କାର୍ଟ ଖାଲି ଅଛି।"
-        );
-
-    }else{
-
-        alert(
-        "🛒 କାର୍ଟରେ " +
-        cartCount +
-        "ଟି ପ୍ରଡକ୍ଟ ଅଛି।"
-        );
-
-    }
-
-}
-
-
-/* =========================
-   START
-========================= */
-
-openCategory(
-    "food",
-    document.querySelector(".category")
-);
-
-
-/* =========================
-   INITIAL STATE
-========================= */
-
-document
-.getElementById("searchResult")
-.style.display =
-"block";
-
-</script>
 <script type="module">
 
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
     getFirestore,
     collection,
     getDocs
 }
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
 /* =========================
@@ -1501,7 +899,7 @@ from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 const firebaseConfig = {
 
     apiKey:
-    "AIzaSyBYJ_KKsS_7SNz108jnw6hpOlmegofRhJg",
+    "AIzaSyBYJ_KKs_7SNz108jnw6hpOlmegofRhJg",
 
     authDomain:
     "utkalamart-1ec68.firebaseapp.com",
@@ -1529,10 +927,176 @@ const db =
 
 
 /* =========================
-   PRODUCT DATA
+   DATA
 ========================= */
 
 let martProducts = [];
+
+let selectedCategory = "food";
+
+let selectedSubcategory = "ସବୁ";
+
+let cartCount =
+    Number(
+        localStorage.getItem(
+            "utkalaCartCount"
+        ) || 0
+    );
+
+
+document.getElementById(
+    "cartCount"
+).innerText = cartCount;
+
+
+/* =========================
+   CATEGORY DATA
+========================= */
+
+const categoryData = {
+
+    food:{
+
+        title:
+        "🍱 Food — ବିଭାଗ ବାଛନ୍ତୁ",
+
+        items:[
+            "ମିଠା",
+            "ନମକିନ୍",
+            "ପାପଡ଼",
+            "ଆଚାର",
+            "ମସଲା",
+            "ଘରୋଇ ଖାଦ୍ୟ"
+        ]
+
+    },
+
+
+    cloth:{
+
+        title:
+        "👕 ବସ୍ତ୍ର — ବିଭାଗ ବାଛନ୍ତୁ",
+
+        items:[
+            "ସାର୍ଟ",
+            "ପ୍ୟାଣ୍ଟ",
+            "ଲୁଙ୍ଗି",
+            "ଗାମୁଛା",
+            "ମହିଳା ପୋଷାକ",
+            "ଶିଶୁ ପୋଷାକ",
+            "ହସ୍ତତନ୍ତ ବସ୍ତ୍ର"
+        ]
+
+    },
+
+
+    craft:{
+
+        title:
+        "🎨 ହସ୍ତଶିଳ୍ପ — ବିଭାଗ ବାଛନ୍ତୁ",
+
+        items:[
+            "ହାତ ତିଆରି ମୂର୍ତ୍ତି",
+            "ପିତଳ ସାମଗ୍ରୀ",
+            "କାଠ ସାମଗ୍ରୀ",
+            "ମାଟି ସାମଗ୍ରୀ",
+            "ଗଞ୍ଜାମ କଳାକୃତି",
+            "ହାତ ତିଆରି ଉପହାର"
+        ]
+
+    },
+
+
+    village:{
+
+        title:
+        "🌾 Village Products — ବିଭାଗ ବାଛନ୍ତୁ",
+
+        items:[
+            "ମୁଗ",
+            "ବିରି",
+            "ମାଣ୍ଡିଆ",
+            "ଚାଉଳ",
+            "ଡାଲି",
+            "ଚିନାବାଦାମ",
+            "ଦେଶୀ ଶସ୍ୟ"
+        ]
+
+    }
+
+};
+
+
+/* =========================
+   NORMALIZE TEXT
+========================= */
+
+function normalize(value){
+
+    return String(value || "")
+        .trim()
+        .toLowerCase();
+
+}
+
+
+/* =========================
+   CATEGORY MATCH
+========================= */
+
+function categoryMatches(
+    product,
+    category
+){
+
+    const value =
+        normalize(product.category);
+
+    if(category === "food"){
+
+        return (
+            value === "food" ||
+            value.includes("food") ||
+            value.includes("ଖାଦ୍ୟ")
+        );
+
+    }
+
+    if(category === "cloth"){
+
+        return (
+            value === "cloth" ||
+            value === "clothes" ||
+            value.includes("cloth") ||
+            value.includes("ବସ୍ତ୍ର")
+        );
+
+    }
+
+    if(category === "craft"){
+
+        return (
+            value === "craft" ||
+            value.includes("craft") ||
+            value.includes("ହସ୍ତଶିଳ୍ପ")
+        );
+
+    }
+
+    if(category === "village"){
+
+        return (
+            value === "village" ||
+            value.includes("village") ||
+            value.includes("ଗାଁ") ||
+            value.includes("ଗ୍ରାମ")
+        );
+
+    }
+
+    return false;
+
+}
 
 
 /* =========================
@@ -1540,6 +1104,11 @@ let martProducts = [];
 ========================= */
 
 async function loadMartProducts(){
+
+    const loading =
+        document.getElementById(
+            "loading"
+        );
 
     try{
 
@@ -1555,11 +1124,12 @@ async function loadMartProducts(){
         martProducts = [];
 
 
-        snapshot.forEach(function(doc){
+        snapshot.forEach(
+        function(doc){
 
             martProducts.push({
 
-                id: doc.id,
+                id:doc.id,
 
                 ...doc.data()
 
@@ -1574,6 +1144,13 @@ async function loadMartProducts(){
         );
 
 
+        loading.style.display =
+            "none";
+
+
+        showCategoryProducts();
+
+
     }catch(error){
 
         console.error(
@@ -1581,35 +1158,214 @@ async function loadMartProducts(){
             error
         );
 
+
+        loading.innerHTML =
+            "⚠️ ପ୍ରଡକ୍ଟ ଲୋଡ୍ ହୋଇପାରିଲା ନାହିଁ।";
+
+
     }
 
 }
 
 
 /* =========================
-   SEARCH FIREBASE PRODUCTS
+   SHOW SUB CATEGORIES
 ========================= */
 
-window.searchFirebaseProducts =
-async function(){
+function showSubCategories(){
 
-    const input =
+    const data =
+        categoryData[
+            selectedCategory
+        ];
+
+
+    document.getElementById(
+        "subTitle"
+    ).innerText =
+        data.title;
+
+
+    const grid =
         document.getElementById(
-            "searchInput"
+            "subGrid"
         );
 
 
-    const search =
-        input.value
-        .trim()
-        .toLowerCase();
+    grid.innerHTML = "";
 
 
-    const result =
-        document.getElementById(
-            "searchResult"
+    /* ALL */
+
+    const all =
+        document.createElement(
+            "div"
         );
 
+    all.className =
+        "sub-item active";
+
+    all.innerText =
+        "🛍️ ସବୁ";
+
+
+    all.onclick =
+    function(){
+
+        selectedSubcategory =
+            "ସବୁ";
+
+        document
+            .querySelectorAll(
+                ".sub-item"
+            )
+            .forEach(
+            function(item){
+
+                item.classList.remove(
+                    "active"
+                );
+
+            });
+
+
+        this.classList.add(
+            "active"
+        );
+
+
+        showCategoryProducts();
+
+    };
+
+
+    grid.appendChild(all);
+
+
+    /* ITEMS */
+
+    data.items.forEach(
+    function(item){
+
+        const div =
+            document.createElement(
+                "div"
+            );
+
+        div.className =
+            "sub-item";
+
+        div.innerText =
+            item;
+
+
+        div.onclick =
+        function(){
+
+            selectedSubcategory =
+                item;
+
+
+            document
+                .querySelectorAll(
+                    ".sub-item"
+                )
+                .forEach(
+                function(x){
+
+                    x.classList.remove(
+                        "active"
+                    );
+
+                });
+
+
+            this.classList.add(
+                "active"
+            );
+
+
+            showCategoryProducts();
+
+        };
+
+
+        grid.appendChild(div);
+
+    });
+
+}
+
+
+/* =========================
+   OPEN CATEGORY
+========================= */
+
+function openCategory(
+    category,
+    element
+){
+
+    selectedCategory =
+        category;
+
+    selectedSubcategory =
+        "ସବୁ";
+
+
+    document
+        .querySelectorAll(
+            ".category"
+        )
+        .forEach(
+        function(item){
+
+            item.classList.remove(
+                "active"
+            );
+
+        });
+
+
+    element.classList.add(
+        "active"
+    );
+
+
+    document.getElementById(
+        "searchInput"
+    ).value = "";
+
+
+    document.getElementById(
+        "searchInfo"
+    ).style.display =
+        "none";
+
+
+    showSubCategories();
+
+
+    showCategoryProducts();
+
+}
+
+
+/* =========================
+   SHOW CATEGORY PRODUCTS
+========================= */
+
+function showCategoryProducts(){
+
+    const grid =
+        document.getElementById(
+            "productGrid"
+        );
+
+    const title =
+        document.getElementById(
+            "productsTitle"
+        );
 
     const noResult =
         document.getElementById(
@@ -1617,87 +1373,82 @@ async function(){
         );
 
 
-    const info =
-        document.getElementById(
-            "searchInfo"
-        );
+    grid.innerHTML = "";
 
 
-    const searchText =
-        document.getElementById(
-            "searchText"
-        );
-
-
-    /* EMPTY SEARCH */
-
-    if(search === ""){
-
-        info.style.display =
-            "none";
-
-        result.style.display =
-            "block";
-
-        noResult.style.display =
-            "none";
-
-        return;
-
-    }
-
-
-    /* SEARCH TEXT */
-
-    info.style.display =
-        "block";
-
-    searchText.innerText =
-        search;
-
-
-    /* FIND PRODUCTS */
-
-    const matches =
+    let matches =
         martProducts.filter(
         function(product){
 
-            const name =
-                String(
-                    product.name || ""
-                ).toLowerCase();
+            if(
+                !categoryMatches(
+                    product,
+                    selectedCategory
+                )
+            ){
+
+                return false;
+
+            }
 
 
-            const category =
-                String(
-                    product.category || ""
-                ).toLowerCase();
+            if(
+                selectedSubcategory ===
+                "ସବୁ"
+            ){
+
+                return true;
+
+            }
 
 
-            const subcategory =
-                String(
-                    product.subcategory || ""
-                ).toLowerCase();
+            const sub =
+                normalize(
+                    product.subcategory
+                );
+
+
+            const selected =
+                normalize(
+                    selectedSubcategory
+                );
 
 
             return (
-
-                name.includes(search) ||
-
-                category.includes(search) ||
-
-                subcategory.includes(search)
-
+                sub === selected ||
+                sub.includes(selected) ||
+                selected.includes(sub)
             );
 
         });
 
 
-    result.style.display =
-        "none";
+    const categoryTitle =
+        categoryData[
+            selectedCategory
+        ].title;
 
 
-    /* NO PRODUCT */
+    title.innerText =
+        "🛍️ " +
+        categoryTitle
+            .replace(
+                " — ବିଭାଗ ବାଛନ୍ତୁ",
+                ""
+            );
+
+
+    if(
+        selectedSubcategory !==
+        "ସବୁ"
+    ){
+
+        title.innerText +=
+            " • " +
+            selectedSubcategory;
+
+    }
+
 
     if(matches.length === 0){
 
@@ -1713,197 +1464,486 @@ async function(){
         "none";
 
 
-    /* RESULT BOX */
-
-    const box =
-        document.querySelector(
-            ".search-result-box"
-        );
-
-
-    box.innerHTML = `
-
-        <h3>
-            🛍️ ${matches.length}
-            ଟି ପ୍ରଡକ୍ଟ ମିଳିଲା
-        </h3>
-
-        <div
-        id="firebaseProductList"
-        style="
-            display:grid;
-            grid-template-columns:
-            repeat(2,1fr);
-            gap:14px;
-            margin-top:15px;
-        ">
-        </div>
-
-    `;
-
-
-    const list =
-        document.getElementById(
-            "firebaseProductList"
-        );
-
-
-    /* CREATE PRODUCT CARDS */
-
     matches.forEach(
-    function(product){
+        function(product){
 
-        const card =
-            document.createElement(
-                "div"
+            createProductCard(
+                product,
+                grid
             );
 
+        });
 
-        card.style.cssText = `
-
-            background:#fff;
-
-            border-radius:17px;
-
-            overflow:hidden;
-
-            text-align:left;
-
-            box-shadow:
-            0 3px 12px
-            rgba(0,0,0,.08);
-
-        `;
-
-
-        const image =
-            product.imageUrl ||
-            "logo.png";
-
-
-        const price =
-            product.price !== undefined &&
-            product.price !== ""
-            ? "₹" + product.price
-            : "₹ —";
-
-
-        card.innerHTML = `
-
-            <div
-            style="
-                width:100%;
-                height:155px;
-                background:#f4eadc;
-                overflow:hidden;
-            ">
-
-                <img
-                src="${image}"
-                alt="${product.name || "Product"}"
-                style="
-                    width:100%;
-                    height:100%;
-                    object-fit:cover;
-                    display:block;
-                "
-                onerror="
-                    this.src='logo.png';
-                ">
-
-            </div>
-
-
-            <div
-            style="
-                padding:13px;
-            ">
-
-                <h3
-                style="
-                    font-size:17px;
-                    line-height:1.5;
-                    margin-bottom:6px;
-                ">
-
-                    ${product.name || "ପ୍ରଡକ୍ଟ"}
-
-                </h3>
-
-
-                <div
-                style="
-                    color:#777;
-                    font-size:13px;
-                ">
-
-                    ${product.category || ""}
-
-                </div>
-
-
-                <div
-                style="
-                    color:#999;
-                    font-size:12px;
-                    margin-top:4px;
-                ">
-
-                    ${product.subcategory || ""}
-
-                </div>
-
-
-                <div
-                style="
-                    color:#e65100;
-                    font-size:19px;
-                    font-weight:bold;
-                    margin-top:6px;
-                ">
-
-                    ${price}
-
-                </div>
-
-
-                <button
-                style="
-                    width:100%;
-                    margin-top:10px;
-                    padding:11px 5px;
-                    border:0;
-                    border-radius:10px;
-                    background:#e65100;
-                    color:white;
-                    font-weight:bold;
-                    cursor:pointer;
-                "
-                onclick="addCart()">
-
-                    🛒 କାର୍ଟରେ ରଖନ୍ତୁ
-
-                </button>
-
-            </div>
-
-        `;
-
-
-        list.appendChild(card);
-
-    });
-
-};
+}
 
 
 /* =========================
-   LOAD PRODUCTS
+   SEARCH PRODUCTS
 ========================= */
+
+function searchProducts(){
+
+    const search =
+        normalize(
+            document.getElementById(
+                "searchInput"
+            ).value
+        );
+
+
+    const info =
+        document.getElementById(
+            "searchInfo"
+        );
+
+    const searchText =
+        document.getElementById(
+            "searchText"
+        );
+
+    const grid =
+        document.getElementById(
+            "productGrid"
+        );
+
+    const title =
+        document.getElementById(
+            "productsTitle"
+        );
+
+    const noResult =
+        document.getElementById(
+            "noResult"
+        );
+
+
+    /* EMPTY */
+
+    if(search === ""){
+
+        info.style.display =
+            "none";
+
+
+        selectedSubcategory =
+            "ସବୁ";
+
+
+        showCategoryProducts();
+
+        return;
+
+    }
+
+
+    info.style.display =
+        "block";
+
+    searchText.innerText =
+        document.getElementById(
+            "searchInput"
+        ).value;
+
+
+    const matches =
+        martProducts.filter(
+        function(product){
+
+            const name =
+                normalize(
+                    product.name
+                );
+
+            const category =
+                normalize(
+                    product.category
+                );
+
+            const subcategory =
+                normalize(
+                    product.subcategory
+                );
+
+            const description =
+                normalize(
+                    product.description
+                );
+
+
+            return (
+
+                name.includes(search) ||
+
+                category.includes(search) ||
+
+                subcategory.includes(search) ||
+
+                description.includes(search)
+
+            );
+
+        });
+
+
+    grid.innerHTML = "";
+
+
+    title.innerText =
+        "🔎 Search Result";
+
+
+    if(matches.length === 0){
+
+        noResult.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+    noResult.style.display =
+        "none";
+
+
+    matches.forEach(
+        function(product){
+
+            createProductCard(
+                product,
+                grid
+            );
+
+        });
+
+}
+
+
+/* =========================
+   CREATE PRODUCT CARD
+========================= */
+
+function createProductCard(
+    product,
+    container
+){
+
+    const card =
+        document.createElement(
+            "div"
+        );
+
+
+    card.className =
+        "product-card";
+
+
+    /* IMAGE */
+
+    const imageBox =
+        document.createElement(
+            "div"
+        );
+
+    imageBox.className =
+        "product-image";
+
+
+    const img =
+        document.createElement(
+            "img"
+        );
+
+
+    const image =
+        product.imageUrl ||
+        product.image ||
+        product.photo ||
+        "logo.png";
+
+
+    img.src =
+        image;
+
+
+    img.alt =
+        product.name ||
+        "Utkala Mart Product";
+
+
+    img.onerror =
+    function(){
+
+        this.src =
+            "logo.png";
+
+    };
+
+
+    imageBox.appendChild(
+        img
+    );
+
+
+    /* INFO */
+
+    const info =
+        document.createElement(
+            "div"
+        );
+
+    info.className =
+        "product-info";
+
+
+    const name =
+        document.createElement(
+            "div"
+        );
+
+    name.className =
+        "product-name";
+
+    name.innerText =
+        product.name ||
+        "ପ୍ରଡକ୍ଟ";
+
+
+    const category =
+        document.createElement(
+            "div"
+        );
+
+    category.className =
+        "product-category";
+
+    category.innerText =
+        product.category ||
+        "";
+
+
+    const subcategory =
+        document.createElement(
+            "div"
+        );
+
+    subcategory.className =
+        "product-subcategory";
+
+    subcategory.innerText =
+        product.subcategory ||
+        "";
+
+
+    const price =
+        document.createElement(
+            "div"
+        );
+
+    price.className =
+        "product-price";
+
+
+    if(
+        product.price !== undefined &&
+        product.price !== ""
+    ){
+
+        price.innerText =
+            "₹" +
+            product.price;
+
+    }else{
+
+        price.innerText =
+            "₹ —";
+
+    }
+
+
+    const button =
+        document.createElement(
+            "button"
+        );
+
+    button.className =
+        "add-cart-btn";
+
+    button.innerText =
+        "🛒 କାର୍ଟରେ ରଖନ୍ତୁ";
+
+
+    button.onclick =
+    function(){
+
+        addCart(
+            product
+        );
+
+    };
+
+
+    info.appendChild(
+        name
+    );
+
+    info.appendChild(
+        category
+    );
+
+    info.appendChild(
+        subcategory
+    );
+
+    info.appendChild(
+        price
+    );
+
+    info.appendChild(
+        button
+    );
+
+
+    card.appendChild(
+        imageBox
+    );
+
+    card.appendChild(
+        info
+    );
+
+
+    container.appendChild(
+        card
+    );
+
+}
+
+
+/* =========================
+   ADD CART
+========================= */
+
+function addCart(product){
+
+    cartCount++;
+
+
+    localStorage.setItem(
+        "utkalaCartCount",
+        cartCount
+    );
+
+
+    document.getElementById(
+        "cartCount"
+    ).innerText =
+        cartCount;
+
+
+    const message =
+        document.getElementById(
+            "cartMessage"
+        );
+
+
+    message.innerText =
+        "🛒 " +
+        (
+            product?.name ||
+            "ପ୍ରଡକ୍ଟ"
+        ) +
+        " କାର୍ଟରେ ଯୋଡ଼ାଗଲା";
+
+
+    message.style.display =
+        "block";
+
+
+    setTimeout(
+    function(){
+
+        message.style.display =
+            "none";
+
+    },2000);
+
+}
+
+
+/* =========================
+   SHOW CART
+========================= */
+
+function showCart(){
+
+    if(cartCount === 0){
+
+        alert(
+            "🛒 ଆପଣଙ୍କ କାର୍ଟ ଖାଲି ଅଛି।"
+        );
+
+        return;
+
+    }
+
+
+    alert(
+        "🛒 କାର୍ଟରେ " +
+        cartCount +
+        "ଟି ପ୍ରଡକ୍ଟ ଅଛି।"
+    );
+
+}
+
+
+/* =========================
+   EVENTS
+========================= */
+
+document
+    .querySelectorAll(
+        ".category"
+    )
+    .forEach(
+    function(element){
+
+        element.addEventListener(
+            "click",
+            function(){
+
+                openCategory(
+                    this.dataset.category,
+                    this
+                );
+
+            }
+        );
+
+    });
+
+
+document
+    .getElementById(
+        "searchInput"
+    )
+    .addEventListener(
+        "input",
+        searchProducts
+    );
+
+
+/* =========================
+   START
+========================= */
+
+showSubCategories();
 
 loadMartProducts();
 
-        </script>
+</script>
+
+
 </body>
 
 </html>
