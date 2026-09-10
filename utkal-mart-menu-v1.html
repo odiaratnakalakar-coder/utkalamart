@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#7b1e1e">
+<title>UTKAL MART — Menu</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Arial,"Noto Sans Oriya",sans-serif;
+  background:#f7f7f7;color:#222;
+}
+header{
+  background:linear-gradient(135deg,#7b1e1e,#b33b16);
+  color:white;padding:18px 14px;text-align:center;
+  position:sticky;top:0;z-index:10;
+}
+header h1{font-size:26px;letter-spacing:1px}
+header p{font-size:13px;margin-top:5px}
+.search{
+  max-width:650px;margin:14px auto 0;display:flex;
+  background:white;border-radius:30px;overflow:hidden;
+}
+.search input{
+  flex:1;border:0;outline:0;padding:13px 17px;font-size:15px;
+}
+.search button{
+  border:0;background:#f0a500;padding:0 18px;font-size:18px;
+}
+.menu{
+  display:flex;gap:8px;overflow-x:auto;padding:12px;
+  background:white;position:sticky;top:96px;z-index:9;
+}
+.menu button{
+  white-space:nowrap;border:1px solid #ddd;background:#fff;
+  border-radius:22px;padding:10px 15px;font-weight:bold;
+}
+.menu button.active{background:#7b1e1e;color:#fff}
+main{max-width:1100px;margin:auto;padding:15px}
+.section-title{
+  display:flex;justify-content:space-between;align-items:center;
+  margin:12px 0;
+}
+.section-title h2{font-size:21px}
+.count{font-size:12px;color:#777}
+.grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+}
+.card{
+  background:white;border-radius:15px;overflow:hidden;
+  box-shadow:0 2px 10px #00000012;
+}
+.photo{
+  width:100%;height:180px;object-fit:cover;display:block;
+}
+.info{padding:12px}
+.info h3{font-size:17px;margin-bottom:5px}
+.info p{font-size:13px;color:#666;min-height:34px}
+.price{font-size:18px;font-weight:bold;margin:9px 0}
+.actions{display:flex;gap:7px}
+.actions button{
+  flex:1;border:0;border-radius:9px;padding:10px;
+  font-weight:bold;cursor:pointer;
+}
+.order{background:#198754;color:white}
+.video{background:#eee;color:#222}
+.no-result{text-align:center;padding:40px;color:#777;display:none}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){
+  header h1{font-size:22px}
+  .menu{top:89px}
+  .grid{grid-template-columns:repeat(2,1fr);gap:9px}
+  .photo{height:145px}
+  .info{padding:9px}
+  .info h3{font-size:15px}
+  .price{font-size:16px}
+  .actions button{padding:8px 4px;font-size:12px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🛒 UTKAL MART</h1>
+  <p>ଓଡ଼ିଶାର ନିଜସ୍ୱ ଉତ୍ପାଦ — ଆପଣଙ୍କ ଘରେ</p>
+
+  <div class="search">
+    <input id="searchBox" type="search" placeholder="ପ୍ରଡକ୍ଟ ଖୋଜନ୍ତୁ...">
+    <button>🔍</button>
+  </div>
+</header>
+
+<nav class="menu">
+  <button class="active" onclick="showCategory('all',this)">🏠 ସବୁ</button>
+  <button onclick="showCategory('food',this)">🍱 FOOD</button>
+  <button onclick="showCategory('cloth',this)">👗 CLOTH</button>
+  <button onclick="showCategory('handicraft',this)">🧶 HANDICRAFT</button>
+  <button onclick="showCategory('village',this)">🌾 VILLAGE PRODUCTS</button>
+</nav>
+
+<main>
+  <div class="section-title">
+    <h2 id="title">ସମସ୍ତ ପ୍ରଡକ୍ଟ</h2>
+    <span class="count" id="count"></span>
+  </div>
+
+  <section class="grid" id="productGrid"></section>
+  <div class="no-result" id="noResult">କୌଣସି ପ୍ରଡକ୍ଟ ମିଳିଲା ନାହିଁ।</div>
+</main>
+
+<script>
+/*
+  V1 DEMO DATA
+  ପରେ ଏହି array ବଦଳରେ Firebase Firestore ରୁ
+  product + photo + video automatic load କରିବା।
+*/
+const products = [
+  {
+    name:"ଗଞ୍ଜାମ Mango Pickle",
+    category:"food",
+    price:"₹180",
+    image:"https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80",
+    video:""
+  },
+  {
+    name:"Mixed Pickle",
+    category:"food",
+    price:"₹160",
+    image:"https://images.unsplash.com/photo-1627662168223-7df99068099a?auto=format&fit=crop&w=800&q=80",
+    video:""
+  },
+  {
+    name:"Sambalpuri Dress",
+    category:"cloth",
+    price:"₹1,200",
+    image:"https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80",
+    video:""
+  },
+  {
+    name:"Women Traditional Dress",
+    category:"cloth",
+    price:"₹1,500",
+    image:"https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=800&q=80",
+    video:""
+  },
+  {
+    name:"Handmade Craft",
+    category:"handicraft",
+    price:"₹450",
+    image:"https://images.unsplash.com/photo-1452860606245-08befc0ff44b?auto=format&fit=crop&w=800&q=80",
+    video:""
+  },
+  {
+    name:"Brassware",
+    category:"handicraft",
+    price:"₹650",
+    image:"https://images.unsplash.com/photo-1609607847926-da4702f01fef?auto=format&fit=crop&w=800&q=80",
+    video:""
+  },
+  {
+    name:"ଗଞ୍ଜାମ ଚାଉଳ",
+    category:"village",
+    price:"₹80/kg",
+    image:"https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80",
+    video:""
+  },
+  {
+    name:"ମୁଗ ଡାଲି",
+    category:"village",
+    price:"₹140/kg",
+    image:"https://images.unsplash.com/photo-1515543904379-3d757afe72e4?auto=format&fit=crop&w=800&q=80",
+    video:""
+  }
+];
+
+let currentCategory="all";
+
+function render(){
+  const q=document.getElementById("searchBox").value.toLowerCase().trim();
+
+  const list=products.filter(p=>{
+    const catOK=currentCategory==="all" || p.category===currentCategory;
+    const searchOK=!q || p.name.toLowerCase().includes(q);
+    return catOK && searchOK;
+  });
+
+  document.getElementById("count").textContent=list.length+"ଟି ପ୍ରଡକ୍ଟ";
+  document.getElementById("noResult").style.display=list.length?"none":"block";
+
+  document.getElementById("productGrid").innerHTML=list.map((p,i)=>`
+    <article class="card">
+      <img class="photo" src="${p.image}" alt="${p.name}">
+      <div class="info">
+        <h3>${p.name}</h3>
+        <p>ଓଡ଼ିଶାର ଚୟନିତ ଉତ୍ପାଦ</p>
+        <div class="price">${p.price}</div>
+        <div class="actions">
+          <button class="order" onclick="orderProduct('${p.name}')">🛒 Order</button>
+          ${p.video ? `<button class="video" onclick="openVideo('${p.video}')">▶️ Video</button>` : ""}
+        </div>
+      </div>
+    </article>
+  `).join("");
+}
+
+function showCategory(category,btn){
+  currentCategory=category;
+  document.querySelectorAll(".menu button").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+
+  const titles={
+    all:"ସମସ୍ତ ପ୍ରଡକ୍ଟ",
+    food:"🍱 FOOD",
+    cloth:"👗 CLOTH",
+    handicraft:"🧶 HANDICRAFT",
+    village:"🌾 VILLAGE PRODUCTS"
+  };
+  document.getElementById("title").textContent=titles[category];
+  render();
+}
+
+document.getElementById("searchBox").addEventListener("input",render);
+
+function orderProduct(name){
+  const text=encodeURIComponent("ନମସ୍କାର, ମୁଁ "+name+" order କରିବାକୁ ଚାହୁଁଛି।");
+  /* ଏଠାରେ ପରେ ଆପଣଙ୍କ WhatsApp Business number ବସିବ */
+  window.open("https://wa.me/?text="+text,"_blank");
+}
+
+function openVideo(url){
+  window.open(url,"_blank");
+}
+
+render();
+</script>
+
+</body>
+</html>
