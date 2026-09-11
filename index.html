@@ -6,17 +6,17 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+      content="width=device-width,initial-scale=1.0">
 
 <meta name="theme-color"
-content="#075b3b">
+      content="#075b3b">
 
 <meta name="description"
-content="Utkala Mart — ଗଞ୍ଜାମରୁ ଆରମ୍ଭ, ଭାରତର ପ୍ରତ୍ୟେକ ଘରେ">
+      content="Utkala Mart — ଗଞ୍ଜାମରୁ ଆରମ୍ଭ, ଭାରତର ପ୍ରତ୍ୟେକ ଘରେ">
 
 <link rel="icon"
-type="image/png"
-href="logo.png">
+      type="image/png"
+      href="logo.png">
 
 <title>
 Utkala Mart | ଗଞ୍ଜାମରୁ ଆରମ୍ଭ, ଭାରତ ପର୍ଯ୍ୟନ୍ତ
@@ -40,6 +40,7 @@ html{
 }
 
 body{
+
     font-family:
     Arial,
     "Noto Sans Oriya",
@@ -47,7 +48,9 @@ body{
     sans-serif;
 
     background:#fff;
+
     color:#222;
+
 }
 
 button,
@@ -72,27 +75,31 @@ a{
 .topbar{
 
     background:#075b3b;
+
     color:#fff;
 
     padding:8px 2.5%;
 
     display:flex;
-    align-items:center;
+
     justify-content:space-between;
 
+    align-items:center;
+
     font-size:13px;
+
     font-weight:700;
+
 }
 
 .top-right{
 
     display:flex;
-    align-items:center;
-    gap:18px;
-}
 
-.top-right a:hover{
-    text-decoration:underline;
+    align-items:center;
+
+    gap:18px;
+
 }
 
 
@@ -107,6 +114,7 @@ a{
     padding:10px 2.5%;
 
     display:flex;
+
     align-items:center;
 
     gap:25px;
@@ -114,54 +122,66 @@ a{
     border-bottom:1px solid #e5e5e5;
 
     position:sticky;
+
     top:0;
 
     z-index:1000;
+
 }
 
 
-/* BRAND */
+/* LOGO */
 
 .brand{
 
     display:flex;
+
     align-items:center;
 
     gap:10px;
 
     min-width:270px;
+
 }
 
 .brand img{
 
     width:68px;
+
     height:68px;
 
     object-fit:contain;
+
 }
 
 .brand-name{
 
     font-size:30px;
+
     font-weight:900;
 
     color:#16834f;
 
     line-height:1;
+
 }
 
 .brand-name span{
+
     color:#ef761d;
+
 }
 
 .brand-sub{
 
     font-size:11px;
+
     font-weight:bold;
 
     color:#555;
 
     margin-top:5px;
+
 }
 
 
@@ -176,6 +196,7 @@ a{
     max-width:680px;
 
     display:flex;
+
 }
 
 .search input{
@@ -184,23 +205,24 @@ a{
 
     height:47px;
 
-    border:
-    2px solid #d8dedb;
+    border:2px solid #d8dedb;
 
     border-right:0;
 
-    border-radius:
-    10px 0 0 10px;
+    border-radius:10px 0 0 10px;
 
     padding:0 16px;
 
     outline:none;
 
     font-size:15px;
+
 }
 
 .search input:focus{
+
     border-color:#075b3b;
+
 }
 
 .search button{
@@ -213,10 +235,10 @@ a{
 
     color:#fff;
 
-    border-radius:
-    0 10px 10px 0;
+    border-radius:0 10px 10px 0;
 
     font-size:22px;
+
 }
 
 
@@ -231,6 +253,7 @@ a{
     align-items:center;
 
     gap:17px;
+
 }
 
 .action{
@@ -246,6 +269,7 @@ a{
     font-weight:bold;
 
     font-size:11px;
+
 }
 
 .action-icon{
@@ -255,6 +279,7 @@ a{
     font-size:26px;
 
     line-height:29px;
+
 }
 
 .cart-badge{
@@ -262,9 +287,11 @@ a{
     position:absolute;
 
     top:-3px;
+
     right:2px;
 
     width:19px;
+
     height:19px;
 
     border-radius:50%;
@@ -276,14 +303,16 @@ a{
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
     font-size:10px;
+
 }
 
 
 /* =====================================================
-   HOME MENU
+   NAVIGATION
 ===================================================== */
 
 .nav{
@@ -308,32 +337,21 @@ a{
 
     font-weight:800;
 
-    position:relative;
-
-    z-index:900;
 }
 
 .nav a{
 
     padding-bottom:6px;
 
-    transition:.2s;
 }
 
-.nav a:hover{
-
-    color:#075b3b;
-
-    border-bottom:
-    3px solid #075b3b;
-}
-
+.nav a:hover,
 .nav a.active{
 
     color:#075b3b;
 
-    border-bottom:
-    3px solid #075b3b;
+    border-bottom:3px solid #075b3b;
+
 }
 
 .seller-link{
@@ -344,12 +362,12 @@ a{
 
     color:#fff !important;
 
-    padding:
-    9px 17px !important;
+    padding:9px 17px !important;
 
     border-radius:8px;
 
     border:0 !important;
+
 }
 
 
@@ -374,13 +392,15 @@ a{
     linear-gradient(
         90deg,
         rgba(255,255,255,.96) 0%,
-        rgba(255,255,255,.80) 32%,
-        rgba(255,255,255,.20) 68%,
-        rgba(255,255,255,.02) 100%
+        rgba(255,255,255,.80) 34%,
+        rgba(255,255,255,.25) 67%,
+        rgba(255,255,255,.04) 100%
     ),
 
     url("ganjam-hero.jpg")
+
     center/cover no-repeat;
+
 }
 
 .hero-content{
@@ -389,10 +409,10 @@ a{
 
     z-index:2;
 
-    padding:
-    35px 7%;
+    padding:35px 7%;
 
     max-width:650px;
+
 }
 
 .hero h1{
@@ -405,12 +425,12 @@ a{
 
     color:#075b3b;
 
-    text-shadow:
-    0 1px 1px rgba(255,255,255,.8);
 }
 
 .hero h1 span{
+
     color:#ef761d;
+
 }
 
 .hero p{
@@ -423,15 +443,13 @@ a{
 
     color:#333;
 
-    line-height:1.6;
 }
 
 .hero-btn{
 
     margin-top:20px;
 
-    padding:
-    12px 25px;
+    padding:12px 25px;
 
     border:0;
 
@@ -444,6 +462,7 @@ a{
     font-weight:900;
 
     font-size:15px;
+
 }
 
 
@@ -453,15 +472,14 @@ a{
 
 .categories{
 
-    padding:
-    14px 2.5%;
+    padding:14px 2.5%;
 
     display:grid;
 
-    grid-template-columns:
-    repeat(4,1fr);
+    grid-template-columns:repeat(4,1fr);
 
     gap:14px;
+
 }
 
 .category{
@@ -476,28 +494,20 @@ a{
 
     cursor:pointer;
 
-    box-shadow:
-    0 3px 12px rgba(0,0,0,.10);
+    box-shadow:0 3px 12px rgba(0,0,0,.10);
 
-    background:#eee;
 }
 
 .category img{
 
     width:100%;
+
     height:100%;
 
     object-fit:cover;
 
     display:block;
 
-    transition:
-    transform .3s ease;
-}
-
-.category:hover img{
-
-    transform:scale(1.04);
 }
 
 .category::after{
@@ -514,6 +524,7 @@ a{
         rgba(0,0,0,.02),
         rgba(0,0,0,.68)
     );
+
 }
 
 .category-text{
@@ -527,14 +538,15 @@ a{
     z-index:2;
 
     color:#fff;
+
 }
 
 .category-text h3{
 
     font-size:23px;
 
-    text-shadow:
-    0 1px 3px #000;
+    text-shadow:0 1px 3px #000;
+
 }
 
 .category-text p{
@@ -544,6 +556,7 @@ a{
     font-weight:bold;
 
     margin-top:3px;
+
 }
 
 .category-arrow{
@@ -557,6 +570,7 @@ a{
     top:11px;
 
     width:32px;
+
     height:32px;
 
     border-radius:50%;
@@ -568,20 +582,21 @@ a{
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
     font-size:19px;
+
 }
 
 
 /* =====================================================
-   TRUST
+   TRUST BAR
 ===================================================== */
 
 .trust{
 
-    margin:
-    0 2.5% 18px;
+    margin:0 2.5% 18px;
 
     padding:13px;
 
@@ -591,10 +606,10 @@ a{
 
     display:grid;
 
-    grid-template-columns:
-    repeat(4,1fr);
+    grid-template-columns:repeat(4,1fr);
 
     gap:8px;
+
 }
 
 .trust-item{
@@ -612,10 +627,13 @@ a{
     font-size:12px;
 
     font-weight:800;
+
 }
 
 .trust-icon{
+
     font-size:28px;
+
 }
 
 
@@ -625,8 +643,8 @@ a{
 
 .section{
 
-    padding:
-    5px 2.5% 25px;
+    padding:5px 2.5% 25px;
+
 }
 
 .section-title{
@@ -637,12 +655,12 @@ a{
 
     justify-content:space-between;
 
-    border-bottom:
-    1px solid #ddd;
+    border-bottom:1px solid #ddd;
 
     padding-bottom:8px;
 
     margin-bottom:13px;
+
 }
 
 .section-title h2{
@@ -650,6 +668,7 @@ a{
     color:#075b3b;
 
     font-size:25px;
+
 }
 
 .section-title button{
@@ -661,21 +680,33 @@ a{
     color:#075b3b;
 
     font-weight:900;
+
 }
 
 
 /* =====================================================
-   PRODUCT GRID
+   CATEGORY SECTION
+===================================================== */
+
+.category-section{
+
+    display:none;
+
+}
+
+
+/* =====================================================
+   PRODUCTS
 ===================================================== */
 
 .product-grid{
 
     display:grid;
 
-    grid-template-columns:
-    repeat(6,1fr);
+    grid-template-columns:repeat(6,1fr);
 
     gap:12px;
+
 }
 
 .product-card{
@@ -684,15 +715,14 @@ a{
 
     background:#fff;
 
-    border:
-    1px solid #e1e6e3;
+    border:1px solid #e1e6e3;
 
     border-radius:12px;
 
     overflow:hidden;
 
-    box-shadow:
-    0 2px 8px rgba(0,0,0,.07);
+    box-shadow:0 2px 8px rgba(0,0,0,.07);
+
 }
 
 .product-image{
@@ -704,14 +734,17 @@ a{
     background:#f5f2eb;
 
     overflow:hidden;
+
 }
 
 .product-image img{
 
     width:100%;
+
     height:100%;
 
     object-fit:cover;
+
 }
 
 .product-badge{
@@ -719,20 +752,21 @@ a{
     position:absolute;
 
     left:8px;
+
     top:8px;
 
     background:#16834f;
 
     color:#fff;
 
-    padding:
-    4px 7px;
+    padding:4px 7px;
 
     border-radius:5px;
 
     font-size:10px;
 
     font-weight:900;
+
 }
 
 .wishlist{
@@ -740,9 +774,11 @@ a{
     position:absolute;
 
     right:8px;
+
     top:8px;
 
     width:30px;
+
     height:30px;
 
     border:0;
@@ -752,11 +788,13 @@ a{
     background:#fff;
 
     font-size:19px;
+
 }
 
 .product-info{
 
     padding:9px;
+
 }
 
 .product-name{
@@ -768,6 +806,7 @@ a{
     line-height:1.45;
 
     min-height:40px;
+
 }
 
 .product-category{
@@ -777,6 +816,7 @@ a{
     color:#777;
 
     margin-top:3px;
+
 }
 
 .product-price{
@@ -788,6 +828,7 @@ a{
     font-size:19px;
 
     font-weight:900;
+
 }
 
 .add-cart{
@@ -809,6 +850,7 @@ a{
     font-size:12px;
 
     font-weight:900;
+
 }
 
 .loading{
@@ -822,31 +864,7 @@ a{
     color:#777;
 
     border-radius:10px;
-}
 
-.empty{
-
-    text-align:center;
-
-    padding:25px;
-
-    background:#f7faf8;
-
-    color:#777;
-
-    border-radius:10px;
-
-    display:none;
-}
-
-
-/* =====================================================
-   CATEGORY SECTIONS
-===================================================== */
-
-.category-section{
-
-    display:none;
 }
 
 
@@ -856,8 +874,7 @@ a{
 
 .farmer-banner{
 
-    margin:
-    0 2.5% 22px;
+    margin:0 2.5% 22px;
 
     min-height:170px;
 
@@ -884,6 +901,7 @@ a{
     url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=85")
 
     center/cover;
+
 }
 
 .farmer-banner h2{
@@ -891,6 +909,7 @@ a{
     color:#075b3b;
 
     font-size:30px;
+
 }
 
 .farmer-banner p{
@@ -898,6 +917,7 @@ a{
     margin:7px 0 12px;
 
     font-weight:bold;
+
 }
 
 .farmer-banner button{
@@ -910,10 +930,10 @@ a{
 
     border-radius:8px;
 
-    padding:
-    10px 20px;
+    padding:10px 20px;
 
     font-weight:900;
+
 }
 
 
@@ -925,10 +945,10 @@ a{
 
     background:#fff8ed;
 
-    padding:
-    30px 6%;
+    padding:30px 6%;
 
     text-align:center;
+
 }
 
 .about h2{
@@ -938,6 +958,7 @@ a{
     font-size:27px;
 
     margin-bottom:10px;
+
 }
 
 .about p{
@@ -949,6 +970,7 @@ a{
     line-height:1.9;
 
     color:#555;
+
 }
 
 
@@ -960,13 +982,12 @@ a{
 
     display:grid;
 
-    grid-template-columns:
-    repeat(4,1fr);
+    grid-template-columns:repeat(4,1fr);
 
     gap:15px;
 
-    padding:
-    22px 3%;
+    padding:22px 3%;
+
 }
 
 .value{
@@ -976,6 +997,7 @@ a{
     font-size:13px;
 
     font-weight:900;
+
 }
 
 .value-icon{
@@ -983,6 +1005,7 @@ a{
     font-size:30px;
 
     margin-bottom:5px;
+
 }
 
 
@@ -998,14 +1021,16 @@ footer{
 
     text-align:center;
 
-    padding:
-    28px 15px;
+    padding:28px 15px;
 
     line-height:1.9;
+
 }
 
 footer strong{
+
     font-size:25px;
+
 }
 
 
@@ -1021,10 +1046,10 @@ footer strong{
 
     inset:0;
 
-    background:
-    rgba(0,0,0,.45);
+    background:rgba(0,0,0,.45);
 
     z-index:3000;
+
 }
 
 .cart{
@@ -1044,6 +1069,7 @@ footer strong{
     padding:18px;
 
     overflow:auto;
+
 }
 
 .cart-header{
@@ -1054,10 +1080,10 @@ footer strong{
 
     justify-content:space-between;
 
-    border-bottom:
-    1px solid #eee;
+    border-bottom:1px solid #eee;
 
     padding-bottom:12px;
+
 }
 
 .close-cart{
@@ -1071,6 +1097,7 @@ footer strong{
     height:35px;
 
     font-size:20px;
+
 }
 
 .cart-item{
@@ -1081,8 +1108,8 @@ footer strong{
 
     padding:12px 0;
 
-    border-bottom:
-    1px solid #eee;
+    border-bottom:1px solid #eee;
+
 }
 
 .cart-item img{
@@ -1094,6 +1121,7 @@ footer strong{
     object-fit:cover;
 
     border-radius:8px;
+
 }
 
 .cart-total{
@@ -1103,6 +1131,7 @@ footer strong{
     font-size:20px;
 
     font-weight:900;
+
 }
 
 .checkout{
@@ -1120,6 +1149,7 @@ footer strong{
     border-radius:9px;
 
     font-weight:900;
+
 }
 
 
@@ -1130,18 +1160,23 @@ footer strong{
 @media(max-width:1100px){
 
     .product-grid{
-        grid-template-columns:
-        repeat(4,1fr);
+
+        grid-template-columns:repeat(4,1fr);
+
     }
 
     .categories{
-        grid-template-columns:
-        repeat(2,1fr);
+
+        grid-template-columns:repeat(2,1fr);
+
     }
 
     .brand{
+
         min-width:230px;
+
     }
+
 }
 
 
@@ -1152,10 +1187,13 @@ footer strong{
         padding:6px 9px;
 
         font-size:9px;
+
     }
 
     .top-right{
+
         gap:7px;
+
     }
 
 
@@ -1166,6 +1204,7 @@ footer strong{
         gap:8px;
 
         flex-wrap:wrap;
+
     }
 
     .brand{
@@ -1173,33 +1212,46 @@ footer strong{
         min-width:0;
 
         flex:1;
+
     }
 
     .brand img{
 
         width:45px;
+
         height:45px;
+
     }
 
     .brand-name{
+
         font-size:21px;
+
     }
 
     .brand-sub{
+
         font-size:8px;
+
     }
 
 
     .actions{
+
         gap:6px;
+
     }
 
     .action{
+
         font-size:9px;
+
     }
 
     .action-icon{
+
         font-size:21px;
+
     }
 
 
@@ -1210,6 +1262,7 @@ footer strong{
         flex-basis:100%;
 
         max-width:none;
+
     }
 
     .search input{
@@ -1217,6 +1270,7 @@ footer strong{
         height:43px;
 
         font-size:13px;
+
     }
 
 
@@ -1227,10 +1281,13 @@ footer strong{
         padding:9px 12px;
 
         font-size:11px;
+
     }
 
     .seller-link{
+
         display:none;
+
     }
 
 
@@ -1241,14 +1298,15 @@ footer strong{
         min-height:300px;
 
         background-position:center;
+
     }
 
     .hero-content{
 
-        padding:
-        25px 6%;
+        padding:25px 6%;
 
         max-width:100%;
+
     }
 
     .hero h1{
@@ -1256,6 +1314,7 @@ footer strong{
         font-size:31px;
 
         line-height:1.2;
+
     }
 
     .hero p{
@@ -1263,16 +1322,17 @@ footer strong{
         font-size:13px;
 
         line-height:1.6;
+
     }
 
     .hero-btn{
 
         margin-top:14px;
 
-        padding:
-        10px 18px;
+        padding:10px 18px;
 
         font-size:13px;
+
     }
 
 
@@ -1283,11 +1343,13 @@ footer strong{
         padding:9px;
 
         gap:9px;
+
     }
 
     .category{
 
         height:135px;
+
     }
 
     .category-text{
@@ -1295,16 +1357,19 @@ footer strong{
         left:10px;
 
         bottom:9px;
+
     }
 
     .category-text h3{
 
         font-size:16px;
+
     }
 
     .category-text p{
 
         font-size:9px;
+
     }
 
     .category-arrow{
@@ -1318,6 +1383,7 @@ footer strong{
         right:7px;
 
         font-size:16px;
+
     }
 
 
@@ -1325,22 +1391,24 @@ footer strong{
 
     .trust{
 
-        margin:
-        3px 9px 14px;
+        margin:3px 9px 14px;
 
         padding:9px;
 
-        grid-template-columns:
-        repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
+
     }
 
     .trust-item{
 
         font-size:9px;
+
     }
 
     .trust-icon{
+
         font-size:21px;
+
     }
 
 
@@ -1348,32 +1416,40 @@ footer strong{
 
     .section{
 
-        padding:
-        5px 9px 20px;
+        padding:5px 9px 20px;
+
     }
 
     .section-title h2{
+
         font-size:20px;
+
     }
 
     .product-grid{
 
-        grid-template-columns:
-        repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
 
         gap:9px;
+
     }
 
     .product-image{
+
         height:145px;
+
     }
 
     .product-name{
+
         font-size:13px;
+
     }
 
     .product-price{
+
         font-size:18px;
+
     }
 
 
@@ -1381,14 +1457,16 @@ footer strong{
 
     .farmer-banner{
 
-        margin:
-        0 9px 18px;
+        margin:0 9px 18px;
 
         min-height:155px;
+
     }
 
     .farmer-banner h2{
+
         font-size:24px;
+
     }
 
 
@@ -1396,26 +1474,25 @@ footer strong{
 
     .values{
 
-        grid-template-columns:
-        repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
 
-        padding:
-        18px 10px;
+        padding:18px 10px;
 
         gap:14px;
+
     }
 
-
-    /* ABOUT */
 
     .about{
 
-        padding:
-        25px 6%;
+        padding:25px 6%;
+
     }
 
     .about h2{
+
         font-size:23px;
+
     }
 
 }
@@ -1447,13 +1524,9 @@ footer strong{
 
     <div class="top-right">
 
-        <span>
-            Support
-        </span>
+        <span>Support</span>
 
-        <span>
-            🛒 100% ଓଡ଼ିଆ ପ୍ରଡକ୍ଟ
-        </span>
+        <span>🛒 100% ଓଡ଼ିଆ ପ୍ରଡକ୍ଟ</span>
 
         <a href="seller.html">
             👤 Seller Login
@@ -1471,10 +1544,9 @@ footer strong{
 <header class="header">
 
 
-    <a
-    href="#"
-    class="brand"
-    onclick="showHome(); return false;">
+    <a href="#"
+       class="brand"
+       onclick="goHome();return false;">
 
         <img
         src="logo.png"
@@ -1486,9 +1558,7 @@ footer strong{
             <div class="brand-name">
 
                 ଉତ୍କଳ
-                <span>
-                    Mart
-                </span>
+                <span>Mart</span>
 
             </div>
 
@@ -1543,7 +1613,9 @@ footer strong{
             <span
             class="cart-badge"
             id="cartCount">
+
                 0
+
             </span>
 
         </button>
@@ -1551,7 +1623,7 @@ footer strong{
 
         <button
         class="action"
-        onclick="wishlistMessage()">
+        onclick="alert('Wishlist system ପରବର୍ତ୍ତୀ Step ରେ connect ହେବ।')">
 
             <span class="action-icon">
                 ♡
@@ -1564,7 +1636,7 @@ footer strong{
 
         <button
         class="action"
-        onclick="accountMessage()">
+        onclick="alert('Account system ପରବର୍ତ୍ତୀ Step ରେ connect ହେବ।')">
 
             <span class="action-icon">
                 👤
@@ -1581,18 +1653,17 @@ footer strong{
 
 
 <!-- =====================================================
-     HOME MENU — STEP 2
+     NAVIGATION
 ===================================================== -->
 
-<nav class="nav"
-id="mainMenu">
+<nav class="nav">
 
 
     <a
-    href="#"
-    id="homeMenu"
+    id="homeNav"
     class="active"
-    onclick="showHome(); return false;">
+    href="#"
+    onclick="goHome();return false;">
 
         🏠 Home
 
@@ -1601,8 +1672,7 @@ id="mainMenu">
 
     <a
     href="#foodSection"
-    id="foodMenu"
-    onclick="showCategory('food'); return false;">
+    onclick="showCategory('food');return false;">
 
         🍚 ଖାଦ୍ୟ
 
@@ -1611,8 +1681,7 @@ id="mainMenu">
 
     <a
     href="#handicraftSection"
-    id="handicraftMenu"
-    onclick="showCategory('handicraft'); return false;">
+    onclick="showCategory('handicraft');return false;">
 
         🏺 ହାତ ତିଆରି ଜିନିଷ
 
@@ -1621,8 +1690,7 @@ id="mainMenu">
 
     <a
     href="#clothingSection"
-    id="clothingMenu"
-    onclick="showCategory('clothing'); return false;">
+    onclick="showCategory('clothing');return false;">
 
         👗 ବସ୍ତ୍ର
 
@@ -1631,8 +1699,7 @@ id="mainMenu">
 
     <a
     href="#farmerSection"
-    id="farmerMenu"
-    onclick="showCategory('farmer'); return false;">
+    onclick="showCategory('farmer');return false;">
 
         🌾 କୃଷକ ଉତ୍ପାଦ
 
@@ -1641,20 +1708,16 @@ id="mainMenu">
 
     <a
     href="#specialSection"
-    id="specialMenu"
-    onclick="showAllProducts(); return false;">
+    onclick="showAllProducts();return false;">
 
         ⭐ ବିଶେଷ ଉତ୍ପାଦ
 
     </a>
 
 
-    <a
-    href="#about"
-    id="aboutMenu"
-    onclick="showAbout(); return false;">
+    <a href="#about">
 
-        ℹ️ ଆମ ବିଷୟରେ
+        ଆମ ବିଷୟରେ
 
     </a>
 
@@ -1722,7 +1785,7 @@ id="homeHero">
 
 
 <!-- =====================================================
-     CATEGORY CARDS
+     CATEGORIES
 ===================================================== -->
 
 <section class="categories">
@@ -1734,7 +1797,6 @@ id="homeHero">
     class="category"
     onclick="showCategory('food')">
 
-
         <span class="category-arrow">
             →
         </span>
@@ -1742,7 +1804,7 @@ id="homeHero">
 
         <img
         src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=85"
-        alt="Food Products">
+        alt="Food">
 
 
         <div class="category-text">
@@ -1766,7 +1828,6 @@ id="homeHero">
     class="category"
     onclick="showCategory('handicraft')">
 
-
         <span class="category-arrow">
             →
         </span>
@@ -1774,7 +1835,7 @@ id="homeHero">
 
         <img
         src="https://images.unsplash.com/photo-1577083552431-6e5fd01988e5?auto=format&fit=crop&w=800&q=85"
-        alt="Handicraft Products">
+        alt="Handicraft">
 
 
         <div class="category-text">
@@ -1798,7 +1859,6 @@ id="homeHero">
     class="category"
     onclick="showCategory('clothing')">
 
-
         <span class="category-arrow">
             →
         </span>
@@ -1806,7 +1866,7 @@ id="homeHero">
 
         <img
         src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=800&q=85"
-        alt="Clothing Products">
+        alt="Clothing">
 
 
         <div class="category-text">
@@ -1829,7 +1889,6 @@ id="homeHero">
     <div
     class="category"
     onclick="showCategory('farmer')">
-
 
         <span class="category-arrow">
             →
@@ -1860,7 +1919,7 @@ id="homeHero">
 
 
 <!-- =====================================================
-     TRUST BAR
+     TRUST
 ===================================================== -->
 
 <section class="trust">
@@ -1873,11 +1932,9 @@ id="homeHero">
         </span>
 
         <span>
-
             100% ଓଡ଼ିଆ ଉତ୍ପାଦ
             <br>
             Authentic & Original
-
         </span>
 
     </div>
@@ -1890,11 +1947,9 @@ id="homeHero">
         </span>
 
         <span>
-
             ସୁରକ୍ଷିତ ଡେଲିଭରି
             <br>
             Safe Delivery
-
         </span>
 
     </div>
@@ -1907,11 +1962,9 @@ id="homeHero">
         </span>
 
         <span>
-
             ଯାଞ୍ଚକରା Seller
             <br>
             Verified Sellers
-
         </span>
 
     </div>
@@ -1924,11 +1977,9 @@ id="homeHero">
         </span>
 
         <span>
-
             ସ୍ଥାନୀୟ ଲୋକଙ୍କ ସହାୟତା
             <br>
             Support Local People
-
         </span>
 
     </div>
@@ -1966,6 +2017,7 @@ id="specialSection">
     <div
     class="product-grid"
     id="productGrid">
+
     </div>
 
 
@@ -1982,7 +2034,7 @@ id="specialSection">
 
 
 <!-- =====================================================
-     FOOD SECTION
+     FOOD PRODUCTS
 ===================================================== -->
 
 <section
@@ -1996,12 +2048,8 @@ id="foodSection">
             🍚 ଖାଦ୍ୟ
         </h2>
 
-
-        <button
-        onclick="showAllProducts()">
-
+        <button onclick="showAllProducts()">
             ସବୁ ଦେଖନ୍ତୁ →
-
         </button>
 
     </div>
@@ -2010,22 +2058,15 @@ id="foodSection">
     <div
     class="product-grid"
     id="foodGrid">
-    </div>
-
-
-    <div
-    class="empty"
-    id="foodEmpty">
-
-        🍚 ଏହି ବିଭାଗରେ ଏବେ କୌଣସି ପ୍ରଡକ୍ଟ ନାହିଁ।
 
     </div>
+
 
 </section>
 
 
 <!-- =====================================================
-     HANDICRAFT SECTION
+     HANDICRAFT PRODUCTS
 ===================================================== -->
 
 <section
@@ -2039,12 +2080,8 @@ id="handicraftSection">
             🏺 ହାତ ତିଆରି ଜିନିଷ
         </h2>
 
-
-        <button
-        onclick="showAllProducts()">
-
+        <button onclick="showAllProducts()">
             ସବୁ ଦେଖନ୍ତୁ →
-
         </button>
 
     </div>
@@ -2053,22 +2090,15 @@ id="handicraftSection">
     <div
     class="product-grid"
     id="handicraftGrid">
-    </div>
-
-
-    <div
-    class="empty"
-    id="handicraftEmpty">
-
-        🏺 ଏହି ବିଭାଗରେ ଏବେ କୌଣସି ପ୍ରଡକ୍ଟ ନାହିଁ।
 
     </div>
+
 
 </section>
 
 
 <!-- =====================================================
-     CLOTHING SECTION
+     CLOTHING PRODUCTS
 ===================================================== -->
 
 <section
@@ -2082,12 +2112,8 @@ id="clothingSection">
             👗 ବସ୍ତ୍ର
         </h2>
 
-
-        <button
-        onclick="showAllProducts()">
-
+        <button onclick="showAllProducts()">
             ସବୁ ଦେଖନ୍ତୁ →
-
         </button>
 
     </div>
@@ -2096,22 +2122,15 @@ id="clothingSection">
     <div
     class="product-grid"
     id="clothingGrid">
-    </div>
-
-
-    <div
-    class="empty"
-    id="clothingEmpty">
-
-        👗 ଏହି ବିଭାଗରେ ଏବେ କୌଣସି ପ୍ରଡକ୍ଟ ନାହିଁ।
 
     </div>
+
 
 </section>
 
 
 <!-- =====================================================
-     FARMER SECTION
+     FARMER PRODUCTS
 ===================================================== -->
 
 <section
@@ -2125,12 +2144,8 @@ id="farmerSection">
             🌾 କୃଷକ ଉତ୍ପାଦ
         </h2>
 
-
-        <button
-        onclick="showAllProducts()">
-
+        <button onclick="showAllProducts()">
             ସବୁ ଦେଖନ୍ତୁ →
-
         </button>
 
     </div>
@@ -2139,16 +2154,9 @@ id="farmerSection">
     <div
     class="product-grid"
     id="farmerGrid">
-    </div>
-
-
-    <div
-    class="empty"
-    id="farmerEmpty">
-
-        🌾 ଏହି ବିଭାଗରେ ଏବେ କୌଣସି ପ୍ରଡକ୍ଟ ନାହିଁ।
 
     </div>
+
 
 </section>
 
@@ -2168,11 +2176,9 @@ id="farmerSection">
 
 
         <p>
-
             ଗାଁରୁ ସିଧା
             ଆପଣଙ୍କ ଘରକୁ
             Utkala Mart ମାଧ୍ୟମରେ
-
         </p>
 
 
@@ -2184,6 +2190,7 @@ id="farmerSection">
         </button>
 
     </div>
+
 
 </section>
 
@@ -2224,6 +2231,7 @@ id="about">
         ଆପଣଙ୍କ ଘରେ।
 
     </p>
+
 
 </section>
 
@@ -2341,8 +2349,7 @@ onclick="closeCart(event)">
         </div>
 
 
-        <div id="cartItems">
-        </div>
+        <div id="cartItems"></div>
 
 
         <div
@@ -2362,6 +2369,7 @@ onclick="closeCart(event)">
 
         </button>
 
+
     </div>
 
 </div>
@@ -2373,10 +2381,6 @@ onclick="closeCart(event)">
 
 <script type="module">
 
-
-/* =====================================================
-   IMPORT FIREBASE
-===================================================== */
 
 import {
     initializeApp
@@ -2398,7 +2402,7 @@ from
    FIREBASE CONFIG
 ===================================================== */
 
-const firebaseConfig = {
+const firebaseConfig={
 
     apiKey:
     "AIzaSyBYJ_KKs_7SNz108jnw6hpOlmegofRhJg",
@@ -2421,25 +2425,47 @@ const firebaseConfig = {
 };
 
 
-const app =
+const app=
 initializeApp(firebaseConfig);
 
 
-const db =
+const db=
 getFirestore(app);
 
 
 /* =====================================================
-   GLOBAL DATA
+   DATA
 ===================================================== */
 
-let allProducts = [];
+let allProducts=[];
 
 
-let cart =
+let cart=
+
 JSON.parse(
     localStorage.getItem("utkalaCart") || "[]"
 );
+
+
+/* =====================================================
+   PAGE POSITION FIX
+===================================================== */
+
+if("scrollRestoration" in history){
+
+    history.scrollRestoration="manual";
+
+}
+
+window.addEventListener("load",function(){
+
+    setTimeout(function(){
+
+        window.scrollTo(0,0);
+
+    },100);
+
+});
 
 
 /* =====================================================
@@ -2448,12 +2474,12 @@ JSON.parse(
 
 function updateCart(){
 
-    const count = cart.reduce(
+    const count=
 
-        (total,item) =>
+    cart.reduce(
 
-        total +
-        Number(item.qty || 0),
+        (total,item)=>
+        total+Number(item.qty||0),
 
         0
 
@@ -2462,16 +2488,15 @@ function updateCart(){
 
     document
     .getElementById("cartCount")
-    .innerText = count;
+    .innerText=count;
 
 }
-
 
 updateCart();
 
 
 /* =====================================================
-   IMAGE HELPER
+   IMAGE
 ===================================================== */
 
 function getImage(product){
@@ -2502,7 +2527,9 @@ function categoryMatch(
     category
 ){
 
-    const value = String(
+    const value=
+
+    String(
 
         product.categoryId ||
 
@@ -2519,15 +2546,13 @@ function categoryMatch(
     .trim();
 
 
-    if(category === "food"){
+    if(category==="food"){
 
-        return (
+        return(
 
             value.includes("food") ||
 
             value.includes("grocery") ||
-
-            value.includes("eat") ||
 
             value.includes("ଖାଦ୍ୟ")
 
@@ -2536,9 +2561,9 @@ function categoryMatch(
     }
 
 
-    if(category === "handicraft"){
+    if(category==="handicraft"){
 
-        return (
+        return(
 
             value.includes("craft") ||
 
@@ -2546,30 +2571,22 @@ function categoryMatch(
 
             value.includes("hand made") ||
 
-            value.includes("artisan") ||
-
             value.includes("ହାତ") ||
 
-            value.includes("ହସ୍ତ") ||
-
-            value.includes("ଶିଳ୍ପ")
+            value.includes("ହସ୍ତ")
 
         );
 
     }
 
 
-    if(category === "clothing"){
+    if(category==="clothing"){
 
-        return (
+        return(
 
             value.includes("cloth") ||
 
             value.includes("textile") ||
-
-            value.includes("dress") ||
-
-            value.includes("fashion") ||
 
             value.includes("ବସ୍ତ୍ର") ||
 
@@ -2580,9 +2597,9 @@ function categoryMatch(
     }
 
 
-    if(category === "farmer"){
+    if(category==="farmer"){
 
-        return (
+        return(
 
             value.includes("farmer") ||
 
@@ -2591,8 +2608,6 @@ function categoryMatch(
             value.includes("agriculture") ||
 
             value.includes("village") ||
-
-            value.includes("farm") ||
 
             value.includes("କୃଷକ") ||
 
@@ -2619,48 +2634,48 @@ function createProductCard(
     container
 ){
 
-    const card =
+    const card=
     document.createElement("div");
 
-    card.className =
+    card.className=
     "product-card";
 
 
-    const imageBox =
+    const imageBox=
     document.createElement("div");
 
-    imageBox.className =
+    imageBox.className=
     "product-image";
 
 
-    const img =
+    const img=
     document.createElement("img");
 
-    img.src =
+    img.src=
     getImage(product);
 
-    img.alt =
+    img.alt=
     product.name ||
     "Utkala Mart Product";
 
 
-    img.onerror =
+    img.onerror=
     function(){
 
-        this.onerror = null;
+        this.onerror=null;
 
-        this.src = "logo.png";
+        this.src="logo.png";
 
     };
 
 
-    const badge =
+    const badge=
     document.createElement("span");
 
-    badge.className =
+    badge.className=
     "product-badge";
 
-    badge.innerText =
+    badge.innerText=
 
     product.badge ||
 
@@ -2669,20 +2684,21 @@ function createProductCard(
     "ଓଡ଼ିଆ";
 
 
-    const wishlist =
+    const wishlist=
     document.createElement("button");
 
-    wishlist.className =
+    wishlist.className=
     "wishlist";
 
-    wishlist.innerText =
-    "♡";
+    wishlist.innerText="♡";
 
 
-    wishlist.onclick =
+    wishlist.onclick=
     function(){
 
-        wishlistMessage();
+        alert(
+            "Wishlist system ପରବର୍ତ୍ତୀ Step ରେ connect ହେବ।"
+        );
 
     };
 
@@ -2694,33 +2710,32 @@ function createProductCard(
     );
 
 
-    const info =
+    const info=
     document.createElement("div");
 
-    info.className =
+    info.className=
     "product-info";
 
 
-    const name =
+    const name=
     document.createElement("div");
 
-    name.className =
+    name.className=
     "product-name";
 
-    name.innerText =
+    name.innerText=
 
     product.name ||
-
     "ପ୍ରଡକ୍ଟ";
 
 
-    const category =
+    const category=
     document.createElement("div");
 
-    category.className =
+    category.className=
     "product-category";
 
-    category.innerText =
+    category.innerText=
 
     product.subcategoryName ||
 
@@ -2733,14 +2748,14 @@ function createProductCard(
     "";
 
 
-    const price =
+    const price=
     document.createElement("div");
 
-    price.className =
+    price.className=
     "product-price";
 
 
-    const amount =
+    const amount=
 
     product.utkalaPrice ??
 
@@ -2749,27 +2764,27 @@ function createProductCard(
     product.sellingPrice;
 
 
-    price.innerText =
+    price.innerText=
 
-    amount !== undefined &&
-    amount !== "" ?
+    amount!==undefined &&
+    amount!=="" ?
 
-    "₹" + amount :
+    "₹"+amount :
 
     "₹ —";
 
 
-    const button =
+    const button=
     document.createElement("button");
 
-    button.className =
+    button.className=
     "add-cart";
 
-    button.innerText =
+    button.innerText=
     "🛒 କାର୍ଟରେ ଯୋଡନ୍ତୁ";
 
 
-    button.onclick =
+    button.onclick=
     function(){
 
         addToCart(product);
@@ -2797,32 +2812,26 @@ function createProductCard(
 
 
 /* =====================================================
-   RENDER SPECIAL PRODUCTS
+   RENDER SPECIAL
 ===================================================== */
 
 function renderProducts(list){
 
-    const grid =
-    document.getElementById(
-        "productGrid"
-    );
+    const grid=
+    document.getElementById("productGrid");
+
+    const loading=
+    document.getElementById("loading");
 
 
-    const loading =
-    document.getElementById(
-        "loading"
-    );
-
-
-    grid.innerHTML = "";
+    grid.innerHTML="";
 
 
     if(!list.length){
 
-        loading.style.display =
-        "block";
+        loading.style.display="block";
 
-        loading.innerText =
+        loading.innerText=
         "🛍️ ଏଠାରେ ପ୍ରଡକ୍ଟ ଖୁବ ଶୀଘ୍ର ଦେଖାଯିବ।";
 
         return;
@@ -2830,24 +2839,19 @@ function renderProducts(list){
     }
 
 
-    loading.style.display =
-    "none";
+    loading.style.display="none";
 
 
     list
     .slice(0,12)
-    .forEach(
+    .forEach(function(product){
 
-        product => {
+        createProductCard(
+            product,
+            grid
+        );
 
-            createProductCard(
-                product,
-                grid
-            );
-
-        }
-
-    );
+    });
 
 }
 
@@ -2858,98 +2862,71 @@ function renderProducts(list){
 
 function renderCategory(category){
 
-    const ids = {
+    const ids={
 
-        food:
-        "foodGrid",
+        food:"foodGrid",
 
-        handicraft:
-        "handicraftGrid",
+        handicraft:"handicraftGrid",
 
-        clothing:
-        "clothingGrid",
+        clothing:"clothingGrid",
 
-        farmer:
-        "farmerGrid"
+        farmer:"farmerGrid"
 
     };
 
 
-    const emptyIds = {
-
-        food:
-        "foodEmpty",
-
-        handicraft:
-        "handicraftEmpty",
-
-        clothing:
-        "clothingEmpty",
-
-        farmer:
-        "farmerEmpty"
-
-    };
+    const grid=
+    document.getElementById(ids[category]);
 
 
-    const grid =
-    document.getElementById(
-        ids[category]
-    );
+    grid.innerHTML="";
 
 
-    const empty =
-    document.getElementById(
-        emptyIds[category]
-    );
-
-
-    grid.innerHTML = "";
-
-
-    const items =
+    const items=
 
     allProducts
+    .filter(function(product){
 
-    .filter(
-
-        product =>
-
-        categoryMatch(
+        return categoryMatch(
             product,
             category
-        )
+        );
 
-    )
+    })
     .slice(0,12);
 
 
     if(!items.length){
 
-        empty.style.display =
-        "block";
+        grid.innerHTML=
+
+        `<div style="
+        grid-column:1/-1;
+        text-align:center;
+        padding:25px;
+        background:#f7faf8;
+        border-radius:10px;
+        color:#777;
+        ">
+
+        🛍️ ଏହି ବିଭାଗରେ ଏବେ
+        ପ୍ରଡକ୍ଟ ନାହିଁ।
+
+        </div>`;
 
         return;
 
     }
 
 
-    empty.style.display =
-    "none";
+    items.forEach(function(product){
 
+        createProductCard(
+            product,
+            grid
+        );
 
-    items.forEach(
-
-        product => {
-
-            createProductCard(
-                product,
-                grid
-            );
-
-        }
-
-    );
+    });
 
 }
 
@@ -2961,19 +2938,12 @@ function renderCategory(category){
 function hideCategories(){
 
     document
-    .querySelectorAll(
-        ".category-section"
-    )
-    .forEach(
+    .querySelectorAll(".category-section")
+    .forEach(function(section){
 
-        section => {
+        section.style.display="none";
 
-            section.style.display =
-            "none";
-
-        }
-
-    );
+    });
 
 }
 
@@ -2982,36 +2952,22 @@ function hideCategories(){
    ACTIVE MENU
 ===================================================== */
 
-function setActiveMenu(menuId){
+function setActiveMenu(type){
 
     document
-    .querySelectorAll(
-        "#mainMenu a"
-    )
-    .forEach(
+    .querySelectorAll(".nav a")
+    .forEach(function(link){
 
-        item => {
+        link.classList.remove("active");
 
-            item.classList.remove(
-                "active"
-            );
-
-        }
-
-    );
+    });
 
 
-    const menu =
-    document.getElementById(
-        menuId
-    );
+    if(type==="home"){
 
-
-    if(menu){
-
-        menu.classList.add(
-            "active"
-        );
+        document
+        .getElementById("homeNav")
+        .classList.add("active");
 
     }
 
@@ -3022,13 +2978,17 @@ function setActiveMenu(menuId){
    HOME
 ===================================================== */
 
-window.showHome = function(){
+window.goHome=function(){
 
     hideCategories();
 
-    setActiveMenu(
-        "homeMenu"
-    );
+
+    document
+    .getElementById("specialSection")
+    .style.display="block";
+
+
+    setActiveMenu("home");
 
 
     window.scrollTo({
@@ -3043,99 +3003,112 @@ window.showHome = function(){
 
 
 /* =====================================================
-   CATEGORY
+   SHOW CATEGORY
 ===================================================== */
 
-window.showCategory =
-function(category){
+window.showCategory=function(category){
 
     hideCategories();
 
 
-    const target =
+    /* Hide Special Products */
+
+    document
+    .getElementById("specialSection")
+    .style.display="none";
+
+
+    const target=
     document.getElementById(
-        category + "Section"
+        category+"Section"
     );
 
 
     if(!target){
+
         return;
+
     }
 
 
-    renderCategory(
-        category
-    );
+    renderCategory(category);
 
 
-    target.style.display =
-    "block";
+    target.style.display="block";
 
 
-    const menuMap = {
-
-        food:
-        "foodMenu",
-
-        handicraft:
-        "handicraftMenu",
-
-        clothing:
-        "clothingMenu",
-
-        farmer:
-        "farmerMenu"
-
-    };
+    setActiveMenu(category);
 
 
-    setActiveMenu(
-        menuMap[category]
-    );
+    setTimeout(function(){
+
+        const headerOffset=105;
+
+        const position=
+        target.getBoundingClientRect().top
+        +window.pageYOffset
+        -headerOffset;
 
 
-    target.scrollIntoView({
+        window.scrollTo({
 
-        behavior:"smooth",
+            top:position,
 
-        block:"start"
+            behavior:"smooth"
 
-    });
+        });
+
+    },50);
 
 };
 
 
 /* =====================================================
-   SHOW ALL
+   SHOW ALL PRODUCTS
 ===================================================== */
 
-window.showAllProducts =
-function(){
+window.showAllProducts=function(){
 
     hideCategories();
 
 
-    renderProducts(
-        allProducts
-    );
-
-
-    setActiveMenu(
-        "specialMenu"
-    );
-
-
     document
-    .getElementById(
-        "specialSection"
-    )
-    .scrollIntoView({
+    .getElementById("specialSection")
+    .style.display="block";
 
-        behavior:"smooth",
 
-        block:"start"
+    renderProducts(allProducts);
 
-    });
+
+    setActiveMenu("home");
+
+
+    setTimeout(function(){
+
+        const target=
+        document.getElementById(
+            "specialSection"
+        );
+
+
+        const headerOffset=105;
+
+
+        const position=
+        target.getBoundingClientRect().top
+        +window.pageYOffset
+        -headerOffset;
+
+
+        window.scrollTo({
+
+            top:position,
+
+            behavior:"smooth"
+
+        });
+
+    },50);
 
 };
 
@@ -3144,55 +3117,32 @@ function(){
    HERO BUTTON
 ===================================================== */
 
-window.goToProducts =
-function(){
-
-    document
-    .getElementById(
-        "specialSection"
-    )
-    .scrollIntoView({
-
-        behavior:"smooth",
-
-        block:"start"
-
-    });
-
-
-    setActiveMenu(
-        "specialMenu"
-    );
-
-};
-
-
-/* =====================================================
-   ABOUT
-===================================================== */
-
-window.showAbout =
-function(){
+window.goToProducts=function(){
 
     hideCategories();
 
 
-    setActiveMenu(
-        "aboutMenu"
-    );
-
-
     document
-    .getElementById(
-        "about"
-    )
-    .scrollIntoView({
+    .getElementById("specialSection")
+    .style.display="block";
 
-        behavior:"smooth",
 
-        block:"start"
+    renderProducts(allProducts);
 
-    });
+
+    setTimeout(function(){
+
+        document
+        .getElementById("specialSection")
+        .scrollIntoView({
+
+            behavior:"smooth",
+
+            block:"start"
+
+        });
+
+    },50);
 
 };
 
@@ -3201,15 +3151,12 @@ function(){
    SEARCH
 ===================================================== */
 
-window.searchProducts =
-function(){
+window.searchProducts=function(){
 
-    const q =
+    const q=
 
     document
-    .getElementById(
-        "searchInput"
-    )
+    .getElementById("searchInput")
     .value
     .trim()
     .toLowerCase();
@@ -3218,98 +3165,82 @@ function(){
     hideCategories();
 
 
+    document
+    .getElementById("specialSection")
+    .style.display="block";
+
+
     if(!q){
 
-        renderProducts(
-            allProducts
-        );
-
-        setActiveMenu(
-            "specialMenu"
-        );
+        renderProducts(allProducts);
 
         return;
 
     }
 
 
-    const result =
+    const result=
 
-    allProducts.filter(
+    allProducts.filter(function(product){
 
-        product => {
+        const text=[
 
-            const text = [
+            product.name,
 
-                product.name,
+            product.category,
 
-                product.category,
+            product.categoryName,
 
-                product.categoryName,
+            product.subcategory,
 
-                product.subcategory,
+            product.subcategoryName,
 
-                product.subcategoryName,
+            product.description,
 
-                product.description,
+            product.sellerName,
 
-                product.sellerName,
+            product.location
 
-                product.location,
+        ]
 
-                product.badge
+        .map(function(value){
 
-            ]
+            return String(
+                value||""
+            ).toLowerCase();
 
-            .map(
+        })
 
-                value =>
-
-                String(
-                    value || ""
-                )
-                .toLowerCase()
-
-            )
-            .join(" ");
+        .join(" ");
 
 
-            return text.includes(q);
-
-        }
-
-    );
-
-
-    renderProducts(
-        result
-    );
-
-
-    setActiveMenu(
-        "specialMenu"
-    );
-
-
-    document
-    .getElementById(
-        "specialSection"
-    )
-    .scrollIntoView({
-
-        behavior:"smooth",
-
-        block:"start"
+        return text.includes(q);
 
     });
+
+
+    renderProducts(result);
+
+
+    setTimeout(function(){
+
+        document
+        .getElementById("specialSection")
+        .scrollIntoView({
+
+            behavior:"smooth",
+
+            block:"start"
+
+        });
+
+    },50);
 
 };
 
 
 document
-.getElementById(
-    "searchInput"
-)
+.getElementById("searchInput")
 .addEventListener(
     "input",
     searchProducts
@@ -3317,20 +3248,21 @@ document
 
 
 /* =====================================================
-   ADD TO CART
+   ADD CART
 ===================================================== */
 
 function addToCart(product){
 
-    const id =
+    const id=
     product.id;
 
 
-    const old =
-    cart.find(
-        item =>
-        item.id === id
-    );
+    const old=
+    cart.find(function(item){
+
+        return item.id===id;
+
+    });
 
 
     if(old){
@@ -3348,7 +3280,6 @@ function addToCart(product){
             "Product",
 
             price:
-
             Number(
 
                 product.utkalaPrice ??
@@ -3389,113 +3320,98 @@ function addToCart(product){
    OPEN CART
 ===================================================== */
 
-window.openCart =
-function(){
+window.openCart=function(){
 
-    const box =
+    const box=
     document.getElementById(
         "cartItems"
     );
 
 
-    let total = 0;
+    let total=0;
 
 
-    box.innerHTML = "";
+    box.innerHTML="";
 
 
     if(!cart.length){
 
-        box.innerHTML =
+        box.innerHTML=
         "<br>🛒 କାର୍ଟ ଖାଲି ଅଛି।";
 
     }
 
 
-    cart.forEach(
+    cart.forEach(function(item,index){
 
-        (item,index) => {
+        total +=
 
-            total +=
-
-            Number(item.price) *
-
-            Number(item.qty);
+        Number(item.price) *
+        Number(item.qty);
 
 
-            const row =
-            document.createElement(
-                "div"
-            );
+        const row=
+        document.createElement("div");
 
 
-            row.className =
-            "cart-item";
+        row.className=
+        "cart-item";
 
 
-            row.innerHTML =
+        row.innerHTML=
 
-            `
+        `
 
-            <img
-            src="${getImage(item)}"
-            onerror="this.src='logo.png'">
+        <img
+        src="${getImage(item)}"
+        onerror="this.src='logo.png'">
 
-            <div>
+        <div>
 
-                <b>
-                    ${escapeHtml(item.name)}
-                </b>
+            <b>
+                ${escapeHtml(item.name)}
+            </b>
 
-                <br>
+            <br>
 
-                ₹${Number(item.price)}
-                ×
-                ${Number(item.qty)}
+            ₹${Number(item.price)}
+            ×
+            ${Number(item.qty)}
 
-                <br>
+            <br>
 
-                <button
-                onclick="removeCart(${index})"
-                style="
-                border:0;
-                background:none;
-                color:#d33;
-                padding:4px 0;
-                ">
+            <button
+            onclick="removeCart(${index})"
+            style="
+            border:0;
+            background:none;
+            color:#d33;
+            padding:4px 0;
+            ">
 
-                    Remove
+                Remove
 
-                </button>
+            </button>
 
-            </div>
+        </div>
 
-            `;
+        `;
 
 
-            box.appendChild(
-                row
-            );
+        box.appendChild(row);
 
-        }
-
-    );
+    });
 
 
     document
-    .getElementById(
-        "cartTotal"
-    )
-    .innerText =
-    "ମୋଟ: ₹" + total;
+    .getElementById("cartTotal")
+    .innerText=
+    "ମୋଟ: ₹"+total;
 
 
     document
-    .getElementById(
-        "cartOverlay"
-    )
-    .style.display =
-    "block";
+    .getElementById("cartOverlay")
+    .style.display="block";
 
 };
 
@@ -3506,30 +3422,22 @@ function(){
 
 function escapeHtml(value){
 
-    return String(
-        value ?? ""
-    )
+    return String(value ?? "")
     .replace(
         /[&<>"']/g,
-
         function(match){
 
             return {
 
-                "&":
-                "&amp;",
+                "&":"&amp;",
 
-                "<":
-                "&lt;",
+                "<":"&lt;",
 
-                ">":
-                "&gt;",
+                ">":"&gt;",
 
-                '"':
-                "&quot;",
+                '"':"&quot;",
 
-                "'":
-                "&#039;"
+                "'":"&#039;"
 
             }[match];
 
@@ -3543,24 +3451,19 @@ function escapeHtml(value){
    CLOSE CART
 ===================================================== */
 
-window.closeCart =
-function(event){
+window.closeCart=function(event){
 
     if(
 
         !event ||
 
-        event.target.id ===
-        "cartOverlay"
+        event.target.id==="cartOverlay"
 
     ){
 
         document
-        .getElementById(
-            "cartOverlay"
-        )
-        .style.display =
-        "none";
+        .getElementById("cartOverlay")
+        .style.display="none";
 
     }
 
@@ -3571,13 +3474,9 @@ function(event){
    REMOVE CART
 ===================================================== */
 
-window.removeCart =
-function(index){
+window.removeCart=function(index){
 
-    cart.splice(
-        index,
-        1
-    );
+    cart.splice(index,1);
 
 
     localStorage.setItem(
@@ -3600,39 +3499,10 @@ function(index){
    CHECKOUT
 ===================================================== */
 
-window.checkout =
-function(){
+window.checkout=function(){
 
     alert(
         "Order ଓ Payment system ପରବର୍ତ୍ତୀ Step ରେ connect କରିବା।"
-    );
-
-};
-
-
-/* =====================================================
-   WISHLIST
-===================================================== */
-
-window.wishlistMessage =
-function(){
-
-    alert(
-        "♡ Wishlist system ପରବର୍ତ୍ତୀ Step ରେ connect କରିବା।"
-    );
-
-};
-
-
-/* =====================================================
-   ACCOUNT
-===================================================== */
-
-window.accountMessage =
-function(){
-
-    alert(
-        "👤 Account system ପରବର୍ତ୍ତୀ Step ରେ connect କରିବା।"
     );
 
 };
@@ -3644,24 +3514,22 @@ function(){
 
 async function loadProducts(){
 
-    const loading =
-    document.getElementById(
-        "loading"
-    );
+    const loading=
+    document.getElementById("loading");
 
 
     try{
 
-        let products = [];
+        let products=[];
 
 
-        /* ---------------------------------------------
-           NEW PRODUCTS COLLECTION
-        --------------------------------------------- */
+        /* =================================================
+           NEW COLLECTION
+        ================================================= */
 
         try{
 
-            const snap =
+            const snap=
 
             await getDocs(
 
@@ -3673,63 +3541,57 @@ async function loadProducts(){
             );
 
 
-            snap.forEach(
+            snap.forEach(function(doc){
 
-                doc => {
-
-                    const data =
-                    doc.data();
+                const data=
+                doc.data();
 
 
-                    if(
+                if(
 
-                        data.active === true &&
+                    data.active===true &&
 
-                        (
+                    (
 
-                            data.approved === true ||
+                        data.approved===true ||
 
-                            data.approved === undefined
+                        data.approved===undefined
 
-                        )
+                    )
 
-                    ){
+                ){
 
-                        products.push({
+                    products.push({
 
-                            id:
-                            doc.id,
+                        id:doc.id,
 
-                            ...data
+                        ...data
 
-                        });
-
-                    }
+                    });
 
                 }
 
-            );
+            });
 
         }catch(error){
 
             console.log(
-                "products collection unavailable",
+                "products unavailable",
                 error
             );
 
         }
 
 
-        /* ---------------------------------------------
+        /* =================================================
            OLD COLLECTION
-           READ ONLY
-        --------------------------------------------- */
+        ================================================= */
 
         if(!products.length){
 
             try{
 
-                const snap =
+                const snap=
 
                 await getDocs(
 
@@ -3741,22 +3603,17 @@ async function loadProducts(){
                 );
 
 
-                snap.forEach(
+                snap.forEach(function(doc){
 
-                    doc => {
+                    products.push({
 
-                        products.push({
+                        id:doc.id,
 
-                            id:
-                            doc.id,
+                        ...doc.data()
 
-                            ...doc.data()
+                    });
 
-                        });
-
-                    }
-
-                );
+                });
 
             }catch(error){
 
@@ -3770,7 +3627,7 @@ async function loadProducts(){
         }
 
 
-        allProducts =
+        allProducts=
         products;
 
 
@@ -3779,18 +3636,28 @@ async function loadProducts(){
         );
 
 
+        /* IMPORTANT:
+           Category sections are NOT shown
+           until user clicks a category.
+        */
+
+        hideCategories();
+
+
+        document
+        .getElementById("specialSection")
+        .style.display="block";
+
+
     }catch(error){
 
-        console.error(
-            error
-        );
+        console.error(error);
 
 
-        loading.style.display =
-        "block";
+        loading.style.display="block";
 
 
-        loading.innerText =
+        loading.innerText=
         "⚠️ Product load ହୋଇପାରିଲା ନାହିଁ।";
 
     }
@@ -3809,4 +3676,4 @@ loadProducts();
 
 </body>
 
-       </html>
+</html>
