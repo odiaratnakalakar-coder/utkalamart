@@ -81,6 +81,35 @@ footer{background:#075b3b;color:#fff;text-align:center;padding:28px 15px;line-he
 .cart-item{display:flex;gap:10px;padding:12px 0;border-bottom:1px solid #eee}.cart-item img{width:65px;height:65px;object-fit:cover;border-radius:8px}
 .cart-total{font-size:20px;font-weight:bold;margin:18px 0}.checkout-btn{width:100%;border:0;background:#ef761d;color:#fff;padding:12px;border-radius:9px;font-weight:bold}
 
+
+/* =========================
+   CATEGORY PRODUCT SECTIONS
+========================= */
+.category-products-section{
+    padding:8px 2.5% 24px;
+}
+.category-products-section .section-header{
+    margin-bottom:13px;
+}
+.category-products-section .product-grid{
+    grid-template-columns:repeat(6,1fr);
+}
+.category-empty{
+    display:none;
+    text-align:center;
+    padding:20px;
+    background:#f8faf8;
+    border-radius:12px;
+    color:#777;
+    font-size:13px;
+}
+@media(max-width:1100px){
+    .product-grid,
+    .category-products-section .product-grid{
+        grid-template-columns:repeat(4,1fr);
+    }
+}
+
 @media(max-width:760px){
 .topbar{font-size:9px;padding:6px 9px}.topbar-right{gap:6px}
 header{padding:8px 10px;gap:8px;flex-wrap:wrap}.logo{min-width:auto;flex:1}.logo img{width:45px;height:45px}.logo-text{font-size:21px}.logo-sub{font-size:8px}
@@ -324,6 +353,7 @@ async function loadProducts(){
     allProducts=products;
     loading.style.display="none";
     renderProducts(allProducts);
+    renderCategorySections();
   }catch(error){
     console.error(error);
     loading.style.display="block";
@@ -337,8 +367,35 @@ function categoryMatch(product,category){
   if(category==="food") return value.includes("food")||value.includes("ଖାଦ୍ୟ")||value.includes("food products");
   if(category==="handicraft") return value.includes("craft")||value.includes("ହାତ")||value.includes("ହସ୍ତ");
   if(category==="clothing") return value.includes("cloth")||value.includes("textile")||value.includes("ବସ୍ତ୍ର");
-  if(category==="farmer") return value.includes("farmer")||value.includes("village")||value.includes("କୃଷକ")||value.includes("agri");
+  if(category==="farmer") return value.includes("farmer")||value.includes("village")||value.includes("କୃଷକ")||value.includes("agri")||value.includes("କୃଷି");
   return false;
+}
+
+
+function renderCategorySections(){
+  const sections = [
+    ["food","foodProductGrid","foodEmpty"],
+    ["handicraft","handicraftProductGrid","handicraftEmpty"],
+    ["clothing","clothingProductGrid","clothingEmpty"],
+    ["farmer","farmerProductGrid","farmerEmpty"]
+  ];
+
+  sections.forEach(([category,gridId,emptyId])=>{
+    const grid = document.getElementById(gridId);
+    const empty = document.getElementById(emptyId);
+    if(!grid || !empty) return;
+
+    grid.innerHTML = "";
+    const items = allProducts.filter(p=>categoryMatch(p,category)).slice(0,6);
+
+    if(items.length === 0){
+      empty.style.display = "block";
+      return;
+    }
+
+    empty.style.display = "none";
+    items.forEach(product=>createProductCard(product,grid));
+  });
 }
 
 function renderProducts(products){
@@ -425,8 +482,17 @@ function addToCart(product){
 
 window.filterCategory=function(category){
   const result=allProducts.filter(product=>categoryMatch(product,category));
-  document.getElementById("products").scrollIntoView({behavior:"smooth"});
   renderProducts(result);
+
+  const targetMap={
+    food:"foodProductsSection",
+    handicraft:"handicraftProductsSection",
+    clothing:"clothingProductsSection",
+    farmer:"farmerProductsSection"
+  };
+
+  const target=document.getElementById(targetMap[category]||"products");
+  if(target) target.scrollIntoView({behavior:"smooth",block:"start"});
 };
 
 window.showAllProducts=function(){
