@@ -83,10 +83,10 @@ footer{background:#075b3b;color:#fff;text-align:center;padding:28px 15px;line-he
 
 
 /* =========================
-   CATEGORY PRODUCT SECTIONS
+   CATEGORY PRODUCT ROWS
 ========================= */
 .category-products-section{
-    padding:8px 2.5% 24px;
+    padding:5px 2.5% 25px;
 }
 .category-products-section .section-header{
     margin-bottom:13px;
@@ -97,17 +97,11 @@ footer{background:#075b3b;color:#fff;text-align:center;padding:28px 15px;line-he
 .category-empty{
     display:none;
     text-align:center;
-    padding:20px;
-    background:#f8faf8;
+    padding:22px 12px;
     border-radius:12px;
+    background:#f7faf8;
     color:#777;
     font-size:13px;
-}
-@media(max-width:1100px){
-    .product-grid,
-    .category-products-section .product-grid{
-        grid-template-columns:repeat(4,1fr);
-    }
 }
 
 @media(max-width:760px){
@@ -181,28 +175,28 @@ header{padding:8px 10px;gap:8px;flex-wrap:wrap}.logo{min-width:auto;flex:1}.logo
 <section class="category-section">
   <div class="categories">
 
-    <div class="category-card" id="food" onclick="filterCategory('food')">
+    <div class="category-card" id="food" onclick="showCategory('food')">
       <span class="category-arrow">→</span>
       <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80" alt="Food"
            onerror="categoryImageFallback(this,'🍚')">
       <div class="category-content"><h3>🍚 ଖାଦ୍ୟ</h3><p>Food Products</p></div>
     </div>
 
-    <div class="category-card" id="handicraft" onclick="filterCategory('handicraft')">
+    <div class="category-card" id="handicraft" onclick="showCategory('handicraft')">
       <span class="category-arrow">→</span>
       <img src="https://images.unsplash.com/photo-1577083552431-6e5fd01988e5?auto=format&fit=crop&w=700&q=80" alt="Handicraft"
            onerror="categoryImageFallback(this,'🏺')">
       <div class="category-content"><h3>🏺 ହାତ ତିଆରି ଜିନିଷ</h3><p>Handicraft Products</p></div>
     </div>
 
-    <div class="category-card" id="clothing" onclick="filterCategory('clothing')">
+    <div class="category-card" id="clothing" onclick="showCategory('clothing')">
       <span class="category-arrow">→</span>
       <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=700&q=80" alt="Clothing"
            onerror="categoryImageFallback(this,'👗')">
       <div class="category-content"><h3>👗 ବସ୍ତ୍ର</h3><p>Clothing & Textiles</p></div>
     </div>
 
-    <div class="category-card" id="farmer" onclick="filterCategory('farmer')">
+    <div class="category-card" id="farmer" onclick="showCategory('farmer')">
       <span class="category-arrow">→</span>
       <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=700&q=80" alt="Farmer Products"
            onerror="categoryImageFallback(this,'🌾')">
@@ -232,7 +226,7 @@ header{padding:8px 10px;gap:8px;flex-wrap:wrap}.logo{min-width:auto;flex:1}.logo
   <div class="farmer-content">
     <h2>🧑‍🌾 “ଆମ କୃଷକ, ଆମ ଗର୍ବ”</h2>
     <p>ଗାଁରୁ ସିଧା ଆପଣଙ୍କ ଘରକୁ</p>
-    <button class="farmer-btn" onclick="filterCategory('farmer')">କୃଷକ ଉତ୍ପାଦ ଦେଖନ୍ତୁ →</button>
+    <button class="farmer-btn" onclick="showCategory('farmer')">କୃଷକ ଉତ୍ପାଦ ଦେଖନ୍ତୁ →</button>
   </div>
 </section>
 
@@ -242,7 +236,7 @@ header{padding:8px 10px;gap:8px;flex-wrap:wrap}.logo{min-width:auto;flex:1}.logo
     Utkala Mart ର ଲକ୍ଷ୍ୟ ହେଉଛି ଗଞ୍ଜାମର କୃଷକ, କାରିଗର,
     ଛୋଟ ବିକ୍ରେତା ଓ ସ୍ଥାନୀୟ ଉତ୍ପାଦକଙ୍କ ପ୍ରଡକ୍ଟକୁ
     ଏକ ଡିଜିଟାଲ marketplace ମାଧ୍ୟମରେ ଭାରତର ପ୍ରତ୍ୟେକ ଘରେ ପହଞ୍ଚାଇବା।
-    <br><br>ଗାଁରୁ ସହର — ଭଲ ଓ ନିଜସ୍ୱ ଜିନିଷ ଆପଣଙ୍କ ଘରେ।
+    <br><br>ଗାଁରୁ ସହର — ଓଡ଼ିଆ ଉତ୍ପାଦ ଭାରତର ଘରେ।
   </p>
 </section>
 
@@ -256,7 +250,7 @@ header{padding:8px 10px;gap:8px;flex-wrap:wrap}.logo{min-width:auto;flex:1}.logo
 <footer>
   <strong>🌿 Utkala Mart</strong><br>
   ଗଞ୍ଜାମର ନିଜସ୍ୱ ପ୍ରଡକ୍ଟ<br>
-  ଗାଁରୁ ସହର — ଆପଣଙ୍କ ଘରେ<br><br>
+  ଗାଁରୁ ଭାରତ — ଆପଣଙ୍କ ଘରେ<br><br>
   © 2026 Utkala Mart
 </footer>
 
@@ -367,35 +361,38 @@ function categoryMatch(product,category){
   if(category==="food") return value.includes("food")||value.includes("ଖାଦ୍ୟ")||value.includes("food products");
   if(category==="handicraft") return value.includes("craft")||value.includes("ହାତ")||value.includes("ହସ୍ତ");
   if(category==="clothing") return value.includes("cloth")||value.includes("textile")||value.includes("ବସ୍ତ୍ର");
-  if(category==="farmer") return value.includes("farmer")||value.includes("village")||value.includes("କୃଷକ")||value.includes("agri")||value.includes("କୃଷି");
+  if(category==="farmer") return value.includes("farmer")||value.includes("village")||value.includes("କୃଷକ")||value.includes("agri");
   return false;
 }
 
 
 function renderCategorySections(){
-  const sections = [
-    ["food","foodProductGrid","foodEmpty"],
-    ["handicraft","handicraftProductGrid","handicraftEmpty"],
-    ["clothing","clothingProductGrid","clothingEmpty"],
-    ["farmer","farmerProductGrid","farmerEmpty"]
-  ];
+    const sections = [
+        ["food","foodProductGrid","foodEmpty"],
+        ["handicraft","handicraftProductGrid","handicraftEmpty"],
+        ["clothing","clothingProductGrid","clothingEmpty"],
+        ["farmer","farmerProductGrid","farmerEmpty"]
+    ];
 
-  sections.forEach(([category,gridId,emptyId])=>{
-    const grid = document.getElementById(gridId);
-    const empty = document.getElementById(emptyId);
-    if(!grid || !empty) return;
+    sections.forEach(([category, gridId, emptyId])=>{
+        const grid = document.getElementById(gridId);
+        const empty = document.getElementById(emptyId);
+        if(!grid || !empty) return;
 
-    grid.innerHTML = "";
-    const items = allProducts.filter(p=>categoryMatch(p,category)).slice(0,6);
+        grid.innerHTML = "";
 
-    if(items.length === 0){
-      empty.style.display = "block";
-      return;
-    }
+        const items = allProducts
+            .filter(product => categoryMatch(product, category))
+            .slice(0, 6);
 
-    empty.style.display = "none";
-    items.forEach(product=>createProductCard(product,grid));
-  });
+        if(items.length === 0){
+            empty.style.display = "block";
+            return;
+        }
+
+        empty.style.display = "none";
+        items.forEach(product => createProductCard(product, grid));
+    });
 }
 
 function renderProducts(products){
@@ -480,20 +477,25 @@ function addToCart(product){
   count.animate([{transform:"scale(1.35)"},{transform:"scale(1)"}],{duration:250});
 }
 
-window.filterCategory=function(category){
-  const result=allProducts.filter(product=>categoryMatch(product,category));
-  renderProducts(result);
+window.showCategory = function(category){
+    const result = allProducts.filter(product => categoryMatch(product, category));
 
-  const targetMap={
-    food:"foodProductsSection",
-    handicraft:"handicraftProductsSection",
-    clothing:"clothingProductsSection",
-    farmer:"farmerProductsSection"
-  };
+    renderProducts(result);
 
-  const target=document.getElementById(targetMap[category]||"products");
-  if(target) target.scrollIntoView({behavior:"smooth",block:"start"});
+    const targetMap = {
+        food: "foodProductsSection",
+        handicraft: "handicraftProductsSection",
+        clothing: "clothingProductsSection",
+        farmer: "farmerProductsSection"
+    };
+
+    const target = document.getElementById(targetMap[category] || "products");
+    if(target){
+        target.scrollIntoView({behavior:"smooth", block:"start"});
+    }
 };
+
+window.filterCategory = window.showCategory;
 
 window.showAllProducts=function(){
   renderProducts(allProducts);
