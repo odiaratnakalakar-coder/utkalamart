@@ -1,33 +1,579 @@
 <!DOCTYPE html>
 <html lang="or">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#e65100"><meta name="description" content="Utkala Mart — ଗଞ୍ଜାମର ନିଜସ୍ୱ ପ୍ରଡକ୍ଟ, ଆପଣଙ୍କ ଘରେ">
-<link rel="icon" href="logo.png"><title>Utkala Mart | ଗଞ୍ଜାମର ନିଜସ୍ୱ Online Market</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#075b3b">
+<meta name="description" content="Utkala Mart — ଗଞ୍ଜାମର ନିଜସ୍ୱ ପ୍ରଡକ୍ଟ, ଆପଣଙ୍କ ଘରେ">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<title>Utkala Mart | From Ganjam to Every Home</title>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,"Noto Sans Oriya",sans-serif}body{background:#fffaf3;color:#222}button,input{font:inherit}header{position:sticky;top:0;z-index:10;background:#fff;padding:9px 12px;display:flex;align-items:center;box-shadow:0 2px 12px #00000012}.logo{display:flex;align-items:center;gap:6px;font-size:21px;font-weight:800;flex:1}.logo img{width:42px;height:42px;border-radius:50%;object-fit:cover}.u{color:#e65100}.cart{border:0;background:#fff0e2;padding:10px 13px;border-radius:13px}.hero{text-align:center;padding:42px 15px;background:linear-gradient(135deg,#fff1d9,#ffd39b)}.hero h1{font-size:33px;line-height:1.4}.hero span{color:#e65100}.hero p{margin-top:10px;line-height:1.8;color:#555}.search{display:block;width:calc(100% - 24px);max-width:1050px;margin:-8px auto 0;position:relative;padding:15px 18px;border:2px solid #eee;border-radius:30px;outline:0;box-shadow:0 4px 15px #00000012}.search:focus{border-color:#e65100}.section,.products{max-width:1100px;margin:auto;padding:25px 12px}.title{text-align:center;font-size:25px;margin-bottom:17px}.cats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.cat{border:0;background:#fff;border-radius:18px;padding:17px 7px;box-shadow:0 3px 13px #00000012;font-weight:bold}.cat.active{background:#e65100;color:#fff}.icon{font-size:35px;margin-bottom:6px}.subs{margin-top:15px;background:#fff;padding:15px;border-radius:18px;box-shadow:0 3px 13px #0000000d}.sub-title{text-align:center;color:#e65100;font-weight:bold;margin-bottom:12px}.sub-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.sub{border:1px solid #eee;background:#fff8ef;border-radius:11px;padding:10px 4px;font-weight:bold}.sub.active{background:#e65100;color:#fff}.products-title{text-align:center;background:#fff;padding:15px;border-radius:18px 18px 0 0;color:#e65100;font-size:21px;font-weight:bold}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 3px 13px #00000012}.pic{height:155px;background:#f1e5d6}.pic img{width:100%;height:100%;object-fit:cover}.info{padding:11px}.name{font-weight:bold;line-height:1.45}.subname{font-size:12px;color:#777;margin-top:4px}.price{color:#e65100;font-weight:bold;font-size:19px;margin-top:7px}.old{text-decoration:line-through;color:#999;font-size:12px;margin-left:5px}.add{width:100%;border:0;background:#e65100;color:#fff;border-radius:10px;padding:10px 4px;margin-top:9px;font-weight:bold}.state{background:#fff;padding:28px 15px;text-align:center;border-radius:16px;color:#777;margin-top:12px}.local,.about{margin:0 12px 25px;background:#fff;border-radius:20px;padding:23px 16px;text-align:center;line-height:1.9;box-shadow:0 3px 13px #0000000d}.local h2,.about h2{margin-bottom:7px}.local p,.about p{color:#555}footer{background:#222;color:#fff;text-align:center;padding:28px 15px;line-height:1.9}.toast{display:none;position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:11px 18px;border-radius:25px;z-index:20}@media(min-width:700px){.cats{grid-template-columns:repeat(4,1fr)}.sub-grid{grid-template-columns:repeat(4,1fr)}.grid{grid-template-columns:repeat(4,1fr)}.hero{padding:58px 20px 48px}.hero h1{font-size:46px}.pic{height:190px}}
-</style></head><body>
-<header><div class="logo"><img src="logo.png" alt="Utkala Mart"><span class="u">Utkala</span><span>Mart</span></div><button class="cart" onclick="showCart()">🛒 <b id="cartCount">0</b></button></header>
-<section class="hero"><h1>ଗଞ୍ଜାମର ଜିନିଷ,<br><span>ଆପଣଙ୍କ ଘରେ</span></h1><p>ଗାଁରୁ ସହର — ଗଞ୍ଜାମର ନିଜସ୍ୱ ପ୍ରଡକ୍ଟ<br>ଏକ ସ୍ଥାନରେ, ସହଜରେ ଅର୍ଡର କରନ୍ତୁ</p></section>
-<input id="search" class="search" type="search" placeholder="🔎 ପ୍ରଡକ୍ଟ ଖୋଜନ୍ତୁ... ଯେପରି — ପାପଡ଼, ମାଣ୍ଡିଆ">
-<section class="section"><h2 class="title">📦 ପ୍ରଡକ୍ଟ ବିଭାଗ</h2><div class="cats">
-<button class="cat active" data-c="food"><div class="icon">🍚</div>ଖାଦ୍ୟ</button><button class="cat" data-c="handicraft"><div class="icon">🏺</div>ହାତ ତିଆରି ଜିନିଷ</button><button class="cat" data-c="clothing"><div class="icon">👗</div>ବସ୍ତ୍ର</button><button class="cat" data-c="farmer"><div class="icon">🌾</div>କୃଷକ ଉତ୍ପାଦ</button></div>
-<div class="subs"><div id="subTitle" class="sub-title"></div><div id="subGrid" class="sub-grid"></div></div></section>
-<section class="products"><div id="productTitle" class="products-title">🛍️ ଖାଦ୍ୟ</div><div id="grid" class="grid"></div><div id="state" class="state">⏳ ପ୍ରଡକ୍ଟ ଲୋଡ୍ ହେଉଛି...</div></section>
-<section class="local"><h2>🧑‍🌾 ଗଞ୍ଜାମରୁ ସିଧା ଆପଣଙ୍କ ଘରକୁ</h2><p>ସ୍ଥାନୀୟ କୃଷକ, କାରିଗର ଓ ବିକ୍ରେତାଙ୍କ ପ୍ରଡକ୍ଟକୁ ଅନଲାଇନରେ ପହଞ୍ଚାଇବା — Utkala Mart ର ଲକ୍ଷ୍ୟ।</p></section>
-<section class="about"><h2>🙏 Utkala Mart</h2><p>ପ୍ରଥମ ପର୍ଯ୍ୟାୟରେ ଗଞ୍ଜାମ ଜିଲ୍ଲାର ନିଜସ୍ୱ ପ୍ରଡକ୍ଟକୁ ଏକ ସ୍ଥାନରେ ଆଣିବା ଆମର ଲକ୍ଷ୍ୟ।<br>ଗାଁରୁ ସହର — ଭଲ ଓ ନିଜସ୍ୱ ଜିନିଷ ଆପଣଙ୍କ ଘରେ।</p></section>
-<footer><b>🛍️ Utkala Mart</b><br>ଗଞ୍ଜାମର ନିଜସ୍ୱ ପ୍ରଡକ୍ଟ<br>© 2026 Utkala Mart</footer><div id="toast" class="toast"></div>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:Arial,"Noto Sans Oriya","Nirmala UI",sans-serif;
+  background:#fff;color:#17221d
+}
+button,input{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+
+/* TOP BAR */
+.topbar{
+  background:#075b3b;color:#fff;padding:8px 4%;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:13px;gap:15px
+}
+.top-links{display:flex;gap:16px;align-items:center}
+.top-links span{white-space:nowrap}
+
+/* HEADER */
+.main-header{
+  background:#fff;padding:14px 4%;
+  display:flex;align-items:center;gap:24px;
+  border-bottom:1px solid #eee
+}
+.brand{display:flex;align-items:center;gap:10px;min-width:275px}
+.brand img{width:70px;height:55px;object-fit:contain}
+.brand-name{font-size:31px;font-weight:900;line-height:1}
+.brand-name .odia{color:#16834f}
+.brand-name .mart{color:#ef761d}
+.tagline{font-size:13px;font-weight:bold;margin-top:4px;color:#333}
+
+.search-wrap{flex:1;display:flex;max-width:610px}
+.search-wrap input{
+  width:100%;height:48px;border:2px solid #ddd;border-right:0;
+  border-radius:12px 0 0 12px;padding:0 17px;outline:none;font-size:15px
+}
+.search-wrap input:focus{border-color:#16834f}
+.search-btn{
+  width:58px;border:0;border-radius:0 12px 12px 0;
+  background:#075b3b;color:#fff;font-size:24px
+}
+.header-actions{display:flex;align-items:center;gap:17px}
+.action{display:flex;align-items:center;gap:6px;font-size:14px;font-weight:bold}
+.action-icon{font-size:27px}
+.cart-btn{
+  position:relative;border:0;background:#fff;color:#111;
+  display:flex;flex-direction:column;align-items:center
+}
+.cart-count{
+  position:absolute;top:-5px;right:2px;background:#e63935;color:#fff;
+  width:20px;height:20px;border-radius:50%;font-size:11px;
+  display:flex;align-items:center;justify-content:center
+}
+
+/* NAV */
+.nav{
+  background:#fff;display:flex;align-items:center;gap:27px;
+  padding:10px 4%;border-bottom:1px solid #e9e9e9;
+  font-weight:bold;font-size:14px;overflow-x:auto;white-space:nowrap
+}
+.nav a{padding:6px 2px}
+.nav a.active{color:#075b3b;border-bottom:4px solid #075b3b}
+
+/* HERO */
+.hero{
+  min-height:300px;
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.92) 0%,rgba(255,255,255,.67) 34%,rgba(255,255,255,.05) 70%),
+    url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1800&q=85")
+    center/cover no-repeat
+}
+.hero-content{padding:35px 7%;max-width:570px}
+.hero h1{font-size:43px;line-height:1.2;color:#075b3b;font-weight:900}
+.hero h1 span{color:#ef761d}
+.hero p{font-size:17px;line-height:1.7;margin:12px 0 18px;font-weight:bold}
+.hero-btn{
+  border:0;background:#075b3b;color:#fff;border-radius:9px;
+  padding:12px 25px;font-weight:bold
+}
+
+/* CATEGORIES */
+.categories{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+  padding:12px 2.5%
+}
+.cat-card{
+  min-height:210px;border-radius:15px;overflow:hidden;position:relative;
+  color:#111;background:#f8ead0;box-shadow:0 3px 10px rgba(0,0,0,.08);
+  transition:.2s;cursor:pointer
+}
+.cat-card:hover{transform:translateY(-3px)}
+.cat-img{width:100%;height:155px;object-fit:cover;display:block}
+.cat-text{padding:9px 13px;font-weight:900}
+.cat-text strong{display:block;font-size:21px}
+.cat-text small{font-size:14px}
+.cat-arrow{
+  position:absolute;right:12px;top:10px;background:#a51d1d;color:#fff;
+  width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center
+}
+.cat-card:nth-child(2){background:#f9dddd}
+.cat-card:nth-child(2) .cat-arrow{background:#a51d1d}
+.cat-card:nth-child(3){background:#e8e2fb}
+.cat-card:nth-child(3) .cat-arrow{background:#4431a5}
+.cat-card:nth-child(4){background:#dff1e5}
+.cat-card:nth-child(4) .cat-arrow{background:#075b3b}
+
+/* TRUST STRIP */
+.trust{
+  margin:5px 2.5% 15px;background:#f4f8f7;border-radius:13px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:14px
+}
+.trust-item{display:flex;align-items:center;gap:10px;justify-content:center}
+.trust-icon{font-size:31px;color:#075b3b}
+.trust-text{font-size:13px;font-weight:bold;line-height:1.4}
+
+/* PRODUCT AREA */
+.section{padding:8px 2.5% 18px}
+.section-head{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:10px;border-bottom:1px solid #ddd;padding-bottom:8px
+}
+.section-head h2{font-size:25px;color:#075b3b}
+.section-head button{border:0;background:none;color:#075b3b;font-weight:bold}
+.product-grid{
+  display:grid;grid-template-columns:repeat(6,1fr);gap:12px
+}
+.product-card{
+  background:#fff;border:1px solid #e4e8e6;border-radius:12px;
+  overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.07);position:relative
+}
+.product-img{height:205px;background:#f4eee6;position:relative}
+.product-img img{width:100%;height:100%;object-fit:cover}
+.badge{
+  position:absolute;left:8px;top:8px;color:#fff;border-radius:5px;
+  padding:5px 8px;font-size:11px;font-weight:bold;background:#e63935
+}
+.favorite{
+  position:absolute;right:8px;top:8px;border:0;background:#fff;
+  width:30px;height:30px;border-radius:50%;font-size:18px
+}
+.product-body{padding:9px}
+.product-name{font-size:15px;font-weight:bold;line-height:1.45;min-height:43px}
+.product-sub{font-size:11px;color:#777;margin-top:2px}
+.product-price{font-size:19px;font-weight:900;margin-top:5px}
+.product-old{font-size:11px;color:#888;text-decoration:line-through;margin-left:5px}
+.add-btn{
+  width:100%;border:0;border-radius:7px;background:#075b3b;color:#fff;
+  padding:8px 3px;margin-top:8px;font-weight:bold;font-size:12px
+}
+.state{
+  background:#fff;border:1px solid #eee;border-radius:12px;
+  padding:25px;text-align:center;color:#777;margin-top:10px
+}
+
+/* FARMER BANNER */
+.farmer-banner{
+  margin:0 2.5% 18px;border-radius:15px;overflow:hidden;
+  min-height:155px;display:flex;align-items:center;
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.93) 0%,rgba(255,255,255,.82) 40%,rgba(255,255,255,.15)),
+    url("https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1600&q=85")
+    center/cover
+}
+.farmer-content{padding:24px 9%;text-align:center;width:100%}
+.farmer-content h2{font-size:30px}
+.farmer-content p{margin:5px 0 10px;font-weight:bold}
+.farmer-btn{
+  border:0;background:#ef761d;color:#fff;border-radius:9px;
+  padding:10px 20px;font-weight:bold
+}
+
+/* BOTTOM VALUES */
+.values{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  padding:17px 4%;gap:20px;align-items:center
+}
+.value{text-align:center;font-size:13px;font-weight:bold}
+.value-icon{font-size:30px;margin-bottom:5px}
+
+/* FOOTER */
+footer{background:#075b3b;color:#fff;text-align:center;padding:25px 15px;line-height:1.8}
+footer strong{font-size:23px}
+
+/* CART DRAWER */
+.overlay{
+  display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:3000
+}
+.drawer{
+  position:absolute;right:0;top:0;height:100%;width:min(390px,94%);
+  background:#fff;padding:18px;overflow:auto
+}
+.drawer-head{display:flex;justify-content:space-between;align-items:center}
+.close{border:0;background:#eee;border-radius:50%;width:35px;height:35px}
+.cart-row{display:flex;gap:10px;border-bottom:1px solid #eee;padding:12px 0}
+.cart-row img{width:65px;height:65px;object-fit:cover;border-radius:8px}
+.cart-total{font-size:20px;font-weight:900;margin:18px 0}
+.checkout{width:100%;border:0;background:#ef761d;color:#fff;padding:12px;border-radius:9px;font-weight:bold}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .product-grid{grid-template-columns:repeat(4,1fr)}
+  .brand{min-width:220px}.brand-name{font-size:27px}
+}
+@media(max-width:760px){
+  .topbar{font-size:10px;padding:6px 10px}.top-links{gap:7px}
+  .main-header{padding:8px 10px;gap:8px;flex-wrap:wrap}
+  .brand{min-width:auto;flex:1}.brand img{width:46px;height:42px}
+  .brand-name{font-size:21px}.tagline{font-size:9px}
+  .header-actions{gap:8px}.action{font-size:10px}.action-icon{font-size:21px}
+  .search-wrap{order:3;flex-basis:100%;max-width:none}
+  .search-wrap input{height:43px}.search-btn{width:48px}
+  .nav{gap:20px;padding:9px 12px;font-size:12px}
+  .hero{min-height:245px;background-position:center}
+  .hero-content{padding:25px 7%;max-width:450px}
+  .hero h1{font-size:31px}.hero p{font-size:13px}
+  .categories{grid-template-columns:repeat(2,1fr);padding:9px}
+  .cat-card{min-height:155px}.cat-img{height:105px}.cat-text{padding:6px 9px}
+  .cat-text strong{font-size:17px}.cat-text small{font-size:10px}
+  .trust{grid-template-columns:repeat(2,1fr);margin:3px 9px 12px;padding:9px}
+  .trust-icon{font-size:24px}.trust-text{font-size:10px}
+  .section{padding:7px 9px 16px}.section-head h2{font-size:20px}
+  .product-grid{grid-template-columns:repeat(2,1fr);gap:9px}
+  .product-img{height:145px}.product-name{font-size:14px;min-height:40px}
+  .product-price{font-size:18px}.add-btn{font-size:11px}
+  .farmer-banner{margin:0 9px 14px;min-height:170px}
+  .farmer-content{padding:22px 15px}.farmer-content h2{font-size:24px}
+  .values{grid-template-columns:repeat(2,1fr);padding:15px 10px;gap:15px}
+}
+@media(max-width:380px){
+  .product-img{height:130px}.hero h1{font-size:28px}.brand-name{font-size:19px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <div>ଗଞ୍ଜାମର ଗର୍ବ &nbsp;|&nbsp; ଓଡ଼ିଆ ପରିବାର &nbsp;|&nbsp; ଆପଣଙ୍କ ଉତ୍ପାଦ, ଆପଣଙ୍କ ଘରେ</div>
+  <div class="top-links">
+    <span>Support</span><span>|</span><span>🛒 ୧୦୦% ଓଡ଼ିଆ ପ୍ରଡକ୍ଟ</span>
+    <span>|</span><span>👤 Seller Login</span><span>|</span><span>◉ Sign In</span>
+  </div>
+</div>
+
+<header class="main-header">
+  <div class="brand">
+    <img src="logo.png" alt="Utkala Mart Logo">
+    <div>
+      <div class="brand-name"><span class="odia">ଉତ୍କଳ</span> <span class="mart">Mart</span></div>
+      <div class="tagline">From Ganjam to Every Home</div>
+    </div>
+  </div>
+
+  <div class="search-wrap">
+    <input id="searchInput" type="search" placeholder="ଗଞ୍ଜାମର ଆପଣଙ୍କ ପସନ୍ଦର ପ୍ରଡକ୍ଟ..." autocomplete="off">
+    <button class="search-btn" onclick="doSearch()">⌕</button>
+  </div>
+
+  <div class="header-actions">
+    <button class="cart-btn" onclick="openCart()">
+      <span class="cart-count" id="cartCount">0</span>
+      <span class="action-icon">🛒</span><small>My Cart</small>
+    </button>
+    <div class="action"><span class="action-icon">♡</span><span>ମୋର ପସନ୍ଦ</span></div>
+    <div class="action"><span class="action-icon">♙</span><span>ମୋ ଖାତା</span></div>
+  </div>
+</header>
+
+<nav class="nav">
+  <a class="active" href="#">⌂ Home</a>
+  <a href="#food">ଖାଦ୍ୟ</a>
+  <a href="#handicraft">ହାତ ତିଆରି ଜିନିଷ</a>
+  <a href="#clothing">ବସ୍ତ୍ର</a>
+  <a href="#farmer">କୃଷକ ଉତ୍ପାଦ</a>
+  <a href="#featured">ବିଶେଷ ଅଫର</a>
+  <a href="#local">ଗଞ୍ଜାମ ଚିହ୍ନ</a>
+  <a href="#about">ଆମ ବିଷୟରେ</a>
+  <a href="#contact">ସମ୍ପର୍କ</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>ଗଞ୍ଜାମର ମାଟିରୁ<br><span>ଆପଣଙ୍କ ଘରେ...</span></h1>
+    <p>ସ୍ଥାନୀୟ ଉତ୍ପାଦ &nbsp;|&nbsp; ସ୍ଥାନୀୟ ଲୋକ &nbsp;|&nbsp; ସ୍ଥାନୀୟ ଜିନିଷ</p>
+    <button class="hero-btn" onclick="document.getElementById('featured').scrollIntoView()">ଏବେ କିଣନ୍ତୁ →</button>
+  </div>
+</section>
+
+<section class="categories">
+  <div class="cat-card" id="food" onclick="selectCategory('food')">
+    <span class="cat-arrow">→</span>
+    <img class="cat-img" src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=85" alt="Food">
+    <div class="cat-text"><strong>ଖାଦ୍ୟ</strong><small>Food Products</small></div>
+  </div>
+  <div class="cat-card" id="handicraft" onclick="selectCategory('handicraft')">
+    <span class="cat-arrow">→</span>
+    <img class="cat-img" src="https://images.unsplash.com/photo-1602523961358-f9f03dd557db?auto=format&fit=crop&w=700&q=85" alt="Handicraft">
+    <div class="cat-text"><strong>ହାତ ତିଆରି ଜିନିଷ</strong><small>Handicraft Products</small></div>
+  </div>
+  <div class="cat-card" id="clothing" onclick="selectCategory('clothing')">
+    <span class="cat-arrow">→</span>
+    <img class="cat-img" src="https://images.unsplash.com/photo-1605763240000-7e93b172d754?auto=format&fit=crop&w=700&q=85" alt="Clothing">
+    <div class="cat-text"><strong>ବସ୍ତ୍ର</strong><small>Clothing & Textiles</small></div>
+  </div>
+  <div class="cat-card" id="farmer" onclick="selectCategory('farmer')">
+    <span class="cat-arrow">→</span>
+    <img class="cat-img" src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=700&q=85" alt="Farmer Products">
+    <div class="cat-text"><strong>କୃଷକ ଉତ୍ପାଦ</strong><small>Farmer Products</small></div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="trust-item"><div class="trust-icon">✓</div><div class="trust-text">100% ଓଡ଼ିଆ ଉତ୍ପାଦ<br>Authentic & Original</div></div>
+  <div class="trust-item"><div class="trust-icon">🚚</div><div class="trust-text">ସୁରକ୍ଷିତ ଡେଲିଭରି<br>Safe Delivery</div></div>
+  <div class="trust-item"><div class="trust-icon">🛡️</div><div class="trust-text">ଯାଞ୍ଚକରା ବିକ୍ରେତା<br>Verified Sellers</div></div>
+  <div class="trust-item"><div class="trust-icon">👥</div><div class="trust-text">ସ୍ଥାନୀୟ ଲୋକଙ୍କ ସହାୟତା<br>Support Local People</div></div>
+</section>
+
+<section class="section" id="featured">
+  <div class="section-head">
+    <h2>🌿 ବିଶେଷ ଉତ୍ପାଦ</h2>
+    <button onclick="clearSearch()">ସବୁ ଦେଖନ୍ତୁ →</button>
+  </div>
+  <div id="productGrid" class="product-grid"></div>
+  <div id="state" class="state">⏳ Firebase ରୁ ପ୍ରଡକ୍ଟ ଲୋଡ୍ ହେଉଛି...</div>
+</section>
+
+<section class="farmer-banner" id="local">
+  <div class="farmer-content">
+    <h2>“ଆମ କୃଷକ, ଆମ ଗର୍ବ”</h2>
+    <p>ଗାଁରୁ ସିଧା ଆପଣଙ୍କ ଘରେ Utkala Mart ମାଧ୍ୟମରେ</p>
+    <button class="farmer-btn" onclick="selectCategory('farmer')">କୃଷକ ଉତ୍ପାଦ ଦେଖନ୍ତୁ →</button>
+  </div>
+</section>
+
+<section class="values" id="about">
+  <div class="value"><div class="value-icon">📍</div>ଗଞ୍ଜାମ ପାଇଁ<br>For Ganjam</div>
+  <div class="value"><div class="value-icon">❤️</div>ଓଡ଼ିଶା ପାଇଁ<br>For Odisha</div>
+  <div class="value"><div class="value-icon">👥</div>ଆମ ପରିବାର ପାଇଁ<br>For Our People</div>
+  <div class="value"><div class="value-icon">🌱</div>ଉତ୍ତମ ଭବିଷ୍ୟତ ପାଇଁ<br>For a Better Tomorrow</div>
+</section>
+
+<footer id="contact">
+  <strong>🌿 Utkala Mart</strong><br>
+  ଗଞ୍ଜାମର ନିଜସ୍ୱ ପ୍ରଡକ୍ଟ — ଗାଁରୁ ସହର, ଆପଣଙ୍କ ଘରେ<br>
+  © 2026 Utkala Mart
+</footer>
+
+<div id="overlay" class="overlay" onclick="closeCart(event)">
+  <aside class="drawer" onclick="event.stopPropagation()">
+    <div class="drawer-head"><h2>🛒 My Cart</h2><button class="close" onclick="closeCart()">×</button></div>
+    <div id="cartItems"></div>
+    <div id="cartTotal" class="cart-total">ମୋଟ: ₹0</div>
+    <button class="checkout" onclick="alert('Order/Payment system ଆମେ ପରବର୍ତ୍ତୀ Step ରେ connect କରିବା।')">ଅର୍ଡର କରନ୍ତୁ →</button>
+  </aside>
+</div>
+
 <script type="module">
-import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";import{getFirestore,collection,getDocs}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-const app=initializeApp({apiKey:"AIzaSyBYJ_KKsZ_7SNz108jnw6hpOlmegofRhJg",authDomain:"utkalamart-1ec68.firebaseapp.com",projectId:"utkalamart-1ec68",storageBucket:"utkalamart-1ec68.firebasestorage.app",messagingSenderId:"664871353747",appId:"1:664871353747:web:96532fdafe78aabe7f3c66"});const db=getFirestore(app);
-let products=[],cat="food",sub="ସବୁ",cart=JSON.parse(localStorage.getItem("utkalaCart")||"[]");
-const data={food:{t:"🍚 ଖାଦ୍ୟ",s:["ମିଠା","ନମକିନ୍","ପାପଡ଼","ଆଚାର","ଡାଲି","ମାଣ୍ଡିଆ","ମସଲା","ଶୁଖିଲା ଖାଦ୍ୟ","ପିଠା","ତେଲ ଓ ଗୁଡ଼"]},handicraft:{t:"🏺 ହାତ ତିଆରି ଜିନିଷ",s:["ମାଟି ମୂର୍ତ୍ତି","ପିତଳ ସାମଗ୍ରୀ","କାଠ ସାମଗ୍ରୀ","ମାଟି ସାମଗ୍ରୀ","ଗଞ୍ଜାମ କଳାକୃତି","ହାତ ତିଆରି ଉପହାର"]},clothing:{t:"👗 ବସ୍ତ୍ର",s:["ସାର୍ଟ","ପ୍ୟାଣ୍ଟ","ଲୁଙ୍ଗି","ଗାମୁଛା","ମହିଳା ପୋଷାକ","ଶିଶୁ ପୋଷାକ","ହସ୍ତତନ୍ତ ବସ୍ତ୍ର"]},farmer:{t:"🌾 କୃଷକ ଉତ୍ପାଦ",s:["ମୁଗ","ବିରି","ମାଣ୍ଡିଆ","ଚାଉଳ","ଡାଲି","ଚିନାବାଦାମ","ଦେଶୀ ଶସ୍ୟ"]}};
-const n=x=>String(x??"").trim().toLowerCase();
-function match(p,c){let id=n(p.categoryId),v=n(p.categoryName||p.category);if(id===c)return true;return c==='food'?(v.includes('food')||v.includes('ଖାଦ୍ୟ')):c==='handicraft'?(v.includes('handicraft')||v.includes('ହାତ ତିଆରି')||v.includes('ହସ୍ତଶିଳ୍ପ')):c==='clothing'?(v.includes('clothing')||v.includes('cloth')||v.includes('ବସ୍ତ୍ର')):(v.includes('farmer')||v.includes('କୃଷକ')||v.includes('village'));}
-function subs(){let d=data[cat],g=document.getElementById('subGrid');document.getElementById('subTitle').innerText=d.t+' — ବିଭାଗ ବାଛନ୍ତୁ';g.innerHTML='';let a=document.createElement('button');a.className='sub active';a.innerText='🛍️ ସବୁ';a.onclick=()=>{sub='ସବୁ';document.querySelectorAll('.sub').forEach(x=>x.classList.remove('active'));a.classList.add('active');render()};g.append(a);d.s.forEach(x=>{let b=document.createElement('button');b.className='sub';b.innerText=x;b.onclick=()=>{sub=x;document.querySelectorAll('.sub').forEach(y=>y.classList.remove('active'));b.classList.add('active');render()};g.append(b)})}
-function render(list=products){let g=document.getElementById('grid'),st=document.getElementById('state');g.innerHTML='';let m=list.filter(p=>match(p,cat));if(sub!=='ସବୁ'){let q=n(sub);m=m.filter(p=>n(p.subcategoryName||p.subcategory).includes(q)||q.includes(n(p.subcategoryName||p.subcategory)))}document.getElementById('productTitle').innerText=data[cat].t+(sub!=='ସବୁ'?' • '+sub:'');if(!m.length){st.style.display='block';st.innerHTML='😔<br><br>ଏହି ବିଭାଗରେ ବର୍ତ୍ତମାନ ପ୍ରଡକ୍ଟ ମିଳିଲା ନାହିଁ।';return}st.style.display='none';m.forEach(p=>card(p,g))}
-function card(p,g){let c=document.createElement('div');c.className='card';let pic=document.createElement('div');pic.className='pic';let im=document.createElement('img');im.src=p.imageUrl||p.image||p.photo||'logo.png';im.alt=p.name||'Utkala Mart';im.onerror=()=>im.src='logo.png';pic.append(im);let i=document.createElement('div');i.className='info';let nm=document.createElement('div');nm.className='name';nm.innerText=p.name||'ପ୍ରଡକ୍ଟ';let sn=document.createElement('div');sn.className='subname';sn.innerText=p.subcategoryName||p.subcategory||'';let pr=document.createElement('div');pr.className='price';let amount=p.utkalaPrice??p.price;pr.innerText=amount!==undefined&&amount!==''?'₹'+amount:'₹ —';if(p.sellerPrice&&amount&&Number(p.sellerPrice)!==Number(amount)){let o=document.createElement('span');o.className='old';o.innerText='₹'+p.sellerPrice;pr.append(o)}let b=document.createElement('button');b.className='add';b.innerText='🛒 କାର୍ଟରେ ରଖନ୍ତୁ';b.onclick=()=>add(p);i.append(nm,sn,pr,b);c.append(pic,i);g.append(c)}
-function update(){document.getElementById('cartCount').innerText=cart.reduce((a,x)=>a+Number(x.qty||0),0);localStorage.setItem('utkalaCart',JSON.stringify(cart))}function add(p){let f=cart.find(x=>x.id===p.id);if(f)f.qty++;else cart.push({id:p.id,name:p.name,price:Number(p.utkalaPrice??p.price??0),qty:1,imageUrl:p.imageUrl||p.image||p.photo||'logo.png'});update();let t=document.getElementById('toast');t.innerText='🛒 '+(p.name||'ପ୍ରଡକ୍ଟ')+' କାର୍ଟରେ ଯୋଡ଼ାଗଲା';t.style.display='block';setTimeout(()=>t.style.display='none',1800)}window.showCart=()=>alert(cart.length?'🛒 କାର୍ଟରେ '+cart.reduce((a,x)=>a+Number(x.qty||0),0)+'ଟି item ଅଛି।':'🛒 ଆପଣଙ୍କ କାର୍ଟ ଖାଲି ଅଛି।');
-document.querySelectorAll('.cat').forEach(b=>b.onclick=()=>{cat=b.dataset.c;sub='ସବୁ';document.querySelectorAll('.cat').forEach(x=>x.classList.remove('active'));b.classList.add('active');subs();render()});document.getElementById('search').oninput=e=>{let q=n(e.target.value);if(!q){render();return}let f=products.filter(p=>[p.name,p.categoryName,p.category,p.subcategoryName,p.subcategory,p.description].some(v=>n(v).includes(q)));document.getElementById('productTitle').innerText='🔎 Search Result';let g=document.getElementById('grid'),st=document.getElementById('state');g.innerHTML='';if(!f.length){st.style.display='block';st.innerHTML='😔<br><br>ପ୍ରଡକ୍ଟ ମିଳିଲା ନାହିଁ।'}else{st.style.display='none';f.forEach(p=>card(p,g))}};
-async function load(){try{let s=await getDocs(collection(db,'products'));products=[];s.forEach(d=>{let p={id:d.id,...d.data()};if(p.active===true&&(p.approved===true||p.status==='approved'))products.push(p)});subs();render()}catch(e){console.error(e);document.getElementById('state').innerHTML='⚠️ Firebase ରୁ Product load ହୋଇପାରିଲା ନାହିଁ। Rules ଯାଞ୍ଚ କରିବା ଦରକାର।'}}update();subs();load();
-</script></body></html>
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  getFirestore, collection, getDocs, query, where
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey:"AIzaSyBYJ_KKs_7SNz108jnw6hpOlmegofRhJg",
+  authDomain:"utkalamart-1ec68.firebaseapp.com",
+  projectId:"utkalamart-1ec68",
+  storageBucket:"utkalamart-1ec68.firebasestorage.app",
+  messagingSenderId:"664871353747",
+  appId:"1:664871353747:web:96532fdafe78aabe7f3c66"
+};
+
+const app=initializeApp(firebaseConfig);
+const db=getFirestore(app);
+
+let products=[];
+let cart=JSON.parse(localStorage.getItem("utkalaCart")||"[]");
+
+const fallbackImages={
+  food:"https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=700&q=80",
+  handicraft:"https://images.unsplash.com/photo-1577083552431-6e5fd01988e5?auto=format&fit=crop&w=700&q=80",
+  clothing:"https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=700&q=80",
+  farmer:"https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=700&q=80"
+};
+
+function norm(v){return String(v??"").trim().toLowerCase()}
+
+function categoryMatches(p,c){
+  const id=norm(p.categoryId);
+  const n=norm(p.categoryName||p.category);
+  if(id===c)return true;
+  if(c==="food")return n.includes("food")||n.includes("ଖାଦ୍ୟ");
+  if(c==="handicraft")return n.includes("handicraft")||n.includes("ହାତ ତିଆରି")||n.includes("ହସ୍ତଶିଳ୍ପ")||n.includes("craft");
+  if(c==="clothing")return n.includes("clothing")||n.includes("cloth")||n.includes("ବସ୍ତ୍ର");
+  if(c==="farmer")return n.includes("farmer")||n.includes("କୃଷକ")||n.includes("village");
+  return false;
+}
+
+function imageFor(p){
+  return p.imageUrl||p.image||p.photo||fallbackImages[norm(p.categoryId)]||fallbackImages.food;
+}
+
+function priceFor(p){
+  return Number(p.utkalaPrice??p.price??0);
+}
+
+function render(list=products){
+  const grid=document.getElementById("productGrid");
+  const state=document.getElementById("state");
+  grid.innerHTML="";
+  if(!list.length){
+    state.style.display="block";
+    state.innerHTML="😔<br><br>ବର୍ତ୍ତମାନ ପ୍ରଡକ୍ଟ ମିଳିଲା ନାହିଁ।";
+    return;
+  }
+  state.style.display="none";
+  list.slice(0,12).forEach(p=>createCard(p,grid));
+}
+
+function createCard(p,grid){
+  const card=document.createElement("article");
+  card.className="product-card";
+  const imgBox=document.createElement("div");
+  imgBox.className="product-img";
+
+  const img=document.createElement("img");
+  img.src=imageFor(p);
+  img.alt=p.name||"Utkala Mart Product";
+  img.onerror=()=>{img.onerror=null;img.src=fallbackImages[norm(p.categoryId)]||fallbackImages.food};
+
+  const badge=document.createElement("span");
+  badge.className="badge";
+  badge.innerText=p.badge||"Local";
+
+  const fav=document.createElement("button");
+  fav.className="favorite";fav.innerText="♡";
+  fav.onclick=()=>fav.innerText=fav.innerText==="♡"?"♥":"♡";
+
+  imgBox.append(img,badge,fav);
+
+  const body=document.createElement("div");
+  body.className="product-body";
+
+  const name=document.createElement("div");
+  name.className="product-name";
+  name.innerText=p.name||"ପ୍ରଡକ୍ଟ";
+
+  const sub=document.createElement("div");
+  sub.className="product-sub";
+  sub.innerText=p.subcategoryName||p.subcategory||p.categoryName||p.category||"";
+
+  const price=document.createElement("div");
+  price.className="product-price";
+  const amount=priceFor(p);
+  price.innerText=amount?"₹"+amount:"₹ —";
+
+  if(p.sellerPrice && amount && Number(p.sellerPrice)!==amount){
+    const old=document.createElement("span");
+    old.className="product-old";old.innerText="₹"+p.sellerPrice;
+    price.appendChild(old);
+  }
+
+  const btn=document.createElement("button");
+  btn.className="add-btn";
+  btn.innerText="🛒 କାର୍ଟରେ ଯୋଡନ୍ତୁ";
+  btn.onclick=()=>addToCart(p);
+
+  body.append(name,sub,price,btn);
+  card.append(imgBox,body);
+  grid.appendChild(card);
+}
+
+function addToCart(p){
+  const id=p.id;
+  const found=cart.find(x=>x.id===id);
+  if(found)found.qty++;
+  else cart.push({
+    id,name:p.name||"ପ୍ରଡକ୍ଟ",price:priceFor(p),qty:1,image:imageFor(p)
+  });
+  localStorage.setItem("utkalaCart",JSON.stringify(cart));
+  updateCart();
+}
+
+function updateCart(){
+  const count=cart.reduce((n,x)=>n+Number(x.qty||0),0);
+  document.getElementById("cartCount").innerText=count;
+}
+
+window.openCart=()=>{
+  const box=document.getElementById("cartItems");
+  const totalBox=document.getElementById("cartTotal");
+  box.innerHTML="";
+  let total=0;
+  if(!cart.length)box.innerHTML='<div class="state">🛒 କାର୍ଟ ଖାଲି ଅଛି।</div>';
+  cart.forEach((x,i)=>{
+    total+=Number(x.price||0)*Number(x.qty||0);
+    const row=document.createElement("div");
+    row.className="cart-row";
+    row.innerHTML=`<img src="${x.image||fallbackImages.food}"><div style="flex:1"><b>${x.name}</b><br>₹${x.price} × ${x.qty}<br><button style="border:0;background:none;color:#d22" onclick="removeCart(${i})">Remove</button></div>`;
+    box.appendChild(row);
+  });
+  totalBox.innerText="ମୋଟ: ₹"+total;
+  document.getElementById("overlay").style.display="block";
+};
+window.closeCart=(e)=>{if(!e||e.target.id==="overlay")document.getElementById("overlay").style.display="none"};
+window.removeCart=(i)=>{cart.splice(i,1);localStorage.setItem("utkalaCart",JSON.stringify(cart));updateCart();openCart()};
+
+window.selectCategory=(cat)=>{
+  const found=products.filter(p=>categoryMatches(p,cat));
+  document.getElementById("featured").scrollIntoView({behavior:"smooth"});
+  document.getElementById("state").style.display="none";
+  render(found);
+};
+
+window.clearSearch=()=>{
+  document.getElementById("searchInput").value="";
+  render(products);
+};
+
+window.doSearch=()=>{
+  const q=norm(document.getElementById("searchInput").value);
+  if(!q){render(products);return}
+  const found=products.filter(p=>
+    norm(p.name).includes(q)||
+    norm(p.categoryName||p.category).includes(q)||
+    norm(p.subcategoryName||p.subcategory).includes(q)||
+    norm(p.description).includes(q)
+  );
+  render(found);
+};
+
+document.getElementById("searchInput").addEventListener("input",window.doSearch);
+
+async function loadProducts(){
+  const state=document.getElementById("state");
+  try{
+    /*
+      Public Home Page reads only active products.
+      This matches the current Firestore rule:
+      allow read: if resource.data.active == true;
+    */
+    const q=query(collection(db,"products"),where("active","==",true));
+    const snap=await getDocs(q);
+    products=[];
+    snap.forEach(d=>{
+      const p={id:d.id,...d.data()};
+      /* approved products are shown when the field exists */
+      if(p.approved===undefined || p.approved===true || p.status==="approved"){
+        products.push(p);
+      }
+    });
+    render(products);
+  }catch(error){
+    console.error("Utkala Mart Firebase Error:",error);
+    state.style.display="block";
+    state.innerHTML="⚠️ Firebase Product load ହେଉନାହିଁ।<br><br>ଏବେ <b>products</b> collection ରେ active product ନଥିବା କିମ୍ବା Firebase Rules/query index ଯାଞ୍ଚ ଦରକାର।";
+  }
+}
+
+updateCart();
+loadProducts();
+</script>
+</body>
+</html>
