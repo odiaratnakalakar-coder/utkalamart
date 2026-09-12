@@ -752,9 +752,17 @@ window.closeCart=function(event){
 if(!event||event.target.id==="cartOverlay")document.getElementById("cartOverlay").style.display="none";
 };
 
-window.checkout=function(){
-if(!cart.length){toast("🛒 ପ୍ରଥମେ ପ୍ରଡକ୍ଟ କାର୍ଟରେ ଯୋଡନ୍ତୁ।");return;}
-alert("🛍️ Order & Payment system ପରବର୍ତ୍ତୀ Step ରେ connect କରିବା।");
+window.checkout = function(){
+
+    if(!cart.length){
+
+        toast("🛒 ପ୍ରଥମେ ପ୍ରଡକ୍ଟ କାର୍ଟରେ ଯୋଡନ୍ତୁ।");
+
+        return;
+    }
+
+    window.location.href = "checkout.html";
+
 };
 
 function toggleWishlist(id,button){
