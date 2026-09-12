@@ -2,193 +2,507 @@
 <html lang="or">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#075b3b">
-<title>Utkala Mart | ଅର୍ଡର କରନ୍ତୁ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Checkout - Utkala Mart</title>
+
+<meta name="theme-color" content="#138a45">
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,"Noto Sans Oriya","Nirmala UI",sans-serif;background:#f5f8f6;color:#222}
-a{text-decoration:none;color:inherit}
-.header{background:#075b3b;color:#fff;padding:14px 5%;display:flex;align-items:center;justify-content:space-between}
-.logo{font-size:25px;font-weight:900}.logo span{color:#f07b22}
-.back{background:#fff;color:#075b3b;border:0;border-radius:8px;padding:9px 14px;font-weight:900}
-.wrap{max-width:1050px;margin:20px auto;padding:0 14px}
-.steps{display:flex;gap:7px;margin-bottom:16px}
-.step{flex:1;background:#e5eee9;padding:9px;text-align:center;border-radius:8px;font-size:12px;font-weight:800}
-.step.active{background:#075b3b;color:#fff}
-.grid{display:grid;grid-template-columns:1.25fr .75fr;gap:16px}
-.box{background:#fff;border-radius:14px;padding:18px;box-shadow:0 2px 10px rgba(0,0,0,.07);margin-bottom:15px}
-h2{color:#075b3b;font-size:21px;margin-bottom:14px}
-label{display:block;font-weight:800;font-size:13px;margin:11px 0 5px}
-input,textarea,select{width:100%;border:1px solid #ccd7d2;border-radius:8px;padding:11px;outline:none;font:inherit}
-textarea{min-height:75px;resize:vertical}
-input:focus,textarea:focus,select:focus{border-color:#075b3b}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.item{display:flex;gap:10px;border-bottom:1px solid #eee;padding:11px 0}
-.item img{width:65px;height:65px;object-fit:cover;border-radius:8px}
-.item-main{flex:1}.item-name{font-weight:900;font-size:14px}.muted{color:#777;font-size:12px;margin-top:3px}
-.total-row{display:flex;justify-content:space-between;margin-top:10px}.grand{font-size:20px;font-weight:900;color:#075b3b}
-.pay{border:1px solid #dce5e1;border-radius:9px;padding:11px;margin-top:8px}
-.pay input{width:auto;margin-right:7px}
-.order-btn{width:100%;border:0;background:#ef761d;color:#fff;padding:13px;border-radius:9px;font-weight:900;font-size:15px;margin-top:15px}
-.order-btn:disabled{opacity:.6}
-.empty{text-align:center;padding:40px}.success{text-align:center}.orderid{font-size:23px;font-weight:900;color:#075b3b;margin:12px}
-.small{font-size:11px;color:#777;line-height:1.6}
-@media(max-width:760px){.grid{grid-template-columns:1fr}.row{grid-template-columns:1fr}.header{padding:11px}.logo{font-size:21px}.wrap{margin:12px auto}.box{padding:14px}}
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,"Noto Sans Odia",sans-serif;
+  background:#f5f7f6;
+  color:#222;
+}
+
+header{
+  background:#138a45;
+  color:white;
+  padding:16px;
+  text-align:center;
+}
+
+header h1{
+  margin:0;
+  font-size:24px;
+}
+
+header p{
+  margin:5px 0 0;
+  font-size:14px;
+}
+
+.container{
+  max-width:900px;
+  margin:20px auto;
+  padding:0 15px;
+}
+
+.card{
+  background:white;
+  border-radius:14px;
+  padding:18px;
+  margin-bottom:18px;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.card h2{
+  margin-top:0;
+  color:#138a45;
+  font-size:20px;
+}
+
+.product{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  border-bottom:1px solid #eee;
+  padding:12px 0;
+}
+
+.product:last-child{
+  border-bottom:none;
+}
+
+.product img{
+  width:70px;
+  height:70px;
+  object-fit:cover;
+  border-radius:10px;
+  background:#eee;
+}
+
+.product-info{
+  flex:1;
+}
+
+.product-info h3{
+  margin:0 0 5px;
+  font-size:16px;
+}
+
+.product-info p{
+  margin:3px 0;
+  font-size:13px;
+  color:#666;
+}
+
+.price{
+  font-weight:bold;
+  color:#138a45;
+}
+
+input,
+textarea,
+select{
+  width:100%;
+  padding:12px;
+  margin-top:6px;
+  margin-bottom:14px;
+  border:1px solid #ccc;
+  border-radius:9px;
+  font-size:15px;
+  outline:none;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+  border-color:#138a45;
+}
+
+textarea{
+  min-height:90px;
+  resize:vertical;
+}
+
+label{
+  font-weight:bold;
+  font-size:14px;
+}
+
+.summary-row{
+  display:flex;
+  justify-content:space-between;
+  padding:8px 0;
+}
+
+.total{
+  border-top:2px solid #138a45;
+  margin-top:8px;
+  padding-top:12px;
+  font-size:20px;
+  font-weight:bold;
+}
+
+.payment-option{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  border:1px solid #ddd;
+  padding:12px;
+  border-radius:10px;
+  margin-bottom:10px;
+  cursor:pointer;
+}
+
+.payment-option input{
+  width:auto;
+  margin:0;
+}
+
+button{
+  width:100%;
+  border:none;
+  padding:14px;
+  border-radius:10px;
+  background:#138a45;
+  color:white;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#0d7138;
+}
+
+button:disabled{
+  background:#999;
+  cursor:not-allowed;
+}
+
+.empty{
+  text-align:center;
+  padding:40px 10px;
+  color:#777;
+}
+
+.back{
+  display:inline-block;
+  margin-bottom:15px;
+  color:#138a45;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.status-box{
+  display:none;
+  padding:14px;
+  border-radius:10px;
+  margin-bottom:15px;
+  font-weight:bold;
+}
+
+.success{
+  background:#e8f8ee;
+  color:#087333;
+}
+
+.error{
+  background:#ffecec;
+  color:#b00000;
+}
+
+@media(max-width:600px){
+
+  .container{
+    margin:10px auto;
+  }
+
+  .card{
+    padding:14px;
+  }
+
+  .product img{
+    width:60px;
+    height:60px;
+  }
+
+  .product-info h3{
+    font-size:14px;
+  }
+
+}
 </style>
 </head>
+
 <body>
-<header class="header">
-<div class="logo">🌿 ଉତ୍କଳ <span>Mart</span></div>
-<button class="back" onclick="location.href='index.html'">← Home</button>
+
+<header>
+  <h1>🛍️ Utkala Mart</h1>
+  <p>ଗଞ୍ଜାମର ପ୍ରଡକ୍ଟ — ଆପଣଙ୍କ ଘରେ</p>
 </header>
 
-<main class="wrap">
-<div class="steps">
-<div class="step active">1. ଠିକଣା</div>
-<div class="step">2. Payment</div>
-<div class="step">3. Order</div>
+<div class="container">
+
+<a href="index.html" class="back">← Shopping କୁ ଫେରନ୍ତୁ</a>
+
+<div id="statusBox" class="status-box"></div>
+
+<!-- ORDER ITEMS -->
+<div class="card">
+  <h2>🛒 ଆପଣଙ୍କ Order</h2>
+  <div id="cartItems"></div>
 </div>
 
-<div id="empty" class="box empty" style="display:none">
-<h2>🛒 Cart ଖାଲି ଅଛି</h2>
-<button class="back" onclick="location.href='index.html'">ପ୍ରଡକ୍ଟ ଦେଖନ୍ତୁ</button>
+<!-- CUSTOMER DETAILS -->
+<div class="card">
+
+  <h2>👤 Customer Details</h2>
+
+  <label>ନାମ *</label>
+  <input
+    type="text"
+    id="customerName"
+    placeholder="ଆପଣଙ୍କ ନାମ"
+  >
+
+  <label>Mobile Number *</label>
+  <input
+    type="tel"
+    id="mobile"
+    maxlength="10"
+    placeholder="10 digit mobile number"
+  >
+
+  <label>ଠିକଣା *</label>
+  <textarea
+    id="address"
+    placeholder="ଘର ନମ୍ବର, ଗ୍ରାମ/ସହର, ରାସ୍ତା..."
+  ></textarea>
+
+  <label>ଜିଲ୍ଲା *</label>
+  <input
+    type="text"
+    id="district"
+    placeholder="ଉଦାହରଣ: Ganjam"
+  >
+
+  <label>PIN Code *</label>
+  <input
+    type="tel"
+    id="pin"
+    maxlength="6"
+    placeholder="6 digit PIN"
+  >
+
+  <label>ଅତିରିକ୍ତ Note</label>
+  <textarea
+    id="note"
+    placeholder="କୌଣସି ବିଶେଷ ନିର୍ଦ୍ଦେଶ ଥିଲେ ଲେଖନ୍ତୁ..."
+  ></textarea>
+
 </div>
 
-<div id="orderArea" class="grid">
-<section>
-<div class="box">
-<h2>📦 Customer Details</h2>
-<div class="row">
-<div><label>ନାମ *</label><input id="name" required placeholder="ଆପଣଙ୍କ ନାମ"></div>
-<div><label>ମୋବାଇଲ *</label><input id="mobile" inputmode="numeric" maxlength="10" placeholder="10 digit mobile"></div>
-</div>
-<label>ଠିକଣା *</label>
-<textarea id="address" placeholder="ଘର ନମ୍ବର, ରାସ୍ତା, ଗାଁ/ସହର"></textarea>
-<div class="row">
-<div><label>ଜିଲ୍ଲା *</label><input id="district" placeholder="ଉଦାହରଣ: Ganjam"></div>
-<div><label>ପିନ୍ କୋଡ୍ *</label><input id="pincode" inputmode="numeric" maxlength="6" placeholder="6 digit PIN"></div>
-</div>
-<label>ଅତିରିକ୍ତ ନିର୍ଦ୍ଦେଶ</label>
-<textarea id="note" placeholder="Delivery ବିଷୟରେ କିଛି କହିବାକୁ ଥିଲେ..."></textarea>
+<!-- PAYMENT -->
+<div class="card">
+
+  <h2>💳 Payment Method</h2>
+
+  <label class="payment-option">
+    <input
+      type="radio"
+      name="payment"
+      value="COD"
+      checked
+    >
+    <span>💵 Cash on Delivery</span>
+  </label>
+
+  <label class="payment-option">
+    <input
+      type="radio"
+      name="payment"
+      value="UPI"
+    >
+    <span>📱 UPI Payment</span>
+  </label>
+
 </div>
 
-<div class="box">
-<h2>💳 Payment Method</h2>
-<label class="pay"><input type="radio" name="payment" value="COD" checked> 💵 Cash on Delivery</label>
-<label class="pay"><input type="radio" name="payment" value="UPI"> 📱 UPI Payment</label>
-<p class="small" style="margin-top:9px">UPI gateway ଏଖନି connect ହୋଇନାହିଁ। COD ବର୍ତ୍ତମାନ ଅର୍ଡର ପାଇଁ ସୁରକ୍ଷିତ option।</p>
-</div>
-</section>
+<!-- SUMMARY -->
+<div class="card">
 
-<aside>
-<div class="box">
-<h2>🛒 Order Summary</h2>
-<div id="items"></div>
-<div class="total-row"><span>Product Total</span><b id="subtotal">₹0</b></div>
-<div class="total-row"><span>Delivery</span><b id="delivery">₹0</b></div>
-<hr style="margin:12px 0;border:0;border-top:1px solid #eee">
-<div class="total-row grand"><span>ମୋଟ</span><span id="total">₹0</span></div>
-<button id="orderBtn" class="order-btn" onclick="placeOrder()">✅ ଅର୍ଡର ନିଶ୍ଚିତ କରନ୍ତୁ</button>
-</div>
-</aside>
+  <h2>🧾 Order Summary</h2>
+
+  <div class="summary-row">
+    <span>Subtotal</span>
+    <strong id="subtotal">₹0</strong>
+  </div>
+
+  <div class="summary-row">
+    <span>Delivery</span>
+    <strong id="delivery">₹0</strong>
+  </div>
+
+  <div class="summary-row total">
+    <span>Total</span>
+    <strong id="total">₹0</strong>
+  </div>
+
+  <br>
+
+  <button id="placeOrderBtn" onclick="placeOrder()">
+    ✅ Order Place କରନ୍ତୁ
+  </button>
+
 </div>
 
-<div id="success" class="box success" style="display:none">
-<h2>🎉 ଅର୍ଡର ସଫଳ!</h2>
-<p>ଆପଣଙ୍କ Order ID:</p>
-<div class="orderid" id="orderId"></div>
-<p class="small">ଏହି Order ID ଟି save କରିରଖନ୍ତୁ। Utkala Mart ର Order Tracking ରେ ଏହା ବ୍ୟବହାର କରିପାରିବେ।</p>
-<br>
-<button class="back" onclick="location.href='index.html'">← ପୁଣି Shopping କରନ୍ତୁ</button>
 </div>
-</main>
+
 
 <script type="module">
-import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import {getFirestore,collection,addDoc,serverTimestamp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-const firebaseConfig={
-apiKey:"AIzaSyBYJ_KKs_7SNz108jnw6hpOlmegofRhJg",
-authDomain:"utkalamart-1ec68.firebaseapp.com",
-projectId:"utkalamart-1ec68",
-storageBucket:"utkalamart-1ec68.firebasestorage.app",
-messagingSenderId:"664871353747",
-appId:"1:664871353747:web:96532fdafe78aabe7f3c66"
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  collection,
+  runTransaction,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* ==============================
+   FIREBASE CONFIG
+================================ */
+
+const firebaseConfig = {
+
+  apiKey:
+  "AIzaSyBYJ_KKs_7SNz108jnw6hpOlmegofRhJg",
+
+  authDomain:
+  "utkalamart-1ec68.firebaseapp.com",
+
+  projectId:
+  "utkalamart-1ec68",
+
+  storageBucket:
+  "utkalamart-1ec68.firebasestorage.app",
+
+  messagingSenderId:
+  "664871353747",
+
+  appId:
+  "1:664871353747:web:96532fdafe78aabe7f3c66"
+
 };
-const db=getFirestore(initializeApp(firebaseConfig));
-let cart=JSON.parse(localStorage.getItem("utkalaCart")||"[]");
 
-function money(n){return "₹"+Number(n||0).toLocaleString("en-IN")}
-function render(){
-if(!cart.length){
-document.getElementById("empty").style.display="block";
-document.getElementById("orderArea").style.display="none";
-return;
-}
-let subtotal=0;
-const box=document.getElementById("items");box.innerHTML="";
-cart.forEach(i=>{
-const line=Number(i.price||0)*Number(i.qty||1);subtotal+=line;
-const d=document.createElement("div");d.className="item";
-d.innerHTML=`<img src="${String(i.image||"logo.png").replace(/"/g,"&quot;")}" onerror="this.src='logo.png'"><div class="item-main"><div class="item-name">${escapeHtml(i.name)}</div><div class="muted">${money(i.price)} × ${Number(i.qty||1)} = <b>${money(line)}</b></div></div>`;
-box.appendChild(d);
-});
-const delivery=subtotal>0?0:0;
-document.getElementById("subtotal").innerText=money(subtotal);
-document.getElementById("delivery").innerText=delivery?"₹"+delivery:"Free";
-document.getElementById("total").innerText=money(subtotal+delivery);
-}
-function escapeHtml(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
 
-window.placeOrder=async function(){
-const name=document.getElementById("name").value.trim();
-const mobile=document.getElementById("mobile").value.trim();
-const address=document.getElementById("address").value.trim();
-const district=document.getElementById("district").value.trim();
-const pincode=document.getElementById("pincode").value.trim();
-const note=document.getElementById("note").value.trim();
-const payment=document.querySelector('input[name="payment"]:checked').value;
+const app = initializeApp(firebaseConfig);
 
-if(!name||!/^\d{10}$/.test(mobile)||!address||!district||!/^\d{6}$/.test(pincode)){
-alert("⚠️ ଦୟାକରି Name, 10 digit Mobile, Address, District ଓ 6 digit PIN ଠିକ୍ ଭାବରେ ପୁରଣ କରନ୍ତୁ।");
-return;
-}
-if(!cart.length){alert("Cart ଖାଲି ଅଛି।");return;}
+const db = getFirestore(app);
 
-const subtotal=cart.reduce((s,i)=>s+Number(i.price||0)*Number(i.qty||1),0);
-const orderId="UM"+Date.now().toString().slice(-8);
-const btn=document.getElementById("orderBtn");
-btn.disabled=true;btn.innerText="⏳ Order save ହେଉଛି...";
 
-const order={
-orderId,
-customer:{name,mobile,address,district,pincode,note},
-items:cart.map(i=>({id:i.id||"",name:i.name||"",price:Number(i.price||0),qty:Number(i.qty||1),image:i.image||"logo.png"})),
-subtotal,
-deliveryCharge:0,
-total:subtotal,
-paymentMethod:payment,
-paymentStatus:payment==="COD"?"Pending":"Pending",
-orderStatus:"Pending",
-source:"Utkala Mart Website",
-createdAt:serverTimestamp()
-};
+/* ==============================
+   CART
+================================ */
+
+let cart = [];
 
 try{
-await addDoc(collection(db,"orders"),order);
-localStorage.removeItem("utkalaCart");
-document.getElementById("orderArea").style.display="none";
-document.querySelector(".steps").style.display="none";
-document.getElementById("success").style.display="block";
-document.getElementById("orderId").innerText=orderId;
+
+  cart = JSON.parse(
+    localStorage.getItem("utkalaCart")
+  ) || [];
+
 }catch(e){
-console.error(e);
-alert("❌ Order save ହୋଇପାରିଲା ନାହିଁ। Firebase rules/connection ଯାଞ୍ଚ କରନ୍ତୁ।");
-btn.disabled=false;btn.innerText="✅ ଅର୍ଡର ନିଶ୍ଚିତ କରନ୍ତୁ";
+
+  cart = [];
+
 }
-};
-render();
-</script>
-</body>
-</html>
+
+
+/* ==============================
+   STATUS
+================================ */
+
+function showStatus(message,type){
+
+  const box =
+    document.getElementById("statusBox");
+
+  box.style.display="block";
+
+  box.className =
+    "status-box " + type;
+
+  box.innerText = message;
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* ==============================
+   NUMBER
+================================ */
+
+function money(value){
+
+  return "₹" +
+    Number(value || 0).toLocaleString("en-IN");
+
+}
+
+
+/* ==============================
+   RENDER CART
+================================ */
+
+function renderCart(){
+
+  const container =
+    document.getElementById("cartItems");
+
+  if(!cart.length){
+
+    container.innerHTML = `
+      <div class="empty">
+        🛒 Cart ଖାଲି ଅଛି।
+        <br><br>
+        Shopping କୁ ଫେରି ପ୍ରଡକ୍ଟ Add କରନ୍ତୁ।
+      </div>
+    `;
+
+    document.getElementById("placeOrderBtn")
+      .disabled = true;
+
+    return;
+  }
+
+
+  let subtotal = 0;
+
+  container.innerHTML = cart.map(item => {
+
+    const qty =
+      Number(item.qty || item.quantity || 1);
+
+    const price =
+      Number(
+        item.price ||
+        item.utkalaPrice ||
+        item.sellingPrice ||
+        0
+      );
+
+    subtotal += price * qty;
+
+    const weight =
+      item.weight
+      ? `${item.weight} ${item.weightUnit || item.unit || ""}`
