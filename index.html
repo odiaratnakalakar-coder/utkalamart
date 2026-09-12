@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#075b3b">
 <meta name="description" content="Utkala Mart — ଗଞ୍ଜାମରୁ ଆରମ୍ଭ, ଭାରତର ପ୍ରତ୍ୟେକ ଘରେ">
 <link rel="icon" type="image/png" href="logo.png">
-<title>Utkala Mart | ଗଞ୍ଜାମରୁ ଆରମ୍ଭ, ଭାରତ ପର୍ଯ୍ୟନ୍ତ</title>
+<title>Utkala Mart V8 | ଗଞ୍ଜାମରୁ ଆରମ୍ଭ, ଭାରତ ପର୍ଯ୍ୟନ୍ତ</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -189,6 +189,125 @@ body{padding-bottom:66px}
 @media(max-width:420px){
 .hero{min-height:275px}.hero h1{font-size:27px}.category{height:122px}.product-image{height:132px}
 }
+
+/* =====================================================
+   V8 CATEGORY MARKETPLACE VIEW
+===================================================== */
+.market-view{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:2500;
+    background:#fff;
+    overflow:auto;
+}
+.market-head{
+    position:sticky;
+    top:0;
+    z-index:3;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:12px 3%;
+    background:#fff;
+    border-bottom:1px solid #ddd;
+    box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+.market-back{
+    border:0;
+    background:#075b3b;
+    color:#fff;
+    border-radius:9px;
+    padding:9px 13px;
+    font-weight:900;
+}
+.market-title{
+    flex:1;
+}
+.market-title h2{
+    color:#075b3b;
+    font-size:24px;
+}
+.market-title p{
+    color:#777;
+    font-size:11px;
+    margin-top:2px;
+}
+.market-search{
+    width:min(320px,35%);
+    height:40px;
+    border:1px solid #ddd;
+    border-radius:9px;
+    padding:0 12px;
+    outline:none;
+}
+.market-body{
+    padding:18px 3% 90px;
+}
+.market-body .product-grid{
+    grid-template-columns:repeat(6,1fr);
+}
+.qty-control{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:5px;
+    margin-top:8px;
+}
+.qty-control button{
+    border:1px solid #d7dedb;
+    background:#fff;
+    color:#075b3b;
+    width:31px;
+    height:31px;
+    border-radius:7px;
+    font-weight:900;
+}
+.qty-control .qty-add{
+    flex:1;
+    width:auto;
+    border:0;
+    background:#0a8755;
+    color:#fff;
+}
+.market-empty{
+    text-align:center;
+    padding:55px 20px;
+    background:#f7faf8;
+    border-radius:14px;
+    color:#777;
+}
+@media(max-width:1100px){
+    .market-body .product-grid{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:760px){
+    .market-head{
+        padding:10px;
+        gap:7px;
+    }
+    .market-back{
+        padding:8px 10px;
+        font-size:11px;
+    }
+    .market-title h2{font-size:19px}
+    .market-title p{font-size:9px}
+    .market-search{
+        position:absolute;
+        top:61px;
+        left:10px;
+        right:10px;
+        width:auto;
+        height:39px;
+    }
+    .market-body{
+        padding:60px 9px 85px;
+    }
+    .market-body .product-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:8px;
+    }
+}
+
 </style>
 </head>
 
@@ -313,6 +432,25 @@ body{padding-bottom:66px}
 </div>
 
 <div class="toast" id="toast"></div>
+
+
+<!-- =====================================================
+     V8 CATEGORY MARKETPLACE VIEW
+===================================================== -->
+<div class="market-view" id="marketView">
+    <div class="market-head">
+        <button class="market-back" onclick="closeMarketView()">← ପଛକୁ</button>
+        <div class="market-title">
+            <h2 id="marketTitle">🛍️ ପ୍ରଡକ୍ଟ</h2>
+            <p id="marketSubtitle">Utkala Mart</p>
+        </div>
+        <input class="market-search" id="marketSearch" type="search"
+               placeholder="ଏହି ବିଭାଗରେ ଖୋଜନ୍ତୁ..." autocomplete="off">
+    </div>
+    <div class="market-body">
+        <div class="product-grid" id="marketGrid"></div>
+    </div>
+</div>
 
 <!-- CART -->
 <div class="overlay" id="cartOverlay" onclick="closeCart(event)">
@@ -452,7 +590,61 @@ function hideCategories(){
 document.querySelectorAll(".category-section").forEach(s=>s.style.display="none");
 }
 
+let currentMarketCategory="";
+
+function categoryTitle(category){
+const titles={
+food:["🍚 ଖାଦ୍ୟ","Food Products"],
+handicraft:["🏺 ହାତ ତିଆରି ଜିନିଷ","Handicraft Products"],
+clothing:["👗 ପୋଷାକ ଏବଂ କପଡା","Clothing & Textiles"],
+farmer:["🌾 କୃଷକ ଉତ୍ପାଦ","Farmer Products"]
+};
+return titles[category]||["🛍️ ପ୍ରଡକ୍ଟ","Utkala Mart"];
+}
+
+function renderMarket(list){
+const grid=document.getElementById("marketGrid");
+grid.innerHTML="";
+if(!list.length){
+grid.innerHTML='<div class="market-empty">🛍️ ଏହି ବିଭାଗରେ ବର୍ତ୍ତମାନ କୌଣସି ପ୍ରଡକ୍ଟ ମିଳିଲା ନାହିଁ।</div>';
+return;
+}
+list.forEach(p=>createProductCard(p,grid));
+}
+
+function openMarketView(category){
+currentMarketCategory=category;
+const [orTitle,enTitle]=categoryTitle(category);
+document.getElementById("marketTitle").innerText=orTitle;
+document.getElementById("marketSubtitle").innerText=enTitle+" • Utkala Mart";
+document.getElementById("marketSearch").value="";
+renderMarket(allProducts.filter(p=>categoryMatch(p,category)));
+document.getElementById("marketView").style.display="block";
+document.body.style.overflow="hidden";
+setTimeout(()=>document.getElementById("marketSearch").focus(),80);
+}
+
+window.closeMarketView=function(){
+document.getElementById("marketView").style.display="none";
+document.body.style.overflow="";
+};
+
+document.getElementById("marketSearch").addEventListener("input",function(){
+const q=this.value.trim().toLowerCase();
+let items=allProducts.filter(p=>categoryMatch(p,currentMarketCategory));
+if(q){
+items=items.filter(p=>{
+const text=[p.name,p.category,p.categoryName,p.subcategory,p.subcategoryName,p.description,p.sellerName,p.location,p.locationName]
+.map(v=>String(v||"").toLowerCase()).join(" ");
+return text.includes(q);
+});
+}
+renderMarket(items);
+});
+
 window.showCategory=function(category){
+openMarketView(category);
+return;
 hideCategories();
 const target=document.getElementById(category+"Section");
 if(target){
@@ -562,7 +754,7 @@ if(!event||event.target.id==="cartOverlay")document.getElementById("cartOverlay"
 
 window.checkout=function(){
 if(!cart.length){toast("🛒 ପ୍ରଥମେ ପ୍ରଡକ୍ଟ କାର୍ଟରେ ଯୋଡନ୍ତୁ।");return;}
-alert("Order ଓ Payment system ପରବର୍ତ୍ତୀ Step ରେ connect କରିବା।");
+alert("🛍️ Order & Payment system ପରବର୍ତ୍ତୀ Step ରେ connect କରିବା।");
 };
 
 function toggleWishlist(id,button){
