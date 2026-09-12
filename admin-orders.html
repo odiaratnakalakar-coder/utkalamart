@@ -26,8 +26,6 @@ body{
   color:#222;
 }
 
-/* HEADER */
-
 .header{
   background:#138a45;
   color:#fff;
@@ -92,7 +90,7 @@ body{
   padding:18px;
 }
 
-/* TOP BAR */
+/* TOPBAR */
 
 .topbar{
   display:flex;
@@ -121,8 +119,7 @@ body{
 
 .stats{
   display:grid;
-  grid-template-columns:
-    repeat(4,1fr);
+  grid-template-columns:repeat(4,1fr);
   gap:12px;
   margin-bottom:20px;
 }
@@ -304,6 +301,19 @@ body{
   color:#856404;
 }
 
+/* RESTORED */
+
+.restore-badge{
+  display:inline-block;
+  margin-top:10px;
+  padding:6px 10px;
+  border-radius:20px;
+  background:#e0f2fe;
+  color:#0369a1;
+  font-size:12px;
+  font-weight:bold;
+}
+
 /* CONTROLS */
 
 .controls{
@@ -339,6 +349,10 @@ body{
   background:#25D366 !important;
 }
 
+.cancel-btn{
+  background:#dc2626 !important;
+}
+
 /* EMPTY */
 
 .empty{
@@ -367,13 +381,22 @@ body{
   margin-bottom:15px;
 }
 
+/* SUCCESS */
+
+.success{
+  background:#e8f8ee;
+  color:#087333;
+  padding:15px;
+  border-radius:10px;
+  margin-bottom:15px;
+}
+
 /* MOBILE */
 
 @media(max-width:800px){
 
   .stats{
-    grid-template-columns:
-      repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
   }
 
 }
@@ -416,7 +439,6 @@ body{
 
 </head>
 
-
 <body>
 
 
@@ -442,12 +464,14 @@ class="login-box">
     type="email"
     id="email"
     placeholder="Admin Email"
+    autocomplete="email"
   >
 
   <input
     type="password"
     id="password"
     placeholder="Password"
+    autocomplete="current-password"
   >
 
   <button
@@ -468,7 +492,7 @@ class="login-box">
 </div>
 
 
-<!-- ADMIN MAIN -->
+<!-- ADMIN PANEL -->
 
 <div
   id="adminPanel"
@@ -573,9 +597,7 @@ class="login-box">
   </div>
 
 
-  <div
-    id="message">
-  </div>
+  <div id="message"></div>
 
 
   <div
@@ -593,9 +615,9 @@ class="login-box">
 <script type="module">
 
 
-/* =====================================
+/* =========================================
    FIREBASE
-===================================== */
+========================================= */
 
 import {
   initializeApp
@@ -616,13 +638,14 @@ import {
   query,
   orderBy,
   updateDoc,
-  doc
+  doc,
+  runTransaction
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-/* =====================================
+/* =========================================
    FIREBASE CONFIG
-===================================== */
+========================================= */
 
 const firebaseConfig = {
 
@@ -659,30 +682,24 @@ const db =
   getFirestore(app);
 
 
-/* =====================================
+/* =========================================
    ADMIN EMAIL
-=====================================
-
-   IMPORTANT:
-   ଏଠାରେ ଆପଣଙ୍କ actual
-   Firebase Admin email ଦିଅନ୍ତୁ।
-
-===================================== */
+========================================= */
 
 const ADMIN_EMAIL =
   "admin@utkalamart.in";
 
 
-/* =====================================
+/* =========================================
    VARIABLES
-===================================== */
+========================================= */
 
 let allOrders = [];
 
 
-/* =====================================
+/* =========================================
    LOGIN
-===================================== */
+========================================= */
 
 window.loginAdmin = async function(){
 
@@ -696,7 +713,6 @@ window.loginAdmin = async function(){
     document
       .getElementById("password")
       .value;
-
 
   const errorBox =
     document.getElementById(
@@ -738,9 +754,9 @@ window.loginAdmin = async function(){
 };
 
 
-/* =====================================
+/* =========================================
    AUTH CHECK
-===================================== */
+========================================= */
 
 onAuthStateChanged(
   auth,
@@ -760,13 +776,6 @@ onAuthStateChanged(
 
     }
 
-
-    /*
-      Client-side admin check.
-
-      Firestore Rules ରେ ମଧ୍ୟ
-      Admin security ରଖିବା ଦରକାର।
-    */
 
     if(
       user.email !== ADMIN_EMAIL
@@ -798,9 +807,9 @@ onAuthStateChanged(
 );
 
 
-/* =====================================
+/* =========================================
    LOAD ORDERS
-===================================== */
+========================================= */
 
 async function loadOrders(){
 
@@ -838,7 +847,8 @@ async function loadOrders(){
 
         allOrders.push({
 
-          id:orderDoc.id,
+          id:
+            orderDoc.id,
 
           ...orderDoc.data()
 
@@ -867,7 +877,9 @@ async function loadOrders(){
 
         <br><br>
 
-        ${error.message}
+        ${escapeHTML(
+          error.message
+        )}
 
       </div>
 
@@ -878,14 +890,16 @@ async function loadOrders(){
 }
 
 
-/* =====================================
-   DATE FORMAT
-===================================== */
+/* =========================================
+   DATE
+========================================= */
 
 function formatDate(timestamp){
 
   if(!timestamp){
+
     return "Date unavailable";
+
   }
 
 
@@ -898,11 +912,17 @@ function formatDate(timestamp){
     return date.toLocaleString(
       "en-IN",
       {
+
         day:"2-digit",
+
         month:"short",
+
         year:"numeric",
+
         hour:"2-digit",
+
         minute:"2-digit"
+
       }
     );
 
@@ -915,9 +935,9 @@ function formatDate(timestamp){
 }
 
 
-/* =====================================
+/* =========================================
    MONEY
-===================================== */
+========================================= */
 
 function money(value){
 
@@ -928,9 +948,9 @@ function money(value){
 }
 
 
-/* =====================================
+/* =========================================
    STATUS CLASS
-===================================== */
+========================================= */
 
 function statusClass(status){
 
@@ -944,9 +964,9 @@ function statusClass(status){
 }
 
 
-/* =====================================
+/* =========================================
    RENDER ORDERS
-===================================== */
+========================================= */
 
 function renderOrders(
   orders
@@ -1006,23 +1026,31 @@ function renderOrders(
           "pending";
 
 
+        const restored =
+          order.stockRestored === true;
+
+
         return `
 
         <div
           class="order-card"
-          data-id="${order.id}"
+          data-id="${escapeHTML(order.id)}"
         >
 
-          <!-- ORDER HEADER -->
 
-          <div
-            class="order-head">
+          <!-- HEADER -->
+
+          <div class="order-head">
 
             <div>
 
               <div class="order-id">
 
-                📦 ${order.orderId || order.id}
+                📦
+                ${escapeHTML(
+                  order.orderId ||
+                  order.id
+                )}
 
               </div>
 
@@ -1044,7 +1072,9 @@ function renderOrders(
                   orderStatus
                 )}">
 
-                ${orderStatus}
+                ${escapeHTML(
+                  orderStatus
+                )}
 
               </span>
 
@@ -1052,8 +1082,6 @@ function renderOrders(
 
           </div>
 
-
-          <!-- BODY -->
 
           <div class="order-body">
 
@@ -1063,48 +1091,78 @@ function renderOrders(
             <div class="customer">
 
               <strong>
-                👤 ${escapeHTML(
-                  customer.name || "Customer"
+
+                👤
+                ${escapeHTML(
+                  customer.name ||
+                  "Customer"
                 )}
+
               </strong>
 
-              <p>
-                📱
-                <a
-                  href="tel:${customer.mobile || ""}">
-                  ${customer.mobile || "-"}
-                </a>
-              </p>
 
               <p>
+
+                📱
+
+                <a
+                  href="tel:${escapeHTML(
+                    customer.mobile || ""
+                  )}">
+
+                  ${escapeHTML(
+                    customer.mobile ||
+                    "-"
+                  )}
+
+                </a>
+
+              </p>
+
+
+              <p>
+
                 📍
                 ${escapeHTML(
-                  customer.address || ""
+                  customer.address ||
+                  ""
                 )}
+
               </p>
 
+
               <p>
+
                 ${escapeHTML(
-                  customer.district || ""
+                  customer.district ||
+                  ""
                 )}
+
                 -
+
                 ${escapeHTML(
-                  customer.pin || ""
+                  customer.pin ||
+                  ""
                 )}
+
               </p>
+
 
               ${
                 customer.note
                 ? `
                 <p>
+
                   📝
                   ${escapeHTML(
                     customer.note
                   )}
+
                 </p>
                 `
                 : ""
               }
+
 
             </div>
 
@@ -1120,4 +1178,1206 @@ function renderOrders(
                   <div class="item">
 
                     <img
-                      src="${item.image || ""}"
+                      src="${escapeHTML(
+                        item.image ||
+                        item.imageUrl ||
+                        ""
+                      )}"
+                      onerror="
+                        this.style.display='none'
+                      "
+                    >
+
+
+                    <div class="item-info">
+
+                      <h4>
+
+                        ${escapeHTML(
+                          item.name ||
+                          "Product"
+                        )}
+
+                      </h4>
+
+
+                      <p>
+
+                        Qty:
+
+                        <strong>
+
+                          ${Number(
+                            item.qty ||
+                            item.quantity ||
+                            1
+                          )}
+
+                        </strong>
+
+                      </p>
+
+
+                      ${
+                        item.weight
+                        ? `
+                        <p>
+
+                          ⚖️
+
+                          ${escapeHTML(
+                            String(
+                              item.weight
+                            )
+                          )}
+
+                          ${escapeHTML(
+                            item.weightUnit ||
+                            item.unit ||
+                            ""
+                          )}
+
+                        </p>
+                        `
+                        : ""
+                      }
+
+
+                      <p>
+
+                        ${money(
+                          item.price
+                        )}
+
+                        ×
+
+                        ${Number(
+                          item.qty ||
+                          item.quantity ||
+                          1
+                        )}
+
+                      </p>
+
+
+                    </div>
+
+                  </div>
+
+                `
+                ).join("")
+              }
+
+            </div>
+
+
+            <!-- TOTAL -->
+
+            <div class="total-box">
+
+              <span>
+                Total
+              </span>
+
+              <span>
+
+                ${money(
+                  order.total
+                )}
+
+              </span>
+
+            </div>
+
+
+            <!-- PAYMENT -->
+
+            <div
+              style="margin-top:12px;">
+
+              💳 Payment:
+
+              <span
+                class="
+                  payment
+                  ${
+                    paymentStatus === "paid"
+                    ? "payment-paid"
+                    : "payment-pending"
+                  }
+                ">
+
+                ${escapeHTML(
+                  order.paymentMethod ||
+                  "COD"
+                )}
+
+                -
+
+                ${escapeHTML(
+                  paymentStatus
+                )}
+
+              </span>
+
+            </div>
+
+
+            <!-- RESTORE MESSAGE -->
+
+            ${
+              restored
+              ? `
+
+              <div class="restore-badge">
+
+                ♻️ Stock Restored
+
+              </div>
+
+              `
+              : ""
+            }
+
+
+            <!-- CONTROLS -->
+
+            <div class="controls">
+
+
+              <select
+                id="status-${escapeHTML(
+                  order.id
+                )}">
+
+                <option
+                  value="placed"
+                  ${
+                    orderStatus === "placed"
+                    ? "selected"
+                    : ""
+                  }>
+
+                  Placed
+
+                </option>
+
+
+                <option
+                  value="confirmed"
+                  ${
+                    orderStatus === "confirmed"
+                    ? "selected"
+                    : ""
+                  }>
+
+                  Confirmed
+
+                </option>
+
+
+                <option
+                  value="shipped"
+                  ${
+                    orderStatus === "shipped"
+                    ? "selected"
+                    : ""
+                  }>
+
+                  Shipped
+
+                </option>
+
+
+                <option
+                  value="delivered"
+                  ${
+                    orderStatus === "delivered"
+                    ? "selected"
+                    : ""
+                  }>
+
+                  Delivered
+
+                </option>
+
+
+                <option
+                  value="cancelled"
+                  ${
+                    orderStatus === "cancelled"
+                    ? "selected"
+                    : ""
+                  }>
+
+                  Cancelled
+
+                </option>
+
+              </select>
+
+
+              <button
+                onclick="
+                  updateOrderStatus(
+                    '${escapeJS(order.id)}'
+                  )
+                ">
+
+                🔄 Update Status
+
+              </button>
+
+
+              ${
+                customer.mobile
+                ? `
+
+                <button
+                  class="whatsapp"
+                  onclick="
+                    openWhatsApp(
+                      '${escapeJS(
+                        customer.mobile
+                      )}',
+                      '${escapeJS(
+                        order.orderId ||
+                        order.id
+                      )}',
+                      '${escapeJS(
+                        orderStatus
+                      )}',
+                      '${escapeJS(
+                        order.total ||
+                        0
+                      )}'
+                    )
+                  ">
+
+                  💬 WhatsApp
+
+                </button>
+
+                `
+                : ""
+              }
+
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+        `;
+
+      }
+    ).join("");
+
+}
+
+
+/* =========================================
+   UPDATE STATUS
+========================================= */
+
+window.updateOrderStatus =
+async function(orderId){
+
+  const select =
+    document.getElementById(
+      "status-" + orderId
+    );
+
+
+  if(!select){
+
+    return;
+
+  }
+
+
+  const newStatus =
+    select.value;
+
+
+  const order =
+    allOrders.find(
+      item =>
+        item.id === orderId
+    );
+
+
+  if(!order){
+
+    alert(
+      "Order ମିଳିଲା ନାହିଁ।"
+    );
+
+    return;
+
+  }
+
+
+  const oldStatus =
+    order.orderStatus ||
+    "placed";
+
+
+  /* -------------------------------------
+     SAME STATUS
+  ------------------------------------- */
+
+  if(
+    oldStatus === newStatus
+  ){
+
+    alert(
+      "ଏହି Order ର Status ପୂର୍ବରୁ " +
+      newStatus +
+      " ଅଛି।"
+    );
+
+    return;
+
+  }
+
+
+  /* -------------------------------------
+     DELIVERED → OTHER
+  ------------------------------------- */
+
+  if(
+    oldStatus === "delivered" &&
+    newStatus !== "delivered"
+  ){
+
+    alert(
+      "Delivered Order ର Status ପରିବର୍ତ୍ତନ କରିବା ଯାଉନାହିଁ।"
+    );
+
+    filterOrders();
+
+    return;
+
+  }
+
+
+  /* -------------------------------------
+     CANCELLED → OTHER
+  ------------------------------------- */
+
+  if(
+    oldStatus === "cancelled" &&
+    newStatus !== "cancelled"
+  ){
+
+    alert(
+      "Cancelled Order ର Status ପୁଣି ପରିବର୍ତ୍ତନ କରିବା ଯାଉନାହିଁ।"
+    );
+
+    filterOrders();
+
+    return;
+
+  }
+
+
+  /* -------------------------------------
+     CONFIRM CANCEL
+  ------------------------------------- */
+
+  if(
+    newStatus === "cancelled"
+  ){
+
+    const yes =
+      confirm(
+        "⚠️ ଏହି Order କୁ Cancel କରିବେ କି?\n\n" +
+        "Order: " +
+        (
+          order.orderId ||
+          order.id
+        ) +
+        "\n\n" +
+        "Cancel ହେଲେ order ର product stock automatic restore ହେବ।"
+      );
+
+
+    if(!yes){
+
+      filterOrders();
+
+      return;
+
+    }
+
+  }
+
+
+  try{
+
+    /* ===================================
+       NORMAL STATUS UPDATE
+    =================================== */
+
+    if(
+      newStatus !== "cancelled"
+    ){
+
+      await updateDoc(
+
+        doc(
+          db,
+          "orders",
+          orderId
+        ),
+
+        {
+
+          orderStatus:
+            newStatus,
+
+          updatedAt:
+            new Date()
+
+        }
+
+      );
+
+
+      order.orderStatus =
+        newStatus;
+
+
+      updateStats();
+
+      filterOrders();
+
+
+      showMessage(
+        "✅ Order status updated: " +
+        newStatus,
+        "success"
+      );
+
+
+      return;
+
+    }
+
+
+    /* ===================================
+       CANCEL + STOCK RESTORE
+       FIRESTORE TRANSACTION
+    =================================== */
+
+    await cancelOrderAndRestoreStock(
+      order
+    );
+
+
+    showMessage(
+      "✅ Order Cancelled ଏବଂ Stock Automatic Restore ହୋଇଛି।",
+      "success"
+    );
+
+
+    await loadOrders();
+
+
+  }catch(error){
+
+    console.error(
+      "STATUS ERROR:",
+      error
+    );
+
+
+    showMessage(
+      "❌ Update failed: " +
+      error.message,
+      "error"
+    );
+
+
+    filterOrders();
+
+  }
+
+};
+
+
+/* =========================================
+   CANCEL ORDER + RESTORE STOCK
+========================================= */
+
+async function cancelOrderAndRestoreStock(
+  order
+){
+
+  const items =
+    order.items || [];
+
+
+  if(!items.length){
+
+    throw new Error(
+      "ଏହି Order ରେ Product items ନାହିଁ।"
+    );
+
+  }
+
+
+  const orderRef =
+    doc(
+      db,
+      "orders",
+      order.id
+    );
+
+
+  await runTransaction(
+    db,
+    async(transaction) => {
+
+
+      /* -----------------------------------
+         FIRST READ ORDER
+      ----------------------------------- */
+
+      const orderSnap =
+        await transaction.get(
+          orderRef
+        );
+
+
+      if(!orderSnap.exists()){
+
+        throw new Error(
+          "Order ମିଳିଲା ନାହିଁ।"
+        );
+
+      }
+
+
+      const currentOrder =
+        orderSnap.data();
+
+
+      const currentStatus =
+        currentOrder.orderStatus ||
+        "placed";
+
+
+      /* -----------------------------------
+         ALREADY CANCELLED
+      ----------------------------------- */
+
+      if(
+        currentStatus === "cancelled"
+      ){
+
+        throw new Error(
+          "ଏହି Order ପୂର୍ବରୁ Cancelled ଅଛି।"
+        );
+
+      }
+
+
+      /* -----------------------------------
+         ALREADY RESTORED
+      ----------------------------------- */
+
+      if(
+        currentOrder.stockRestored === true
+      ){
+
+        throw new Error(
+          "ଏହି Order ର Stock ପୂର୍ବରୁ Restore ହୋଇଛି।"
+        );
+
+      }
+
+
+      /* -----------------------------------
+         PRODUCT REFS
+      ----------------------------------- */
+
+      const productIds =
+        [
+          ...new Set(
+            items
+              .map(
+                item =>
+                  item.productId ||
+                  item.id
+              )
+              .filter(Boolean)
+          )
+        ];
+
+
+      if(!productIds.length){
+
+        throw new Error(
+          "Order ର Product ID ମିଳିଲା ନାହିଁ।"
+        );
+
+      }
+
+
+      const productSnapshots = [];
+
+
+      /* -----------------------------------
+         READ PRODUCTS
+      ----------------------------------- */
+
+      for(
+        const productId
+        of productIds
+      ){
+
+        const productRef =
+          doc(
+            db,
+            "products",
+            productId
+          );
+
+
+        const productSnap =
+          await transaction.get(
+            productRef
+          );
+
+
+        if(
+          !productSnap.exists()
+        ){
+
+          throw new Error(
+            "Product ମିଳିଲା ନାହିଁ: " +
+            productId
+          );
+
+        }
+
+
+        productSnapshots.push({
+
+          id:
+            productId,
+
+          ref:
+            productRef,
+
+          data:
+            productSnap.data()
+
+        });
+
+      }
+
+
+      /* -----------------------------------
+         CALCULATE RESTORE
+      ----------------------------------- */
+
+      for(
+        const product
+        of productSnapshots
+      ){
+
+        const productId =
+          product.id;
+
+
+        const data =
+          product.data;
+
+
+        /*
+          Same product cart ରେ
+          ଏକାଧିକ line ଥିଲେ
+          total quantity calculate।
+        */
+
+        let restoreQty = 0;
+
+
+        items.forEach(
+          item => {
+
+            const itemProductId =
+              item.productId ||
+              item.id;
+
+
+            if(
+              itemProductId ===
+              productId
+            ){
+
+              restoreQty +=
+                Number(
+                  item.qty ||
+                  item.quantity ||
+                  1
+                );
+
+            }
+
+          }
+        );
+
+
+        if(
+          restoreQty <= 0
+        ){
+
+          continue;
+
+        }
+
+
+        /* --------------------------------
+           CURRENT STOCK
+        -------------------------------- */
+
+        const currentStock =
+          Number(
+            data.stock ??
+            data.stockQty ??
+            data.quantity ??
+            data.availableStock ??
+            0
+          );
+
+
+        const newStock =
+          currentStock +
+          restoreQty;
+
+
+        /* --------------------------------
+           UPDATE ALL STOCK FIELDS
+        -------------------------------- */
+
+        transaction.update(
+
+          product.ref,
+
+          {
+
+            stock:
+              newStock,
+
+            stockQty:
+              newStock,
+
+            quantity:
+              newStock,
+
+            availableStock:
+              newStock,
+
+            updatedAt:
+              new Date()
+
+          }
+
+        );
+
+      }
+
+
+      /* -----------------------------------
+         UPDATE ORDER
+      ----------------------------------- */
+
+      transaction.update(
+
+        orderRef,
+
+        {
+
+          orderStatus:
+            "cancelled",
+
+          stockRestored:
+            true,
+
+          stockRestoredAt:
+            new Date(),
+
+          updatedAt:
+            new Date()
+
+        }
+
+      );
+
+    }
+
+  );
+
+}
+
+
+/* =========================================
+   SEARCH + FILTER
+========================================= */
+
+window.filterOrders =
+function(){
+
+  const search =
+    document
+      .getElementById("search")
+      .value
+      .trim()
+      .toLowerCase();
+
+
+  const status =
+    document
+      .getElementById("statusFilter")
+      .value;
+
+
+  const filtered =
+    allOrders.filter(
+      order => {
+
+        const customer =
+          order.customer || {};
+
+
+        const orderId =
+          String(
+            order.orderId ||
+            order.id ||
+            ""
+          ).toLowerCase();
+
+
+        const name =
+          String(
+            customer.name ||
+            ""
+          ).toLowerCase();
+
+
+        const mobile =
+          String(
+            customer.mobile ||
+            ""
+          ).toLowerCase();
+
+
+        const currentStatus =
+          String(
+            order.orderStatus ||
+            "placed"
+          ).toLowerCase();
+
+
+        const matchesSearch =
+          !search ||
+
+          orderId.includes(search) ||
+
+          name.includes(search) ||
+
+          mobile.includes(search);
+
+
+        const matchesStatus =
+          status === "all" ||
+
+          currentStatus === status;
+
+
+        return (
+          matchesSearch &&
+          matchesStatus
+        );
+
+      }
+    );
+
+
+  renderOrders(
+    filtered
+  );
+
+};
+
+
+/* =========================================
+   STATS
+========================================= */
+
+function updateStats(){
+
+  let sales = 0;
+
+  let placed = 0;
+
+  let delivered = 0;
+
+
+  allOrders.forEach(
+    order => {
+
+      const status =
+        order.orderStatus ||
+        "placed";
+
+
+      if(
+        status === "placed"
+      ){
+
+        placed++;
+
+      }
+
+
+      if(
+        status === "delivered"
+      ){
+
+        delivered++;
+
+      }
+
+
+      if(
+        status !== "cancelled"
+      ){
+
+        sales +=
+          Number(
+            order.total ||
+            0
+          );
+
+      }
+
+    }
+  );
+
+
+  document
+    .getElementById(
+      "totalOrders"
+    )
+    .innerText =
+    allOrders.length;
+
+
+  document
+    .getElementById(
+      "placedOrders"
+    )
+    .innerText =
+    placed;
+
+
+  document
+    .getElementById(
+      "deliveredOrders"
+    )
+    .innerText =
+    delivered;
+
+
+  document
+    .getElementById(
+      "totalSales"
+    )
+    .innerText =
+    money(sales);
+
+}
+
+
+/* =========================================
+   WHATSAPP
+========================================= */
+
+window.openWhatsApp =
+function(
+  mobile,
+  orderId,
+  status,
+  total
+){
+
+  let number =
+    String(mobile)
+      .replace(
+        /\D/g,
+        ""
+      );
+
+
+  if(
+    number.length === 10
+  ){
+
+    number =
+      "91" + number;
+
+  }
+
+
+  const message =
+`ନମସ୍କାର 🙏
+
+Utkala Mart ରୁ ଆପଣଙ୍କ Order ବିଷୟରେ ସୂଚନା।
+
+📦 Order ID: ${orderId}
+
+💰 Total: ₹${total}
+
+📋 Order Status: ${status}
+
+ଧନ୍ୟବାଦ।
+Utkala Mart`;
+
+
+  const url =
+    "https://wa.me/" +
+    number +
+    "?text=" +
+    encodeURIComponent(
+      message
+    );
+
+
+  window.open(
+    url,
+    "_blank"
+  );
+
+};
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+function showMessage(
+  message,
+  type
+){
+
+  const box =
+    document.getElementById(
+      "message"
+    );
+
+
+  box.className =
+    type === "success"
+    ? "success"
+    : "error";
+
+
+  box.innerText =
+    message;
+
+
+  setTimeout(
+    () => {
+
+      box.innerText = "";
+
+      box.className = "";
+
+    },
+    5000
+  );
+
+}
+
+
+/* =========================================
+   ESCAPE HTML
+========================================= */
+
+function escapeHTML(
+  value
+){
+
+  return String(
+    value ?? ""
+  )
+  .replace(
+    /&/g,
+    "&amp;"
+  )
+  .replace(
+    /</g,
+    "&lt;"
+  )
+  .replace(
+    />/g,
+    "&gt;"
+  )
+  .replace(
+    /"/g,
+    "&quot;"
+  )
+  .replace(
+    /'/g,
+    "&#039;"
+  );
+
+}
+
+
+/* =========================================
+   ESCAPE JS
+========================================= */
+
+function escapeJS(
+  value
+){
+
+  return String(
+    value ?? ""
+  )
+  .replace(
+    /\\/g,
+    "\\\\"
+  )
+  .replace(
+    /'/g,
+    "\\'"
+  )
+  .replace(
+    /"/g,
+    '\\"'
+  )
+  .replace(
+    /\n/g,
+    "\\n"
+  )
+  .replace(
+    /\r/g,
+    "\\r"
+  );
+
+}
+
+</script>
+
+</body>
+
+</html>
