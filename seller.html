@@ -1,2554 +1,517 @@
 <!DOCTYPE html>
 <html lang="or">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
-<meta name="theme-color"
-      content="#ff6b00">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ff6b00">
 <title>Utkala Mart - Seller Center</title>
 
 <style>
-
-/* =========================
-   BASIC
-========================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:
-        Arial,
-        "Noto Sans Oriya",
-        sans-serif;
-
-    background:#f4f5f7;
-    color:#222;
-}
-
-button,
-input,
-select,
-textarea{
-    font-family:inherit;
-}
-
-
-/* =========================
-   HEADER
-========================= */
-
-header{
-    background:#fff;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    padding:12px 18px;
-
-    box-shadow:
-        0 2px 12px rgba(0,0,0,.10);
-
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.logo-area{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-.logo{
-    width:58px;
-    height:58px;
-
-    object-fit:contain;
-
-    border-radius:50%;
-}
-
-.logo-title{
-    color:#f36b21;
-    font-size:23px;
-    font-weight:800;
-}
-
-.logo-sub{
-    color:#666;
-    font-size:14px;
-    margin-top:2px;
-}
-
-.logout-btn{
-    background:#e53935;
-    color:white;
-
-    border:0;
-    border-radius:9px;
-
-    padding:12px 18px;
-
-    font-size:16px;
-
-    cursor:pointer;
-}
-
-
-/* =========================
-   CONTAINER
-========================= */
-
-.container{
-    width:100%;
-    max-width:950px;
-
-    margin:auto;
-
-    padding:20px;
-}
-
-
-/* =========================
-   CARD
-========================= */
-
-.card{
-    background:white;
-
-    border-radius:18px;
-
-    padding:22px;
-
-    margin-bottom:20px;
-
-    box-shadow:
-        0 3px 15px rgba(0,0,0,.07);
-}
-
-
-/* =========================
-   LOGIN
-========================= */
-
-.login-wrapper{
-    max-width:460px;
-    margin:50px auto;
-}
-
-.login-logo{
-    width:90px;
-    height:90px;
-
-    object-fit:contain;
-
-    display:block;
-    margin:0 auto 12px;
-}
-
-.login-title{
-    text-align:center;
-
-    font-size:27px;
-
-    color:#f36b21;
-
-    margin-bottom:25px;
-}
-
-label{
-    display:block;
-
-    font-weight:700;
-
-    font-size:15px;
-
-    margin-top:12px;
-    margin-bottom:6px;
-}
-
-input,
-select,
-textarea{
-    width:100%;
-
-    border:1px solid #d9d9d9;
-
-    border-radius:10px;
-
-    padding:13px;
-
-    font-size:16px;
-
-    outline:none;
-
-    background:#fff;
-}
-
-input:focus,
-select:focus,
-textarea:focus{
-    border-color:#ff6b00;
-
-    box-shadow:
-        0 0 0 2px rgba(255,107,0,.10);
-}
-
-textarea{
-    min-height:110px;
-
-    resize:vertical;
-}
-
-.main-btn{
-    width:100%;
-
-    border:0;
-
-    border-radius:10px;
-
-    background:#ff6b00;
-
-    color:#fff;
-
-    padding:14px;
-
-    margin-top:15px;
-
-    font-size:17px;
-
-    font-weight:700;
-
-    cursor:pointer;
-}
-
-.main-btn:disabled{
-    background:#aaa;
-
-    cursor:not-allowed;
-}
-
-.switch-btn{
-    display:block;
-
-    width:100%;
-
-    margin-top:15px;
-
-    background:none;
-
-    border:0;
-
-    color:#f36b21;
-
-    font-size:15px;
-
-    font-weight:700;
-
-    cursor:pointer;
-}
-
-
-/* =========================
-   MESSAGE
-========================= */
-
-.message{
-    display:none;
-
-    padding:13px;
-
-    border-radius:10px;
-
-    margin-bottom:15px;
-
-    line-height:1.5;
-}
-
-.success{
-    display:block;
-
-    background:#e8f5e9;
-
-    color:#176522;
-}
-
-.error{
-    display:block;
-
-    background:#ffebee;
-
-    color:#b71c1c;
-}
-
-.info{
-    display:block;
-
-    background:#e3f2fd;
-
-    color:#075985;
-}
-
-
-/* =========================
-   WELCOME
-========================= */
-
-.welcome-title{
-    font-size:30px;
-
-    margin-bottom:10px;
-}
-
-.seller-email{
-    color:#555;
-
-    font-size:18px;
-}
-
-
-/* =========================
-   STATS
-========================= */
-
-.stats{
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:15px;
-
-    margin-bottom:20px;
-}
-
-.stat{
-    background:#fff;
-
-    padding:20px 10px;
-
-    border-radius:15px;
-
-    text-align:center;
-
-    box-shadow:
-        0 3px 12px rgba(0,0,0,.06);
-}
-
-.stat-number{
-    color:#f36b21;
-
-    font-size:28px;
-
-    font-weight:800;
-}
-
-.stat-label{
-    color:#666;
-
-    margin-top:5px;
-
-    font-size:14px;
-}
-
-
-/* =========================
-   SECTION TITLE
-========================= */
-
-.section-title{
-    font-size:26px;
-
-    margin-bottom:18px;
-}
-
-
-/* =========================
-   PHOTO PREVIEW
-========================= */
-
-.photo-preview{
-    display:none;
-
-    width:170px;
-    height:170px;
-
-    object-fit:cover;
-
-    border-radius:14px;
-
-    margin-top:12px;
-
-    border:2px solid #eee;
-}
-
-
-/* =========================
-   PRODUCTS
-========================= */
-
-.product-item{
-    display:flex;
-
-    gap:15px;
-
-    padding:14px;
-
-    border:1px solid #eee;
-
-    border-radius:14px;
-
-    margin-bottom:13px;
-
-    align-items:center;
-}
-
-.product-img{
-    width:95px;
-    height:95px;
-
-    object-fit:cover;
-
-    border-radius:12px;
-
-    background:#eee;
-
-    flex-shrink:0;
-}
-
-.product-info{
-    flex:1;
-}
-
-.product-name{
-    font-size:18px;
-
-    font-weight:800;
-
-    margin-bottom:4px;
-}
-
-.product-category{
-    color:#666;
-
-    font-size:14px;
-
-    margin-bottom:5px;
-}
-
-.product-price{
-    color:#e65100;
-
-    font-size:17px;
-
-    font-weight:800;
-
-    margin-bottom:4px;
-}
-
-.product-stock{
-    font-size:14px;
-
-    color:#555;
-}
-
-
-/* =========================
-   STATUS
-========================= */
-
-.status{
-    display:inline-block;
-
-    padding:5px 10px;
-
-    border-radius:20px;
-
-    font-size:12px;
-
-    font-weight:700;
-
-    margin-top:7px;
-}
-
-.status-pending{
-    background:#fff3cd;
-
-    color:#856404;
-}
-
-.status-approved{
-    background:#d4edda;
-
-    color:#155724;
-}
-
-.status-rejected{
-    background:#f8d7da;
-
-    color:#721c24;
-}
-
-
-/* =========================
-   EMPTY
-========================= */
-
-.empty{
-    text-align:center;
-
-    color:#777;
-
-    padding:25px 10px;
-}
-
-
-/* =========================
-   LOADING
-========================= */
-
-.loading{
-    text-align:center;
-
-    padding:25px;
-
-    color:#777;
-}
-
-
-/* =========================
-   HIDDEN
-========================= */
-
-.hidden{
-    display:none !important;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,"Noto Sans Oriya",sans-serif;background:#f4f5f7;color:#222}
+button,input,select,textarea{font-family:inherit}
+header{background:#fff;display:flex;align-items:center;justify-content:space-between;padding:12px 18px;box-shadow:0 2px 12px rgba(0,0,0,.10);position:sticky;top:0;z-index:1000}
+.logo-area{display:flex;align-items:center;gap:12px}.logo{width:58px;height:58px;object-fit:contain;border-radius:50%}
+.logo-title{color:#f36b21;font-size:23px;font-weight:800}.logo-sub{color:#666;font-size:14px;margin-top:2px}
+.logout-btn{background:#e53935;color:white;border:0;border-radius:9px;padding:12px 18px;font-size:16px;cursor:pointer}
+.container{width:100%;max-width:950px;margin:auto;padding:20px}
+.card{background:white;border-radius:18px;padding:22px;margin-bottom:20px;box-shadow:0 3px 15px rgba(0,0,0,.07)}
+.login-wrapper{max-width:460px;margin:50px auto}.login-logo{width:90px;height:90px;object-fit:contain;display:block;margin:0 auto 12px}
+.login-title{text-align:center;font-size:27px;color:#f36b21;margin-bottom:25px}
+label{display:block;font-weight:700;font-size:15px;margin-top:12px;margin-bottom:6px}
+input,select,textarea{width:100%;border:1px solid #d9d9d9;border-radius:10px;padding:13px;font-size:16px;outline:none;background:#fff}
+input:focus,select:focus,textarea:focus{border-color:#ff6b00;box-shadow:0 0 0 2px rgba(255,107,0,.10)}
+textarea{min-height:110px;resize:vertical}
+.main-btn{width:100%;border:0;border-radius:10px;background:#ff6b00;color:#fff;padding:14px;margin-top:15px;font-size:17px;font-weight:700;cursor:pointer}
+.main-btn:disabled{background:#aaa;cursor:not-allowed}
+.switch-btn{display:block;width:100%;margin-top:15px;background:none;border:0;color:#f36b21;font-size:15px;font-weight:700;cursor:pointer}
+.message{display:none;padding:13px;border-radius:10px;margin-bottom:15px;line-height:1.5}.success{display:block;background:#e8f5e9;color:#176522}.error{display:block;background:#ffebee;color:#b71c1c}.info{display:block;background:#e3f2fd;color:#075985}
+.welcome-title{font-size:30px;margin-bottom:10px}.seller-email{color:#555;font-size:18px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-bottom:20px}
+.stat{background:#fff;padding:20px 10px;border-radius:15px;text-align:center;box-shadow:0 3px 12px rgba(0,0,0,.06)}
+.stat-number{color:#f36b21;font-size:28px;font-weight:800}.stat-label{color:#666;margin-top:5px;font-size:14px}
+.section-title{font-size:26px;margin-bottom:18px}
+.form-note{background:#fff8ed;border-left:4px solid #ff6b00;padding:11px 13px;border-radius:8px;color:#6b4b2a;font-size:14px;line-height:1.5;margin-bottom:15px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 15px}
+.full{grid-column:1/-1}
+.price-box{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.photo-preview{display:none;width:170px;height:170px;object-fit:cover;border-radius:14px;margin-top:12px;border:2px solid #eee}
+.stock-hint{font-size:13px;color:#666;margin-top:5px}
+.products-head{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.product-item{display:flex;gap:15px;padding:14px;border:1px solid #eee;border-radius:14px;margin-bottom:13px;align-items:center}
+.product-img{width:95px;height:95px;object-fit:cover;border-radius:12px;background:#eee;flex-shrink:0}
+.product-info{flex:1}.product-name{font-size:18px;font-weight:800;margin-bottom:4px}
+.product-category{color:#666;font-size:14px;margin-bottom:5px}.product-price{color:#e65100;font-size:17px;font-weight:800;margin-bottom:4px}
+.product-meta{font-size:14px;color:#555;line-height:1.55}.product-stock{font-size:14px;color:#555}
+.status{display:inline-block;padding:5px 10px;border-radius:20px;font-size:12px;font-weight:700;margin-top:7px}
+.status-pending{background:#fff3cd;color:#856404}.status-approved{background:#d4edda;color:#155724}.status-rejected{background:#f8d7da;color:#721c24}
+.empty{text-align:center;color:#777;padding:25px 10px}.loading{text-align:center;padding:25px;color:#777}.hidden{display:none!important}
 @media(max-width:650px){
-
-    header{
-        padding:10px 12px;
-    }
-
-    .logo{
-        width:48px;
-        height:48px;
-    }
-
-    .logo-title{
-        font-size:19px;
-    }
-
-    .logo-sub{
-        font-size:12px;
-    }
-
-    .logout-btn{
-        padding:9px 12px;
-
-        font-size:14px;
-    }
-
-    .container{
-        padding:12px;
-    }
-
-    .card{
-        padding:18px;
-
-        border-radius:17px;
-    }
-
-    .welcome-title{
-        font-size:28px;
-    }
-
-    .stats{
-        gap:8px;
-    }
-
-    .stat{
-        padding:16px 5px;
-    }
-
-    .stat-number{
-        font-size:23px;
-    }
-
-    .stat-label{
-        font-size:12px;
-    }
-
-    .product-item{
-        align-items:flex-start;
-    }
-
-    .product-img{
-        width:75px;
-        height:75px;
-    }
-
-    .product-name{
-        font-size:15px;
-    }
-
+header{padding:10px 12px}.logo{width:48px;height:48px}.logo-title{font-size:19px}.logo-sub{font-size:12px}
+.logout-btn{padding:9px 12px;font-size:14px}.container{padding:12px}.card{padding:18px;border-radius:17px}
+.welcome-title{font-size:28px}.stats{gap:8px}.stat{padding:16px 5px}.stat-number{font-size:23px}.stat-label{font-size:12px}
+.form-grid,.price-box{grid-template-columns:1fr}.full{grid-column:auto}.product-item{align-items:flex-start}.product-img{width:75px;height:75px}.product-name{font-size:15px}
 }
-
-
-/* =========================
-   SMALL MOBILE
-========================= */
-
-@media(max-width:380px){
-
-    .logo-title{
-        font-size:17px;
-    }
-
-    .logo-sub{
-        font-size:11px;
-    }
-
-    .logout-btn{
-        padding:8px 9px;
-    }
-
-}
-
+@media(max-width:380px){.logo-title{font-size:17px}.logo-sub{font-size:11px}.logout-btn{padding:8px 9px}}
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- ==================================================
-     HEADER
-================================================== -->
-
-<header id="mainHeader"
-        class="hidden">
-
-    <div class="logo-area">
-
-        <img src="logo.png"
-             class="logo"
-             alt="Utkala Mart">
-
-        <div>
-
-            <div class="logo-title">
-                Utkala Mart
-            </div>
-
-            <div class="logo-sub">
-                Seller / Member Center
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <button class="logout-btn"
-            id="logoutBtn">
-
-        Logout
-
-    </button>
-
+<header id="mainHeader" class="hidden">
+<div class="logo-area">
+<img src="logo.png" class="logo" alt="Utkala Mart">
+<div><div class="logo-title">Utkala Mart</div><div class="logo-sub">Seller / Member Center</div></div>
+</div>
+<button class="logout-btn" id="logoutBtn">Logout</button>
 </header>
 
-
-
-<!-- ==================================================
-     LOGIN / REGISTER
-================================================== -->
-
 <section id="authSection">
+<div class="container">
+<div class="card login-wrapper">
+<img src="logo.png" class="login-logo" alt="Utkala Mart">
+<h1 class="login-title" id="authTitle">Seller Login</h1>
+<div id="authMessage" class="message"></div>
 
-    <div class="container">
+<div id="loginForm">
+<label>Email</label>
+<input type="email" id="loginEmail" placeholder="Email ଦିଅନ୍ତୁ">
+<label>Password</label>
+<input type="password" id="loginPassword" placeholder="Password ଦିଅନ୍ତୁ">
+<button class="main-btn" id="loginBtn">🔐 Login</button>
+<button class="switch-btn" id="showRegisterBtn">📝 ନୂଆ Seller Account ଖୋଲନ୍ତୁ</button>
+</div>
 
-        <div class="card login-wrapper">
-
-            <img src="logo.png"
-                 class="login-logo"
-                 alt="Utkala Mart">
-
-
-            <h1 class="login-title"
-                id="authTitle">
-
-                Seller Login
-
-            </h1>
-
-
-            <div id="authMessage"
-                 class="message">
-            </div>
-
-
-            <!-- =========================
-                 LOGIN FORM
-            ========================= -->
-
-            <div id="loginForm">
-
-                <label>
-                    Email
-                </label>
-
-                <input
-                    type="email"
-                    id="loginEmail"
-                    placeholder="Email ଦିଅନ୍ତୁ">
-
-
-                <label>
-                    Password
-                </label>
-
-                <input
-                    type="password"
-                    id="loginPassword"
-                    placeholder="Password ଦିଅନ୍ତୁ">
-
-
-                <button
-                    class="main-btn"
-                    id="loginBtn">
-
-                    🔐 Login
-
-                </button>
-
-
-                <button
-                    class="switch-btn"
-                    id="showRegisterBtn">
-
-                    📝 ନୂଆ Seller Account ଖୋଲନ୍ତୁ
-
-                </button>
-
-            </div>
-
-
-
-            <!-- =========================
-                 REGISTER FORM
-            ========================= -->
-
-            <div id="registerForm"
-                 class="hidden">
-
-                <label>
-                    Seller Name
-                </label>
-
-                <input
-                    type="text"
-                    id="registerName"
-                    placeholder="ଆପଣଙ୍କ ନାମ">
-
-
-                <label>
-                    Mobile Number
-                </label>
-
-                <input
-                    type="tel"
-                    id="registerMobile"
-                    maxlength="10"
-                    placeholder="10 digit mobile">
-
-
-                <label>
-                    Email
-                </label>
-
-                <input
-                    type="email"
-                    id="registerEmail"
-                    placeholder="Email ଦିଅନ୍ତୁ">
-
-
-                <label>
-                    Password
-                </label>
-
-                <input
-                    type="password"
-                    id="registerPassword"
-                    placeholder="କମ୍ ସେ କମ୍ 6 characters">
-
-
-                <button
-                    class="main-btn"
-                    id="registerBtn">
-
-                    📝 Register
-
-                </button>
-
-
-                <button
-                    class="switch-btn"
-                    id="showLoginBtn">
-
-                    🔐 ପୂର୍ବରୁ Account ଅଛି? Login
-
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
+<div id="registerForm" class="hidden">
+<label>Seller Name</label>
+<input type="text" id="registerName" placeholder="ଆପଣଙ୍କ ନାମ">
+<label>Mobile Number</label>
+<input type="tel" id="registerMobile" maxlength="10" placeholder="10 digit mobile">
+<label>Email</label>
+<input type="email" id="registerEmail" placeholder="Email ଦିଅନ୍ତୁ">
+<label>Password</label>
+<input type="password" id="registerPassword" placeholder="କମ୍ ସେ କମ୍ 6 characters">
+<button class="main-btn" id="registerBtn">📝 Register</button>
+<button class="switch-btn" id="showLoginBtn">🔐 ପୂର୍ବରୁ Account ଅଛି? Login</button>
+</div>
+</div>
+</div>
 </section>
 
-
-
-<!-- ==================================================
-     DASHBOARD
-================================================== -->
-
-<section id="dashboardSection"
-         class="hidden">
-
-    <div class="container">
-
-
-        <!-- =========================
-             WELCOME
-        ========================= -->
-
-        <div class="card">
-
-            <div class="welcome-title">
-                👋 Welcome
-            </div>
-
-            <div class="seller-email"
-                 id="sellerEmail">
-
-                Seller
-
-            </div>
-
-        </div>
-
-
-
-        <!-- =========================
-             STATS
-        ========================= -->
-
-        <div class="stats">
-
-            <div class="stat">
-
-                <div class="stat-number"
-                     id="totalProducts">
-
-                    0
-
-                </div>
-
-                <div class="stat-label">
-
-                    My Products
-
-                </div>
-
-            </div>
-
-
-            <div class="stat">
-
-                <div class="stat-number">
-
-                    ₹0
-
-                </div>
-
-                <div class="stat-label">
-
-                    Sales
-
-                </div>
-
-            </div>
-
-
-            <div class="stat">
-
-                <div class="stat-number"
-                     id="pendingProducts">
-
-                    0
-
-                </div>
-
-                <div class="stat-label">
-
-                    Pending
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- =========================
-             ADD PRODUCT
-        ========================= -->
-
-        <div class="card">
-
-            <h2 class="section-title">
-
-                ➕ Add New Product
-
-            </h2>
-
-
-            <div id="productMessage"
-                 class="message">
-            </div>
-
-
-            <label>
-                Product Name
-            </label>
-
-            <input
-                type="text"
-                id="productName"
-                placeholder="ଯେପରି: ଗଞ୍ଜାମ ଲଙ୍କା">
-
-
-            <label>
-                Category
-            </label>
-
-            <select id="productCategory">
-
-                <option value="">
-                    Category ବାଛନ୍ତୁ
-                </option>
-
-                <option value="Food">
-                    🍱 Food
-                </option>
-
-                <option value="Home Products">
-                    🏠 Home Products
-                </option>
-
-                <option value="Clothing">
-                    👕 Clothing
-                </option>
-
-                <option value="Handicraft">
-                    🎨 Handicraft
-                </option>
-
-                <option value="Other">
-                    📦 Other
-                </option>
-
-            </select>
-
-
-            <label>
-                Price (₹)
-            </label>
-
-            <input
-                type="number"
-                id="productPrice"
-                min="1"
-                placeholder="Product Price">
-
-
-            <label>
-                Stock
-            </label>
-
-            <input
-                type="number"
-                id="productStock"
-                min="1"
-                placeholder="କେତେଟି Stock ଅଛି">
-
-
-            <label>
-                Product Description
-            </label>
-
-            <textarea
-                id="productDescription"
-                placeholder="Product ବିଷୟରେ ଲେଖନ୍ତୁ">
-            </textarea>
-
-
-            <label>
-                Product Photo
-            </label>
-
-            <input
-                type="file"
-                id="productPhoto"
-                accept="image/*">
-
-
-            <img id="photoPreview"
-                 class="photo-preview"
-                 alt="Product Preview">
-
-
-            <button
-                class="main-btn"
-                id="addProductBtn">
-
-                📤 Product Submit କରନ୍ତୁ
-
-            </button>
-
-        </div>
-
-
-
-        <!-- =========================
-             MY PRODUCTS
-        ========================= -->
-
-        <div class="card">
-
-            <h2 class="section-title">
-
-                📦 My Products
-
-            </h2>
-
-
-            <div id="productsList">
-
-                <div class="loading">
-
-                    Products Loading...
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
+<section id="dashboardSection" class="hidden">
+<div class="container">
+
+<div class="card">
+<div class="welcome-title">👋 Welcome</div>
+<div class="seller-email" id="sellerEmail">Seller</div>
+</div>
+
+<div class="stats">
+<div class="stat"><div class="stat-number" id="totalProducts">0</div><div class="stat-label">My Products</div></div>
+<div class="stat"><div class="stat-number">₹0</div><div class="stat-label">Sales</div></div>
+<div class="stat"><div class="stat-number" id="pendingProducts">0</div><div class="stat-label">Pending</div></div>
+</div>
+
+<div class="card">
+<h2 class="section-title">➕ Add New Product</h2>
+<div class="form-note">
+📌 <b>Food</b> product ପାଇଁ Weight, Unit, Seller Price, Utkala Mart Price ଏବଂ Stock ଠିକ୍ ଭାବରେ ଦିଅନ୍ତୁ।<br>
+Admin Approval ପରେ product customer ମାନଙ୍କୁ ଦେଖାଯିବ।
+</div>
+<div id="productMessage" class="message"></div>
+
+<div class="form-grid">
+<div>
+<label>Product Name</label>
+<input type="text" id="productName" placeholder="ଯେପରି: ଗଞ୍ଜାମ ଲଙ୍କା">
+</div>
+
+<div>
+<label>Category</label>
+<select id="productCategory">
+<option value="">Category ବାଛନ୍ତୁ</option>
+<option value="Food">🍱 Food</option>
+<option value="Home Products">🏠 Home Products</option>
+<option value="Clothing">👕 Clothing & Textiles</option>
+<option value="Handicraft">🎨 Handicraft</option>
+<option value="Farmer Products">🌾 Farmer Products</option>
+<option value="Other">📦 Other</option>
+</select>
+</div>
+
+<div>
+<label>Weight / Quantity</label>
+<input type="number" id="productWeight" min="0.01" step="0.01" placeholder="ଯେପରି: 500">
+</div>
+
+<div>
+<label>Unit</label>
+<select id="productUnit">
+<option value="">Unit ବାଛନ୍ତୁ</option>
+<option value="g">ଗ୍ରାମ (g)</option>
+<option value="kg">କିଲୋଗ୍ରାମ (kg)</option>
+<option value="ml">ମିଲିଲିଟର (ml)</option>
+<option value="L">ଲିଟର (L)</option>
+<option value="piece">Piece</option>
+<option value="pair">Pair</option>
+<option value="meter">Meter</option>
+<option value="set">Set</option>
+</select>
+</div>
+
+<div>
+<label>Seller Price (₹)</label>
+<input type="number" id="sellerPrice" min="0" step="0.01" placeholder="Seller ମୂଲ୍ୟ">
+</div>
+
+<div>
+<label>Utkala Mart Price (₹)</label>
+<input type="number" id="productPrice" min="1" step="0.01" placeholder="Customer ପାଇଁ ବିକ୍ରୟ ମୂଲ୍ୟ">
+</div>
+
+<div>
+<label>Stock Available</label>
+<input type="number" id="productStock" min="0" step="1" placeholder="କେତେଟି Stock ଅଛି">
+<div class="stock-hint">ଉଦାହରଣ: 25 → 25 units available</div>
+</div>
+
+<div>
+<label>Seller Location</label>
+<input type="text" id="productLocation" placeholder="ଯେପରି: Berhampur, Ganjam">
+</div>
+
+<div class="full">
+<label>Product Description</label>
+<textarea id="productDescription" placeholder="Product ବିଷୟରେ ଲେଖନ୍ତୁ"></textarea>
+</div>
+
+<div class="full">
+<label>Product Photo</label>
+<input type="file" id="productPhoto" accept="image/*">
+<img id="photoPreview" class="photo-preview" alt="Product Preview">
+</div>
+</div>
+
+<button class="main-btn" id="addProductBtn">📤 Product Submit କରନ୍ତୁ</button>
+</div>
+
+<div class="card">
+<div class="products-head">
+<h2 class="section-title">📦 My Products</h2>
+</div>
+<div id="productsList"><div class="loading">Products Loading...</div></div>
+</div>
+
+</div>
 </section>
-
-
-
-<!-- ==================================================
-     FIREBASE
-================================================== -->
 
 <script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+import {getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,onAuthStateChanged,signOut,updateProfile}
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+import {getFirestore,collection,addDoc,query,where,onSnapshot,serverTimestamp}
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+import {getStorage,ref,uploadBytes,getDownloadURL}
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
 
-
-/* ==================================================
-   FIREBASE IMPORT
-================================================== */
-
-import {
-    initializeApp
-}
-from
-"https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-
-
-import {
-    getAuth,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    onAuthStateChanged,
-    signOut,
-    updateProfile
-}
-from
-"https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-
-
-import {
-    getFirestore,
-    collection,
-    addDoc,
-    query,
-    where,
-    onSnapshot,
-    serverTimestamp
-}
-from
-"https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
-
-
-import {
-    getStorage,
-    ref,
-    uploadBytes,
-    getDownloadURL
-}
-from
-"https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
-
-
-
-/* ==================================================
-   FIREBASE CONFIG
-================================================== */
-
-const firebaseConfig = {
-
-    apiKey:
-    "AIzaSyBYJ_KKsS_7SNz108jnw6hpOlmegofRhJg",
-
-    authDomain:
-    "utkalamart-1ec68.firebaseapp.com",
-
-    projectId:
-    "utkalamart-1ec68",
-
-    storageBucket:
-    "utkalamart-1ec68.firebasestorage.app",
-
-    messagingSenderId:
-    "664871353747",
-
-    appId:
-    "1:664871353747:web:96532fdafe78aabe7f3c66"
-
+const firebaseConfig={
+apiKey:"AIzaSyBYJ_KKsS_7SNz108jnw6hpOlmegofRhJg",
+authDomain:"utkalamart-1ec68.firebaseapp.com",
+projectId:"utkalamart-1ec68",
+storageBucket:"utkalamart-1ec68.firebasestorage.app",
+messagingSenderId:"664871353747",
+appId:"1:664871353747:web:96532fdafe78aabe7f3c66"
 };
 
+const app=initializeApp(firebaseConfig);
+const auth=getAuth(app);
+const db=getFirestore(app);
+const storage=getStorage(app);
 
+let currentUser=null;
+let unsubscribeProducts=null;
 
-/* ==================================================
-   INITIALIZE
-================================================== */
+const authSection=document.getElementById("authSection");
+const dashboardSection=document.getElementById("dashboardSection");
+const mainHeader=document.getElementById("mainHeader");
+const authTitle=document.getElementById("authTitle");
+const loginForm=document.getElementById("loginForm");
+const registerForm=document.getElementById("registerForm");
+const authMessage=document.getElementById("authMessage");
+const productMessage=document.getElementById("productMessage");
 
-const app =
-    initializeApp(firebaseConfig);
-
-
-const auth =
-    getAuth(app);
-
-
-const db =
-    getFirestore(app);
-
-
-const storage =
-    getStorage(app);
-
-
-
-/* ==================================================
-   GLOBAL
-================================================== */
-
-let currentUser = null;
-
-let unsubscribeProducts = null;
-
-
-
-/* ==================================================
-   ELEMENTS
-================================================== */
-
-const authSection =
-    document.getElementById("authSection");
-
-const dashboardSection =
-    document.getElementById("dashboardSection");
-
-const mainHeader =
-    document.getElementById("mainHeader");
-
-const authTitle =
-    document.getElementById("authTitle");
-
-const loginForm =
-    document.getElementById("loginForm");
-
-const registerForm =
-    document.getElementById("registerForm");
-
-const authMessage =
-    document.getElementById("authMessage");
-
-const productMessage =
-    document.getElementById("productMessage");
-
-
-
-/* ==================================================
-   MESSAGE FUNCTION
-================================================== */
-
-function showMessage(
-    element,
-    text,
-    type
-){
-
-    element.innerText = text;
-
-    element.className =
-        "message " + type;
-
+function showMessage(element,text,type){
+element.innerText=text;
+element.className="message "+type;
 }
 
-
-
-/* ==================================================
-   LOGIN SCREEN
-================================================== */
-
-document
-.getElementById("showRegisterBtn")
-.addEventListener(
-    "click",
-    function(){
-
-        loginForm
-        .classList
-        .add("hidden");
-
-        registerForm
-        .classList
-        .remove("hidden");
-
-        authTitle.innerText =
-            "Seller Registration";
-
-        authMessage
-        .classList
-        .remove(
-            "success",
-            "error",
-            "info"
-        );
-
-        authMessage.style.display =
-            "none";
-
-    }
-);
-
-
-
-document
-.getElementById("showLoginBtn")
-.addEventListener(
-    "click",
-    function(){
-
-        registerForm
-        .classList
-        .add("hidden");
-
-        loginForm
-        .classList
-        .remove("hidden");
-
-        authTitle.innerText =
-            "Seller Login";
-
-        authMessage
-        .classList
-        .remove(
-            "success",
-            "error",
-            "info"
-        );
-
-        authMessage.style.display =
-            "none";
-
-    }
-);
-
-
-
-/* ==================================================
-   REGISTER
-================================================== */
-
-document
-.getElementById("registerBtn")
-.addEventListener(
-    "click",
-    async function(){
-
-        const name =
-            document
-            .getElementById("registerName")
-            .value
-            .trim();
-
-
-        const mobile =
-            document
-            .getElementById("registerMobile")
-            .value
-            .trim();
-
-
-        const email =
-            document
-            .getElementById("registerEmail")
-            .value
-            .trim();
-
-
-        const password =
-            document
-            .getElementById("registerPassword")
-            .value;
-
-
-        if(
-            !name ||
-            !mobile ||
-            !email ||
-            !password
-        ){
-
-            showMessage(
-                authMessage,
-                "ସମସ୍ତ information ପୂରଣ କରନ୍ତୁ।",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        if(!/^[0-9]{10}$/.test(mobile)){
-
-            showMessage(
-                authMessage,
-                "10 digit Mobile Number ଦିଅନ୍ତୁ।",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        if(password.length < 6){
-
-            showMessage(
-                authMessage,
-                "Password କମ୍ ସେ କମ୍ 6 characters ହେବା ଦରକାର।",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        const button =
-            document
-            .getElementById("registerBtn");
-
-
-        button.disabled = true;
-
-        button.innerText =
-            "Creating Account...";
-
-
-        try{
-
-            const result =
-                await createUserWithEmailAndPassword(
-                    auth,
-                    email,
-                    password
-                );
-
-
-            await updateProfile(
-                result.user,
-                {
-                    displayName:name
-                }
-            );
-
-
-            showMessage(
-                authMessage,
-                "✅ Seller Account ସଫଳତାର ସହିତ ତିଆରି ହେଲା।",
-                "success"
-            );
-
-
-        }
-        catch(error){
-
-            console.error(error);
-
-            let message =
-                "Registration ହୋଇପାରିଲା ନାହିଁ।";
-
-
-            if(
-                error.code ===
-                "auth/email-already-in-use"
-            ){
-
-                message =
-                    "ଏହି Email ରେ Account ପୂର୍ବରୁ ଅଛି।";
-
-            }
-
-
-            if(
-                error.code ===
-                "auth/invalid-email"
-            ){
-
-                message =
-                    "Email ଠିକ୍ ନୁହେଁ।";
-
-            }
-
-
-            if(
-                error.code ===
-                "auth/weak-password"
-            ){
-
-                message =
-                    "Password ଆହୁରି strong କରନ୍ତୁ।";
-
-            }
-
-
-            showMessage(
-                authMessage,
-                message,
-                "error"
-            );
-
-        }
-
-
-        button.disabled = false;
-
-        button.innerText =
-            "📝 Register";
-
-    }
-);
-
-
-
-/* ==================================================
-   LOGIN
-================================================== */
-
-document
-.getElementById("loginBtn")
-.addEventListener(
-    "click",
-    async function(){
-
-        const email =
-            document
-            .getElementById("loginEmail")
-            .value
-            .trim();
-
-
-        const password =
-            document
-            .getElementById("loginPassword")
-            .value;
-
-
-        if(!email || !password){
-
-            showMessage(
-                authMessage,
-                "Email ଏବଂ Password ଦିଅନ୍ତୁ।",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        const button =
-            document
-            .getElementById("loginBtn");
-
-
-        button.disabled = true;
-
-        button.innerText =
-            "Login...";
-
-
-        try{
-
-            await signInWithEmailAndPassword(
-                auth,
-                email,
-                password
-            );
-
-        }
-        catch(error){
-
-            console.error(error);
-
-            let message =
-                "Login ହୋଇପାରିଲା ନାହିଁ।";
-
-
-            if(
-                error.code ===
-                "auth/invalid-credential"
-            ){
-
-                message =
-                    "Email କିମ୍ବା Password ଭୁଲ।";
-
-            }
-
-
-            if(
-                error.code ===
-                "auth/user-not-found"
-            ){
-
-                message =
-                    "ଏହି Email ରେ Account ନାହିଁ।";
-
-            }
-
-
-            showMessage(
-                authMessage,
-                message,
-                "error"
-            );
-
-        }
-
-
-        button.disabled = false;
-
-        button.innerText =
-            "🔐 Login";
-
-    }
-);
-
-
-
-/* ==================================================
-   LOGOUT
-================================================== */
-
-document
-.getElementById("logoutBtn")
-.addEventListener(
-    "click",
-    async function(){
-
-        await signOut(auth);
-
-    }
-);
-
-
-
-/* ==================================================
-   PHOTO PREVIEW
-================================================== */
-
-document
-.getElementById("productPhoto")
-.addEventListener(
-    "change",
-    function(event){
-
-        const file =
-            event.target.files[0];
-
-
-        const preview =
-            document.getElementById(
-                "photoPreview"
-            );
-
-
-        if(!file){
-
-            preview.style.display =
-                "none";
-
-            return;
-
-        }
-
-
-        if(!file.type.startsWith("image/")){
-
-            showMessage(
-                productMessage,
-                "କେବଳ Image file ବାଛନ୍ତୁ।",
-                "error"
-            );
-
-            event.target.value = "";
-
-            preview.style.display =
-                "none";
-
-            return;
-
-        }
-
-
-        preview.src =
-            URL.createObjectURL(file);
-
-        preview.style.display =
-            "block";
-
-    }
-);
-
-
-
-/* ==================================================
-   IMAGE COMPRESS
-================================================== */
+document.getElementById("showRegisterBtn").addEventListener("click",()=>{
+loginForm.classList.add("hidden");
+registerForm.classList.remove("hidden");
+authTitle.innerText="Seller Registration";
+authMessage.className="message";
+});
+
+document.getElementById("showLoginBtn").addEventListener("click",()=>{
+registerForm.classList.add("hidden");
+loginForm.classList.remove("hidden");
+authTitle.innerText="Seller Login";
+authMessage.className="message";
+});
+
+document.getElementById("registerBtn").addEventListener("click",async()=>{
+const name=document.getElementById("registerName").value.trim();
+const mobile=document.getElementById("registerMobile").value.trim();
+const email=document.getElementById("registerEmail").value.trim();
+const password=document.getElementById("registerPassword").value;
+
+if(!name||!mobile||!email||!password)return showMessage(authMessage,"ସମସ୍ତ information ପୂରଣ କରନ୍ତୁ।","error");
+if(!/^[0-9]{10}$/.test(mobile))return showMessage(authMessage,"10 digit Mobile Number ଦିଅନ୍ତୁ।","error");
+if(password.length<6)return showMessage(authMessage,"Password କମ୍ ସେ କମ୍ 6 characters ହେବା ଦରକାର।","error");
+
+const button=document.getElementById("registerBtn");
+button.disabled=true;button.innerText="Creating Account...";
+
+try{
+const result=await createUserWithEmailAndPassword(auth,email,password);
+await updateProfile(result.user,{displayName:name});
+showMessage(authMessage,"✅ Seller Account ସଫଳତାର ସହିତ ତିଆରି ହେଲା।","success");
+}catch(error){
+console.error(error);
+let message="Registration ହୋଇପାରିଲା ନାହିଁ।";
+if(error.code==="auth/email-already-in-use")message="ଏହି Email ରେ Account ପୂର୍ବରୁ ଅଛି।";
+if(error.code==="auth/invalid-email")message="Email ଠିକ୍ ନୁହେଁ।";
+if(error.code==="auth/weak-password")message="Password ଆହୁରି strong କରନ୍ତୁ।";
+showMessage(authMessage,message,"error");
+}
+button.disabled=false;button.innerText="📝 Register";
+});
+
+document.getElementById("loginBtn").addEventListener("click",async()=>{
+const email=document.getElementById("loginEmail").value.trim();
+const password=document.getElementById("loginPassword").value;
+if(!email||!password)return showMessage(authMessage,"Email ଏବଂ Password ଦିଅନ୍ତୁ।","error");
+
+const button=document.getElementById("loginBtn");
+button.disabled=true;button.innerText="Login...";
+try{await signInWithEmailAndPassword(auth,email,password)}
+catch(error){
+console.error(error);
+let message="Login ହୋଇପାରିଲା ନାହିଁ।";
+if(error.code==="auth/invalid-credential"||error.code==="auth/wrong-password")message="Email କିମ୍ବା Password ଭୁଲ।";
+if(error.code==="auth/user-not-found")message="ଏହି Email ରେ Account ନାହିଁ।";
+showMessage(authMessage,message,"error");
+}
+button.disabled=false;button.innerText="🔐 Login";
+});
+
+document.getElementById("logoutBtn").addEventListener("click",async()=>{await signOut(auth)});
+
+document.getElementById("productPhoto").addEventListener("change",event=>{
+const file=event.target.files[0];
+const preview=document.getElementById("photoPreview");
+if(!file){preview.style.display="none";return}
+if(!file.type.startsWith("image/")){
+showMessage(productMessage,"କେବଳ Image file ବାଛନ୍ତୁ।","error");
+event.target.value="";preview.style.display="none";return;
+}
+preview.src=URL.createObjectURL(file);
+preview.style.display="block";
+});
 
 async function compressImage(file){
-
-    return new Promise(
-        function(resolve,reject){
-
-            const img =
-                new Image();
-
-
-            const url =
-                URL.createObjectURL(file);
-
-
-            img.onload =
-                function(){
-
-                    const maxSize = 1200;
-
-                    let width =
-                        img.width;
-
-                    let height =
-                        img.height;
-
-
-                    if(width > maxSize){
-
-                        height =
-                            height *
-                            maxSize /
-                            width;
-
-                        width =
-                            maxSize;
-
-                    }
-
-
-                    if(height > maxSize){
-
-                        width =
-                            width *
-                            maxSize /
-                            height;
-
-                        height =
-                            maxSize;
-
-                    }
-
-
-                    const canvas =
-                        document.createElement(
-                            "canvas"
-                        );
-
-
-                    canvas.width =
-                        Math.round(width);
-
-                    canvas.height =
-                        Math.round(height);
-
-
-                    const ctx =
-                        canvas.getContext("2d");
-
-
-                    ctx.drawImage(
-                        img,
-                        0,
-                        0,
-                        canvas.width,
-                        canvas.height
-                    );
-
-
-                    canvas.toBlob(
-                        function(blob){
-
-                            URL.revokeObjectURL(url);
-
-                            if(blob){
-
-                                resolve(blob);
-
-                            }else{
-
-                                reject(
-                                    new Error(
-                                        "Image compression failed"
-                                    )
-                                );
-
-                            }
-
-                        },
-                        "image/jpeg",
-                        0.82
-                    );
-
-                };
-
-
-            img.onerror =
-                function(){
-
-                    URL.revokeObjectURL(url);
-
-                    reject(
-                        new Error(
-                            "Image load failed"
-                        )
-                    );
-
-                };
-
-
-            img.src = url;
-
-        }
-    );
-
+return new Promise((resolve,reject)=>{
+const img=new Image();
+const url=URL.createObjectURL(file);
+img.onload=()=>{
+const maxSize=1200;
+let width=img.width,height=img.height;
+if(width>maxSize){height=height*maxSize/width;width=maxSize}
+if(height>maxSize){width=width*maxSize/height;height=maxSize}
+const canvas=document.createElement("canvas");
+canvas.width=Math.round(width);canvas.height=Math.round(height);
+const ctx=canvas.getContext("2d");
+ctx.drawImage(img,0,0,canvas.width,canvas.height);
+canvas.toBlob(blob=>{
+URL.revokeObjectURL(url);
+blob?resolve(blob):reject(new Error("Image compression failed"));
+},"image/jpeg",0.82);
+};
+img.onerror=()=>{URL.revokeObjectURL(url);reject(new Error("Image load failed"))};
+img.src=url;
+});
 }
 
-
-
-/* ==================================================
-   ADD PRODUCT
-================================================== */
-
-document
-.getElementById("addProductBtn")
-.addEventListener(
-    "click",
-    async function(){
-
-        if(!currentUser){
-
-            showMessage(
-                productMessage,
-                "ପ୍ରଥମେ Login କରନ୍ତୁ।",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        const name =
-            document
-            .getElementById("productName")
-            .value
-            .trim();
-
-
-        const category =
-            document
-            .getElementById("productCategory")
-            .value;
-
-
-        const price =
-            Number(
-                document
-                .getElementById("productPrice")
-                .value
-            );
-
-
-        const stock =
-            Number(
-                document
-                .getElementById("productStock")
-                .value
-            );
-
-
-        const description =
-            document
-            .getElementById("productDescription")
-            .value
-            .trim();
-
-
-        const file =
-            document
-            .getElementById("productPhoto")
-            .files[0];
-
-
-        /* =========================
-           VALIDATION
-        ========================= */
-
-        if(!name){
-
-            showMessage(
-                productMessage,
-                "Product Name ଦିଅନ୍ତୁ।",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        if(!category){
-
-            showMessage(
-                productMessage,
-                "Category ବାଛନ୍ତୁ।",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        if(price <= 0){
-
-            showMessage(
-                productMessage,
-                "ଠିକ୍ Price ଦିଅନ୍ତୁ।",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        if(stock <= 0){
-
-            showMessage(
-                productMessage,
-                "ଠିକ୍ Stock ଦିଅନ୍ତୁ।",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        if(!file){
-
-            showMessage(
-                productMessage,
-                "Product Photo ବାଛନ୍ତୁ।",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        /* =========================
-           BUTTON
-        ========================= */
-
-        const button =
-            document
-            .getElementById(
-                "addProductBtn"
-            );
-
-
-        button.disabled = true;
-
-        button.innerText =
-            "📷 Photo ପ୍ରସ୍ତୁତ ହେଉଛି...";
-
-
-        try{
-
-
-            /* =========================
-               COMPRESS IMAGE
-            ========================= */
-
-            const compressedImage =
-                await compressImage(file);
-
-
-            button.innerText =
-                "☁️ Photo Uploading...";
-
-
-            /* =========================
-               FILE NAME
-            ========================= */
-
-            const safeName =
-                name
-                .replace(
-                    /[^a-zA-Z0-9\u0B00-\u0B7F]/g,
-                    "_"
-                );
-
-
-            const fileName =
-                Date.now() +
-                "_" +
-                safeName +
-                ".jpg";
-
-
-            /* =========================
-               STORAGE PATH
-            ========================= */
-
-            const storageRef =
-                ref(
-                    storage,
-                    "seller-products/" +
-                    currentUser.uid +
-                    "/" +
-                    fileName
-                );
-
-
-            /* =========================
-               UPLOAD PHOTO
-            ========================= */
-
-            await uploadBytes(
-                storageRef,
-                compressedImage,
-                {
-                    contentType:
-                        "image/jpeg"
-                }
-            );
-
-
-            const imageUrl =
-                await getDownloadURL(
-                    storageRef
-                );
-
-
-            button.innerText =
-                "💾 Product Saving...";
-
-
-            /* =========================
-               FIRESTORE
-            ========================= */
-
-            await addDoc(
-                collection(
-                    db,
-                    "products"
-                ),
-                {
-
-                    name:name,
-
-                    category:category,
-
-                    price:price,
-
-                    stock:stock,
-
-                    description:description,
-
-                    image:imageUrl,
-
-                    imageUrl:imageUrl,
-
-                    sellerId:
-                        currentUser.uid,
-
-                    sellerName:
-                        currentUser.displayName ||
-                        currentUser.email,
-
-                    sellerEmail:
-                        currentUser.email,
-
-                    status:
-                        "pending",
-
-                    approved:
-                        false,
-
-                    active:
-                        false,
-
-                    createdAt:
-                        serverTimestamp()
-
-                }
-            );
-
-
-            /* =========================
-               SUCCESS
-            ========================= */
-
-            showMessage(
-                productMessage,
-                "✅ Product ସଫଳତାର ସହିତ Submit ହୋଇଗଲା। Admin Approval ପରେ Utkala Mart ରେ ଦେଖାଯିବ।",
-                "success"
-            );
-
-
-            /* =========================
-               CLEAR
-            ========================= */
-
-            document
-            .getElementById("productName")
-            .value = "";
-
-
-            document
-            .getElementById("productCategory")
-            .value = "";
-
-
-            document
-            .getElementById("productPrice")
-            .value = "";
-
-
-            document
-            .getElementById("productStock")
-            .value = "";
-
-
-            document
-            .getElementById("productDescription")
-            .value = "";
-
-
-            document
-            .getElementById("productPhoto")
-            .value = "";
-
-
-            document
-            .getElementById("photoPreview")
-            .style.display =
-                "none";
-
-
-        }
-        catch(error){
-
-            console.error(
-                "PRODUCT ERROR:",
-                error
-            );
-
-
-            let message =
-                "Product upload ହୋଇପାରିଲା ନାହିଁ।";
-
-
-            if(
-                error.code ===
-                "storage/unauthorized"
-            ){
-
-                message =
-                    "❌ Storage Permission ନାହିଁ। Firebase Storage Rules check କରନ୍ତୁ।";
-
-            }
-            else if(
-                error.code ===
-                "permission-denied"
-            ){
-
-                message =
-                    "❌ Firestore Permission denied। Firestore Rules check କରନ୍ତୁ।";
-
-            }
-            else if(
-                error.message
-            ){
-
-                message =
-                    "❌ " +
-                    error.message;
-
-            }
-
-
-            showMessage(
-                productMessage,
-                message,
-                "error"
-            );
-
-        }
-
-
-        button.disabled = false;
-
-        button.innerText =
-            "📤 Product Submit କରନ୍ତୁ";
-
-    }
-);
-
-
-
-/* ==================================================
-   LOAD SELLER PRODUCTS
-================================================== */
+function clearProductForm(){
+["productName","productWeight","sellerPrice","productPrice","productStock","productLocation","productDescription"].forEach(id=>document.getElementById(id).value="");
+document.getElementById("productCategory").value="";
+document.getElementById("productUnit").value="";
+document.getElementById("productPhoto").value="";
+document.getElementById("photoPreview").style.display="none";
+}
+
+document.getElementById("addProductBtn").addEventListener("click",async()=>{
+if(!currentUser)return showMessage(productMessage,"ପ୍ରଥମେ Login କରନ୍ତୁ।","error");
+
+const name=document.getElementById("productName").value.trim();
+const category=document.getElementById("productCategory").value;
+const weight=Number(document.getElementById("productWeight").value);
+const weightUnit=document.getElementById("productUnit").value;
+const sellerPrice=Number(document.getElementById("sellerPrice").value);
+const price=Number(document.getElementById("productPrice").value);
+const stock=Number(document.getElementById("productStock").value);
+const location=document.getElementById("productLocation").value.trim();
+const description=document.getElementById("productDescription").value.trim();
+const file=document.getElementById("productPhoto").files[0];
+
+if(!name)return showMessage(productMessage,"Product Name ଦିଅନ୍ତୁ।","error");
+if(!category)return showMessage(productMessage,"Category ବାଛନ୍ତୁ।","error");
+if(!weight||weight<=0)return showMessage(productMessage,"Weight / Quantity ଦିଅନ୍ତୁ।","error");
+if(!weightUnit)return showMessage(productMessage,"Unit ବାଛନ୍ତୁ।","error");
+if(sellerPrice<0||!Number.isFinite(sellerPrice))return showMessage(productMessage,"ଠିକ୍ Seller Price ଦିଅନ୍ତୁ।","error");
+if(price<=0)return showMessage(productMessage,"ଠିକ୍ Utkala Mart Price ଦିଅନ୍ତୁ।","error");
+if(sellerPrice>price)return showMessage(productMessage,"Seller Price, Utkala Mart Price ଠାରୁ ଅଧିକ ହେବା ଉଚିତ୍ ନୁହେଁ।","error");
+if(!Number.isInteger(stock)||stock<0)return showMessage(productMessage,"Stock 0 କିମ୍ବା ତାଠାରୁ ଅଧିକ whole number ଦିଅନ୍ତୁ।","error");
+if(!file)return showMessage(productMessage,"Product Photo ବାଛନ୍ତୁ।","error");
+
+const button=document.getElementById("addProductBtn");
+button.disabled=true;button.innerText="📷 Photo ପ୍ରସ୍ତୁତ ହେଉଛି...";
+
+try{
+const compressedImage=await compressImage(file);
+button.innerText="☁️ Photo Uploading...";
+
+const safeName=name.replace(/[^a-zA-Z0-9\u0B00-\u0B7F]/g,"_");
+const fileName=Date.now()+"_"+safeName+".jpg";
+const storageRef=ref(storage,"seller-products/"+currentUser.uid+"/"+fileName);
+
+await uploadBytes(storageRef,compressedImage,{contentType:"image/jpeg"});
+const imageUrl=await getDownloadURL(storageRef);
+
+button.innerText="💾 Product Saving...";
+
+await addDoc(collection(db,"products"),{
+name:name,
+category:category,
+categoryName:category,
+
+weight:weight,
+weightUnit:weightUnit,
+unit:weightUnit,
+
+sellerPrice:sellerPrice,
+price:price,
+utkalaPrice:price,
+sellingPrice:price,
+
+stock:stock,
+stockQty:stock,
+quantity:stock,
+availableStock:stock,
+
+location:location,
+sellerLocation:location,
+description:description,
+
+image:imageUrl,
+imageUrl:imageUrl,
+
+sellerId:currentUser.uid,
+sellerName:currentUser.displayName||currentUser.email,
+sellerEmail:currentUser.email,
+
+status:"pending",
+approved:false,
+active:false,
+
+createdAt:serverTimestamp()
+});
+
+showMessage(productMessage,"✅ Product ସଫଳତାର ସହିତ Submit ହୋଇଗଲା। Admin Approval ପରେ Utkala Mart ରେ ଦେଖାଯିବ।","success");
+clearProductForm();
+}catch(error){
+console.error("PRODUCT ERROR:",error);
+let message="Product upload ହୋଇପାରିଲା ନାହିଁ।";
+if(error.code==="storage/unauthorized")message="❌ Storage Permission ନାହିଁ। Firebase Storage Rules check କରନ୍ତୁ।";
+else if(error.code==="permission-denied")message="❌ Firestore Permission denied। Firestore Rules check କରନ୍ତୁ।";
+else if(error.message)message="❌ "+error.message;
+showMessage(productMessage,message,"error");
+}
+button.disabled=false;button.innerText="📤 Product Submit କରନ୍ତୁ";
+});
 
 function loadProducts(){
-
-    if(!currentUser){
-
-        return;
-
-    }
-
-
-    if(unsubscribeProducts){
-
-        unsubscribeProducts();
-
-        unsubscribeProducts =
-            null;
-
-    }
-
-
-    /*
-       IMPORTANT:
-       orderBy() ନାହିଁ।
-       ତେଣୁ composite index ଦରକାର ନାହିଁ।
-    */
-
-    const productsQuery =
-        query(
-            collection(
-                db,
-                "products"
-            ),
-
-            where(
-                "sellerId",
-                "==",
-                currentUser.uid
-            )
-        );
-
-
-    unsubscribeProducts =
-        onSnapshot(
-            productsQuery,
-
-            function(snapshot){
-
-                const list =
-                    document
-                    .getElementById(
-                        "productsList"
-                    );
-
-
-                list.innerHTML = "";
-
-
-                let pending = 0;
-
-
-                snapshot.forEach(
-                    function(productDoc){
-
-                        const data =
-                            productDoc.data();
-
-
-                        if(
-                            data.status ===
-                            "pending"
-                        ){
-
-                            pending++;
-
-                        }
-
-
-                        let statusClass =
-                            "status-pending";
-
-
-                        let statusText =
-                            "Pending";
-
-
-                        if(
-                            data.status ===
-                            "approved"
-                        ){
-
-                            statusClass =
-                                "status-approved";
-
-                            statusText =
-                                "Approved";
-
-                        }
-
-
-                        if(
-                            data.status ===
-                            "rejected"
-                        ){
-
-                            statusClass =
-                                "status-rejected";
-
-                            statusText =
-                                "Rejected";
-
-                        }
-
-
-                        const item =
-                            document
-                            .createElement(
-                                "div"
-                            );
-
-
-                        item.className =
-                            "product-item";
-
-
-                        const image =
-                            data.imageUrl ||
-                            data.image ||
-                            "";
-
-
-                        item.innerHTML = `
-
-                            <img
-                                class="product-img"
-                                src="${escapeHtml(image)}"
-                                alt="Product"
-                                onerror="this.style.display='none'"
-                            >
-
-                            <div class="product-info">
-
-                                <div class="product-name">
-                                    ${escapeHtml(data.name || "")}
-                                </div>
-
-                                <div class="product-category">
-                                    ${escapeHtml(data.category || "")}
-                                </div>
-
-                                <div class="product-price">
-                                    ₹${Number(data.price || 0)}
-                                </div>
-
-                                <div class="product-stock">
-                                    Stock: ${Number(data.stock || 0)}
-                                </div>
-
-                                <span class="status ${statusClass}">
-                                    ${statusText}
-                                </span>
-
-                            </div>
-
-                        `;
-
-
-                        list.appendChild(item);
-
-                    }
-                );
-
-
-                document
-                .getElementById(
-                    "totalProducts"
-                )
-                .innerText =
-                    snapshot.size;
-
-
-                document
-                .getElementById(
-                    "pendingProducts"
-                )
-                .innerText =
-                    pending;
-
-
-                if(snapshot.empty){
-
-                    list.innerHTML = `
-
-                        <div class="empty">
-
-                            📦 ଏପର୍ଯ୍ୟନ୍ତ
-                            କୌଣସି Product
-                            Submit କରାଯାଇନାହିଁ।
-
-                        </div>
-
-                    `;
-
-                }
-
-            },
-
-            function(error){
-
-                console.error(
-                    "LOAD ERROR:",
-                    error
-                );
-
-
-                const list =
-                    document
-                    .getElementById(
-                        "productsList"
-                    );
-
-
-                list.innerHTML = `
-
-                    <div class="message error">
-
-                        ❌ Products load
-                        ହୋଇପାରିଲା ନାହିଁ।
-
-                        <br><br>
-
-                        Firebase Firestore
-                        Rules check କରନ୍ତୁ।
-
-                    </div>
-
-                `;
-
-            }
-        );
-
+if(!currentUser)return;
+if(unsubscribeProducts){unsubscribeProducts();unsubscribeProducts=null}
+
+const productsQuery=query(collection(db,"products"),where("sellerId","==",currentUser.uid));
+
+unsubscribeProducts=onSnapshot(productsQuery,snapshot=>{
+const list=document.getElementById("productsList");
+list.innerHTML="";
+let pending=0;
+
+snapshot.forEach(productDoc=>{
+const data=productDoc.data();
+if(data.status==="pending")pending++;
+
+let statusClass="status-pending",statusText="Pending";
+if(data.status==="approved"){statusClass="status-approved";statusText="Approved"}
+if(data.status==="rejected"){statusClass="status-rejected";statusText="Rejected"}
+
+const image=data.imageUrl||data.image||"";
+const weight=data.weight?`${data.weight} ${data.weightUnit||data.unit||""}`:"";
+const stock=Number(data.stockQty??data.stock??data.quantity??0);
+
+const item=document.createElement("div");
+item.className="product-item";
+item.innerHTML=`
+<img class="product-img" src="${escapeHtml(image)}" alt="Product" onerror="this.style.display='none'">
+<div class="product-info">
+<div class="product-name">${escapeHtml(data.name||"")}</div>
+<div class="product-category">${escapeHtml(data.category||data.categoryName||"")}</div>
+<div class="product-price">₹${Number(data.price??data.utkalaPrice??0)}</div>
+<div class="product-meta">${weight?`⚖️ ${escapeHtml(weight)}<br>`:""}📦 Stock: ${stock}${data.location?`<br>📍 ${escapeHtml(data.location)}`:""}</div>
+<span class="status ${statusClass}">${statusText}</span>
+</div>`;
+list.appendChild(item);
+});
+
+document.getElementById("totalProducts").innerText=snapshot.size;
+document.getElementById("pendingProducts").innerText=pending;
+
+if(snapshot.empty)list.innerHTML=`<div class="empty">📦 ଏପର୍ଯ୍ୟନ୍ତ କୌଣସି Product Submit କରାଯାଇନାହିଁ।</div>`;
+},error=>{
+console.error("LOAD ERROR:",error);
+document.getElementById("productsList").innerHTML=`<div class="message error">❌ Products load ହୋଇପାରିଲା ନାହିଁ।<br><br>Firebase Firestore Rules check କରନ୍ତୁ।</div>`;
+});
 }
 
-
-
-/* ==================================================
-   AUTH STATE
-================================================== */
-
-onAuthStateChanged(
-    auth,
-    function(user){
-
-        if(user){
-
-            currentUser =
-                user;
-
-
-            authSection
-            .classList
-            .add("hidden");
-
-
-            dashboardSection
-            .classList
-            .remove("hidden");
-
-
-            mainHeader
-            .classList
-            .remove("hidden");
-
-
-            document
-            .getElementById(
-                "sellerEmail"
-            )
-            .innerText =
-                user.displayName
-                ?
-                user.displayName +
-                " • " +
-                user.email
-                :
-                user.email;
-
-
-            loadProducts();
-
-        }
-        else{
-
-            currentUser =
-                null;
-
-
-            authSection
-            .classList
-            .remove("hidden");
-
-
-            dashboardSection
-            .classList
-            .add("hidden");
-
-
-            mainHeader
-            .classList
-            .add("hidden");
-
-
-            if(unsubscribeProducts){
-
-                unsubscribeProducts();
-
-                unsubscribeProducts =
-                    null;
-
-            }
-
-        }
-
-    }
-);
-
-
-
-/* ==================================================
-   HTML ESCAPE
-================================================== */
+onAuthStateChanged(auth,user=>{
+if(user){
+currentUser=user;
+authSection.classList.add("hidden");
+dashboardSection.classList.remove("hidden");
+mainHeader.classList.remove("hidden");
+document.getElementById("sellerEmail").innerText=user.displayName?user.displayName+" • "+user.email:user.email;
+loadProducts();
+}else{
+currentUser=null;
+authSection.classList.remove("hidden");
+dashboardSection.classList.add("hidden");
+mainHeader.classList.add("hidden");
+if(unsubscribeProducts){unsubscribeProducts();unsubscribeProducts=null}
+}
+});
 
 function escapeHtml(value){
-
-    return String(value)
-
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-
-        .replace(
-            /</g,
-            "&lt;"
-        )
-
-        .replace(
-            />/g,
-            "&gt;"
-        )
-
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-
-        .replace(
-            /'/g,
-            "&#039;"
-        );
-
+return String(value)
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
 }
-
-
 </script>
-
-
 </body>
-
-    </html>
+</html>
