@@ -1,114 +1,1126 @@
 <!DOCTYPE html>
 <html lang="or">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
 <title>Utkala Mart - Admin Products</title>
+
 <style>
-body{font-family:Arial,sans-serif;background:#f5f5f5;margin:0}
-header{background:#075b3b;color:#fff;padding:16px;text-align:center;font-size:22px;font-weight:bold}
-.wrap{max-width:950px;margin:auto;padding:16px}
-.card{background:#fff;border-radius:14px;padding:16px;margin-bottom:14px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
-.row{display:flex;gap:14px;align-items:center}
-img{width:90px;height:90px;object-fit:cover;border-radius:10px;background:#eee}
-.btn{border:0;padding:10px 16px;border-radius:8px;font-weight:bold;color:#fff;cursor:pointer}
-.ok{background:#0a8755}.no{background:#d9272e}.login{background:#ef761d;width:100%;margin-top:10px}
-input{width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;margin:6px 0}
-.hidden{display:none}
-small{color:#666}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#f5f5f5;
+  margin:0;
+}
+
+header{
+  background:#075b3b;
+  color:#fff;
+  padding:16px;
+  text-align:center;
+  font-size:22px;
+  font-weight:bold;
+}
+
+.wrap{
+  max-width:950px;
+  margin:auto;
+  padding:16px;
+}
+
+.card{
+  background:#fff;
+  border-radius:14px;
+  padding:16px;
+  margin-bottom:14px;
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.row{
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
+
+img{
+  width:90px;
+  height:90px;
+  object-fit:cover;
+  border-radius:10px;
+  background:#eee;
+}
+
+.btn{
+  border:0;
+  padding:10px 16px;
+  border-radius:8px;
+  font-weight:bold;
+  color:#fff;
+  cursor:pointer;
+}
+
+.ok{
+  background:#0a8755;
+}
+
+.no{
+  background:#d9272e;
+}
+
+.stock{
+  background:#1677d2;
+}
+
+.login{
+  background:#ef761d;
+  width:100%;
+  margin-top:10px;
+}
+
+input{
+  width:100%;
+  padding:12px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  margin:6px 0;
+  box-sizing:border-box;
+}
+
+.hidden{
+  display:none;
+}
+
+small{
+  color:#666;
+}
+
+.section-title{
+  color:#075b3b;
+  margin-bottom:5px;
+}
+
+.status{
+  display:inline-block;
+  padding:4px 9px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:bold;
+  margin-top:5px;
+}
+
+.pending{
+  background:#fff3cd;
+  color:#856404;
+}
+
+.approved{
+  background:#d1fae5;
+  color:#065f46;
+}
+
+.stock-box{
+  margin-top:10px;
+  background:#f3f7f5;
+  padding:10px;
+  border-radius:9px;
+}
+
+.stock-number{
+  font-size:18px;
+  font-weight:bold;
+}
+
+.actions{
+  margin-top:12px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.success-msg{
+  color:#087b3e;
+  font-weight:bold;
+}
+
+.error-msg{
+  color:#c62828;
+  font-weight:bold;
+}
+
+@media(max-width:600px){
+
+  .row{
+    align-items:flex-start;
+  }
+
+  img{
+    width:75px;
+    height:75px;
+  }
+
+  .btn{
+    padding:9px 12px;
+    font-size:13px;
+  }
+
+}
+
 </style>
+
 </head>
+
+
 <body>
-<header>🛍️ Utkala Mart Admin Product Approval</header>
+
+
+<header>
+🛍️ Utkala Mart Admin Products
+</header>
+
 
 <div class="wrap">
+
+
+<!-- ================================
+     LOGIN
+================================ -->
+
 <div class="card" id="loginBox">
-<h3>🔐 Admin Login</h3>
-<small>ADMIN_EMAIL ରେ ଆପଣଙ୍କ Email ବଦଳାନ୍ତୁ।</small>
-<input id="email" type="email" placeholder="Admin Email">
-<input id="pass" type="password" placeholder="Password">
-<button class="btn login" id="loginBtn">Login</button>
-<p id="msg"></p>
+
+  <h3>
+    🔐 Admin Login
+  </h3>
+
+  <small>
+    ADMIN_EMAIL ରେ ଆପଣଙ୍କ Admin Email ବ୍ୟବହାର କରନ୍ତୁ।
+  </small>
+
+  <input
+    id="email"
+    type="email"
+    placeholder="Admin Email"
+  >
+
+  <input
+    id="pass"
+    type="password"
+    placeholder="Password"
+  >
+
+  <button
+    class="btn login"
+    id="loginBtn">
+
+    Login
+
+  </button>
+
+  <p id="msg"></p>
+
 </div>
 
-<div id="panel" class="hidden">
-<div class="card"><h3>Pending Products</h3><p id="count">Loading...</p></div>
-<div id="list"></div>
+
+<!-- ================================
+     ADMIN PANEL
+================================ -->
+
+<div
+  id="panel"
+  class="hidden">
+
+
+  <!-- PENDING -->
+
+  <div class="card">
+
+    <h3 class="section-title">
+      ⏳ Pending Products
+    </h3>
+
+    <p id="count">
+      Loading...
+    </p>
+
+  </div>
+
+
+  <div id="pendingList"></div>
+
+
+  <!-- APPROVED -->
+
+  <div class="card">
+
+    <h3 class="section-title">
+      ✅ Approved Products
+    </h3>
+
+    <p id="approvedCount">
+      Loading...
+    </p>
+
+  </div>
+
+
+  <div id="approvedList"></div>
+
+
 </div>
+
+
 </div>
+
 
 <script type="module">
-import {initializeApp} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-import {getAuth,signInWithEmailAndPassword,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-import {getFirestore,collection,query,where,onSnapshot,doc,updateDoc} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
-const firebaseConfig={
-apiKey:"AIzaSyBYJ_KKsS_7SNz108jnw6hpOlmegofRhJg",
-authDomain:"utkalamart-1ec68.firebaseapp.com",
-projectId:"utkalamart-1ec68",
-storageBucket:"utkalamart-1ec68.firebasestorage.app",
-messagingSenderId:"664871353747",
-appId:"1:664871353747:web:96532fdafe78aabe7f3c66"
+
+/* ====================================
+   FIREBASE
+==================================== */
+
+import {
+  initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+
+import {
+  getFirestore,
+  collection,
+  query,
+  where,
+  onSnapshot,
+  doc,
+  updateDoc
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+/* ====================================
+   FIREBASE CONFIG
+==================================== */
+
+const firebaseConfig = {
+
+  apiKey:
+  "AIzaSyBYJ_KKs_7SNz108jnw6hpOlmegofRhJg",
+
+  authDomain:
+  "utkalamart-1ec68.firebaseapp.com",
+
+  projectId:
+  "utkalamart-1ec68",
+
+  storageBucket:
+  "utkalamart-1ec68.firebasestorage.app",
+
+  messagingSenderId:
+  "664871353747",
+
+  appId:
+  "1:664871353747:web:96532fdafe78aabe7f3c66"
+
 };
 
-const ADMIN_EMAIL="admin@utkalamart.in"; // ଏଠାରେ ନିଜ Email ଦିଅନ୍ତୁ
-const app=initializeApp(firebaseConfig);
-const auth=getAuth(app);
-const db=getFirestore(app);
 
-loginBtn.onclick=async()=>{
-try{
-await signInWithEmailAndPassword(auth,email.value.trim(),pass.value);
-}catch(e){msg.textContent="Login ହେଲା ନାହିଁ";}
+/* ====================================
+   ADMIN EMAIL
+==================================== */
+
+const ADMIN_EMAIL =
+"admin@utkalamart.in";
+
+
+/* ====================================
+   INIT
+==================================== */
+
+const app =
+initializeApp(
+  firebaseConfig
+);
+
+const auth =
+getAuth(app);
+
+const db =
+getFirestore(app);
+
+
+/* ====================================
+   LOGIN
+==================================== */
+
+loginBtn.onclick =
+async()=>{
+
+  try{
+
+    await signInWithEmailAndPassword(
+      auth,
+      email.value.trim(),
+      pass.value
+    );
+
+  }catch(e){
+
+    msg.textContent =
+    "❌ Login ହେଲା ନାହିଁ। Email/Password check କରନ୍ତୁ।";
+
+  }
+
 };
 
-onAuthStateChanged(auth,user=>{
-if(!user)return;
-if(user.email!==ADMIN_EMAIL){
-msg.textContent="ଏହି Email Admin ନୁହେଁ";return;
-}
-loginBox.classList.add("hidden");
-panel.classList.remove("hidden");
 
-const q=query(collection(db,"products"),where("status","==","pending"));
-onSnapshot(q,snap=>{
-count.textContent="Pending: "+snap.size;
-list.innerHTML="";
-snap.forEach(d=>{
-const p=d.data();
-const div=document.createElement("div");
-div.className="card";
-div.innerHTML=`
-<div class="row">
-<img src="${p.imageUrl||p.image||'logo.png'}">
-<div style="flex:1">
-<b>${p.name||''}</b><br>
-${p.category||''}<br>
-⚖️ ${p.weight||''} ${p.weightUnit||''}<br>
-💰 Seller: ₹${p.sellerPrice||0} | Utkala: ₹${p.price||0}<br>
-📦 Stock: ${p.stock||0}<br>
-📍 ${p.location||''}
-</div>
-</div>
-<div style="margin-top:12px;display:flex;gap:8px">
-<button class="btn ok" data-id="${d.id}" data-a="approve">Approve</button>
-<button class="btn no" data-id="${d.id}" data-a="reject">Reject</button>
-</div>`;
-list.appendChild(div);
-});
-});
-});
+/* ====================================
+   AUTH
+==================================== */
 
-document.addEventListener("click",async(e)=>{
-const b=e.target.closest("button[data-id]");
-if(!b)return;
-const id=b.dataset.id;
-if(b.dataset.a==="approve"){
-await updateDoc(doc(db,"products",id),{status:"approved",approved:true,active:true});
-}else{
-await updateDoc(doc(db,"products",id),{status:"rejected",approved:false,active:false});
+onAuthStateChanged(
+  auth,
+  user=>{
+
+    if(!user){
+
+      return;
+
+    }
+
+
+    if(
+      user.email !==
+      ADMIN_EMAIL
+    ){
+
+      msg.textContent =
+      "❌ ଏହି Email Admin ନୁହେଁ।";
+
+      return;
+
+    }
+
+
+    loginBox.classList.add(
+      "hidden"
+    );
+
+    panel.classList.remove(
+      "hidden"
+    );
+
+
+    loadPendingProducts();
+
+    loadApprovedProducts();
+
+  }
+);
+
+
+/* ====================================
+   PENDING PRODUCTS
+==================================== */
+
+function loadPendingProducts(){
+
+  const q =
+  query(
+    collection(db,"products"),
+    where(
+      "status",
+      "==",
+      "pending"
+    )
+  );
+
+
+  onSnapshot(
+    q,
+    snap=>{
+
+      count.textContent =
+      "Pending: " +
+      snap.size;
+
+
+      pendingList.innerHTML =
+      "";
+
+
+      if(
+        snap.empty
+      ){
+
+        pendingList.innerHTML = `
+
+          <div class="card">
+
+            <p>
+              👍 ବର୍ତ୍ତମାନ କୌଣସି Pending Product ନାହିଁ।
+            </p>
+
+          </div>
+
+        `;
+
+        return;
+
+      }
+
+
+      snap.forEach(
+        d=>{
+
+          const p =
+          d.data();
+
+
+          const div =
+          document.createElement(
+            "div"
+          );
+
+
+          div.className =
+          "card";
+
+
+          div.innerHTML = `
+
+            <div class="row">
+
+              <img
+                src="${
+                  p.imageUrl ||
+                  p.image ||
+                  'logo.png'
+                }"
+                onerror="
+                  this.src='logo.png'
+                "
+              >
+
+
+              <div
+                style="flex:1">
+
+                <b>
+                  ${
+                    escapeHTML(
+                      p.name || ""
+                    )
+                  }
+                </b>
+
+                <br>
+
+
+                ${
+                  escapeHTML(
+                    p.category || ""
+                  )
+                }
+
+                <br>
+
+
+                ⚖️
+                ${
+                  escapeHTML(
+                    p.weight || ""
+                  )
+                }
+
+                ${
+                  escapeHTML(
+                    p.weightUnit || ""
+                  )
+                }
+
+                <br>
+
+
+                💰 Seller:
+                ₹${
+                  Number(
+                    p.sellerPrice || 0
+                  )
+                }
+
+                |
+
+                Utkala:
+                ₹${
+                  Number(
+                    p.price || 0
+                  )
+                }
+
+                <br>
+
+
+                📦 Stock:
+                <b>
+                  ${
+                    Number(
+                      p.stock ||
+                      p.stockQty ||
+                      0
+                    )
+                  }
+                </b>
+
+                <br>
+
+
+                📍
+                ${
+                  escapeHTML(
+                    p.location || ""
+                  )
+                }
+
+
+                <div>
+
+                  <span
+                    class="status pending">
+
+                    ⏳ Pending
+
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div
+              class="actions">
+
+              <button
+                class="btn ok"
+                data-id="${d.id}"
+                data-a="approve">
+
+                ✅ Approve
+
+              </button>
+
+
+              <button
+                class="btn no"
+                data-id="${d.id}"
+                data-a="reject">
+
+                ❌ Reject
+
+              </button>
+
+            </div>
+
+          `;
+
+
+          pendingList.appendChild(
+            div
+          );
+
+        }
+      );
+
+    }
+  );
+
 }
-});
+
+
+/* ====================================
+   APPROVED PRODUCTS
+==================================== */
+
+function loadApprovedProducts(){
+
+  const q =
+  query(
+    collection(db,"products"),
+    where(
+      "status",
+      "==",
+      "approved"
+    )
+  );
+
+
+  onSnapshot(
+    q,
+    snap=>{
+
+      approvedCount.textContent =
+      "Approved: " +
+      snap.size;
+
+
+      approvedList.innerHTML =
+      "";
+
+
+      if(
+        snap.empty
+      ){
+
+        approvedList.innerHTML = `
+
+          <div class="card">
+
+            <p>
+              ବର୍ତ୍ତମାନ କୌଣସି Approved Product ନାହିଁ।
+            </p>
+
+          </div>
+
+        `;
+
+        return;
+
+      }
+
+
+      snap.forEach(
+        d=>{
+
+          const p =
+          d.data();
+
+
+          const currentStock =
+          Number(
+            p.stock ??
+            p.stockQty ??
+            p.quantity ??
+            p.availableStock ??
+            0
+          );
+
+
+          const div =
+          document.createElement(
+            "div"
+          );
+
+
+          div.className =
+          "card";
+
+
+          div.innerHTML = `
+
+            <div class="row">
+
+              <img
+                src="${
+                  p.imageUrl ||
+                  p.image ||
+                  'logo.png'
+                }"
+                onerror="
+                  this.src='logo.png'
+                "
+              >
+
+
+              <div
+                style="flex:1">
+
+                <b>
+
+                  ${
+                    escapeHTML(
+                      p.name || ""
+                    )
+                  }
+
+                </b>
+
+                <br>
+
+
+                ${
+                  escapeHTML(
+                    p.category || ""
+                  )
+                }
+
+                <br>
+
+
+                ⚖️
+                ${
+                  escapeHTML(
+                    p.weight || ""
+                  )
+                }
+
+                ${
+                  escapeHTML(
+                    p.weightUnit ||
+                    p.unit ||
+                    ""
+                  )
+                }
+
+                <br>
+
+
+                💰 Utkala Price:
+                <b>
+                  ₹${
+                    Number(
+                      p.price || 0
+                    )
+                  }
+                </b>
+
+
+                <div
+                  class="stock-box">
+
+                  📦 Current Stock:
+
+                  <span
+                    class="stock-number">
+
+                    ${
+                      currentStock
+                    }
+
+                  </span>
+
+                </div>
+
+
+                <span
+                  class="status approved">
+
+                  ✅ Approved
+
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div
+              class="actions">
+
+              <button
+                class="btn stock"
+                data-id="${d.id}"
+                data-a="stock">
+
+                ✏️ Edit Stock
+
+              </button>
+
+            </div>
+
+          `;
+
+
+          approvedList.appendChild(
+            div
+          );
+
+        }
+      );
+
+    }
+  );
+
+}
+
+
+/* ====================================
+   BUTTON ACTIONS
+==================================== */
+
+document.addEventListener(
+  "click",
+  async(e)=>{
+
+    const b =
+    e.target.closest(
+      "button[data-id]"
+    );
+
+
+    if(!b){
+
+      return;
+
+    }
+
+
+    const id =
+    b.dataset.id;
+
+
+    /* ================================
+       APPROVE
+    ================================= */
+
+    if(
+      b.dataset.a ===
+      "approve"
+    ){
+
+      try{
+
+        await updateDoc(
+          doc(
+            db,
+            "products",
+            id
+          ),
+          {
+            status:"approved",
+            approved:true,
+            active:true
+          }
+        );
+
+        alert(
+          "✅ Product Approved"
+        );
+
+      }catch(error){
+
+        console.error(
+          error
+        );
+
+        alert(
+          "❌ Approve failed"
+        );
+
+      }
+
+      return;
+
+    }
+
+
+    /* ================================
+       REJECT
+    ================================= */
+
+    if(
+      b.dataset.a ===
+      "reject"
+    ){
+
+      try{
+
+        await updateDoc(
+          doc(
+            db,
+            "products",
+            id
+          ),
+          {
+            status:"rejected",
+            approved:false,
+            active:false
+          }
+        );
+
+        alert(
+          "❌ Product Rejected"
+        );
+
+      }catch(error){
+
+        console.error(
+          error
+        );
+
+        alert(
+          "❌ Reject failed"
+        );
+
+      }
+
+      return;
+
+    }
+
+
+    /* ================================
+       EDIT STOCK
+    ================================= */
+
+    if(
+      b.dataset.a ===
+      "stock"
+    ){
+
+      const currentCard =
+      b.closest(
+        ".card"
+      );
+
+
+      const stockText =
+      currentCard
+      .querySelector(
+        ".stock-number"
+      );
+
+
+      const oldStock =
+      Number(
+        stockText.textContent
+      );
+
+
+      const newStock =
+      prompt(
+        "📦 ନୂଆ Stock କେତେ ରଖିବେ?",
+        oldStock
+      );
+
+
+      if(
+        newStock ===
+        null
+      ){
+
+        return;
+
+      }
+
+
+      const stock =
+      Number(
+        newStock
+      );
+
+
+      if(
+        !Number.isInteger(stock) ||
+        stock < 0
+      ){
+
+        alert(
+          "❌ Stock 0 କିମ୍ବା ତାଠାରୁ ଅଧିକ whole number ହେବା ଦରକାର।"
+        );
+
+        return;
+
+      }
+
+
+      try{
+
+        /*
+          ସବୁ stock field
+          synchronize କରୁଛୁ
+        */
+
+        await updateDoc(
+          doc(
+            db,
+            "products",
+            id
+          ),
+          {
+            stock:stock,
+            stockQty:stock,
+            quantity:stock,
+            availableStock:stock
+          }
+        );
+
+
+        alert(
+          "✅ Stock update ହୋଇଗଲା: " +
+          stock
+        );
+
+
+      }catch(error){
+
+        console.error(
+          error
+        );
+
+        alert(
+          "❌ Stock update failed"
+        );
+
+      }
+
+    }
+
+  }
+);
+
+
+/* ====================================
+   ESCAPE HTML
+==================================== */
+
+function escapeHTML(
+  value
+){
+
+  return String(
+    value ?? ""
+  )
+  .replace(
+    /&/g,
+    "&amp;"
+  )
+  .replace(
+    /</g,
+    "&lt;"
+  )
+  .replace(
+    />/g,
+    "&gt;"
+  )
+  .replace(
+    /"/g,
+    "&quot;"
+  )
+  .replace(
+    /'/g,
+    "&#039;"
+  );
+
+}
+
 </script>
+
 </body>
+
 </html>
