@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="or">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color"
+content="#138a45">
+
+<title>Utkala Mart - Admin Orders</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,"Noto Sans Odia",sans-serif;
+  background:#f4f7f5;
+  color:#222;
+}
+
+/* HEADER */
+
+.header{
+  background:#138a45;
+  color:#fff;
+  padding:16px;
+  text-align:center;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.header h1{
+  margin:0;
+  font-size:22px;
+}
+
+.header p{
+  margin:5px 0 0;
+  font-size:13px;
+}
+
+/* LOGIN */
+
+.login-box{
+  max-width:400px;
+  margin:70px auto;
+  background:#fff;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 4px 18px rgba(0,0,0,.10);
+}
+
+.login-box h2{
+  text-align:center;
+  color:#138a45;
+}
+
+.login-box input{
+  width:100%;
+  padding:13px;
+  margin:8px 0;
+  border:1px solid #ccc;
+  border-radius:8px;
+}
+
+.login-box button{
+  width:100%;
+  padding:13px;
+  border:0;
+  border-radius:8px;
+  background:#138a45;
+  color:#fff;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* MAIN */
+
+.main{
+  max-width:1200px;
+  margin:auto;
+  padding:18px;
+}
+
+/* TOP BAR */
+
+.topbar{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:18px;
+}
+
+.search{
+  flex:1;
+  min-width:220px;
+  padding:12px;
+  border:1px solid #ccc;
+  border-radius:9px;
+  font-size:15px;
+}
+
+.filter{
+  padding:12px;
+  border:1px solid #ccc;
+  border-radius:9px;
+  background:#fff;
+}
+
+/* STATS */
+
+.stats{
+  display:grid;
+  grid-template-columns:
+    repeat(4,1fr);
+  gap:12px;
+  margin-bottom:20px;
+}
+
+.stat{
+  background:#fff;
+  border-radius:12px;
+  padding:15px;
+  box-shadow:0 3px 10px rgba(0,0,0,.06);
+}
+
+.stat h3{
+  margin:0;
+  font-size:13px;
+  color:#777;
+}
+
+.stat strong{
+  display:block;
+  margin-top:7px;
+  font-size:23px;
+  color:#138a45;
+}
+
+/* ORDER CARD */
+
+.order-card{
+  background:#fff;
+  border-radius:15px;
+  margin-bottom:16px;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+  overflow:hidden;
+}
+
+.order-head{
+  padding:15px;
+  background:#f0f7f2;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.order-id{
+  font-weight:bold;
+  color:#138a45;
+}
+
+.date{
+  font-size:12px;
+  color:#777;
+}
+
+.order-body{
+  padding:15px;
+}
+
+/* CUSTOMER */
+
+.customer{
+  background:#fafafa;
+  border-radius:10px;
+  padding:12px;
+  margin-bottom:13px;
+}
+
+.customer strong{
+  font-size:16px;
+}
+
+.customer p{
+  margin:5px 0;
+  font-size:14px;
+}
+
+/* ITEMS */
+
+.item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:10px 0;
+  border-bottom:1px solid #eee;
+}
+
+.item:last-child{
+  border-bottom:0;
+}
+
+.item img{
+  width:65px;
+  height:65px;
+  object-fit:cover;
+  border-radius:8px;
+  background:#eee;
+}
+
+.item-info{
+  flex:1;
+}
+
+.item-info h4{
+  margin:0 0 5px;
+}
+
+.item-info p{
+  margin:3px 0;
+  font-size:13px;
+  color:#666;
+}
+
+/* TOTAL */
+
+.total-box{
+  margin-top:12px;
+  padding-top:12px;
+  border-top:2px solid #138a45;
+  display:flex;
+  justify-content:space-between;
+  font-size:18px;
+  font-weight:bold;
+}
+
+/* STATUS */
+
+.status{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:bold;
+  text-transform:capitalize;
+}
+
+.status-placed{
+  background:#fff3cd;
+  color:#856404;
+}
+
+.status-confirmed{
+  background:#dbeafe;
+  color:#1d4ed8;
+}
+
+.status-shipped{
+  background:#ede9fe;
+  color:#6d28d9;
+}
+
+.status-delivered{
+  background:#dcfce7;
+  color:#166534;
+}
+
+.status-cancelled{
+  background:#fee2e2;
+  color:#b91c1c;
+}
+
+/* PAYMENT */
+
+.payment{
+  display:inline-block;
+  padding:5px 9px;
+  border-radius:7px;
+  font-size:12px;
+  font-weight:bold;
+  background:#eee;
+}
+
+.payment-paid{
+  background:#dcfce7;
+  color:#166534;
+}
+
+.payment-pending{
+  background:#fff3cd;
+  color:#856404;
+}
+
+/* CONTROLS */
+
+.controls{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:15px;
+}
+
+.controls select{
+  flex:1;
+  min-width:180px;
+  padding:11px;
+  border:1px solid #ccc;
+  border-radius:8px;
+}
+
+.controls button{
+  padding:11px 15px;
+  border:0;
+  border-radius:8px;
+  background:#138a45;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.controls button:hover{
+  background:#0d7138;
+}
+
+.whatsapp{
+  background:#25D366 !important;
+}
+
+/* EMPTY */
+
+.empty{
+  background:#fff;
+  padding:50px 20px;
+  text-align:center;
+  border-radius:15px;
+  color:#777;
+}
+
+/* LOADING */
+
+.loading{
+  text-align:center;
+  padding:40px;
+  color:#777;
+}
+
+/* ERROR */
+
+.error{
+  background:#ffe8e8;
+  color:#a00000;
+  padding:15px;
+  border-radius:10px;
+  margin-bottom:15px;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+  .stats{
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:600px){
+
+  .main{
+    padding:10px;
+  }
+
+  .order-head{
+    align-items:flex-start;
+  }
+
+  .item img{
+    width:55px;
+    height:55px;
+  }
+
+  .item-info h4{
+    font-size:14px;
+  }
+
+  .total-box{
+    font-size:16px;
+  }
+
+  .controls{
+    flex-direction:column;
+  }
+
+  .controls select,
+  .controls button{
+    width:100%;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<div class="header">
+
+  <h1>📦 Utkala Mart</h1>
+
+  <p>Admin Order Dashboard</p>
+
+</div>
+
+
+<!-- LOGIN -->
+
+<div id="loginBox"
+class="login-box">
+
+  <h2>🔐 Admin Login</h2>
+
+  <input
+    type="email"
+    id="email"
+    placeholder="Admin Email"
+  >
+
+  <input
+    type="password"
+    id="password"
+    placeholder="Password"
+  >
+
+  <button
+    onclick="loginAdmin()">
+
+    Login
+
+  </button>
+
+  <p
+    id="loginError"
+    style="
+      color:#c00;
+      text-align:center;
+    ">
+  </p>
+
+</div>
+
+
+<!-- ADMIN MAIN -->
+
+<div
+  id="adminPanel"
+  class="main"
+  style="display:none;"
+>
+
+
+  <!-- STATS -->
+
+  <div class="stats">
+
+    <div class="stat">
+
+      <h3>ସମସ୍ତ Order</h3>
+
+      <strong id="totalOrders">
+        0
+      </strong>
+
+    </div>
+
+
+    <div class="stat">
+
+      <h3>Placed</h3>
+
+      <strong id="placedOrders">
+        0
+      </strong>
+
+    </div>
+
+
+    <div class="stat">
+
+      <h3>Delivered</h3>
+
+      <strong id="deliveredOrders">
+        0
+      </strong>
+
+    </div>
+
+
+    <div class="stat">
+
+      <h3>Total Sales</h3>
+
+      <strong id="totalSales">
+        ₹0
+      </strong>
+
+    </div>
+
+  </div>
+
+
+  <!-- SEARCH -->
+
+  <div class="topbar">
+
+    <input
+      class="search"
+      id="search"
+      placeholder="🔎 Order ID / Customer / Mobile ଖୋଜନ୍ତୁ..."
+      oninput="filterOrders()"
+    >
+
+
+    <select
+      class="filter"
+      id="statusFilter"
+      onchange="filterOrders()">
+
+      <option value="all">
+        ସମସ୍ତ Status
+      </option>
+
+      <option value="placed">
+        Placed
+      </option>
+
+      <option value="confirmed">
+        Confirmed
+      </option>
+
+      <option value="shipped">
+        Shipped
+      </option>
+
+      <option value="delivered">
+        Delivered
+      </option>
+
+      <option value="cancelled">
+        Cancelled
+      </option>
+
+    </select>
+
+  </div>
+
+
+  <div
+    id="message">
+  </div>
+
+
+  <div
+    id="orders"
+    class="loading">
+
+    ⏳ Orders Loading...
+
+  </div>
+
+
+</div>
+
+
+<script type="module">
+
+
+/* =====================================
+   FIREBASE
+===================================== */
+
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  query,
+  orderBy,
+  updateDoc,
+  doc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =====================================
+   FIREBASE CONFIG
+===================================== */
+
+const firebaseConfig = {
+
+  apiKey:
+  "AIzaSyBYJ_KKs_7SNz108jnw6hpOlmegofRhJg",
+
+  authDomain:
+  "utkalamart-1ec68.firebaseapp.com",
+
+  projectId:
+  "utkalamart-1ec68",
+
+  storageBucket:
+  "utkalamart-1ec68.firebasestorage.app",
+
+  messagingSenderId:
+  "664871353747",
+
+  appId:
+  "1:664871353747:web:96532fdafe78aabe7f3c66"
+
+};
+
+
+const app =
+  initializeApp(firebaseConfig);
+
+
+const auth =
+  getAuth(app);
+
+
+const db =
+  getFirestore(app);
+
+
+/* =====================================
+   ADMIN EMAIL
+=====================================
+
+   IMPORTANT:
+   ଏଠାରେ ଆପଣଙ୍କ actual
+   Firebase Admin email ଦିଅନ୍ତୁ।
+
+===================================== */
+
+const ADMIN_EMAIL =
+  "admin@utkalamart.in";
+
+
+/* =====================================
+   VARIABLES
+===================================== */
+
+let allOrders = [];
+
+
+/* =====================================
+   LOGIN
+===================================== */
+
+window.loginAdmin = async function(){
+
+  const email =
+    document
+      .getElementById("email")
+      .value
+      .trim();
+
+  const password =
+    document
+      .getElementById("password")
+      .value;
+
+
+  const errorBox =
+    document.getElementById(
+      "loginError"
+    );
+
+
+  errorBox.innerText = "";
+
+
+  if(!email || !password){
+
+    errorBox.innerText =
+      "Email ଏବଂ Password ଦିଅନ୍ତୁ।";
+
+    return;
+
+  }
+
+
+  try{
+
+    await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
+  }catch(error){
+
+    console.error(error);
+
+    errorBox.innerText =
+      "Login failed: " +
+      error.message;
+
+  }
+
+};
+
+
+/* =====================================
+   AUTH CHECK
+===================================== */
+
+onAuthStateChanged(
+  auth,
+  user => {
+
+    if(!user){
+
+      document
+        .getElementById("loginBox")
+        .style.display = "block";
+
+      document
+        .getElementById("adminPanel")
+        .style.display = "none";
+
+      return;
+
+    }
+
+
+    /*
+      Client-side admin check.
+
+      Firestore Rules ରେ ମଧ୍ୟ
+      Admin security ରଖିବା ଦରକାର।
+    */
+
+    if(
+      user.email !== ADMIN_EMAIL
+    ){
+
+      document
+        .getElementById("loginError")
+        .innerText =
+        "ଏହି account କୁ Admin access ନାହିଁ।";
+
+      return;
+
+    }
+
+
+    document
+      .getElementById("loginBox")
+      .style.display = "none";
+
+
+    document
+      .getElementById("adminPanel")
+      .style.display = "block";
+
+
+    loadOrders();
+
+  }
+);
+
+
+/* =====================================
+   LOAD ORDERS
+===================================== */
+
+async function loadOrders(){
+
+  const box =
+    document.getElementById(
+      "orders"
+    );
+
+
+  box.innerHTML =
+    "⏳ Orders Loading...";
+
+
+  try{
+
+    const q =
+      query(
+        collection(db,"orders"),
+        orderBy(
+          "createdAt",
+          "desc"
+        )
+      );
+
+
+    const snapshot =
+      await getDocs(q);
+
+
+    allOrders = [];
+
+
+    snapshot.forEach(
+      orderDoc => {
+
+        allOrders.push({
+
+          id:orderDoc.id,
+
+          ...orderDoc.data()
+
+        });
+
+      }
+    );
+
+
+    updateStats();
+
+    renderOrders(
+      allOrders
+    );
+
+
+  }catch(error){
+
+    console.error(error);
+
+    box.innerHTML = `
+
+      <div class="error">
+
+        ❌ Orders load ହୋଇପାରିଲା ନାହିଁ।
+
+        <br><br>
+
+        ${error.message}
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+
+/* =====================================
+   DATE FORMAT
+===================================== */
+
+function formatDate(timestamp){
+
+  if(!timestamp){
+    return "Date unavailable";
+  }
+
+
+  try{
+
+    const date =
+      timestamp.toDate();
+
+
+    return date.toLocaleString(
+      "en-IN",
+      {
+        day:"2-digit",
+        month:"short",
+        year:"numeric",
+        hour:"2-digit",
+        minute:"2-digit"
+      }
+    );
+
+  }catch(e){
+
+    return "Date unavailable";
+
+  }
+
+}
+
+
+/* =====================================
+   MONEY
+===================================== */
+
+function money(value){
+
+  return "₹" +
+    Number(value || 0)
+      .toLocaleString("en-IN");
+
+}
+
+
+/* =====================================
+   STATUS CLASS
+===================================== */
+
+function statusClass(status){
+
+  return (
+    "status status-" +
+    String(
+      status || "placed"
+    ).toLowerCase()
+  );
+
+}
+
+
+/* =====================================
+   RENDER ORDERS
+===================================== */
+
+function renderOrders(
+  orders
+){
+
+  const box =
+    document.getElementById(
+      "orders"
+    );
+
+
+  if(!orders.length){
+
+    box.innerHTML = `
+
+      <div class="empty">
+
+        📦
+
+        <h3>
+          କୌଣସି Order ମିଳିଲା ନାହିଁ
+        </h3>
+
+        <p>
+          Customer Order କଲେ
+          ଏଠାରେ ଦେଖାଯିବ।
+        </p>
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  box.innerHTML =
+    orders.map(
+      order => {
+
+        const customer =
+          order.customer || {};
+
+
+        const items =
+          order.items || [];
+
+
+        const orderStatus =
+          order.orderStatus ||
+          "placed";
+
+
+        const paymentStatus =
+          order.paymentStatus ||
+          "pending";
+
+
+        return `
+
+        <div
+          class="order-card"
+          data-id="${order.id}"
+        >
+
+          <!-- ORDER HEADER -->
+
+          <div
+            class="order-head">
+
+            <div>
+
+              <div class="order-id">
+
+                📦 ${order.orderId || order.id}
+
+              </div>
+
+              <div class="date">
+
+                ${formatDate(
+                  order.createdAt
+                )}
+
+              </div>
+
+            </div>
+
+
+            <div>
+
+              <span
+                class="${statusClass(
+                  orderStatus
+                )}">
+
+                ${orderStatus}
+
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <!-- BODY -->
+
+          <div class="order-body">
+
+
+            <!-- CUSTOMER -->
+
+            <div class="customer">
+
+              <strong>
+                👤 ${escapeHTML(
+                  customer.name || "Customer"
+                )}
+              </strong>
+
+              <p>
+                📱
+                <a
+                  href="tel:${customer.mobile || ""}">
+                  ${customer.mobile || "-"}
+                </a>
+              </p>
+
+              <p>
+                📍
+                ${escapeHTML(
+                  customer.address || ""
+                )}
+              </p>
+
+              <p>
+                ${escapeHTML(
+                  customer.district || ""
+                )}
+                -
+                ${escapeHTML(
+                  customer.pin || ""
+                )}
+              </p>
+
+              ${
+                customer.note
+                ? `
+                <p>
+                  📝
+                  ${escapeHTML(
+                    customer.note
+                  )}
+                </p>
+                `
+                : ""
+              }
+
+            </div>
+
+
+            <!-- PRODUCTS -->
+
+            <div>
+
+              ${
+                items.map(
+                  item => `
+
+                  <div class="item">
+
+                    <img
+                      src="${item.image || ""}"
