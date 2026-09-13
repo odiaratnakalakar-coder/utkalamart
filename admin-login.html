@@ -152,7 +152,6 @@ input:focus{
 
 <body>
 
-
 <div class="login-box">
 
   <div class="logo">
@@ -167,7 +166,6 @@ input:focus{
     🔐 Admin Login
   </div>
 
-
   <form id="loginForm">
 
     <label>
@@ -181,7 +179,6 @@ input:focus{
       required
       autocomplete="username">
 
-
     <label>
       🔑 Password
     </label>
@@ -192,7 +189,6 @@ input:focus{
       placeholder="Password"
       required
       autocomplete="current-password">
-
 
     <button
       type="submit"
@@ -205,12 +201,10 @@ input:focus{
 
   </form>
 
-
   <div
     id="message"
     class="message">
   </div>
-
 
   <a
     href="index.html"
@@ -225,9 +219,15 @@ input:focus{
 
 <script type="module">
 
-/* ==============================
-   FIREBASE AUTH
-============================== */
+/* =====================================
+   FIREBASE SDK
+===================================== */
+
+import {
+  initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
   getAuth,
@@ -239,57 +239,83 @@ from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 
-/* ==============================
+/* =====================================
    FIREBASE CONFIG
-============================== */
+   DIRECT CONFIG FOR ADMIN LOGIN
+===================================== */
 
-import {
-  app
-}
-from
-"./js/firebase-config.js?v=2";
+const firebaseConfig = {
+
+  apiKey:
+    "AIzaSyBYJ_KKsS_7SNz108jnw6hpOlmegofRhJg",
+
+  authDomain:
+    "utkalamart-1ec68.firebaseapp.com",
+
+  projectId:
+    "utkalamart-1ec68",
+
+  storageBucket:
+    "utkalamart-1ec68.firebasestorage.app",
+
+  messagingSenderId:
+    "664871353747",
+
+  appId:
+    "1:664871353747:web:96532fdafe78aabe7f3c66"
+
+};
 
 
-/* ==============================
-   AUTH
-============================== */
+/* =====================================
+   INITIALIZE FIREBASE
+===================================== */
 
-const auth = getAuth(app);
+const app =
+  initializeApp(firebaseConfig);
 
 
-/* ==============================
+/* =====================================
+   FIREBASE AUTH
+===================================== */
+
+const auth =
+  getAuth(app);
+
+
+/* =====================================
    ADMIN EMAIL
-============================== */
+===================================== */
 
 const ADMIN_EMAIL =
-"Suryakantabehera629@gmail.com";
+  "Suryakantabehera629@gmail.com";
 
 
-/* ==============================
+/* =====================================
    ELEMENTS
-============================== */
+===================================== */
 
 const form =
-document.getElementById("loginForm");
+  document.getElementById("loginForm");
 
 const emailInput =
-document.getElementById("email");
+  document.getElementById("email");
 
 const passwordInput =
-document.getElementById("password");
+  document.getElementById("password");
 
 const loginBtn =
-document.getElementById("loginBtn");
+  document.getElementById("loginBtn");
 
 const message =
-document.getElementById("message");
+  document.getElementById("message");
 
 
-/* ==============================
-   MESSAGE FUNCTION
-============================== */
+/* =====================================
+   MESSAGE
+===================================== */
 
-function showMessage(text, type){
+function showMessage(text, type = "") {
 
   message.textContent = text;
 
@@ -299,26 +325,23 @@ function showMessage(text, type){
 }
 
 
-/* ==============================
+/* =====================================
    CHECK EXISTING LOGIN
-============================== */
+===================================== */
 
 onAuthStateChanged(
   auth,
   async (user) => {
 
-    if(!user){
+    if (!user) {
       return;
     }
 
-
-    /* Admin already logged in */
-
-    if(
+    if (
       user.email &&
       user.email.toLowerCase() ===
       ADMIN_EMAIL.toLowerCase()
-    ){
+    ) {
 
       window.location.href =
         "admin-orders.html";
@@ -326,18 +349,15 @@ onAuthStateChanged(
       return;
     }
 
-
-    /* If another account is logged in */
-
     await signOut(auth);
 
   }
 );
 
 
-/* ==============================
+/* =====================================
    LOGIN
-============================== */
+===================================== */
 
 form.addEventListener(
   "submit",
@@ -353,14 +373,12 @@ form.addEventListener(
       passwordInput.value;
 
 
-    /* ==========================
-       ADMIN EMAIL CHECK
-    ========================== */
+    /* ADMIN EMAIL CHECK */
 
-    if(
+    if (
       email.toLowerCase() !==
       ADMIN_EMAIL.toLowerCase()
-    ){
+    ) {
 
       showMessage(
         "❌ ଏହା Admin Email ନୁହେଁ।",
@@ -371,7 +389,9 @@ form.addEventListener(
     }
 
 
-    if(!password){
+    /* PASSWORD CHECK */
+
+    if (!password) {
 
       showMessage(
         "❌ Password ଦିଅନ୍ତୁ।",
@@ -382,26 +402,19 @@ form.addEventListener(
     }
 
 
-    /* ==========================
-       BUTTON LOADING
-    ========================== */
+    /* BUTTON LOADING */
 
     loginBtn.disabled = true;
 
     loginBtn.textContent =
       "⏳ Login...";
 
-    showMessage(
-      "",
-      ""
-    );
+    showMessage("");
 
 
-    try{
+    try {
 
-      /* ========================
-         FIREBASE LOGIN
-      ======================== */
+      /* FIREBASE LOGIN */
 
       const result =
         await signInWithEmailAndPassword(
@@ -415,15 +428,13 @@ form.addEventListener(
         result.user;
 
 
-      /* ========================
-         VERIFY ADMIN
-      ======================== */
+      /* ADMIN VERIFICATION */
 
-      if(
+      if (
         !user.email ||
         user.email.toLowerCase() !==
         ADMIN_EMAIL.toLowerCase()
-      ){
+      ) {
 
         await signOut(auth);
 
@@ -441,9 +452,7 @@ form.addEventListener(
       }
 
 
-      /* ========================
-         SUCCESS
-      ======================== */
+      /* SUCCESS */
 
       showMessage(
         "✅ Login successful...",
@@ -451,17 +460,20 @@ form.addEventListener(
       );
 
 
-      setTimeout(() => {
+      setTimeout(
+        () => {
 
-        window.location.href =
-          "admin-orders.html";
+          window.location.href =
+            "admin-orders.html";
 
-      }, 500);
+        },
+        500
+      );
 
 
     }
 
-    catch(error){
+    catch (error) {
 
       console.error(
         "Firebase Login Error:",
@@ -473,84 +485,116 @@ form.addEventListener(
         "❌ Login failed.";
 
 
-      /* ========================
-         ERROR HANDLING
-      ======================== */
+      /* API KEY ERROR */
 
-      if(
+      if (
+        error.code ===
+        "auth/api-key-not-valid"
+      ) {
+
+        text =
+          "❌ Firebase API Key valid ନୁହେଁ।";
+
+      }
+
+
+      /* INVALID CREDENTIAL */
+
+      else if (
         error.code ===
         "auth/invalid-credential"
-      ){
+      ) {
 
         text =
           "❌ Email କିମ୍ବା Password ଭୁଲ।";
 
       }
 
-      else if(
+
+      /* USER NOT FOUND */
+
+      else if (
         error.code ===
         "auth/user-not-found"
-      ){
+      ) {
 
         text =
           "❌ ଏହି Email ରେ Firebase account ନାହିଁ।";
 
       }
 
-      else if(
+
+      /* WRONG PASSWORD */
+
+      else if (
         error.code ===
         "auth/wrong-password"
-      ){
+      ) {
 
         text =
           "❌ Password ଭୁଲ।";
 
       }
 
-      else if(
+
+      /* INVALID EMAIL */
+
+      else if (
         error.code ===
         "auth/invalid-email"
-      ){
+      ) {
 
         text =
           "❌ Email ଠିକ୍ ନୁହେଁ।";
 
       }
 
-      else if(
+
+      /* TOO MANY REQUESTS */
+
+      else if (
         error.code ===
         "auth/too-many-requests"
-      ){
+      ) {
 
         text =
           "⚠️ ବହୁତଥର Login try ହୋଇଛି। କିଛି ସମୟ ପରେ ପୁଣି try କରନ୍ତୁ।";
 
       }
 
-      else if(
+
+      /* NETWORK */
+
+      else if (
         error.code ===
         "auth/network-request-failed"
-      ){
+      ) {
 
         text =
           "🌐 Internet connection କିମ୍ବା Firebase network problem।";
 
       }
 
-      else if(
+
+      /* PROVIDER DISABLED */
+
+      else if (
         error.code ===
         "auth/operation-not-allowed"
-      ){
+      ) {
 
         text =
           "⚠️ Firebase Console ରେ Email/Password Login enable ହୋଇନାହିଁ।";
 
       }
 
-      else if(
+
+      /* DOMAIN */
+
+      else if (
         error.code ===
         "auth/unauthorized-domain"
-      ){
+      ) {
 
         text =
           "⚠️ ଏହି website domain Firebase ରେ authorized ନୁହେଁ।";
@@ -575,7 +619,6 @@ form.addEventListener(
 );
 
 </script>
-
 
 </body>
 
