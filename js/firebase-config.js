@@ -1,21 +1,15 @@
-// Utkala Mart - Firebase Configuration
+import { initializeApp } from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-import {
-  initializeApp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore } from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-import {
-  getFirestore
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-import {
-  getAuth
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getAuth } from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 
-// Firebase Project Configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDonHK2CtrUjAkAaro6stnJmdDUwB59JT0",
+  apiKey: "AIzaSyBYJ_KKsS_7SNz108jnw6hpOlmegofRhJg",
   authDomain: "utkalamart-1ec68.firebaseapp.com",
   projectId: "utkalamart-1ec68",
   storageBucket: "utkalamart-1ec68.firebasestorage.app",
@@ -24,19 +18,13 @@ const firebaseConfig = {
 };
 
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-
-// Firestore
 const db = getFirestore(app);
 
-
-// Authentication
 const auth = getAuth(app);
 
 
-// Export
 export {
   app,
   db,
