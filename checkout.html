@@ -2,12 +2,16 @@
 <html lang="or">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Checkout - Utkala Mart</title>
 
-<meta name="theme-color" content="#138a45">
+<meta name="theme-color"
+content="#138a45">
 
 <style>
 
@@ -245,6 +249,7 @@ button:disabled{
   border-radius:10px;
   margin-bottom:15px;
   font-weight:bold;
+  white-space:pre-line;
 }
 
 .success{
@@ -255,6 +260,15 @@ button:disabled{
 .error{
   background:#ffecec;
   color:#b00000;
+}
+
+.order-note{
+  background:#fff8df;
+  border:1px solid #f0d77a;
+  padding:12px;
+  border-radius:10px;
+  font-size:13px;
+  margin-bottom:15px;
 }
 
 @media(max-width:600px){
@@ -283,10 +297,12 @@ button:disabled{
 }
 
 </style>
+
 </head>
 
 
 <body>
+
 
 <header>
 
@@ -299,14 +315,23 @@ button:disabled{
 </header>
 
 
+
 <div class="container">
 
-<a href="index.html" class="back">
+
+<a href="index.html"
+class="back">
+
 ← Shopping କୁ ଫେରନ୍ତୁ
+
 </a>
 
 
-<div id="statusBox" class="status-box"></div>
+
+<div id="statusBox"
+class="status-box">
+</div>
+
 
 
 <!-- =========================
@@ -332,7 +357,9 @@ button:disabled{
 <h2>👤 Customer Details</h2>
 
 
-<label>ନାମ *</label>
+<label>
+ନାମ *
+</label>
 
 <input
 type="text"
@@ -343,7 +370,9 @@ autocomplete="name"
 
 
 
-<label>Mobile Number *</label>
+<label>
+Mobile Number *
+</label>
 
 <input
 type="tel"
@@ -356,7 +385,9 @@ autocomplete="tel"
 
 
 
-<label>ପୂର୍ଣ୍ଣ ଠିକଣା *</label>
+<label>
+ପୂର୍ଣ୍ଣ ଠିକଣା *
+</label>
 
 <textarea
 id="address"
@@ -366,7 +397,9 @@ autocomplete="street-address"
 
 
 
-<label>PIN Code *</label>
+<label>
+PIN Code *
+</label>
 
 <input
 type="tel"
@@ -376,6 +409,7 @@ inputmode="numeric"
 placeholder="6 digit PIN Code"
 autocomplete="postal-code"
 >
+
 
 
 <div
@@ -391,30 +425,61 @@ class="pin-status">
 id="locationInfo"
 class="location-info">
 
+
 <div>
+
 📮 Post Office:
-<strong id="postOffice">-</strong>
+
+<strong id="postOffice">
+-
+</strong>
+
 </div>
 
+
 <div>
+
 📍 Area:
-<strong id="area">-</strong>
+
+<strong id="area">
+-
+</strong>
+
 </div>
 
+
 <div>
+
 🏙️ District:
-<strong id="districtDisplay">-</strong>
+
+<strong id="districtDisplay">
+-
+</strong>
+
 </div>
 
+
 <div>
+
 🗺️ State:
-<strong id="stateDisplay">-</strong>
+
+<strong id="stateDisplay">
+-
+</strong>
+
 </div>
 
+
 <div>
+
 🇮🇳 Country:
-<strong>India</strong>
+
+<strong>
+India
+</strong>
+
 </div>
+
 
 </div>
 
@@ -439,6 +504,7 @@ id="note"
 placeholder="କୌଣସି ବିଶେଷ ନିର୍ଦ୍ଦେଶ ଥିଲେ ଲେଖନ୍ତୁ..."
 ></textarea>
 
+
 </div>
 
 
@@ -449,7 +515,10 @@ placeholder="କୌଣସି ବିଶେଷ ନିର୍ଦ୍ଦେଶ ଥି�
 
 <div class="card">
 
-<h2>💳 Payment Method</h2>
+<h2>
+💳 Payment Method
+</h2>
+
 
 
 <label class="payment-option">
@@ -468,6 +537,7 @@ checked
 </label>
 
 
+
 <label class="payment-option">
 
 <input
@@ -482,6 +552,7 @@ value="UPI"
 
 </label>
 
+
 </div>
 
 
@@ -492,7 +563,10 @@ value="UPI"
 
 <div class="card">
 
-<h2>🧾 Order Summary</h2>
+<h2>
+🧾 Order Summary
+</h2>
+
 
 
 <div class="summary-row">
@@ -508,6 +582,7 @@ Subtotal
 </div>
 
 
+
 <div class="summary-row">
 
 <span>
@@ -519,6 +594,7 @@ Delivery
 </strong>
 
 </div>
+
 
 
 <div class="summary-row total">
@@ -534,7 +610,19 @@ Total
 </div>
 
 
+
 <br>
+
+
+
+<div class="order-note">
+
+📌 Order submit ହେବା ପରେ
+Utkala Mart team ଆପଣଙ୍କ order
+ଯାଞ୍ଚ କରି confirm କରିବେ।
+
+</div>
+
 
 
 <button
@@ -545,7 +633,9 @@ type="button">
 
 </button>
 
+
 </div>
+
 
 </div>
 
@@ -555,7 +645,7 @@ type="button">
 
 
 /* =================================
-   CENTRAL FIREBASE CONFIG
+   FIREBASE
 ================================= */
 
 import {
@@ -566,9 +656,10 @@ import {
 import {
   collection,
   doc,
-  runTransaction,
+  setDoc,
   serverTimestamp
-} from
+}
+from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
@@ -609,20 +700,24 @@ document.getElementById(
 "cartItems"
 );
 
+
 const subtotalEl =
 document.getElementById(
 "subtotal"
 );
+
 
 const deliveryEl =
 document.getElementById(
 "delivery"
 );
 
+
 const totalEl =
 document.getElementById(
 "total"
 );
+
 
 const placeOrderBtn =
 document.getElementById(
@@ -712,26 +807,6 @@ item.sellerPrice ??
 
 
 /* =================================
-   STOCK
-================================= */
-
-function getStock(product){
-
-return Number(
-
-product.stock ??
-product.stockQty ??
-product.quantity ??
-product.availableStock ??
-0
-
-) || 0;
-
-}
-
-
-
-/* =================================
    PRODUCT ID
 ================================= */
 
@@ -776,6 +851,7 @@ value ?? ""
 
 function renderCart(){
 
+
 if(!cart.length){
 
 cartItems.innerHTML = `
@@ -793,17 +869,22 @@ Shopping କୁ ଫେରି
 
 `;
 
+
 subtotalEl.innerText =
 "₹0";
+
 
 deliveryEl.innerText =
 "₹0";
 
+
 totalEl.innerText =
 "₹0";
 
+
 placeOrderBtn.disabled =
 true;
+
 
 return;
 
@@ -818,6 +899,7 @@ let subtotal = 0;
 cartItems.innerHTML =
 
 cart.map(item=>{
+
 
 const qty =
 Number(
@@ -865,6 +947,7 @@ return `
 
 <div class="product">
 
+
 <img
 src="${escapeHtml(image)}"
 alt="${escapeHtml(
@@ -876,13 +959,18 @@ this.style.display='none'
 >
 
 
+
 <div class="product-info">
 
+
 <h3>
+
 ${escapeHtml(
 item.name || "Product"
 )}
+
 </h3>
+
 
 
 ${
@@ -898,11 +986,16 @@ weight
 }
 
 
+
 <p>
+
 💰 ${money(price)}
+
 </p>
 
+
 </div>
+
 
 
 <div class="qty">
@@ -912,10 +1005,13 @@ Qty: ${qty}
 <br>
 
 <span class="price">
+
 ${money(price * qty)}
+
 </span>
 
 </div>
+
 
 </div>
 
@@ -925,7 +1021,7 @@ ${money(price * qty)}
 
 
 
-/* Delivery FREE for now */
+/* FREE DELIVERY FOR NOW */
 
 const delivery = 0;
 
@@ -938,8 +1034,10 @@ subtotal + delivery;
 subtotalEl.innerText =
 money(subtotal);
 
+
 deliveryEl.innerText =
 money(delivery);
+
 
 totalEl.innerText =
 money(total);
@@ -957,30 +1055,36 @@ document.getElementById(
 "pin"
 );
 
+
 const pinStatus =
 document.getElementById(
 "pinStatus"
 );
+
 
 const locationInfo =
 document.getElementById(
 "locationInfo"
 );
 
+
 const postOfficeEl =
 document.getElementById(
 "postOffice"
 );
+
 
 const areaEl =
 document.getElementById(
 "area"
 );
 
+
 const districtDisplay =
 document.getElementById(
 "districtDisplay"
 );
+
 
 const stateDisplay =
 document.getElementById(
@@ -997,10 +1101,12 @@ pinInput.addEventListener(
 "input",
 function(){
 
+
 const pin =
 this.value
 .replace(/\D/g,"")
 .slice(0,6);
+
 
 this.value =
 pin;
@@ -1016,8 +1122,10 @@ if(pin.length !== 6){
 locationInfo.style.display =
 "none";
 
+
 pinStatus.style.display =
 "none";
+
 
 selectedDistrict = "";
 
@@ -1036,8 +1144,10 @@ return;
 pinStatus.style.display =
 "block";
 
+
 pinStatus.className =
 "pin-status";
+
 
 pinStatus.innerText =
 "🔎 PIN Code checking...";
@@ -1065,6 +1175,7 @@ lookupPIN(pin);
 async function lookupPIN(pin){
 
 try{
+
 
 const response =
 await fetch(
@@ -1123,17 +1234,14 @@ selectedPostOffice =
 post.Name || "";
 
 
-
 selectedArea =
 post.Block ||
 post.Name ||
 "";
 
 
-
 selectedDistrict =
 post.District || "";
-
 
 
 selectedState =
@@ -1145,15 +1253,12 @@ postOfficeEl.innerText =
 selectedPostOffice || "-";
 
 
-
 areaEl.innerText =
 selectedArea || "-";
 
 
-
 districtDisplay.innerText =
 selectedDistrict || "-";
-
 
 
 stateDisplay.innerText =
@@ -1169,15 +1274,17 @@ locationInfo.style.display =
 pinStatus.className =
 "pin-status pin-success";
 
+
 pinStatus.style.display =
 "block";
+
 
 pinStatus.innerText =
 "✅ PIN Code found";
 
 
-
 }catch(error){
+
 
 console.error(
 "PIN lookup:",
@@ -1200,12 +1307,13 @@ locationInfo.style.display =
 "none";
 
 
-
 pinStatus.className =
 "pin-status pin-error";
 
+
 pinStatus.style.display =
 "block";
+
 
 pinStatus.innerText =
 "❌ PIN Code ମିଳିଲା ନାହିଁ। PIN ଯାଞ୍ଚ କରନ୍ତୁ।";
@@ -1263,6 +1371,10 @@ return;
 }
 
 
+
+/* ===============================
+   CUSTOMER DATA
+=============================== */
 
 const name =
 document
@@ -1396,8 +1508,9 @@ return;
 placeOrderBtn.disabled =
 true;
 
+
 placeOrderBtn.innerText =
-"⏳ Order Processing...";
+"⏳ Order Saving...";
 
 
 
@@ -1411,7 +1524,9 @@ try{
 let subtotal = 0;
 
 
-cart.forEach(item=>{
+const orderItems =
+cart.map(item=>{
+
 
 const qty =
 Number(
@@ -1421,273 +1536,18 @@ item.quantity ??
 1
 
 ) || 1;
-
 
 
 const price =
 getPrice(item);
 
 
-
 subtotal +=
 price * qty;
 
-});
 
 
-
-const delivery = 0;
-
-const total =
-subtotal + delivery;
-
-
-
-/* ===============================
-   ORDER REF
-=============================== */
-
-const orderRef =
-doc(
-collection(
-db,
-"orders"
-)
-);
-
-
-
-/* ===============================
-   TRANSACTION
-=============================== */
-
-await runTransaction(
-db,
-async(transaction)=>{
-
-
-const rows = [];
-
-
-
-/* ---------- READ PRODUCTS ---------- */
-
-for(
-const item of cart
-){
-
-const productId =
-getProductId(item);
-
-
-
-if(!productId){
-
-throw new Error(
-`Product ID missing: ${
-item.name || "Product"
-}`
-);
-
-}
-
-
-
-const productRef =
-doc(
-db,
-"products",
-productId
-);
-
-
-
-const snap =
-await transaction.get(
-productRef
-);
-
-
-
-rows.push({
-item,
-productRef,
-snap
-});
-
-}
-
-
-
-/* ---------- CHECK PRODUCTS ---------- */
-
-const stockMap = {};
-
-
-
-for(
-const row of rows
-){
-
-const item =
-row.item;
-
-const snap =
-row.snap;
-
-
-
-if(!snap.exists()){
-
-throw new Error(
-`${item.name || "Product"} ମିଳିଲା ନାହିଁ।`
-);
-
-}
-
-
-
-const product =
-snap.data();
-
-
-
-/* Approval check */
-
-const hasApprovalFields =
-
-product.status !== undefined ||
-
-product.approved !== undefined ||
-
-product.active !== undefined;
-
-
-
-const isApproved =
-
-product.status === "approved" &&
-
-product.approved === true &&
-
-product.active === true;
-
-
-
-const isLegacy =
-
-!hasApprovalFields &&
-
-product.active !== false;
-
-
-
-if(
-!isApproved &&
-!isLegacy
-){
-
-throw new Error(
-`${item.name || "Product"} ବର୍ତ୍ତମାନ available ନୁହେଁ।`
-);
-
-}
-
-
-
-const qty =
-Number(
-
-item.qty ??
-item.quantity ??
-1
-
-) || 1;
-
-
-
-const currentStock =
-getStock(product);
-
-
-
-if(
-currentStock < qty
-){
-
-throw new Error(
-
-`${item.name || "Product"} ପାଇଁ କେବଳ ${currentStock} stock available ଅଛି।`
-
-);
-
-}
-
-
-
-stockMap[
-row.productRef.path
-] = {
-
-ref:
-row.productRef,
-
-stock:
-currentStock,
-
-qty
-
-};
-
-}
-
-
-
-/* ---------- UPDATE STOCK ---------- */
-
-Object.values(
-stockMap
-)
-.forEach(row=>{
-
-const newStock =
-row.stock - row.qty;
-
-
-
-transaction.update(
-row.ref,
-{
-
-stock:
-newStock,
-
-stockQty:
-newStock,
-
-quantity:
-newStock,
-
-availableStock:
-newStock,
-
-updatedAt:
-serverTimestamp()
-
-}
-
-);
-
-});
-
-
-
-/* ===============================
-   ORDER ITEMS
-=============================== */
-
-const orderItems =
-cart.map(item=>({
+return {
 
 productId:
 getProductId(item),
@@ -1695,17 +1555,9 @@ getProductId(item),
 name:
 item.name || "Product",
 
-price:
-getPrice(item),
+price,
 
-qty:
-Number(
-
-item.qty ??
-item.quantity ??
-1
-
-) || 1,
+qty,
 
 weight:
 item.weight || "",
@@ -1723,7 +1575,30 @@ item.imageUrl ||
 sellerId:
 item.sellerId || ""
 
-}));
+};
+
+});
+
+
+
+const delivery = 0;
+
+const total =
+subtotal + delivery;
+
+
+
+/* ===============================
+   ORDER ID
+=============================== */
+
+const orderRef =
+doc(
+collection(
+db,
+"orders"
+)
+);
 
 
 
@@ -1731,7 +1606,7 @@ item.sellerId || ""
    CREATE ORDER
 =============================== */
 
-transaction.set(
+await setDoc(
 orderRef,
 {
 
@@ -1783,18 +1658,33 @@ paymentStatus:
 orderStatus:
 "placed",
 
+
+/*
+ IMPORTANT:
+ Customer checkout does NOT
+ change product stock.
+ Admin will verify and manage stock.
+*/
+
+stockChecked:
+false,
+
 stockRestored:
 false,
+
+adminConfirmed:
+false,
+
+
+customerNote:
+note,
+
 
 createdAt:
 serverTimestamp(),
 
 updatedAt:
 serverTimestamp()
-
-}
-
-);
 
 }
 
@@ -1827,7 +1717,11 @@ localStorage.removeItem(
 showStatus(
 
 `✅ Order successfully placed!
-Order ID: ${orderId}`,
+
+Order ID:
+${orderId}
+
+Utkala Mart team ଆପଣଙ୍କ order ଯାଞ୍ଚ କରି confirm କରିବେ।`,
 
 "success"
 
@@ -1847,12 +1741,13 @@ window.location.href =
 `order-tracking.html?orderId=${encodeURIComponent(orderId)}`;
 
 },
-1500
+1800
 );
 
 
 
 }catch(error){
+
 
 console.error(
 "Order error:",
@@ -1863,7 +1758,7 @@ error
 
 showStatus(
 
-"❌ Order place ହୋଇପାରିଲା ନାହିଁ: " +
+"❌ Order place ହୋଇପାରିଲା ନାହିଁ:\n" +
 (error.message || "Unknown error"),
 
 "error"
@@ -1874,6 +1769,7 @@ showStatus(
 
 placeOrderBtn.disabled =
 false;
+
 
 placeOrderBtn.innerText =
 "✅ Order Place କରନ୍ତୁ";
@@ -1904,5 +1800,7 @@ renderCart();
 
 </script>
 
+
 </body>
+
 </html>
