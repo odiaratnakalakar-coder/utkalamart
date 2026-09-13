@@ -20,15 +20,10 @@ content="#138a45">
 }
 
 body{
-
   margin:0;
-
   min-height:100vh;
-
   display:flex;
-
   align-items:center;
-
   justify-content:center;
 
   font-family:
@@ -42,16 +37,13 @@ body{
       #eaf7ef,
       #ffffff
     );
-
 }
 
 .login-box{
-
   width:92%;
-
   max-width:420px;
 
-  background:white;
+  background:#fff;
 
   padding:28px;
 
@@ -60,77 +52,50 @@ body{
   box-shadow:
     0 8px 30px
     rgba(0,0,0,.12);
-
 }
 
 .logo{
-
   text-align:center;
-
   font-size:45px;
-
   margin-bottom:5px;
-
 }
 
 h1{
-
   text-align:center;
-
   color:#138a45;
-
   margin:5px 0;
-
   font-size:25px;
-
 }
 
 .subtitle{
-
   text-align:center;
-
   color:#777;
-
   margin-bottom:25px;
-
 }
 
 label{
-
   display:block;
-
   font-weight:bold;
-
   margin-bottom:7px;
-
 }
 
 input{
-
   width:100%;
-
   padding:13px;
 
   border:1px solid #ccc;
-
   border-radius:9px;
 
   font-size:16px;
-
   margin-bottom:15px;
-
 }
 
 input:focus{
-
   outline:none;
-
   border-color:#138a45;
-
 }
 
 .login-btn{
-
   width:100%;
 
   border:0;
@@ -140,47 +105,35 @@ input:focus{
   border-radius:9px;
 
   background:#138a45;
-
-  color:white;
+  color:#fff;
 
   font-size:17px;
-
   font-weight:bold;
 
   cursor:pointer;
-
 }
 
 .login-btn:disabled{
-
   opacity:.6;
-
+  cursor:not-allowed;
 }
 
 .message{
-
   margin-top:15px;
-
   text-align:center;
-
   font-size:14px;
-
+  line-height:1.5;
 }
 
 .success{
-
   color:#138a45;
-
 }
 
 .error{
-
   color:#d32f2f;
-
 }
 
 .back{
-
   display:block;
 
   text-align:center;
@@ -190,7 +143,6 @@ input:focus{
   color:#138a45;
 
   text-decoration:none;
-
 }
 
 </style>
@@ -273,53 +225,94 @@ input:focus{
 
 <script type="module">
 
+/* ==============================
+   FIREBASE AUTH
+============================== */
+
 import {
   getAuth,
   signInWithEmailAndPassword,
-  onAuthStateChanged
+  onAuthStateChanged,
+  signOut
 }
 from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 
+/* ==============================
+   FIREBASE CONFIG
+============================== */
+
 import {
   app
 }
-from "./js/firebase-config.js?v=2";
+from
+"./js/firebase-config.js?v=2";
 
 
-const auth =
-  getAuth(app);
+/* ==============================
+   AUTH
+============================== */
 
+const auth = getAuth(app);
+
+
+/* ==============================
+   ADMIN EMAIL
+============================== */
 
 const ADMIN_EMAIL =
-  "Suryakantabehera629@gmail.com";
+"Suryakantabehera629@gmail.com";
 
+
+/* ==============================
+   ELEMENTS
+============================== */
 
 const form =
-  document.getElementById("loginForm");
+document.getElementById("loginForm");
 
 const emailInput =
-  document.getElementById("email");
+document.getElementById("email");
 
 const passwordInput =
-  document.getElementById("password");
+document.getElementById("password");
 
 const loginBtn =
-  document.getElementById("loginBtn");
+document.getElementById("loginBtn");
 
 const message =
-  document.getElementById("message");
+document.getElementById("message");
 
 
-/* Already logged in */
+/* ==============================
+   MESSAGE FUNCTION
+============================== */
+
+function showMessage(text, type){
+
+  message.textContent = text;
+
+  message.className =
+    "message " + type;
+
+}
+
+
+/* ==============================
+   CHECK EXISTING LOGIN
+============================== */
 
 onAuthStateChanged(
   auth,
-  (user)=>{
+  async (user) => {
 
-    if(!user) return;
+    if(!user){
+      return;
+    }
 
+
+    /* Admin already logged in */
 
     if(
       user.email &&
@@ -330,17 +323,25 @@ onAuthStateChanged(
       window.location.href =
         "admin-orders.html";
 
+      return;
     }
+
+
+    /* If another account is logged in */
+
+    await signOut(auth);
 
   }
 );
 
 
-/* Login */
+/* ==============================
+   LOGIN
+============================== */
 
 form.addEventListener(
   "submit",
-  async(e)=>{
+  async (e) => {
 
     e.preventDefault();
 
@@ -352,65 +353,129 @@ form.addEventListener(
       passwordInput.value;
 
 
+    /* ==========================
+       ADMIN EMAIL CHECK
+    ========================== */
+
     if(
       email.toLowerCase() !==
       ADMIN_EMAIL.toLowerCase()
     ){
 
-      message.textContent =
-        "❌ ଏହା Admin Email ନୁହେଁ।";
-
-      message.className =
-        "message error";
+      showMessage(
+        "❌ ଏହା Admin Email ନୁହେଁ।",
+        "error"
+      );
 
       return;
-
     }
 
 
-    loginBtn.disabled =
-      true;
+    if(!password){
+
+      showMessage(
+        "❌ Password ଦିଅନ୍ତୁ।",
+        "error"
+      );
+
+      return;
+    }
+
+
+    /* ==========================
+       BUTTON LOADING
+    ========================== */
+
+    loginBtn.disabled = true;
 
     loginBtn.textContent =
       "⏳ Login...";
 
-
-    message.textContent =
-      "";
+    showMessage(
+      "",
+      ""
+    );
 
 
     try{
 
-      await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
+      /* ========================
+         FIREBASE LOGIN
+      ======================== */
+
+      const result =
+        await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+
+
+      const user =
+        result.user;
+
+
+      /* ========================
+         VERIFY ADMIN
+      ======================== */
+
+      if(
+        !user.email ||
+        user.email.toLowerCase() !==
+        ADMIN_EMAIL.toLowerCase()
+      ){
+
+        await signOut(auth);
+
+        showMessage(
+          "❌ Admin access ନାହିଁ।",
+          "error"
+        );
+
+        loginBtn.disabled = false;
+
+        loginBtn.textContent =
+          "🔐 Login";
+
+        return;
+      }
+
+
+      /* ========================
+         SUCCESS
+      ======================== */
+
+      showMessage(
+        "✅ Login successful...",
+        "success"
       );
 
 
-      message.textContent =
-        "✅ Login successful...";
-
-      message.className =
-        "message success";
-
-
-      setTimeout(()=>{
+      setTimeout(() => {
 
         window.location.href =
           "admin-orders.html";
 
-      },500);
+      }, 500);
 
 
-    }catch(error){
+    }
 
-      console.error(error);
+    catch(error){
+
+      console.error(
+        "Firebase Login Error:",
+        error
+      );
 
 
       let text =
         "❌ Login failed.";
 
+
+      /* ========================
+         ERROR HANDLING
+      ======================== */
 
       if(
         error.code ===
@@ -421,6 +486,7 @@ form.addEventListener(
           "❌ Email କିମ୍ବା Password ଭୁଲ।";
 
       }
+
       else if(
         error.code ===
         "auth/user-not-found"
@@ -430,6 +496,7 @@ form.addEventListener(
           "❌ ଏହି Email ରେ Firebase account ନାହିଁ।";
 
       }
+
       else if(
         error.code ===
         "auth/wrong-password"
@@ -439,26 +506,65 @@ form.addEventListener(
           "❌ Password ଭୁଲ।";
 
       }
+
+      else if(
+        error.code ===
+        "auth/invalid-email"
+      ){
+
+        text =
+          "❌ Email ଠିକ୍ ନୁହେଁ।";
+
+      }
+
       else if(
         error.code ===
         "auth/too-many-requests"
       ){
 
         text =
-          "⚠️ ବହୁତଥର login try ହୋଇଛି। କିଛି ସମୟ ପରେ try କରନ୍ତୁ।";
+          "⚠️ ବହୁତଥର Login try ହୋଇଛି। କିଛି ସମୟ ପରେ ପୁଣି try କରନ୍ତୁ।";
+
+      }
+
+      else if(
+        error.code ===
+        "auth/network-request-failed"
+      ){
+
+        text =
+          "🌐 Internet connection କିମ୍ବା Firebase network problem।";
+
+      }
+
+      else if(
+        error.code ===
+        "auth/operation-not-allowed"
+      ){
+
+        text =
+          "⚠️ Firebase Console ରେ Email/Password Login enable ହୋଇନାହିଁ।";
+
+      }
+
+      else if(
+        error.code ===
+        "auth/unauthorized-domain"
+      ){
+
+        text =
+          "⚠️ ଏହି website domain Firebase ରେ authorized ନୁହେଁ।";
 
       }
 
 
-      message.textContent =
-        text;
+      showMessage(
+        text,
+        "error"
+      );
 
-      message.className =
-        "message error";
 
-
-      loginBtn.disabled =
-        false;
+      loginBtn.disabled = false;
 
       loginBtn.textContent =
         "🔐 Login";
