@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="or">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
 <meta name="theme-color" content="#138a45">
 
 <style>
+
 *{
   box-sizing:border-box;
 }
@@ -22,7 +24,7 @@ body{
 
 header{
   background:#138a45;
-  color:white;
+  color:#fff;
   padding:16px;
   text-align:center;
 }
@@ -44,7 +46,7 @@ header p{
 }
 
 .card{
-  background:white;
+  background:#fff;
   border-radius:14px;
   padding:18px;
   margin-bottom:18px;
@@ -55,6 +57,14 @@ header p{
   margin-top:0;
   color:#138a45;
   font-size:20px;
+}
+
+.back{
+  display:inline-block;
+  margin-bottom:15px;
+  color:#138a45;
+  text-decoration:none;
+  font-weight:bold;
 }
 
 .product{
@@ -93,8 +103,14 @@ header p{
 }
 
 .price{
-  font-weight:bold;
   color:#138a45;
+  font-weight:bold;
+}
+
+.qty{
+  font-weight:bold;
+  text-align:right;
+  white-space:nowrap;
 }
 
 input,
@@ -111,8 +127,7 @@ select{
 }
 
 input:focus,
-textarea:focus,
-select:focus{
+textarea:focus{
   border-color:#138a45;
 }
 
@@ -124,6 +139,47 @@ textarea{
 label{
   font-weight:bold;
   font-size:14px;
+}
+
+.location-info{
+  background:#f0faf4;
+  border:1px solid #b9e5c9;
+  border-radius:10px;
+  padding:12px;
+  margin-top:-5px;
+  margin-bottom:14px;
+  display:none;
+}
+
+.location-info div{
+  margin:6px 0;
+  font-size:14px;
+}
+
+.location-info strong{
+  color:#138a45;
+}
+
+.pin-status{
+  font-size:13px;
+  margin-top:-8px;
+  margin-bottom:12px;
+  display:none;
+}
+
+.pin-success{
+  color:#087333;
+}
+
+.pin-error{
+  color:#b00000;
+}
+
+.note{
+  font-size:12px;
+  color:#777;
+  margin-top:-8px;
+  margin-bottom:12px;
 }
 
 .summary-row{
@@ -162,7 +218,7 @@ button{
   padding:14px;
   border-radius:10px;
   background:#138a45;
-  color:white;
+  color:#fff;
   font-size:17px;
   font-weight:bold;
   cursor:pointer;
@@ -181,14 +237,6 @@ button:disabled{
   text-align:center;
   padding:40px 10px;
   color:#777;
-}
-
-.back{
-  display:inline-block;
-  margin-bottom:15px;
-  color:#138a45;
-  text-decoration:none;
-  font-weight:bold;
 }
 
 .status-box{
@@ -228,281 +276,1633 @@ button:disabled{
     font-size:14px;
   }
 
+  .qty{
+    font-size:13px;
+  }
+
 }
+
 </style>
 </head>
+
 
 <body>
 
 <header>
-  <h1>🛍️ Utkala Mart</h1>
-  <p>ଗଞ୍ଜାମର ପ୍ରଡକ୍ଟ — ଆପଣଙ୍କ ଘରେ</p>
+
+<h1>🛍️ Utkala Mart</h1>
+
+<p>
+ଗଞ୍ଜାମର ପ୍ରଡକ୍ଟ — ଆପଣଙ୍କ ଘରେ
+</p>
+
 </header>
+
 
 <div class="container">
 
-<a href="index.html" class="back">← Shopping କୁ ଫେରନ୍ତୁ</a>
+<a href="index.html" class="back">
+← Shopping କୁ ଫେରନ୍ତୁ
+</a>
+
 
 <div id="statusBox" class="status-box"></div>
 
-<!-- ORDER ITEMS -->
-<div class="card">
-  <h2>🛒 ଆପଣଙ୍କ Order</h2>
-  <div id="cartItems"></div>
-</div>
 
-<!-- CUSTOMER DETAILS -->
+<!-- =========================
+     ORDER
+========================= -->
+
 <div class="card">
 
-  <h2>👤 Customer Details</h2>
+<h2>🛒 ଆପଣଙ୍କ Order</h2>
 
-  <label>ନାମ *</label>
-  <input
-    type="text"
-    id="customerName"
-    placeholder="ଆପଣଙ୍କ ନାମ"
-  >
-
-  <label>Mobile Number *</label>
-  <input
-    type="tel"
-    id="mobile"
-    maxlength="10"
-    placeholder="10 digit mobile number"
-  >
-
-  <label>ଠିକଣା *</label>
-  <textarea
-    id="address"
-    placeholder="ଘର ନମ୍ବର, ଗ୍ରାମ/ସହର, ରାସ୍ତା..."
-  ></textarea>
-
-  <label>ଜିଲ୍ଲା *</label>
-  <input
-    type="text"
-    id="district"
-    placeholder="ଉଦାହରଣ: Ganjam"
-  >
-
-  <label>PIN Code *</label>
-  <input
-    type="tel"
-    id="pin"
-    maxlength="6"
-    placeholder="6 digit PIN"
-  >
-
-  <label>ଅତିରିକ୍ତ Note</label>
-  <textarea
-    id="note"
-    placeholder="କୌଣସି ବିଶେଷ ନିର୍ଦ୍ଦେଶ ଥିଲେ ଲେଖନ୍ତୁ..."
-  ></textarea>
+<div id="cartItems"></div>
 
 </div>
 
-<!-- PAYMENT -->
+
+
+<!-- =========================
+     CUSTOMER
+========================= -->
+
 <div class="card">
 
-  <h2>💳 Payment Method</h2>
+<h2>👤 Customer Details</h2>
 
-  <label class="payment-option">
-    <input
-      type="radio"
-      name="payment"
-      value="COD"
-      checked
-    >
-    <span>💵 Cash on Delivery</span>
-  </label>
 
-  <label class="payment-option">
-    <input
-      type="radio"
-      name="payment"
-      value="UPI"
-    >
-    <span>📱 UPI Payment</span>
-  </label>
+<label>ନାମ *</label>
+
+<input
+type="text"
+id="customerName"
+placeholder="ଆପଣଙ୍କ ନାମ"
+autocomplete="name"
+>
+
+
+
+<label>Mobile Number *</label>
+
+<input
+type="tel"
+id="mobile"
+maxlength="10"
+inputmode="numeric"
+placeholder="10 digit mobile number"
+autocomplete="tel"
+>
+
+
+
+<label>ପୂର୍ଣ୍ଣ ଠିକଣା *</label>
+
+<textarea
+id="address"
+placeholder="ଘର ନମ୍ବର, ଗ୍ରାମ/ସହର, ରାସ୍ତା..."
+autocomplete="street-address"
+></textarea>
+
+
+
+<label>PIN Code *</label>
+
+<input
+type="tel"
+id="pin"
+maxlength="6"
+inputmode="numeric"
+placeholder="6 digit PIN Code"
+autocomplete="postal-code"
+>
+
+
+<div
+id="pinStatus"
+class="pin-status">
+</div>
+
+
+
+<!-- AUTOMATIC LOCATION -->
+
+<div
+id="locationInfo"
+class="location-info">
+
+<div>
+📮 Post Office:
+<strong id="postOffice">-</strong>
+</div>
+
+<div>
+📍 Area:
+<strong id="area">-</strong>
+</div>
+
+<div>
+🏙️ District:
+<strong id="districtDisplay">-</strong>
+</div>
+
+<div>
+🗺️ State:
+<strong id="stateDisplay">-</strong>
+</div>
+
+<div>
+🇮🇳 Country:
+<strong>India</strong>
+</div>
 
 </div>
 
-<!-- SUMMARY -->
+
+
+<div class="note">
+
+💡 6 digit PIN Code ଦେଲେ
+Post Office, Area, District ଓ State
+automatic ଭାବରେ ଆସିବ।
+
+</div>
+
+
+
+<label>
+ଅତିରିକ୍ତ Note
+</label>
+
+<textarea
+id="note"
+placeholder="କୌଣସି ବିଶେଷ ନିର୍ଦ୍ଦେଶ ଥିଲେ ଲେଖନ୍ତୁ..."
+></textarea>
+
+</div>
+
+
+
+<!-- =========================
+     PAYMENT
+========================= -->
+
 <div class="card">
 
-  <h2>🧾 Order Summary</h2>
+<h2>💳 Payment Method</h2>
 
-  <div class="summary-row">
-    <span>Subtotal</span>
-    <strong id="subtotal">₹0</strong>
-  </div>
 
-  <div class="summary-row">
-    <span>Delivery</span>
-    <strong id="delivery">₹0</strong>
-  </div>
+<label class="payment-option">
 
-  <div class="summary-row total">
-    <span>Total</span>
-    <strong id="total">₹0</strong>
-  </div>
+<input
+type="radio"
+name="payment"
+value="COD"
+checked
+>
 
-  <br>
+<span>
+💵 Cash on Delivery
+</span>
 
-  <button id="placeOrderBtn" onclick="placeOrder()">
-    ✅ Order Place କରନ୍ତୁ
-  </button>
+</label>
+
+
+<label class="payment-option">
+
+<input
+type="radio"
+name="payment"
+value="UPI"
+>
+
+<span>
+📱 UPI Payment
+</span>
+
+</label>
+
+</div>
+
+
+
+<!-- =========================
+     SUMMARY
+========================= -->
+
+<div class="card">
+
+<h2>🧾 Order Summary</h2>
+
+
+<div class="summary-row">
+
+<span>
+Subtotal
+</span>
+
+<strong id="subtotal">
+₹0
+</strong>
+
+</div>
+
+
+<div class="summary-row">
+
+<span>
+Delivery
+</span>
+
+<strong id="delivery">
+₹0
+</strong>
+
+</div>
+
+
+<div class="summary-row total">
+
+<span>
+Total
+</span>
+
+<strong id="total">
+₹0
+</strong>
+
+</div>
+
+
+<br>
+
+
+<button
+id="placeOrderBtn"
+type="button">
+
+✅ Order Place କରନ୍ତୁ
+
+</button>
 
 </div>
 
 </div>
+
 
 
 <script type="module">
 
-import {
-  initializeApp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+/* =================================
+   CENTRAL FIREBASE CONFIG
+================================= */
 
 import {
-  getFirestore,
-  doc,
-  getDoc,
+  db
+} from "./js/firebase-config.js";
+
+
+import {
   collection,
+  doc,
   runTransaction,
   serverTimestamp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-/* ==============================
-   FIREBASE CONFIG
-================================ */
 
-const firebaseConfig = {
-
-  apiKey:
-  "AIzaSyBYJ_KKs_7SNz108jnw6hpOlmegofRhJg",
-
-  authDomain:
-  "utkalamart-1ec68.firebaseapp.com",
-
-  projectId:
-  "utkalamart-1ec68",
-
-  storageBucket:
-  "utkalamart-1ec68.firebasestorage.app",
-
-  messagingSenderId:
-  "664871353747",
-
-  appId:
-  "1:664871353747:web:96532fdafe78aabe7f3c66"
-
-};
-
-
-const app = initializeApp(firebaseConfig);
-
-const db = getFirestore(app);
-
-
-/* ==============================
+/* =================================
    CART
-================================ */
+================================= */
 
 let cart = [];
 
+
 try{
 
-  cart = JSON.parse(
-    localStorage.getItem("utkalaCart")
-  ) || [];
+cart =
+JSON.parse(
+localStorage.getItem("utkalaCart")
+) || [];
 
-}catch(e){
+}catch(error){
 
-  cart = [];
+console.error(
+"Cart error:",
+error
+);
+
+cart = [];
 
 }
 
 
-/* ==============================
+
+/* =================================
+   DOM
+================================= */
+
+const cartItems =
+document.getElementById(
+"cartItems"
+);
+
+const subtotalEl =
+document.getElementById(
+"subtotal"
+);
+
+const deliveryEl =
+document.getElementById(
+"delivery"
+);
+
+const totalEl =
+document.getElementById(
+"total"
+);
+
+const placeOrderBtn =
+document.getElementById(
+"placeOrderBtn"
+);
+
+
+
+/* =================================
+   PIN VARIABLES
+================================= */
+
+let selectedDistrict = "";
+
+let selectedState = "";
+
+let selectedPostOffice = "";
+
+let selectedArea = "";
+
+
+
+/* =================================
    STATUS
-================================ */
+================================= */
 
-function showStatus(message,type){
+function showStatus(
+message,
+type
+){
 
-  const box =
-    document.getElementById("statusBox");
+const box =
+document.getElementById(
+"statusBox"
+);
 
-  box.style.display="block";
+box.style.display =
+"block";
 
-  box.className =
-    "status-box " + type;
+box.className =
+"status-box " + type;
 
-  box.innerText = message;
+box.innerText =
+message;
 
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
 
 }
 
 
-/* ==============================
-   NUMBER
-================================ */
+
+/* =================================
+   MONEY
+================================= */
 
 function money(value){
 
-  return "₹" +
-    Number(value || 0).toLocaleString("en-IN");
+return "₹" +
+Number(value || 0)
+.toLocaleString("en-IN");
 
 }
 
 
-/* ==============================
+
+/* =================================
+   PRICE
+================================= */
+
+function getPrice(item){
+
+return Number(
+
+item.price ??
+item.utkalaPrice ??
+item.sellingPrice ??
+item.sellerPrice ??
+0
+
+) || 0;
+
+}
+
+
+
+/* =================================
+   STOCK
+================================= */
+
+function getStock(product){
+
+return Number(
+
+product.stock ??
+product.stockQty ??
+product.quantity ??
+product.availableStock ??
+0
+
+) || 0;
+
+}
+
+
+
+/* =================================
+   PRODUCT ID
+================================= */
+
+function getProductId(item){
+
+return (
+
+item.productId ||
+item.id ||
+item.productID ||
+""
+
+);
+
+}
+
+
+
+/* =================================
+   ESCAPE HTML
+================================= */
+
+function escapeHtml(value){
+
+return String(
+value ?? ""
+)
+
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+
+/* =================================
    RENDER CART
-================================ */
+================================= */
 
 function renderCart(){
 
-  const container =
-    document.getElementById("cartItems");
+if(!cart.length){
 
-  if(!cart.length){
+cartItems.innerHTML = `
 
-    container.innerHTML = `
-      <div class="empty">
-        🛒 Cart ଖାଲି ଅଛି।
-        <br><br>
-        Shopping କୁ ଫେରି ପ୍ରଡକ୍ଟ Add କରନ୍ତୁ।
-      </div>
-    `;
+<div class="empty">
 
-    document.getElementById("placeOrderBtn")
-      .disabled = true;
+🛒 Cart ଖାଲି ଅଛି।
 
-    return;
-  }
+<br><br>
+
+Shopping କୁ ଫେରି
+ପ୍ରଡକ୍ଟ Add କରନ୍ତୁ।
+
+</div>
+
+`;
+
+subtotalEl.innerText =
+"₹0";
+
+deliveryEl.innerText =
+"₹0";
+
+totalEl.innerText =
+"₹0";
+
+placeOrderBtn.disabled =
+true;
+
+return;
+
+}
 
 
-  let subtotal = 0;
 
-  container.innerHTML = cart.map(item => {
+let subtotal = 0;
 
-    const qty =
-      Number(item.qty || item.quantity || 1);
 
-    const price =
-      Number(
-        item.price ||
-        item.utkalaPrice ||
-        item.sellingPrice ||
-        0
-      );
 
-    subtotal += price * qty;
+cartItems.innerHTML =
 
-    const weight =
-      item.weight
-      ? `${item.weight} ${item.weightUnit || item.unit || ""}`
+cart.map(item=>{
+
+const qty =
+Number(
+
+item.qty ??
+item.quantity ??
+1
+
+) || 1;
+
+
+
+const price =
+getPrice(item);
+
+
+
+subtotal +=
+price * qty;
+
+
+
+const weight =
+item.weight
+
+? `${item.weight} ${
+item.weightUnit ||
+item.unit ||
+""
+}`
+
+: "";
+
+
+
+const image =
+item.image ||
+item.imageUrl ||
+item.photo ||
+"";
+
+
+
+return `
+
+<div class="product">
+
+<img
+src="${escapeHtml(image)}"
+alt="${escapeHtml(
+item.name || "Product"
+)}"
+onerror="
+this.style.display='none'
+"
+>
+
+
+<div class="product-info">
+
+<h3>
+${escapeHtml(
+item.name || "Product"
+)}
+</h3>
+
+
+${
+weight
+?
+`
+<p>
+📦 ${escapeHtml(weight)}
+</p>
+`
+:
+""
+}
+
+
+<p>
+💰 ${money(price)}
+</p>
+
+</div>
+
+
+<div class="qty">
+
+Qty: ${qty}
+
+<br>
+
+<span class="price">
+${money(price * qty)}
+</span>
+
+</div>
+
+</div>
+
+`;
+
+}).join("");
+
+
+
+/* Delivery FREE for now */
+
+const delivery = 0;
+
+
+const total =
+subtotal + delivery;
+
+
+
+subtotalEl.innerText =
+money(subtotal);
+
+deliveryEl.innerText =
+money(delivery);
+
+totalEl.innerText =
+money(total);
+
+}
+
+
+
+/* =================================
+   PIN INPUT
+================================= */
+
+const pinInput =
+document.getElementById(
+"pin"
+);
+
+const pinStatus =
+document.getElementById(
+"pinStatus"
+);
+
+const locationInfo =
+document.getElementById(
+"locationInfo"
+);
+
+const postOfficeEl =
+document.getElementById(
+"postOffice"
+);
+
+const areaEl =
+document.getElementById(
+"area"
+);
+
+const districtDisplay =
+document.getElementById(
+"districtDisplay"
+);
+
+const stateDisplay =
+document.getElementById(
+"stateDisplay"
+);
+
+
+
+let pinTimer = null;
+
+
+
+pinInput.addEventListener(
+"input",
+function(){
+
+const pin =
+this.value
+.replace(/\D/g,"")
+.slice(0,6);
+
+this.value =
+pin;
+
+
+
+clearTimeout(pinTimer);
+
+
+
+if(pin.length !== 6){
+
+locationInfo.style.display =
+"none";
+
+pinStatus.style.display =
+"none";
+
+selectedDistrict = "";
+
+selectedState = "";
+
+selectedPostOffice = "";
+
+selectedArea = "";
+
+return;
+
+}
+
+
+
+pinStatus.style.display =
+"block";
+
+pinStatus.className =
+"pin-status";
+
+pinStatus.innerText =
+"🔎 PIN Code checking...";
+
+
+
+pinTimer =
+setTimeout(
+function(){
+
+lookupPIN(pin);
+
+},
+300
+);
+
+});
+
+
+
+/* =================================
+   PIN LOOKUP
+================================= */
+
+async function lookupPIN(pin){
+
+try{
+
+const response =
+await fetch(
+
+`https://api.postalpincode.in/pincode/${pin}`
+
+);
+
+
+
+if(!response.ok){
+
+throw new Error(
+"PIN service unavailable"
+);
+
+}
+
+
+
+const data =
+await response.json();
+
+
+
+if(
+
+!Array.isArray(data) ||
+
+!data[0] ||
+
+data[0].Status !== "Success" ||
+
+!Array.isArray(
+data[0].PostOffice
+) ||
+
+!data[0].PostOffice.length
+
+){
+
+throw new Error(
+"Invalid PIN"
+);
+
+}
+
+
+
+const post =
+data[0].PostOffice[0];
+
+
+
+selectedPostOffice =
+post.Name || "";
+
+
+
+selectedArea =
+post.Block ||
+post.Name ||
+"";
+
+
+
+selectedDistrict =
+post.District || "";
+
+
+
+selectedState =
+post.State || "";
+
+
+
+postOfficeEl.innerText =
+selectedPostOffice || "-";
+
+
+
+areaEl.innerText =
+selectedArea || "-";
+
+
+
+districtDisplay.innerText =
+selectedDistrict || "-";
+
+
+
+stateDisplay.innerText =
+selectedState || "-";
+
+
+
+locationInfo.style.display =
+"block";
+
+
+
+pinStatus.className =
+"pin-status pin-success";
+
+pinStatus.style.display =
+"block";
+
+pinStatus.innerText =
+"✅ PIN Code found";
+
+
+
+}catch(error){
+
+console.error(
+"PIN lookup:",
+error
+);
+
+
+
+selectedDistrict = "";
+
+selectedState = "";
+
+selectedPostOffice = "";
+
+selectedArea = "";
+
+
+
+locationInfo.style.display =
+"none";
+
+
+
+pinStatus.className =
+"pin-status pin-error";
+
+pinStatus.style.display =
+"block";
+
+pinStatus.innerText =
+"❌ PIN Code ମିଳିଲା ନାହିଁ। PIN ଯାଞ୍ଚ କରନ୍ତୁ।";
+
+}
+
+}
+
+
+
+/* =================================
+   VALIDATION
+================================= */
+
+function validMobile(
+mobile
+){
+
+return /^[6-9]\d{9}$/.test(
+mobile
+);
+
+}
+
+
+
+function validPIN(
+pin
+){
+
+return /^\d{6}$/.test(
+pin
+);
+
+}
+
+
+
+/* =================================
+   PLACE ORDER
+================================= */
+
+async function placeOrder(){
+
+
+if(!cart.length){
+
+showStatus(
+"🛒 Cart ଖାଲି ଅଛି।",
+"error"
+);
+
+return;
+
+}
+
+
+
+const name =
+document
+.getElementById(
+"customerName"
+)
+.value
+.trim();
+
+
+
+const mobile =
+document
+.getElementById(
+"mobile"
+)
+.value
+.replace(/\D/g,"");
+
+
+
+const address =
+document
+.getElementById(
+"address"
+)
+.value
+.trim();
+
+
+
+const pin =
+document
+.getElementById(
+"pin"
+)
+.value
+.trim();
+
+
+
+const note =
+document
+.getElementById(
+"note"
+)
+.value
+.trim();
+
+
+
+const paymentMethod =
+document.querySelector(
+'input[name="payment"]:checked'
+)?.value || "COD";
+
+
+
+/* ===============================
+   VALIDATION
+=============================== */
+
+if(!name){
+
+showStatus(
+"ଦୟାକରି ଆପଣଙ୍କ ନାମ ଦିଅନ୍ତୁ।",
+"error"
+);
+
+return;
+
+}
+
+
+
+if(!validMobile(mobile)){
+
+showStatus(
+"ଦୟାକରି valid 10 digit mobile number ଦିଅନ୍ତୁ।",
+"error"
+);
+
+return;
+
+}
+
+
+
+if(!address){
+
+showStatus(
+"ଦୟାକରି ପୂର୍ଣ୍ଣ ଠିକଣା ଦିଅନ୍ତୁ।",
+"error"
+);
+
+return;
+
+}
+
+
+
+if(!validPIN(pin)){
+
+showStatus(
+"ଦୟାକରି valid 6 digit PIN Code ଦିଅନ୍ତୁ।",
+"error"
+);
+
+return;
+
+}
+
+
+
+if(
+!selectedDistrict ||
+!selectedState
+){
+
+showStatus(
+"PIN Code ର District ଏବଂ State automatic ଆସିବା ପର୍ଯ୍ୟନ୍ତ ଅପେକ୍ଷା କରନ୍ତୁ।",
+"error"
+);
+
+return;
+
+}
+
+
+
+placeOrderBtn.disabled =
+true;
+
+placeOrderBtn.innerText =
+"⏳ Order Processing...";
+
+
+
+try{
+
+
+/* ===============================
+   TOTAL
+=============================== */
+
+let subtotal = 0;
+
+
+cart.forEach(item=>{
+
+const qty =
+Number(
+
+item.qty ??
+item.quantity ??
+1
+
+) || 1;
+
+
+
+const price =
+getPrice(item);
+
+
+
+subtotal +=
+price * qty;
+
+});
+
+
+
+const delivery = 0;
+
+const total =
+subtotal + delivery;
+
+
+
+/* ===============================
+   ORDER REF
+=============================== */
+
+const orderRef =
+doc(
+collection(
+db,
+"orders"
+)
+);
+
+
+
+/* ===============================
+   TRANSACTION
+=============================== */
+
+await runTransaction(
+db,
+async(transaction)=>{
+
+
+const rows = [];
+
+
+
+/* ---------- READ PRODUCTS ---------- */
+
+for(
+const item of cart
+){
+
+const productId =
+getProductId(item);
+
+
+
+if(!productId){
+
+throw new Error(
+`Product ID missing: ${
+item.name || "Product"
+}`
+);
+
+}
+
+
+
+const productRef =
+doc(
+db,
+"products",
+productId
+);
+
+
+
+const snap =
+await transaction.get(
+productRef
+);
+
+
+
+rows.push({
+item,
+productRef,
+snap
+});
+
+}
+
+
+
+/* ---------- CHECK PRODUCTS ---------- */
+
+const stockMap = {};
+
+
+
+for(
+const row of rows
+){
+
+const item =
+row.item;
+
+const snap =
+row.snap;
+
+
+
+if(!snap.exists()){
+
+throw new Error(
+`${item.name || "Product"} ମିଳିଲା ନାହିଁ।`
+);
+
+}
+
+
+
+const product =
+snap.data();
+
+
+
+/* Approval check */
+
+const hasApprovalFields =
+
+product.status !== undefined ||
+
+product.approved !== undefined ||
+
+product.active !== undefined;
+
+
+
+const isApproved =
+
+product.status === "approved" &&
+
+product.approved === true &&
+
+product.active === true;
+
+
+
+const isLegacy =
+
+!hasApprovalFields &&
+
+product.active !== false;
+
+
+
+if(
+!isApproved &&
+!isLegacy
+){
+
+throw new Error(
+`${item.name || "Product"} ବର୍ତ୍ତମାନ available ନୁହେଁ।`
+);
+
+}
+
+
+
+const qty =
+Number(
+
+item.qty ??
+item.quantity ??
+1
+
+) || 1;
+
+
+
+const currentStock =
+getStock(product);
+
+
+
+if(
+currentStock < qty
+){
+
+throw new Error(
+
+`${item.name || "Product"} ପାଇଁ କେବଳ ${currentStock} stock available ଅଛି।`
+
+);
+
+}
+
+
+
+stockMap[
+row.productRef.path
+] = {
+
+ref:
+row.productRef,
+
+stock:
+currentStock,
+
+qty
+
+};
+
+}
+
+
+
+/* ---------- UPDATE STOCK ---------- */
+
+Object.values(
+stockMap
+)
+.forEach(row=>{
+
+const newStock =
+row.stock - row.qty;
+
+
+
+transaction.update(
+row.ref,
+{
+
+stock:
+newStock,
+
+stockQty:
+newStock,
+
+quantity:
+newStock,
+
+availableStock:
+newStock,
+
+updatedAt:
+serverTimestamp()
+
+}
+
+);
+
+});
+
+
+
+/* ===============================
+   ORDER ITEMS
+=============================== */
+
+const orderItems =
+cart.map(item=>({
+
+productId:
+getProductId(item),
+
+name:
+item.name || "Product",
+
+price:
+getPrice(item),
+
+qty:
+Number(
+
+item.qty ??
+item.quantity ??
+1
+
+) || 1,
+
+weight:
+item.weight || "",
+
+weightUnit:
+item.weightUnit ||
+item.unit ||
+"",
+
+image:
+item.image ||
+item.imageUrl ||
+"",
+
+sellerId:
+item.sellerId || ""
+
+}));
+
+
+
+/* ===============================
+   CREATE ORDER
+=============================== */
+
+transaction.set(
+orderRef,
+{
+
+customer:{
+
+name,
+
+mobile,
+
+address,
+
+district:
+selectedDistrict,
+
+state:
+selectedState,
+
+country:
+"India",
+
+pin,
+
+postOffice:
+selectedPostOffice,
+
+area:
+selectedArea
+
+},
+
+
+items:
+orderItems,
+
+
+subtotal,
+
+deliveryCharge:
+delivery,
+
+total,
+
+
+paymentMethod,
+
+paymentStatus:
+"pending",
+
+orderStatus:
+"placed",
+
+stockRestored:
+false,
+
+createdAt:
+serverTimestamp(),
+
+updatedAt:
+serverTimestamp()
+
+}
+
+);
+
+}
+
+);
+
+
+
+/* ===============================
+   SUCCESS
+=============================== */
+
+const orderId =
+orderRef.id;
+
+
+
+localStorage.setItem(
+"utkalaLastOrderId",
+orderId
+);
+
+
+
+localStorage.removeItem(
+"utkalaCart"
+);
+
+
+
+showStatus(
+
+`✅ Order successfully placed!
+Order ID: ${orderId}`,
+
+"success"
+
+);
+
+
+
+placeOrderBtn.innerText =
+"✅ Order Placed";
+
+
+
+setTimeout(
+function(){
+
+window.location.href =
+`order-tracking.html?orderId=${encodeURIComponent(orderId)}`;
+
+},
+1500
+);
+
+
+
+}catch(error){
+
+console.error(
+"Order error:",
+error
+);
+
+
+
+showStatus(
+
+"❌ Order place ହୋଇପାରିଲା ନାହିଁ: " +
+(error.message || "Unknown error"),
+
+"error"
+
+);
+
+
+
+placeOrderBtn.disabled =
+false;
+
+placeOrderBtn.innerText =
+"✅ Order Place କରନ୍ତୁ";
+
+}
+
+}
+
+
+
+/* =================================
+   BUTTON
+================================= */
+
+placeOrderBtn.addEventListener(
+"click",
+placeOrder
+);
+
+
+
+/* =================================
+   START
+================================= */
+
+renderCart();
+
+
+</script>
+
+</body>
+</html>
