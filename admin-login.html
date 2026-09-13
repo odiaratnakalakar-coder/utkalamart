@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="or">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color"
+content="#138a45">
+
+<title>Utkala Mart - Admin Login</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+
+  margin:0;
+
+  min-height:100vh;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  font-family:
+    Arial,
+    "Noto Sans Odia",
+    sans-serif;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eaf7ef,
+      #ffffff
+    );
+
+}
+
+.login-box{
+
+  width:92%;
+
+  max-width:420px;
+
+  background:white;
+
+  padding:28px;
+
+  border-radius:18px;
+
+  box-shadow:
+    0 8px 30px
+    rgba(0,0,0,.12);
+
+}
+
+.logo{
+
+  text-align:center;
+
+  font-size:45px;
+
+  margin-bottom:5px;
+
+}
+
+h1{
+
+  text-align:center;
+
+  color:#138a45;
+
+  margin:5px 0;
+
+  font-size:25px;
+
+}
+
+.subtitle{
+
+  text-align:center;
+
+  color:#777;
+
+  margin-bottom:25px;
+
+}
+
+label{
+
+  display:block;
+
+  font-weight:bold;
+
+  margin-bottom:7px;
+
+}
+
+input{
+
+  width:100%;
+
+  padding:13px;
+
+  border:1px solid #ccc;
+
+  border-radius:9px;
+
+  font-size:16px;
+
+  margin-bottom:15px;
+
+}
+
+input:focus{
+
+  outline:none;
+
+  border-color:#138a45;
+
+}
+
+.login-btn{
+
+  width:100%;
+
+  border:0;
+
+  padding:13px;
+
+  border-radius:9px;
+
+  background:#138a45;
+
+  color:white;
+
+  font-size:17px;
+
+  font-weight:bold;
+
+  cursor:pointer;
+
+}
+
+.login-btn:disabled{
+
+  opacity:.6;
+
+}
+
+.message{
+
+  margin-top:15px;
+
+  text-align:center;
+
+  font-size:14px;
+
+}
+
+.success{
+
+  color:#138a45;
+
+}
+
+.error{
+
+  color:#d32f2f;
+
+}
+
+.back{
+
+  display:block;
+
+  text-align:center;
+
+  margin-top:20px;
+
+  color:#138a45;
+
+  text-decoration:none;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="login-box">
+
+  <div class="logo">
+    🛒
+  </div>
+
+  <h1>
+    Utkala Mart
+  </h1>
+
+  <div class="subtitle">
+    🔐 Admin Login
+  </div>
+
+
+  <form id="loginForm">
+
+    <label>
+      📧 Email
+    </label>
+
+    <input
+      type="email"
+      id="email"
+      placeholder="Admin Email"
+      required
+      autocomplete="username">
+
+
+    <label>
+      🔑 Password
+    </label>
+
+    <input
+      type="password"
+      id="password"
+      placeholder="Password"
+      required
+      autocomplete="current-password">
+
+
+    <button
+      type="submit"
+      class="login-btn"
+      id="loginBtn">
+
+      🔐 Login
+
+    </button>
+
+  </form>
+
+
+  <div
+    id="message"
+    class="message">
+  </div>
+
+
+  <a
+    href="index.html"
+    class="back">
+
+    ← Utkala Mart Home
+
+  </a>
+
+</div>
+
+
+<script type="module">
+
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+import {
+  app
+}
+from "./js/firebase-config.js";
+
+
+const auth =
+  getAuth(app);
+
+
+const ADMIN_EMAIL =
+  "Suryakantabehera629@gmail.com";
+
+
+const form =
+  document.getElementById("loginForm");
+
+const emailInput =
+  document.getElementById("email");
+
+const passwordInput =
+  document.getElementById("password");
+
+const loginBtn =
+  document.getElementById("loginBtn");
+
+const message =
+  document.getElementById("message");
+
+
+/* Already logged in */
+
+onAuthStateChanged(
+  auth,
+  (user)=>{
+
+    if(!user) return;
+
+
+    if(
+      user.email &&
+      user.email.toLowerCase() ===
+      ADMIN_EMAIL.toLowerCase()
+    ){
+
+      window.location.href =
+        "admin-orders.html";
+
+    }
+
+  }
+);
+
+
+/* Login */
+
+form.addEventListener(
+  "submit",
+  async(e)=>{
+
+    e.preventDefault();
+
+
+    const email =
+      emailInput.value.trim();
+
+    const password =
+      passwordInput.value;
+
+
+    if(
+      email.toLowerCase() !==
+      ADMIN_EMAIL.toLowerCase()
+    ){
+
+      message.textContent =
+        "❌ ଏହା Admin Email ନୁହେଁ।";
+
+      message.className =
+        "message error";
+
+      return;
+
+    }
+
+
+    loginBtn.disabled =
+      true;
+
+    loginBtn.textContent =
+      "⏳ Login...";
+
+
+    message.textContent =
+      "";
+
+
+    try{
+
+      await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+
+      message.textContent =
+        "✅ Login successful...";
+
+      message.className =
+        "message success";
+
+
+      setTimeout(()=>{
+
+        window.location.href =
+          "admin-orders.html";
+
+      },500);
+
+
+    }catch(error){
+
+      console.error(error);
+
+
+      let text =
+        "❌ Login failed.";
+
+
+      if(
+        error.code ===
+        "auth/invalid-credential"
+      ){
+
+        text =
+          "❌ Email କିମ୍ବା Password ଭୁଲ।";
+
+      }
+      else if(
+        error.code ===
+        "auth/user-not-found"
+      ){
+
+        text =
+          "❌ ଏହି Email ରେ Firebase account ନାହିଁ।";
+
+      }
+      else if(
+        error.code ===
+        "auth/wrong-password"
+      ){
+
+        text =
+          "❌ Password ଭୁଲ।";
+
+      }
+      else if(
+        error.code ===
+        "auth/too-many-requests"
+      ){
+
+        text =
+          "⚠️ ବହୁତଥର login try ହୋଇଛି। କିଛି ସମୟ ପରେ try କରନ୍ତୁ।";
+
+      }
+
+
+      message.textContent =
+        text;
+
+      message.className =
+        "message error";
+
+
+      loginBtn.disabled =
+        false;
+
+      loginBtn.textContent =
+        "🔐 Login";
+
+    }
+
+  }
+);
+
+</script>
+
+
+</body>
+
+</html>
