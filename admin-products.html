@@ -1,61 +1,39 @@
 <!DOCTYPE html>
 <html lang="or">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<meta name="theme-color"
-content="#086b4d">
-
-<meta name="description"
-content="Utkala Mart Admin Product Approval and Stock Management">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Utkala Mart - Admin Products</title>
 
 <style>
-
-/* ================= RESET ================= */
-
 *{
   box-sizing:border-box;
 }
 
 body{
   margin:0;
-  font-family:
-    Arial,
-    "Noto Sans Oriya",
-    sans-serif;
-  background:#f3f5f4;
+  font-family:Arial,"Noto Sans Oriya",sans-serif;
+  background:#f3f6f4;
   color:#222;
 }
 
-
-/* ================= HEADER ================= */
-
-.header{
-  background:#086b4d;
+header{
+  background:#087f5b;
   color:white;
-  padding:22px 15px;
+  padding:18px 20px;
   text-align:center;
 }
 
-.header h1{
+header h1{
   margin:0;
   font-size:28px;
 }
 
-.header p{
-  margin:7px 0 0;
-  font-size:15px;
+header p{
+  margin:6px 0 0;
+  opacity:.9;
 }
-
-
-/* ================= CONTAINER ================= */
 
 .container{
   width:95%;
@@ -63,53 +41,39 @@ body{
   margin:25px auto;
 }
 
-
-/* ================= LOGIN ================= */
+/* LOGIN */
 
 .login-box{
-  max-width:600px;
-  margin:35px auto;
+  max-width:500px;
+  margin:50px auto;
   background:white;
   padding:30px;
-  border-radius:22px;
-  box-shadow:
-    0 5px 25px rgba(0,0,0,.10);
+  border-radius:20px;
+  box-shadow:0 8px 30px rgba(0,0,0,.12);
 }
 
 .login-box h2{
-  margin-top:0;
-  color:#086b4d;
   text-align:center;
+  color:#087f5b;
   font-size:30px;
 }
 
-.login-info{
-  text-align:center;
-  color:#666;
-  margin-bottom:25px;
-  line-height:1.6;
-}
-
-
-/* ================= INPUT ================= */
-
 .input-group{
-  margin-bottom:20px;
+  margin:18px 0;
 }
 
 .input-group label{
   display:block;
   font-weight:bold;
   margin-bottom:8px;
-  font-size:17px;
 }
 
 .input-group input{
   width:100%;
   padding:15px;
-  border:2px solid #ddd;
-  border-radius:13px;
   font-size:17px;
+  border:2px solid #ddd;
+  border-radius:12px;
   outline:none;
 }
 
@@ -117,417 +81,322 @@ body{
   border-color:#087f5b;
 }
 
-
-/* ================= PASSWORD ================= */
-
-.password-box{
+.password-wrap{
   position:relative;
 }
 
-.password-box input{
-  padding-right:60px;
+.password-wrap input{
+  padding-right:55px;
 }
 
-.show-password{
+.password-toggle{
   position:absolute;
-  right:8px;
+  right:10px;
   top:50%;
   transform:translateY(-50%);
-  width:48px;
-  height:48px;
-  border:none;
-  background:transparent;
+  border:0;
+  background:none;
   font-size:25px;
   cursor:pointer;
 }
 
-
-/* ================= BUTTON ================= */
-
 .btn{
-  border:none;
-  border-radius:12px;
-  padding:13px 18px;
+  border:0;
+  border-radius:10px;
+  padding:12px 18px;
   font-size:16px;
   font-weight:bold;
   cursor:pointer;
-  margin:4px;
 }
 
-.btn:disabled{
-  opacity:.6;
-  cursor:not-allowed;
-}
-
-.btn-login{
+.login-btn{
   width:100%;
-  background:#f47721;
-  color:white;
-  padding:16px;
-  font-size:19px;
-}
-
-.btn-login:hover{
-  background:#df6413;
-}
-
-.btn-green{
   background:#087f5b;
   color:white;
+  padding:15px;
+  font-size:18px;
 }
 
-.btn-green:hover{
-  background:#056746;
+.login-btn:hover{
+  background:#056b4c;
 }
 
-.btn-red{
+.logout-btn{
   background:#dc3545;
   color:white;
 }
 
-.btn-red:hover{
-  background:#bb2636;
-}
-
-.btn-blue{
-  background:#1769aa;
-  color:white;
-}
-
-.btn-gray{
-  background:#777;
-  color:white;
-}
-
-
-/* ================= ERROR ================= */
-
-.error{
-  background:#ffe3e3;
-  color:#b42318;
-  padding:15px;
-  border-radius:13px;
-  margin-top:18px;
-  font-weight:bold;
-  line-height:1.5;
-  display:none;
-  word-break:break-word;
-}
-
-
-/* ================= SUCCESS ================= */
-
-.success{
-  background:#d9f7e8;
-  color:#087f5b;
-  padding:15px;
-  border-radius:13px;
-  margin-top:15px;
-  font-weight:bold;
-  display:none;
-}
-
-
-/* ================= ADMIN AREA ================= */
-
-#adminArea{
-  display:none;
-}
+/* ADMIN */
 
 .admin-top{
   background:white;
-  padding:20px;
-  border-radius:18px;
-  margin-bottom:20px;
-  box-shadow:
-    0 3px 15px rgba(0,0,0,.07);
-}
-
-.admin-top-row{
+  padding:18px;
+  border-radius:15px;
   display:flex;
   justify-content:space-between;
   align-items:center;
   gap:15px;
-  flex-wrap:wrap;
+  margin-bottom:20px;
+  box-shadow:0 4px 15px rgba(0,0,0,.08);
 }
 
 .admin-top h2{
   margin:0;
-  color:#086b4d;
+  color:#087f5b;
 }
 
-.admin-email{
-  color:#666;
-  margin-top:7px;
-  font-size:14px;
+.search-box{
+  width:100%;
+  margin:20px 0;
 }
 
+.search-box input{
+  width:100%;
+  padding:14px;
+  border:2px solid #ddd;
+  border-radius:12px;
+  font-size:16px;
+}
 
-/* ================= SECTION ================= */
+/* STATS */
 
-.section{
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-bottom:25px;
+}
+
+.stat{
   background:white;
   padding:20px;
-  border-radius:18px;
-  margin-bottom:25px;
-  box-shadow:
-    0 3px 15px rgba(0,0,0,.07);
+  text-align:center;
+  border-radius:15px;
+  box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.stat strong{
+  display:block;
+  font-size:30px;
+  color:#087f5b;
+}
+
+/* SECTION */
+
+.section{
+  margin-top:30px;
 }
 
 .section-title{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-bottom:18px;
-}
-
-.section-title h2{
-  margin:0;
-  color:#086b4d;
-}
-
-.count-badge{
   background:#087f5b;
   color:white;
-  min-width:35px;
-  text-align:center;
-  padding:7px 12px;
-  border-radius:20px;
+  padding:15px 18px;
+  border-radius:12px 12px 0 0;
+  font-size:21px;
   font-weight:bold;
 }
 
+/* PRODUCTS */
 
-/* ================= PRODUCT GRID ================= */
-
-.product-grid{
+.products{
   display:grid;
-  grid-template-columns:
-    repeat(auto-fill,minmax(290px,1fr));
+  grid-template-columns:repeat(2,1fr);
   gap:18px;
+  margin-top:18px;
 }
-
-
-/* ================= PRODUCT CARD ================= */
 
 .product-card{
-  border:1px solid #ddd;
+  background:white;
   border-radius:16px;
   overflow:hidden;
-  background:white;
-  transition:.2s;
-}
-
-.product-card:hover{
-  box-shadow:
-    0 5px 18px rgba(0,0,0,.10);
+  box-shadow:0 5px 18px rgba(0,0,0,.1);
 }
 
 .product-image{
   width:100%;
-  height:210px;
+  height:230px;
   object-fit:cover;
   background:#eee;
-  display:block;
 }
 
-.product-body{
-  padding:16px;
+.product-content{
+  padding:18px;
 }
 
-.product-name{
-  font-size:20px;
-  font-weight:bold;
-  color:#222;
-  margin-bottom:10px;
-  line-height:1.4;
+.product-content h3{
+  margin:0 0 10px;
+  font-size:22px;
+  color:#087f5b;
 }
 
-.product-row{
+.info{
   margin:7px 0;
-  color:#555;
-  font-size:15px;
-  line-height:1.4;
-}
-
-.product-row strong{
-  color:#222;
+  line-height:1.5;
 }
 
 .price{
-  color:#087f5b;
-  font-size:21px;
+  font-size:20px;
   font-weight:bold;
-  margin:11px 0;
+  color:#e65100;
 }
 
 .stock{
-  display:inline-block;
-  padding:7px 12px;
-  border-radius:20px;
+  font-size:18px;
   font-weight:bold;
-  background:#e7f7ef;
+}
+
+.stock.ok{
   color:#087f5b;
+}
+
+.stock.low{
+  color:#e67700;
 }
 
 .stock.out{
-  background:#ffe5e5;
-  color:#c62828;
+  color:#dc3545;
 }
-
-
-/* ================= STATUS ================= */
-
-.status{
-  display:inline-block;
-  padding:7px 12px;
-  border-radius:20px;
-  font-weight:bold;
-  margin-bottom:10px;
-}
-
-.status.pending{
-  background:#fff3cd;
-  color:#856404;
-}
-
-.status.approved{
-  background:#d1f7df;
-  color:#087f5b;
-}
-
-.status.rejected{
-  background:#ffe0e0;
-  color:#b42318;
-}
-
-
-/* ================= ACTIONS ================= */
 
 .actions{
   display:flex;
+  gap:10px;
   flex-wrap:wrap;
-  gap:5px;
-  margin-top:16px;
+  margin-top:15px;
 }
 
-.actions .btn{
-  flex:1;
-  min-width:120px;
+.approve{
+  background:#087f5b;
+  color:white;
 }
 
+.reject{
+  background:#dc3545;
+  color:white;
+}
 
-/* ================= EMPTY ================= */
+.edit{
+  background:#1565c0;
+  color:white;
+}
 
 .empty{
+  background:white;
+  padding:30px;
   text-align:center;
-  padding:40px 15px;
-  color:#777;
-  font-size:17px;
-  line-height:1.6;
-}
-
-
-/* ================= LOADING ================= */
-
-.loading{
-  text-align:center;
-  padding:35px;
+  border-radius:12px;
   color:#666;
-  font-size:17px;
 }
 
-
-/* ================= MODAL ================= */
+/* MODAL */
 
 .modal{
   display:none;
   position:fixed;
   z-index:9999;
-  left:0;
-  top:0;
-  width:100%;
-  height:100%;
+  inset:0;
   background:rgba(0,0,0,.65);
-  align-items:center;
   justify-content:center;
+  align-items:center;
   padding:20px;
 }
 
 .modal-box{
-  background:white;
   width:100%;
   max-width:420px;
-  border-radius:18px;
+  background:white;
   padding:25px;
+  border-radius:18px;
 }
 
 .modal-box h3{
   margin-top:0;
-  color:#086b4d;
-  font-size:22px;
-}
-
-.modal-box p{
-  font-weight:bold;
-  line-height:1.5;
+  color:#087f5b;
 }
 
 .modal-box input{
   width:100%;
   padding:14px;
+  font-size:18px;
   border:2px solid #ddd;
   border-radius:10px;
-  font-size:18px;
-  margin:10px 0 15px;
+  margin:12px 0;
 }
 
 .modal-actions{
   display:flex;
-  gap:8px;
+  gap:10px;
 }
 
-.modal-actions .btn{
+.save-stock{
+  background:#087f5b;
+  color:white;
   flex:1;
 }
 
+.cancel-stock{
+  background:#777;
+  color:white;
+  flex:1;
+}
 
-/* ================= MOBILE ================= */
+/* ERROR */
 
-@media(max-width:600px){
+.error{
+  display:none;
+  margin-top:18px;
+  padding:15px;
+  background:#ffe5e5;
+  color:#b00020;
+  border-radius:12px;
+  font-weight:bold;
+  line-height:1.5;
+}
 
-  .header{
-    padding:18px 10px;
-  }
+.success{
+  display:none;
+  margin-top:18px;
+  padding:15px;
+  background:#e3f8ed;
+  color:#087f5b;
+  border-radius:12px;
+  font-weight:bold;
+}
 
-  .header h1{
-    font-size:22px;
-  }
+/* LOADING */
 
-  .header p{
-    font-size:13px;
+.loading{
+  text-align:center;
+  padding:30px;
+  font-size:18px;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+  header h1{
+    font-size:23px;
   }
 
   .container{
     width:94%;
-    margin:15px auto;
   }
 
   .login-box{
-    padding:20px;
-    margin:20px auto;
+    margin:25px auto;
+    padding:22px;
   }
 
-  .login-box h2{
-    font-size:25px;
+  .admin-top{
+    flex-direction:column;
+    align-items:stretch;
   }
 
-  .section{
-    padding:14px;
+  .stats{
+    grid-template-columns:1fr;
   }
 
-  .product-grid{
+  .products{
     grid-template-columns:1fr;
   }
 
@@ -535,312 +404,184 @@ body{
     height:220px;
   }
 
-  .admin-top-row{
-    align-items:flex-start;
-  }
-
-  .admin-top-row > div:last-child{
-    width:100%;
-  }
-
-  .admin-top-row .btn{
-    width:100%;
-    margin:3px 0;
-  }
-
-  .actions{
-    flex-direction:column;
-  }
-
   .actions .btn{
-    width:100%;
+    flex:1;
+    min-width:100px;
   }
-
-  .modal-actions{
-    flex-direction:column;
-  }
-
 }
-
-
-/* ================= VERY SMALL SCREEN ================= */
-
-@media(max-width:380px){
-
-  .login-box{
-    padding:16px;
-  }
-
-  .product-name{
-    font-size:18px;
-  }
-
-}
-
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- ================= HEADER ================= -->
-
-<div class="header">
-
-  <h1>🛍️ Utkala Mart Admin Products</h1>
-
-  <p>
-    Product Approval & Stock Management
-  </p>
-
-</div>
-
-
+<header>
+  <h1>🛒 Utkala Mart</h1>
+  <p>Admin Product Management</p>
+</header>
 
 <div class="container">
 
+  <!-- LOGIN -->
 
-<!-- ================= LOGIN ================= -->
+  <div id="loginSection" class="login-box">
 
-<div
-  id="loginBox"
-  class="login-box"
->
+    <h2>🔐 Admin Login</h2>
 
-  <h2>🔐 Admin Login</h2>
-
-  <div class="login-info">
-
-    Admin Email ଏବଂ Password ଦେଇ
-    Login କରନ୍ତୁ
-
-  </div>
-
-
-  <!-- EMAIL -->
-
-  <div class="input-group">
-
-    <label>
-      📧 Admin Email
-    </label>
-
-    <input
-      type="email"
-      id="email"
-      placeholder="Admin Email"
-      autocomplete="email"
-    >
-
-  </div>
-
-
-  <!-- PASSWORD -->
-
-  <div class="input-group">
-
-    <label>
-      🔑 Password
-    </label>
-
-    <div class="password-box">
-
+    <div class="input-group">
+      <label>📧 Admin Email</label>
       <input
-        type="password"
-        id="password"
-        placeholder="Password"
-        autocomplete="current-password"
+        type="email"
+        id="email"
+        value="suryakantabehera629@gmail.com"
+        autocomplete="username"
       >
+    </div>
+
+    <div class="input-group">
+
+      <label>🔑 Password</label>
+
+      <div class="password-wrap">
+
+        <input
+          type="password"
+          id="password"
+          autocomplete="current-password"
+        >
+
+        <button
+          type="button"
+          class="password-toggle"
+          onclick="togglePassword()"
+        >
+          👁️
+        </button>
+
+      </div>
+
+    </div>
+
+    <button
+      class="btn login-btn"
+      id="loginBtn"
+      onclick="loginAdmin()"
+    >
+      🔐 Login
+    </button>
+
+    <div id="loginError" class="error"></div>
+
+  </div>
+
+
+  <!-- ADMIN AREA -->
+
+  <div id="adminSection" style="display:none;">
+
+    <div class="admin-top">
+
+      <div>
+        <h2>📦 Product Management</h2>
+        <div id="adminEmailText"></div>
+      </div>
 
       <button
-        type="button"
-        id="showPassword"
-        class="show-password"
-        aria-label="Show Password"
+        class="btn logout-btn"
+        onclick="logoutAdmin()"
       >
-        👁️
+        🚪 Logout
       </button>
 
     </div>
 
-  </div>
 
+    <!-- STATS -->
 
-  <!-- LOGIN -->
+    <div class="stats">
 
-  <button
-    id="loginBtn"
-    class="btn btn-login"
-  >
-    🔐 Login
-  </button>
-
-
-  <!-- ERROR -->
-
-  <div
-    id="loginError"
-    class="error"
-  ></div>
-
-
-  <!-- SUCCESS -->
-
-  <div
-    id="loginSuccess"
-    class="success"
-  ></div>
-
-</div>
-
-
-
-<!-- ================= ADMIN AREA ================= -->
-
-<div id="adminArea">
-
-
-  <!-- ADMIN TOP -->
-
-  <div class="admin-top">
-
-    <div class="admin-top-row">
-
-      <div>
-
-        <h2>
-          🛍️ Product Management
-        </h2>
-
-        <div
-          id="adminEmail"
-          class="admin-email"
-        ></div>
-
+      <div class="stat">
+        <strong id="totalProducts">0</strong>
+        Total Products
       </div>
 
+      <div class="stat">
+        <strong id="pendingProducts">0</strong>
+        Pending
+      </div>
 
-      <div>
-
-        <button
-          class="btn btn-green"
-          id="refreshBtn"
-        >
-          🔄 Refresh
-        </button>
-
-        <button
-          class="btn btn-red"
-          id="logoutBtn"
-        >
-          🚪 Logout
-        </button>
-
+      <div class="stat">
+        <strong id="approvedProducts">0</strong>
+        Approved
       </div>
 
     </div>
 
-  </div>
+
+    <!-- SEARCH -->
+
+    <div class="search-box">
+
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="🔎 Product name / category / seller search..."
+        oninput="filterProducts()"
+      >
+
+    </div>
 
 
+    <!-- PENDING -->
 
-  <!-- ================= PENDING PRODUCTS ================= -->
+    <div class="section">
 
-  <div class="section">
-
-    <div class="section-title">
-
-      <h2>
+      <div class="section-title">
         ⏳ Pending Products
-      </h2>
+      </div>
 
-      <span
-        id="pendingCount"
-        class="count-badge"
-      >
-        0
-      </span>
+      <div id="pendingList" class="products">
 
-    </div>
+        <div class="loading">
+          Loading...
+        </div>
 
-
-    <div
-      id="pendingProducts"
-      class="product-grid"
-    >
-
-      <div class="loading">
-        ⏳ Products loading...
       </div>
 
     </div>
 
-  </div>
 
+    <!-- APPROVED -->
 
+    <div class="section">
 
-  <!-- ================= APPROVED PRODUCTS ================= -->
-
-  <div class="section">
-
-    <div class="section-title">
-
-      <h2>
+      <div class="section-title">
         ✅ Approved Products
-      </h2>
+      </div>
 
-      <span
-        id="approvedCount"
-        class="count-badge"
-      >
-        0
-      </span>
+      <div id="approvedList" class="products">
 
-    </div>
+        <div class="loading">
+          Loading...
+        </div>
 
-
-    <div
-      id="approvedProducts"
-      class="product-grid"
-    >
-
-      <div class="loading">
-        ⏳ Products loading...
       </div>
 
     </div>
 
   </div>
 
-
-</div>
-
 </div>
 
 
+<!-- STOCK MODAL -->
 
-<!-- ================= STOCK MODAL ================= -->
-
-<div
-  id="stockModal"
-  class="modal"
->
+<div id="stockModal" class="modal">
 
   <div class="modal-box">
 
-    <h3>
-      ✏️ Edit Product Stock
-    </h3>
+    <h3>✏️ Edit Stock</h3>
 
-    <p
-      id="stockProductName"
-    ></p>
-
-    <label>
-      📦 New Stock:
-    </label>
+    <div id="stockProductName"></div>
 
     <input
       type="number"
@@ -853,17 +594,17 @@ body{
     <div class="modal-actions">
 
       <button
-        id="cancelStock"
-        class="btn btn-gray"
+        class="btn save-stock"
+        onclick="saveStock()"
       >
-        Cancel
+        💾 Save
       </button>
 
       <button
-        id="saveStock"
-        class="btn btn-green"
+        class="btn cancel-stock"
+        onclick="closeStockModal()"
       >
-        💾 Save Stock
+        Cancel
       </button>
 
     </div>
@@ -873,45 +614,26 @@ body{
 </div>
 
 
-
-<!-- ================= FIREBASE ================= -->
-
 <script type="module">
-
-
-/* ================= FIREBASE APP ================= */
 
 import {
   initializeApp
-}
-from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-
-/* ================= FIREBASE AUTH ================= */
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
   getAuth,
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut
-}
-from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
-
-/* ================= FIRESTORE ================= */
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 import {
   getFirestore,
   collection,
   getDocs,
-  updateDoc,
-  doc
-}
-from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
+  doc,
+  updateDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
 /* =========================================================
@@ -921,7 +643,7 @@ from
 const firebaseConfig = {
 
   apiKey:
-    "AIzaSyBYJ_KKs_7SNz108jnw6hpOlmegofRhJg",
+    "AIzaSyC6qWol9lX295Fg7Iz_yThN9rOPlND17p8",
 
   authDomain:
     "utkalamart-1ec68.firebaseapp.com",
@@ -941,20 +663,15 @@ const firebaseConfig = {
 };
 
 
+/* =========================================================
+   FIREBASE INIT
+   ========================================================= */
 
-/* ================= INITIALIZE ================= */
+const app = initializeApp(firebaseConfig);
 
-const app =
-  initializeApp(
-    firebaseConfig
-  );
+const auth = getAuth(app);
 
-const auth =
-  getAuth(app);
-
-const db =
-  getFirestore(app);
-
+const db = getFirestore(app);
 
 
 /* =========================================================
@@ -965,376 +682,182 @@ const ADMIN_EMAIL =
   "suryakantabehera629@gmail.com";
 
 
-
 /* =========================================================
-   ELEMENTS
+   VARIABLES
    ========================================================= */
 
-const loginBox =
-  document.getElementById(
-    "loginBox"
-  );
+let allProducts = [];
 
-const adminArea =
-  document.getElementById(
-    "adminArea"
-  );
-
-const emailInput =
-  document.getElementById(
-    "email"
-  );
-
-const passwordInput =
-  document.getElementById(
-    "password"
-  );
-
-const loginBtn =
-  document.getElementById(
-    "loginBtn"
-  );
-
-const loginError =
-  document.getElementById(
-    "loginError"
-  );
-
-const loginSuccess =
-  document.getElementById(
-    "loginSuccess"
-  );
-
-const showPassword =
-  document.getElementById(
-    "showPassword"
-  );
-
-const logoutBtn =
-  document.getElementById(
-    "logoutBtn"
-  );
-
-const refreshBtn =
-  document.getElementById(
-    "refreshBtn"
-  );
-
-const adminEmail =
-  document.getElementById(
-    "adminEmail"
-  );
-
-const pendingProducts =
-  document.getElementById(
-    "pendingProducts"
-  );
-
-const approvedProducts =
-  document.getElementById(
-    "approvedProducts"
-  );
-
-const pendingCount =
-  document.getElementById(
-    "pendingCount"
-  );
-
-const approvedCount =
-  document.getElementById(
-    "approvedCount"
-  );
-
+let selectedProductId = null;
 
 
 /* =========================================================
    PASSWORD SHOW / HIDE
    ========================================================= */
 
-showPassword.addEventListener(
-  "click",
-  () => {
+window.togglePassword = function(){
 
-    if(
-      passwordInput.type ===
-      "password"
-    ){
+  const password =
+    document.getElementById("password");
 
-      passwordInput.type =
-        "text";
+  const button =
+    document.querySelector(".password-toggle");
 
-      showPassword.textContent =
-        "🙈";
+  if(password.type === "password"){
 
-      showPassword.setAttribute(
-        "aria-label",
-        "Hide Password"
-      );
+    password.type = "text";
 
-    }else{
+    button.textContent = "🙈";
 
-      passwordInput.type =
-        "password";
+  }else{
 
-      showPassword.textContent =
-        "👁️";
+    password.type = "password";
 
-      showPassword.setAttribute(
-        "aria-label",
-        "Show Password"
-      );
-
-    }
+    button.textContent = "👁️";
 
   }
-);
 
-
-
-/* =========================================================
-   ENTER KEY LOGIN
-   ========================================================= */
-
-passwordInput.addEventListener(
-  "keydown",
-  event => {
-
-    if(
-      event.key ===
-      "Enter"
-    ){
-
-      loginBtn.click();
-
-    }
-
-  }
-);
-
+};
 
 
 /* =========================================================
    LOGIN
    ========================================================= */
 
-loginBtn.addEventListener(
-  "click",
-  async () => {
+window.loginAdmin = async function(){
 
-    const email =
-      emailInput.value
-      .trim()
-      .toLowerCase();
+  const email =
+    document.getElementById("email")
+      .value
+      .trim();
 
-    const password =
-      passwordInput.value;
+  const password =
+    document.getElementById("password")
+      .value;
+
+  const errorBox =
+    document.getElementById("loginError");
+
+  const loginBtn =
+    document.getElementById("loginBtn");
 
 
-    hideMessages();
+  errorBox.style.display = "none";
+
+
+  if(!email || !password){
+
+    errorBox.textContent =
+      "ଦୟାକରି Email ଏବଂ Password ଦିଅନ୍ତୁ।";
+
+    errorBox.style.display = "block";
+
+    return;
+
+  }
+
+
+  if(email.toLowerCase() !==
+     ADMIN_EMAIL.toLowerCase()){
+
+    errorBox.textContent =
+      "ଏହି Email କୁ Admin access ନାହିଁ।";
+
+    errorBox.style.display = "block";
+
+    return;
+
+  }
+
+
+  loginBtn.disabled = true;
+
+  loginBtn.textContent =
+    "⏳ Login...";
+
+
+  try{
+
+    await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
+  }catch(error){
+
+    console.error(error);
+
+    let message =
+      error?.message || "Login failed";
 
 
     if(
-      !email ||
-      !password
+      error.code ===
+      "auth/api-key-not-valid"
     ){
 
-      showLoginError(
-        "ଦୟାକରି Email ଏବଂ Password ଦିଅନ୍ତୁ।"
-      );
-
-      return;
+      message =
+        "Firebase API Key valid ନୁହେଁ। API key 2 settings ଯାଞ୍ଚ କରନ୍ତୁ।";
 
     }
 
-
-    if(
-      email !==
-      ADMIN_EMAIL
+    else if(
+      error.code ===
+      "auth/invalid-credential"
     ){
 
-      showLoginError(
-        "ଏହି Email କୁ Admin access ଦିଆଯାଇନାହିଁ।"
-      );
+      message =
+        "Email କିମ୍ବା Password ଭୁଲ ଅଛି।";
 
-      return;
+    }
+
+    else if(
+      error.code ===
+      "auth/user-not-found"
+    ){
+
+      message =
+        "ଏହି Email ର Firebase user ମିଳିଲା ନାହିଁ।";
+
+    }
+
+    else if(
+      error.code ===
+      "auth/wrong-password"
+    ){
+
+      message =
+        "Password ଭୁଲ ଅଛି।";
+
+    }
+
+    else if(
+      error.code ===
+      "auth/too-many-requests"
+    ){
+
+      message =
+        "ଅଧିକଥର Login try ହୋଇଛି। କିଛି ସମୟ ପରେ try କରନ୍ତୁ।";
 
     }
 
 
-    loginBtn.disabled =
-      true;
+    errorBox.textContent =
+      "❌ " + message;
 
-    loginBtn.textContent =
-      "⏳ Login କରୁଛି...";
-
-
-    try{
-
-      await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-
-
-    }catch(error){
-
-      console.error(
-        "Firebase Login Error:",
-        error
-      );
-
-      showLoginError(
-        getLoginError(
-          error
-        )
-      );
-
-
-    }finally{
-
-      loginBtn.disabled =
-        false;
-
-      loginBtn.textContent =
-        "🔐 Login";
-
-    }
-
-  }
-);
-
-
-
-/* =========================================================
-   LOGIN ERROR
-   ========================================================= */
-
-function showLoginError(
-  message
-){
-
-  loginError.textContent =
-    "❌ " + message;
-
-  loginError.style.display =
-    "block";
-
-}
-
-
-function hideMessages(){
-
-  loginError.style.display =
-    "none";
-
-  loginSuccess.style.display =
-    "none";
-
-}
-
-
-function getLoginError(
-  error
-){
-
-  const code =
-    error?.code || "";
-
-
-  if(
-    code ===
-    "auth/api-key-not-valid"
-  ){
-
-    return (
-      "Firebase API Key valid ନୁହେଁ। " +
-      "Firebase Project Settings ର Web App Config ଯାଞ୍ଚ କରନ୍ତୁ।"
-    );
+    errorBox.style.display =
+      "block";
 
   }
 
 
-  if(
-    code ===
-    "auth/invalid-credential"
-  ){
+  loginBtn.disabled = false;
 
-    return (
-      "Email କିମ୍ବା Password ଭୁଲ।"
-    );
+  loginBtn.textContent =
+    "🔐 Login";
 
-  }
-
-
-  if(
-    code ===
-    "auth/wrong-password"
-  ){
-
-    return (
-      "Password ଭୁଲ।"
-    );
-
-  }
-
-
-  if(
-    code ===
-    "auth/user-not-found"
-  ){
-
-    return (
-      "ଏହି Email ର Firebase account ନାହିଁ।"
-    );
-
-  }
-
-
-  if(
-    code ===
-    "auth/invalid-email"
-  ){
-
-    return (
-      "Email format ଠିକ୍ ନୁହେଁ।"
-    );
-
-  }
-
-
-  if(
-    code ===
-    "auth/too-many-requests"
-  ){
-
-    return (
-      "ଅଧିକ Login attempt ହୋଇଛି। " +
-      "କିଛି ସମୟ ପରେ try କରନ୍ତୁ।"
-    );
-
-  }
-
-
-  if(
-    code ===
-    "auth/network-request-failed"
-  ){
-
-    return (
-      "Internet connection ଯାଞ୍ଚ କରନ୍ତୁ।"
-    );
-
-  }
-
-
-  return (
-    error?.message ||
-    "Login ହୋଇନାହିଁ।"
-  );
-
-}
-
+};
 
 
 /* =========================================================
@@ -1343,60 +866,66 @@ function getLoginError(
 
 onAuthStateChanged(
   auth,
-  async user => {
+  async(user) => {
 
     if(user){
 
-      const currentEmail =
-        user.email
-        ?.toLowerCase();
-
-
       if(
-        currentEmail !==
-        ADMIN_EMAIL
+        user.email?.toLowerCase() !==
+        ADMIN_EMAIL.toLowerCase()
       ){
 
-        await signOut(
-          auth
-        );
-
-        showLoginError(
-          "ଏହି account ର Admin access ନାହିଁ।"
-        );
+        await signOut(auth);
 
         return;
 
       }
 
 
-      loginBox.style.display =
-        "none";
+      document.getElementById(
+        "loginSection"
+      ).style.display = "none";
 
-      adminArea.style.display =
-        "block";
 
-      adminEmail.textContent =
-        "👤 " +
-        user.email;
+      document.getElementById(
+        "adminSection"
+      ).style.display = "block";
+
+
+      document.getElementById(
+        "adminEmailText"
+      ).textContent =
+        "Admin: " + user.email;
 
 
       await loadProducts();
 
-
     }else{
 
-      loginBox.style.display =
-        "block";
+      document.getElementById(
+        "loginSection"
+      ).style.display = "block";
 
-      adminArea.style.display =
-        "none";
+
+      document.getElementById(
+        "adminSection"
+      ).style.display = "none";
 
     }
 
   }
 );
 
+
+/* =========================================================
+   LOGOUT
+   ========================================================= */
+
+window.logoutAdmin = async function(){
+
+  await signOut(auth);
+
+};
 
 
 /* =========================================================
@@ -1405,1089 +934,887 @@ onAuthStateChanged(
 
 async function loadProducts(){
 
-  pendingProducts.innerHTML =
-    `
-    <div class="loading">
-      ⏳ Products loading...
-    </div>
-    `;
+  const pendingList =
+    document.getElementById("pendingList");
+
+  const approvedList =
+    document.getElementById("approvedList");
 
 
-  approvedProducts.innerHTML =
-    `
-    <div class="loading">
-      ⏳ Products loading...
-    </div>
-    `;
+  pendingList.innerHTML =
+    '<div class="loading">⏳ Loading products...</div>';
+
+  approvedList.innerHTML =
+    '<div class="loading">⏳ Loading products...</div>';
 
 
   try{
 
-    /*
-      orderBy() ବ୍ୟବହାର କରାଯାଇନାହିଁ।
-      ତେଣୁ createdAt missing ଥିଲେ ମଧ୍ୟ
-      product load ହେବ।
-    */
-
     const snapshot =
       await getDocs(
-        collection(
-          db,
-          "products"
-        )
+        collection(db,"products")
       );
 
 
-    const pending = [];
-
-    const approved = [];
+    allProducts = [];
 
 
-    snapshot.forEach(
-      productDoc => {
+    snapshot.forEach((productDoc) => {
 
-        const data =
-          productDoc.data();
+      allProducts.push({
 
+        id: productDoc.id,
 
-        const product = {
+        ...productDoc.data()
 
-          id:
-            productDoc.id,
+      });
 
-          ...data
-
-        };
+    });
 
 
-        /* ================= APPROVED ================= */
-
-        if(
-          data.status ===
-            "approved" &&
-          data.approved ===
-            true &&
-          data.active ===
-            true
-        ){
-
-          approved.push(
-            product
-          );
-
-          return;
-
-        }
-
-
-        /* ================= PENDING ================= */
-
-        if(
-          data.status ===
-            "pending"
-        ){
-
-          pending.push(
-            product
-          );
-
-          return;
-
-        }
-
-
-        /* ================= LEGACY PRODUCTS ================= */
-
-        const hasApprovalFields =
-          data.status !==
-            undefined ||
-          data.approved !==
-            undefined ||
-          data.active !==
-            undefined;
-
-
-        const isOldProduct =
-          !hasApprovalFields &&
-          data.active !== false;
-
-
-        if(
-          isOldProduct
-        ){
-
-          approved.push(
-            product
-          );
-
-        }
-
-      }
-    );
-
-
-    /* ================= COUNTS ================= */
-
-    pendingCount.textContent =
-      pending.length;
-
-    approvedCount.textContent =
-      approved.length;
-
-
-    /* ================= RENDER ================= */
-
-    renderPending(
-      pending
-    );
-
-    renderApproved(
-      approved
-    );
-
+    renderProducts();
 
   }catch(error){
 
     console.error(
-      "Load Products Error:",
+      "Products loading error:",
       error
     );
 
 
-    pendingCount.textContent =
-      "0";
-
-    approvedCount.textContent =
-      "0";
+    const message =
+      getFirebaseErrorMessage(error);
 
 
-    pendingProducts.innerHTML =
-      `
-      <div class="empty">
-
-        ❌ Products load ହୋଇନାହିଁ।
-
-        <br><br>
-
-        ${escapeHtml(
-          error.message ||
-          "Unknown error"
-        )}
-
-      </div>
-      `;
+    pendingList.innerHTML =
+      `<div class="empty">
+        ❌ Products load ହେଲା ନାହିଁ.<br><br>
+        ${message}
+      </div>`;
 
 
-    approvedProducts.innerHTML =
-      `
-      <div class="empty">
-
-        ❌ Products load ହୋଇନାହିଁ।
-
-      </div>
-      `;
+    approvedList.innerHTML = "";
 
   }
 
 }
 
 
-
 /* =========================================================
-   GET STOCK
+   RENDER PRODUCTS
    ========================================================= */
 
-function getStock(
-  product
-){
+function renderProducts(){
 
-  return Number(
-    product.stock ??
-    product.stockQty ??
-    product.quantity ??
-    product.availableStock ??
-    0
-  );
+  const pendingList =
+    document.getElementById("pendingList");
 
-}
+  const approvedList =
+    document.getElementById("approvedList");
 
 
+  const search =
+    document.getElementById("searchInput")
+      .value
+      .toLowerCase()
+      .trim();
 
-/* =========================================================
-   RENDER PENDING
-   ========================================================= */
 
-function renderPending(
-  products
-){
+  let pending = [];
 
-  if(
-    !products.length
-  ){
+  let approved = [];
 
-    pendingProducts.innerHTML =
-      `
-      <div class="empty">
 
-        🎉
+  allProducts.forEach(p => {
 
-        <br>
+    const dataText = [
 
-        କୌଣସି Pending Product ନାହିଁ।
+      p.name,
 
-      </div>
-      `;
+      p.category,
 
-    return;
+      p.categoryName,
+
+      p.sellerName,
+
+      p.sellerEmail,
+
+      p.location,
+
+      p.sellerLocation
+
+    ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+
+
+    if(
+      search &&
+      !dataText.includes(search)
+    ){
+
+      return;
+
+    }
+
+
+    const hasApprovalFields =
+      p.status !== undefined ||
+      p.approved !== undefined ||
+      p.active !== undefined;
+
+
+    const isPending =
+      p.status === "pending";
+
+
+    const isApproved =
+      p.status === "approved" &&
+      p.approved === true &&
+      p.active === true;
+
+
+    /*
+      OLD PRODUCTS SUPPORT
+
+      If product has no approval fields,
+      treat it as an old/legacy product.
+    */
+
+    const isOldProduct =
+      !hasApprovalFields &&
+      p.active !== false;
+
+
+    if(isPending){
+
+      pending.push(p);
+
+    }
+
+    else if(
+      isApproved ||
+      isOldProduct
+    ){
+
+      approved.push(p);
+
+    }
+
+  });
+
+
+  document.getElementById(
+    "totalProducts"
+  ).textContent =
+    allProducts.length;
+
+
+  document.getElementById(
+    "pendingProducts"
+  ).textContent =
+    pending.length;
+
+
+  document.getElementById(
+    "approvedProducts"
+  ).textContent =
+    approved.length;
+
+
+  /* PENDING */
+
+  if(pending.length === 0){
+
+    pendingList.innerHTML =
+      `<div class="empty">
+        🎉 କୌଣସି Pending Product ନାହିଁ।
+      </div>`;
+
+  }else{
+
+    pendingList.innerHTML =
+      pending
+        .map(productCardPending)
+        .join("");
 
   }
 
 
-  pendingProducts.innerHTML =
-    products
-    .map(
-      product =>
-        createProductCard(
-          product,
-          "pending"
-        )
-    )
-    .join("");
+  /* APPROVED */
 
-}
+  if(approved.length === 0){
 
+    approvedList.innerHTML =
+      `<div class="empty">
+        କୌଣସି Approved Product ନାହିଁ।
+      </div>`;
 
+  }else{
 
-/* =========================================================
-   RENDER APPROVED
-   ========================================================= */
-
-function renderApproved(
-  products
-){
-
-  if(
-    !products.length
-  ){
-
-    approvedProducts.innerHTML =
-      `
-      <div class="empty">
-
-        ବର୍ତ୍ତମାନ କୌଣସି Approved Product ନାହିଁ।
-
-      </div>
-      `;
-
-    return;
+    approvedList.innerHTML =
+      approved
+        .map(productCardApproved)
+        .join("");
 
   }
 
-
-  approvedProducts.innerHTML =
-    products
-    .map(
-      product =>
-        createProductCard(
-          product,
-          "approved"
-        )
-    )
-    .join("");
-
 }
 
 
-
 /* =========================================================
-   PRODUCT CARD
+   PENDING CARD
    ========================================================= */
 
-function createProductCard(
-  product,
-  type
-){
-
-  const name =
-    escapeHtml(
-      product.name ||
-      "Unnamed Product"
-    );
-
-
-  const image =
-    product.image ||
-    product.imageUrl ||
-    "https://via.placeholder.com/600x400?text=Utkala+Mart";
-
-
-  const price =
-    Number(
-      product.utkalaPrice ??
-      product.price ??
-      product.sellingPrice ??
-      0
-    );
-
-
-  const sellerPrice =
-    Number(
-      product.sellerPrice ??
-      0
-    );
-
+function productCardPending(p){
 
   const stock =
-    getStock(
-      product
-    );
-
-
-  const weight =
-    product.weight ??
-    "";
-
-
-  const weightUnit =
-    product.weightUnit ||
-    product.unit ||
-    "";
-
-
-  const location =
-    escapeHtml(
-      product.location ||
-      product.sellerLocation ||
-      "—"
-    );
-
-
-  const category =
-    escapeHtml(
-      product.categoryName ||
-      product.category ||
-      "—"
-    );
-
-
-  const sellerName =
-    escapeHtml(
-      product.sellerName ||
-      "Seller"
-    );
-
-
-  let statusHTML = "";
-
-
-  if(
-    type ===
-    "pending"
-  ){
-
-    statusHTML =
-      `
-      <span class="status pending">
-        ⏳ Pending Approval
-      </span>
-      `;
-
-  }else{
-
-    statusHTML =
-      `
-      <span class="status approved">
-        ✅ Approved
-      </span>
-      `;
-
-  }
-
-
-  const stockHTML =
-    stock > 0
-
-    ?
-
-    `
-    <span class="stock">
-      📦 Stock: ${stock}
-    </span>
-    `
-
-    :
-
-    `
-    <span class="stock out">
-      ❌ Stock Out
-    </span>
-    `;
-
-
-  let actions = "";
-
-
-  if(
-    type ===
-    "pending"
-  ){
-
-    actions =
-      `
-      <button
-        class="btn btn-green"
-        onclick="approveProduct('${escapeAttr(product.id)}')"
-      >
-        ✅ Approve
-      </button>
-
-      <button
-        class="btn btn-red"
-        onclick="rejectProduct('${escapeAttr(product.id)}')"
-      >
-        ❌ Reject
-      </button>
-      `;
-
-  }else{
-
-    actions =
-      `
-      <button
-        class="btn btn-green"
-        onclick="editStock(
-          '${escapeAttr(product.id)}',
-          '${escapeAttr(product.name || "Product")}',
-          ${stock}
-        )"
-      >
-        ✏️ Edit Stock
-      </button>
-      `;
-
-  }
+    getStock(p);
 
 
   return `
 
-    <div class="product-card">
+  <div class="product-card">
 
-      <img
-        class="product-image"
-        src="${escapeAttr(image)}"
-        alt="${escapeAttr(name)}"
-        onerror="
-          this.onerror=null;
-          this.src='https://via.placeholder.com/600x400?text=No+Image';
-        "
-      >
+    <img
+      class="product-image"
+      src="${safe(p.image || p.imageUrl)}"
+      onerror="this.src='https://via.placeholder.com/600x400?text=Utkala+Mart'"
+      alt="${safe(p.name || "Product")}"
+    >
 
-      <div class="product-body">
+    <div class="product-content">
 
-        ${statusHTML}
+      <h3>
+        ${safe(p.name || "Unnamed Product")}
+      </h3>
 
+      <div class="info">
+        <b>Category:</b>
+        ${safe(p.category || p.categoryName || "-")}
+      </div>
 
-        <div class="product-name">
+      <div class="info">
+        <b>Weight:</b>
+        ${safe(p.weight || "-")}
+        ${safe(p.weightUnit || p.unit || "")}
+      </div>
 
-          ${name}
+      <div class="info price">
+        ₹${Number(
+          p.price ??
+          p.utkalaPrice ??
+          p.sellingPrice ??
+          0
+        )}
+      </div>
 
-        </div>
+      <div class="info stock">
+        📦 Stock:
+        ${stock}
+      </div>
 
+      <div class="info">
+        <b>Seller:</b>
+        ${safe(p.sellerName || "-")}
+      </div>
 
-        <div class="product-row">
+      <div class="info">
+        <b>Location:</b>
+        ${safe(
+          p.location ||
+          p.sellerLocation ||
+          "-"
+        )}
+      </div>
 
-          📂
-          <strong>
-            Category:
-          </strong>
+      <div class="info">
+        <b>Status:</b>
+        ⏳ Pending
+      </div>
 
-          ${category}
+      <div class="actions">
 
-        </div>
+        <button
+          class="btn approve"
+          onclick="approveProduct('${p.id}')"
+        >
+          ✅ Approve
+        </button>
 
-
-        ${
-          weight !== ""
-          ?
-          `
-          <div class="product-row">
-
-            ⚖️
-            <strong>
-              Weight:
-            </strong>
-
-            ${escapeHtml(weight)}
-            ${escapeHtml(weightUnit)}
-
-          </div>
-          `
-          :
-          ""
-        }
-
-
-        <div class="product-row">
-
-          👤
-          <strong>
-            Seller:
-          </strong>
-
-          ${sellerName}
-
-        </div>
-
-
-        <div class="product-row">
-
-          📍
-          <strong>
-            Location:
-          </strong>
-
-          ${location}
-
-        </div>
-
-
-        <div class="product-row">
-
-          💰
-          <strong>
-            Seller Price:
-          </strong>
-
-          ₹${sellerPrice}
-
-        </div>
-
-
-        <div class="price">
-
-          🛒 Utkala Mart Price:
-          ₹${price}
-
-        </div>
-
-
-        <div>
-
-          ${stockHTML}
-
-        </div>
-
-
-        <div class="actions">
-
-          ${actions}
-
-        </div>
+        <button
+          class="btn reject"
+          onclick="rejectProduct('${p.id}')"
+        >
+          ❌ Reject
+        </button>
 
       </div>
 
     </div>
+
+  </div>
 
   `;
 
 }
 
 
+/* =========================================================
+   APPROVED CARD
+   ========================================================= */
+
+function productCardApproved(p){
+
+  const stock =
+    getStock(p);
+
+
+  let stockClass =
+    "ok";
+
+
+  if(stock <= 0){
+
+    stockClass = "out";
+
+  }
+
+  else if(stock <= 5){
+
+    stockClass = "low";
+
+  }
+
+
+  return `
+
+  <div class="product-card">
+
+    <img
+      class="product-image"
+      src="${safe(p.image || p.imageUrl)}"
+      onerror="this.src='https://via.placeholder.com/600x400?text=Utkala+Mart'"
+      alt="${safe(p.name || "Product")}"
+    >
+
+    <div class="product-content">
+
+      <h3>
+        ${safe(p.name || "Unnamed Product")}
+      </h3>
+
+      <div class="info">
+        <b>Category:</b>
+        ${safe(p.category || p.categoryName || "-")}
+      </div>
+
+      <div class="info price">
+        ₹${Number(
+          p.price ??
+          p.utkalaPrice ??
+          p.sellingPrice ??
+          0
+        )}
+      </div>
+
+      <div class="info">
+        <b>Seller Price:</b>
+        ₹${Number(
+          p.sellerPrice ??
+          0
+        )}
+      </div>
+
+      <div class="info stock ${stockClass}">
+        📦 Stock:
+        ${stock}
+      </div>
+
+      <div class="info">
+        <b>Seller:</b>
+        ${safe(p.sellerName || "-")}
+      </div>
+
+      <div class="info">
+        <b>Location:</b>
+        ${safe(
+          p.location ||
+          p.sellerLocation ||
+          "-"
+        )}
+      </div>
+
+      <div class="info">
+        <b>Status:</b>
+        ✅ Approved
+      </div>
+
+      <div class="actions">
+
+        <button
+          class="btn edit"
+          onclick="openStockModal(
+            '${p.id}',
+            '${escapeJs(p.name || "Product")}',
+            ${stock}
+          )"
+        >
+          ✏️ Edit Stock
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  `;
+
+}
+
 
 /* =========================================================
-   APPROVE PRODUCT
+   GET STOCK
+   ========================================================= */
+
+function getStock(p){
+
+  const value =
+    p.stock ??
+    p.stockQty ??
+    p.quantity ??
+    p.availableStock ??
+    0;
+
+
+  const number =
+    Number(value);
+
+
+  if(
+    !Number.isFinite(number) ||
+    number < 0
+  ){
+
+    return 0;
+
+  }
+
+
+  return number;
+
+}
+
+
+/* =========================================================
+   APPROVE
    ========================================================= */
 
 window.approveProduct =
-  async function(id){
+async function(productId){
 
-    const confirmApprove =
-      confirm(
-        "ଏହି Product କୁ Approve କରିବେ କି?"
-      );
-
-
-    if(
-      !confirmApprove
-    ){
-
-      return;
-
-    }
+  const product =
+    allProducts.find(
+      p => p.id === productId
+    );
 
 
-    try{
+  if(!product){
 
-      await updateDoc(
-        doc(
-          db,
-          "products",
-          id
-        ),
-        {
+    alert(
+      "Product ମିଳିଲା ନାହିଁ।"
+    );
 
-          status:
-            "approved",
+    return;
 
-          approved:
-            true,
-
-          active:
-            true
-
-        }
-      );
+  }
 
 
-      alert(
-        "✅ Product Approved ହୋଇଗଲା!"
-      );
+  const yes =
+    confirm(
+      `"${product.name || "Product"}" କୁ Approve କରିବେ କି?`
+    );
 
 
-      await loadProducts();
+  if(!yes) return;
 
 
-    }catch(error){
+  try{
 
-      console.error(
-        "Approve Error:",
-        error
-      );
+    await updateDoc(
+      doc(db,"products",productId),
+      {
+
+        status:"approved",
+
+        approved:true,
+
+        active:true
+
+      }
+    );
 
 
-      alert(
-        "❌ Approve ହୋଇନାହିଁ:\n\n" +
-        error.message
-      );
+    alert(
+      "✅ Product Approved!"
+    );
 
-    }
 
-  };
+    await loadProducts();
 
+  }catch(error){
+
+    console.error(error);
+
+    alert(
+      "❌ Approve failed:\n" +
+      getFirebaseErrorMessage(error)
+    );
+
+  }
+
+};
 
 
 /* =========================================================
-   REJECT PRODUCT
+   REJECT
    ========================================================= */
 
 window.rejectProduct =
-  async function(id){
+async function(productId){
 
-    const confirmReject =
-      confirm(
-        "ଏହି Product କୁ Reject କରିବେ କି?"
-      );
-
-
-    if(
-      !confirmReject
-    ){
-
-      return;
-
-    }
+  const product =
+    allProducts.find(
+      p => p.id === productId
+    );
 
 
-    try{
-
-      await updateDoc(
-        doc(
-          db,
-          "products",
-          id
-        ),
-        {
-
-          status:
-            "rejected",
-
-          approved:
-            false,
-
-          active:
-            false
-
-        }
-      );
+  if(!product) return;
 
 
-      alert(
-        "❌ Product Rejected ହୋଇଗଲା।"
-      );
+  const yes =
+    confirm(
+      `"${product.name || "Product"}" କୁ Reject କରିବେ କି?`
+    );
 
 
-      await loadProducts();
+  if(!yes) return;
 
 
-    }catch(error){
+  try{
 
-      console.error(
-        "Reject Error:",
-        error
-      );
+    await updateDoc(
+      doc(db,"products",productId),
+      {
+
+        status:"rejected",
+
+        approved:false,
+
+        active:false
+
+      }
+    );
 
 
-      alert(
-        "❌ Reject ହୋଇନାହିଁ:\n\n" +
-        error.message
-      );
+    alert(
+      "❌ Product Rejected!"
+    );
 
-    }
 
-  };
+    await loadProducts();
 
+  }catch(error){
+
+    console.error(error);
+
+    alert(
+      "Reject failed:\n" +
+      getFirebaseErrorMessage(error)
+    );
+
+  }
+
+};
 
 
 /* =========================================================
    STOCK MODAL
    ========================================================= */
 
-const stockModal =
-  document.getElementById(
-    "stockModal"
-  );
+window.openStockModal =
+function(
+  productId,
+  productName,
+  stock
+){
 
-const stockProductName =
+  selectedProductId =
+    productId;
+
+
   document.getElementById(
     "stockProductName"
-  );
+  ).innerHTML =
+    `<b>${safe(productName)}</b>`;
 
-const newStock =
+
   document.getElementById(
     "newStock"
-  );
+  ).value =
+    stock;
 
-const saveStock =
+
   document.getElementById(
-    "saveStock"
-  );
-
-const cancelStock =
-  document.getElementById(
-    "cancelStock"
-  );
+    "stockModal"
+  ).style.display =
+    "flex";
 
 
-let editingProductId =
-  null;
+  setTimeout(() => {
 
+    document.getElementById(
+      "newStock"
+    ).focus();
+
+  },100);
+
+};
 
 
 /* =========================================================
-   EDIT STOCK
+   CLOSE STOCK MODAL
    ========================================================= */
 
-window.editStock =
-  function(
-    id,
-    name,
-    stock
-  ){
+window.closeStockModal =
+function(){
 
-    editingProductId =
-      id;
+  selectedProductId = null;
 
-
-    stockProductName.textContent =
-      "📦 Product: " +
-      name;
-
-
-    newStock.value =
-      stock;
-
-
-    stockModal.style.display =
-      "flex";
-
-
-    setTimeout(
-      () => {
-
-        newStock.focus();
-
-        newStock.select();
-
-      },
-      100
-    );
-
-  };
-
-
-
-/* =========================================================
-   CANCEL STOCK
-   ========================================================= */
-
-cancelStock.addEventListener(
-  "click",
-  closeStockModal
-);
-
-
-function closeStockModal(){
-
-  stockModal.style.display =
+  document.getElementById(
+    "stockModal"
+  ).style.display =
     "none";
 
-  editingProductId =
-    null;
-
-}
-
+};
 
 
 /* =========================================================
    SAVE STOCK
    ========================================================= */
 
-saveStock.addEventListener(
-  "click",
-  async () => {
+window.saveStock =
+async function(){
 
-    if(
-      !editingProductId
-    ){
+  if(!selectedProductId){
 
-      alert(
-        "Product select ହୋଇନାହିଁ।"
-      );
+    alert(
+      "Product select ହୋଇନାହିଁ।"
+    );
 
-      return;
-
-    }
-
-
-    const stockValue =
-      Number(
-        newStock.value
-      );
-
-
-    if(
-      !Number.isInteger(
-        stockValue
-      ) ||
-      stockValue < 0
-    ){
-
-      alert(
-        "ଦୟାକରି 0 କିମ୍ବା ତାଠାରୁ ବଡ଼ ସଠିକ୍ Stock ଦିଅନ୍ତୁ।"
-      );
-
-      return;
-
-    }
-
-
-    saveStock.disabled =
-      true;
-
-    saveStock.textContent =
-      "⏳ Saving...";
-
-
-    try{
-
-      await updateDoc(
-        doc(
-          db,
-          "products",
-          editingProductId
-        ),
-        {
-
-          stock:
-            stockValue,
-
-          stockQty:
-            stockValue,
-
-          quantity:
-            stockValue,
-
-          availableStock:
-            stockValue
-
-        }
-      );
-
-
-      alert(
-        "✅ Stock successfully update ହୋଇଗଲା!\n\n" +
-        "New Stock: " +
-        stockValue
-      );
-
-
-      closeStockModal();
-
-
-      await loadProducts();
-
-
-    }catch(error){
-
-      console.error(
-        "Stock Update Error:",
-        error
-      );
-
-
-      alert(
-        "❌ Stock update ହୋଇନାହିଁ:\n\n" +
-        error.message
-      );
-
-    }finally{
-
-      saveStock.disabled =
-        false;
-
-      saveStock.textContent =
-        "💾 Save Stock";
-
-    }
+    return;
 
   }
-);
 
+
+  const input =
+    document.getElementById(
+      "newStock"
+    );
+
+
+  const stock =
+    Number(input.value);
+
+
+  if(
+    !Number.isInteger(stock) ||
+    stock < 0
+  ){
+
+    alert(
+      "ଦୟାକରି 0 କିମ୍ବା ତାଠାରୁ ବଡ଼ valid stock ଦିଅନ୍ତୁ।"
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+    await updateDoc(
+      doc(
+        db,
+        "products",
+        selectedProductId
+      ),
+      {
+
+        stock:stock,
+
+        stockQty:stock,
+
+        quantity:stock,
+
+        availableStock:stock
+
+      }
+    );
+
+
+    alert(
+      "✅ Stock updated successfully!"
+    );
+
+
+    closeStockModal();
+
+    await loadProducts();
+
+  }catch(error){
+
+    console.error(error);
+
+    alert(
+      "❌ Stock update failed:\n" +
+      getFirebaseErrorMessage(error)
+    );
+
+  }
+
+};
 
 
 /* =========================================================
-   CLOSE MODAL OUTSIDE
+   SEARCH
    ========================================================= */
 
-stockModal.addEventListener(
-  "click",
-  event => {
+window.filterProducts =
+function(){
 
-    if(
-      event.target ===
-      stockModal
-    ){
+  renderProducts();
 
-      closeStockModal();
-
-    }
-
-  }
-);
-
+};
 
 
 /* =========================================================
-   REFRESH
+   FIREBASE ERROR
    ========================================================= */
 
-refreshBtn.addEventListener(
-  "click",
-  async () => {
+function getFirebaseErrorMessage(error){
 
-    refreshBtn.disabled =
-      true;
+  if(!error){
 
-    refreshBtn.textContent =
-      "⏳ Loading...";
-
-
-    try{
-
-      await loadProducts();
-
-    }finally{
-
-      refreshBtn.disabled =
-        false;
-
-      refreshBtn.textContent =
-        "🔄 Refresh";
-
-    }
+    return "Unknown error";
 
   }
-);
 
 
+  if(
+    error.code ===
+    "permission-denied"
+  ){
 
-/* =========================================================
-   LOGOUT
-   ========================================================= */
-
-logoutBtn.addEventListener(
-  "click",
-  async () => {
-
-    try{
-
-      await signOut(
-        auth
-      );
-
-    }catch(error){
-
-      console.error(
-        "Logout Error:",
-        error
-      );
-
-    }
+    return `
+      Firebase Firestore permission denied.
+      <br>
+      Firestore API / Security Rules ଯାଞ୍ଚ କରନ୍ତୁ।
+    `;
 
   }
-);
 
 
+  if(
+    error.code ===
+    "auth/api-key-not-valid"
+  ){
 
-/* =========================================================
-   ESCAPE HTML
-   ========================================================= */
+    return `
+      API key valid ନୁହେଁ।
+      <br>
+      Google Cloud API key settings ଯାଞ୍ଚ କରନ୍ତୁ।
+    `;
 
-function escapeHtml(
-  value
-){
+  }
 
-  return String(
-    value
-  )
-  .replace(
-    /&/g,
-    "&amp;"
-  )
-  .replace(
-    /</g,
-    "&lt;"
-  )
-  .replace(
-    />/g,
-    "&gt;"
-  )
-  .replace(
-    /"/g,
-    "&quot;"
-  )
-  .replace(
-    /'/g,
-    "&#039;"
+
+  return (
+    error.message ||
+    error.code ||
+    "Firebase error"
   );
 
 }
 
 
-function escapeAttr(
-  value
-){
+/* =========================================================
+   HTML SAFE
+   ========================================================= */
 
-  return escapeHtml(
-    value
-  );
+function safe(value){
+
+  if(value === undefined ||
+     value === null){
+
+    return "";
+
+  }
+
+
+  return String(value)
+
+    .replaceAll("&","&amp;")
+
+    .replaceAll("<","&lt;")
+
+    .replaceAll(">","&gt;")
+
+    .replaceAll('"',"&quot;")
+
+    .replaceAll("'","&#039;");
 
 }
 
+
+/* =========================================================
+   JAVASCRIPT SAFE
+   ========================================================= */
+
+function escapeJs(value){
+
+  return String(value)
+
+    .replaceAll("\\","\\\\")
+    .replaceAll("'","\\'")
+    .replaceAll("\n"," ")
+    .replaceAll("\r"," ");
+
+}
+
+
+/* =========================================================
+   MODAL CLICK OUTSIDE
+   ========================================================= */
+
+document.getElementById(
+  "stockModal"
+).addEventListener(
+  "click",
+  function(e){
+
+    if(e.target === this){
+
+      closeStockModal();
+
+    }
+
+  }
+);
 
 </script>
 
-
 </body>
-
 </html>
