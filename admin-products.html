@@ -8,6 +8,9 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
+<meta name="theme-color"
+content="#087f5b">
+
 <title>Utkala Mart - Admin Products</title>
 
 <style>
@@ -18,57 +21,86 @@ content="width=device-width, initial-scale=1.0">
 
 body{
   margin:0;
-  font-family:Arial,"Noto Sans Odia",sans-serif;
-  background:#f5f5f5;
+  font-family:
+    Arial,
+    "Noto Sans Oriya",
+    sans-serif;
+  background:#f3f5f4;
   color:#222;
 }
 
-header{
-  background:#075b3b;
+/* HEADER */
+
+.header{
+  background:#086b4d;
   color:white;
-  padding:18px 12px;
+  padding:20px 15px;
   text-align:center;
-  font-size:22px;
-  font-weight:bold;
 }
 
-.wrap{
-  max-width:950px;
-  margin:auto;
-  padding:16px;
+.header h1{
+  margin:0;
+  font-size:28px;
 }
 
-.card{
+.header p{
+  margin:7px 0 0;
+  font-size:14px;
+}
+
+/* MAIN */
+
+.container{
+  width:95%;
+  max-width:1100px;
+  margin:25px auto;
+}
+
+/* LOGIN */
+
+.login-box{
+  max-width:600px;
+  margin:30px auto;
   background:white;
-  border-radius:14px;
-  padding:16px;
-  margin-bottom:15px;
-  box-shadow:0 2px 10px rgba(0,0,0,.08);
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 5px 25px rgba(0,0,0,.10);
 }
 
-.login-title{
-  color:#075b3b;
+.login-box h2{
   margin-top:0;
+  color:#086b4d;
+  text-align:center;
+  font-size:28px;
 }
 
-.info{
+.login-info{
+  text-align:center;
   color:#666;
-  font-size:13px;
-  line-height:1.6;
+  margin-bottom:25px;
 }
 
-input{
+.input-group{
+  margin-bottom:18px;
+}
+
+.input-group label{
+  display:block;
+  font-weight:bold;
+  margin-bottom:7px;
+}
+
+.input-group input{
   width:100%;
-  padding:13px;
-  border:1px solid #ccc;
-  border-radius:9px;
-  margin:7px 0;
-  font-size:15px;
+  padding:15px;
+  border:2px solid #ddd;
+  border-radius:12px;
+  font-size:16px;
   outline:none;
 }
 
-input:focus{
-  border-color:#075b3b;
+.input-group input:focus{
+  border-color:#087f5b;
 }
 
 /* PASSWORD */
@@ -83,221 +115,344 @@ input:focus{
 
 .show-password{
   position:absolute;
-  right:5px;
-  top:5px;
-  width:44px;
-  height:44px;
-  border:0;
+  right:10px;
+  top:50%;
+  transform:translateY(-50%);
+  border:none;
   background:transparent;
+  font-size:24px;
   cursor:pointer;
-  font-size:21px;
-  padding:0;
 }
 
 /* BUTTON */
 
 .btn{
-  border:0;
-  padding:10px 16px;
-  border-radius:8px;
+  border:none;
+  border-radius:12px;
+  padding:13px 18px;
+  font-size:16px;
   font-weight:bold;
-  color:white;
   cursor:pointer;
-  font-size:14px;
+  margin:4px;
 }
 
-.btn:disabled{
-  opacity:.6;
-  cursor:not-allowed;
-}
-
-.login{
+.btn-login{
   width:100%;
-  background:#ef761d;
-  margin-top:8px;
+  background:#f47721;
+  color:white;
+  padding:15px;
+  font-size:18px;
 }
 
-.ok{
-  background:#0a8755;
+.btn-login:hover{
+  background:#df6413;
 }
 
-.no{
-  background:#d9272e;
+.btn-green{
+  background:#087f5b;
+  color:white;
 }
 
-.stock{
-  background:#1677d2;
+.btn-green:hover{
+  background:#056746;
 }
 
-.refresh{
-  background:#555;
-  margin-top:10px;
+.btn-red{
+  background:#dc3545;
+  color:white;
 }
 
-/* HIDDEN */
+.btn-blue{
+  background:#1769aa;
+  color:white;
+}
 
-.hidden{
-  display:none !important;
+.btn-gray{
+  background:#777;
+  color:white;
+}
+
+/* ERROR */
+
+.error{
+  background:#ffe3e3;
+  color:#b42318;
+  padding:13px;
+  border-radius:12px;
+  margin-top:15px;
+  font-weight:bold;
+  display:none;
+}
+
+/* ADMIN AREA */
+
+#adminArea{
+  display:none;
+}
+
+.admin-top{
+  background:white;
+  padding:18px;
+  border-radius:18px;
+  margin-bottom:20px;
+  box-shadow:0 3px 15px rgba(0,0,0,.07);
+}
+
+.admin-top-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.admin-top h2{
+  margin:0;
+  color:#086b4d;
+}
+
+.admin-email{
+  color:#666;
+  margin-top:6px;
+  font-size:14px;
 }
 
 /* SECTION */
 
+.section{
+  background:white;
+  padding:20px;
+  border-radius:18px;
+  margin-bottom:25px;
+  box-shadow:0 3px 15px rgba(0,0,0,.07);
+}
+
 .section-title{
-  color:#075b3b;
-  margin:0 0 5px;
-}
-
-.count{
-  color:#666;
-  margin:5px 0 0;
-}
-
-/* PRODUCT */
-
-.row{
   display:flex;
-  gap:14px;
+  justify-content:space-between;
   align-items:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:18px;
+}
+
+.section-title h2{
+  margin:0;
+  color:#086b4d;
+}
+
+/* PRODUCT GRID */
+
+.product-grid{
+  display:grid;
+  grid-template-columns:
+    repeat(auto-fill,minmax(290px,1fr));
+  gap:18px;
+}
+
+/* PRODUCT CARD */
+
+.product-card{
+  border:1px solid #ddd;
+  border-radius:16px;
+  overflow:hidden;
+  background:#fff;
 }
 
 .product-image{
-  width:90px;
-  height:90px;
+  width:100%;
+  height:210px;
   object-fit:cover;
-  border-radius:10px;
   background:#eee;
-  flex-shrink:0;
+  display:block;
 }
 
-.product-info{
-  flex:1;
-  min-width:0;
+.product-body{
+  padding:15px;
 }
 
 .product-name{
-  font-size:17px;
+  font-size:20px;
   font-weight:bold;
-  margin-bottom:5px;
+  color:#222;
+  margin-bottom:10px;
 }
 
-.line{
-  font-size:14px;
+.product-row{
+  margin:6px 0;
   color:#555;
-  margin-top:4px;
+  font-size:15px;
 }
 
-/* STATUS */
+.product-row strong{
+  color:#222;
+}
+
+.price{
+  color:#087f5b;
+  font-size:21px;
+  font-weight:bold;
+  margin:10px 0;
+}
+
+.stock{
+  display:inline-block;
+  padding:7px 12px;
+  border-radius:20px;
+  font-weight:bold;
+  background:#e7f7ef;
+  color:#087f5b;
+}
+
+.stock.out{
+  background:#ffe5e5;
+  color:#c62828;
+}
 
 .status{
   display:inline-block;
-  padding:5px 10px;
+  padding:7px 12px;
   border-radius:20px;
-  font-size:12px;
   font-weight:bold;
-  margin-top:8px;
+  margin-bottom:10px;
 }
 
-.pending{
+.status.pending{
   background:#fff3cd;
   color:#856404;
 }
 
-.approved{
-  background:#d1fae5;
-  color:#065f46;
+.status.approved{
+  background:#d1f7df;
+  color:#087f5b;
 }
 
-/* STOCK */
-
-.stock-box{
-  margin-top:10px;
-  padding:11px;
-  background:#f3f7f5;
-  border-radius:9px;
+.status.rejected{
+  background:#ffe0e0;
+  color:#b42318;
 }
-
-.stock-number{
-  font-size:20px;
-  font-weight:bold;
-  color:#075b3b;
-}
-
-.stock-out{
-  color:#d9272e;
-}
-
-/* ACTIONS */
 
 .actions{
   display:flex;
-  gap:8px;
   flex-wrap:wrap;
-  margin-top:13px;
+  gap:5px;
+  margin-top:15px;
 }
 
-/* MESSAGE */
-
-.message{
-  margin-top:10px;
-  padding:11px;
-  border-radius:8px;
-  font-size:14px;
-  font-weight:bold;
+.actions .btn{
+  flex:1;
+  min-width:120px;
 }
 
-.error{
-  background:#ffe8e8;
-  color:#b00000;
-}
-
-.success{
-  background:#e8f8ee;
-  color:#087b3e;
-}
+/* EMPTY */
 
 .empty{
   text-align:center;
+  padding:35px 15px;
+  color:#777;
+  font-size:17px;
+}
+
+/* LOADING */
+
+.loading{
+  text-align:center;
+  padding:30px;
   color:#666;
+  font-size:17px;
+}
+
+/* MODAL */
+
+.modal{
+  display:none;
+  position:fixed;
+  z-index:9999;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.65);
+  align-items:center;
+  justify-content:center;
   padding:20px;
+}
+
+.modal-box{
+  background:white;
+  width:100%;
+  max-width:420px;
+  border-radius:18px;
+  padding:25px;
+}
+
+.modal-box h3{
+  margin-top:0;
+  color:#086b4d;
+}
+
+.modal-box input{
+  width:100%;
+  padding:14px;
+  border:2px solid #ddd;
+  border-radius:10px;
+  font-size:18px;
+  margin:10px 0 15px;
+}
+
+.modal-actions{
+  display:flex;
+  gap:8px;
+}
+
+.modal-actions .btn{
+  flex:1;
 }
 
 /* MOBILE */
 
 @media(max-width:600px){
 
-  header{
-    font-size:19px;
+  .header h1{
+    font-size:22px;
   }
 
-  .wrap{
-    padding:10px;
+  .container{
+    width:94%;
+    margin:15px auto;
   }
 
-  .card{
-    padding:13px;
+  .login-box{
+    padding:20px;
   }
 
-  .row{
-    align-items:flex-start;
-    gap:10px;
+  .section{
+    padding:14px;
+  }
+
+  .product-grid{
+    grid-template-columns:1fr;
   }
 
   .product-image{
-    width:75px;
-    height:75px;
+    height:220px;
   }
 
-  .product-name{
-    font-size:15px;
+  .admin-top-row{
+    align-items:flex-start;
   }
 
-  .line{
-    font-size:12px;
+  .admin-top-row .btn{
+    width:100%;
+    margin:3px 0;
   }
 
-  .btn{
-    padding:9px 12px;
-    font-size:13px;
+  .actions{
+    flex-direction:column;
+  }
+
+  .actions .btn{
+    width:100%;
   }
 
 }
@@ -310,331 +465,395 @@ input:focus{
 <body>
 
 
-<header>
+<!-- HEADER -->
 
-🛍️ Utkala Mart Admin Products
+<div class="header">
 
-</header>
+  <h1>🛍️ Utkala Mart Admin Products</h1>
+
+  <p>Product Approval & Stock Management</p>
+
+</div>
 
 
-<div class="wrap">
+<div class="container">
 
 
-<!-- =================================
-     LOGIN
-================================= -->
+<!-- ================= LOGIN ================= -->
 
-<div
-  class="card"
-  id="loginBox">
+<div id="loginBox" class="login-box">
 
-  <h2 class="login-title">
+  <h2>🔐 Admin Login</h2>
 
-    🔐 Admin Login
+  <div class="login-info">
+    Admin Email ଏବଂ Password ଦେଇ Login କରନ୍ତୁ
+  </div>
 
-  </h2>
 
-  <div class="info">
+  <div class="input-group">
 
-    Admin Email ଏବଂ Password ଦେଇ Login କରନ୍ତୁ।
+    <label>📧 Admin Email</label>
+
+    <input
+      type="email"
+      id="email"
+      placeholder="Admin Email"
+      autocomplete="email"
+    >
 
   </div>
 
 
-  <input
-    id="email"
-    type="email"
-    autocomplete="username"
-    placeholder="Admin Email"
-  >
+  <div class="input-group">
 
+    <label>🔑 Password</label>
 
-  <div class="password-box">
+    <div class="password-box">
 
-    <input
-      id="pass"
-      type="password"
-      autocomplete="current-password"
-      placeholder="Password"
-    >
+      <input
+        type="password"
+        id="password"
+        placeholder="Password"
+        autocomplete="current-password"
+      >
 
-    <button
-      type="button"
-      class="show-password"
-      id="showPass">
+      <button
+        type="button"
+        id="showPassword"
+        class="show-password"
+      >👁️</button>
 
-      👁️
-
-    </button>
+    </div>
 
   </div>
 
 
   <button
-    class="btn login"
-    id="loginBtn">
-
+    id="loginBtn"
+    class="btn btn-login"
+  >
     🔐 Login
-
   </button>
 
 
   <div
-    id="loginMsg">
-  </div>
+    id="loginError"
+    class="error"
+  ></div>
 
 </div>
 
 
 
-<!-- =================================
-     ADMIN PANEL
-================================= -->
+<!-- ================= ADMIN AREA ================= -->
+
+<div id="adminArea">
+
+
+  <!-- ADMIN TOP -->
+
+  <div class="admin-top">
+
+    <div class="admin-top-row">
+
+      <div>
+
+        <h2>🛍️ Product Management</h2>
+
+        <div
+          id="adminEmail"
+          class="admin-email"
+        ></div>
+
+      </div>
+
+
+      <div>
+
+        <button
+          class="btn btn-green"
+          id="refreshBtn"
+        >
+          🔄 Refresh
+        </button>
+
+        <button
+          class="btn btn-red"
+          id="logoutBtn"
+        >
+          🚪 Logout
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- ================= PENDING ================= -->
+
+  <div class="section">
+
+    <div class="section-title">
+
+      <h2>⏳ Pending Products</h2>
+
+      <span id="pendingCount">
+        0
+      </span>
+
+    </div>
+
+
+    <div
+      id="pendingProducts"
+      class="product-grid"
+    >
+
+      <div class="loading">
+        Loading...
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- ================= APPROVED ================= -->
+
+  <div class="section">
+
+    <div class="section-title">
+
+      <h2>✅ Approved Products</h2>
+
+      <span id="approvedCount">
+        0
+      </span>
+
+    </div>
+
+
+    <div
+      id="approvedProducts"
+      class="product-grid"
+    >
+
+      <div class="loading">
+        Loading...
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- ================= STOCK MODAL ================= -->
 
 <div
-  id="panel"
-  class="hidden">
+  id="stockModal"
+  class="modal"
+>
 
+  <div class="modal-box">
 
-  <!-- =================================
-       PENDING
-  ================================== -->
+    <h3>✏️ Edit Product Stock</h3>
 
-  <div class="card">
+    <p id="stockProductName"></p>
 
-    <h3 class="section-title">
+    <label>
+      New Stock:
+    </label>
 
-      ⏳ Pending Products
+    <input
+      type="number"
+      id="newStock"
+      min="0"
+      step="1"
+      placeholder="Enter stock"
+    >
 
-    </h3>
+    <div class="modal-actions">
 
-    <p
-      class="count"
-      id="pendingCount">
+      <button
+        id="cancelStock"
+        class="btn btn-gray"
+      >
+        Cancel
+      </button>
 
-      Loading...
+      <button
+        id="saveStock"
+        class="btn btn-green"
+      >
+        💾 Save Stock
+      </button>
 
-    </p>
-
-  </div>
-
-
-  <div
-    id="pendingList">
-  </div>
-
-
-
-  <!-- =================================
-       APPROVED
-  ================================== -->
-
-  <div class="card">
-
-    <h3 class="section-title">
-
-      ✅ Approved Products
-
-    </h3>
-
-    <p
-      class="count"
-      id="approvedCount">
-
-      Loading...
-
-    </p>
+    </div>
 
   </div>
-
-
-  <div
-    id="approvedList">
-  </div>
-
 
 </div>
 
 
-</div>
 
-
+<!-- ================= FIREBASE ================= -->
 
 <script type="module">
 
-
-/* =================================
-   FIREBASE
-================================= */
-
 import {
   initializeApp
-}
-from
-"https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 
 import {
   getAuth,
   signInWithEmailAndPassword,
-  onAuthStateChanged
-}
-from
-"https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+  onAuthStateChanged,
+  signOut
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 
 import {
   getFirestore,
   collection,
+  getDocs,
   query,
-  where,
-  onSnapshot,
-  doc,
-  updateDoc
-}
-from
-"https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+  orderBy,
+  updateDoc,
+  doc
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
 
-/* =================================
-   CONFIG
-================================= */
+/* ================= FIREBASE CONFIG ================= */
 
 const firebaseConfig = {
 
   apiKey:
-  "AIzaSyBYJ_KKs_7SNz108jnw6hpOlmegofRhJg",
+    "AIzaSyBYJ_KKs_7SNz108jnw6hpOlmegofRhJg",
 
   authDomain:
-  "utkalamart-1ec68.firebaseapp.com",
+    "utkalamart-1ec68.firebaseapp.com",
 
   projectId:
-  "utkalamart-1ec68",
+    "utkalamart-1ec68",
 
   storageBucket:
-  "utkalamart-1ec68.firebasestorage.app",
+    "utkalamart-1ec68.firebasestorage.app",
 
   messagingSenderId:
-  "664871353747",
+    "664871353747",
 
   appId:
-  "1:664871353747:web:96532fdafe78aabe7f3c66"
+    "1:664871353747:web:96532fdafe78aabe7f3c66"
 
 };
 
 
-/* =================================
-   ADMIN EMAIL
-================================= */
 
-const ADMIN_EMAIL =
-"admin@utkalamart.in";
-
-
-/* =================================
-   INIT
-================================= */
+/* ================= INITIALIZE ================= */
 
 const app =
-initializeApp(
-  firebaseConfig
-);
+  initializeApp(firebaseConfig);
 
 const auth =
-getAuth(app);
+  getAuth(app);
 
 const db =
-getFirestore(app);
+  getFirestore(app);
 
 
-/* =================================
-   DOM
-================================= */
+
+/* ================= ADMIN EMAIL ================= */
+
+const ADMIN_EMAIL =
+  "suryakantabehera629@gmail.com";
+
+
+
+/* ================= ELEMENTS ================= */
 
 const loginBox =
-document.getElementById(
-  "loginBox"
-);
+  document.getElementById("loginBox");
 
-const panel =
-document.getElementById(
-  "panel"
-);
+const adminArea =
+  document.getElementById("adminArea");
 
 const emailInput =
-document.getElementById(
-  "email"
-);
+  document.getElementById("email");
 
-const passInput =
-document.getElementById(
-  "pass"
-);
+const passwordInput =
+  document.getElementById("password");
 
 const loginBtn =
-document.getElementById(
-  "loginBtn"
-);
+  document.getElementById("loginBtn");
 
-const loginMsg =
-document.getElementById(
-  "loginMsg"
-);
+const loginError =
+  document.getElementById("loginError");
 
-const showPass =
-document.getElementById(
-  "showPass"
-);
+const showPassword =
+  document.getElementById("showPassword");
+
+const logoutBtn =
+  document.getElementById("logoutBtn");
+
+const refreshBtn =
+  document.getElementById("refreshBtn");
+
+const adminEmail =
+  document.getElementById("adminEmail");
+
+const pendingProducts =
+  document.getElementById("pendingProducts");
+
+const approvedProducts =
+  document.getElementById("approvedProducts");
 
 const pendingCount =
-document.getElementById(
-  "pendingCount"
-);
+  document.getElementById("pendingCount");
 
 const approvedCount =
-document.getElementById(
-  "approvedCount"
-);
-
-const pendingList =
-document.getElementById(
-  "pendingList"
-);
-
-const approvedList =
-document.getElementById(
-  "approvedList"
-);
+  document.getElementById("approvedCount");
 
 
 
-/* =================================
-   PASSWORD SHOW / HIDE
-================================= */
+/* ================= PASSWORD SHOW/HIDE ================= */
 
-showPass.addEventListener(
+showPassword.addEventListener(
   "click",
-  ()=>{
+  () => {
 
     if(
-      passInput.type ===
+      passwordInput.type ===
       "password"
     ){
 
-      passInput.type =
-      "text";
+      passwordInput.type =
+        "text";
 
-      showPass.textContent =
-      "🙈";
+      showPassword.textContent =
+        "🙈";
 
     }else{
 
-      passInput.type =
-      "password";
+      passwordInput.type =
+        "password";
 
-      showPass.textContent =
-      "👁️";
+      showPassword.textContent =
+        "👁️";
 
     }
 
@@ -643,29 +862,29 @@ showPass.addEventListener(
 
 
 
-/* =================================
-   LOGIN
-================================= */
+/* ================= LOGIN ================= */
 
 loginBtn.addEventListener(
   "click",
-  async()=>{
+  async () => {
 
     const email =
-    emailInput.value.trim();
+      emailInput.value
+      .trim()
+      .toLowerCase();
 
     const password =
-    passInput.value;
+      passwordInput.value;
 
 
-    loginMsg.innerHTML =
-    "";
+    loginError.style.display =
+      "none";
 
 
-    if(!email){
+    if(!email || !password){
 
-      showError(
-        "ଦୟାକରି Admin Email ଦିଅନ୍ତୁ।"
+      showLoginError(
+        "ଦୟାକରି Email ଏବଂ Password ଦିଅନ୍ତୁ।"
       );
 
       return;
@@ -673,10 +892,10 @@ loginBtn.addEventListener(
     }
 
 
-    if(!password){
+    if(email !== ADMIN_EMAIL){
 
-      showError(
-        "ଦୟାକରି Password ଦିଅନ୍ତୁ।"
+      showLoginError(
+        "ଏହି Email କୁ Admin access ଦିଆଯାଇନାହିଁ।"
       );
 
       return;
@@ -685,10 +904,10 @@ loginBtn.addEventListener(
 
 
     loginBtn.disabled =
-    true;
+      true;
 
     loginBtn.textContent =
-    "⏳ Login...";
+      "⏳ Login হচ্ছে...";
 
 
     try{
@@ -703,80 +922,634 @@ loginBtn.addEventListener(
 
       console.error(error);
 
-      showError(
-        loginErrorMessage(
-          error
-        )
+      showLoginError(
+        getLoginError(error)
       );
 
+    }finally{
+
+      loginBtn.disabled =
+        false;
+
+      loginBtn.textContent =
+        "🔐 Login";
+
     }
-
-
-    loginBtn.disabled =
-    false;
-
-    loginBtn.textContent =
-    "🔐 Login";
 
   }
 );
 
 
 
-/* =================================
-   LOGIN ERROR
-================================= */
+/* ================= LOGIN ERROR ================= */
 
-function loginErrorMessage(
-  error
-){
+function showLoginError(message){
+
+  loginError.textContent =
+    "❌ " + message;
+
+  loginError.style.display =
+    "block";
+
+}
+
+
+
+function getLoginError(error){
+
+  const code =
+    error?.code || "";
+
 
   if(
-    error.code ===
+    code ===
     "auth/invalid-credential"
   ){
 
-    return "❌ Email କିମ୍ବା Password ଭୁଲ।";
+    return "Email କିମ୍ବା Password ଭୁଲ।";
 
   }
 
 
   if(
-    error.code ===
-    "auth/user-not-found"
-  ){
-
-    return "❌ Firebase Authentication ରେ ଏହି Email ନାହିଁ।";
-
-  }
-
-
-  if(
-    error.code ===
+    code ===
     "auth/wrong-password"
   ){
 
-    return "❌ Password ଭୁଲ।";
+    return "Password ଭୁଲ।";
 
   }
 
 
-  return (
-    "❌ Login ହେଲା ନାହିଁ।"
+  if(
+    code ===
+    "auth/user-not-found"
+  ){
+
+    return "ଏହି Email ର Firebase account ନାହିଁ।";
+
+  }
+
+
+  if(
+    code ===
+    "auth/invalid-email"
+  ){
+
+    return "Email format ଠିକ୍ ନୁହେଁ।";
+
+  }
+
+
+  if(
+    code ===
+    "auth/too-many-requests"
+  ){
+
+    return "ଅଧିକଥର Login attempt ହୋଇଛି। କିଛି ସମୟ ପରେ try କରନ୍ତୁ।";
+
+  }
+
+
+  return error?.message ||
+    "Login ହୋଇନାହିଁ।";
+
+}
+
+
+
+/* ================= AUTH STATE ================= */
+
+onAuthStateChanged(
+  auth,
+  async (user) => {
+
+    if(user){
+
+      if(
+        user.email
+          ?.toLowerCase() !==
+        ADMIN_EMAIL
+      ){
+
+        await signOut(auth);
+
+        showLoginError(
+          "ଏହି account ର Admin access ନାହିଁ।"
+        );
+
+        return;
+
+      }
+
+
+      loginBox.style.display =
+        "none";
+
+      adminArea.style.display =
+        "block";
+
+      adminEmail.textContent =
+        "👤 " + user.email;
+
+
+      await loadProducts();
+
+    }else{
+
+      loginBox.style.display =
+        "block";
+
+      adminArea.style.display =
+        "none";
+
+    }
+
+  }
+);
+
+
+
+/* ================= LOAD PRODUCTS ================= */
+
+async function loadProducts(){
+
+  pendingProducts.innerHTML =
+    `<div class="loading">
+      ⏳ Products loading...
+    </div>`;
+
+
+  approvedProducts.innerHTML =
+    `<div class="loading">
+      ⏳ Products loading...
+    </div>`;
+
+
+  try{
+
+    const productsQuery =
+      query(
+        collection(db,"products"),
+        orderBy("createdAt","desc")
+      );
+
+
+    const snapshot =
+      await getDocs(productsQuery);
+
+
+    const pending = [];
+
+    const approved = [];
+
+
+    snapshot.forEach(
+      productDoc => {
+
+        const data =
+          productDoc.data();
+
+
+        const product = {
+
+          id:
+            productDoc.id,
+
+          ...data
+
+        };
+
+
+        /*
+          NEW SELLER PRODUCTS
+        */
+
+        if(
+          data.status ===
+            "approved" &&
+          data.approved ===
+            true &&
+          data.active ===
+            true
+        ){
+
+          approved.push(
+            product
+          );
+
+          return;
+
+        }
+
+
+        /*
+          PENDING PRODUCTS
+        */
+
+        if(
+          data.status ===
+            "pending"
+        ){
+
+          pending.push(
+            product
+          );
+
+          return;
+
+        }
+
+
+        /*
+          LEGACY PRODUCT SUPPORT
+
+          ଯଦି ପୁରୁଣା product ରେ
+          approval fields ନଥାଏ,
+          ତାହେଲେ Approved ଭାବରେ
+          ଦେଖାଇବ।
+        */
+
+        const hasApprovalFields =
+          data.status !==
+            undefined ||
+          data.approved !==
+            undefined ||
+          data.active !==
+            undefined;
+
+
+        const isOldProduct =
+          !hasApprovalFields &&
+          data.active !== false;
+
+
+        if(isOldProduct){
+
+          approved.push(
+            product
+          );
+
+        }
+
+      }
+    );
+
+
+    pendingCount.textContent =
+      pending.length;
+
+
+    approvedCount.textContent =
+      approved.length;
+
+
+    renderPending(
+      pending
+    );
+
+
+    renderApproved(
+      approved
+    );
+
+
+  }catch(error){
+
+    console.error(
+      "Load Products Error:",
+      error
+    );
+
+
+    pendingProducts.innerHTML =
+      `<div class="empty">
+        ❌ Products load ହୋଇନାହିଁ।<br><br>
+        ${escapeHtml(error.message)}
+      </div>`;
+
+
+    approvedProducts.innerHTML =
+      `<div class="empty">
+        ❌ Products load ହୋଇନାହିଁ।
+      </div>`;
+
+  }
+
+}
+
+
+
+/* ================= GET STOCK ================= */
+
+function getStock(product){
+
+  return Number(
+    product.stock ??
+    product.stockQty ??
+    product.quantity ??
+    product.availableStock ??
+    0
   );
 
 }
 
 
-function showError(
-  text
+
+/* ================= RENDER PENDING ================= */
+
+function renderPending(products){
+
+  if(!products.length){
+
+    pendingProducts.innerHTML =
+      `<div class="empty">
+        🎉 କୌଣସି Pending Product ନାହିଁ।
+      </div>`;
+
+    return;
+
+  }
+
+
+  pendingProducts.innerHTML =
+    products
+      .map(
+        product =>
+          createProductCard(
+            product,
+            "pending"
+          )
+      )
+      .join("");
+
+}
+
+
+
+/* ================= RENDER APPROVED ================= */
+
+function renderApproved(products){
+
+  if(!products.length){
+
+    approvedProducts.innerHTML =
+      `<div class="empty">
+        ବର୍ତ୍ତମାନ କୌଣସି Approved Product ନାହିଁ।
+      </div>`;
+
+    return;
+
+  }
+
+
+  approvedProducts.innerHTML =
+    products
+      .map(
+        product =>
+          createProductCard(
+            product,
+            "approved"
+          )
+      )
+      .join("");
+
+}
+
+
+
+/* ================= PRODUCT CARD ================= */
+
+function createProductCard(
+  product,
+  type
 ){
 
-  loginMsg.innerHTML = `
+  const name =
+    escapeHtml(
+      product.name ||
+      "Unnamed Product"
+    );
 
-    <div class="message error">
 
-      ${escapeHTML(text)}
+  const image =
+    product.image ||
+    product.imageUrl ||
+    "https://via.placeholder.com/600x400?text=Utkala+Mart";
+
+
+  const price =
+    Number(
+      product.utkalaPrice ??
+      product.price ??
+      product.sellingPrice ??
+      0
+    );
+
+
+  const sellerPrice =
+    Number(
+      product.sellerPrice ??
+      0
+    );
+
+
+  const stock =
+    getStock(product);
+
+
+  const weight =
+    product.weight ||
+    "";
+
+
+  const weightUnit =
+    product.weightUnit ||
+    product.unit ||
+    "";
+
+
+  const location =
+    escapeHtml(
+      product.location ||
+      product.sellerLocation ||
+      "—"
+    );
+
+
+  const category =
+    escapeHtml(
+      product.categoryName ||
+      product.category ||
+      "—"
+    );
+
+
+  const sellerName =
+    escapeHtml(
+      product.sellerName ||
+      "Seller"
+    );
+
+
+  let statusHTML = "";
+
+
+  if(type === "pending"){
+
+    statusHTML =
+      `<span class="status pending">
+        ⏳ Pending Approval
+      </span>`;
+
+  }else{
+
+    statusHTML =
+      `<span class="status approved">
+        ✅ Approved
+      </span>`;
+
+  }
+
+
+  const stockHTML =
+    stock > 0
+
+    ?
+
+    `<span class="stock">
+      📦 Stock: ${stock}
+    </span>`
+
+    :
+
+    `<span class="stock out">
+      ❌ Stock Out
+    </span>`;
+
+
+  let actions = "";
+
+
+  if(type === "pending"){
+
+    actions = `
+
+      <button
+        class="btn btn-green"
+        onclick="approveProduct('${product.id}')"
+      >
+        ✅ Approve
+      </button>
+
+      <button
+        class="btn btn-red"
+        onclick="rejectProduct('${product.id}')"
+      >
+        ❌ Reject
+      </button>
+
+    `;
+
+  }else{
+
+    actions = `
+
+      <button
+        class="btn btn-green"
+        onclick="editStock(
+          '${product.id}',
+          '${escapeAttr(product.name || "Product")}',
+          ${stock}
+        )"
+      >
+        ✏️ Edit Stock
+      </button>
+
+    `;
+
+  }
+
+
+  return `
+
+    <div class="product-card">
+
+      <img
+        class="product-image"
+        src="${escapeAttr(image)}"
+        alt="${escapeAttr(name)}"
+        onerror="
+          this.src='https://via.placeholder.com/600x400?text=No+Image'
+        "
+      >
+
+      <div class="product-body">
+
+        ${statusHTML}
+
+        <div class="product-name">
+          ${name}
+        </div>
+
+
+        <div class="product-row">
+          📂 <strong>Category:</strong>
+          ${category}
+        </div>
+
+
+        ${
+          weight
+          ?
+          `
+          <div class="product-row">
+            ⚖️ <strong>Weight:</strong>
+            ${escapeHtml(weight)}
+            ${escapeHtml(weightUnit)}
+          </div>
+          `
+          :
+          ""
+        }
+
+
+        <div class="product-row">
+          👤 <strong>Seller:</strong>
+          ${sellerName}
+        </div>
+
+
+        <div class="product-row">
+          📍 <strong>Location:</strong>
+          ${location}
+        </div>
+
+
+        <div class="product-row">
+          💰 <strong>Seller Price:</strong>
+          ₹${sellerPrice}
+        </div>
+
+
+        <div class="price">
+          🛒 Utkala Mart Price:
+          ₹${price}
+        </div>
+
+
+        <div>
+          ${stockHTML}
+        </div>
+
+
+        <div class="actions">
+
+          ${actions}
+
+        </div>
+
+      </div>
 
     </div>
 
@@ -786,889 +1559,331 @@ function showError(
 
 
 
-/* =================================
-   AUTH
-================================= */
+/* ================= APPROVE ================= */
 
-onAuthStateChanged(
-  auth,
-  user=>{
+window.approveProduct =
+  async function(id){
 
-    if(!user){
-
-      return;
-
-    }
-
-
-    if(
-      user.email !==
-      ADMIN_EMAIL
-    ){
-
-      showError(
-        "❌ ଏହି Email Admin ନୁହେଁ।"
+    const confirmApprove =
+      confirm(
+        "ଏହି product କୁ Approve କରିବେ କି?"
       );
 
+
+    if(!confirmApprove)
       return;
 
-    }
 
+    try{
 
-    loginBox.classList.add(
-      "hidden"
-    );
+      await updateDoc(
+        doc(
+          db,
+          "products",
+          id
+        ),
 
-    panel.classList.remove(
-      "hidden"
-    );
+        {
 
-
-    loadPendingProducts();
-
-    loadApprovedProducts();
-
-  }
-);
-
-
-
-/* =================================
-   PENDING PRODUCTS
-================================= */
-
-function loadPendingProducts(){
-
-  const q =
-  query(
-    collection(
-      db,
-      "products"
-    ),
-    where(
-      "status",
-      "==",
-      "pending"
-    )
-  );
-
-
-  onSnapshot(
-    q,
-    snap=>{
-
-      pendingCount.textContent =
-      "Pending: " +
-      snap.size;
-
-
-      pendingList.innerHTML =
-      "";
-
-
-      if(
-        snap.empty
-      ){
-
-        pendingList.innerHTML = `
-
-          <div class="card empty">
-
-            👍 ବର୍ତ୍ତମାନ କୌଣସି
-            Pending Product ନାହିଁ।
-
-          </div>
-
-        `;
-
-        return;
-
-      }
-
-
-      snap.forEach(
-        productDoc=>{
-
-          const p =
-          productDoc.data();
-
-
-          const stock =
-          getStock(p);
-
-
-          const div =
-          document.createElement(
-            "div"
-          );
-
-
-          div.className =
-          "card";
-
-
-          div.innerHTML = `
-
-            <div class="row">
-
-              <img
-                class="product-image"
-                src="${
-                  escapeHTML(
-                    p.imageUrl ||
-                    p.image ||
-                    "logo.png"
-                  )
-                }"
-                onerror="
-                  this.src='logo.png'
-                "
-              >
-
-
-              <div
-                class="product-info">
-
-                <div
-                  class="product-name">
-
-                  ${
-                    escapeHTML(
-                      p.name || ""
-                    )
-                  }
-
-                </div>
-
-
-                <div class="line">
-
-                  🏷️
-                  ${
-                    escapeHTML(
-                      p.category || ""
-                    )
-                  }
-
-                </div>
-
-
-                <div class="line">
-
-                  ⚖️
-                  ${
-                    escapeHTML(
-                      p.weight || ""
-                    )
-                  }
-
-                  ${
-                    escapeHTML(
-                      p.weightUnit ||
-                      p.unit ||
-                      ""
-                    )
-                  }
-
-                </div>
-
-
-                <div class="line">
-
-                  💰 Seller:
-                  ₹${
-                    Number(
-                      p.sellerPrice || 0
-                    ).toLocaleString(
-                      "en-IN"
-                    )
-                  }
-
-                  <br>
-
-                  💰 Utkala:
-                  ₹${
-                    Number(
-                      p.price || 0
-                    ).toLocaleString(
-                      "en-IN"
-                    )
-                  }
-
-                </div>
-
-
-                <div class="line">
-
-                  📦 Stock:
-                  <b>${stock}</b>
-
-                </div>
-
-
-                <div class="line">
-
-                  📍
-                  ${
-                    escapeHTML(
-                      p.location || ""
-                    )
-                  }
-
-                </div>
-
-
-                <span
-                  class="status pending">
-
-                  ⏳ Pending
-
-                </span>
-
-              </div>
-
-            </div>
-
-
-            <div class="actions">
-
-              <button
-                class="btn ok"
-                data-id="${productDoc.id}"
-                data-action="approve">
-
-                ✅ Approve
-
-              </button>
-
-
-              <button
-                class="btn no"
-                data-id="${productDoc.id}"
-                data-action="reject">
-
-                ❌ Reject
-
-              </button>
-
-            </div>
-
-          `;
-
-
-          pendingList.appendChild(
-            div
-          );
-
-        }
-      );
-
-    },
-
-    error=>{
-
-      console.error(error);
-
-      pendingList.innerHTML = `
-
-        <div class="card">
-
-          ❌ Pending Products load
-          ହୋଇପାରିଲା ନାହିଁ।
-
-        </div>
-
-      `;
-
-    }
-
-  );
-
-}
-
-
-
-/* =================================
-   APPROVED PRODUCTS
-================================= */
-
-function loadApprovedProducts(){
-
-  const q =
-  query(
-    collection(
-      db,
-      "products"
-    ),
-    where(
-      "status",
-      "==",
-      "approved"
-    )
-  );
-
-
-  onSnapshot(
-    q,
-    snap=>{
-
-      approvedCount.textContent =
-      "Approved: " +
-      snap.size;
-
-
-      approvedList.innerHTML =
-      "";
-
-
-      if(
-        snap.empty
-      ){
-
-        approvedList.innerHTML = `
-
-          <div class="card empty">
-
-            📦 ବର୍ତ୍ତମାନ କୌଣସି
-            Approved Product ନାହିଁ।
-
-          </div>
-
-        `;
-
-        return;
-
-      }
-
-
-      snap.forEach(
-        productDoc=>{
-
-          const p =
-          productDoc.data();
-
-
-          const stock =
-          getStock(p);
-
-
-          const div =
-          document.createElement(
-            "div"
-          );
-
-
-          div.className =
-          "card";
-
-
-          div.innerHTML = `
-
-            <div class="row">
-
-              <img
-                class="product-image"
-                src="${
-                  escapeHTML(
-                    p.imageUrl ||
-                    p.image ||
-                    "logo.png"
-                  )
-                }"
-                onerror="
-                  this.src='logo.png'
-                "
-              >
-
-
-              <div
-                class="product-info">
-
-                <div
-                  class="product-name">
-
-                  ${
-                    escapeHTML(
-                      p.name || ""
-                    )
-                  }
-
-                </div>
-
-
-                <div class="line">
-
-                  🏷️
-                  ${
-                    escapeHTML(
-                      p.category || ""
-                    )
-                  }
-
-                </div>
-
-
-                <div class="line">
-
-                  ⚖️
-                  ${
-                    escapeHTML(
-                      p.weight || ""
-                    )
-                  }
-
-                  ${
-                    escapeHTML(
-                      p.weightUnit ||
-                      p.unit ||
-                      ""
-                    )
-                  }
-
-                </div>
-
-
-                <div class="line">
-
-                  💰 Utkala Price:
-
-                  <b>
-
-                    ₹${
-                      Number(
-                        p.price || 0
-                      ).toLocaleString(
-                        "en-IN"
-                      )
-                    }
-
-                  </b>
-
-                </div>
-
-
-                <div
-                  class="stock-box">
-
-                  📦 Current Stock:
-
-                  <span
-                    class="
-                    stock-number
-                    ${
-                      stock === 0
-                      ? "stock-out"
-                      : ""
-                    }
-                    ">
-
-                    ${stock}
-
-                  </span>
-
-
-                  ${
-                    stock === 0
-                    ? `
-                      <span
-                        style="
-                        color:#d9272e;
-                        font-weight:bold;
-                        margin-left:6px;
-                        ">
-
-                        Stock Out
-
-                      </span>
-                    `
-                    : ""
-                  }
-
-                </div>
-
-
-                <span
-                  class="status approved">
-
-                  ✅ Approved
-
-                </span>
-
-              </div>
-
-            </div>
-
-
-            <div class="actions">
-
-              <button
-                class="btn stock"
-                data-id="${productDoc.id}"
-                data-action="stock">
-
-                ✏️ Edit Stock
-
-              </button>
-
-            </div>
-
-          `;
-
-
-          approvedList.appendChild(
-            div
-          );
-
-        }
-      );
-
-    },
-
-    error=>{
-
-      console.error(error);
-
-      approvedList.innerHTML = `
-
-        <div class="card">
-
-          ❌ Approved Products load
-          ହୋଇପାରିଲା ନାହିଁ।
-
-        </div>
-
-      `;
-
-    }
-
-  );
-
-}
-
-
-
-/* =================================
-   BUTTON ACTIONS
-================================= */
-
-document.addEventListener(
-  "click",
-  async event=>{
-
-    const button =
-    event.target.closest(
-      "button[data-id]"
-    );
-
-
-    if(!button){
-
-      return;
-
-    }
-
-
-    const id =
-    button.dataset.id;
-
-
-    const action =
-    button.dataset.action;
-
-
-
-    /* =============================
-       APPROVE
-    ============================== */
-
-    if(
-      action ===
-      "approve"
-    ){
-
-      button.disabled =
-      true;
-
-      button.textContent =
-      "⏳ Approving...";
-
-
-      try{
-
-        await updateDoc(
-          doc(
-            db,
-            "products",
-            id
-          ),
-          {
-
-            status:
+          status:
             "approved",
 
-            approved:
+          approved:
             true,
 
-            active:
+          active:
             true
 
-          }
-        );
-
-
-        alert(
-          "✅ Product Approved"
-        );
-
-
-      }catch(error){
-
-        console.error(error);
-
-        alert(
-          "❌ Approve failed: " +
-          error.message
-        );
-
-
-        button.disabled =
-        false;
-
-        button.textContent =
-        "✅ Approve";
-
-      }
-
-
-      return;
-
-    }
-
-
-
-    /* =============================
-       REJECT
-    ============================== */
-
-    if(
-      action ===
-      "reject"
-    ){
-
-      const confirmReject =
-      confirm(
-        "ଏହି Product କୁ Reject କରିବେ କି?"
+        }
       );
 
 
-      if(
-        !confirmReject
-      ){
-
-        return;
-
-      }
+      alert(
+        "✅ Product Approved ହୋଇଗଲା!"
+      );
 
 
-      button.disabled =
-      true;
-
-      button.textContent =
-      "⏳ Rejecting...";
+      await loadProducts();
 
 
-      try{
+    }catch(error){
 
-        await updateDoc(
-          doc(
-            db,
-            "products",
-            id
-          ),
-          {
+      console.error(error);
 
-            status:
+      alert(
+        "❌ Approve ହୋଇନାହିଁ:\n" +
+        error.message
+      );
+
+    }
+
+  };
+
+
+
+/* ================= REJECT ================= */
+
+window.rejectProduct =
+  async function(id){
+
+    const confirmReject =
+      confirm(
+        "ଏହି product କୁ Reject କରିବେ କି?"
+      );
+
+
+    if(!confirmReject)
+      return;
+
+
+    try{
+
+      await updateDoc(
+        doc(
+          db,
+          "products",
+          id
+        ),
+
+        {
+
+          status:
             "rejected",
 
-            approved:
+          approved:
             false,
 
-            active:
+          active:
             false
 
-          }
-        );
+        }
+      );
 
 
-        alert(
-          "❌ Product Rejected"
-        );
+      alert(
+        "❌ Product Rejected ହୋଇଗଲା।"
+      );
 
 
-      }catch(error){
-
-        console.error(error);
-
-        alert(
-          "❌ Reject failed: " +
-          error.message
-        );
+      await loadProducts();
 
 
-        button.disabled =
-        false;
+    }catch(error){
 
-        button.textContent =
-        "❌ Reject";
+      console.error(error);
 
-      }
+      alert(
+        "❌ Reject ହୋଇନାହିଁ:\n" +
+        error.message
+      );
 
+    }
+
+  };
+
+
+
+/* ================= STOCK MODAL ================= */
+
+const stockModal =
+  document.getElementById(
+    "stockModal"
+  );
+
+const stockProductName =
+  document.getElementById(
+    "stockProductName"
+  );
+
+const newStock =
+  document.getElementById(
+    "newStock"
+  );
+
+const saveStock =
+  document.getElementById(
+    "saveStock"
+  );
+
+const cancelStock =
+  document.getElementById(
+    "cancelStock"
+  );
+
+
+let editingProductId =
+  null;
+
+
+
+/* ================= EDIT STOCK ================= */
+
+window.editStock =
+  function(
+    id,
+    name,
+    stock
+  ){
+
+    editingProductId =
+      id;
+
+
+    stockProductName.textContent =
+      "📦 Product: " +
+      name;
+
+
+    newStock.value =
+      stock;
+
+
+    stockModal.style.display =
+      "flex";
+
+
+    setTimeout(
+      () => {
+        newStock.focus();
+        newStock.select();
+      },
+      100
+    );
+
+  };
+
+
+
+/* ================= CANCEL STOCK ================= */
+
+cancelStock.addEventListener(
+  "click",
+  () => {
+
+    stockModal.style.display =
+      "none";
+
+    editingProductId =
+      null;
+
+  }
+);
+
+
+
+/* ================= SAVE STOCK ================= */
+
+saveStock.addEventListener(
+  "click",
+  async () => {
+
+    if(!editingProductId){
+
+      alert(
+        "Product select ହୋଇନାହିଁ।"
+      );
 
       return;
 
     }
 
 
+    const stockValue =
+      Number(
+        newStock.value
+      );
 
-    /* =============================
-       EDIT STOCK
-    ============================== */
 
     if(
-      action ===
-      "stock"
+      !Number.isInteger(
+        stockValue
+      ) ||
+      stockValue < 0
     ){
 
-      const card =
-      button.closest(
-        ".card"
+      alert(
+        "ଦୟାକରି 0 କିମ୍ବା ତାଠାରୁ ବଡ଼ ସଠିକ୍ Stock ଦିଅନ୍ତୁ।"
       );
 
+      return;
 
-      const stockElement =
-      card.querySelector(
-        ".stock-number"
-      );
+    }
 
 
-      const oldStock =
-      Number(
-        stockElement.textContent
-      );
-
-
-      const newValue =
-      prompt(
-        "📦 ନୂଆ Stock କେତେ ରଖିବେ?",
-        oldStock
-      );
-
-
-      if(
-        newValue ===
-        null
-      ){
-
-        return;
-
-      }
-
-
-      const clean =
-      newValue.trim();
-
-
-      if(
-        clean === ""
-      ){
-
-        alert(
-          "❌ Stock ଦିଅନ୍ତୁ।"
-        );
-
-        return;
-
-      }
-
-
-      const newStock =
-      Number(
-        clean
-      );
-
-
-      if(
-        !Number.isInteger(
-          newStock
-        ) ||
-        newStock < 0
-      ){
-
-        alert(
-          "❌ Stock 0 କିମ୍ବା ତାଠାରୁ ଅଧିକ whole number ହେବା ଦରକାର।"
-        );
-
-        return;
-
-      }
-
-
-      button.disabled =
+    saveStock.disabled =
       true;
 
-      button.textContent =
-      "⏳ Updating...";
+    saveStock.textContent =
+      "⏳ Saving...";
 
 
-      try{
+    try{
 
-        await updateDoc(
-          doc(
-            db,
-            "products",
-            id
-          ),
-          {
+      await updateDoc(
 
-            stock:
-            newStock,
+        doc(
+          db,
+          "products",
+          editingProductId
+        ),
 
-            stockQty:
-            newStock,
+        {
 
-            quantity:
-            newStock,
+          /*
+            ସମସ୍ତ stock field
+            same value ରହିବ
+          */
 
-            availableStock:
-            newStock
+          stock:
+            stockValue,
 
-          }
-        );
+          stockQty:
+            stockValue,
 
+          quantity:
+            stockValue,
 
-        alert(
-          "✅ Stock update ହୋଇଗଲା: " +
-          newStock
-        );
+          availableStock:
+            stockValue
 
+        }
 
-      }catch(error){
-
-        console.error(error);
-
-        alert(
-          "❌ Stock update failed: " +
-          error.message
-        );
-
-      }
+      );
 
 
-      button.disabled =
-      false;
+      alert(
+        "✅ Stock successfully update ହୋଇଗଲା!\n\nNew Stock: " +
+        stockValue
+      );
 
-      button.textContent =
-      "✏️ Edit Stock";
+
+      stockModal.style.display =
+        "none";
+
+
+      editingProductId =
+        null;
+
+
+      await loadProducts();
+
+
+    }catch(error){
+
+      console.error(error);
+
+      alert(
+        "❌ Stock update ହୋଇନାହିଁ:\n\n" +
+        error.message
+      );
+
+    }finally{
+
+      saveStock.disabled =
+        false;
+
+      saveStock.textContent =
+        "💾 Save Stock";
 
     }
 
@@ -1677,75 +1892,112 @@ document.addEventListener(
 
 
 
-/* =================================
-   GET STOCK
-================================= */
+/* ================= REFRESH ================= */
 
-function getStock(
-  product
-){
+refreshBtn.addEventListener(
+  "click",
+  async () => {
 
-  const value =
-    product.stock ??
-    product.stockQty ??
-    product.quantity ??
-    product.availableStock ??
-    0;
+    refreshBtn.disabled =
+      true;
+
+    refreshBtn.textContent =
+      "⏳ Loading...";
 
 
-  const number =
-    Number(
-      value
-    );
+    await loadProducts();
 
 
-  if(
-    Number.isFinite(
-      number
-    )
-  ){
+    refreshBtn.disabled =
+      false;
 
-    return number;
+    refreshBtn.textContent =
+      "🔄 Refresh";
 
   }
+);
 
 
-  return 0;
+
+/* ================= LOGOUT ================= */
+
+logoutBtn.addEventListener(
+  "click",
+  async () => {
+
+    try{
+
+      await signOut(auth);
+
+    }catch(error){
+
+      console.error(error);
+
+    }
+
+  }
+);
+
+
+
+/* ================= CLOSE MODAL OUTSIDE ================= */
+
+stockModal.addEventListener(
+  "click",
+  event => {
+
+    if(
+      event.target ===
+      stockModal
+    ){
+
+      stockModal.style.display =
+        "none";
+
+      editingProductId =
+        null;
+
+    }
+
+  }
+);
+
+
+
+/* ================= ESCAPE HTML ================= */
+
+function escapeHtml(value){
+
+  return String(value)
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+    .replace(
+      /</g,
+      "&lt;"
+    )
+    .replace(
+      />/g,
+      "&gt;"
+    )
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+    .replace(
+      /'/g,
+      "&#039;"
+    );
 
 }
 
 
 
-/* =================================
-   ESCAPE HTML
-================================= */
+function escapeAttr(value){
 
-function escapeHTML(
-  value
-){
-
-  return String(
-    value ?? ""
-  )
-  .replace(
-    /&/g,
-    "&amp;"
-  )
-  .replace(
-    /</g,
-    "&lt;"
-  )
-  .replace(
-    />/g,
-    "&gt;"
-  )
-  .replace(
-    /"/g,
-    "&quot;"
-  )
-  .replace(
-    /'/g,
-    "&#039;"
+  return escapeHtml(
+    value
   );
 
 }
