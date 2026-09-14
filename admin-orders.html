@@ -251,4 +251,3089 @@ textarea:focus{
   padding:15px;
   border-radius:15px;
   margin-bottom:18px;
-  box-shadow:0 2px 12px rgba(
+  box-shadow:0 2px 12px rgba(0,0,0,.06);
+}
+
+.toolbar-grid{
+  display:grid;
+  grid-template-columns:
+    2fr 1fr 1fr;
+  gap:12px;
+}
+
+/* ================= ORDER CARD ================= */
+
+.orders-list{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+.order-card{
+  background:white;
+  border-radius:16px;
+  padding:18px;
+  box-shadow:0 2px 12px rgba(0,0,0,.07);
+  border-left:5px solid #0b8757;
+}
+
+.order-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:15px;
+}
+
+.order-id{
+  font-size:18px;
+  font-weight:bold;
+  color:#075b3b;
+}
+
+.order-date{
+  font-size:12px;
+  color:#777;
+  margin-top:4px;
+}
+
+.status{
+  display:inline-block;
+  padding:7px 11px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.status-pending{
+  background:#fff4d6;
+  color:#8a5a00;
+}
+
+.status-confirmed{
+  background:#e3f2fd;
+  color:#1565c0;
+}
+
+.status-processing{
+  background:#ede7f6;
+  color:#5e35b1;
+}
+
+.status-shipped{
+  background:#e0f7fa;
+  color:#00796b;
+}
+
+.status-delivered{
+  background:#e8f5e9;
+  color:#2e7d32;
+}
+
+.status-cancelled{
+  background:#ffebee;
+  color:#c62828;
+}
+
+.status-completed{
+  background:#e8f5e9;
+  color:#2e7d32;
+}
+
+/* ================= ORDER BODY ================= */
+
+.order-body{
+  margin-top:16px;
+  display:grid;
+  grid-template-columns:
+    1fr 1fr;
+  gap:15px;
+}
+
+.info-box{
+  background:#f7f9f8;
+  border-radius:11px;
+  padding:13px;
+}
+
+.info-title{
+  font-size:13px;
+  color:#777;
+  margin-bottom:7px;
+}
+
+.info-value{
+  font-weight:bold;
+  line-height:1.5;
+}
+
+/* ================= ITEMS ================= */
+
+.items-box{
+  margin-top:15px;
+  background:#fafafa;
+  border:1px solid #eee;
+  border-radius:12px;
+  padding:13px;
+}
+
+.item{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  padding:9px 0;
+  border-bottom:1px solid #eee;
+}
+
+.item:last-child{
+  border-bottom:0;
+}
+
+.item-image{
+  width:55px;
+  height:55px;
+  object-fit:cover;
+  border-radius:9px;
+  background:#eee;
+}
+
+.item-info{
+  flex:1;
+}
+
+.item-name{
+  font-weight:bold;
+}
+
+.item-meta{
+  font-size:12px;
+  color:#777;
+  margin-top:4px;
+}
+
+.item-price{
+  font-weight:bold;
+}
+
+/* ================= TOTAL ================= */
+
+.total-row{
+  margin-top:15px;
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  gap:15px;
+  font-size:18px;
+}
+
+.total-value{
+  color:#075b3b;
+  font-weight:bold;
+}
+
+/* ================= ACTIONS ================= */
+
+.actions{
+  margin-top:17px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+}
+
+.btn{
+  border:0;
+  padding:10px 14px;
+  border-radius:9px;
+  font-weight:bold;
+  cursor:pointer;
+  font-size:13px;
+}
+
+.btn-status{
+  background:#075b3b;
+  color:white;
+}
+
+.btn-view{
+  background:#e8f1ff;
+  color:#1565c0;
+}
+
+.btn-whatsapp{
+  background:#e8f7ed;
+  color:#16833b;
+}
+
+.btn-cancel{
+  background:#ffebee;
+  color:#c62828;
+}
+
+.btn-refresh{
+  background:#eee;
+  color:#333;
+}
+
+/* ================= EMPTY ================= */
+
+.empty{
+  background:white;
+  border-radius:15px;
+  padding:45px 20px;
+  text-align:center;
+  color:#777;
+  box-shadow:0 2px 12px rgba(0,0,0,.06);
+}
+
+.empty-icon{
+  font-size:45px;
+  margin-bottom:10px;
+}
+
+/* ================= LOADING ================= */
+
+.loading{
+  background:white;
+  border-radius:15px;
+  padding:35px;
+  text-align:center;
+  color:#777;
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  padding:15px;
+  z-index:999;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  background:white;
+  width:100%;
+  max-width:550px;
+  max-height:90vh;
+  overflow:auto;
+  border-radius:18px;
+  padding:20px;
+}
+
+.modal-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-bottom:15px;
+}
+
+.modal-header h2{
+  margin:0;
+  color:#075b3b;
+}
+
+.close-btn{
+  border:0;
+  background:#eee;
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  font-size:22px;
+  cursor:pointer;
+}
+
+.modal-footer{
+  margin-top:18px;
+  display:flex;
+  gap:10px;
+}
+
+.modal-footer button{
+  flex:1;
+}
+
+/* ================= TOAST ================= */
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:25px;
+  transform:translateX(-50%) translateY(100px);
+  background:#222;
+  color:white;
+  padding:12px 18px;
+  border-radius:10px;
+  opacity:0;
+  transition:.3s;
+  z-index:2000;
+  max-width:90%;
+  text-align:center;
+}
+
+.toast.show{
+  transform:translateX(-50%) translateY(0);
+  opacity:1;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+  text-align:center;
+  color:#777;
+  padding:30px 15px;
+  font-size:13px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+  .stats{
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+  .toolbar-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+}
+
+@media(max-width:650px){
+
+  .header-inner{
+    align-items:flex-start;
+  }
+
+  .admin-info{
+    font-size:11px;
+  }
+
+  .logo{
+    font-size:18px;
+  }
+
+  .container{
+    padding:12px;
+  }
+
+  .stats{
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+
+  .stat-card{
+    padding:13px;
+  }
+
+  .stat-value{
+    font-size:20px;
+  }
+
+  .toolbar-grid{
+    grid-template-columns:1fr;
+  }
+
+  .order-top{
+    flex-direction:column;
+  }
+
+  .order-body{
+    grid-template-columns:1fr;
+  }
+
+  .order-card{
+    padding:13px;
+  }
+
+  .actions .btn{
+    flex:1;
+    min-width:120px;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- ======================================================
+     LOGIN
+====================================================== -->
+
+<section id="loginSection"
+class="login-wrapper">
+
+  <div class="login-card">
+
+    <div class="login-icon">
+      🔐
+    </div>
+
+    <h1>
+      Utkala Mart
+    </h1>
+
+    <div class="login-sub">
+      Office / Admin Login
+    </div>
+
+    <label>
+      Admin Email
+    </label>
+
+    <input
+      id="email"
+      type="email"
+      autocomplete="username"
+      placeholder="Admin Email"
+      value="suryakantabehera629@gmail.com"
+    >
+
+    <label>
+      Password
+    </label>
+
+    <input
+      id="password"
+      type="password"
+      autocomplete="current-password"
+      placeholder="Password"
+    >
+
+    <button
+      id="loginBtn"
+      class="login-btn"
+      onclick="loginAdmin()"
+    >
+      🔐 LOGIN
+    </button>
+
+    <div
+      id="loginError"
+      class="login-error"
+    ></div>
+
+    <div class="login-note">
+
+      🛡️ <b>Secure Office Area</b><br>
+
+      କେବଳ authorized Admin ଏହି page
+      ବ୍ୟବହାର କରିପାରିବେ।
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     ADMIN AREA
+====================================================== -->
+
+<section
+id="adminSection"
+class="hidden"
+>
+
+  <!-- HEADER -->
+
+  <header class="header">
+
+    <div class="header-inner">
+
+      <div>
+
+        <div class="logo">
+          🛍️ Utkala Mart
+        </div>
+
+        <div class="subtitle">
+          Office / Order Administration
+        </div>
+
+      </div>
+
+      <div class="admin-info">
+
+        <div id="adminEmail">
+          Admin
+        </div>
+
+        <button
+          class="logout-top"
+          onclick="logoutAdmin()"
+        >
+          🚪 Logout
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- MAIN -->
+
+  <main class="container">
+
+    <div class="page-title">
+      📦 Order Management
+    </div>
+
+    <div class="page-subtitle">
+      Customer Orders ଦେଖନ୍ତୁ ଏବଂ Status manage କରନ୍ତୁ।
+    </div>
+
+
+
+    <!-- ================= STATS ================= -->
+
+    <section class="stats">
+
+      <div class="stat-card">
+
+        <div class="stat-icon">
+          📦
+        </div>
+
+        <div class="stat-label">
+          Total Orders
+        </div>
+
+        <div
+        class="stat-value"
+        id="totalOrders"
+        >
+          0
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-icon">
+          ⏳
+        </div>
+
+        <div class="stat-label">
+          Pending Orders
+        </div>
+
+        <div
+        class="stat-value"
+        id="pendingOrders"
+        >
+          0
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-icon">
+          🚚
+        </div>
+
+        <div class="stat-label">
+          Delivered
+        </div>
+
+        <div
+        class="stat-value"
+        id="deliveredOrders"
+        >
+          0
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-icon">
+          💰
+        </div>
+
+        <div class="stat-label">
+          Total Sales
+        </div>
+
+        <div
+        class="stat-value"
+        id="totalSales"
+        >
+          ₹0
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================= TOOLBAR ================= -->
+
+    <section class="toolbar">
+
+      <div class="toolbar-grid">
+
+        <input
+        id="searchInput"
+        type="search"
+        placeholder="🔍 Order ID / Customer / Mobile search..."
+        oninput="renderOrders()"
+        >
+
+        <select
+        id="statusFilter"
+        onchange="renderOrders()"
+        >
+
+          <option value="">
+            ସମସ୍ତ Status
+          </option>
+
+          <option value="Pending">
+            ⏳ Pending
+          </option>
+
+          <option value="Confirmed">
+            ✅ Confirmed
+          </option>
+
+          <option value="Processing">
+            ⚙️ Processing
+          </option>
+
+          <option value="Shipped">
+            🚚 Shipped
+          </option>
+
+          <option value="Delivered">
+            🎉 Delivered
+          </option>
+
+          <option value="Cancelled">
+            ❌ Cancelled
+          </option>
+
+        </select>
+
+
+        <button
+        class="btn btn-refresh"
+        onclick="loadOrders()"
+        >
+          🔄 Refresh Orders
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================= ORDERS ================= -->
+
+    <section
+    id="ordersContainer"
+    class="orders-list"
+    >
+
+      <div class="loading">
+        ⏳ Orders loading...
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <footer class="footer">
+
+    <b>
+      🌿 Utkala Mart
+    </b>
+
+    <br>
+
+    ଓଡ଼ିଶାର ପ୍ରଡକ୍ଟ — ଓଡ଼ିଆଙ୍କ ଘରେ
+
+    <br><br>
+
+    Office / Admin Area
+
+  </footer>
+
+</section>
+
+
+
+<!-- ======================================================
+     STATUS MODAL
+====================================================== -->
+
+<div
+id="statusModal"
+class="modal"
+>
+
+  <div class="modal-box">
+
+    <div class="modal-header">
+
+      <h2>
+        📦 Order Status
+      </h2>
+
+      <button
+      class="close-btn"
+      onclick="closeStatusModal()"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <div id="statusOrderInfo"></div>
+
+    <label>
+      New Status
+    </label>
+
+    <select
+    id="newStatus"
+    >
+
+      <option value="Pending">
+        ⏳ Pending
+      </option>
+
+      <option value="Confirmed">
+        ✅ Confirmed
+      </option>
+
+      <option value="Processing">
+        ⚙️ Processing
+      </option>
+
+      <option value="Shipped">
+        🚚 Shipped
+      </option>
+
+      <option value="Delivered">
+        🎉 Delivered
+      </option>
+
+      <option value="Cancelled">
+        ❌ Cancelled
+      </option>
+
+    </select>
+
+    <div class="modal-footer">
+
+      <button
+      class="btn btn-refresh"
+      onclick="closeStatusModal()"
+      >
+        Cancel
+      </button>
+
+      <button
+      class="btn btn-status"
+      onclick="saveOrderStatus()"
+      >
+        💾 Save Status
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- ======================================================
+     VIEW ORDER MODAL
+====================================================== -->
+
+<div
+id="viewModal"
+class="modal"
+>
+
+  <div class="modal-box">
+
+    <div class="modal-header">
+
+      <h2>
+        📋 Order Details
+      </h2>
+
+      <button
+      class="close-btn"
+      onclick="closeViewModal()"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <div id="viewOrderContent"></div>
+
+  </div>
+
+</div>
+
+
+
+<!-- ======================================================
+     TOAST
+====================================================== -->
+
+<div
+id="toast"
+class="toast"
+></div>
+
+
+
+<!-- ======================================================
+     FIREBASE
+====================================================== -->
+
+<script type="module">
+
+import {
+  initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  query,
+  orderBy,
+  doc,
+  updateDoc,
+  runTransaction,
+  serverTimestamp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+
+/* ======================================================
+   FIREBASE CONFIG
+====================================================== */
+
+const firebaseConfig = {
+
+  apiKey:
+  "AIzaSyDonHK2CtrUjAkAaro6stnJmdDUwB59JT0",
+
+  authDomain:
+  "utkalamart-1ec68.firebaseapp.com",
+
+  projectId:
+  "utkalamart-1ec68",
+
+  storageBucket:
+  "utkalamart-1ec68.firebasestorage.app",
+
+  messagingSenderId:
+  "664871353747",
+
+  appId:
+  "1:664871353747:web:96532fdafe78aabe7f3c66"
+
+};
+
+
+
+/* ======================================================
+   APP
+====================================================== */
+
+const app =
+initializeApp(firebaseConfig);
+
+const auth =
+getAuth(app);
+
+const db =
+getFirestore(app);
+
+
+
+/* ======================================================
+   ADMIN
+====================================================== */
+
+const ADMIN_EMAIL =
+"suryakantabehera629@gmail.com";
+
+
+
+/* ======================================================
+   VARIABLES
+====================================================== */
+
+let allOrders = [];
+
+let selectedOrderId = "";
+
+
+
+/* ======================================================
+   ELEMENTS
+====================================================== */
+
+const loginSection =
+document.getElementById("loginSection");
+
+const adminSection =
+document.getElementById("adminSection");
+
+const loginBtn =
+document.getElementById("loginBtn");
+
+const loginError =
+document.getElementById("loginError");
+
+
+
+/* ======================================================
+   HELPERS
+====================================================== */
+
+function escapeHtml(value){
+
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+
+function money(value){
+
+  const n =
+  Number(value || 0);
+
+  return "₹" +
+  n.toLocaleString("en-IN");
+
+}
+
+
+
+function getTime(value){
+
+  if(!value){
+    return 0;
+  }
+
+  if(
+    typeof value === "object" &&
+    value.seconds
+  ){
+
+    return Number(value.seconds) * 1000;
+
+  }
+
+  const t =
+  new Date(value).getTime();
+
+  return isNaN(t) ? 0 : t;
+
+}
+
+
+
+function formatDate(value){
+
+  if(!value){
+    return "—";
+  }
+
+  let date;
+
+  if(
+    typeof value === "object" &&
+    value.seconds
+  ){
+
+    date =
+    new Date(value.seconds * 1000);
+
+  }else{
+
+    date =
+    new Date(value);
+
+  }
+
+  if(
+    isNaN(date.getTime())
+  ){
+
+    return "—";
+
+  }
+
+  return date.toLocaleString(
+    "en-IN",
+    {
+      day:"2-digit",
+      month:"short",
+      year:"numeric",
+      hour:"2-digit",
+      minute:"2-digit"
+    }
+  );
+
+}
+
+
+
+function normalizeStatus(order){
+
+  return String(
+    order.orderStatus ||
+    order.status ||
+    "Pending"
+  );
+
+}
+
+
+
+function statusClass(status){
+
+  const s =
+  String(status)
+  .toLowerCase();
+
+  if(s === "confirmed"){
+    return "status-confirmed";
+  }
+
+  if(s === "processing"){
+    return "status-processing";
+  }
+
+  if(s === "shipped"){
+    return "status-shipped";
+  }
+
+  if(s === "delivered"){
+    return "status-delivered";
+  }
+
+  if(s === "completed"){
+    return "status-completed";
+  }
+
+  if(s === "cancelled"){
+    return "status-cancelled";
+  }
+
+  return "status-pending";
+
+}
+
+
+
+function getCustomer(order){
+
+  const c =
+  order.customer || {};
+
+  return {
+
+    name:
+    c.name ||
+    order.customerName ||
+    order.name ||
+    "Customer",
+
+    mobile:
+    c.mobile ||
+    c.phone ||
+    order.mobile ||
+    order.phone ||
+    "",
+
+    address:
+    c.address ||
+    order.address ||
+    "",
+
+    district:
+    c.district ||
+    order.district ||
+    "",
+
+    pincode:
+    c.pincode ||
+    order.pincode ||
+    "",
+
+    note:
+    c.note ||
+    order.note ||
+    ""
+
+  };
+
+}
+
+
+
+function getItems(order){
+
+  if(
+    Array.isArray(order.items)
+  ){
+
+    return order.items;
+
+  }
+
+  if(
+    Array.isArray(order.products)
+  ){
+
+    return order.products;
+
+  }
+
+  if(order.product){
+
+    return [
+
+      {
+
+        id:
+        order.productId || "",
+
+        name:
+        order.product,
+
+        price:
+        Number(order.price || order.total || 0),
+
+        qty:
+        Number(order.quantity || 1),
+
+        image:
+        order.image || ""
+
+      }
+
+    ];
+
+  }
+
+  return [];
+
+}
+
+
+
+/* ======================================================
+   TOAST
+====================================================== */
+
+function showToast(message){
+
+  const toast =
+  document.getElementById("toast");
+
+  toast.textContent =
+  message;
+
+  toast.classList.add("show");
+
+  clearTimeout(
+    window.toastTimer
+  );
+
+  window.toastTimer =
+  setTimeout(
+    ()=>{
+      toast.classList.remove("show");
+    },
+    2800
+  );
+
+}
+
+
+
+/* ======================================================
+   LOGIN
+====================================================== */
+
+window.loginAdmin =
+async function(){
+
+  const email =
+  document.getElementById("email")
+  .value
+  .trim();
+
+  const password =
+  document.getElementById("password")
+  .value;
+
+  loginError.style.display =
+  "none";
+
+  loginError.textContent =
+  "";
+
+  if(!email || !password){
+
+    loginError.textContent =
+    "Email ଏବଂ Password ଦିଅନ୍ତୁ।";
+
+    loginError.style.display =
+    "block";
+
+    return;
+
+  }
+
+
+  loginBtn.disabled =
+  true;
+
+  loginBtn.textContent =
+  "⏳ Login ହେଉଛି...";
+
+
+  try{
+
+    await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
+  }catch(error){
+
+    console.error(
+      "LOGIN ERROR:",
+      error
+    );
+
+    let message =
+    "Login failed: " +
+    error.message;
+
+
+    if(
+      error.code ===
+      "auth/invalid-credential"
+    ){
+
+      message =
+      "❌ Email କିମ୍ବା Password ଭୁଲ ଅଛି।";
+
+    }
+
+    else if(
+      error.code ===
+      "auth/wrong-password"
+    ){
+
+      message =
+      "❌ Password ଭୁଲ ଅଛି।";
+
+    }
+
+    else if(
+      error.code ===
+      "auth/user-not-found"
+    ){
+
+      message =
+      "❌ ଏହି Email ରେ Firebase User ନାହିଁ।";
+
+    }
+
+    else if(
+      error.code ===
+      "auth/api-key-not-valid"
+    ){
+
+      message =
+      "❌ Firebase API Key valid ନୁହେଁ। Google Cloud API Key settings ଯାଞ୍ଚ କରନ୍ତୁ।";
+
+    }
+
+    else if(
+      error.code ===
+      "auth/too-many-requests"
+    ){
+
+      message =
+      "❌ ଅଧିକଥର login attempt ହୋଇଛି। କିଛି ସମୟ ପରେ try କରନ୍ତୁ।";
+
+    }
+
+    loginError.textContent =
+    message;
+
+    loginError.style.display =
+    "block";
+
+  }finally{
+
+    loginBtn.disabled =
+    false;
+
+    loginBtn.textContent =
+    "🔐 LOGIN";
+
+  }
+
+};
+
+
+
+/* ======================================================
+   ENTER KEY LOGIN
+====================================================== */
+
+document
+.getElementById("password")
+.addEventListener(
+  "keydown",
+  function(e){
+
+    if(e.key === "Enter"){
+
+      window.loginAdmin();
+
+    }
+
+  }
+);
+
+
+
+/* ======================================================
+   AUTH STATE
+====================================================== */
+
+onAuthStateChanged(
+  auth,
+  async user => {
+
+    if(user){
+
+      /* Security check */
+
+      if(
+        (user.email || "")
+        .toLowerCase() !==
+        ADMIN_EMAIL.toLowerCase()
+      ){
+
+        await signOut(auth);
+
+        loginError.textContent =
+        "❌ ଏହି account କୁ Admin access ନାହିଁ।";
+
+        loginError.style.display =
+        "block";
+
+        return;
+
+      }
+
+
+      loginSection.classList.add(
+        "hidden"
+      );
+
+      adminSection.classList.remove(
+        "hidden"
+      );
+
+
+      document.getElementById(
+        "adminEmail"
+      ).textContent =
+      "👤 " +
+      (user.email || "Admin");
+
+
+      await loadOrders();
+
+    }else{
+
+      loginSection.classList.remove(
+        "hidden"
+      );
+
+      adminSection.classList.add(
+        "hidden"
+      );
+
+    }
+
+  }
+);
+
+
+
+/* ======================================================
+   LOGOUT
+====================================================== */
+
+window.logoutAdmin =
+async function(){
+
+  try{
+
+    await signOut(auth);
+
+  }catch(error){
+
+    console.error(error);
+
+  }
+
+};
+
+
+
+/* ======================================================
+   LOAD ORDERS
+====================================================== */
+
+window.loadOrders =
+async function(){
+
+  const container =
+  document.getElementById(
+    "ordersContainer"
+  );
+
+  container.innerHTML =
+  `<div class="loading">
+    ⏳ Orders loading...
+  </div>`;
+
+
+  try{
+
+    let snapshot;
+
+
+    try{
+
+      const q =
+      query(
+        collection(db,"orders"),
+        orderBy(
+          "createdAt",
+          "desc"
+        )
+      );
+
+      snapshot =
+      await getDocs(q);
+
+    }catch(orderError){
+
+      console.warn(
+        "Ordered query failed. Loading without orderBy.",
+        orderError
+      );
+
+      snapshot =
+      await getDocs(
+        collection(db,"orders")
+      );
+
+    }
+
+
+    allOrders = [];
+
+
+    snapshot.forEach(
+      item => {
+
+        allOrders.push({
+
+          id:
+          item.id,
+
+          ...item.data()
+
+        });
+
+      }
+    );
+
+
+    allOrders.sort(
+      (a,b) =>
+      getTime(b.createdAt) -
+      getTime(a.createdAt)
+    );
+
+
+    updateStats();
+
+    renderOrders();
+
+
+  }catch(error){
+
+    console.error(
+      "LOAD ORDERS ERROR:",
+      error
+    );
+
+    container.innerHTML =
+    `<div class="empty">
+
+      <div class="empty-icon">
+        ⚠️
+      </div>
+
+      <b>
+        Orders load ହୋଇପାରିଲା ନାହିଁ।
+      </b>
+
+      <p>
+        ${escapeHtml(
+          error.message || ""
+        )}
+      </p>
+
+      <button
+      class="btn btn-refresh"
+      onclick="loadOrders()"
+      >
+        🔄 Try Again
+      </button>
+
+    </div>`;
+
+  }
+
+};
+
+
+
+/* ======================================================
+   UPDATE STATS
+====================================================== */
+
+function updateStats(){
+
+  let pending = 0;
+
+  let delivered = 0;
+
+  let sales = 0;
+
+
+  allOrders.forEach(
+    order => {
+
+      const status =
+      normalizeStatus(order)
+      .toLowerCase();
+
+
+      if(
+        status === "pending"
+      ){
+
+        pending++;
+
+      }
+
+
+      if(
+        status === "delivered" ||
+        status === "completed"
+      ){
+
+        delivered++;
+
+      }
+
+
+      if(
+        status !== "cancelled"
+      ){
+
+        sales +=
+        Number(
+          order.total ||
+          order.subtotal ||
+          order.amount ||
+          0
+        );
+
+      }
+
+    }
+  );
+
+
+  document.getElementById(
+    "totalOrders"
+  ).textContent =
+  allOrders.length;
+
+
+  document.getElementById(
+    "pendingOrders"
+  ).textContent =
+  pending;
+
+
+  document.getElementById(
+    "deliveredOrders"
+  ).textContent =
+  delivered;
+
+
+  document.getElementById(
+    "totalSales"
+  ).textContent =
+  money(sales);
+
+}
+
+
+
+/* ======================================================
+   RENDER ORDERS
+====================================================== */
+
+window.renderOrders =
+function(){
+
+  const container =
+  document.getElementById(
+    "ordersContainer"
+  );
+
+
+  const search =
+  document.getElementById(
+    "searchInput"
+  )
+  .value
+  .trim()
+  .toLowerCase();
+
+
+  const statusFilter =
+  document.getElementById(
+    "statusFilter"
+  )
+  .value
+  .toLowerCase();
+
+
+  let list =
+  allOrders.filter(
+    order => {
+
+      const customer =
+      getCustomer(order);
+
+      const searchable =
+      [
+
+        order.id,
+
+        order.orderId,
+
+        customer.name,
+
+        customer.mobile,
+
+        customer.address,
+
+        customer.district
+
+      ]
+      .join(" ")
+      .toLowerCase();
+
+
+      const status =
+      normalizeStatus(order)
+      .toLowerCase();
+
+
+      const searchMatch =
+      !search ||
+      searchable.includes(search);
+
+
+      const statusMatch =
+      !statusFilter ||
+      status === statusFilter;
+
+
+      return (
+        searchMatch &&
+        statusMatch
+      );
+
+    }
+  );
+
+
+  if(!list.length){
+
+    container.innerHTML =
+    `<div class="empty">
+
+      <div class="empty-icon">
+        📦
+      </div>
+
+      <b>
+        କୌଣସି Order ମିଳିଲା ନାହିଁ।
+      </b>
+
+      <p>
+        Search / Status filter ବଦଳାଇ try କରନ୍ତୁ।
+      </p>
+
+    </div>`;
+
+    return;
+
+  }
+
+
+  container.innerHTML =
+  list
+  .map(
+    order =>
+    createOrderCard(order)
+  )
+  .join("");
+
+};
+
+
+
+/* ======================================================
+   CREATE ORDER CARD
+====================================================== */
+
+function createOrderCard(order){
+
+  const customer =
+  getCustomer(order);
+
+  const items =
+  getItems(order);
+
+  const status =
+  normalizeStatus(order);
+
+  const total =
+  Number(
+    order.total ||
+    order.subtotal ||
+    order.amount ||
+    0
+  );
+
+
+  const orderNumber =
+  order.orderId ||
+  order.id;
+
+
+  const itemsHtml =
+  items.length
+
+  ?
+
+  items
+  .map(
+    item => {
+
+      const image =
+      item.image ||
+      item.imageUrl ||
+      "logo.png";
+
+
+      const price =
+      Number(
+        item.price ||
+        item.sellingPrice ||
+        0
+      );
+
+
+      const qty =
+      Number(
+        item.qty ||
+        item.quantity ||
+        1
+      );
+
+
+      return `
+
+      <div class="item">
+
+        <img
+        class="item-image"
+        src="${escapeHtml(image)}"
+        alt=""
+        onerror="this.src='logo.png'"
+        >
+
+        <div class="item-info">
+
+          <div class="item-name">
+            ${escapeHtml(
+              item.name ||
+              "Product"
+            )}
+          </div>
+
+          <div class="item-meta">
+            ${money(price)}
+            ×
+            ${qty}
+          </div>
+
+        </div>
+
+        <div class="item-price">
+          ${money(price * qty)}
+        </div>
+
+      </div>
+
+      `;
+
+    }
+  )
+  .join("")
+
+  :
+
+  `<div
+  style="color:#777;font-size:13px"
+  >
+    Product information ନାହିଁ।
+  </div>`;
+
+
+  return `
+
+  <article
+  class="order-card"
+  >
+
+    <div class="order-top">
+
+      <div>
+
+        <div class="order-id">
+          #${escapeHtml(
+            orderNumber
+          )}
+        </div>
+
+        <div class="order-date">
+          📅 ${formatDate(
+            order.createdAt ||
+            order.date
+          )}
+        </div>
+
+      </div>
+
+
+      <span
+      class="status ${statusClass(status)}"
+      >
+        ${statusIcon(status)}
+        ${escapeHtml(status)}
+      </span>
+
+    </div>
+
+
+
+    <div class="order-body">
+
+
+      <div class="info-box">
+
+        <div class="info-title">
+          👤 Customer
+        </div>
+
+        <div class="info-value">
+
+          ${escapeHtml(
+            customer.name
+          )}
+
+          <br>
+
+          📱
+          ${escapeHtml(
+            customer.mobile ||
+            "Mobile ନାହିଁ"
+          )}
+
+        </div>
+
+      </div>
+
+
+
+      <div class="info-box">
+
+        <div class="info-title">
+          📍 Delivery Address
+        </div>
+
+        <div class="info-value">
+
+          ${escapeHtml(
+            customer.address ||
+            "Address ନାହିଁ"
+          )}
+
+          ${
+            customer.district
+            ?
+
+            `<br>
+             ${escapeHtml(
+               customer.district
+             )}`
+
+            :
+
+            ""
+          }
+
+          ${
+            customer.pincode
+            ?
+
+            ` - ${escapeHtml(
+              customer.pincode
+            )}`
+
+            :
+
+            ""
+          }
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+
+    <div class="items-box">
+
+      <b>
+        🛍️ Products
+      </b>
+
+      ${itemsHtml}
+
+    </div>
+
+
+
+    <div class="total-row">
+
+      <span>
+        ମୋଟ:
+      </span>
+
+      <span
+      class="total-value"
+      >
+        ${money(total)}
+      </span>
+
+    </div>
+
+
+
+    <div
+    class="info-box"
+    style="margin-top:12px"
+    >
+
+      <div class="info-title">
+        💳 Payment
+      </div>
+
+      <div class="info-value">
+
+        ${escapeHtml(
+          order.paymentMethod ||
+          "—"
+        )}
+
+        ${
+          order.paymentStatus
+          ?
+
+          ` — ${escapeHtml(
+            order.paymentStatus
+          )}`
+
+          :
+
+          ""
+
+        }
+
+      </div>
+
+    </div>
+
+
+
+    ${
+      customer.note
+
+      ?
+
+      `<div
+      class="info-box"
+      style="margin-top:10px"
+      >
+
+        <div class="info-title">
+          📝 Customer Note
+        </div>
+
+        <div class="info-value">
+          ${escapeHtml(
+            customer.note
+          )}
+        </div>
+
+      </div>`
+
+      :
+
+      ""
+
+    }
+
+
+
+    <div class="actions">
+
+      <button
+      class="btn btn-view"
+      onclick="viewOrder('${escapeHtml(order.id)}')"
+      >
+        👁️ View
+      </button>
+
+
+      <button
+      class="btn btn-status"
+      onclick="openStatusModal('${escapeHtml(order.id)}')"
+      >
+        🔄 Status
+      </button>
+
+
+      ${
+        customer.mobile
+
+        ?
+
+        `<button
+        class="btn btn-whatsapp"
+        onclick="openWhatsApp('${escapeHtml(order.id)}')"
+        >
+          💬 WhatsApp
+        </button>`
+
+        :
+
+        ""
+
+      }
+
+
+      ${
+        status.toLowerCase() !==
+        "cancelled"
+
+        ?
+
+        `<button
+        class="btn btn-cancel"
+        onclick="cancelOrder('${escapeHtml(order.id)}')"
+        >
+          ❌ Cancel Order
+        </button>`
+
+        :
+
+        ""
+
+      }
+
+    </div>
+
+
+  </article>
+
+  `;
+
+}
+
+
+
+/* ======================================================
+   STATUS ICON
+====================================================== */
+
+function statusIcon(status){
+
+  const s =
+  status.toLowerCase();
+
+  if(s === "confirmed"){
+    return "✅";
+  }
+
+  if(s === "processing"){
+    return "⚙️";
+  }
+
+  if(s === "shipped"){
+    return "🚚";
+  }
+
+  if(s === "delivered"){
+    return "🎉";
+  }
+
+  if(s === "completed"){
+    return "🎉";
+  }
+
+  if(s === "cancelled"){
+    return "❌";
+  }
+
+  return "⏳";
+
+}
+
+
+
+/* ======================================================
+   VIEW ORDER
+====================================================== */
+
+window.viewOrder =
+function(orderId){
+
+  const order =
+  allOrders.find(
+    x => x.id === orderId
+  );
+
+  if(!order){
+    return;
+  }
+
+
+  const customer =
+  getCustomer(order);
+
+  const items =
+  getItems(order);
+
+  const total =
+  Number(
+    order.total ||
+    order.subtotal ||
+    order.amount ||
+    0
+  );
+
+
+  const itemsHtml =
+  items
+  .map(
+    item => {
+
+      const price =
+      Number(
+        item.price ||
+        item.sellingPrice ||
+        0
+      );
+
+      const qty =
+      Number(
+        item.qty ||
+        item.quantity ||
+        1
+      );
+
+      return `
+
+      <div
+      style="
+      padding:10px 0;
+      border-bottom:1px solid #eee;
+      "
+      >
+
+        <b>
+          ${escapeHtml(
+            item.name ||
+            "Product"
+          )}
+        </b>
+
+        <br>
+
+        <small>
+          ${money(price)}
+          × ${qty}
+          =
+          ${money(price * qty)}
+        </small>
+
+      </div>
+
+      `;
+
+    }
+  )
+  .join("");
+
+
+  document.getElementById(
+    "viewOrderContent"
+  ).innerHTML = `
+
+    <div class="info-box">
+
+      <div class="info-title">
+        Order ID
+      </div>
+
+      <div class="info-value">
+        #${escapeHtml(
+          order.orderId ||
+          order.id
+        )}
+      </div>
+
+    </div>
+
+
+    <div
+    class="info-box"
+    style="margin-top:10px"
+    >
+
+      <div class="info-title">
+        Customer
+      </div>
+
+      <div class="info-value">
+
+        ${escapeHtml(
+          customer.name
+        )}
+
+        <br>
+
+        📱
+        ${escapeHtml(
+          customer.mobile ||
+          "—"
+        )}
+
+        <br>
+
+        📍
+        ${escapeHtml(
+          customer.address ||
+          "—"
+        )}
+
+        <br>
+
+        ${escapeHtml(
+          customer.district ||
+          ""
+        )}
+
+        ${
+          customer.pincode
+          ?
+          " - " +
+          escapeHtml(
+            customer.pincode
+          )
+          :
+          ""
+        }
+
+      </div>
+
+    </div>
+
+
+    <div
+    class="info-box"
+    style="margin-top:10px"
+    >
+
+      <div class="info-title">
+        Products
+      </div>
+
+      ${itemsHtml}
+
+    </div>
+
+
+    <div
+    class="info-box"
+    style="margin-top:10px"
+    >
+
+      <div class="info-title">
+        Payment
+      </div>
+
+      <div class="info-value">
+
+        ${escapeHtml(
+          order.paymentMethod ||
+          "—"
+        )}
+
+        <br>
+
+        Payment Status:
+        ${escapeHtml(
+          order.paymentStatus ||
+          "—"
+        )}
+
+      </div>
+
+    </div>
+
+
+    <div
+    class="total-row"
+    style="margin-top:18px"
+    >
+
+      <b>
+        Total
+      </b>
+
+      <b class="total-value">
+        ${money(total)}
+      </b>
+
+    </div>
+
+
+    <div class="modal-footer">
+
+      <button
+      class="btn btn-status"
+      onclick="
+        closeViewModal();
+        openStatusModal('${escapeHtml(order.id)}');
+      "
+      >
+        🔄 Change Status
+      </button>
+
+    </div>
+
+  `;
+
+
+  document.getElementById(
+    "viewModal"
+  ).classList.add("show");
+
+};
+
+
+
+window.closeViewModal =
+function(){
+
+  document.getElementById(
+    "viewModal"
+  ).classList.remove("show");
+
+};
+
+
+
+/* ======================================================
+   STATUS MODAL
+====================================================== */
+
+window.openStatusModal =
+function(orderId){
+
+  const order =
+  allOrders.find(
+    x => x.id === orderId
+  );
+
+  if(!order){
+    return;
+  }
+
+
+  selectedOrderId =
+  orderId;
+
+
+  const customer =
+  getCustomer(order);
+
+
+  document.getElementById(
+    "statusOrderInfo"
+  ).innerHTML = `
+
+    <div
+    class="info-box"
+    >
+
+      <b>
+        #${escapeHtml(
+          order.orderId ||
+          order.id
+        )}
+      </b>
+
+      <br>
+
+      ${escapeHtml(
+        customer.name
+      )}
+
+    </div>
+
+  `;
+
+
+  document.getElementById(
+    "newStatus"
+  ).value =
+  normalizeStatus(order);
+
+
+  document.getElementById(
+    "statusModal"
+  ).classList.add("show");
+
+};
+
+
+
+window.closeStatusModal =
+function(){
+
+  document.getElementById(
+    "statusModal"
+  ).classList.remove("show");
+
+  selectedOrderId = "";
+
+};
+
+
+
+/* ======================================================
+   SAVE STATUS
+====================================================== */
+
+window.saveOrderStatus =
+async function(){
+
+  if(!selectedOrderId){
+    return;
+  }
+
+
+  const newStatus =
+  document.getElementById(
+    "newStatus"
+  ).value;
+
+
+  const order =
+  allOrders.find(
+    x => x.id === selectedOrderId
+  );
+
+
+  if(!order){
+    return;
+  }
+
+
+  try{
+
+    const orderRef =
+    doc(
+      db,
+      "orders",
+      selectedOrderId
+    );
+
+
+    await updateDoc(
+      orderRef,
+      {
+
+        orderStatus:
+        newStatus,
+
+        status:
+        newStatus,
+
+        updatedAt:
+        serverTimestamp()
+
+      }
+    );
+
+
+    order.orderStatus =
+    newStatus;
+
+    order.status =
+    newStatus;
+
+
+    closeStatusModal();
+
+    updateStats();
+
+    renderOrders();
+
+    showToast(
+      "✅ Order Status update ହୋଇଗଲା।"
+    );
+
+
+  }catch(error){
+
+    console.error(
+      "STATUS UPDATE ERROR:",
+      error
+    );
+
+    alert(
+      "❌ Status update ହୋଇପାରିଲା ନାହିଁ。\n\n" +
+      error.message
+    );
+
+  }
+
+};
+
+
+
+/* ======================================================
+   WHATSAPP
+====================================================== */
+
+window.openWhatsApp =
+function(orderId){
+
+  const order =
+  allOrders.find(
+    x => x.id === orderId
+  );
+
+  if(!order){
+    return;
+  }
+
+
+  const customer =
+  getCustomer(order);
+
+
+  if(!customer.mobile){
+
+    alert(
+      "Customer Mobile Number ନାହିଁ।"
+    );
+
+    return;
+
+  }
+
+
+  let mobile =
+  String(
+    customer.mobile
+  )
+  .replace(
+    /\D/g,
+    ""
+  );
+
+
+  if(
+    mobile.length === 10
+  ){
+
+    mobile =
+    "91" +
+    mobile;
+
+  }
+
+
+  const total =
+  Number(
+    order.total ||
+    order.subtotal ||
+    order.amount ||
+    0
+  );
+
+
+  const text =
+
+`ନମସ୍କାର ${customer.name},
+
+Utkala Mart ରୁ ଆପଣଙ୍କ Order ସମ୍ପର୍କରେ ଯୋଗାଯୋଗ କରୁଛୁ।
+
+🧾 Order ID:
+#${order.orderId || order.id}
+
+📦 Status:
+${normalizeStatus(order)}
+
+💰 Total:
+${money(total)}
+
+ଧନ୍ୟବାଦ।
+Utkala Mart`;
+
+
+
+  window.open(
+    "https://wa.me/" +
+    mobile +
+    "?text=" +
+    encodeURIComponent(text),
+    "_blank"
+  );
+
+};
+
+
+
+/* ======================================================
+   CANCEL ORDER + STOCK RESTORE
+====================================================== */
+
+window.cancelOrder =
+async function(orderId){
+
+  const order =
+  allOrders.find(
+    x => x.id === orderId
+  );
+
+
+  if(!order){
+    return;
+  }
+
+
+  const currentStatus =
+  normalizeStatus(order)
+  .toLowerCase();
+
+
+  if(
+    currentStatus ===
+    "cancelled"
+  ){
+
+    alert(
+      "ଏହି Order ପୂର୍ବରୁ Cancelled ଅଛି।"
+    );
+
+    return;
+
+  }
+
+
+  const ok =
+  confirm(
+    "⚠️ ଏହି Order କୁ Cancel କରିବେ କି?\n\n" +
+    "Order ID: #" +
+    (order.orderId || order.id) +
+    "\n\n" +
+    "Cancel କଲେ product stock restore ହେବ।"
+  );
+
+
+  if(!ok){
+    return;
+  }
+
+
+  try{
+
+    const orderRef =
+    doc(
+      db,
+      "orders",
+      orderId
+    );
+
+
+    await runTransaction(
+      db,
+      async transaction => {
+
+        const orderSnap =
+        await transaction.get(
+          orderRef
+        );
+
+
+        if(!orderSnap.exists()){
+
+          throw new Error(
+            "Order ମିଳିଲା ନାହିଁ।"
+          );
+
+        }
+
+
+        const freshOrder =
+        orderSnap.data();
+
+
+        const freshStatus =
+        String(
+          freshOrder.orderStatus ||
+          freshOrder.status ||
+          "Pending"
+        )
+        .toLowerCase();
+
+
+        if(
+          freshStatus ===
+          "cancelled"
+        ){
+
+          throw new Error(
+            "Order already cancelled."
+          );
+
+        }
+
+
+        const items =
+        getItems(freshOrder);
+
+
+        /*
+         * Stock restore
+         *
+         * Product ID ଥିଲେ
+         * products collection update କରିବ।
+         */
+
+        for(
+          const item of items
+        ){
+
+          const productId =
+          item.id ||
+          item.productId;
+
+
+          const qty =
+          Number(
+            item.qty ||
+            item.quantity ||
+            1
+          );
+
+
+          if(
+            !productId ||
+            qty <= 0
+          ){
+
+            continue;
+
+          }
+
+
+          const productRef =
+          doc(
+            db,
+            "products",
+            productId
+          );
+
+
+          const productSnap =
+          await transaction.get(
+            productRef
+          );
+
+
+          if(
+            !productSnap.exists()
+          ){
+
+            continue;
+
+          }
+
+
+          const product =
+          productSnap.data();
+
+
+          const oldStock =
+          Number(
+            product.stockQty ??
+            product.availableStock ??
+            product.stock ??
+            product.quantity ??
+            0
+          );
+
+
+          const newStock =
+          oldStock + qty;
+
+
+          const updates = {
+
+            stock:
+            newStock,
+
+            stockQty:
+            newStock,
+
+            availableStock:
+            newStock,
+
+            quantity:
+            newStock
+
+          };
+
+
+          transaction.update(
+            productRef,
+            updates
+          );
+
+        }
+
+
+        transaction.update(
+          orderRef,
+          {
+
+            orderStatus:
+            "Cancelled",
+
+            status:
+            "Cancelled",
+
+            cancelledAt:
+            serverTimestamp(),
+
+            updatedAt:
+            serverTimestamp(),
+
+            stockRestored:
+            true
+
+          }
+        );
+
+      }
+    );
+
+
+    order.orderStatus =
+    "Cancelled";
+
+    order.status =
+    "Cancelled";
+
+
+    updateStats();
+
+    renderOrders();
+
+
+    showToast(
+      "✅ Order Cancelled ଏବଂ stock restore ହେଲା।"
+    );
+
+
+  }catch(error){
+
+    console.error(
+      "CANCEL ORDER ERROR:",
+      error
+    );
+
+
+    alert(
+      "❌ Order Cancel ହୋଇପାରିଲା ନାହିଁ।\n\n" +
+      error.message
+    );
+
+  }
+
+};
+
+
+
+/* ======================================================
+   CLOSE MODALS WHEN BACKDROP CLICKED
+====================================================== */
+
+document
+.getElementById("statusModal")
+.addEventListener(
+  "click",
+  function(e){
+
+    if(
+      e.target ===
+      this
+    ){
+
+      closeStatusModal();
+
+    }
+
+  }
+);
+
+
+document
+.getElementById("viewModal")
+.addEventListener(
+  "click",
+  function(e){
+
+    if(
+      e.target ===
+      this
+    ){
+
+      closeViewModal();
+
+    }
+
+  }
+);
+
+
+
+</script>
+
+</body>
+
+  </html>
