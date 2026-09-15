@@ -134,6 +134,7 @@ button:disabled{
 .order-id{
   font-weight:bold;
   color:#138a45;
+  word-break:break-all;
 }
 
 .date{
@@ -159,6 +160,11 @@ button:disabled{
 .status-confirmed{
   background:#dbeafe;
   color:#1d4ed8;
+}
+
+.status-processing{
+  background:#e0f2fe;
+  color:#0369a1;
 }
 
 .status-shipped{
@@ -287,13 +293,16 @@ button:disabled{
   font-weight:bold;
 }
 
-.customer-info{
-  background:#fafafa;
-  padding:12px;
+/* INFO */
+
+.info-box{
+  background:#f0f7f2;
+  padding:14px;
   border-radius:10px;
+  margin-top:15px;
 }
 
-.customer-info p{
+.info-box p{
   margin:6px 0;
   font-size:14px;
 }
@@ -327,6 +336,14 @@ button:disabled{
     height:55px;
   }
 
+  .order-header{
+    display:block;
+  }
+
+  .order-header > div:last-child{
+    margin-top:10px;
+  }
+
 }
 
 </style>
@@ -349,6 +366,7 @@ button:disabled{
 
 
 <div class="container">
+
 
 <a
   href="index.html"
@@ -380,7 +398,8 @@ button:disabled{
   <input
     type="text"
     id="orderId"
-    placeholder="ଉଦାହରଣ: UM1234567890"
+    placeholder="ଆପଣଙ୍କ Order ID"
+    autocomplete="off"
   >
 
 
@@ -392,7 +411,9 @@ button:disabled{
     type="tel"
     id="mobile"
     maxlength="10"
+    inputmode="numeric"
     placeholder="10 digit mobile number"
+    autocomplete="tel"
   >
 
 
@@ -433,52 +454,14 @@ button:disabled{
 =================================== */
 
 import {
-  initializeApp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  db
+} from "./js/firebase-config.js";
 
 
 import {
-  getFirestore,
   doc,
   getDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-
-/* ===================================
-   CONFIG
-=================================== */
-
-const firebaseConfig = {
-
-  apiKey:
-  "AIzaSyBYJ_KKs_7SNz108jnw6hpOlmegofRhJg",
-
-  authDomain:
-  "utkalamart-1ec68.firebaseapp.com",
-
-  projectId:
-  "utkalamart-1ec68",
-
-  storageBucket:
-  "utkalamart-1ec68.firebasestorage.app",
-
-  messagingSenderId:
-  "664871353747",
-
-  appId:
-  "1:664871353747:web:96532fdafe78aabe7f3c66"
-
-};
-
-
-const app =
-  initializeApp(
-    firebaseConfig
-  );
-
-
-const db =
-  getFirestore(app);
 
 
 /* ===================================
@@ -499,6 +482,7 @@ async function(){
     document
       .getElementById("mobile")
       .value
+      .replace(/\D/g,"")
       .trim();
 
 
@@ -514,6 +498,10 @@ async function(){
 
   hideMessage();
 
+
+  /* ===============================
+     VALIDATION
+  =============================== */
 
   if(!orderId){
 
@@ -556,11 +544,20 @@ async function(){
 
   try{
 
+
+    /* ===============================
+       TRACKING DOCUMENT ID
+    =============================== */
+
+    const trackingId =
+      `${orderId}_${mobile}`;
+
+
     const ref =
       doc(
         db,
-        "orders",
-        orderId
+        "orderTracking",
+        trackingId
       );
 
 
@@ -568,49 +565,36 @@ async function(){
       await getDoc(ref);
 
 
+    /* ===============================
+       ORDER NOT FOUND
+    =============================== */
+
     if(!snap.exists()){
 
-      throw new Error(
-        "Order ମିଳିଲା ନାହିଁ।"
+      showMessage(
+        "❌ Order ID ଏବଂ Mobile Number match କରୁନାହିଁ କିମ୍ବା Order ମିଳିଲା ନାହିଁ।",
+        "error"
       );
+
+      result.classList.add(
+        "hidden"
+      );
+
+      return;
 
     }
 
 
-    const order =
+    /* ===============================
+       TRACKING DATA
+    =============================== */
+
+    const tracking =
       snap.data();
 
 
-    const customer =
-      order.customer || {};
-
-
-    /*
-      Mobile verification
-    */
-
-    const savedMobile =
-      String(
-        customer.mobile || ""
-      ).replace(
-        /\D/g,
-        ""
-      );
-
-
-    if(
-      savedMobile !== mobile
-    ){
-
-      throw new Error(
-        "Order ID ଏବଂ Mobile Number match କରୁନାହିଁ।"
-      );
-
-    }
-
-
     renderOrder(
-      order
+      tracking
     );
 
 
@@ -633,8 +617,7 @@ async function(){
 
 
     showMessage(
-      "❌ " +
-      error.message,
+      "❌ Order Track କରିବା ସମୟରେ ସମସ୍ୟା ହେଲା। ପୁଣିଥରେ ଚେଷ୍ଟା କରନ୍ତୁ।",
       "error"
     );
 
@@ -668,12 +651,10 @@ function renderOrder(
     );
 
 
-  const customer =
-    order.customer || {};
-
-
   const items =
-    order.items || [];
+    Array.isArray(order.items)
+    ? order.items
+    : [];
 
 
   const status =
@@ -683,7 +664,22 @@ function renderOrder(
     ).toLowerCase();
 
 
+  const safeStatus =
+    [
+      "placed",
+      "confirmed",
+      "processing",
+      "shipped",
+      "delivered",
+      "cancelled"
+    ].includes(status)
+    ? status
+    : "placed";
+
+
   result.innerHTML = `
+
+  <!-- ORDER SUMMARY -->
 
   <div class="card">
 
@@ -694,13 +690,14 @@ function renderOrder(
 
         <div class="order-id">
 
-          📦
+          📦 Order ID:
           ${escapeHTML(
             order.orderId ||
             "Order"
           )}
 
         </div>
+
 
         <div class="date">
 
@@ -716,12 +713,10 @@ function renderOrder(
       <div>
 
         <span
-          class="status status-${escapeHTML(
-            status
-          )}">
+          class="status status-${safeStatus}">
 
-          ${escapeHTML(
-            status
+          ${getStatusText(
+            safeStatus
           )}
 
         </span>
@@ -731,12 +726,12 @@ function renderOrder(
     </div>
 
 
-    <!-- TIMELINE -->
-
     ${
-      status === "cancelled"
+      safeStatus === "cancelled"
       ? renderCancelledTimeline()
-      : renderTimeline(status)
+      : renderTimeline(
+          safeStatus
+        )
     }
 
 
@@ -753,91 +748,111 @@ function renderOrder(
 
 
     ${
-      items.map(
-        item => `
+      items.length
+      ? items.map(
+          item => `
 
-        <div class="product">
-
-          <img
-            src="${escapeHTML(
-              item.image ||
-              item.imageUrl ||
-              ""
-            )}"
-            onerror="
-              this.style.display='none'
-            "
-          >
-
-
-          <div class="product-info">
-
-            <h3>
-
-              ${escapeHTML(
-                item.name ||
-                "Product"
-              )}
-
-            </h3>
-
-
-            <p>
-
-              Qty:
-              <strong>
-                ${Number(
-                  item.qty ||
-                  item.quantity ||
-                  1
-                )}
-              </strong>
-
-            </p>
-
+          <div class="product">
 
             ${
-              item.weight
+              item.image
               ? `
-              <p>
-
-                ⚖️
-                ${escapeHTML(
-                  String(
-                    item.weight
-                  )
-                )}
-
-                ${escapeHTML(
-                  item.weightUnit ||
-                  item.unit ||
-                  ""
-                )}
-
-              </p>
+              <img
+                src="${escapeHTML(
+                  item.image
+                )}"
+                alt=""
+                onerror="
+                  this.style.display='none'
+                "
+              >
               `
-              : ""
+              : `
+              <div
+                style="
+                  width:65px;
+                  height:65px;
+                  border-radius:8px;
+                  background:#eee;
+                  display:flex;
+                  align-items:center;
+                  justify-content:center;
+                "
+              >
+                🛍️
+              </div>
+              `
             }
 
 
-            <p>
+            <div class="product-info">
 
-              ₹${Number(
-                item.price ||
-                0
-              ).toLocaleString(
-                "en-IN"
-              )}
+              <h3>
 
-            </p>
+                ${escapeHTML(
+                  item.name ||
+                  "Product"
+                )}
 
+              </h3>
+
+
+              <p>
+
+                Qty:
+                <strong>
+                  ${Number(
+                    item.qty || 1
+                  )}
+                </strong>
+
+              </p>
+
+
+              ${
+                item.weight
+                ? `
+                <p>
+
+                  ⚖️
+                  ${escapeHTML(
+                    String(
+                      item.weight
+                    )
+                  )}
+
+                  ${escapeHTML(
+                    item.weightUnit ||
+                    ""
+                  )}
+
+                </p>
+                `
+                : ""
+              }
+
+
+              <p>
+
+                ₹${Number(
+                  item.price || 0
+                ).toLocaleString(
+                  "en-IN"
+                )}
+
+              </p>
+
+            </div>
 
           </div>
 
-        </div>
-
+        `
+        ).join("")
+      : `
+        <p>
+          Product details ମିଳିଲା ନାହିଁ।
+        </p>
       `
-      ).join("")
     }
 
 
@@ -848,12 +863,13 @@ function renderOrder(
       </span>
 
       <span>
+
         ₹${Number(
-          order.total ||
-          0
+          order.total || 0
         ).toLocaleString(
           "en-IN"
         )}
+
       </span>
 
     </div>
@@ -861,68 +877,23 @@ function renderOrder(
   </div>
 
 
-  <!-- CUSTOMER -->
+  <!-- INFORMATION -->
 
   <div class="card">
 
     <h2>
-      👤 Delivery Details
+      🔐 Privacy Protected
     </h2>
 
-    <div class="customer-info">
+    <div class="info-box">
 
       <p>
-        <strong>
-          Name:
-        </strong>
-        ${escapeHTML(
-          customer.name ||
-          ""
-        )}
+        ✅ Order tracking information ସଫଳତାର ସହିତ ମିଳିଛି।
       </p>
 
-
       <p>
-        <strong>
-          Mobile:
-        </strong>
-        ${escapeHTML(
-          customer.mobile ||
-          ""
-        )}
-      </p>
-
-
-      <p>
-        <strong>
-          Address:
-        </strong>
-        ${escapeHTML(
-          customer.address ||
-          ""
-        )}
-      </p>
-
-
-      <p>
-        <strong>
-          District:
-        </strong>
-        ${escapeHTML(
-          customer.district ||
-          ""
-        )}
-      </p>
-
-
-      <p>
-        <strong>
-          PIN:
-        </strong>
-        ${escapeHTML(
-          customer.pin ||
-          ""
-        )}
+        🔒 ଆପଣଙ୍କ personal delivery details
+        ସୁରକ୍ଷିତ ରଖାଯାଇଛି।
       </p>
 
     </div>
@@ -930,6 +901,43 @@ function renderOrder(
   </div>
 
   `;
+
+}
+
+
+/* ===================================
+   STATUS TEXT
+=================================== */
+
+function getStatusText(
+  status
+){
+
+  const names = {
+
+    placed:
+      "Order Placed",
+
+    confirmed:
+      "Order Confirmed",
+
+    processing:
+      "Processing",
+
+    shipped:
+      "Order Shipped",
+
+    delivered:
+      "Order Delivered",
+
+    cancelled:
+      "Order Cancelled"
+
+  };
+
+
+  return names[status] ||
+    "Order Placed";
 
 }
 
@@ -957,6 +965,12 @@ function renderTimeline(
     },
 
     {
+      id:"processing",
+      icon:"⚙️",
+      title:"Processing"
+    },
+
+    {
       id:"shipped",
       icon:"🚚",
       title:"Order Shipped"
@@ -971,82 +985,98 @@ function renderTimeline(
   ];
 
 
-  const order =
+  let currentIndex =
     steps.findIndex(
-      x => x.id === current
+      x =>
+        x.id === current
     );
+
+
+  if(
+    currentIndex < 0
+  ){
+
+    currentIndex = 0;
+
+  }
 
 
   return `
 
-    <div class="timeline">
+  <div class="timeline">
 
-      ${
-        steps.map(
-          (step,index) => {
+    ${
+      steps.map(
+        (step,index) => {
 
-            let cls = "";
-
-
-            if(
-              index < order
-            ){
-
-              cls = "done";
-
-            }
+          let cls = "";
 
 
-            if(
-              index === order
-            ){
+          if(
+            index <
+            currentIndex
+          ){
 
-              cls =
-                "done active";
-
-            }
-
-
-            return `
-
-              <div
-                class="step ${cls}"
-              >
-
-                <div class="step-icon">
-
-                  ${step.icon}
-
-                </div>
-
-                <div
-                  class="step-content">
-
-                  <h3>
-                    ${step.title}
-                  </h3>
-
-                  ${
-                    index === order
-                    ? `
-                    <p>
-                      Current Status
-                    </p>
-                    `
-                    : ""
-                  }
-
-                </div>
-
-              </div>
-
-            `;
+            cls = "done";
 
           }
-        ).join("")
-      }
 
-    </div>
+
+          if(
+            index ===
+            currentIndex
+          ){
+
+            cls =
+              "done active";
+
+          }
+
+
+          return `
+
+          <div
+            class="step ${cls}"
+          >
+
+            <div
+              class="step-icon">
+
+              ${step.icon}
+
+            </div>
+
+
+            <div
+              class="step-content">
+
+              <h3>
+                ${step.title}
+              </h3>
+
+
+              ${
+                index ===
+                currentIndex
+                ? `
+                <p>
+                  Current Status
+                </p>
+                `
+                : ""
+              }
+
+            </div>
+
+          </div>
+
+          `;
+
+        }
+      ).join("")
+    }
+
+  </div>
 
   `;
 
@@ -1061,46 +1091,49 @@ function renderCancelledTimeline(){
 
   return `
 
-    <div class="timeline">
+  <div class="timeline">
 
-      <div class="step done">
+    <div class="step done">
 
-        <div class="step-icon">
-          📦
-        </div>
-
-        <div class="step-content">
-
-          <h3>
-            Order Placed
-          </h3>
-
-        </div>
-
+      <div class="step-icon">
+        📦
       </div>
 
 
-      <div class="step active">
+      <div class="step-content">
 
-        <div class="step-icon">
-          ❌
-        </div>
-
-        <div class="step-content">
-
-          <h3>
-            Order Cancelled
-          </h3>
-
-          <p>
-            ଏହି Order ବର୍ତ୍ତମାନ Cancelled ଅଛି।
-          </p>
-
-        </div>
+        <h3>
+          Order Placed
+        </h3>
 
       </div>
 
     </div>
+
+
+    <div class="step active">
+
+      <div class="step-icon">
+        ❌
+      </div>
+
+
+      <div class="step-content">
+
+        <h3>
+          Order Cancelled
+        </h3>
+
+
+        <p>
+          ଏହି Order ବର୍ତ୍ତମାନ Cancelled ଅଛି।
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
 
   `;
 
@@ -1124,18 +1157,28 @@ function formatDate(
 
   try{
 
-    return timestamp
-      .toDate()
-      .toLocaleString(
-        "en-IN",
-        {
-          day:"2-digit",
-          month:"short",
-          year:"numeric",
-          hour:"2-digit",
-          minute:"2-digit"
-        }
-      );
+    if(
+      typeof timestamp.toDate ===
+      "function"
+    ){
+
+      return timestamp
+        .toDate()
+        .toLocaleString(
+          "en-IN",
+          {
+            day:"2-digit",
+            month:"short",
+            year:"numeric",
+            hour:"2-digit",
+            minute:"2-digit"
+          }
+        );
+
+    }
+
+
+    return "Date unavailable";
 
   }catch(e){
 
@@ -1190,7 +1233,7 @@ function hideMessage(){
 
 
 /* ===================================
-   ESCAPE
+   ESCAPE HTML
 =================================== */
 
 function escapeHTML(
@@ -1228,20 +1271,44 @@ function escapeHTML(
    AUTO LOAD LAST ORDER
 =================================== */
 
+const urlParams =
+  new URLSearchParams(
+    window.location.search
+  );
+
+
+const urlOrderId =
+  urlParams.get(
+    "orderId"
+  );
+
+
 const lastOrder =
   localStorage.getItem(
     "utkalaLastOrderId"
   );
 
 
-if(lastOrder){
+if(urlOrderId){
 
   document
-    .getElementById("orderId")
+    .getElementById(
+      "orderId"
+    )
+    .value =
+    urlOrderId;
+
+}else if(lastOrder){
+
+  document
+    .getElementById(
+      "orderId"
+    )
     .value =
     lastOrder;
 
 }
+
 
 </script>
 
