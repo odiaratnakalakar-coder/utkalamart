@@ -131,7 +131,8 @@ select{
 }
 
 input:focus,
-textarea:focus{
+textarea:focus,
+select:focus{
   border-color:#138a45;
 }
 
@@ -271,6 +272,16 @@ button:disabled{
   margin-bottom:15px;
 }
 
+.info-note{
+  background:#eef7ff;
+  border:1px solid #b9d9f5;
+  padding:12px;
+  border-radius:10px;
+  font-size:13px;
+  margin-bottom:15px;
+  color:#24506e;
+}
+
 @media(max-width:600px){
 
   .container{
@@ -319,7 +330,8 @@ button:disabled{
 <div class="container">
 
 
-<a href="index.html"
+<a
+href="index.html"
 class="back">
 
 ← Shopping କୁ ଫେରନ୍ତୁ
@@ -328,7 +340,8 @@ class="back">
 
 
 
-<div id="statusBox"
+<div
+id="statusBox"
 class="status-box">
 </div>
 
@@ -340,7 +353,9 @@ class="status-box">
 
 <div class="card">
 
-<h2>🛒 ଆପଣଙ୍କ Order</h2>
+<h2>
+🛒 ଆପଣଙ୍କ Order
+</h2>
 
 <div id="cartItems"></div>
 
@@ -354,7 +369,9 @@ class="status-box">
 
 <div class="card">
 
-<h2>👤 Customer Details</h2>
+<h2>
+👤 Customer Details
+</h2>
 
 
 <label>
@@ -520,7 +537,6 @@ placeholder="କୌଣସି ବିଶେଷ ନିର୍ଦ୍ଦେଶ ଥି�
 </h2>
 
 
-
 <label class="payment-option">
 
 <input
@@ -537,7 +553,6 @@ checked
 </label>
 
 
-
 <label class="payment-option">
 
 <input
@@ -551,7 +566,6 @@ value="UPI"
 </span>
 
 </label>
-
 
 </div>
 
@@ -568,7 +582,6 @@ value="UPI"
 </h2>
 
 
-
 <div class="summary-row">
 
 <span>
@@ -580,7 +593,6 @@ Subtotal
 </strong>
 
 </div>
-
 
 
 <div class="summary-row">
@@ -596,7 +608,6 @@ Delivery
 </div>
 
 
-
 <div class="summary-row total">
 
 <span>
@@ -610,9 +621,7 @@ Total
 </div>
 
 
-
 <br>
-
 
 
 <div class="order-note">
@@ -623,6 +632,14 @@ Utkala Mart team ଆପଣଙ୍କ order
 
 </div>
 
+
+<div class="info-note">
+
+🔎 Order Place ହେବା ପରେ
+ଆପଣଙ୍କୁ Order Tracking page କୁ
+ନେଇଯିବ।
+
+</div>
 
 
 <button
@@ -650,7 +667,8 @@ type="button">
 
 import {
   db
-} from "./js/firebase-config.js";
+}
+from "./js/firebase-config.js";
 
 
 import {
@@ -673,19 +691,21 @@ let cart = [];
 
 try{
 
-cart =
-JSON.parse(
-localStorage.getItem("utkalaCart")
-) || [];
+  cart =
+    JSON.parse(
+      localStorage.getItem(
+        "utkalaCart"
+      )
+    ) || [];
 
 }catch(error){
 
-console.error(
-"Cart error:",
-error
-);
+  console.error(
+    "Cart error:",
+    error
+  );
 
-cart = [];
+  cart = [];
 
 }
 
@@ -697,31 +717,31 @@ cart = [];
 
 const cartItems =
 document.getElementById(
-"cartItems"
+  "cartItems"
 );
 
 
 const subtotalEl =
 document.getElementById(
-"subtotal"
+  "subtotal"
 );
 
 
 const deliveryEl =
 document.getElementById(
-"delivery"
+  "delivery"
 );
 
 
 const totalEl =
 document.getElementById(
-"total"
+  "total"
 );
 
 
 const placeOrderBtn =
 document.getElementById(
-"placeOrderBtn"
+  "placeOrderBtn"
 );
 
 
@@ -745,28 +765,28 @@ let selectedArea = "";
 ================================= */
 
 function showStatus(
-message,
-type
+  message,
+  type
 ){
 
-const box =
-document.getElementById(
-"statusBox"
-);
+  const box =
+  document.getElementById(
+    "statusBox"
+  );
 
-box.style.display =
-"block";
+  box.style.display =
+    "block";
 
-box.className =
-"status-box " + type;
+  box.className =
+    "status-box " + type;
 
-box.innerText =
-message;
+  box.innerText =
+    message;
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
 
 }
 
@@ -776,11 +796,16 @@ behavior:"smooth"
    MONEY
 ================================= */
 
-function money(value){
+function money(
+  value
+){
 
-return "₹" +
-Number(value || 0)
-.toLocaleString("en-IN");
+  return "₹" +
+    Number(
+      value || 0
+    ).toLocaleString(
+      "en-IN"
+    );
 
 }
 
@@ -790,17 +815,19 @@ Number(value || 0)
    PRICE
 ================================= */
 
-function getPrice(item){
+function getPrice(
+  item
+){
 
-return Number(
+  return Number(
 
-item.price ??
-item.utkalaPrice ??
-item.sellingPrice ??
-item.sellerPrice ??
-0
+    item.price ??
+    item.utkalaPrice ??
+    item.sellingPrice ??
+    item.sellerPrice ??
+    0
 
-) || 0;
+  ) || 0;
 
 }
 
@@ -810,16 +837,18 @@ item.sellerPrice ??
    PRODUCT ID
 ================================= */
 
-function getProductId(item){
+function getProductId(
+  item
+){
 
-return (
+  return (
 
-item.productId ||
-item.id ||
-item.productID ||
-""
+    item.productId ||
+    item.id ||
+    item.productID ||
+    ""
 
-);
+  );
 
 }
 
@@ -829,17 +858,38 @@ item.productID ||
    ESCAPE HTML
 ================================= */
 
-function escapeHtml(value){
+function escapeHtml(
+  value
+){
 
-return String(
-value ?? ""
-)
+  return String(
+    value ?? ""
+  )
 
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
+  .replace(
+    /&/g,
+    "&amp;"
+  )
+
+  .replace(
+    /</g,
+    "&lt;"
+  )
+
+  .replace(
+    />/g,
+    "&gt;"
+  )
+
+  .replace(
+    /"/g,
+    "&quot;"
+  )
+
+  .replace(
+    /'/g,
+    "&#039;"
+  );
 
 }
 
@@ -852,195 +902,214 @@ value ?? ""
 function renderCart(){
 
 
-if(!cart.length){
+  if(!cart.length){
 
-cartItems.innerHTML = `
+    cartItems.innerHTML = `
 
-<div class="empty">
+      <div class="empty">
 
-🛒 Cart ଖାଲି ଅଛି।
+        🛒 Cart ଖାଲି ଅଛି।
 
-<br><br>
+        <br><br>
 
-Shopping କୁ ଫେରି
-ପ୍ରଡକ୍ଟ Add କରନ୍ତୁ।
+        Shopping କୁ ଫେରି
+        ପ୍ରଡକ୍ଟ Add କରନ୍ତୁ।
 
-</div>
+      </div>
 
-`;
+    `;
 
 
-subtotalEl.innerText =
-"₹0";
+    subtotalEl.innerText =
+      "₹0";
 
+    deliveryEl.innerText =
+      "₹0";
 
-deliveryEl.innerText =
-"₹0";
+    totalEl.innerText =
+      "₹0";
 
+    placeOrderBtn.disabled =
+      true;
 
-totalEl.innerText =
-"₹0";
+    return;
 
+  }
 
-placeOrderBtn.disabled =
-true;
 
 
-return;
+  let subtotal = 0;
 
-}
 
 
+  cartItems.innerHTML =
 
-let subtotal = 0;
+    cart.map(
+      item => {
 
 
+        const qty =
+        Number(
 
-cartItems.innerHTML =
+          item.qty ??
+          item.quantity ??
+          1
 
-cart.map(item=>{
+        ) || 1;
 
 
-const qty =
-Number(
 
-item.qty ??
-item.quantity ??
-1
+        const price =
+        getPrice(item);
 
-) || 1;
 
 
+        subtotal +=
+          price * qty;
 
-const price =
-getPrice(item);
 
 
+        const weight =
+          item.weight
 
-subtotal +=
-price * qty;
+          ? `${item.weight} ${
+              item.weightUnit ||
+              item.unit ||
+              ""
+            }`
 
+          : "";
 
 
-const weight =
-item.weight
 
-? `${item.weight} ${
-item.weightUnit ||
-item.unit ||
-""
-}`
+        const image =
+          item.image ||
+          item.imageUrl ||
+          item.photo ||
+          "";
 
-: "";
 
 
+        return `
 
-const image =
-item.image ||
-item.imageUrl ||
-item.photo ||
-"";
+          <div class="product">
 
 
+            <img
 
-return `
+              src="${escapeHtml(
+                image
+              )}"
 
-<div class="product">
+              alt="${escapeHtml(
+                item.name ||
+                "Product"
+              )}"
 
+              onerror="
+                this.style.display='none'
+              "
 
-<img
-src="${escapeHtml(image)}"
-alt="${escapeHtml(
-item.name || "Product"
-)}"
-onerror="
-this.style.display='none'
-"
->
+            >
 
 
+            <div
+              class="product-info">
 
-<div class="product-info">
 
+              <h3>
 
-<h3>
+                ${escapeHtml(
+                  item.name ||
+                  "Product"
+                )}
 
-${escapeHtml(
-item.name || "Product"
-)}
+              </h3>
 
-</h3>
 
+              ${
+                weight
 
+                ?
 
-${
-weight
-?
-`
-<p>
-📦 ${escapeHtml(weight)}
-</p>
-`
-:
-""
-}
+                `
+                <p>
+                  📦
+                  ${escapeHtml(
+                    weight
+                  )}
+                </p>
+                `
 
+                :
 
+                ""
+              }
 
-<p>
 
-💰 ${money(price)}
+              <p>
 
-</p>
+                💰
+                ${money(price)}
 
+              </p>
 
-</div>
 
+            </div>
 
 
-<div class="qty">
+            <div
+              class="qty">
 
-Qty: ${qty}
+              Qty:
+              ${qty}
 
-<br>
+              <br>
 
-<span class="price">
+              <span
+                class="price">
 
-${money(price * qty)}
+                ${money(
+                  price * qty
+                )}
 
-</span>
+              </span>
 
-</div>
+            </div>
 
 
-</div>
+          </div>
 
-`;
+        `;
 
-}).join("");
+      }
 
+    ).join("");
 
 
-/* FREE DELIVERY FOR NOW */
 
-const delivery = 0;
+  /* ================================
+     FREE DELIVERY FOR NOW
+  ================================= */
 
+  const delivery = 0;
 
-const total =
-subtotal + delivery;
 
+  const total =
+    subtotal + delivery;
 
 
-subtotalEl.innerText =
-money(subtotal);
 
+  subtotalEl.innerText =
+    money(subtotal);
 
-deliveryEl.innerText =
-money(delivery);
 
+  deliveryEl.innerText =
+    money(delivery);
 
-totalEl.innerText =
-money(total);
+
+  totalEl.innerText =
+    money(total);
 
 }
 
@@ -1052,43 +1121,43 @@ money(total);
 
 const pinInput =
 document.getElementById(
-"pin"
+  "pin"
 );
 
 
 const pinStatus =
 document.getElementById(
-"pinStatus"
+  "pinStatus"
 );
 
 
 const locationInfo =
 document.getElementById(
-"locationInfo"
+  "locationInfo"
 );
 
 
 const postOfficeEl =
 document.getElementById(
-"postOffice"
+  "postOffice"
 );
 
 
 const areaEl =
 document.getElementById(
-"area"
+  "area"
 );
 
 
 const districtDisplay =
 document.getElementById(
-"districtDisplay"
+  "districtDisplay"
 );
 
 
 const stateDisplay =
 document.getElementById(
-"stateDisplay"
+  "stateDisplay"
 );
 
 
@@ -1098,73 +1167,79 @@ let pinTimer = null;
 
 
 pinInput.addEventListener(
-"input",
-function(){
+  "input",
+  function(){
+
+    const pin =
+      this.value
+        .replace(
+          /\D/g,
+          ""
+        )
+        .slice(
+          0,
+          6
+        );
 
 
-const pin =
-this.value
-.replace(/\D/g,"")
-.slice(0,6);
+    this.value =
+      pin;
 
 
-this.value =
-pin;
+    clearTimeout(
+      pinTimer
+    );
 
 
+    if(
+      pin.length !== 6
+    ){
 
-clearTimeout(pinTimer);
-
-
-
-if(pin.length !== 6){
-
-locationInfo.style.display =
-"none";
+      locationInfo.style.display =
+        "none";
 
 
-pinStatus.style.display =
-"none";
+      pinStatus.style.display =
+        "none";
 
 
-selectedDistrict = "";
+      selectedDistrict = "";
 
-selectedState = "";
+      selectedState = "";
 
-selectedPostOffice = "";
+      selectedPostOffice = "";
 
-selectedArea = "";
+      selectedArea = "";
 
-return;
+      return;
 
-}
-
-
-
-pinStatus.style.display =
-"block";
+    }
 
 
-pinStatus.className =
-"pin-status";
+    pinStatus.style.display =
+      "block";
 
 
-pinStatus.innerText =
-"🔎 PIN Code checking...";
+    pinStatus.className =
+      "pin-status";
 
 
+    pinStatus.innerText =
+      "🔎 PIN Code checking...";
 
-pinTimer =
-setTimeout(
-function(){
 
-lookupPIN(pin);
+    pinTimer =
+      setTimeout(
+        function(){
 
-},
-300
+          lookupPIN(pin);
+
+        },
+        300
+      );
+
+  }
 );
-
-});
 
 
 
@@ -1172,153 +1247,144 @@ lookupPIN(pin);
    PIN LOOKUP
 ================================= */
 
-async function lookupPIN(pin){
-
-try{
-
-
-const response =
-await fetch(
-
-`https://api.postalpincode.in/pincode/${pin}`
-
-);
-
-
-
-if(!response.ok){
-
-throw new Error(
-"PIN service unavailable"
-);
-
-}
-
-
-
-const data =
-await response.json();
-
-
-
-if(
-
-!Array.isArray(data) ||
-
-!data[0] ||
-
-data[0].Status !== "Success" ||
-
-!Array.isArray(
-data[0].PostOffice
-) ||
-
-!data[0].PostOffice.length
-
+async function lookupPIN(
+  pin
 ){
 
-throw new Error(
-"Invalid PIN"
-);
+  try{
 
-}
+    const response =
+      await fetch(
 
+        `https://api.postalpincode.in/pincode/${pin}`
 
-
-const post =
-data[0].PostOffice[0];
+      );
 
 
+    if(!response.ok){
 
-selectedPostOffice =
-post.Name || "";
+      throw new Error(
+        "PIN service unavailable"
+      );
 
-
-selectedArea =
-post.Block ||
-post.Name ||
-"";
+    }
 
 
-selectedDistrict =
-post.District || "";
+    const data =
+      await response.json();
 
 
-selectedState =
-post.State || "";
+    if(
+
+      !Array.isArray(data) ||
+
+      !data[0] ||
+
+      data[0].Status !==
+        "Success" ||
+
+      !Array.isArray(
+        data[0].PostOffice
+      ) ||
+
+      !data[0].PostOffice.length
+
+    ){
+
+      throw new Error(
+        "Invalid PIN"
+      );
+
+    }
 
 
-
-postOfficeEl.innerText =
-selectedPostOffice || "-";
-
-
-areaEl.innerText =
-selectedArea || "-";
+    const post =
+      data[0].PostOffice[0];
 
 
-districtDisplay.innerText =
-selectedDistrict || "-";
+    selectedPostOffice =
+      post.Name || "";
 
 
-stateDisplay.innerText =
-selectedState || "-";
+    selectedArea =
+      post.Block ||
+      post.Name ||
+      "";
 
 
-
-locationInfo.style.display =
-"block";
-
+    selectedDistrict =
+      post.District || "";
 
 
-pinStatus.className =
-"pin-status pin-success";
+    selectedState =
+      post.State || "";
 
 
-pinStatus.style.display =
-"block";
+    postOfficeEl.innerText =
+      selectedPostOffice || "-";
 
 
-pinStatus.innerText =
-"✅ PIN Code found";
+    areaEl.innerText =
+      selectedArea || "-";
 
 
-}catch(error){
+    districtDisplay.innerText =
+      selectedDistrict || "-";
 
 
-console.error(
-"PIN lookup:",
-error
-);
+    stateDisplay.innerText =
+      selectedState || "-";
 
 
-
-selectedDistrict = "";
-
-selectedState = "";
-
-selectedPostOffice = "";
-
-selectedArea = "";
+    locationInfo.style.display =
+      "block";
 
 
-
-locationInfo.style.display =
-"none";
-
-
-pinStatus.className =
-"pin-status pin-error";
+    pinStatus.className =
+      "pin-status pin-success";
 
 
-pinStatus.style.display =
-"block";
+    pinStatus.style.display =
+      "block";
 
 
-pinStatus.innerText =
-"❌ PIN Code ମିଳିଲା ନାହିଁ। PIN ଯାଞ୍ଚ କରନ୍ତୁ।";
+    pinStatus.innerText =
+      "✅ PIN Code found";
 
-}
+
+  }catch(error){
+
+    console.error(
+      "PIN lookup:",
+      error
+    );
+
+
+    selectedDistrict = "";
+
+    selectedState = "";
+
+    selectedPostOffice = "";
+
+    selectedArea = "";
+
+
+    locationInfo.style.display =
+      "none";
+
+
+    pinStatus.className =
+      "pin-status pin-error";
+
+
+    pinStatus.style.display =
+      "block";
+
+
+    pinStatus.innerText =
+      "❌ PIN Code ମିଳିଲା ନାହିଁ। PIN ଯାଞ୍ଚ କରନ୍ତୁ।";
+
+  }
 
 }
 
@@ -1329,24 +1395,24 @@ pinStatus.innerText =
 ================================= */
 
 function validMobile(
-mobile
+  mobile
 ){
 
-return /^[6-9]\d{9}$/.test(
-mobile
-);
+  return /^[6-9]\d{9}$/.test(
+    mobile
+  );
 
 }
 
 
 
 function validPIN(
-pin
+  pin
 ){
 
-return /^\d{6}$/.test(
-pin
-);
+  return /^\d{6}$/.test(
+    pin
+  );
 
 }
 
@@ -1359,422 +1425,546 @@ pin
 async function placeOrder(){
 
 
-if(!cart.length){
+  if(!cart.length){
 
-showStatus(
-"🛒 Cart ଖାଲି ଅଛି।",
-"error"
-);
+    showStatus(
+      "🛒 Cart ଖାଲି ଅଛି।",
+      "error"
+    );
 
-return;
+    return;
 
-}
+  }
 
 
 
-/* ===============================
-   CUSTOMER DATA
-=============================== */
+  /* ===============================
+     CUSTOMER DATA
+  =============================== */
 
-const name =
-document
-.getElementById(
-"customerName"
-)
-.value
-.trim();
+  const name =
+    document
+      .getElementById(
+        "customerName"
+      )
+      .value
+      .trim();
 
 
+  const mobile =
+    document
+      .getElementById(
+        "mobile"
+      )
+      .value
+      .replace(
+        /\D/g,
+        ""
+      );
 
-const mobile =
-document
-.getElementById(
-"mobile"
-)
-.value
-.replace(/\D/g,"");
 
+  const address =
+    document
+      .getElementById(
+        "address"
+      )
+      .value
+      .trim();
 
 
-const address =
-document
-.getElementById(
-"address"
-)
-.value
-.trim();
+  const pin =
+    document
+      .getElementById(
+        "pin"
+      )
+      .value
+      .trim();
 
 
+  const note =
+    document
+      .getElementById(
+        "note"
+      )
+      .value
+      .trim();
 
-const pin =
-document
-.getElementById(
-"pin"
-)
-.value
-.trim();
 
+  const paymentMethod =
+    document.querySelector(
+      'input[name="payment"]:checked'
+    )?.value || "COD";
 
 
-const note =
-document
-.getElementById(
-"note"
-)
-.value
-.trim();
 
+  /* ===============================
+     VALIDATION
+  =============================== */
 
+  if(!name){
 
-const paymentMethod =
-document.querySelector(
-'input[name="payment"]:checked'
-)?.value || "COD";
+    showStatus(
+      "ଦୟାକରି ଆପଣଙ୍କ ନାମ ଦିଅନ୍ତୁ।",
+      "error"
+    );
 
+    return;
 
+  }
 
-/* ===============================
-   VALIDATION
-=============================== */
 
-if(!name){
 
-showStatus(
-"ଦୟାକରି ଆପଣଙ୍କ ନାମ ଦିଅନ୍ତୁ।",
-"error"
-);
+  if(!validMobile(mobile)){
 
-return;
+    showStatus(
+      "ଦୟାକରି valid 10 digit mobile number ଦିଅନ୍ତୁ।",
+      "error"
+    );
 
-}
+    return;
 
+  }
 
 
-if(!validMobile(mobile)){
 
-showStatus(
-"ଦୟାକରି valid 10 digit mobile number ଦିଅନ୍ତୁ।",
-"error"
-);
+  if(!address){
 
-return;
+    showStatus(
+      "ଦୟାକରି ପୂର୍ଣ୍ଣ ଠିକଣା ଦିଅନ୍ତୁ।",
+      "error"
+    );
 
-}
+    return;
 
+  }
 
 
-if(!address){
 
-showStatus(
-"ଦୟାକରି ପୂର୍ଣ୍ଣ ଠିକଣା ଦିଅନ୍ତୁ।",
-"error"
-);
+  if(!validPIN(pin)){
 
-return;
+    showStatus(
+      "ଦୟାକରି valid 6 digit PIN Code ଦିଅନ୍ତୁ।",
+      "error"
+    );
 
-}
+    return;
 
+  }
 
 
-if(!validPIN(pin)){
 
-showStatus(
-"ଦୟାକରି valid 6 digit PIN Code ଦିଅନ୍ତୁ।",
-"error"
-);
+  if(
+    !selectedDistrict ||
+    !selectedState
+  ){
 
-return;
+    showStatus(
+      "PIN Code ର District ଏବଂ State automatic ଆସିବା ପର୍ଯ୍ୟନ୍ତ ଅପେକ୍ଷା କରନ୍ତୁ।",
+      "error"
+    );
 
-}
+    return;
 
+  }
 
 
-if(
-!selectedDistrict ||
-!selectedState
-){
 
-showStatus(
-"PIN Code ର District ଏବଂ State automatic ଆସିବା ପର୍ଯ୍ୟନ୍ତ ଅପେକ୍ଷା କରନ୍ତୁ।",
-"error"
-);
+  placeOrderBtn.disabled =
+    true;
 
-return;
 
-}
+  placeOrderBtn.innerText =
+    "⏳ Order Saving...";
 
 
 
-placeOrderBtn.disabled =
-true;
+  try{
 
 
-placeOrderBtn.innerText =
-"⏳ Order Saving...";
+    /* ===============================
+       TOTAL
+    =============================== */
 
+    let subtotal = 0;
 
 
-try{
+    const orderItems =
+      cart.map(
+        item => {
 
 
-/* ===============================
-   TOTAL
-=============================== */
+          const qty =
+            Number(
 
-let subtotal = 0;
+              item.qty ??
+              item.quantity ??
+              1
 
+            ) || 1;
 
-const orderItems =
-cart.map(item=>{
 
+          const price =
+            getPrice(item);
 
-const qty =
-Number(
 
-item.qty ??
-item.quantity ??
-1
+          subtotal +=
+            price * qty;
 
-) || 1;
 
+          return {
 
-const price =
-getPrice(item);
+            productId:
+              getProductId(item),
 
+            name:
+              item.name ||
+              "Product",
 
-subtotal +=
-price * qty;
+            price,
 
+            qty,
 
+            weight:
+              item.weight ||
+              "",
 
-return {
+            weightUnit:
+              item.weightUnit ||
+              item.unit ||
+              "",
 
-productId:
-getProductId(item),
+            image:
+              item.image ||
+              item.imageUrl ||
+              "",
 
-name:
-item.name || "Product",
+            sellerId:
+              item.sellerId ||
+              ""
 
-price,
+          };
 
-qty,
+        }
+      );
 
-weight:
-item.weight || "",
 
-weightUnit:
-item.weightUnit ||
-item.unit ||
-"",
 
-image:
-item.image ||
-item.imageUrl ||
-"",
+    const delivery = 0;
 
-sellerId:
-item.sellerId || ""
 
-};
+    const total =
+      subtotal + delivery;
 
-});
 
 
+    /* ===============================
+       ORDER ID
+    =============================== */
 
-const delivery = 0;
+    const orderRef =
+      doc(
+        collection(
+          db,
+          "orders"
+        )
+      );
 
-const total =
-subtotal + delivery;
 
+    const orderId =
+      orderRef.id;
 
 
-/* ===============================
-   ORDER ID
-=============================== */
 
-const orderRef =
-doc(
-collection(
-db,
-"orders"
-)
-);
+    /* ===============================
+       CREATE MAIN ORDER
+    =============================== */
 
+    await setDoc(
 
+      orderRef,
 
-/* ===============================
-   CREATE ORDER
-=============================== */
+      {
 
-await setDoc(
-orderRef,
-{
+        customer:{
 
-customer:{
+          name,
 
-name,
+          mobile,
 
-mobile,
+          address,
 
-address,
+          district:
+            selectedDistrict,
 
-district:
-selectedDistrict,
+          state:
+            selectedState,
 
-state:
-selectedState,
+          country:
+            "India",
 
-country:
-"India",
+          pin,
 
-pin,
+          postOffice:
+            selectedPostOffice,
 
-postOffice:
-selectedPostOffice,
+          area:
+            selectedArea
 
-area:
-selectedArea
+        },
 
-},
 
+        items:
+          orderItems,
 
-items:
-orderItems,
 
+        subtotal,
 
-subtotal,
 
-deliveryCharge:
-delivery,
+        deliveryCharge:
+          delivery,
 
-total,
 
+        total,
 
-paymentMethod,
 
-paymentStatus:
-"pending",
+        paymentMethod,
 
-orderStatus:
-"placed",
 
+        paymentStatus:
+          "pending",
 
-/*
- IMPORTANT:
- Customer checkout does NOT
- change product stock.
- Admin will verify and manage stock.
-*/
 
-stockChecked:
-false,
+        orderStatus:
+          "placed",
 
-stockRestored:
-false,
 
-adminConfirmed:
-false,
+        stockChecked:
+          false,
 
 
-customerNote:
-note,
+        stockRestored:
+          false,
 
 
-createdAt:
-serverTimestamp(),
+        adminConfirmed:
+          false,
 
-updatedAt:
-serverTimestamp()
 
-}
+        customerNote:
+          note,
 
-);
 
+        createdAt:
+          serverTimestamp(),
 
 
-/* ===============================
-   SUCCESS
-=============================== */
+        updatedAt:
+          serverTimestamp()
 
-const orderId =
-orderRef.id;
+      }
 
+    );
 
 
-localStorage.setItem(
-"utkalaLastOrderId",
-orderId
-);
 
+    /* =================================
+       TRACKING RECORD
+    ================================= */
 
+    /*
+      IMPORTANT:
 
-localStorage.removeItem(
-"utkalaCart"
-);
+      No customer address,
+      PIN or private customer
+      information is stored here.
 
+      Tracking ID:
+      Order ID + Mobile
 
+      Example:
+      ABC123_9827275681
+    */
 
-showStatus(
 
-`✅ Order successfully placed!
+    const trackingId =
+      `${orderId}_${mobile}`;
+
+
+
+    await setDoc(
+
+      doc(
+        db,
+        "orderTracking",
+        trackingId
+      ),
+
+      {
+
+        orderId:
+
+
+          orderId,
+
+
+        orderStatus:
+          "placed",
+
+
+        total:
+
+
+          total,
+
+
+        items:
+
+          orderItems.map(
+            item => ({
+
+              name:
+                item.name ||
+                "Product",
+
+              qty:
+                Number(
+                  item.qty ||
+                  1
+                ),
+
+              price:
+                Number(
+                  item.price ||
+                  0
+                ),
+
+              image:
+                item.image ||
+                "",
+
+              weight:
+                item.weight ||
+                "",
+
+              weightUnit:
+                item.weightUnit ||
+                ""
+
+            })
+          ),
+
+
+        createdAt:
+          serverTimestamp(),
+
+
+        updatedAt:
+          serverTimestamp()
+
+      }
+
+    );
+
+
+
+    /* ===============================
+       SAVE LAST ORDER ID
+    =============================== */
+
+    localStorage.setItem(
+
+      "utkalaLastOrderId",
+
+      orderId
+
+    );
+
+
+
+    /* ===============================
+       CLEAR CART
+    =============================== */
+
+    localStorage.removeItem(
+      "utkalaCart"
+    );
+
+
+
+    /* ===============================
+       SUCCESS
+    =============================== */
+
+    showStatus(
+
+      `✅ Order successfully placed!
 
 Order ID:
 ${orderId}
 
 Utkala Mart team ଆପଣଙ୍କ order ଯାଞ୍ଚ କରି confirm କରିବେ।`,
 
-"success"
+      "success"
 
-);
-
-
-
-placeOrderBtn.innerText =
-"✅ Order Placed";
+    );
 
 
 
-setTimeout(
-function(){
-
-window.location.href =
-`order-tracking.html?orderId=${encodeURIComponent(orderId)}`;
-
-},
-1800
-);
+    placeOrderBtn.innerText =
+      "✅ Order Placed";
 
 
 
-}catch(error){
+    /* ===============================
+       GO TO TRACKING
+    =============================== */
+
+    setTimeout(
+
+      function(){
+
+        window.location.href =
+          `order-tracking.html?orderId=${encodeURIComponent(
+            orderId
+          )}`;
+
+      },
+
+      1800
+
+    );
 
 
-console.error(
-"Order error:",
-error
-);
+  }catch(error){
 
 
-
-showStatus(
-
-"❌ Order place ହୋଇପାରିଲା ନାହିଁ:\n" +
-(error.message || "Unknown error"),
-
-"error"
-
-);
+    console.error(
+      "Order error:",
+      error
+    );
 
 
+    showStatus(
 
-placeOrderBtn.disabled =
-false;
+      "❌ Order place ହୋଇପାରିଲା ନାହିଁ:\n" +
+      (
+        error.message ||
+        "Unknown error"
+      ),
+
+      "error"
+
+    );
 
 
-placeOrderBtn.innerText =
-"✅ Order Place କରନ୍ତୁ";
+    placeOrderBtn.disabled =
+      false;
 
-}
+
+    placeOrderBtn.innerText =
+      "✅ Order Place କରନ୍ତୁ";
+
+  }
 
 }
 
@@ -1785,8 +1975,11 @@ placeOrderBtn.innerText =
 ================================= */
 
 placeOrderBtn.addEventListener(
-"click",
-placeOrder
+
+  "click",
+
+  placeOrder
+
 );
 
 
@@ -1796,7 +1989,6 @@ placeOrder
 ================================= */
 
 renderCart();
-
 
 </script>
 
