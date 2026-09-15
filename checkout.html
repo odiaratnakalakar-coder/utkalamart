@@ -232,6 +232,41 @@ label{
 
 
 /* =================================
+   ORDER ID
+================================= */
+
+.order-id-box{
+  display:none;
+  background:#f0faf4;
+  border:2px solid #138a45;
+  border-radius:14px;
+  padding:16px;
+  margin-bottom:18px;
+  text-align:center;
+}
+
+.order-id-title{
+  font-size:14px;
+  color:#555;
+  margin-bottom:7px;
+}
+
+.order-id-value{
+  font-size:24px;
+  font-weight:bold;
+  color:#138a45;
+  letter-spacing:1px;
+  word-break:break-word;
+}
+
+.order-id-note{
+  margin-top:8px;
+  font-size:12px;
+  color:#666;
+}
+
+
+/* =================================
    SUMMARY
 ================================= */
 
@@ -362,6 +397,10 @@ button:disabled{
     font-size:19px;
   }
 
+  .order-id-value{
+    font-size:20px;
+  }
+
 }
 
 </style>
@@ -400,6 +439,39 @@ class="back">
 <div
 id="statusBox"
 class="status-box">
+</div>
+
+
+
+<!-- =========================
+     CUSTOMER ORDER ID
+========================= -->
+
+<div
+id="orderIdBox"
+class="order-id-box">
+
+  <div class="order-id-title">
+
+    🧾 ଆପଣଙ୍କ Order ID
+
+  </div>
+
+  <div
+  id="customerOrderId"
+  class="order-id-value">
+
+    -
+
+  </div>
+
+  <div class="order-id-note">
+
+    📌 ଏହି Order ID କୁ save କରି ରଖନ୍ତୁ।
+    Order Tracking ପାଇଁ ଏହା ଆବଶ୍ୟକ।
+
+  </div>
+
 </div>
 
 
@@ -852,6 +924,18 @@ document.getElementById(
 );
 
 
+const orderIdBox =
+document.getElementById(
+  "orderIdBox"
+);
+
+
+const customerOrderId =
+document.getElementById(
+  "customerOrderId"
+);
+
+
 
 /* =================================
    PIN VARIABLES
@@ -864,6 +948,7 @@ let selectedState = "";
 let selectedPostOffice = "";
 
 let selectedArea = "";
+
 
 
 /* =================================
@@ -1035,6 +1120,75 @@ function formatDate(
 
 
 /* =================================
+   GENERATE CUSTOMER ORDER ID
+=================================
+
+Format:
+
+UTK-YYYYMMDD-XXXX
+
+Example:
+
+UTK-20260915-4832
+
+================================= */
+
+function generateOrderId(){
+
+  const now =
+    new Date();
+
+
+  const year =
+    now.getFullYear();
+
+
+  const month =
+    String(
+      now.getMonth() + 1
+    ).padStart(
+      2,
+      "0"
+    );
+
+
+  const day =
+    String(
+      now.getDate()
+    ).padStart(
+      2,
+      "0"
+    );
+
+
+  /*
+    4 digit number.
+
+    Firebase document ID remains
+    separate from this customer-facing
+    Order ID.
+  */
+
+  const number =
+    String(
+      Date.now() % 10000
+    ).padStart(
+      4,
+      "0"
+    );
+
+
+  return (
+
+    `UTK-${year}${month}${day}-${number}`
+
+  );
+
+}
+
+
+
+/* =================================
    GET DELIVERY DAYS
 ================================= */
 
@@ -1055,6 +1209,7 @@ function getDeliveryRange(
     ).toLowerCase();
 
 
+
   /* ==============================
      GANJAM
   ============================== */
@@ -1069,6 +1224,7 @@ function getDeliveryRange(
     };
 
   }
+
 
 
   /* ==============================
@@ -1088,6 +1244,7 @@ function getDeliveryRange(
   }
 
 
+
   /* ==============================
      GUJARAT
   ============================== */
@@ -1102,6 +1259,7 @@ function getDeliveryRange(
     };
 
   }
+
 
 
   /* ==============================
@@ -1204,8 +1362,10 @@ function showDeliveryEstimate(){
       .style.display =
         "none";
 
+
     estimatedDelivery =
       null;
+
 
     return;
 
@@ -1288,14 +1448,18 @@ function renderCart(){
     subtotalEl.innerText =
       "₹0";
 
+
     deliveryEl.innerText =
       "₹0";
+
 
     totalEl.innerText =
       "₹0";
 
+
     placeOrderBtn.disabled =
       true;
+
 
     return;
 
@@ -1587,6 +1751,7 @@ pinInput.addEventListener(
       estimatedDelivery =
         null;
 
+
       return;
 
     }
@@ -1726,6 +1891,7 @@ async function lookupPIN(
 
     pinStatus.innerText =
       "✅ PIN Code found";
+
 
 
     /* ==============================
@@ -1974,7 +2140,9 @@ async function placeOrder(){
       "error"
     );
 
+
     showDeliveryEstimate();
+
 
     if(!estimatedDelivery){
 
@@ -2099,8 +2267,8 @@ async function placeOrder(){
 
 
     /* ===============================
-       ORDER ID
-    =============================== */
+       FIREBASE DOCUMENT
+================================ */
 
     const orderRef =
       doc(
@@ -2111,8 +2279,28 @@ async function placeOrder(){
       );
 
 
-    const orderId =
+    /*
+      Firebase internal document ID.
+      This remains hidden from customer.
+    */
+
+    const firebaseDocumentId =
       orderRef.id;
+
+
+
+    /* ===============================
+       CUSTOMER ORDER ID
+=================================
+
+       Example:
+
+       UTK-20260915-4832
+
+================================ */
+
+    const orderId =
+      generateOrderId();
 
 
 
@@ -2125,6 +2313,23 @@ async function placeOrder(){
       orderRef,
 
       {
+
+        /*
+          Customer-facing Order ID
+        */
+
+        orderId:
+          orderId,
+
+
+        /*
+          Firebase internal document ID
+          saved only for admin/reference
+        */
+
+        firebaseDocumentId:
+          firebaseDocumentId,
+
 
         customer:{
 
@@ -2202,14 +2407,18 @@ async function placeOrder(){
         estimatedDeliveryStart:
           estimatedDeliveryDate,
 
+
         estimatedDeliveryEnd:
           estimatedDeliveryEndDate,
+
 
         estimatedDelivery:
           estimatedDeliveryText,
 
+
         estimatedDeliveryMinDays:
           deliveryMinDays,
+
 
         estimatedDeliveryMaxDays:
           deliveryMaxDays,
@@ -2232,6 +2441,12 @@ async function placeOrder(){
        TRACKING RECORD
     ================================= */
 
+    /*
+      Tracking document:
+
+      UTK-20260915-4832_9876543210
+    */
+
     const trackingId =
       `${orderId}_${mobile}`;
 
@@ -2247,9 +2462,11 @@ async function placeOrder(){
 
       {
 
+        /*
+          Customer-facing Order ID
+        */
+
         orderId:
-
-
           orderId,
 
 
@@ -2258,8 +2475,6 @@ async function placeOrder(){
 
 
         total:
-
-
           total,
 
 
@@ -2300,6 +2515,7 @@ async function placeOrder(){
           ),
 
 
+
         /* =========================
            ESTIMATED DELIVERY
         ========================= */
@@ -2307,14 +2523,18 @@ async function placeOrder(){
         estimatedDeliveryStart:
           estimatedDeliveryDate,
 
+
         estimatedDeliveryEnd:
           estimatedDeliveryEndDate,
+
 
         estimatedDelivery:
           estimatedDeliveryText,
 
+
         estimatedDeliveryMinDays:
           deliveryMinDays,
+
 
         estimatedDeliveryMaxDays:
           deliveryMaxDays,
@@ -2358,6 +2578,19 @@ async function placeOrder(){
 
 
     /* ===============================
+       SHOW CUSTOMER ORDER ID
+    =============================== */
+
+    customerOrderId.innerText =
+      orderId;
+
+
+    orderIdBox.style.display =
+      "block";
+
+
+
+    /* ===============================
        SUCCESS
     =============================== */
 
@@ -2365,7 +2598,7 @@ async function placeOrder(){
 
       `✅ Order successfully placed!
 
-Order ID:
+🧾 Order ID:
 ${orderId}
 
 🚚 Estimated Delivery:
@@ -2464,4 +2697,4 @@ renderCart();
 
 </body>
 
-</html>
+  </html>
