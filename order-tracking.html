@@ -6,343 +6,381 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+      content="width=device-width, initial-scale=1.0">
 
 <meta name="theme-color"
-content="#138a45">
+      content="#075b3b">
 
-<title>Utkala Mart - Order Tracking</title>
+<title>
+Utkala Mart | Order Tracking
+</title>
+
+<link rel="icon"
+      type="image/png"
+      href="logo.png">
 
 <style>
 
 *{
-  box-sizing:border-box;
+    box-sizing:border-box;
 }
 
 body{
-  margin:0;
-  font-family:Arial,"Noto Sans Odia",sans-serif;
-  background:#f4f7f5;
-  color:#222;
+    margin:0;
+    font-family:
+        Arial,
+        "Noto Sans Oriya",
+        "Nirmala UI",
+        sans-serif;
+
+    background:#f5f8f6;
+    color:#222;
+}
+
+button,
+input{
+    font:inherit;
 }
 
 .header{
-  background:#138a45;
-  color:#fff;
-  text-align:center;
-  padding:18px;
+    background:#075b3b;
+    color:white;
+    text-align:center;
+    padding:14px 10px;
 }
 
 .header h1{
-  margin:0;
-  font-size:25px;
+    margin:0;
+    font-size:21px;
 }
 
 .header p{
-  margin:6px 0 0;
-  font-size:14px;
+    margin:4px 0 0;
+    font-size:11px;
 }
 
 .container{
-  max-width:850px;
-  margin:25px auto;
-  padding:0 15px;
-}
-
-.card{
-  background:#fff;
-  padding:20px;
-  border-radius:15px;
-  margin-bottom:18px;
-  box-shadow:0 3px 14px rgba(0,0,0,.08);
-}
-
-.card h2{
-  margin-top:0;
-  color:#138a45;
-}
-
-label{
-  display:block;
-  font-weight:bold;
-  margin-top:12px;
-}
-
-input{
-  width:100%;
-  padding:13px;
-  margin-top:6px;
-  border:1px solid #ccc;
-  border-radius:9px;
-  font-size:15px;
-}
-
-button{
-  width:100%;
-  padding:14px;
-  margin-top:15px;
-  border:0;
-  border-radius:9px;
-  background:#138a45;
-  color:#fff;
-  font-size:17px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-button:disabled{
-  background:#999;
+    width:min(680px,94%);
+    margin:18px auto 80px;
 }
 
 .back{
-  display:inline-block;
-  margin-bottom:15px;
-  color:#138a45;
-  text-decoration:none;
-  font-weight:bold;
+    display:inline-block;
+    color:#28784f;
+    font-weight:800;
+    font-size:13px;
+    margin-bottom:12px;
 }
 
-.message{
-  padding:13px;
-  border-radius:9px;
-  margin-bottom:15px;
-  display:none;
+.box{
+    background:white;
+    border-radius:14px;
+    padding:18px;
+    box-shadow:
+        0 3px 14px rgba(0,0,0,.08);
+    margin-bottom:16px;
+}
+
+.title{
+    color:#28784f;
+    font-size:23px;
+    font-weight:900;
+    margin-bottom:14px;
+}
+
+.help{
+    font-size:13px;
+    line-height:1.7;
+    margin-bottom:15px;
+}
+
+label{
+    display:block;
+    font-weight:800;
+    font-size:13px;
+    margin:10px 0 6px;
+}
+
+input{
+    width:100%;
+    height:43px;
+    border:1px solid #d4dad7;
+    border-radius:8px;
+    padding:0 12px;
+    outline:none;
+}
+
+input:focus{
+    border-color:#075b3b;
+}
+
+.track-btn{
+    width:100%;
+    margin-top:14px;
+    height:45px;
+    border:0;
+    border-radius:8px;
+    background:#0b8b4f;
+    color:#fff;
+    font-weight:900;
+}
+
+.track-btn:disabled{
+    background:#999;
 }
 
 .error{
-  background:#ffe8e8;
-  color:#a00000;
+    display:none;
+    background:#ffe8e8;
+    color:#a32929;
+    padding:12px;
+    border-radius:8px;
+    margin-bottom:15px;
+    font-size:13px;
+    font-weight:700;
 }
 
-.success{
-  background:#e8f8ee;
-  color:#087333;
+.success-title{
+    background:#e8faef;
+    color:#147642;
+    padding:14px;
+    border-radius:10px;
+    font-size:25px;
+    font-weight:900;
+    margin-bottom:15px;
 }
 
-/* ORDER */
-
-.order-header{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  flex-wrap:wrap;
-  background:#f0f7f2;
-  padding:14px;
-  border-radius:10px;
+.order-head{
+    background:#f0f8f3;
+    padding:12px;
+    border-radius:9px;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    align-items:center;
 }
 
 .order-id{
-  font-weight:bold;
-  color:#138a45;
-  word-break:break-all;
+    color:#28784f;
+    font-weight:900;
+    font-size:13px;
+    word-break:break-all;
 }
 
-.date{
-  color:#777;
-  font-size:12px;
-  margin-top:5px;
+.order-date{
+    color:#777;
+    font-size:10px;
+    margin-top:4px;
 }
 
-.status{
-  display:inline-block;
-  padding:7px 12px;
-  border-radius:20px;
-  font-size:12px;
-  font-weight:bold;
-  text-transform:capitalize;
+.status-badge{
+    padding:7px 10px;
+    border-radius:20px;
+    font-size:10px;
+    font-weight:900;
+    white-space:nowrap;
 }
 
 .status-placed{
-  background:#fff3cd;
-  color:#856404;
+    background:#fff1c9;
+    color:#866400;
 }
 
 .status-confirmed{
-  background:#dbeafe;
-  color:#1d4ed8;
+    background:#dff8e9;
+    color:#147642;
 }
 
 .status-processing{
-  background:#e0f2fe;
-  color:#0369a1;
+    background:#e3f4ff;
+    color:#0871a8;
 }
 
 .status-shipped{
-  background:#ede9fe;
-  color:#6d28d9;
+    background:#eee5ff;
+    color:#7040a8;
 }
 
 .status-delivered{
-  background:#dcfce7;
-  color:#166534;
+    background:#d9f8df;
+    color:#16813b;
 }
 
 .status-cancelled{
-  background:#fee2e2;
-  color:#b91c1c;
+    background:#ffe1e1;
+    color:#bd2525;
 }
 
-/* TIMELINE */
-
 .timeline{
-  margin:25px 0;
+    margin-top:22px;
+    padding-left:5px;
 }
 
 .step{
-  display:flex;
-  gap:15px;
-  position:relative;
-  padding-bottom:25px;
+    position:relative;
+    display:flex;
+    gap:13px;
+    min-height:76px;
 }
 
-.step:last-child{
-  padding-bottom:0;
+.step:not(:last-child)::before{
+    content:"";
+    position:absolute;
+    left:17px;
+    top:35px;
+    width:3px;
+    height:58px;
+    background:#ddd;
+}
+
+.step.done:not(:last-child)::before{
+    background:#159354;
 }
 
 .step-icon{
-  width:38px;
-  height:38px;
-  border-radius:50%;
-  background:#ddd;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-shrink:0;
-  z-index:2;
+    position:relative;
+    z-index:2;
+    width:35px;
+    height:35px;
+    min-width:35px;
+    border-radius:50%;
+    background:#e4e4e4;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:17px;
 }
 
 .step.done .step-icon{
-  background:#138a45;
-  color:#fff;
+    background:#159354;
+    color:white;
 }
 
-.step.active .step-icon{
-  background:#138a45;
-  color:#fff;
+.step.current .step-icon{
+    background:#0a8c4f;
+    color:white;
+    box-shadow:
+        0 0 0 5px #d9f5e6;
 }
 
-.step-content h3{
-  margin:5px 0;
-  font-size:15px;
+.step-content{
+    padding-top:3px;
 }
 
-.step-content p{
-  margin:3px 0;
-  font-size:12px;
-  color:#777;
+.step-name{
+    font-size:13px;
+    font-weight:900;
 }
 
-.step:not(:last-child)::after{
-  content:"";
-  position:absolute;
-  left:18px;
-  top:38px;
-  width:2px;
-  height:35px;
-  background:#ddd;
+.step-time{
+    font-size:10px;
+    color:#777;
+    margin-top:5px;
 }
 
-.step.done:not(:last-child)::after{
-  background:#138a45;
+.current-label{
+    color:#0b8b4f;
+    font-weight:800;
+    font-size:10px;
+    margin-top:3px;
 }
 
-/* PRODUCTS */
+.products-title{
+    color:#21804e;
+    font-size:25px;
+    font-weight:900;
+    margin-bottom:13px;
+}
 
 .product{
-  display:flex;
-  gap:12px;
-  align-items:center;
-  padding:12px 0;
-  border-bottom:1px solid #eee;
+    display:flex;
+    gap:12px;
+    align-items:center;
+    padding:10px 0;
+    border-bottom:1px solid #eee;
 }
 
 .product:last-child{
-  border-bottom:0;
+    border-bottom:0;
 }
 
 .product img{
-  width:65px;
-  height:65px;
-  object-fit:cover;
-  border-radius:8px;
-  background:#eee;
+    width:58px;
+    height:58px;
+    object-fit:cover;
+    border-radius:8px;
+    background:#f4f4f4;
 }
 
 .product-info{
-  flex:1;
+    flex:1;
 }
 
-.product-info h3{
-  margin:0 0 5px;
-  font-size:15px;
+.product-name{
+    font-weight:900;
+    font-size:13px;
 }
 
-.product-info p{
-  margin:3px 0;
-  color:#666;
-  font-size:13px;
+.product-meta{
+    color:#777;
+    font-size:10px;
+    margin-top:4px;
+}
+
+.product-price{
+    font-weight:900;
+    font-size:13px;
 }
 
 .total{
-  display:flex;
-  justify-content:space-between;
-  border-top:2px solid #138a45;
-  margin-top:10px;
-  padding-top:12px;
-  font-size:19px;
-  font-weight:bold;
-}
-
-/* INFO */
-
-.info-box{
-  background:#f0f7f2;
-  padding:14px;
-  border-radius:10px;
-  margin-top:15px;
-}
-
-.info-box p{
-  margin:6px 0;
-  font-size:14px;
-}
-
-/* LOADING */
-
-.loading{
-  text-align:center;
-  padding:30px;
-  color:#777;
-}
-
-/* HIDDEN */
-
-.hidden{
-  display:none;
-}
-
-@media(max-width:600px){
-
-  .container{
-    margin:15px auto;
-  }
-
-  .card{
-    padding:15px;
-  }
-
-  .product img{
-    width:55px;
-    height:55px;
-  }
-
-  .order-header{
-    display:block;
-  }
-
-  .order-header > div:last-child{
+    border-top:2px solid #37845b;
     margin-top:10px;
-  }
+    padding-top:10px;
+    display:flex;
+    justify-content:space-between;
+    font-weight:900;
+    font-size:17px;
+}
+
+.privacy{
+    background:#f0f8f3;
+    padding:14px;
+    border-radius:9px;
+    line-height:1.8;
+    font-size:12px;
+}
+
+.empty{
+    text-align:center;
+    padding:30px 10px;
+    color:#777;
+}
+
+@media(max-width:500px){
+
+    .container{
+        width:94%;
+    }
+
+    .box{
+        padding:15px;
+    }
+
+    .title{
+        font-size:22px;
+    }
+
+    .success-title{
+        font-size:23px;
+    }
+
+    .order-head{
+        align-items:flex-start;
+    }
+
+    .status-badge{
+        font-size:9px;
+    }
 
 }
 
@@ -350,964 +388,971 @@ button:disabled{
 
 </head>
 
-
 <body>
-
 
 <div class="header">
 
-  <h1>🛍️ Utkala Mart</h1>
+    <h1>
+        📦 Utkala Mart
+    </h1>
 
-  <p>
-    ଆପଣଙ୍କ Order Track କରନ୍ତୁ
-  </p>
+    <p>
+        ଆପଣଙ୍କ Order Track କରନ୍ତୁ
+    </p>
 
 </div>
 
 
 <div class="container">
 
+    <a href="index.html"
+       class="back">
 
-<a
-  href="index.html"
-  class="back">
+        ← Shopping କୁ ଫେରନ୍ତୁ
 
-  ← Shopping କୁ ଫେରନ୍ତୁ
-
-</a>
+    </a>
 
 
-<!-- SEARCH -->
+    <!-- SEARCH BOX -->
 
-<div class="card">
+    <div class="box">
 
-  <h2>
-    📦 Order Tracking
-  </h2>
+        <div class="title">
+            📦 Order Tracking
+        </div>
 
-  <p>
-    ଆପଣଙ୍କ Order ID ଏବଂ Mobile Number
-    ଦେଇ Order Status ଦେଖନ୍ତୁ।
-  </p>
+        <div class="help">
 
+            ଆପଣଙ୍କ Order ID ଏବଂ
+            Mobile Number ଦେଇ
+            Order Status ଦେଖନ୍ତୁ।
 
-  <label>
-    Order ID
-  </label>
-
-  <input
-    type="text"
-    id="orderId"
-    placeholder="ଆପଣଙ୍କ Order ID"
-    autocomplete="off"
-  >
+        </div>
 
 
-  <label>
-    Mobile Number
-  </label>
+        <label>
+            Order ID
+        </label>
 
-  <input
-    type="tel"
-    id="mobile"
-    maxlength="10"
-    inputmode="numeric"
-    placeholder="10 digit mobile number"
-    autocomplete="tel"
-  >
+        <input
+            id="orderId"
+            type="text"
+            placeholder="Order ID ଦିଅନ୍ତୁ"
+            autocomplete="off">
 
 
-  <button
-    id="trackBtn"
-    onclick="trackOrder()">
+        <label>
+            Mobile Number
+        </label>
 
-    🔎 Track Order
-
-  </button>
-
-</div>
-
-
-<div
-  id="message"
-  class="message">
-</div>
+        <input
+            id="mobile"
+            type="tel"
+            inputmode="numeric"
+            maxlength="10"
+            placeholder="10 digit Mobile Number"
+            autocomplete="tel">
 
 
-<!-- RESULT -->
+        <button
+            id="trackBtn"
+            class="track-btn"
+            onclick="trackOrder()">
 
-<div
-  id="result"
-  class="hidden">
+            🔎 Track Order
 
-</div>
+        </button>
 
+    </div>
+
+
+    <div
+        id="error"
+        class="error">
+    </div>
+
+
+    <!-- RESULT -->
+
+    <div
+        id="result"
+        style="display:none;">
+
+
+        <div class="success-title">
+
+            ✅ Order ମିଳିଗଲା
+
+        </div>
+
+
+        <!-- ORDER STATUS -->
+
+        <div class="box">
+
+            <div class="order-head">
+
+                <div>
+
+                    <div
+                        class="order-id"
+                        id="showOrderId">
+                    </div>
+
+                    <div
+                        class="order-date"
+                        id="showOrderDate">
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="statusBadge"
+                    class="status-badge">
+                </div>
+
+            </div>
+
+
+            <!-- TIMELINE -->
+
+            <div
+                class="timeline"
+                id="timeline">
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCTS -->
+
+        <div class="box">
+
+            <div class="products-title">
+
+                🛍️ Products
+
+            </div>
+
+
+            <div
+                id="products">
+            </div>
+
+
+            <div class="total">
+
+                <span>
+                    Total
+                </span>
+
+                <span
+                    id="total">
+                    ₹0
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRIVACY -->
+
+        <div class="box">
+
+            <div
+                class="products-title">
+
+                🔐 Privacy Protected
+
+            </div>
+
+            <div class="privacy">
+
+                ✅ Order tracking information
+                ମାତ୍ର ଦେଖାଯାଉଛି।
+
+                <br>
+
+                ✅ Customer personal information
+                ଏଠାରେ ଦେଖାଯାଉନାହିଁ।
+
+                <br>
+
+                ✅ Mobile Number / Address
+                public ଭାବରେ ଦେଖାଯାଉନାହିଁ।
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
 
 <script type="module">
 
-
-/* ===================================
-   FIREBASE
-=================================== */
-
 import {
-  db
-} from "./js/firebase-config.js";
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 
 import {
-  doc,
-  getDoc
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+    getFirestore,
+    doc,
+    getDoc
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-/* ===================================
-   TRACK ORDER
-=================================== */
+/* ===============================
+   FIREBASE CONFIG
+================================ */
 
-window.trackOrder =
-async function(){
+const firebaseConfig = {
 
-  const orderId =
-    document
-      .getElementById("orderId")
-      .value
-      .trim();
+    apiKey:
+    "AIzaSyDonHK2CtrUjAkAaro6stnJmdDUwB59JT0",
 
+    authDomain:
+    "utkalamart-1ec68.firebaseapp.com",
 
-  const mobile =
-    document
-      .getElementById("mobile")
-      .value
-      .replace(/\D/g,"")
-      .trim();
+    projectId:
+    "utkalamart-1ec68",
 
+    storageBucket:
+    "utkalamart-1ec68.firebasestorage.app",
 
-  const btn =
-    document
-      .getElementById("trackBtn");
+    messagingSenderId:
+    "664871353747",
 
-
-  const result =
-    document
-      .getElementById("result");
-
-
-  hideMessage();
-
-
-  /* ===============================
-     VALIDATION
-  =============================== */
-
-  if(!orderId){
-
-    showMessage(
-      "ଦୟାକରି Order ID ଦିଅନ୍ତୁ।",
-      "error"
-    );
-
-    return;
-
-  }
-
-
-  if(
-    !/^[0-9]{10}$/.test(
-      mobile
-    )
-  ){
-
-    showMessage(
-      "ଦୟାକରି ସଠିକ୍ 10 digit Mobile Number ଦିଅନ୍ତୁ।",
-      "error"
-    );
-
-    return;
-
-  }
-
-
-  btn.disabled = true;
-
-  btn.innerText =
-    "⏳ Searching...";
-
-
-  result.classList.add(
-    "hidden"
-  );
-
-
-  try{
-
-
-    /* ===============================
-       TRACKING DOCUMENT ID
-    =============================== */
-
-    const trackingId =
-      `${orderId}_${mobile}`;
-
-
-    const ref =
-      doc(
-        db,
-        "orderTracking",
-        trackingId
-      );
-
-
-    const snap =
-      await getDoc(ref);
-
-
-    /* ===============================
-       ORDER NOT FOUND
-    =============================== */
-
-    if(!snap.exists()){
-
-      showMessage(
-        "❌ Order ID ଏବଂ Mobile Number match କରୁନାହିଁ କିମ୍ବା Order ମିଳିଲା ନାହିଁ।",
-        "error"
-      );
-
-      result.classList.add(
-        "hidden"
-      );
-
-      return;
-
-    }
-
-
-    /* ===============================
-       TRACKING DATA
-    =============================== */
-
-    const tracking =
-      snap.data();
-
-
-    renderOrder(
-      tracking
-    );
-
-
-    result.classList.remove(
-      "hidden"
-    );
-
-
-    showMessage(
-      "✅ Order ମିଳିଗଲା।",
-      "success"
-    );
-
-
-  }catch(error){
-
-    console.error(
-      error
-    );
-
-
-    showMessage(
-      "❌ Order Track କରିବା ସମୟରେ ସମସ୍ୟା ହେଲା। ପୁଣିଥରେ ଚେଷ୍ଟା କରନ୍ତୁ।",
-      "error"
-    );
-
-
-    result.classList.add(
-      "hidden"
-    );
-
-  }
-
-
-  btn.disabled = false;
-
-  btn.innerText =
-    "🔎 Track Order";
+    appId:
+    "1:664871353747:web:96532fdafe78aabe7f3c66"
 
 };
 
 
-/* ===================================
-   RENDER ORDER
-=================================== */
+const app =
+    initializeApp(firebaseConfig);
 
-function renderOrder(
-  order
-){
+const db =
+    getFirestore(app);
 
-  const result =
-    document.getElementById(
-      "result"
-    );
 
+/* ===============================
+   HELPERS
+================================ */
 
-  const items =
-    Array.isArray(order.items)
-    ? order.items
-    : [];
+function normalizeMobile(value){
 
-
-  const status =
-    String(
-      order.orderStatus ||
-      "placed"
-    ).toLowerCase();
-
-
-  const safeStatus =
-    [
-      "placed",
-      "confirmed",
-      "processing",
-      "shipped",
-      "delivered",
-      "cancelled"
-    ].includes(status)
-    ? status
-    : "placed";
-
-
-  result.innerHTML = `
-
-  <!-- ORDER SUMMARY -->
-
-  <div class="card">
-
-
-    <div class="order-header">
-
-      <div>
-
-        <div class="order-id">
-
-          📦 Order ID:
-          ${escapeHTML(
-            order.orderId ||
-            "Order"
-          )}
-
-        </div>
-
-
-        <div class="date">
-
-          ${formatDate(
-            order.createdAt
-          )}
-
-        </div>
-
-      </div>
-
-
-      <div>
-
-        <span
-          class="status status-${safeStatus}">
-
-          ${getStatusText(
-            safeStatus
-          )}
-
-        </span>
-
-      </div>
-
-    </div>
-
-
-    ${
-      safeStatus === "cancelled"
-      ? renderCancelledTimeline()
-      : renderTimeline(
-          safeStatus
-        )
-    }
-
-
-  </div>
-
-
-  <!-- PRODUCTS -->
-
-  <div class="card">
-
-    <h2>
-      🛍️ Products
-    </h2>
-
-
-    ${
-      items.length
-      ? items.map(
-          item => `
-
-          <div class="product">
-
-            ${
-              item.image
-              ? `
-              <img
-                src="${escapeHTML(
-                  item.image
-                )}"
-                alt=""
-                onerror="
-                  this.style.display='none'
-                "
-              >
-              `
-              : `
-              <div
-                style="
-                  width:65px;
-                  height:65px;
-                  border-radius:8px;
-                  background:#eee;
-                  display:flex;
-                  align-items:center;
-                  justify-content:center;
-                "
-              >
-                🛍️
-              </div>
-              `
-            }
-
-
-            <div class="product-info">
-
-              <h3>
-
-                ${escapeHTML(
-                  item.name ||
-                  "Product"
-                )}
-
-              </h3>
-
-
-              <p>
-
-                Qty:
-                <strong>
-                  ${Number(
-                    item.qty || 1
-                  )}
-                </strong>
-
-              </p>
-
-
-              ${
-                item.weight
-                ? `
-                <p>
-
-                  ⚖️
-                  ${escapeHTML(
-                    String(
-                      item.weight
-                    )
-                  )}
-
-                  ${escapeHTML(
-                    item.weightUnit ||
-                    ""
-                  )}
-
-                </p>
-                `
-                : ""
-              }
-
-
-              <p>
-
-                ₹${Number(
-                  item.price || 0
-                ).toLocaleString(
-                  "en-IN"
-                )}
-
-              </p>
-
-            </div>
-
-          </div>
-
-        `
-        ).join("")
-      : `
-        <p>
-          Product details ମିଳିଲା ନାହିଁ।
-        </p>
-      `
-    }
-
-
-    <div class="total">
-
-      <span>
-        Total
-      </span>
-
-      <span>
-
-        ₹${Number(
-          order.total || 0
-        ).toLocaleString(
-          "en-IN"
-        )}
-
-      </span>
-
-    </div>
-
-  </div>
-
-
-  <!-- INFORMATION -->
-
-  <div class="card">
-
-    <h2>
-      🔐 Privacy Protected
-    </h2>
-
-    <div class="info-box">
-
-      <p>
-        ✅ Order tracking information ସଫଳତାର ସହିତ ମିଳିଛି।
-      </p>
-
-      <p>
-        🔒 ଆପଣଙ୍କ personal delivery details
-        ସୁରକ୍ଷିତ ରଖାଯାଇଛି।
-      </p>
-
-    </div>
-
-  </div>
-
-  `;
+    return String(value || "")
+        .replace(/\D/g,"")
+        .slice(-10);
 
 }
 
 
-/* ===================================
-   STATUS TEXT
-=================================== */
+function formatDate(value){
 
-function getStatusText(
-  status
-){
-
-  const names = {
-
-    placed:
-      "Order Placed",
-
-    confirmed:
-      "Order Confirmed",
-
-    processing:
-      "Processing",
-
-    shipped:
-      "Order Shipped",
-
-    delivered:
-      "Order Delivered",
-
-    cancelled:
-      "Order Cancelled"
-
-  };
-
-
-  return names[status] ||
-    "Order Placed";
-
-}
-
-
-/* ===================================
-   NORMAL TIMELINE
-=================================== */
-
-function renderTimeline(
-  current
-){
-
-  const steps = [
-
-    {
-      id:"placed",
-      icon:"📦",
-      title:"Order Placed"
-    },
-
-    {
-      id:"confirmed",
-      icon:"✅",
-      title:"Order Confirmed"
-    },
-
-    {
-      id:"processing",
-      icon:"⚙️",
-      title:"Processing"
-    },
-
-    {
-      id:"shipped",
-      icon:"🚚",
-      title:"Order Shipped"
-    },
-
-    {
-      id:"delivered",
-      icon:"🏠",
-      title:"Order Delivered"
+    if(!value){
+        return "—";
     }
 
-  ];
+    try{
 
+        const date =
+            value.toDate
+            ? value.toDate()
+            : new Date(value);
 
-  let currentIndex =
-    steps.findIndex(
-      x =>
-        x.id === current
-    );
-
-
-  if(
-    currentIndex < 0
-  ){
-
-    currentIndex = 0;
-
-  }
-
-
-  return `
-
-  <div class="timeline">
-
-    ${
-      steps.map(
-        (step,index) => {
-
-          let cls = "";
-
-
-          if(
-            index <
-            currentIndex
-          ){
-
-            cls = "done";
-
-          }
-
-
-          if(
-            index ===
-            currentIndex
-          ){
-
-            cls =
-              "done active";
-
-          }
-
-
-          return `
-
-          <div
-            class="step ${cls}"
-          >
-
-            <div
-              class="step-icon">
-
-              ${step.icon}
-
-            </div>
-
-
-            <div
-              class="step-content">
-
-              <h3>
-                ${step.title}
-              </h3>
-
-
-              ${
-                index ===
-                currentIndex
-                ? `
-                <p>
-                  Current Status
-                </p>
-                `
-                : ""
-              }
-
-            </div>
-
-          </div>
-
-          `;
-
+        if(isNaN(date.getTime())){
+            return "—";
         }
-      ).join("")
-    }
 
-  </div>
-
-  `;
-
-}
-
-
-/* ===================================
-   CANCELLED TIMELINE
-=================================== */
-
-function renderCancelledTimeline(){
-
-  return `
-
-  <div class="timeline">
-
-    <div class="step done">
-
-      <div class="step-icon">
-        📦
-      </div>
-
-
-      <div class="step-content">
-
-        <h3>
-          Order Placed
-        </h3>
-
-      </div>
-
-    </div>
-
-
-    <div class="step active">
-
-      <div class="step-icon">
-        ❌
-      </div>
-
-
-      <div class="step-content">
-
-        <h3>
-          Order Cancelled
-        </h3>
-
-
-        <p>
-          ଏହି Order ବର୍ତ୍ତମାନ Cancelled ଅଛି।
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  `;
-
-}
-
-
-/* ===================================
-   DATE
-=================================== */
-
-function formatDate(
-  timestamp
-){
-
-  if(!timestamp){
-
-    return "Date unavailable";
-
-  }
-
-
-  try{
-
-    if(
-      typeof timestamp.toDate ===
-      "function"
-    ){
-
-      return timestamp
-        .toDate()
-        .toLocaleString(
-          "en-IN",
-          {
-            day:"2-digit",
-            month:"short",
-            year:"numeric",
-            hour:"2-digit",
-            minute:"2-digit"
-          }
+        return date.toLocaleString(
+            "en-IN",
+            {
+                day:"2-digit",
+                month:"short",
+                year:"numeric",
+                hour:"2-digit",
+                minute:"2-digit"
+            }
         );
 
     }
+    catch(e){
 
+        return "—";
 
-    return "Date unavailable";
-
-  }catch(e){
-
-    return "Date unavailable";
-
-  }
+    }
 
 }
 
 
-/* ===================================
-   MESSAGE
-=================================== */
+function statusText(status){
 
-function showMessage(
-  text,
-  type
-){
+    const map = {
 
-  const box =
+        placed:
+            "Order Placed",
+
+        confirmed:
+            "Order Confirmed",
+
+        processing:
+            "Processing",
+
+        shipped:
+            "Order Shipped",
+
+        delivered:
+            "Order Delivered",
+
+        cancelled:
+            "Order Cancelled"
+
+    };
+
+    return map[status] || status;
+
+}
+
+
+function statusClass(status){
+
+    return "status-" + String(status || "placed");
+
+}
+
+
+/* ===============================
+   TIMELINE
+================================ */
+
+const steps = [
+
+    {
+        key:"placed",
+        icon:"📦",
+        name:"Order Placed"
+    },
+
+    {
+        key:"confirmed",
+        icon:"✅",
+        name:"Order Confirmed"
+    },
+
+    {
+        key:"processing",
+        icon:"⚙️",
+        name:"Processing"
+    },
+
+    {
+        key:"shipped",
+        icon:"🚚",
+        name:"Order Shipped"
+    },
+
+    {
+        key:"delivered",
+        icon:"🏠",
+        name:"Order Delivered"
+    }
+
+];
+
+
+function renderTimeline(data){
+
+    const timeline =
+        document.getElementById(
+            "timeline"
+        );
+
+    timeline.innerHTML = "";
+
+
+    const status =
+        String(
+            data.orderStatus || "placed"
+        ).toLowerCase();
+
+
+    if(status === "cancelled"){
+
+        timeline.innerHTML = `
+
+            <div class="step done current">
+
+                <div class="step-icon">
+                    📦
+                </div>
+
+                <div class="step-content">
+
+                    <div class="step-name">
+                        Order Placed
+                    </div>
+
+                    <div class="step-time">
+                        ${formatDate(
+                            data.placedAt ||
+                            data.createdAt
+                        )}
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="step done current">
+
+                <div class="step-icon">
+                    ❌
+                </div>
+
+                <div class="step-content">
+
+                    <div class="step-name">
+                        Order Cancelled
+                    </div>
+
+                    <div class="step-time">
+                        ${formatDate(
+                            data.cancelledAt ||
+                            data.updatedAt
+                        )}
+                    </div>
+
+                    <div class="current-label">
+                        Current Status
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    const orderIndex =
+        steps.findIndex(
+            s => s.key === status
+        );
+
+
+    steps.forEach(
+        function(step,index){
+
+            const done =
+                orderIndex >= index;
+
+            const current =
+                step.key === status;
+
+
+            const timeField =
+                step.key + "At";
+
+
+            const time =
+                data[timeField];
+
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+
+            div.className =
+                "step" +
+                (done ? " done" : "") +
+                (current ? " current" : "");
+
+
+            div.innerHTML = `
+
+                <div class="step-icon">
+
+                    ${step.icon}
+
+                </div>
+
+                <div class="step-content">
+
+                    <div class="step-name">
+
+                        ${step.name}
+
+                    </div>
+
+                    ${
+                        time
+                        ?
+                        `
+                        <div class="step-time">
+                            ${formatDate(time)}
+                        </div>
+                        `
+                        :
+                        ""
+                    }
+
+                    ${
+                        current
+                        ?
+                        `
+                        <div class="current-label">
+                            Current Status
+                        </div>
+                        `
+                        :
+                        ""
+                    }
+
+                </div>
+
+            `;
+
+
+            timeline.appendChild(div);
+
+        }
+    );
+
+}
+
+
+/* ===============================
+   PRODUCTS
+================================ */
+
+function getImage(item){
+
+    return String(
+        item.image ||
+        item.imageUrl ||
+        item.photo ||
+        "logo.png"
+    ).trim() || "logo.png";
+
+}
+
+
+function escapeHtml(value){
+
+    return String(value ?? "")
+        .replace(
+            /[&<>"']/g,
+            function(match){
+
+                return {
+
+                    "&":"&amp;",
+                    "<":"&lt;",
+                    ">":"&gt;",
+                    '"':"&quot;",
+                    "'":"&#039;"
+
+                }[match];
+
+            }
+        );
+
+}
+
+
+function renderProducts(items){
+
+    const box =
+        document.getElementById(
+            "products"
+        );
+
+    box.innerHTML = "";
+
+
+    if(!Array.isArray(items) || !items.length){
+
+        box.innerHTML = `
+
+            <div class="empty">
+                🛍️ Product information ନାହିଁ।
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    items.forEach(
+        function(item){
+
+            const qty =
+                Number(item.qty || 1);
+
+            const price =
+                Number(item.price || 0);
+
+            const lineTotal =
+                price * qty;
+
+
+            const div =
+                document.createElement("div");
+
+            div.className =
+                "product";
+
+
+            div.innerHTML = `
+
+                <img
+                    src="${escapeHtml(
+                        getImage(item)
+                    )}"
+                    onerror="
+                        this.onerror=null;
+                        this.src='logo.png';
+                    ">
+
+
+                <div class="product-info">
+
+                    <div class="product-name">
+
+                        ${escapeHtml(
+                            item.name ||
+                            "Product"
+                        )}
+
+                    </div>
+
+                    <div class="product-meta">
+
+                        Qty: ${qty}
+
+                        ${
+                            item.weight
+                            ?
+                            " • " +
+                            escapeHtml(
+                                item.weight
+                            ) +
+                            " " +
+                            escapeHtml(
+                                item.weightUnit || ""
+                            )
+                            :
+                            ""
+                        }
+
+                    </div>
+
+                </div>
+
+
+                <div class="product-price">
+
+                    ₹${lineTotal}
+
+                </div>
+
+            `;
+
+
+            box.appendChild(div);
+
+        }
+    );
+
+}
+
+
+/* ===============================
+   SHOW RESULT
+================================ */
+
+function showResult(data,orderId){
+
     document.getElementById(
-      "message"
+        "result"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "showOrderId"
+    ).innerText =
+        "📦 Order ID: " + orderId;
+
+
+    document.getElementById(
+        "showOrderDate"
+    ).innerText =
+        formatDate(
+            data.placedAt ||
+            data.createdAt
+        );
+
+
+    const badge =
+        document.getElementById(
+            "statusBadge"
+        );
+
+
+    const status =
+        String(
+            data.orderStatus || "placed"
+        ).toLowerCase();
+
+
+    badge.className =
+        "status-badge " +
+        statusClass(status);
+
+
+    badge.innerText =
+        statusText(status);
+
+
+    renderTimeline(data);
+
+
+    renderProducts(
+        data.items || []
     );
 
 
-  box.className =
-    "message " + type;
-
-
-  box.innerText =
-    text;
-
-
-  box.style.display =
-    "block";
-
-}
-
-
-function hideMessage(){
-
-  const box =
     document.getElementById(
-      "message"
+        "total"
+    ).innerText =
+        "₹" +
+        Number(
+            data.total || 0
+        );
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* ===============================
+   ERROR
+================================ */
+
+function showError(message){
+
+    const error =
+        document.getElementById(
+            "error"
+        );
+
+    error.innerText =
+        "❌ " + message;
+
+    error.style.display =
+        "block";
+
+}
+
+
+function clearError(){
+
+    document.getElementById(
+        "error"
+    ).style.display =
+        "none";
+
+}
+
+
+/* ===============================
+   TRACK ORDER
+================================ */
+
+window.trackOrder =
+async function(){
+
+    clearError();
+
+
+    const orderId =
+        document
+        .getElementById("orderId")
+        .value
+        .trim();
+
+
+    const mobile =
+        normalizeMobile(
+            document
+            .getElementById("mobile")
+            .value
+        );
+
+
+    if(!orderId){
+
+        showError(
+            "Order ID ଦିଅନ୍ତୁ।"
+        );
+
+        return;
+
+    }
+
+
+    if(mobile.length !== 10){
+
+        showError(
+            "10 digit Mobile Number ଦିଅନ୍ତୁ।"
+        );
+
+        return;
+
+    }
+
+
+    const button =
+        document.getElementById(
+            "trackBtn"
+        );
+
+
+    button.disabled = true;
+
+    button.innerText =
+        "⏳ Searching...";
+
+
+    try{
+
+        const trackingId =
+            `${orderId}_${mobile}`;
+
+
+        const trackingRef =
+            doc(
+                db,
+                "orderTracking",
+                trackingId
+            );
+
+
+        const snapshot =
+            await getDoc(
+                trackingRef
+            );
+
+
+        if(!snapshot.exists()){
+
+            showError(
+                "Order ID ଏବଂ Mobile Number match କରୁନାହିଁ କିମ୍ବା Order tracking ମିଳିଲା ନାହିଁ।"
+            );
+
+            document.getElementById(
+                "result"
+            ).style.display =
+                "none";
+
+            return;
+
+        }
+
+
+        const data =
+            snapshot.data();
+
+
+        showResult(
+            data,
+            orderId
+        );
+
+
+        localStorage.setItem(
+            "utkalaLastOrderId",
+            orderId
+        );
+
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        showError(
+            "Tracking load ହୋଇପାରିଲା ନାହିଁ। ପୁଣିଥରେ try କରନ୍ତୁ।"
+        );
+
+    }
+    finally{
+
+        button.disabled = false;
+
+        button.innerText =
+            "🔎 Track Order";
+
+    }
+
+};
+
+
+/* ===============================
+   AUTO LOAD
+================================ */
+
+const params =
+    new URLSearchParams(
+        window.location.search
     );
-
-
-  box.style.display =
-    "none";
-
-}
-
-
-/* ===================================
-   ESCAPE HTML
-=================================== */
-
-function escapeHTML(
-  value
-){
-
-  return String(
-    value ?? ""
-  )
-  .replace(
-    /&/g,
-    "&amp;"
-  )
-  .replace(
-    /</g,
-    "&lt;"
-  )
-  .replace(
-    />/g,
-    "&gt;"
-  )
-  .replace(
-    /"/g,
-    "&quot;"
-  )
-  .replace(
-    /'/g,
-    "&#039;"
-  );
-
-}
-
-
-/* ===================================
-   AUTO LOAD LAST ORDER
-=================================== */
-
-const urlParams =
-  new URLSearchParams(
-    window.location.search
-  );
 
 
 const urlOrderId =
-  urlParams.get(
-    "orderId"
-  );
+    params.get("orderId");
 
 
-const lastOrder =
-  localStorage.getItem(
-    "utkalaLastOrderId"
-  );
+const savedOrderId =
+    localStorage.getItem(
+        "utkalaLastOrderId"
+    );
 
 
 if(urlOrderId){
 
-  document
-    .getElementById(
-      "orderId"
-    )
-    .value =
-    urlOrderId;
-
-}else if(lastOrder){
-
-  document
-    .getElementById(
-      "orderId"
-    )
-    .value =
-    lastOrder;
+    document.getElementById(
+        "orderId"
+    ).value =
+        urlOrderId;
 
 }
+
+
+/*
+   Mobile number intentionally
+   not saved automatically.
+*/
 
 
 </script>
