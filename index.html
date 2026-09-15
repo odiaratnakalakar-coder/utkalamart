@@ -87,7 +87,21 @@ a{
 .top-right{
     display:flex;
     align-items:center;
-    gap:18px;
+    gap:16px;
+}
+
+.top-right a{
+    color:#fff;
+}
+
+.top-track{
+    background:#0a8755;
+    padding:5px 9px;
+    border-radius:6px;
+}
+
+.top-track:hover{
+    background:#ef761d;
 }
 
 
@@ -199,7 +213,7 @@ a{
 .actions{
     display:flex;
     align-items:center;
-    gap:13px;
+    gap:10px;
 }
 
 .action{
@@ -214,6 +228,8 @@ a{
     font-weight:bold;
 
     font-size:10px;
+
+    padding:3px;
 }
 
 .action-icon{
@@ -243,6 +259,14 @@ a{
     justify-content:center;
 
     font-size:9px;
+}
+
+.track-action{
+    color:#075b3b;
+}
+
+.track-action:hover{
+    color:#ef761d;
 }
 
 
@@ -372,6 +396,10 @@ a{
     font-weight:900;
 
     font-size:15px;
+}
+
+.hero-btn:hover{
+    background:#ef761d;
 }
 
 
@@ -774,6 +802,10 @@ a{
     font-size:11px;
 
     font-weight:900;
+}
+
+.add-cart:hover{
+    background:#075b3b;
 }
 
 .add-cart:disabled{
@@ -1272,7 +1304,11 @@ footer strong{
     }
 
     .top-right{
-        gap:6px;
+        gap:5px;
+    }
+
+    .top-track{
+        padding:4px 6px;
     }
 
     .header{
@@ -1303,7 +1339,7 @@ footer strong{
     }
 
     .actions{
-        gap:5px;
+        gap:3px;
     }
 
     .action{
@@ -1312,6 +1348,10 @@ footer strong{
 
     .action-icon{
         font-size:20px;
+    }
+
+    .track-action{
+        display:none;
     }
 
     .search{
@@ -1499,6 +1539,10 @@ footer strong{
         font-size:13px;
     }
 
+    /* ================================================
+       MOBILE BOTTOM
+    ================================================ */
+
     .mobile-bottom{
         position:fixed;
 
@@ -1571,6 +1615,10 @@ footer strong{
         align-items:center;
 
         justify-content:center;
+    }
+
+    .track-bottom{
+        color:#075b3b!important;
     }
 
     .toast{
@@ -1665,15 +1713,29 @@ footer strong{
         ଆମର ଉତ୍ପାଦ, ଆମର ଘର
     </div>
 
+
     <div class="top-right">
+
+        <!-- NEW ORDER TRACKING -->
+
+        <a
+            href="order-tracking.html"
+            class="top-track">
+
+            📦 Order Track
+
+        </a>
+
 
         <span>
             Support
         </span>
 
+
         <span>
             🛒 100% ଓଡ଼ିଆ ପ୍ରଡକ୍ଟ
         </span>
+
 
         <a href="seller.html">
             👤 Seller Login
@@ -1690,11 +1752,15 @@ footer strong{
 
 <header class="header">
 
-    <a href="#"
-       class="brand">
 
-        <img src="logo.png"
-             alt="Utkala Mart">
+    <a
+        href="#"
+        class="brand">
+
+        <img
+            src="logo.png"
+            alt="Utkala Mart">
+
 
         <div>
 
@@ -1704,6 +1770,7 @@ footer strong{
                 <span>Mart</span>
 
             </div>
+
 
             <div class="brand-sub">
 
@@ -1716,6 +1783,8 @@ footer strong{
     </a>
 
 
+    <!-- SEARCH -->
+
     <div class="search">
 
         <input
@@ -1723,6 +1792,7 @@ footer strong{
             type="search"
             placeholder="ପ୍ରଡକ୍ଟ ଓ ସ୍ଥାନୀୟ ଉତ୍ପାଦ ଖୋଜନ୍ତୁ..."
             autocomplete="off">
+
 
         <button
             onclick="searchProducts()">
@@ -1734,7 +1804,27 @@ footer strong{
     </div>
 
 
+    <!-- ACTIONS -->
+
     <div class="actions">
+
+
+        <!-- ORDER TRACKING -->
+
+        <a
+            class="action track-action"
+            href="order-tracking.html">
+
+            <span class="action-icon">
+                📦
+            </span>
+
+            Order Track
+
+        </a>
+
+
+        <!-- CART -->
 
         <button
             class="action"
@@ -1746,6 +1836,7 @@ footer strong{
 
             My Cart
 
+
             <span
                 class="cart-badge"
                 id="cartCount">
@@ -1756,6 +1847,8 @@ footer strong{
 
         </button>
 
+
+        <!-- WISHLIST -->
 
         <button
             class="action"
@@ -1769,6 +1862,8 @@ footer strong{
 
         </button>
 
+
+        <!-- ACCOUNT -->
 
         <button
             class="action"
@@ -1792,6 +1887,7 @@ footer strong{
 ===================================================== -->
 
 <nav class="nav">
+
 
     <a
         class="active"
@@ -1868,6 +1964,16 @@ footer strong{
     </a>
 
 
+    <!-- TRACKING IN NAV -->
+
+    <a
+        href="order-tracking.html">
+
+        📦 Order Track
+
+    </a>
+
+
     <a
         href="#about"
         onclick="setActiveNav(this)">
@@ -1894,7 +2000,9 @@ footer strong{
 
 <section class="hero">
 
+
     <div class="hero-content">
+
 
         <h1>
 
@@ -1939,6 +2047,7 @@ footer strong{
 
 <section class="categories">
 
+
     <div
         class="category"
         onclick="showCategory('food')">
@@ -1947,10 +2056,12 @@ footer strong{
             →
         </span>
 
+
         <img
             src="food.jpg"
             alt="Food Products"
             loading="lazy">
+
 
         <div class="category-text">
 
@@ -1975,10 +2086,12 @@ footer strong{
             →
         </span>
 
+
         <img
             src="handicraft.jpg"
             alt="Handicraft Products"
             loading="lazy">
+
 
         <div class="category-text">
 
@@ -2003,10 +2116,12 @@ footer strong{
             →
         </span>
 
+
         <img
             src="clothing.jpg"
             alt="Clothing and Textiles"
             loading="lazy">
+
 
         <div class="category-text">
 
@@ -2031,10 +2146,12 @@ footer strong{
             →
         </span>
 
+
         <img
             src="farmer.jpg"
             alt="Farmer Products"
             loading="lazy">
+
 
         <div class="category-text">
 
@@ -2058,6 +2175,7 @@ footer strong{
 ===================================================== -->
 
 <section class="trust">
+
 
     <div class="trust-item">
 
@@ -2129,11 +2247,13 @@ footer strong{
     class="section"
     id="specialSection">
 
+
     <div class="section-title">
 
         <h2>
             🌿 ବିଶେଷ ଉତ୍ପାଦ
         </h2>
+
 
         <button
             onclick="showAllProducts()">
@@ -2295,10 +2415,12 @@ footer strong{
             🧑‍🌾 “ଆମ କୃଷକ, ଆମ ଗର୍ବ”
         </h2>
 
+
         <p>
             ଗାଁରୁ ସିଧା ଆପଣଙ୍କ ଘରକୁ
             Utkala Mart ମାଧ୍ୟମରେ
         </p>
+
 
         <button
             onclick="showCategory('farmer')">
@@ -2324,6 +2446,7 @@ footer strong{
         🌿 ଗଞ୍ଜାମରୁ ଆରମ୍ଭ,
         ପୁରା ଭାରତରେ 🇮🇳
     </h2>
+
 
     <p>
 
@@ -2351,6 +2474,7 @@ footer strong{
 ===================================================== -->
 
 <section class="values">
+
 
     <div class="value">
 
@@ -2419,6 +2543,17 @@ footer strong{
 
     <br><br>
 
+    📦
+    <a
+        href="order-tracking.html"
+        style="font-weight:900;">
+
+        Order Track
+
+    </a>
+
+    <br><br>
+
     © 2026 Utkala Mart
 
 </footer>
@@ -2429,6 +2564,9 @@ footer strong{
 ===================================================== -->
 
 <div class="mobile-bottom">
+
+
+    <!-- HOME -->
 
     <button
         class="active"
@@ -2443,6 +2581,8 @@ footer strong{
     </button>
 
 
+    <!-- CATEGORY -->
+
     <button
         onclick="scrollCategories()">
 
@@ -2455,12 +2595,15 @@ footer strong{
     </button>
 
 
+    <!-- CART -->
+
     <button
         onclick="openCart()">
 
         <span class="mi">
             🛒
         </span>
+
 
         <span
             class="mobile-cart-badge"
@@ -2475,17 +2618,22 @@ footer strong{
     </button>
 
 
+    <!-- ORDER TRACKING -->
+
     <button
-        onclick="toggleWishlistPage()">
+        class="track-bottom"
+        onclick="goOrderTracking()">
 
         <span class="mi">
-            ♡
+            📦
         </span>
 
-        ପସନ୍ଦ
+        Track
 
     </button>
 
+
+    <!-- ACCOUNT -->
 
     <button
         onclick="goAccount()">
@@ -2520,7 +2668,9 @@ footer strong{
     class="market-view"
     id="marketView">
 
+
     <div class="market-head">
+
 
         <button
             class="market-back"
@@ -2536,6 +2686,7 @@ footer strong{
             <h2 id="marketTitle">
                 🛍️ ପ୍ରଡକ୍ଟ
             </h2>
+
 
             <p id="marketSubtitle">
                 Utkala Mart
@@ -2576,15 +2727,18 @@ footer strong{
     id="cartOverlay"
     onclick="closeCart(event)">
 
+
     <div
         class="cart"
         onclick="event.stopPropagation()">
+
 
         <div class="cart-header">
 
             <h2>
                 🛒 My Cart
             </h2>
+
 
             <button
                 class="close-cart"
@@ -2636,14 +2790,12 @@ footer strong{
 ===================================================== */
 
 import {
-    initializeApp
+    db
 }
-from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+from "./js/firebase-config.js";
 
 
 import {
-    getFirestore,
     collection,
     getDocs
 }
@@ -2652,57 +2804,21 @@ from
 
 
 /* =====================================================
-   FIREBASE CONFIG
-===================================================== */
-
-const firebaseConfig={
-
-    apiKey:
-    "AIzaSyBYJ_KKsS_7SNz108jnw6hpOlmegofRhJg",
-
-    authDomain:
-    "utkalamart-1ec68.firebaseapp.com",
-
-    projectId:
-    "utkalamart-1ec68",
-
-    storageBucket:
-    "utkalamart-1ec68.firebasestorage.app",
-
-    messagingSenderId:
-    "664871353747",
-
-    appId:
-    "1:664871353747:web:96532fdafe78aabe7f3c66"
-
-};
-
-
-/* =====================================================
-   INITIALIZE
-===================================================== */
-
-const app =
-    initializeApp(firebaseConfig);
-
-const db =
-    getFirestore(app);
-
-
-/* =====================================================
    GLOBAL
 ===================================================== */
 
-let allProducts=[];
+let allProducts = [];
 
-let cart=
+
+let cart =
     JSON.parse(
         localStorage.getItem(
             "utkalaCart"
         ) || "[]"
     );
 
-let wishlist=
+
+let wishlist =
     JSON.parse(
         localStorage.getItem(
             "utkalaWishlist"
@@ -2716,21 +2832,23 @@ let wishlist=
 
 function updateCart(){
 
-    const count=
+    const count =
         cart.reduce(
-            (total,item)=>
-                total+
-                Number(item.qty||0),
+            (total,item) =>
+                total +
+                Number(item.qty || 0),
             0
         );
 
+
     document
         .getElementById("cartCount")
-        .innerText=count;
+        .innerText = count;
+
 
     document
         .getElementById("mobileCartCount")
-        .innerText=count;
+        .innerText = count;
 
 }
 
@@ -2742,11 +2860,13 @@ function updateCart(){
 function getImage(product){
 
     return String(
+
         product.imageUrl ||
         product.image ||
         product.photoUrl ||
         product.photo ||
         "logo.png"
+
     ).trim() || "logo.png";
 
 }
@@ -2761,44 +2881,51 @@ function categoryMatch(
     category
 ){
 
-    const value=
+    const value =
         String(
+
             product.categoryId ||
             product.category ||
             product.categoryName ||
             ""
+
         )
         .toLowerCase();
 
 
-    if(category==="food"){
+    if(category === "food"){
 
         return(
+
             value.includes("food") ||
             value.includes("grocery") ||
             value.includes("ଖାଦ୍ୟ") ||
             value.includes("ଗ୍ରୋସରୀ")
+
         );
 
     }
 
 
-    if(category==="handicraft"){
+    if(category === "handicraft"){
 
         return(
+
             value.includes("craft") ||
             value.includes("handmade") ||
             value.includes("hand made") ||
             value.includes("ହାତ") ||
             value.includes("ହସ୍ତ")
+
         );
 
     }
 
 
-    if(category==="clothing"){
+    if(category === "clothing"){
 
         return(
+
             value.includes("cloth") ||
             value.includes("textile") ||
             value.includes("fashion") ||
@@ -2806,14 +2933,16 @@ function categoryMatch(
             value.includes("ପୋଷାକ") ||
             value.includes("କପଡା") ||
             value.includes("କପଡ଼ା")
+
         );
 
     }
 
 
-    if(category==="farmer"){
+    if(category === "farmer"){
 
         return(
+
             value.includes("farmer") ||
             value.includes("agri") ||
             value.includes("agriculture") ||
@@ -2821,6 +2950,7 @@ function categoryMatch(
             value.includes("କୃଷକ") ||
             value.includes("କୃଷି") ||
             value.includes("ଗ୍ରାମ")
+
         );
 
     }
@@ -2837,7 +2967,7 @@ function categoryMatch(
 
 function escapeHtml(value){
 
-    return String(value??"")
+    return String(value ?? "")
         .replace(
             /[&<>"']/g,
             function(match){
@@ -2864,7 +2994,7 @@ function escapeHtml(value){
 
 function escapeAttribute(value){
 
-    return String(value??"")
+    return String(value ?? "")
         .replace(
             /"/g,
             "&quot;"
@@ -2880,11 +3010,13 @@ function escapeAttribute(value){
 function getStock(product){
 
     return Number(
+
         product.stockQty ??
         product.availableStock ??
         product.stock ??
         product.quantity ??
         0
+
     );
 
 }
@@ -2899,54 +3031,55 @@ function createProductCard(
     container
 ){
 
-    const card=
+    const card =
         document.createElement("div");
 
-    card.className=
+    card.className =
         "product-card";
 
 
     /* IMAGE */
 
-    const imageBox=
+    const imageBox =
         document.createElement("div");
 
-    imageBox.className=
+    imageBox.className =
         "product-image";
 
 
-    const img=
+    const img =
         document.createElement("img");
 
-    img.src=
+    img.src =
         getImage(product);
 
-    img.alt=
+    img.alt =
         product.name ||
         "Utkala Mart Product";
 
-    img.loading=
+    img.loading =
         "lazy";
 
-    img.onerror=
+
+    img.onerror =
         function(){
 
-            this.onerror=null;
+            this.onerror = null;
 
-            this.src="logo.png";
+            this.src = "logo.png";
 
         };
 
 
     /* BADGE */
 
-    const badge=
+    const badge =
         document.createElement("span");
 
-    badge.className=
+    badge.className =
         "product-badge";
 
-    badge.innerText=
+    badge.innerText =
         product.location ||
         product.sellerLocation ||
         "ଓଡ଼ିଆ";
@@ -2954,10 +3087,10 @@ function createProductCard(
 
     /* WISHLIST */
 
-    const wish=
+    const wish =
         document.createElement("button");
 
-    wish.className=
+    wish.className =
         "wishlist" +
         (
             wishlist.includes(product.id)
@@ -2967,7 +3100,8 @@ function createProductCard(
             ""
         );
 
-    wish.innerText=
+
+    wish.innerText =
         wishlist.includes(product.id)
         ?
         "♥"
@@ -2975,7 +3109,7 @@ function createProductCard(
         "♡";
 
 
-    wish.onclick=
+    wish.onclick =
         function(event){
 
             event.stopPropagation();
@@ -2997,31 +3131,35 @@ function createProductCard(
 
     /* INFO */
 
-    const info=
+    const info =
         document.createElement("div");
 
-    info.className=
+    info.className =
         "product-info";
 
 
-    const name=
+    /* NAME */
+
+    const name =
         document.createElement("div");
 
-    name.className=
+    name.className =
         "product-name";
 
-    name.innerText=
+    name.innerText =
         product.name ||
         "ପ୍ରଡକ୍ଟ";
 
 
-    const category=
+    /* CATEGORY */
+
+    const category =
         document.createElement("div");
 
-    category.className=
+    category.className =
         "product-category";
 
-    category.innerText=
+    category.innerText =
         product.subcategoryName ||
         product.subcategory ||
         product.categoryName ||
@@ -3031,39 +3169,40 @@ function createProductCard(
 
     /* PRICE */
 
-    const price=
+    const price =
         document.createElement("div");
 
-    price.className=
+    price.className =
         "product-price";
 
 
-    const amount=
+    const amount =
         product.utkalaPrice ??
         product.price ??
         product.sellingPrice ??
         0;
 
 
-    price.innerText=
-        "₹"+amount;
+    price.innerText =
+        "₹" + amount;
 
 
     /* SELLER PRICE */
 
-    const sellerPrice=
+    const sellerPrice =
         document.createElement("div");
 
-    sellerPrice.className=
+    sellerPrice.className =
         "seller-price";
+
 
     if(
         product.sellerPrice !== undefined &&
         product.sellerPrice !== ""
     ){
 
-        sellerPrice.innerText=
-            "Seller Price: ₹"+
+        sellerPrice.innerText =
+            "Seller Price: ₹" +
             product.sellerPrice;
 
     }
@@ -3071,19 +3210,20 @@ function createProductCard(
 
     /* META */
 
-    const meta=
+    const meta =
         document.createElement("div");
 
-    meta.className=
+    meta.className =
         "product-meta";
 
 
     /* WEIGHT */
 
-    const weight=
+    const weight =
         product.weight;
 
-    const unit=
+
+    const unit =
         product.weightUnit ||
         product.unit ||
         "";
@@ -3091,13 +3231,13 @@ function createProductCard(
 
     if(weight){
 
-        const span=
+        const span =
             document.createElement("span");
 
-        span.innerText=
-            "⚖️ "+
-            weight+
-            " "+
+        span.innerText =
+            "⚖️ " +
+            weight +
+            " " +
             unit;
 
         meta.appendChild(span);
@@ -3107,39 +3247,40 @@ function createProductCard(
 
     /* STOCK */
 
-    const stock=
+    const stock =
         getStock(product);
 
-    const stockSpan=
+
+    const stockSpan =
         document.createElement("span");
 
 
-    if(stock<=0){
+    if(stock <= 0){
 
-        stockSpan.className=
+        stockSpan.className =
             "stock-out";
 
-        stockSpan.innerText=
+        stockSpan.innerText =
             "❌ Stock Out";
 
     }
-    else if(stock<=5){
+    else if(stock <= 5){
 
-        stockSpan.className=
+        stockSpan.className =
             "stock-low";
 
-        stockSpan.innerText=
-            "⚠️ Stock: "+
+        stockSpan.innerText =
+            "⚠️ Stock: " +
             stock;
 
     }
     else{
 
-        stockSpan.className=
+        stockSpan.className =
             "stock-ok";
 
-        stockSpan.innerText=
-            "📦 Stock: "+
+        stockSpan.innerText =
+            "📦 Stock: " +
             stock;
 
     }
@@ -3152,27 +3293,29 @@ function createProductCard(
 
     /* CART BUTTON */
 
-    const button=
+    const button =
         document.createElement("button");
 
-    button.className=
+    button.className =
         "add-cart";
 
 
-    if(stock<=0){
+    if(stock <= 0){
 
-        button.disabled=true;
+        button.disabled =
+            true;
 
-        button.innerText=
+        button.innerText =
             "❌ Stock Out";
 
     }
     else{
 
-        button.innerText=
+        button.innerText =
             "🛒 କାର୍ଟରେ ଯୋଡନ୍ତୁ";
 
-        button.onclick=
+
+        button.onclick =
             function(event){
 
                 event.stopPropagation();
@@ -3213,26 +3356,28 @@ function renderProducts(
     products
 ){
 
-    const grid=
+    const grid =
         document.getElementById(
             "productGrid"
         );
 
-    const loading=
+
+    const loading =
         document.getElementById(
             "loading"
         );
 
 
-    grid.innerHTML="";
+    grid.innerHTML = "";
 
 
     if(!products.length){
 
-        loading.style.display=
+        loading.style.display =
             "block";
 
-        loading.innerText=
+
+        loading.innerText =
             "🛍️ ଏଠାରେ ପ୍ରଡକ୍ଟ ଖୁବ ଶୀଘ୍ର ଦେଖାଯିବ।";
 
         return;
@@ -3240,7 +3385,7 @@ function renderProducts(
     }
 
 
-    loading.style.display=
+    loading.style.display =
         "none";
 
 
@@ -3268,7 +3413,7 @@ function renderCategory(
     category
 ){
 
-    const ids={
+    const ids = {
 
         food:
             "foodGrid",
@@ -3285,19 +3430,20 @@ function renderCategory(
     };
 
 
-    const grid=
+    const grid =
         document.getElementById(
             ids[category]
         );
 
 
-    if(!grid)return;
+    if(!grid)
+        return;
 
 
-    grid.innerHTML="";
+    grid.innerHTML = "";
 
 
-    const items=
+    const items =
         allProducts
         .filter(
             p =>
@@ -3311,7 +3457,7 @@ function renderCategory(
 
     if(!items.length){
 
-        grid.innerHTML=
+        grid.innerHTML =
             `
             <div class="loading">
 
@@ -3348,7 +3494,7 @@ function categoryTitle(
     category
 ){
 
-    const titles={
+    const titles = {
 
         food:[
             "🍚 ଖାଦ୍ୟ",
@@ -3384,7 +3530,7 @@ function categoryTitle(
 }
 
 
-let currentMarketCategory="";
+let currentMarketCategory = "";
 
 
 /* =====================================================
@@ -3395,18 +3541,18 @@ function renderMarket(
     products
 ){
 
-    const grid=
+    const grid =
         document.getElementById(
             "marketGrid"
         );
 
 
-    grid.innerHTML="";
+    grid.innerHTML = "";
 
 
     if(!products.length){
 
-        grid.innerHTML=
+        grid.innerHTML =
             `
             <div class="market-empty">
 
@@ -3444,11 +3590,11 @@ function openMarketView(
     category
 ){
 
-    currentMarketCategory=
+    currentMarketCategory =
         category;
 
 
-    const titles=
+    const titles =
         categoryTitle(
             category
         );
@@ -3458,7 +3604,7 @@ function openMarketView(
         .getElementById(
             "marketTitle"
         )
-        .innerText=
+        .innerText =
             titles[0];
 
 
@@ -3466,8 +3612,8 @@ function openMarketView(
         .getElementById(
             "marketSubtitle"
         )
-        .innerText=
-            titles[1]+
+        .innerText =
+            titles[1] +
             " • Utkala Mart";
 
 
@@ -3475,7 +3621,7 @@ function openMarketView(
         .getElementById(
             "marketSearch"
         )
-        .value="";
+        .value = "";
 
 
     renderMarket(
@@ -3493,11 +3639,11 @@ function openMarketView(
         .getElementById(
             "marketView"
         )
-        .style.display=
+        .style.display =
             "block";
 
 
-    document.body.style.overflow=
+    document.body.style.overflow =
         "hidden";
 
 
@@ -3521,17 +3667,19 @@ function openMarketView(
    CLOSE MARKET
 ===================================================== */
 
-window.closeMarketView=
+window.closeMarketView =
     function(){
 
         document
             .getElementById(
                 "marketView"
             )
-            .style.display=
+            .style.display =
                 "none";
 
-        document.body.style.overflow="";
+
+        document.body.style.overflow =
+            "";
 
     };
 
@@ -3541,73 +3689,77 @@ window.closeMarketView=
 ===================================================== */
 
 document
-.getElementById("marketSearch")
-.addEventListener(
-    "input",
-    function(){
+    .getElementById(
+        "marketSearch"
+    )
+    .addEventListener(
+        "input",
+        function(){
 
-        const q=
-            this.value
-            .trim()
-            .toLowerCase();
-
-
-        let items=
-            allProducts.filter(
-                p =>
-                    categoryMatch(
-                        p,
-                        currentMarketCategory
-                    )
-            );
+            const q =
+                this.value
+                .trim()
+                .toLowerCase();
 
 
-        if(q){
-
-            items=
-                items.filter(
-                    function(product){
-
-                        const text=[
-                            product.name,
-                            product.category,
-                            product.categoryName,
-                            product.subcategory,
-                            product.subcategoryName,
-                            product.description,
-                            product.sellerName,
-                            product.location,
-                            product.sellerLocation
-                        ]
-                        .map(
-                            v =>
-                                String(
-                                    v||""
-                                )
-                                .toLowerCase()
+            let items =
+                allProducts.filter(
+                    p =>
+                        categoryMatch(
+                            p,
+                            currentMarketCategory
                         )
-                        .join(" ");
-
-
-                        return text.includes(q);
-
-                    }
                 );
 
+
+            if(q){
+
+                items =
+                    items.filter(
+                        function(product){
+
+                            const text = [
+
+                                product.name,
+                                product.category,
+                                product.categoryName,
+                                product.subcategory,
+                                product.subcategoryName,
+                                product.description,
+                                product.sellerName,
+                                product.location,
+                                product.sellerLocation
+
+                            ]
+                            .map(
+                                v =>
+                                    String(
+                                        v || ""
+                                    )
+                                    .toLowerCase()
+                            )
+                            .join(" ");
+
+
+                            return text.includes(q);
+
+                        }
+                    );
+
+            }
+
+
+            renderMarket(items);
+
         }
-
-
-        renderMarket(items);
-
-    }
-);
+    );
 
 
 /* =====================================================
    CATEGORY OPEN
 ===================================================== */
 
-window.showCategory=
+window.showCategory =
     function(category){
 
         openMarketView(
@@ -3629,7 +3781,7 @@ function hideCategories(){
         )
         .forEach(
             section =>
-                section.style.display=
+                section.style.display =
                     "none"
         );
 
@@ -3640,14 +3792,16 @@ function hideCategories(){
    SHOW ALL
 ===================================================== */
 
-window.showAllProducts=
+window.showAllProducts =
     function(){
 
         hideCategories();
 
+
         renderProducts(
             allProducts
         );
+
 
         document
             .getElementById(
@@ -3665,10 +3819,11 @@ window.showAllProducts=
    GO PRODUCTS
 ===================================================== */
 
-window.goToProducts=
+window.goToProducts =
     function(){
 
         hideCategories();
+
 
         document
             .getElementById(
@@ -3685,10 +3840,10 @@ window.goToProducts=
    SEARCH
 ===================================================== */
 
-window.searchProducts=
+window.searchProducts =
     function(){
 
-        const q=
+        const q =
             document
                 .getElementById(
                     "searchInput"
@@ -3710,11 +3865,12 @@ window.searchProducts=
         }
         else{
 
-            const result=
+            const result =
                 allProducts.filter(
                     function(product){
 
-                        const text=[
+                        const text = [
+
                             product.name,
                             product.category,
                             product.categoryName,
@@ -3724,11 +3880,12 @@ window.searchProducts=
                             product.sellerName,
                             product.location,
                             product.sellerLocation
+
                         ]
                         .map(
                             v =>
                                 String(
-                                    v||""
+                                    v || ""
                                 )
                                 .toLowerCase()
                         )
@@ -3741,7 +3898,9 @@ window.searchProducts=
                 );
 
 
-            renderProducts(result);
+            renderProducts(
+                result
+            );
 
         }
 
@@ -3774,13 +3933,13 @@ document
 
 function toast(message){
 
-    const element=
+    const element =
         document.getElementById(
             "toast"
         );
 
 
-    element.innerText=
+    element.innerText =
         message;
 
 
@@ -3794,7 +3953,7 @@ function toast(message){
     );
 
 
-    window.toastTimer=
+    window.toastTimer =
         setTimeout(
             function(){
 
@@ -3817,25 +3976,25 @@ function addToCart(
     product
 ){
 
-    const id=
+    const id =
         product.id;
 
 
-    const stock=
+    const stock =
         getStock(product);
 
 
-    const old=
+    const old =
         cart.find(
             item =>
-                item.id===id
+                item.id === id
         );
 
 
     if(old){
 
         if(
-            Number(old.qty)+1 >
+            Number(old.qty) + 1 >
             stock
         ){
 
@@ -3906,26 +4065,27 @@ function changeQty(
     delta
 ){
 
-    const item=
+    const item =
         cart[index];
 
 
-    if(!item)return;
+    if(!item)
+        return;
 
 
-    const stock=
+    const stock =
         Number(
             item.stock ??
             999999
         );
 
 
-    const newQty=
-        Number(item.qty||1)+
+    const newQty =
+        Number(item.qty || 1) +
         delta;
 
 
-    if(newQty>stock){
+    if(newQty > stock){
 
         toast(
             "⚠️ ଏତିକି Stock ମାତ୍ର ଅଛି।"
@@ -3936,11 +4096,11 @@ function changeQty(
     }
 
 
-    item.qty=
+    item.qty =
         newQty;
 
 
-    if(item.qty<=0){
+    if(item.qty <= 0){
 
         cart.splice(
             index,
@@ -3963,7 +4123,7 @@ function changeQty(
 }
 
 
-window.changeQty=
+window.changeQty =
     changeQty;
 
 
@@ -3971,29 +4131,27 @@ window.changeQty=
    OPEN CART
 ===================================================== */
 
-window.openCart=
+window.openCart =
     function(){
 
-        const box=
+        const box =
             document.getElementById(
                 "cartItems"
             );
 
 
-        let total=0;
+        let total = 0;
 
 
-        box.innerHTML="";
+        box.innerHTML = "";
 
 
         if(!cart.length){
 
-            box.innerHTML=
+            box.innerHTML =
                 `
                 <br>
-
                 🛒 କାର୍ଟ ଖାଲି ଅଛି।
-
                 `;
 
         }
@@ -4011,21 +4169,22 @@ window.openCart=
                     );
 
 
-                const row=
+                const row =
                     document.createElement(
                         "div"
                     );
 
 
-                row.className=
+                row.className =
                     "cart-item";
 
 
-                row.innerHTML=
+                row.innerHTML =
                     `
                     <img
                         src="${escapeAttribute(item.image)}"
                         onerror="this.src='logo.png'">
+
 
                     <div
                         style="flex:1">
@@ -4040,7 +4199,9 @@ window.openCart=
                         ×
                         ${Number(item.qty)}
 
+
                         <div class="qty-row">
+
 
                             <button
                                 onclick="changeQty(${index},-1)">
@@ -4049,9 +4210,11 @@ window.openCart=
 
                             </button>
 
+
                             <b>
                                 ${Number(item.qty)}
                             </b>
+
 
                             <button
                                 onclick="changeQty(${index},1)">
@@ -4059,6 +4222,7 @@ window.openCart=
                                 +
 
                             </button>
+
 
                             <button
                                 onclick="removeCart(${index})"
@@ -4089,15 +4253,15 @@ window.openCart=
             .getElementById(
                 "cartTotal"
             )
-            .innerText=
-                "ମୋଟ: ₹"+total;
+            .innerText =
+                "ମୋଟ: ₹" + total;
 
 
         document
             .getElementById(
                 "cartOverlay"
             )
-            .style.display=
+            .style.display =
                 "block";
 
     };
@@ -4107,7 +4271,7 @@ window.openCart=
    REMOVE CART
 ===================================================== */
 
-window.removeCart=
+window.removeCart =
     function(index){
 
         cart.splice(
@@ -4133,12 +4297,12 @@ window.removeCart=
    CLOSE CART
 ===================================================== */
 
-window.closeCart=
+window.closeCart =
     function(event){
 
         if(
             !event ||
-            event.target.id===
+            event.target.id ===
             "cartOverlay"
         ){
 
@@ -4146,7 +4310,7 @@ window.closeCart=
                 .getElementById(
                     "cartOverlay"
                 )
-                .style.display=
+                .style.display =
                     "none";
 
         }
@@ -4158,7 +4322,7 @@ window.closeCart=
    CHECKOUT
 ===================================================== */
 
-window.checkout=
+window.checkout =
     function(){
 
         if(!cart.length){
@@ -4172,7 +4336,7 @@ window.checkout=
         }
 
 
-        window.location.href=
+        window.location.href =
             "checkout.html";
 
     };
@@ -4191,10 +4355,10 @@ function toggleWishlist(
         wishlist.includes(id)
     ){
 
-        wishlist=
+        wishlist =
             wishlist.filter(
                 x =>
-                    x!==id
+                    x !== id
             );
 
 
@@ -4203,7 +4367,7 @@ function toggleWishlist(
         );
 
 
-        button.innerText=
+        button.innerText =
             "♡";
 
 
@@ -4222,7 +4386,7 @@ function toggleWishlist(
         );
 
 
-        button.innerText=
+        button.innerText =
             "♥";
 
 
@@ -4245,7 +4409,7 @@ function toggleWishlist(
    WISHLIST PAGE
 ===================================================== */
 
-window.toggleWishlistPage=
+window.toggleWishlistPage =
     function(){
 
         if(!wishlist.length){
@@ -4262,7 +4426,7 @@ window.toggleWishlistPage=
         hideCategories();
 
 
-        const items=
+        const items =
             allProducts.filter(
                 product =>
                     wishlist.includes(
@@ -4271,7 +4435,9 @@ window.toggleWishlistPage=
             );
 
 
-        renderProducts(items);
+        renderProducts(
+            items
+        );
 
 
         document
@@ -4290,11 +4456,24 @@ window.toggleWishlistPage=
    ACCOUNT
 ===================================================== */
 
-window.goAccount=
+window.goAccount =
     function(){
 
-        window.location.href=
+        window.location.href =
             "account.html";
+
+    };
+
+
+/* =====================================================
+   ORDER TRACKING
+===================================================== */
+
+window.goOrderTracking =
+    function(){
+
+        window.location.href =
+            "order-tracking.html";
 
     };
 
@@ -4303,10 +4482,11 @@ window.goAccount=
    HOME
 ===================================================== */
 
-window.goHome=
+window.goHome =
     function(){
 
         hideCategories();
+
 
         window.scrollTo({
             top:0,
@@ -4320,7 +4500,7 @@ window.goHome=
    CATEGORY SCROLL
 ===================================================== */
 
-window.scrollCategories=
+window.scrollCategories =
     function(){
 
         document
@@ -4339,7 +4519,7 @@ window.scrollCategories=
    NAV ACTIVE
 ===================================================== */
 
-window.setActiveNav=
+window.setActiveNav =
     function(element){
 
         document
@@ -4371,7 +4551,7 @@ window.setActiveNav=
 
 async function loadProducts(){
 
-    const loading=
+    const loading =
         document.getElementById(
             "loading"
         );
@@ -4379,26 +4559,16 @@ async function loadProducts(){
 
     try{
 
-        let products=[];
+        let products = [];
 
 
         /* =================================================
            NEW SELLER PRODUCTS
-           
-           IMPORTANT:
-           New Seller products must have:
-           
-           approved === true
-           active === true
-           status === "approved"
-           
-           Therefore Pending/Rejected will NOT show.
         ================================================= */
-
 
         try{
 
-            const snapshot=
+            const snapshot =
                 await getDocs(
                     collection(
                         db,
@@ -4410,33 +4580,25 @@ async function loadProducts(){
             snapshot.forEach(
                 function(productDoc){
 
-                    const data=
+                    const data =
                         productDoc.data();
 
 
                     /*
-                       NEW APPROVED SELLER PRODUCT
+                       NEW APPROVED PRODUCT
                     */
 
-                    const isNewApproved=
+                    const isNewApproved =
                         data.approved === true &&
                         data.active === true &&
                         data.status === "approved";
 
 
                     /*
-                       OLD PRODUCT COMPATIBILITY
-
-                       Old products which do not
-                       have approval fields can
-                       continue to display.
-
-                       If old product has these
-                       fields, it must satisfy
-                       approval.
+                       OLD PRODUCT
                     */
 
-                    const hasApprovalFields=
+                    const hasApprovalFields =
                         (
                             data.status !== undefined ||
                             data.approved !== undefined ||
@@ -4444,7 +4606,7 @@ async function loadProducts(){
                         );
 
 
-                    const isOldProduct=
+                    const isOldProduct =
                         !hasApprovalFields &&
                         data.active !== false;
 
@@ -4481,15 +4643,13 @@ async function loadProducts(){
 
         /* =================================================
            OLD MART PRODUCTS
-
-           Keep old martProducts working.
         ================================================= */
 
         if(!products.length){
 
             try{
 
-                const snapshot=
+                const snapshot =
                     await getDocs(
                         collection(
                             db,
@@ -4526,7 +4686,7 @@ async function loadProducts(){
         }
 
 
-        allProducts=
+        allProducts =
             products;
 
 
@@ -4544,11 +4704,11 @@ async function loadProducts(){
         );
 
 
-        loading.style.display=
+        loading.style.display =
             "block";
 
 
-        loading.innerText=
+        loading.innerText =
             "⚠️ Product load ହୋଇପାରିଲା ନାହିଁ।";
 
     }
@@ -4569,4 +4729,4 @@ loadProducts();
 
 </body>
 
-   </html>
+          </html>
