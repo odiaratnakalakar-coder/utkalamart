@@ -11,6 +11,9 @@
 <meta name="theme-color"
       content="#075b3b">
 
+<meta name="description"
+      content="Utkala Mart Customer Order Tracking">
+
 <title>
 Utkala Mart | Order Tracking
 </title>
@@ -19,7 +22,12 @@ Utkala Mart | Order Tracking
       type="image/png"
       href="logo.png">
 
+
 <style>
+
+/* =========================================
+   RESET
+========================================= */
 
 *{
     box-sizing:border-box;
@@ -29,6 +37,7 @@ body{
     margin:0;
     font-family:
         Arial,
+        "Noto Sans Odia",
         "Noto Sans Oriya",
         "Nirmala UI",
         sans-serif;
@@ -42,27 +51,42 @@ input{
     font:inherit;
 }
 
+
+/* =========================================
+   HEADER
+========================================= */
+
 .header{
     background:#075b3b;
     color:white;
     text-align:center;
-    padding:14px 10px;
+    padding:16px 10px;
 }
 
 .header h1{
     margin:0;
-    font-size:21px;
+    font-size:23px;
 }
 
 .header p{
-    margin:4px 0 0;
-    font-size:11px;
+    margin:5px 0 0;
+    font-size:12px;
 }
 
+
+/* =========================================
+   CONTAINER
+========================================= */
+
 .container{
-    width:min(680px,94%);
+    width:min(700px,94%);
     margin:18px auto 80px;
 }
+
+
+/* =========================================
+   BACK
+========================================= */
 
 .back{
     display:inline-block;
@@ -70,114 +94,276 @@ input{
     font-weight:800;
     font-size:13px;
     margin-bottom:12px;
+    text-decoration:none;
 }
+
+
+/* =========================================
+   BOX
+========================================= */
 
 .box{
     background:white;
-    border-radius:14px;
+    border-radius:15px;
     padding:18px;
     box-shadow:
         0 3px 14px rgba(0,0,0,.08);
+
     margin-bottom:16px;
 }
+
+
+/* =========================================
+   TITLE
+========================================= */
 
 .title{
     color:#28784f;
     font-size:23px;
     font-weight:900;
-    margin-bottom:14px;
+    margin-bottom:12px;
 }
+
+
+/* =========================================
+   HELP
+========================================= */
 
 .help{
     font-size:13px;
     line-height:1.7;
     margin-bottom:15px;
+    color:#555;
 }
+
+
+/* =========================================
+   LABEL
+========================================= */
 
 label{
     display:block;
     font-weight:800;
     font-size:13px;
-    margin:10px 0 6px;
+    margin:11px 0 6px;
 }
+
+
+/* =========================================
+   INPUT
+========================================= */
 
 input{
     width:100%;
-    height:43px;
-    border:1px solid #d4dad7;
-    border-radius:8px;
+    height:45px;
+
+    border:
+        1px solid #d4dad7;
+
+    border-radius:9px;
+
     padding:0 12px;
+
     outline:none;
+
+    background:#fff;
 }
 
 input:focus{
     border-color:#075b3b;
 }
 
+
+/* =========================================
+   TRACK BUTTON
+========================================= */
+
 .track-btn{
     width:100%;
     margin-top:14px;
-    height:45px;
+    height:46px;
+
     border:0;
-    border-radius:8px;
+    border-radius:9px;
+
     background:#0b8b4f;
     color:#fff;
+
     font-weight:900;
+    font-size:15px;
+
+    cursor:pointer;
+}
+
+.track-btn:hover{
+    background:#087743;
 }
 
 .track-btn:disabled{
     background:#999;
+    cursor:not-allowed;
 }
+
+
+/* =========================================
+   ERROR
+========================================= */
 
 .error{
     display:none;
+
     background:#ffe8e8;
     color:#a32929;
-    padding:12px;
-    border-radius:8px;
+
+    padding:13px;
+
+    border-radius:9px;
+
     margin-bottom:15px;
+
     font-size:13px;
     font-weight:700;
+
+    line-height:1.6;
 }
+
+
+/* =========================================
+   SUCCESS
+========================================= */
 
 .success-title{
     background:#e8faef;
     color:#147642;
-    padding:14px;
-    border-radius:10px;
-    font-size:25px;
+
+    padding:15px;
+
+    border-radius:11px;
+
+    font-size:23px;
     font-weight:900;
+
     margin-bottom:15px;
+
+    text-align:center;
 }
+
+
+/* =========================================
+   ESTIMATED DELIVERY
+========================================= */
+
+.delivery-card{
+
+    background:
+        linear-gradient(
+            135deg,
+            #e9faef,
+            #f8fffa
+        );
+
+    border:
+        1px solid #a6dbb7;
+
+    border-radius:14px;
+
+    padding:17px;
+
+    margin-top:15px;
+
+    margin-bottom:18px;
+
+    text-align:center;
+}
+
+.delivery-icon{
+    font-size:30px;
+    margin-bottom:5px;
+}
+
+.delivery-label{
+    color:#147642;
+    font-size:13px;
+    font-weight:900;
+}
+
+.delivery-date{
+    color:#075b3b;
+    font-size:22px;
+    font-weight:900;
+
+    margin-top:6px;
+}
+
+.delivery-days{
+    color:#555;
+    font-size:12px;
+
+    margin-top:6px;
+}
+
+.delivery-note{
+    color:#777;
+    font-size:10px;
+
+    margin-top:9px;
+
+    line-height:1.5;
+}
+
+
+/* =========================================
+   ORDER HEADER
+========================================= */
 
 .order-head{
     background:#f0f8f3;
-    padding:12px;
-    border-radius:9px;
+
+    padding:13px;
+
+    border-radius:10px;
+
     display:flex;
+
     justify-content:space-between;
+
     gap:10px;
+
     align-items:center;
 }
 
 .order-id{
     color:#28784f;
+
     font-weight:900;
+
     font-size:13px;
+
     word-break:break-all;
 }
 
 .order-date{
     color:#777;
+
     font-size:10px;
-    margin-top:4px;
+
+    margin-top:5px;
 }
 
+
+/* =========================================
+   STATUS BADGE
+========================================= */
+
 .status-badge{
-    padding:7px 10px;
+    padding:8px 11px;
+
     border-radius:20px;
+
     font-size:10px;
+
     font-weight:900;
+
     white-space:nowrap;
 }
 
@@ -211,60 +397,140 @@ input:focus{
     color:#bd2525;
 }
 
+
+/* =========================================
+   CURRENT STATUS BOX
+========================================= */
+
+.current-status{
+
+    margin-top:14px;
+
+    padding:11px;
+
+    background:#f7fbf8;
+
+    border:
+        1px solid #d7e9dd;
+
+    border-radius:9px;
+
+    text-align:center;
+
+    color:#147642;
+
+    font-size:13px;
+
+    font-weight:900;
+}
+
+
+/* =========================================
+   TIMELINE
+========================================= */
+
 .timeline{
     margin-top:22px;
-    padding-left:5px;
+
+    padding-left:4px;
 }
+
+
+/* =========================================
+   STEP
+========================================= */
 
 .step{
     position:relative;
+
     display:flex;
+
     gap:13px;
-    min-height:76px;
+
+    min-height:82px;
 }
 
+
+/* =========================================
+   LINE
+========================================= */
+
 .step:not(:last-child)::before{
+
     content:"";
+
     position:absolute;
+
     left:17px;
+
     top:35px;
+
     width:3px;
-    height:58px;
+
+    height:65px;
+
     background:#ddd;
+
+    border-radius:5px;
 }
 
 .step.done:not(:last-child)::before{
     background:#159354;
 }
 
+
+/* =========================================
+   ICON
+========================================= */
+
 .step-icon{
+
     position:relative;
+
     z-index:2;
+
     width:35px;
     height:35px;
+
     min-width:35px;
+
     border-radius:50%;
+
     background:#e4e4e4;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     font-size:17px;
 }
 
 .step.done .step-icon{
+
     background:#159354;
+
     color:white;
 }
 
 .step.current .step-icon{
+
     background:#0a8c4f;
+
     color:white;
+
     box-shadow:
         0 0 0 5px #d9f5e6;
 }
 
+
+/* =========================================
+   STEP CONTENT
+========================================= */
+
 .step-content{
-    padding-top:3px;
+    padding-top:2px;
 }
 
 .step-name{
@@ -273,31 +539,72 @@ input:focus{
 }
 
 .step-time{
+
     font-size:10px;
+
     color:#777;
+
     margin-top:5px;
 }
 
 .current-label{
+
     color:#0b8b4f;
+
     font-weight:800;
+
     font-size:10px;
-    margin-top:3px;
+
+    margin-top:4px;
 }
 
+
+/* =========================================
+   FUTURE LABEL
+========================================= */
+
+.future-label{
+
+    color:#aaa;
+
+    font-size:10px;
+
+    margin-top:5px;
+}
+
+
+/* =========================================
+   PRODUCTS TITLE
+========================================= */
+
 .products-title{
+
     color:#21804e;
-    font-size:25px;
+
+    font-size:22px;
+
     font-weight:900;
+
     margin-bottom:13px;
 }
 
+
+/* =========================================
+   PRODUCT
+========================================= */
+
 .product{
+
     display:flex;
+
     gap:12px;
+
     align-items:center;
-    padding:10px 0;
-    border-bottom:1px solid #eee;
+
+    padding:11px 0;
+
+    border-bottom:
+        1px solid #eee;
 }
 
 .product:last-child{
@@ -305,10 +612,14 @@ input:focus{
 }
 
 .product img{
-    width:58px;
-    height:58px;
+
+    width:60px;
+    height:60px;
+
     object-fit:cover;
-    border-radius:8px;
+
+    border-radius:9px;
+
     background:#f4f4f4;
 }
 
@@ -317,44 +628,93 @@ input:focus{
 }
 
 .product-name{
+
     font-weight:900;
+
     font-size:13px;
+
+    line-height:1.4;
 }
 
 .product-meta{
+
     color:#777;
+
     font-size:10px;
+
     margin-top:4px;
 }
 
 .product-price{
+
     font-weight:900;
+
     font-size:13px;
+
+    white-space:nowrap;
 }
 
+
+/* =========================================
+   TOTAL
+========================================= */
+
 .total{
-    border-top:2px solid #37845b;
+
+    border-top:
+        2px solid #37845b;
+
     margin-top:10px;
-    padding-top:10px;
+
+    padding-top:11px;
+
     display:flex;
+
     justify-content:space-between;
+
     font-weight:900;
+
     font-size:17px;
 }
 
+
+/* =========================================
+   PRIVACY
+========================================= */
+
 .privacy{
+
     background:#f0f8f3;
+
     padding:14px;
+
     border-radius:9px;
+
     line-height:1.8;
+
     font-size:12px;
+
+    color:#245d3e;
 }
 
+
+/* =========================================
+   EMPTY
+========================================= */
+
 .empty{
+
     text-align:center;
+
     padding:30px 10px;
+
     color:#777;
 }
+
+
+/* =========================================
+   MOBILE
+========================================= */
 
 @media(max-width:500px){
 
@@ -367,11 +727,15 @@ input:focus{
     }
 
     .title{
-        font-size:22px;
+        font-size:21px;
     }
 
     .success-title{
-        font-size:23px;
+        font-size:21px;
+    }
+
+    .delivery-date{
+        font-size:19px;
     }
 
     .order-head{
@@ -382,13 +746,24 @@ input:focus{
         font-size:9px;
     }
 
+    .product img{
+        width:55px;
+        height:55px;
+    }
+
 }
 
 </style>
 
 </head>
 
+
 <body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
 
 <div class="header">
 
@@ -403,206 +778,328 @@ input:focus{
 </div>
 
 
+
 <div class="container">
 
-    <a href="index.html"
-       class="back">
 
-        ← Shopping କୁ ଫେରନ୍ତୁ
+<!-- =========================================
+     BACK
+========================================= -->
 
-    </a>
+<a
+    href="index.html"
+    class="back">
 
+    ← Shopping କୁ ଫେରନ୍ତୁ
 
-    <!-- SEARCH BOX -->
-
-    <div class="box">
-
-        <div class="title">
-            📦 Order Tracking
-        </div>
-
-        <div class="help">
-
-            ଆପଣଙ୍କ Order ID ଏବଂ
-            Mobile Number ଦେଇ
-            Order Status ଦେଖନ୍ତୁ।
-
-        </div>
+</a>
 
 
-        <label>
-            Order ID
-        </label>
 
-        <input
-            id="orderId"
-            type="text"
-            placeholder="Order ID ଦିଅନ୍ତୁ"
-            autocomplete="off">
+<!-- =========================================
+     SEARCH BOX
+========================================= -->
 
+<div class="box">
 
-        <label>
-            Mobile Number
-        </label>
-
-        <input
-            id="mobile"
-            type="tel"
-            inputmode="numeric"
-            maxlength="10"
-            placeholder="10 digit Mobile Number"
-            autocomplete="tel">
+    <div class="title">
+        📦 Order Tracking
+    </div>
 
 
-        <button
-            id="trackBtn"
-            class="track-btn"
-            onclick="trackOrder()">
+    <div class="help">
 
-            🔎 Track Order
-
-        </button>
+        ଆପଣଙ୍କ Order ID ଏବଂ
+        Order ସମୟରେ ଦିଆଯାଇଥିବା
+        Mobile Number ଦେଇ
+        Order Status ଦେଖନ୍ତୁ।
 
     </div>
 
 
-    <div
-        id="error"
-        class="error">
-    </div>
+    <label>
+        Order ID
+    </label>
+
+    <input
+        id="orderId"
+        type="text"
+        placeholder="Order ID ଦିଅନ୍ତୁ"
+        autocomplete="off">
 
 
-    <!-- RESULT -->
+    <label>
+        Mobile Number
+    </label>
 
-    <div
-        id="result"
-        style="display:none;">
-
-
-        <div class="success-title">
-
-            ✅ Order ମିଳିଗଲା
-
-        </div>
-
-
-        <!-- ORDER STATUS -->
-
-        <div class="box">
-
-            <div class="order-head">
-
-                <div>
-
-                    <div
-                        class="order-id"
-                        id="showOrderId">
-                    </div>
-
-                    <div
-                        class="order-date"
-                        id="showOrderDate">
-                    </div>
-
-                </div>
+    <input
+        id="mobile"
+        type="tel"
+        inputmode="numeric"
+        maxlength="10"
+        placeholder="10 digit Mobile Number"
+        autocomplete="tel">
 
 
-                <div
-                    id="statusBadge"
-                    class="status-badge">
-                </div>
+    <button
+        id="trackBtn"
+        class="track-btn"
+        type="button">
 
-            </div>
+        🔎 Track Order
 
-
-            <!-- TIMELINE -->
-
-            <div
-                class="timeline"
-                id="timeline">
-            </div>
-
-        </div>
-
-
-        <!-- PRODUCTS -->
-
-        <div class="box">
-
-            <div class="products-title">
-
-                🛍️ Products
-
-            </div>
-
-
-            <div
-                id="products">
-            </div>
-
-
-            <div class="total">
-
-                <span>
-                    Total
-                </span>
-
-                <span
-                    id="total">
-                    ₹0
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <!-- PRIVACY -->
-
-        <div class="box">
-
-            <div
-                class="products-title">
-
-                🔐 Privacy Protected
-
-            </div>
-
-            <div class="privacy">
-
-                ✅ Order tracking information
-                ମାତ୍ର ଦେଖାଯାଉଛି।
-
-                <br>
-
-                ✅ Customer personal information
-                ଏଠାରେ ଦେଖାଯାଉନାହିଁ।
-
-                <br>
-
-                ✅ Mobile Number / Address
-                public ଭାବରେ ଦେଖାଯାଉନାହିଁ।
-
-            </div>
-
-        </div>
-
-    </div>
+    </button>
 
 </div>
 
 
+
+<!-- =========================================
+     ERROR
+========================================= -->
+
+<div
+    id="error"
+    class="error">
+</div>
+
+
+
+<!-- =========================================
+     RESULT
+========================================= -->
+
+<div
+    id="result"
+    style="display:none;">
+
+
+
+    <!-- =====================================
+         SUCCESS
+    ====================================== -->
+
+    <div class="success-title">
+
+        ✅ Order ମିଳିଗଲା
+
+    </div>
+
+
+
+    <!-- =====================================
+         DELIVERY ESTIMATE
+    ====================================== -->
+
+    <div
+        id="deliveryCard"
+        class="delivery-card"
+        style="display:none;">
+
+        <div class="delivery-icon">
+            🚚
+        </div>
+
+        <div class="delivery-label">
+
+            ଆନୁମାନିକ Delivery Date
+
+        </div>
+
+        <div
+            id="deliveryDate"
+            class="delivery-date">
+
+            —
+
+        </div>
+
+        <div
+            id="deliveryDays"
+            class="delivery-days">
+
+            📦 Estimated delivery
+
+        </div>
+
+        <div class="delivery-note">
+
+            * ଏହା estimated delivery date।
+            Courier / transport delay ହେଲେ
+            delivery date ପରିବର୍ତ୍ତନ ହୋଇପାରେ।
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================
+         ORDER STATUS
+    ====================================== -->
+
+    <div class="box">
+
+
+        <div class="order-head">
+
+
+            <div>
+
+                <div
+                    class="order-id"
+                    id="showOrderId">
+                </div>
+
+
+                <div
+                    class="order-date"
+                    id="showOrderDate">
+                </div>
+
+            </div>
+
+
+            <div
+                id="statusBadge"
+                class="status-badge">
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- CURRENT STATUS -->
+
+        <div
+            id="currentStatus"
+            class="current-status">
+
+        </div>
+
+
+
+        <!-- TIMELINE -->
+
+        <div
+            class="timeline"
+            id="timeline">
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================
+         PRODUCTS
+    ====================================== -->
+
+    <div class="box">
+
+
+        <div class="products-title">
+
+            🛍️ Products
+
+        </div>
+
+
+        <div
+            id="products">
+
+        </div>
+
+
+        <div class="total">
+
+            <span>
+                Total
+            </span>
+
+
+            <span
+                id="total">
+
+                ₹0
+
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================
+         PRIVACY
+    ====================================== -->
+
+    <div class="box">
+
+
+        <div class="products-title">
+
+            🔐 Privacy Protected
+
+        </div>
+
+
+        <div class="privacy">
+
+            ✅ Customer Name ଦେଖାଯାଉନାହିଁ।
+
+            <br>
+
+            ✅ Mobile Number ଦେଖାଯାଉନାହିଁ।
+
+            <br>
+
+            ✅ Address / PIN ଦେଖାଯାଉନାହିଁ।
+
+            <br>
+
+            ✅ Payment details public tracking
+            ରେ ଦେଖାଯାଉନାହିଁ।
+
+            <br>
+
+            📦 କେବଳ Order Status,
+            Products, Total ଏବଂ
+            Estimated Delivery ଦେଖାଯାଉଛି।
+
+        </div>
+
+
+    </div>
+
+
+
+</div>
+
+
+</div>
+
+
+
 <script type="module">
 
+
+/* =========================================
+   FIREBASE
+========================================= */
+
 import {
-    initializeApp
+    db
 }
-from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+from "./js/firebase-config.js";
 
 
 import {
-    getFirestore,
     doc,
     getDoc
 }
@@ -610,69 +1107,109 @@ from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-/* ===============================
-   FIREBASE CONFIG
-================================ */
 
-const firebaseConfig = {
+/* =========================================
+   DOM
+========================================= */
 
-    apiKey:
-    "AIzaSyDonHK2CtrUjAkAaro6stnJmdDUwB59JT0",
-
-    authDomain:
-    "utkalamart-1ec68.firebaseapp.com",
-
-    projectId:
-    "utkalamart-1ec68",
-
-    storageBucket:
-    "utkalamart-1ec68.firebasestorage.app",
-
-    messagingSenderId:
-    "664871353747",
-
-    appId:
-    "1:664871353747:web:96532fdafe78aabe7f3c66"
-
-};
+const orderIdInput =
+    document.getElementById(
+        "orderId"
+    );
 
 
-const app =
-    initializeApp(firebaseConfig);
+const mobileInput =
+    document.getElementById(
+        "mobile"
+    );
 
-const db =
-    getFirestore(app);
+
+const trackBtn =
+    document.getElementById(
+        "trackBtn"
+    );
 
 
-/* ===============================
-   HELPERS
-================================ */
+const errorBox =
+    document.getElementById(
+        "error"
+    );
 
-function normalizeMobile(value){
 
-    return String(value || "")
-        .replace(/\D/g,"")
-        .slice(-10);
+const resultBox =
+    document.getElementById(
+        "result"
+    );
+
+
+
+/* =========================================
+   NORMALIZE MOBILE
+========================================= */
+
+function normalizeMobile(
+    value
+){
+
+    return String(
+        value || ""
+    )
+    .replace(
+        /\D/g,
+        ""
+    )
+    .slice(-10);
 
 }
 
 
-function formatDate(value){
+
+/* =========================================
+   FORMAT DATE
+========================================= */
+
+function formatDate(
+    value
+){
 
     if(!value){
         return "—";
     }
 
+
     try{
 
-        const date =
-            value.toDate
-            ? value.toDate()
-            : new Date(value);
+        let date;
 
-        if(isNaN(date.getTime())){
-            return "—";
+
+        if(
+            value &&
+            typeof value.toDate ===
+            "function"
+        ){
+
+            date =
+                value.toDate();
+
         }
+        else{
+
+            date =
+                new Date(value);
+
+        }
+
+
+        if(
+            isNaN(
+                date.getTime()
+            )
+        ){
+
+            return "—";
+
+        }
+
 
         return date.toLocaleString(
             "en-IN",
@@ -686,7 +1223,7 @@ function formatDate(value){
         );
 
     }
-    catch(e){
+    catch(error){
 
         return "—";
 
@@ -695,7 +1232,132 @@ function formatDate(value){
 }
 
 
-function statusText(status){
+
+/* =========================================
+   FORMAT DATE ONLY
+========================================= */
+
+function formatDateOnly(
+    value
+){
+
+    if(!value){
+        return "—";
+    }
+
+
+    try{
+
+        let date;
+
+
+        if(
+            value &&
+            typeof value.toDate ===
+            "function"
+        ){
+
+            date =
+                value.toDate();
+
+        }
+        else{
+
+            date =
+                new Date(value);
+
+        }
+
+
+        if(
+            isNaN(
+                date.getTime()
+            )
+        ){
+
+            return "—";
+
+        }
+
+
+        return date.toLocaleDateString(
+            "en-IN",
+            {
+                day:"2-digit",
+                month:"short",
+                year:"numeric"
+            }
+        );
+
+    }
+    catch(error){
+
+        return "—";
+
+    }
+
+}
+
+
+
+/* =========================================
+   MONEY
+========================================= */
+
+function money(
+    value
+){
+
+    return "₹" +
+        Number(
+            value || 0
+        ).toLocaleString(
+            "en-IN"
+        );
+
+}
+
+
+
+/* =========================================
+   ESCAPE HTML
+========================================= */
+
+function escapeHtml(
+    value
+){
+
+    return String(
+        value ?? ""
+    )
+    .replace(
+        /[&<>"']/g,
+        function(match){
+
+            return {
+
+                "&":"&amp;",
+                "<":"&lt;",
+                ">":"&gt;",
+                '"':"&quot;",
+                "'":"&#039;"
+
+            }[match];
+
+        }
+    );
+
+}
+
+
+
+/* =========================================
+   STATUS TEXT
+========================================= */
+
+function statusText(
+    status
+){
 
     const map = {
 
@@ -719,21 +1381,170 @@ function statusText(status){
 
     };
 
-    return map[status] || status;
+
+    return (
+        map[status] ||
+        "Order Status"
+    );
 
 }
 
 
-function statusClass(status){
 
-    return "status-" + String(status || "placed");
+/* =========================================
+   STATUS CLASS
+========================================= */
+
+function statusClass(
+    status
+){
+
+    return (
+        "status-" +
+        String(
+            status || "placed"
+        )
+        .toLowerCase()
+    );
 
 }
 
 
-/* ===============================
-   TIMELINE
-================================ */
+
+/* =========================================
+   DELIVERY
+========================================= */
+
+function renderDelivery(
+    data
+){
+
+    const card =
+        document.getElementById(
+            "deliveryCard"
+        );
+
+
+    const dateEl =
+        document.getElementById(
+            "deliveryDate"
+        );
+
+
+    const daysEl =
+        document.getElementById(
+            "deliveryDays"
+        );
+
+
+    /*
+       Preferred:
+       estimatedDelivery
+       saved by checkout.html
+    */
+
+    if(
+        data.estimatedDelivery
+    ){
+
+        dateEl.innerText =
+            data.estimatedDelivery;
+
+
+        if(
+            data.estimatedDeliveryMinDays &&
+            data.estimatedDeliveryMaxDays
+        ){
+
+            daysEl.innerText =
+
+                `📦 Estimated delivery:
+                ${data.estimatedDeliveryMinDays}–${data.estimatedDeliveryMaxDays} days`;
+
+        }
+        else{
+
+            daysEl.innerText =
+                "📦 Estimated delivery";
+
+        }
+
+
+        card.style.display =
+            "block";
+
+
+        return;
+
+    }
+
+
+
+    /*
+       Backup:
+       calculate from saved
+       estimated start/end
+    */
+
+    if(
+        data.estimatedDeliveryStart &&
+        data.estimatedDeliveryEnd
+    ){
+
+        const start =
+            formatDateOnly(
+                data.estimatedDeliveryStart
+            );
+
+
+        const end =
+            formatDateOnly(
+                data.estimatedDeliveryEnd
+            );
+
+
+        dateEl.innerText =
+            `${start} – ${end}`;
+
+
+        if(
+            data.estimatedDeliveryMinDays &&
+            data.estimatedDeliveryMaxDays
+        ){
+
+            daysEl.innerText =
+
+                `📦 Estimated delivery:
+                ${data.estimatedDeliveryMinDays}–${data.estimatedDeliveryMaxDays} days`;
+
+        }
+
+
+        card.style.display =
+            "block";
+
+
+        return;
+
+    }
+
+
+
+    /*
+       If old order does not have
+       delivery estimate, hide card.
+    */
+
+    card.style.display =
+        "none";
+
+}
+
+
+
+/* =========================================
+   TIMELINE STEPS
+========================================= */
 
 const steps = [
 
@@ -770,31 +1581,54 @@ const steps = [
 ];
 
 
-function renderTimeline(data){
+
+/* =========================================
+   RENDER TIMELINE
+========================================= */
+
+function renderTimeline(
+    data
+){
 
     const timeline =
         document.getElementById(
             "timeline"
         );
 
+
     timeline.innerHTML = "";
 
 
     const status =
         String(
-            data.orderStatus || "placed"
-        ).toLowerCase();
+            data.orderStatus ||
+            "placed"
+        )
+        .toLowerCase();
 
 
-    if(status === "cancelled"){
+
+    /* =====================================
+       CANCELLED
+    ===================================== */
+
+    if(
+        status === "cancelled"
+    ){
+
+        const placedTime =
+            data.placedAt ||
+            data.createdAt;
+
 
         timeline.innerHTML = `
 
-            <div class="step done current">
+            <div class="step done">
 
                 <div class="step-icon">
                     📦
                 </div>
+
 
                 <div class="step-content">
 
@@ -802,16 +1636,21 @@ function renderTimeline(data){
                         Order Placed
                     </div>
 
+
                     <div class="step-time">
-                        ${formatDate(
-                            data.placedAt ||
-                            data.createdAt
+
+                        ${escapeHtml(
+                            formatDate(
+                                placedTime
+                            )
                         )}
+
                     </div>
 
                 </div>
 
             </div>
+
 
             <div class="step done current">
 
@@ -819,21 +1658,32 @@ function renderTimeline(data){
                     ❌
                 </div>
 
+
                 <div class="step-content">
 
                     <div class="step-name">
+
                         Order Cancelled
+
                     </div>
+
 
                     <div class="step-time">
-                        ${formatDate(
-                            data.cancelledAt ||
-                            data.updatedAt
+
+                        ${escapeHtml(
+                            formatDate(
+                                data.cancelledAt ||
+                                data.updatedAt
+                            )
                         )}
+
                     </div>
 
+
                     <div class="current-label">
+
                         Current Status
+
                     </div>
 
                 </div>
@@ -842,33 +1692,64 @@ function renderTimeline(data){
 
         `;
 
+
         return;
 
     }
 
 
-    const orderIndex =
+
+    /* =====================================
+       NORMAL STATUS
+    ===================================== */
+
+    const currentIndex =
         steps.findIndex(
-            s => s.key === status
+            step =>
+                step.key ===
+                status
         );
 
 
+
     steps.forEach(
-        function(step,index){
+        function(
+            step,
+            index
+        ){
 
             const done =
-                orderIndex >= index;
+                currentIndex >= index;
+
 
             const current =
-                step.key === status;
+                step.key ===
+                status;
 
 
             const timeField =
-                step.key + "At";
+                step.key +
+                "At";
 
 
-            const time =
+            let time =
                 data[timeField];
+
+
+            /*
+               Placed fallback
+            */
+
+            if(
+                step.key ===
+                "placed" &&
+                !time
+            ){
+
+                time =
+                    data.createdAt;
+
+            }
 
 
             const div =
@@ -879,8 +1760,74 @@ function renderTimeline(data){
 
             div.className =
                 "step" +
-                (done ? " done" : "") +
-                (current ? " current" : "");
+                (
+                    done
+                    ? " done"
+                    : ""
+                ) +
+                (
+                    current
+                    ? " current"
+                    : ""
+                );
+
+
+
+            let timeHtml = "";
+
+
+
+            if(time){
+
+                timeHtml = `
+
+                    <div class="step-time">
+
+                        ${escapeHtml(
+                            formatDate(time)
+                        )}
+
+                    </div>
+
+                `;
+
+            }
+            else if(
+                !done
+            ){
+
+                timeHtml = `
+
+                    <div class="future-label">
+
+                        Awaiting update
+
+                    </div>
+
+                `;
+
+            }
+
+
+
+            let currentHtml = "";
+
+
+
+            if(current){
+
+                currentHtml = `
+
+                    <div class="current-label">
+
+                        ● Current Status
+
+                    </div>
+
+                `;
+
+            }
+
 
 
             div.innerHTML = `
@@ -891,6 +1838,7 @@ function renderTimeline(data){
 
                 </div>
 
+
                 <div class="step-content">
 
                     <div class="step-name">
@@ -899,36 +1847,18 @@ function renderTimeline(data){
 
                     </div>
 
-                    ${
-                        time
-                        ?
-                        `
-                        <div class="step-time">
-                            ${formatDate(time)}
-                        </div>
-                        `
-                        :
-                        ""
-                    }
+                    ${timeHtml}
 
-                    ${
-                        current
-                        ?
-                        `
-                        <div class="current-label">
-                            Current Status
-                        </div>
-                        `
-                        :
-                        ""
-                    }
+                    ${currentHtml}
 
                 </div>
 
             `;
 
 
-            timeline.appendChild(div);
+            timeline.appendChild(
+                div
+            );
 
         }
     );
@@ -936,61 +1866,54 @@ function renderTimeline(data){
 }
 
 
-/* ===============================
-   PRODUCTS
-================================ */
 
-function getImage(item){
+/* =========================================
+   RENDER PRODUCTS
+========================================= */
+
+function getImage(
+    item
+){
 
     return String(
+
         item.image ||
         item.imageUrl ||
         item.photo ||
         "logo.png"
+
     ).trim() || "logo.png";
 
 }
 
 
-function escapeHtml(value){
 
-    return String(value ?? "")
-        .replace(
-            /[&<>"']/g,
-            function(match){
-
-                return {
-
-                    "&":"&amp;",
-                    "<":"&lt;",
-                    ">":"&gt;",
-                    '"':"&quot;",
-                    "'":"&#039;"
-
-                }[match];
-
-            }
-        );
-
-}
-
-
-function renderProducts(items){
+function renderProducts(
+    items
+){
 
     const box =
         document.getElementById(
             "products"
         );
 
+
     box.innerHTML = "";
 
 
-    if(!Array.isArray(items) || !items.length){
+
+    if(
+        !Array.isArray(items) ||
+        !items.length
+    ){
 
         box.innerHTML = `
 
             <div class="empty">
-                🛍️ Product information ନାହିଁ।
+
+                🛍️ Product information
+                ମିଳିଲା ନାହିଁ।
+
             </div>
 
         `;
@@ -1000,21 +1923,31 @@ function renderProducts(items){
     }
 
 
+
     items.forEach(
         function(item){
 
             const qty =
-                Number(item.qty || 1);
+                Number(
+                    item.qty || 1
+                );
+
 
             const price =
-                Number(item.price || 0);
+                Number(
+                    item.price || 0
+                );
+
 
             const lineTotal =
                 price * qty;
 
 
             const div =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
+
 
             div.className =
                 "product";
@@ -1023,13 +1956,22 @@ function renderProducts(items){
             div.innerHTML = `
 
                 <img
+
                     src="${escapeHtml(
                         getImage(item)
                     )}"
+
+                    alt="${escapeHtml(
+                        item.name ||
+                        "Product"
+                    )}"
+
                     onerror="
                         this.onerror=null;
                         this.src='logo.png';
-                    ">
+                    "
+
+                >
 
 
                 <div class="product-info">
@@ -1042,6 +1984,7 @@ function renderProducts(items){
                         )}
 
                     </div>
+
 
                     <div class="product-meta">
 
@@ -1056,7 +1999,8 @@ function renderProducts(items){
                             ) +
                             " " +
                             escapeHtml(
-                                item.weightUnit || ""
+                                item.weightUnit ||
+                                ""
                             )
                             :
                             ""
@@ -1069,14 +2013,18 @@ function renderProducts(items){
 
                 <div class="product-price">
 
-                    ₹${lineTotal}
+                    ${money(
+                        lineTotal
+                    )}
 
                 </div>
 
             `;
 
 
-            box.appendChild(div);
+            box.appendChild(
+                div
+            );
 
         }
     );
@@ -1084,30 +2032,59 @@ function renderProducts(items){
 }
 
 
-/* ===============================
+
+/* =========================================
    SHOW RESULT
-================================ */
+========================================= */
 
-function showResult(data,orderId){
+function showResult(
+    data,
+    orderId
+){
 
-    document.getElementById(
-        "result"
-    ).style.display = "block";
+    resultBox.style.display =
+        "block";
 
+
+
+    /* =====================================
+       ORDER ID
+    ===================================== */
 
     document.getElementById(
         "showOrderId"
     ).innerText =
-        "📦 Order ID: " + orderId;
 
+        "📦 Order ID: " +
+        orderId;
+
+
+
+    /* =====================================
+       ORDER DATE
+    ===================================== */
 
     document.getElementById(
         "showOrderDate"
     ).innerText =
+
         formatDate(
             data.placedAt ||
             data.createdAt
         );
+
+
+
+    /* =====================================
+       STATUS
+    ===================================== */
+
+    const status =
+        String(
+            data.orderStatus ||
+            "placed"
+        )
+        .toLowerCase();
 
 
     const badge =
@@ -1116,61 +2093,109 @@ function showResult(data,orderId){
         );
 
 
-    const status =
-        String(
-            data.orderStatus || "placed"
-        ).toLowerCase();
-
-
     badge.className =
         "status-badge " +
-        statusClass(status);
+        statusClass(
+            status
+        );
 
 
     badge.innerText =
+        statusText(
+            status
+        );
+
+
+
+    /* =====================================
+       CURRENT STATUS
+    ===================================== */
+
+    const currentStatus =
+        document.getElementById(
+            "currentStatus"
+        );
+
+
+    currentStatus.innerText =
+
+        "📍 Current Status: " +
         statusText(status);
 
 
-    renderTimeline(data);
 
+    /* =====================================
+       DELIVERY
+    ===================================== */
+
+    renderDelivery(
+        data
+    );
+
+
+
+    /* =====================================
+       TIMELINE
+    ===================================== */
+
+    renderTimeline(
+        data
+    );
+
+
+
+    /* =====================================
+       PRODUCTS
+    ===================================== */
 
     renderProducts(
         data.items || []
     );
 
 
+
+    /* =====================================
+       TOTAL
+    ===================================== */
+
     document.getElementById(
         "total"
     ).innerText =
-        "₹" +
-        Number(
+
+        money(
             data.total || 0
         );
 
 
+
+    /* =====================================
+       SCROLL
+    ===================================== */
+
     window.scrollTo({
+
         top:0,
+
         behavior:"smooth"
+
     });
 
 }
 
 
-/* ===============================
-   ERROR
-================================ */
 
-function showError(message){
+/* =========================================
+   SHOW ERROR
+========================================= */
 
-    const error =
-        document.getElementById(
-            "error"
-        );
+function showError(
+    message
+){
 
-    error.innerText =
+    errorBox.innerText =
         "❌ " + message;
 
-    error.style.display =
+    errorBox.style.display =
         "block";
 
 }
@@ -1178,43 +2203,47 @@ function showError(message){
 
 function clearError(){
 
-    document.getElementById(
-        "error"
-    ).style.display =
+    errorBox.style.display =
         "none";
 
 }
 
 
-/* ===============================
-   TRACK ORDER
-================================ */
 
-window.trackOrder =
-async function(){
+/* =========================================
+   TRACK ORDER
+========================================= */
+
+async function trackOrder(){
 
     clearError();
 
 
+    resultBox.style.display =
+        "none";
+
+
+
     const orderId =
-        document
-        .getElementById("orderId")
-        .value
-        .trim();
+        orderIdInput.value
+            .trim();
 
 
     const mobile =
         normalizeMobile(
-            document
-            .getElementById("mobile")
-            .value
+            mobileInput.value
         );
 
+
+
+    /* =====================================
+       VALIDATE ORDER ID
+    ===================================== */
 
     if(!orderId){
 
         showError(
-            "Order ID ଦିଅନ୍ତୁ।"
+            "ଦୟାକରି Order ID ଦିଅନ୍ତୁ।"
         );
 
         return;
@@ -1222,10 +2251,17 @@ async function(){
     }
 
 
-    if(mobile.length !== 10){
+
+    /* =====================================
+       VALIDATE MOBILE
+    ===================================== */
+
+    if(
+        mobile.length !== 10
+    ){
 
         showError(
-            "10 digit Mobile Number ଦିଅନ୍ତୁ।"
+            "ଦୟାକରି valid 10 digit Mobile Number ଦିଅନ୍ତୁ।"
         );
 
         return;
@@ -1233,22 +2269,30 @@ async function(){
     }
 
 
-    const button =
-        document.getElementById(
-            "trackBtn"
-        );
+
+    /* =====================================
+       BUTTON
+    ===================================== */
+
+    trackBtn.disabled =
+        true;
 
 
-    button.disabled = true;
-
-    button.innerText =
+    trackBtn.innerText =
         "⏳ Searching...";
+
 
 
     try{
 
+
+        /* =================================
+           TRACKING DOCUMENT ID
+        ================================= */
+
         const trackingId =
             `${orderId}_${mobile}`;
+
 
 
         const trackingRef =
@@ -1259,31 +2303,47 @@ async function(){
             );
 
 
+
         const snapshot =
             await getDoc(
                 trackingRef
             );
 
 
-        if(!snapshot.exists()){
+
+        /* =================================
+           NOT FOUND
+        ================================= */
+
+        if(
+            !snapshot.exists()
+        ){
 
             showError(
-                "Order ID ଏବଂ Mobile Number match କରୁନାହିଁ କିମ୍ବା Order tracking ମିଳିଲା ନାହିଁ।"
+
+                "Order ID ଏବଂ Mobile Number match କରୁନାହିଁ କିମ୍ବା ଏହି Order ପାଇଁ tracking record ମିଳିଲା ନାହିଁ।"
+
             );
 
-            document.getElementById(
-                "result"
-            ).style.display =
-                "none";
 
             return;
 
         }
 
 
+
+        /* =================================
+           DATA
+        ================================= */
+
         const data =
             snapshot.data();
 
+
+
+        /* =================================
+           SHOW
+        ================================= */
 
         showResult(
             data,
@@ -1291,37 +2351,127 @@ async function(){
         );
 
 
-        localStorage.setItem(
-            "utkalaLastOrderId",
-            orderId
-        );
 
+        /* =================================
+           SAVE ORDER ID
+        ================================= */
+
+        localStorage.setItem(
+
+            "utkalaLastOrderId",
+
+            orderId
+
+        );
 
     }
     catch(error){
 
-        console.error(error);
+        console.error(
+            "Tracking error:",
+            error
+        );
+
 
         showError(
-            "Tracking load ହୋଇପାରିଲା ନାହିଁ। ପୁଣିଥରେ try କରନ୍ତୁ।"
+
+            "Tracking load ହୋଇପାରିଲା ନାହିଁ। Internet connection ଏବଂ Order details ଯାଞ୍ଚ କରନ୍ତୁ।"
+
         );
 
     }
     finally{
 
-        button.disabled = false;
+        trackBtn.disabled =
+            false;
 
-        button.innerText =
+
+        trackBtn.innerText =
             "🔎 Track Order";
 
     }
 
-};
+}
 
 
-/* ===============================
-   AUTO LOAD
-================================ */
+
+/* =========================================
+   BUTTON EVENT
+========================================= */
+
+trackBtn.addEventListener(
+    "click",
+    trackOrder
+);
+
+
+
+/* =========================================
+   ENTER KEY
+========================================= */
+
+mobileInput.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key ===
+            "Enter"
+        ){
+
+            trackOrder();
+
+        }
+
+    }
+);
+
+
+orderIdInput.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key ===
+            "Enter"
+        ){
+
+            trackOrder();
+
+        }
+
+    }
+);
+
+
+
+/* =========================================
+   MOBILE INPUT
+========================================= */
+
+mobileInput.addEventListener(
+    "input",
+    function(){
+
+        this.value =
+            this.value
+            .replace(
+                /\D/g,
+                ""
+            )
+            .slice(
+                0,
+                10
+            );
+
+    }
+);
+
+
+
+/* =========================================
+   AUTO FILL ORDER ID
+========================================= */
 
 const params =
     new URLSearchParams(
@@ -1330,7 +2480,9 @@ const params =
 
 
 const urlOrderId =
-    params.get("orderId");
+    params.get(
+        "orderId"
+    );
 
 
 const savedOrderId =
@@ -1339,24 +2491,28 @@ const savedOrderId =
     );
 
 
-if(urlOrderId){
 
-    document.getElementById(
-        "orderId"
-    ).value =
+if(
+    urlOrderId
+){
+
+    orderIdInput.value =
         urlOrderId;
 
 }
+else if(
+    savedOrderId
+){
 
+    orderIdInput.value =
+        savedOrderId;
 
-/*
-   Mobile number intentionally
-   not saved automatically.
-*/
+}
+
 
 
 </script>
 
 </body>
 
-</html>
+      </html>
