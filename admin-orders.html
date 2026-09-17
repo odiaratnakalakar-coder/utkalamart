@@ -40,10 +40,7 @@ button{
     cursor:pointer;
 }
 
-
-/* =====================================================
-   HEADER
-===================================================== */
+/* HEADER */
 
 .header{
     background:#075b3b;
@@ -75,10 +72,7 @@ button{
     font-weight:800;
 }
 
-
-/* =====================================================
-   LOGIN
-===================================================== */
+/* LOGIN */
 
 .login-page{
     min-height:100vh;
@@ -139,10 +133,7 @@ button{
     font-size:12px;
 }
 
-
-/* =====================================================
-   MAIN
-===================================================== */
+/* MAIN */
 
 #adminPanel{
     display:none;
@@ -153,27 +144,24 @@ button{
     margin:20px auto 60px;
 }
 
-
-/* =====================================================
-   STATS
-===================================================== */
+/* STATS */
 
 .stats{
     display:grid;
-    grid-template-columns:repeat(6,1fr);
+    grid-template-columns:repeat(5,1fr);
     gap:12px;
     margin-bottom:18px;
 }
 
 .stat{
     background:#fff;
-    padding:15px;
+    padding:17px;
     border-radius:13px;
     box-shadow:0 3px 12px rgba(0,0,0,.07);
 }
 
 .stat-icon{
-    font-size:23px;
+    font-size:25px;
 }
 
 .stat-label{
@@ -183,28 +171,13 @@ button{
 }
 
 .stat-value{
-    font-size:22px;
+    font-size:23px;
     font-weight:900;
     color:#075b3b;
     margin-top:3px;
 }
 
-.stat.pending-payment .stat-value{
-    color:#b45309;
-}
-
-.stat.collected .stat-value{
-    color:#166534;
-}
-
-.stat.cash .stat-value{
-    color:#075f91;
-}
-
-
-/* =====================================================
-   TOOLBAR
-===================================================== */
+/* TOOLBAR */
 
 .toolbar{
     background:#fff;
@@ -245,10 +218,7 @@ button{
     font-weight:900;
 }
 
-
-/* =====================================================
-   ORDER CARD
-===================================================== */
+/* ORDER */
 
 .orders{
     display:grid;
@@ -323,10 +293,37 @@ button{
     color:#b91c1c;
 }
 
+/* PAYMENT */
 
-/* =====================================================
-   ORDER BODY
-===================================================== */
+.payment-badge{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:9px;
+    font-weight:900;
+}
+
+.payment-pending{
+    background:#fff3cd;
+    color:#856404;
+}
+
+.payment-paid{
+    background:#dcfce7;
+    color:#166534;
+}
+
+.payment-cash{
+    background:#e0f2fe;
+    color:#075f91;
+}
+
+.payment-deposited{
+    background:#eee7ff;
+    color:#6336a3;
+}
+
+/* ORDER BODY */
 
 .order-body{
     display:grid;
@@ -351,44 +348,7 @@ button{
     color:#333;
 }
 
-
-/* =====================================================
-   PAYMENT BADGES
-===================================================== */
-
-.payment-badge{
-    display:inline-block;
-    margin-top:4px;
-    padding:6px 10px;
-    border-radius:20px;
-    font-size:10px;
-    font-weight:900;
-}
-
-.payment-pending{
-    background:#fff3cd;
-    color:#856404;
-}
-
-.payment-paid{
-    background:#dcfce7;
-    color:#166534;
-}
-
-.payment-cash{
-    background:#e0f2fe;
-    color:#075f91;
-}
-
-.payment-deposited{
-    background:#eee7ff;
-    color:#6336a3;
-}
-
-
-/* =====================================================
-   PRODUCTS
-===================================================== */
+/* PRODUCTS */
 
 .products{
     border-top:1px solid #eee;
@@ -435,10 +395,7 @@ button{
     font-size:12px;
 }
 
-
-/* =====================================================
-   TOTAL
-===================================================== */
+/* TOTAL */
 
 .order-total{
     display:flex;
@@ -452,10 +409,7 @@ button{
     color:#075b3b;
 }
 
-
-/* =====================================================
-   ACTIONS
-===================================================== */
+/* ACTIONS */
 
 .order-actions{
     display:flex;
@@ -486,7 +440,7 @@ button{
 }
 
 .payment-btn{
-    background:#fff7d6;
+    background:#fff3cd;
     color:#7a5a00;
 }
 
@@ -505,10 +459,7 @@ button{
     color:#b91c1c;
 }
 
-
-/* =====================================================
-   EMPTY / LOADING
-===================================================== */
+/* EMPTY */
 
 .empty{
     background:#fff;
@@ -526,10 +477,7 @@ button{
     color:#777;
 }
 
-
-/* =====================================================
-   MODAL
-===================================================== */
+/* MODAL */
 
 .modal{
     display:none;
@@ -593,10 +541,7 @@ button{
     font-size:13px;
 }
 
-
-/* =====================================================
-   STATUS MODAL
-===================================================== */
+/* STATUS MODAL */
 
 .status-options{
     display:grid;
@@ -617,10 +562,7 @@ button{
     background:#f0f8f3;
 }
 
-
-/* =====================================================
-   PAYMENT MODAL
-===================================================== */
+/* PAYMENT MODAL */
 
 .payment-info{
     background:#f5f8f6;
@@ -631,6 +573,14 @@ button{
     font-size:12px;
 }
 
+.payment-label{
+    display:block;
+    margin-top:12px;
+    font-size:12px;
+    font-weight:900;
+    color:#075b3b;
+}
+
 .payment-input{
     width:100%;
     height:43px;
@@ -639,14 +589,6 @@ button{
     padding:0 11px;
     margin-top:5px;
     outline:none;
-}
-
-.payment-label{
-    display:block;
-    margin-top:12px;
-    font-size:12px;
-    font-weight:900;
-    color:#075b3b;
 }
 
 .payment-save{
@@ -670,21 +612,7 @@ button{
     margin-top:10px;
 }
 
-.payment-secondary{
-    width:100%;
-    height:42px;
-    margin-top:8px;
-    border:0;
-    border-radius:8px;
-    background:#e8f7ee;
-    color:#075b3b;
-    font-weight:900;
-}
-
-
-/* =====================================================
-   TOAST
-===================================================== */
+/* TOAST */
 
 .toast{
     position:fixed;
@@ -710,19 +638,15 @@ button{
     transform:translate(-50%,0);
 }
 
+/* RESPONSIVE */
 
-/* =====================================================
-   RESPONSIVE
-===================================================== */
-
-@media(max-width:1050px){
+@media(max-width:1000px){
 
     .stats{
         grid-template-columns:repeat(3,1fr);
     }
 
 }
-
 
 @media(max-width:850px){
 
@@ -735,7 +659,6 @@ button{
     }
 
 }
-
 
 @media(max-width:600px){
 
@@ -765,7 +688,7 @@ button{
     }
 
     .stat-value{
-        font-size:19px;
+        font-size:20px;
     }
 
     .order-body{
@@ -795,7 +718,6 @@ button{
 
 }
 
-
 @media(max-width:400px){
 
     .stats{
@@ -823,9 +745,7 @@ button{
 <body>
 
 
-<!-- =====================================================
-     LOGIN
-===================================================== -->
+<!-- LOGIN -->
 
 <div
     class="login-page"
@@ -868,9 +788,7 @@ button{
 </div>
 
 
-<!-- =====================================================
-     ADMIN PANEL
-===================================================== -->
+<!-- ADMIN -->
 
 <div id="adminPanel">
 
@@ -883,7 +801,7 @@ button{
         </h1>
 
         <p>
-            Admin Order Management • Tracking • Payment
+            Admin Order Management & Payment
         </p>
 
     </div>
@@ -902,131 +820,44 @@ button{
 <main class="container">
 
 
-<!-- =====================================================
-     STATS
-===================================================== -->
+<!-- STATS -->
 
 <section class="stats">
 
     <div class="stat">
-
         <div class="stat-icon">📦</div>
-
-        <div class="stat-label">
-            Total Orders
-        </div>
-
-        <div
-            class="stat-value"
-            id="totalOrders">
-
-            0
-
-        </div>
-
+        <div class="stat-label">Total Orders</div>
+        <div class="stat-value" id="totalOrders">0</div>
     </div>
 
-
     <div class="stat">
-
         <div class="stat-icon">⏳</div>
-
-        <div class="stat-label">
-            Pending Orders
-        </div>
-
-        <div
-            class="stat-value"
-            id="pendingOrders">
-
-            0
-
-        </div>
-
+        <div class="stat-label">Pending Orders</div>
+        <div class="stat-value" id="pendingOrders">0</div>
     </div>
 
-
     <div class="stat">
-
         <div class="stat-icon">🏠</div>
-
-        <div class="stat-label">
-            Delivered
-        </div>
-
-        <div
-            class="stat-value"
-            id="deliveredOrders">
-
-            0
-
-        </div>
-
+        <div class="stat-label">Delivered</div>
+        <div class="stat-value" id="deliveredOrders">0</div>
     </div>
-
 
     <div class="stat">
-
         <div class="stat-icon">💰</div>
-
-        <div class="stat-label">
-            Order Value
-        </div>
-
-        <div
-            class="stat-value"
-            id="sales">
-
-            ₹0
-
-        </div>
-
+        <div class="stat-label">Paid Collection</div>
+        <div class="stat-value" id="paidSales">₹0</div>
     </div>
 
-
-    <div class="stat pending-payment">
-
-        <div class="stat-icon">⏳</div>
-
-        <div class="stat-label">
-            Pending Payment
-        </div>
-
-        <div
-            class="stat-value"
-            id="pendingPayment">
-
-            ₹0
-
-        </div>
-
-    </div>
-
-
-    <div class="stat collected">
-
-        <div class="stat-icon">✅</div>
-
-        <div class="stat-label">
-            Paid Collection
-        </div>
-
-        <div
-            class="stat-value"
-            id="paidCollection">
-
-            ₹0
-
-        </div>
-
+    <div class="stat">
+        <div class="stat-icon">⏱️</div>
+        <div class="stat-label">Pending Payment</div>
+        <div class="stat-value" id="pendingPayment">₹0</div>
     </div>
 
 </section>
 
 
-<!-- =====================================================
-     TOOLBAR
-===================================================== -->
+<!-- TOOLBAR -->
 
 <section class="toolbar">
 
@@ -1041,33 +872,13 @@ button{
         class="filter"
         id="statusFilter">
 
-        <option value="all">
-            All Status
-        </option>
-
-        <option value="placed">
-            Order Placed
-        </option>
-
-        <option value="confirmed">
-            Confirmed
-        </option>
-
-        <option value="processing">
-            Processing
-        </option>
-
-        <option value="shipped">
-            Shipped
-        </option>
-
-        <option value="delivered">
-            Delivered
-        </option>
-
-        <option value="cancelled">
-            Cancelled
-        </option>
+        <option value="all">All Status</option>
+        <option value="placed">Order Placed</option>
+        <option value="confirmed">Confirmed</option>
+        <option value="processing">Processing</option>
+        <option value="shipped">Shipped</option>
+        <option value="delivered">Delivered</option>
+        <option value="cancelled">Cancelled</option>
 
     </select>
 
@@ -1076,25 +887,9 @@ button{
         class="filter"
         id="paymentFilter">
 
-        <option value="all">
-            All Payment
-        </option>
-
-        <option value="pending">
-            Payment Pending
-        </option>
-
-        <option value="paid">
-            Payment Paid
-        </option>
-
-        <option value="cash_received">
-            Cash Received
-        </option>
-
-        <option value="cash_deposited">
-            Cash Deposited
-        </option>
+        <option value="all">All Payment</option>
+        <option value="pending">Payment Pending</option>
+        <option value="paid">Paid</option>
 
     </select>
 
@@ -1120,15 +915,12 @@ button{
 
 </div>
 
-
 </main>
 
 </div>
 
 
-<!-- =====================================================
-     VIEW MODAL
-===================================================== -->
+<!-- VIEW MODAL -->
 
 <div
     class="modal"
@@ -1161,9 +953,7 @@ button{
 </div>
 
 
-<!-- =====================================================
-     STATUS MODAL
-===================================================== -->
+<!-- STATUS MODAL -->
 
 <div
     class="modal"
@@ -1251,9 +1041,7 @@ button{
 </div>
 
 
-<!-- =====================================================
-     PAYMENT MODAL
-===================================================== -->
+<!-- PAYMENT MODAL -->
 
 <div
     class="modal"
@@ -1286,22 +1074,13 @@ button{
 </div>
 
 
-<!-- =====================================================
-     TOAST
-===================================================== -->
-
 <div
     class="toast"
     id="toast">
 </div>
 
 
-<!-- =====================================================
-     FIREBASE
-===================================================== -->
-
 <script type="module">
-
 
 import {
     initializeApp
@@ -1336,7 +1115,7 @@ from
 
 
 /* =====================================================
-   FIREBASE CONFIG
+   FIREBASE
 ===================================================== */
 
 const firebaseConfig = {
@@ -1372,18 +1151,10 @@ const db =
     getFirestore(app);
 
 
-/* =====================================================
-   GLOBAL
-===================================================== */
-
 let allOrders = [];
 
 let selectedOrder = null;
 
-
-/* =====================================================
-   ADMIN EMAIL
-===================================================== */
 
 const ADMIN_EMAIL =
     "suryakantabehera629@gmail.com";
@@ -1395,10 +1166,7 @@ const ADMIN_EMAIL =
 
 document
 .getElementById("loginBtn")
-.addEventListener(
-    "click",
-    login
-);
+.addEventListener("click",login);
 
 
 async function login(){
@@ -1419,8 +1187,7 @@ async function login(){
         .getElementById("loginError");
 
 
-    error.style.display =
-        "none";
+    error.style.display="none";
 
 
     if(!email || !password){
@@ -1428,24 +1195,17 @@ async function login(){
         error.innerText =
             "Email ଏବଂ Password ଦିଅନ୍ତୁ।";
 
-        error.style.display =
-            "block";
+        error.style.display="block";
 
         return;
-
     }
 
 
     const button =
-        document
-        .getElementById("loginBtn");
+        document.getElementById("loginBtn");
 
-
-    button.disabled =
-        true;
-
-    button.innerText =
-        "⏳ Login...";
+    button.disabled=true;
+    button.innerText="⏳ Login...";
 
 
     try{
@@ -1461,25 +1221,20 @@ async function login(){
 
         console.error(error);
 
-        const loginError =
-            document.getElementById(
-                "loginError"
-            );
-
-        loginError.innerText =
+        document
+        .getElementById("loginError")
+        .innerText =
             "❌ Login failed. Email କିମ୍ବା Password check କରନ୍ତୁ।";
 
-        loginError.style.display =
-            "block";
+        document
+        .getElementById("loginError")
+        .style.display="block";
 
     }
 
 
-    button.disabled =
-        false;
-
-    button.innerText =
-        "🔐 Login";
+    button.disabled=false;
+    button.innerText="🔐 Login";
 
 }
 
@@ -1498,20 +1253,12 @@ onAuthStateChanged(
         ){
 
             document
-            .getElementById(
-                "loginPage"
-            )
-            .style.display =
-                "none";
-
+            .getElementById("loginPage")
+            .style.display="none";
 
             document
-            .getElementById(
-                "adminPanel"
-            )
-            .style.display =
-                "block";
-
+            .getElementById("adminPanel")
+            .style.display="block";
 
             await loadOrders();
 
@@ -1519,19 +1266,12 @@ onAuthStateChanged(
         else{
 
             document
-            .getElementById(
-                "loginPage"
-            )
-            .style.display =
-                "flex";
-
+            .getElementById("loginPage")
+            .style.display="flex";
 
             document
-            .getElementById(
-                "adminPanel"
-            )
-            .style.display =
-                "none";
+            .getElementById("adminPanel")
+            .style.display="none";
 
         }
 
@@ -1552,14 +1292,87 @@ async function(){
 
 
 /* =====================================================
-   FORMAT DATE
+   HELPERS
 ===================================================== */
+
+function escapeHtml(value){
+
+    return String(value ?? "")
+    .replace(
+        /[&<>"']/g,
+        function(match){
+
+            return {
+                "&":"&amp;",
+                "<":"&lt;",
+                ">":"&gt;",
+                '"':"&quot;",
+                "'":"&#039;"
+            }[match];
+
+        }
+    );
+
+}
+
+
+function getCustomer(order){
+
+    return order.customer || {};
+
+}
+
+
+function getMobile(order){
+
+    const customer =
+        getCustomer(order);
+
+    return String(
+        customer.mobile ||
+        customer.phone ||
+        ""
+    )
+    .replace(/\D/g,"")
+    .slice(-10);
+
+}
+
+
+function getCustomerOrderId(order){
+
+    return String(
+        order.orderId || ""
+    ).trim();
+
+}
+
+
+function getFirebaseDocumentId(order){
+
+    return String(
+        order.id || ""
+    ).trim();
+
+}
+
+
+function getImage(item){
+
+    return String(
+        item.image ||
+        item.imageUrl ||
+        item.photo ||
+        "logo.png"
+    ).trim() || "logo.png";
+
+}
+
 
 function formatDate(value){
 
-    if(!value){
+    if(!value)
         return "Date unavailable";
-    }
 
 
     try{
@@ -1570,13 +1383,8 @@ function formatDate(value){
             : new Date(value);
 
 
-        if(
-            isNaN(
-                date.getTime()
-            )
-        ){
+        if(isNaN(date.getTime()))
             return "Date unavailable";
-        }
 
 
         return date.toLocaleString(
@@ -1600,180 +1408,20 @@ function formatDate(value){
 }
 
 
-/* =====================================================
-   STATUS TEXT
-===================================================== */
-
 function statusText(status){
 
-    const map = {
+    const map={
 
-        placed:
-            "Order Placed",
-
-        confirmed:
-            "Order Confirmed",
-
-        processing:
-            "Processing",
-
-        shipped:
-            "Order Shipped",
-
-        delivered:
-            "Order Delivered",
-
-        cancelled:
-            "Order Cancelled"
+        placed:"Order Placed",
+        confirmed:"Order Confirmed",
+        processing:"Processing",
+        shipped:"Order Shipped",
+        delivered:"Order Delivered",
+        cancelled:"Order Cancelled"
 
     };
 
-
-    return map[status] ||
-        "Order Placed";
-
-}
-
-
-/* =====================================================
-   PAYMENT STATUS TEXT
-===================================================== */
-
-function paymentStatusText(order){
-
-    const paymentStatus =
-        String(
-            order.paymentStatus ||
-            "pending"
-        ).toLowerCase();
-
-    const cashStatus =
-        String(
-            order.cashStatus ||
-            "not_received"
-        ).toLowerCase();
-
-
-    if(paymentStatus === "paid"){
-        return "PAID";
-    }
-
-    if(cashStatus === "deposited"){
-        return "CASH DEPOSITED";
-    }
-
-    if(cashStatus === "received"){
-        return "CASH RECEIVED";
-    }
-
-    return "PAYMENT PENDING";
-
-}
-
-
-/* =====================================================
-   ESCAPE
-===================================================== */
-
-function escapeHtml(value){
-
-    return String(
-        value ?? ""
-    )
-    .replace(
-        /[&<>"']/g,
-        function(match){
-
-            return {
-
-                "&":"&amp;",
-                "<":"&lt;",
-                ">":"&gt;",
-                '"':"&quot;",
-                "'":"&#039;"
-
-            }[match];
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   CUSTOMER
-===================================================== */
-
-function getCustomer(order){
-
-    return order.customer || {};
-
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-function getMobile(order){
-
-    const customer =
-        getCustomer(order);
-
-    return String(
-        customer.mobile ||
-        customer.phone ||
-        ""
-    )
-    .replace(
-        /\D/g,
-        ""
-    )
-    .slice(-10);
-
-}
-
-
-/* =====================================================
-   CUSTOMER ORDER ID
-===================================================== */
-
-function getCustomerOrderId(order){
-
-    return String(
-        order.orderId ||
-        ""
-    ).trim();
-
-}
-
-
-/* =====================================================
-   ADMIN REFERENCE ID
-===================================================== */
-
-function getFirebaseDocumentId(order){
-
-    return String(
-        order.id ||
-        ""
-    ).trim();
-
-}
-
-
-/* =====================================================
-   IMAGE
-===================================================== */
-
-function getImage(item){
-
-    return String(
-        item.image ||
-        item.imageUrl ||
-        item.photo ||
-        "logo.png"
-    ).trim() || "logo.png";
+    return map[status] || "Order Placed";
 
 }
 
@@ -1786,17 +1434,13 @@ window.loadOrders =
 async function(){
 
     const container =
-        document.getElementById(
-            "orders"
-        );
+        document.getElementById("orders");
 
 
-    container.innerHTML = `
+    container.innerHTML=`
 
         <div class="loading">
-
             ⏳ Orders load ହେଉଛି...
-
         </div>
 
     `;
@@ -1806,14 +1450,11 @@ async function(){
 
         const snapshot =
             await getDocs(
-                collection(
-                    db,
-                    "orders"
-                )
+                collection(db,"orders")
             );
 
 
-        allOrders = [];
+        allOrders=[];
 
 
         snapshot.forEach(
@@ -1821,9 +1462,7 @@ async function(){
 
                 allOrders.push({
 
-                    id:
-                        orderDoc.id,
-
+                    id:orderDoc.id,
                     ...orderDoc.data()
 
                 });
@@ -1845,7 +1484,7 @@ async function(){
                     ? b.createdAt.toMillis()
                     : 0;
 
-                return bTime - aTime;
+                return bTime-aTime;
 
             }
         );
@@ -1858,13 +1497,9 @@ async function(){
     }
     catch(error){
 
-        console.error(
-            "LOAD ORDERS ERROR:",
-            error
-        );
+        console.error(error);
 
-
-        container.innerHTML = `
+        container.innerHTML=`
 
             <div class="empty">
 
@@ -1895,7 +1530,7 @@ function updateStats(){
 
     const pending =
         allOrders.filter(
-            order => {
+            order=>{
 
                 const status =
                     String(
@@ -1918,41 +1553,33 @@ function updateStats(){
         allOrders.filter(
             order =>
                 String(
-                    order.orderStatus ||
-                    ""
+                    order.orderStatus || ""
                 ).toLowerCase()
                 ===
                 "delivered"
         ).length;
 
 
-    /*
-       Order Value:
-       Cancelled orders excluded.
-    */
-
-    const sales =
+    const paid =
         allOrders.reduce(
             function(sum,order){
 
-                const status =
-                    String(
-                        order.orderStatus ||
-                        ""
-                    ).toLowerCase();
-
-
                 if(
-                    status ===
-                    "cancelled"
+                    String(
+                        order.paymentStatus ||
+                        "pending"
+                    ).toLowerCase()
+                    !==
+                    "paid"
                 ){
                     return sum;
                 }
 
-
                 return sum +
                     Number(
-                        order.total || 0
+                        order.paymentPaidAmount ||
+                        order.total ||
+                        0
                     );
 
             },
@@ -1960,13 +1587,7 @@ function updateStats(){
         );
 
 
-    /*
-       Pending Payment:
-       All non-cancelled orders
-       whose payment is not paid.
-    */
-
-    const pendingPayment =
+    const pendingMoney =
         allOrders.reduce(
             function(sum,order){
 
@@ -1988,9 +1609,7 @@ function updateStats(){
                     status === "cancelled" ||
                     payment === "paid"
                 ){
-
                     return sum;
-
                 }
 
 
@@ -2004,247 +1623,76 @@ function updateStats(){
         );
 
 
-    /*
-       Paid Collection:
-       Only paymentStatus = paid.
-    */
-
-    const paidCollection =
-        allOrders.reduce(
-            function(sum,order){
-
-                const status =
-                    String(
-                        order.orderStatus ||
-                        ""
-                    ).toLowerCase();
+    document.getElementById("totalOrders")
+    .innerText=total;
 
 
-                const payment =
-                    String(
-                        order.paymentStatus ||
-                        "pending"
-                    ).toLowerCase();
+    document.getElementById("pendingOrders")
+    .innerText=pending;
 
 
-                if(
-                    status === "cancelled" ||
-                    payment !== "paid"
-                ){
-
-                    return sum;
-
-                }
+    document.getElementById("deliveredOrders")
+    .innerText=delivered;
 
 
-                return sum +
-                    Number(
-                        order.paymentPaidAmount ||
-                        order.total ||
-                        0
-                    );
-
-            },
-            0
-        );
+    document.getElementById("paidSales")
+    .innerText=
+        "₹"+paid.toLocaleString("en-IN");
 
 
-    document
-    .getElementById(
-        "totalOrders"
-    )
-    .innerText =
-        total;
-
-
-    document
-    .getElementById(
-        "pendingOrders"
-    )
-    .innerText =
-        pending;
-
-
-    document
-    .getElementById(
-        "deliveredOrders"
-    )
-    .innerText =
-        delivered;
-
-
-    document
-    .getElementById(
-        "sales"
-    )
-    .innerText =
-        "₹" +
-        sales.toLocaleString(
-            "en-IN"
-        );
-
-
-    document
-    .getElementById(
-        "pendingPayment"
-    )
-    .innerText =
-        "₹" +
-        pendingPayment.toLocaleString(
-            "en-IN"
-        );
-
-
-    document
-    .getElementById(
-        "paidCollection"
-    )
-    .innerText =
-        "₹" +
-        paidCollection.toLocaleString(
-            "en-IN"
-        );
+    document.getElementById("pendingPayment")
+    .innerText=
+        "₹"+pendingMoney.toLocaleString("en-IN");
 
 }
 
 
 /* =====================================================
-   FILTER EVENTS
+   FILTER
 ===================================================== */
 
 document
 .getElementById("searchInput")
-.addEventListener(
-    "input",
-    renderOrders
-);
+.addEventListener("input",renderOrders);
 
 
 document
 .getElementById("statusFilter")
-.addEventListener(
-    "change",
-    renderOrders
-);
+.addEventListener("change",renderOrders);
 
 
 document
 .getElementById("paymentFilter")
-.addEventListener(
-    "change",
-    renderOrders
-);
+.addEventListener("change",renderOrders);
 
 
 /* =====================================================
-   PAYMENT FILTER MATCH
-===================================================== */
-
-function matchesPaymentFilter(
-    order,
-    filter
-){
-
-    if(filter === "all"){
-        return true;
-    }
-
-
-    const payment =
-        String(
-            order.paymentStatus ||
-            "pending"
-        ).toLowerCase();
-
-
-    const cash =
-        String(
-            order.cashStatus ||
-            "not_received"
-        ).toLowerCase();
-
-
-    if(
-        filter === "pending"
-    ){
-
-        return payment !== "paid";
-
-    }
-
-
-    if(
-        filter === "paid"
-    ){
-
-        return payment === "paid";
-
-    }
-
-
-    if(
-        filter === "cash_received"
-    ){
-
-        return (
-            cash === "received" &&
-            payment !== "paid"
-        );
-
-    }
-
-
-    if(
-        filter === "cash_deposited"
-    ){
-
-        return (
-            cash === "deposited"
-        );
-
-    }
-
-
-    return true;
-
-}
-
-
-/* =====================================================
-   RENDER ORDERS
+   RENDER
 ===================================================== */
 
 function renderOrders(){
 
     const container =
-        document.getElementById(
-            "orders"
-        );
+        document.getElementById("orders");
 
 
     const query =
         document
-        .getElementById(
-            "searchInput"
-        )
+        .getElementById("searchInput")
         .value
         .trim()
         .toLowerCase();
 
 
-    const filter =
+    const statusFilter =
         document
-        .getElementById(
-            "statusFilter"
-        )
+        .getElementById("statusFilter")
         .value;
 
 
     const paymentFilter =
         document
-        .getElementById(
-            "paymentFilter"
-        )
+        .getElementById("paymentFilter")
         .value;
 
 
@@ -2263,7 +1711,14 @@ function renderOrders(){
                     ).toLowerCase();
 
 
-                const searchable = [
+                const payment =
+                    String(
+                        order.paymentStatus ||
+                        "pending"
+                    ).toLowerCase();
+
+
+                const searchable=[
 
                     getCustomerOrderId(order),
 
@@ -2279,6 +1734,8 @@ function renderOrders(){
 
                     customer.city,
 
+                    customer.state,
+
                     customer.pincode,
 
                     customer.pin
@@ -2293,41 +1750,37 @@ function renderOrders(){
                 .join(" ");
 
 
-                const matchesSearch =
-                    !query ||
-                    searchable.includes(
-                        query
-                    );
-
-
-                const matchesStatus =
-                    filter === "all" ||
-                    status === filter;
-
-
-                const matchesPayment =
-                    matchesPaymentFilter(
-                        order,
-                        paymentFilter
-                    );
-
-
                 return (
-                    matchesSearch &&
-                    matchesStatus &&
-                    matchesPayment
+
+                    (!query ||
+                    searchable.includes(query))
+
+                    &&
+
+                    (
+                        statusFilter==="all" ||
+                        status===statusFilter
+                    )
+
+                    &&
+
+                    (
+                        paymentFilter==="all" ||
+                        payment===paymentFilter
+                    )
+
                 );
 
             }
         );
 
 
-    container.innerHTML = "";
+    container.innerHTML="";
 
 
     if(!filtered.length){
 
-        container.innerHTML = `
+        container.innerHTML=`
 
             <div class="empty">
 
@@ -2356,19 +1809,15 @@ function renderOrders(){
 
 
 /* =====================================================
-   CREATE ORDER CARD
+   ORDER CARD
 ===================================================== */
 
 function createOrderCard(order){
 
     const card =
-        document.createElement(
-            "div"
-        );
+        document.createElement("div");
 
-
-    card.className =
-        "order-card";
+    card.className="order-card";
 
 
     const customer =
@@ -2382,18 +1831,30 @@ function createOrderCard(order){
         ).toLowerCase();
 
 
-    const safeStatus = [
-
+    const safeStatus=[
         "placed",
         "confirmed",
         "processing",
         "shipped",
         "delivered",
         "cancelled"
-
     ].includes(status)
     ? status
     : "placed";
+
+
+    const paymentStatus =
+        String(
+            order.paymentStatus ||
+            "pending"
+        ).toLowerCase();
+
+
+    const cashStatus =
+        String(
+            order.cashStatus ||
+            "not_received"
+        ).toLowerCase();
 
 
     const items =
@@ -2417,100 +1878,58 @@ function createOrderCard(order){
         "Customer";
 
 
-    const address =
-        [
-            customer.address,
-            customer.city,
-            customer.state,
-            customer.pincode ||
-            customer.pin
-        ]
-        .filter(Boolean)
-        .join(", ");
+    const address=[
+        customer.address,
+        customer.city,
+        customer.state,
+        customer.pincode ||
+        customer.pin
+    ]
+    .filter(Boolean)
+    .join(", ");
 
 
-    const paymentStatus =
-        String(
-            order.paymentStatus ||
-            "pending"
-        ).toLowerCase();
+    let paymentBadge="";
 
+    if(paymentStatus==="paid"){
 
-    const cashStatus =
-        String(
-            order.cashStatus ||
-            "not_received"
-        ).toLowerCase();
-
-
-    let paymentBadge = "";
-
-
-    if(
-        paymentStatus === "paid"
-    ){
-
-        paymentBadge = `
-
-            <span
-                class="payment-badge payment-paid">
-
+        paymentBadge=`
+            <span class="payment-badge payment-paid">
                 ✅ PAID
-
             </span>
-
         `;
 
     }
-    else if(
-        cashStatus === "deposited"
-    ){
+    else if(cashStatus==="deposited"){
 
-        paymentBadge = `
-
-            <span
-                class="payment-badge payment-deposited">
-
+        paymentBadge=`
+            <span class="payment-badge payment-deposited">
                 🏦 CASH DEPOSITED
-
             </span>
-
         `;
 
     }
-    else if(
-        cashStatus === "received"
-    ){
+    else if(cashStatus==="received"){
 
-        paymentBadge = `
-
-            <span
-                class="payment-badge payment-cash">
-
+        paymentBadge=`
+            <span class="payment-badge payment-cash">
                 💰 CASH RECEIVED
-
             </span>
-
         `;
 
     }
     else{
 
-        paymentBadge = `
-
-            <span
-                class="payment-badge payment-pending">
-
+        paymentBadge=`
+            <span class="payment-badge payment-pending">
                 ⏳ PAYMENT PENDING
-
             </span>
-
         `;
 
     }
 
 
-    card.innerHTML = `
+    card.innerHTML=`
 
         <div class="order-top">
 
@@ -2525,21 +1944,16 @@ function createOrderCard(order){
 
                 <div class="order-date">
 
-                    ${formatDate(
-                        order.createdAt
-                    )}
+                    ${formatDate(order.createdAt)}
 
                 </div>
 
             </div>
 
 
-            <span
-                class="status ${safeStatus}">
+            <span class="status ${safeStatus}">
 
-                ${statusText(
-                    safeStatus
-                )}
+                ${statusText(safeStatus)}
 
             </span>
 
@@ -2547,7 +1961,6 @@ function createOrderCard(order){
 
 
         <div class="order-body">
-
 
             <div>
 
@@ -2558,17 +1971,13 @@ function createOrderCard(order){
                 <div class="info">
 
                     <b>
-                        ${escapeHtml(
-                            customerName
-                        )}
+                        ${escapeHtml(customerName)}
                     </b>
 
                     <br>
 
                     📱
-                    ${escapeHtml(
-                        mobile || "—"
-                    )}
+                    ${escapeHtml(mobile || "—")}
 
                 </div>
 
@@ -2583,9 +1992,7 @@ function createOrderCard(order){
 
                 <div class="info">
 
-                    ${escapeHtml(
-                        address || "—"
-                    )}
+                    ${escapeHtml(address || "—")}
 
                 </div>
 
@@ -2603,8 +2010,7 @@ function createOrderCard(order){
                     Method:
                     <b>
                         ${escapeHtml(
-                            order.paymentMethod ||
-                            "—"
+                            order.paymentMethod || "—"
                         )}
                     </b>
 
@@ -2616,7 +2022,6 @@ function createOrderCard(order){
 
             </div>
 
-
         </div>
 
 
@@ -2626,7 +2031,6 @@ function createOrderCard(order){
                 🛍️ Products
             </div>
 
-
             ${
                 items.length
                 ?
@@ -2634,14 +2038,10 @@ function createOrderCard(order){
                     function(item){
 
                         const qty =
-                            Number(
-                                item.qty || 1
-                            );
+                            Number(item.qty || 1);
 
                         const price =
-                            Number(
-                                item.price || 0
-                            );
+                            Number(item.price || 0);
 
 
                         return `
@@ -2653,8 +2053,8 @@ function createOrderCard(order){
                                         getImage(item)
                                     )}"
                                     onerror="
-                                        this.onerror=null;
-                                        this.src='logo.png';
+                                    this.onerror=null;
+                                    this.src='logo.png';
                                     ">
 
                                 <div class="product-info">
@@ -2670,17 +2070,16 @@ function createOrderCard(order){
 
                                     <div class="product-meta">
 
-                                        Qty:
-                                        ${qty}
+                                        Qty: ${qty}
 
                                         ${
                                             item.weight
                                             ?
-                                            " • " +
+                                            " • "+
                                             escapeHtml(
                                                 item.weight
-                                            ) +
-                                            " " +
+                                            )+
+                                            " "+
                                             escapeHtml(
                                                 item.weightUnit ||
                                                 ""
@@ -2696,10 +2095,8 @@ function createOrderCard(order){
                                 <div class="product-price">
 
                                     ₹${(
-                                        price * qty
-                                    ).toLocaleString(
-                                        "en-IN"
-                                    )}
+                                        price*qty
+                                    ).toLocaleString("en-IN")}
 
                                 </div>
 
@@ -2725,9 +2122,7 @@ function createOrderCard(order){
                 <span>
                     ₹${Number(
                         order.total || 0
-                    ).toLocaleString(
-                        "en-IN"
-                    )}
+                    ).toLocaleString("en-IN")}
                 </span>
 
             </div>
@@ -2799,8 +2194,8 @@ function createOrderCard(order){
 
 
             ${
-                safeStatus !== "cancelled" &&
-                safeStatus !== "delivered"
+                safeStatus!=="cancelled" &&
+                safeStatus!=="delivered"
                 ?
                 `
                 <button
@@ -2835,8 +2230,7 @@ function findOrder(firebaseDocumentId){
 
     return allOrders.find(
         order =>
-            order.id ===
-            firebaseDocumentId
+            order.id===firebaseDocumentId
     );
 
 }
@@ -2850,10 +2244,7 @@ window.viewOrder =
 function(firebaseDocumentId){
 
     const order =
-        findOrder(
-            firebaseDocumentId
-        );
-
+        findOrder(firebaseDocumentId);
 
     if(!order)return;
 
@@ -2875,85 +2266,47 @@ function(firebaseDocumentId){
         ).toLowerCase();
 
 
-    const customerOrderId =
-        getCustomerOrderId(order);
-
-
-    const address =
-        [
-            customer.address,
-            customer.city,
-            customer.state,
-            customer.pincode ||
-            customer.pin
-        ]
-        .filter(Boolean)
-        .join(", ");
-
-
-    const paymentStatus =
-        String(
-            order.paymentStatus ||
-            "pending"
-        ).toLowerCase();
-
-
-    const cashStatus =
-        String(
-            order.cashStatus ||
-            "not_received"
-        ).toLowerCase();
+    const address=[
+        customer.address,
+        customer.city,
+        customer.state,
+        customer.pincode ||
+        customer.pin
+    ]
+    .filter(Boolean)
+    .join(", ");
 
 
     document
-    .getElementById(
-        "viewContent"
-    )
-    .innerHTML = `
+    .getElementById("viewContent")
+    .innerHTML=`
 
         <div class="modal-section">
 
-            <h3>
-                📦 Order
-            </h3>
+            <h3>📦 Order</h3>
 
             <div class="info">
 
-                <b>
-                    Customer Order ID:
-                </b>
-
+                <b>Customer Order ID:</b>
                 ${escapeHtml(
-                    customerOrderId ||
-                    "—"
+                    getCustomerOrderId(order) || "—"
                 )}
 
                 <br>
 
-                <b>
-                    Firebase Document ID:
-                </b>
-
+                <b>Firebase Document ID:</b>
                 ${escapeHtml(
                     getFirebaseDocumentId(order)
                 )}
 
                 <br>
 
-                <b>
-                    Created:
-                </b>
-
-                ${formatDate(
-                    order.createdAt
-                )}
+                <b>Created:</b>
+                ${formatDate(order.createdAt)}
 
                 <br>
 
-                <b>
-                    Status:
-                </b>
-
+                <b>Status:</b>
                 ${statusText(status)}
 
             </div>
@@ -2963,14 +2316,11 @@ function(firebaseDocumentId){
 
         <div class="modal-section">
 
-            <h3>
-                👤 Customer
-            </h3>
+            <h3>👤 Customer</h3>
 
             <div class="info">
 
                 <b>Name:</b>
-
                 ${escapeHtml(
                     customer.name ||
                     customer.fullName ||
@@ -2980,20 +2330,14 @@ function(firebaseDocumentId){
                 <br>
 
                 <b>Mobile:</b>
-
                 ${escapeHtml(
-                    getMobile(order) ||
-                    "—"
+                    getMobile(order) || "—"
                 )}
 
                 <br>
 
                 <b>Address:</b>
-
-                ${escapeHtml(
-                    address ||
-                    "—"
-                )}
+                ${escapeHtml(address || "—")}
 
             </div>
 
@@ -3002,109 +2346,58 @@ function(firebaseDocumentId){
 
         <div class="modal-section">
 
-            <h3>
-                💳 Payment
-            </h3>
+            <h3>💳 Payment</h3>
 
             <div class="info">
 
                 <b>Method:</b>
-
                 ${escapeHtml(
-                    order.paymentMethod ||
-                    "—"
+                    order.paymentMethod || "—"
                 )}
 
                 <br>
 
                 <b>Payment Status:</b>
-
                 ${escapeHtml(
-                    paymentStatusText(order)
+                    order.paymentStatus || "pending"
                 )}
 
                 <br>
 
                 <b>Cash Status:</b>
-
                 ${escapeHtml(
-                    cashStatus
+                    order.cashStatus || "not_received"
                 )}
 
                 <br>
 
                 <b>Subtotal:</b>
-
                 ₹${Number(
                     order.subtotal || 0
-                ).toLocaleString(
-                    "en-IN"
-                )}
+                ).toLocaleString("en-IN")}
 
                 <br>
 
                 <b>Delivery:</b>
-
                 ₹${Number(
                     order.deliveryCharge || 0
-                ).toLocaleString(
-                    "en-IN"
-                )}
+                ).toLocaleString("en-IN")}
 
                 <br>
 
                 <b>Total:</b>
-
                 ₹${Number(
                     order.total || 0
-                ).toLocaleString(
-                    "en-IN"
-                )}
-
-                ${
-                    order.paymentPaidAmount !== undefined
-                    ?
-                    `
-                    <br>
-
-                    <b>Paid Amount:</b>
-
-                    ₹${Number(
-                        order.paymentPaidAmount || 0
-                    ).toLocaleString(
-                        "en-IN"
-                    )}
-                    `
-                    :
-                    ""
-                }
+                ).toLocaleString("en-IN")}
 
                 ${
                     order.paymentTransactionId
                     ?
                     `
                     <br>
-
-                    <b>UTR / Transaction ID:</b>
-
+                    <b>UTR:</b>
                     ${escapeHtml(
                         order.paymentTransactionId
-                    )}
-                    `
-                    :
-                    ""
-                }
-
-                ${
-                    order.paymentVerifiedBy
-                    ?
-                    `
-                    <br>
-
-                    <b>Verified By:</b>
-
-                    ${escapeHtml(
-                        order.paymentVerifiedBy
                     )}
                     `
                     :
@@ -3122,9 +2415,7 @@ function(firebaseDocumentId){
             `
             <div class="modal-section">
 
-                <h3>
-                    🚚 Estimated Delivery
-                </h3>
+                <h3>🚚 Estimated Delivery</h3>
 
                 <div class="info">
 
@@ -3143,15 +2434,13 @@ function(firebaseDocumentId){
 
         <div class="modal-section">
 
-            <h3>
-                🛍️ Products
-            </h3>
+            <h3>🛍️ Products</h3>
 
             ${
                 items.length
                 ?
                 items.map(
-                    item => `
+                    item=>`
 
                     <div class="product">
 
@@ -3160,8 +2449,8 @@ function(firebaseDocumentId){
                                 getImage(item)
                             )}"
                             onerror="
-                                this.onerror=null;
-                                this.src='logo.png';
+                            this.onerror=null;
+                            this.src='logo.png';
                             ">
 
                         <div class="product-info">
@@ -3189,15 +2478,9 @@ function(firebaseDocumentId){
                         <div class="product-price">
 
                             ₹${(
-                                Number(
-                                    item.price || 0
-                                ) *
-                                Number(
-                                    item.qty || 1
-                                )
-                            ).toLocaleString(
-                                "en-IN"
-                            )}
+                                Number(item.price || 0) *
+                                Number(item.qty || 1)
+                            ).toLocaleString("en-IN")}
 
                         </div>
 
@@ -3218,9 +2501,7 @@ function(firebaseDocumentId){
             `
             <div class="modal-section">
 
-                <h3>
-                    📝 Customer Note
-                </h3>
+                <h3>📝 Customer Note</h3>
 
                 <div class="info">
 
@@ -3240,142 +2521,43 @@ function(firebaseDocumentId){
 
 
     document
-    .getElementById(
-        "viewModal"
-    )
-    .style.display =
-        "flex";
+    .getElementById("viewModal")
+    .style.display="flex";
 
 };
 
-
-/* =====================================================
-   CLOSE VIEW
-===================================================== */
 
 window.closeViewModal =
 function(){
 
     document
-    .getElementById(
-        "viewModal"
-    )
-    .style.display =
-        "none";
+    .getElementById("viewModal")
+    .style.display="none";
 
 };
-
-
-/* =====================================================
-   CLOSE STATUS
-===================================================== */
-
-window.closeStatusModal =
-function(){
-
-    document
-    .getElementById(
-        "statusModal"
-    )
-    .style.display =
-        "none";
-
-    selectedOrder =
-        null;
-
-};
-
-
-/* =====================================================
-   CLOSE PAYMENT
-===================================================== */
-
-window.closePaymentModal =
-function(){
-
-    document
-    .getElementById(
-        "paymentModal"
-    )
-    .style.display =
-        "none";
-
-};
-
-
-/* =====================================================
-   BACKDROP CLOSE
-===================================================== */
-
-document
-.getElementById("viewModal")
-.addEventListener(
-    "click",
-    function(event){
-
-        if(
-            event.target ===
-            this
-        ){
-
-            closeViewModal();
-
-        }
-
-    }
-);
-
-
-document
-.getElementById("statusModal")
-.addEventListener(
-    "click",
-    function(event){
-
-        if(
-            event.target ===
-            this
-        ){
-
-            closeStatusModal();
-
-        }
-
-    }
-);
-
-
-document
-.getElementById("paymentModal")
-.addEventListener(
-    "click",
-    function(event){
-
-        if(
-            event.target ===
-            this
-        ){
-
-            closePaymentModal();
-
-        }
-
-    }
-);
 
 
 /* =====================================================
    STATUS MODAL
 ===================================================== */
 
+window.closeStatusModal =
+function(){
+
+    document
+    .getElementById("statusModal")
+    .style.display="none";
+
+    selectedOrder=null;
+
+};
+
+
 window.openStatusModal =
 function(firebaseDocumentId){
 
     selectedOrder =
-        findOrder(
-            firebaseDocumentId
-        );
-
+        findOrder(firebaseDocumentId);
 
     if(!selectedOrder)return;
 
@@ -3388,29 +2570,19 @@ function(firebaseDocumentId){
 
 
     document
-    .getElementById(
-        "statusOrderInfo"
-    )
-    .innerHTML = `
+    .getElementById("statusOrderInfo")
+    .innerHTML=`
 
-        <b>
-            📦 Order ID:
-        </b>
+        <b>📦 Order ID:</b>
 
         ${escapeHtml(
-            getCustomerOrderId(
-                selectedOrder
-            ) ||
-            getFirebaseDocumentId(
-                selectedOrder
-            )
+            getCustomerOrderId(selectedOrder) ||
+            getFirebaseDocumentId(selectedOrder)
         )}
 
         <br>
 
-        <b>
-            Current:
-        </b>
+        <b>Current:</b>
 
         ${statusText(status)}
 
@@ -3418,67 +2590,52 @@ function(firebaseDocumentId){
 
 
     document
-    .getElementById(
-        "statusModal"
-    )
-    .style.display =
-        "flex";
+    .getElementById("statusModal")
+    .style.display="flex";
 
 };
 
 
-/* =====================================================
-   STATUS ORDER
-===================================================== */
-
-const statusOrder = [
-
+const statusOrder=[
     "placed",
     "confirmed",
     "processing",
     "shipped",
     "delivered"
-
 ];
 
 
 /* =====================================================
-   BUILD TRACKING DATA
+   TRACKING
 ===================================================== */
 
 function buildTrackingData(
     order,
     newStatus,
-    existingData = {}
+    existingData={}
 ){
 
     const mobile =
         getMobile(order);
 
 
-    if(!mobile){
-
-        throw new Error(
-            "Customer mobile number missing"
-        );
-
-    }
-
-
     const customerOrderId =
         getCustomerOrderId(order);
 
 
-    if(!customerOrderId){
+    if(!mobile)
+        throw new Error(
+            "Customer mobile number missing"
+        );
 
+
+    if(!customerOrderId)
         throw new Error(
             "Customer Order ID missing"
         );
 
-    }
 
-
-    const trackingData = {
+    const trackingData={
 
         orderId:
             customerOrderId,
@@ -3487,29 +2644,22 @@ function buildTrackingData(
             newStatus,
 
         total:
-            Number(
-                order.total || 0
-            ),
+            Number(order.total || 0),
 
         items:
             Array.isArray(order.items)
             ?
             order.items.map(
-                item => ({
+                item=>({
 
                     name:
-                        item.name ||
-                        "Product",
+                        item.name || "Product",
 
                     qty:
-                        Number(
-                            item.qty || 1
-                        ),
+                        Number(item.qty || 1),
 
                     price:
-                        Number(
-                            item.price || 0
-                        ),
+                        Number(item.price || 0),
 
                     image:
                         item.image ||
@@ -3517,12 +2667,10 @@ function buildTrackingData(
                         "",
 
                     weight:
-                        item.weight ||
-                        "",
+                        item.weight || "",
 
                     weightUnit:
-                        item.weightUnit ||
-                        ""
+                        item.weightUnit || ""
 
                 })
             )
@@ -3535,127 +2683,80 @@ function buildTrackingData(
     };
 
 
-    if(
-        order.estimatedDelivery
-    ){
-
+    if(order.estimatedDelivery)
         trackingData.estimatedDelivery =
             order.estimatedDelivery;
 
-    }
 
-    if(
-        order.estimatedDeliveryStart
-    ){
-
+    if(order.estimatedDeliveryStart)
         trackingData.estimatedDeliveryStart =
             order.estimatedDeliveryStart;
 
-    }
 
-    if(
-        order.estimatedDeliveryEnd
-    ){
-
+    if(order.estimatedDeliveryEnd)
         trackingData.estimatedDeliveryEnd =
             order.estimatedDeliveryEnd;
 
-    }
 
     if(
         order.estimatedDeliveryMinDays !==
         undefined
-    ){
-
+    )
         trackingData.estimatedDeliveryMinDays =
             order.estimatedDeliveryMinDays;
 
-    }
 
     if(
         order.estimatedDeliveryMaxDays !==
         undefined
-    ){
-
+    )
         trackingData.estimatedDeliveryMaxDays =
             order.estimatedDeliveryMaxDays;
 
-    }
 
-
-    if(
-        !existingData.createdAt
-    ){
-
+    if(!existingData.createdAt)
         trackingData.createdAt =
             order.createdAt ||
             serverTimestamp();
 
-    }
-
 
     if(
-        !existingData.placedAt &&
-        (
-            newStatus === "placed" ||
-            !existingData.orderStatus
-        )
-    ){
-
+        newStatus==="placed" &&
+        !existingData.placedAt
+    )
         trackingData.placedAt =
             order.createdAt ||
             serverTimestamp();
 
-    }
 
-
-    if(newStatus === "placed"){
-
-        trackingData.placedAt =
-            existingData.placedAt ||
-            serverTimestamp();
-
-    }
-
-    if(newStatus === "confirmed"){
-
+    if(newStatus==="confirmed")
         trackingData.confirmedAt =
             existingData.confirmedAt ||
             serverTimestamp();
 
-    }
 
-    if(newStatus === "processing"){
-
+    if(newStatus==="processing")
         trackingData.processingAt =
             existingData.processingAt ||
             serverTimestamp();
 
-    }
 
-    if(newStatus === "shipped"){
-
+    if(newStatus==="shipped")
         trackingData.shippedAt =
             existingData.shippedAt ||
             serverTimestamp();
 
-    }
 
-    if(newStatus === "delivered"){
-
+    if(newStatus==="delivered")
         trackingData.deliveredAt =
             existingData.deliveredAt ||
             serverTimestamp();
 
-    }
 
-    if(newStatus === "cancelled"){
-
+    if(newStatus==="cancelled")
         trackingData.cancelledAt =
             existingData.cancelledAt ||
             serverTimestamp();
-
-    }
 
 
     return trackingData;
@@ -3670,9 +2771,7 @@ function buildTrackingData(
 window.changeStatus =
 async function(newStatus){
 
-    if(!selectedOrder){
-        return;
-    }
+    if(!selectedOrder)return;
 
 
     const order =
@@ -3686,10 +2785,7 @@ async function(newStatus){
         ).toLowerCase();
 
 
-    if(
-        currentStatus ===
-        newStatus
-    ){
+    if(currentStatus===newStatus){
 
         toast(
             "ℹ️ Order already has this status."
@@ -3701,12 +2797,12 @@ async function(newStatus){
 
 
     if(
-        currentStatus ===
-        "delivered"
+        currentStatus==="delivered" ||
+        currentStatus==="cancelled"
     ){
 
         toast(
-            "❌ Delivered Orderର status change କରାଯିବ ନାହିଁ।"
+            "❌ ଏହି Orderର status change କରାଯିବ ନାହିଁ।"
         );
 
         return;
@@ -3714,41 +2810,16 @@ async function(newStatus){
     }
 
 
-    if(
-        currentStatus ===
-        "cancelled"
-    ){
-
-        toast(
-            "❌ Cancelled Orderର status change କରାଯିବ ନାହିଁ।"
-        );
-
-        return;
-
-    }
-
-
-    if(
-        newStatus !==
-        "cancelled"
-    ){
+    if(newStatus!=="cancelled"){
 
         const currentIndex =
-            statusOrder.indexOf(
-                currentStatus
-            );
-
+            statusOrder.indexOf(currentStatus);
 
         const newIndex =
-            statusOrder.indexOf(
-                newStatus
-            );
+            statusOrder.indexOf(newStatus);
 
 
-        if(
-            newIndex <
-            currentIndex
-        ){
+        if(newIndex<currentIndex){
 
             toast(
                 "⚠️ Order status ପଛକୁ change କରିହେବ ନାହିଁ।"
@@ -3761,23 +2832,16 @@ async function(newStatus){
     }
 
 
-    if(
-        newStatus ===
-        "cancelled"
-    ){
+    if(newStatus==="cancelled"){
 
         const yes =
             confirm(
                 "ଏହି Order cancel କରିବେ କି?\n\nStock automatically restore ହେବ।"
             );
 
-
         if(!yes)return;
 
-
-        await cancelOrderInternal(
-            order
-        );
+        await cancelOrderInternal(order);
 
         return;
 
@@ -3792,31 +2856,23 @@ async function(newStatus){
 
 
         const customerOrderId =
-            getCustomerOrderId(
-                order
-            );
-
-
-        if(!customerOrderId){
-
-            throw new Error(
-                "Customer Order ID missing"
-            );
-
-        }
+            getCustomerOrderId(order);
 
 
         const mobile =
             getMobile(order);
 
 
-        if(!mobile){
+        if(!customerOrderId)
+            throw new Error(
+                "Customer Order ID missing"
+            );
 
+
+        if(!mobile)
             throw new Error(
                 "Customer mobile number missing"
             );
-
-        }
 
 
         const trackingId =
@@ -3854,7 +2910,7 @@ async function(newStatus){
                     serverTimestamp(),
 
                 adminConfirmed:
-                    newStatus === "confirmed"
+                    newStatus==="confirmed"
                     ?
                     true
                     :
@@ -3902,18 +2958,11 @@ async function(newStatus){
     }
     catch(error){
 
-        console.error(
-            "STATUS UPDATE ERROR:",
-            error
-        );
-
+        console.error(error);
 
         toast(
-            "❌ Status update failed: " +
-            (
-                error.message ||
-                "Firebase error"
-            )
+            "❌ Status update failed: "+
+            error.message
         );
 
     }
@@ -3922,12 +2971,10 @@ async function(newStatus){
 
 
 /* =====================================================
-   CANCEL ORDER INTERNAL
+   CANCEL
 ===================================================== */
 
-async function cancelOrderInternal(
-    order
-){
+async function cancelOrderInternal(order){
 
     try{
 
@@ -3937,37 +2984,27 @@ async function cancelOrderInternal(
 
 
         const firebaseDocumentId =
-            getFirebaseDocumentId(
-                order
-            );
+            getFirebaseDocumentId(order);
 
 
         const customerOrderId =
-            getCustomerOrderId(
-                order
-            );
+            getCustomerOrderId(order);
 
 
         const mobile =
             getMobile(order);
 
 
-        if(!customerOrderId){
-
+        if(!customerOrderId)
             throw new Error(
                 "Customer Order ID missing"
             );
 
-        }
 
-
-        if(!mobile){
-
+        if(!mobile)
             throw new Error(
                 "Customer mobile number missing"
             );
-
-        }
 
 
         await runTransaction(
@@ -3983,20 +3020,13 @@ async function cancelOrderInternal(
 
 
                 const orderSnap =
-                    await transaction.get(
-                        orderRef
-                    );
+                    await transaction.get(orderRef);
 
 
-                if(
-                    !orderSnap.exists()
-                ){
-
+                if(!orderSnap.exists())
                     throw new Error(
                         "Order not found"
                     );
-
-                }
 
 
                 const freshOrder =
@@ -4010,28 +3040,16 @@ async function cancelOrderInternal(
                     ).toLowerCase();
 
 
-                if(
-                    currentStatus ===
-                    "cancelled"
-                ){
-
+                if(currentStatus==="cancelled")
                     throw new Error(
                         "Order already cancelled"
                     );
 
-                }
 
-
-                if(
-                    currentStatus ===
-                    "delivered"
-                ){
-
+                if(currentStatus==="delivered")
                     throw new Error(
                         "Delivered order cannot be cancelled"
                     );
-
-                }
 
 
                 const items =
@@ -4044,12 +3062,11 @@ async function cancelOrderInternal(
                     [];
 
 
-                const productRefs = [];
+                const productData=[];
 
 
                 if(
-                    freshOrder.stockRestored
-                    !== true
+                    freshOrder.stockRestored!==true
                 ){
 
                     for(
@@ -4062,9 +3079,8 @@ async function cancelOrderInternal(
                             "";
 
 
-                        if(!productId){
+                        if(!productId)
                             continue;
-                        }
 
 
                         const productRef =
@@ -4081,46 +3097,31 @@ async function cancelOrderInternal(
                             );
 
 
-                        productRefs.push(
-                            {
-                                ref:
-                                    productRef,
+                        productData.push({
 
-                                snap:
-                                    productSnap,
+                            ref:productRef,
+                            snap:productSnap,
+                            item:item
 
-                                item:
-                                    item
-                            }
-                        );
+                        });
 
                     }
 
 
                     for(
-                        const productData
-                        of productRefs
+                        const data of productData
                     ){
 
-                        const productSnap =
-                            productData.snap;
-
-
-                        if(
-                            !productSnap.exists()
-                        ){
-
+                        if(!data.snap.exists())
                             continue;
-
-                        }
 
 
                         const product =
-                            productSnap.data();
+                            data.snap.data();
 
 
                         const item =
-                            productData.item;
+                            data.item;
 
 
                         const qty =
@@ -4156,13 +3157,10 @@ async function cancelOrderInternal(
 
 
                         transaction.update(
-                            productData.ref,
+                            data.ref,
                             {
-
                                 [field]:
-                                    currentStock +
-                                    qty
-
+                                    currentStock+qty
                             }
                         );
 
@@ -4222,12 +3220,9 @@ async function cancelOrderInternal(
         );
 
 
-        order.orderStatus =
-            "cancelled";
+        order.orderStatus="cancelled";
 
-
-        order.stockRestored =
-            true;
+        order.stockRestored=true;
 
 
         closeStatusModal();
@@ -4244,18 +3239,11 @@ async function cancelOrderInternal(
     }
     catch(error){
 
-        console.error(
-            "CANCEL ERROR:",
-            error
-        );
-
+        console.error(error);
 
         toast(
-            "❌ Cancel failed: " +
-            (
-                error.message ||
-                "Unknown error"
-            )
+            "❌ Cancel failed: "+
+            error.message
         );
 
     }
@@ -4263,18 +3251,11 @@ async function cancelOrderInternal(
 }
 
 
-/* =====================================================
-   CANCEL BUTTON
-===================================================== */
-
 window.cancelOrder =
 async function(firebaseDocumentId){
 
     const order =
-        findOrder(
-            firebaseDocumentId
-        );
-
+        findOrder(firebaseDocumentId);
 
     if(!order)return;
 
@@ -4286,10 +3267,7 @@ async function(firebaseDocumentId){
         ).toLowerCase();
 
 
-    if(
-        status ===
-        "delivered"
-    ){
+    if(status==="delivered"){
 
         toast(
             "❌ Delivered Order cancel କରିହେବ ନାହିଁ।"
@@ -4300,10 +3278,7 @@ async function(firebaseDocumentId){
     }
 
 
-    if(
-        status ===
-        "cancelled"
-    ){
+    if(status==="cancelled"){
 
         toast(
             "ℹ️ Order already cancelled."
@@ -4323,9 +3298,7 @@ async function(firebaseDocumentId){
     if(!yes)return;
 
 
-    await cancelOrderInternal(
-        order
-    );
+    await cancelOrderInternal(order);
 
 };
 
@@ -4338,34 +3311,22 @@ window.openPaymentModal =
 function(firebaseDocumentId){
 
     const order =
-        findOrder(
-            firebaseDocumentId
-        );
-
+        findOrder(firebaseDocumentId);
 
     if(!order)return;
 
 
-    selectedOrder =
-        order;
-
+    selectedOrder=order;
 
     renderPaymentModal(order);
 
 
     document
-    .getElementById(
-        "paymentModal"
-    )
-    .style.display =
-        "flex";
+    .getElementById("paymentModal")
+    .style.display="flex";
 
 };
 
-
-/* =====================================================
-   RENDER PAYMENT MODAL
-===================================================== */
 
 function renderPaymentModal(order){
 
@@ -4407,47 +3368,32 @@ function renderPaymentModal(order){
         );
 
 
-    /* =================================================
-       ALREADY PAID
-    ================================================= */
+    /* PAID */
 
-    if(
-        paymentStatus ===
-        "paid"
-    ){
+    if(paymentStatus==="paid"){
 
-        content.innerHTML = `
+        content.innerHTML=`
 
             <div class="modal-section">
 
-                <h3>
-                    📦 Order
-                </h3>
+                <h3>📦 Order</h3>
 
                 <div class="info">
 
                     <b>Order ID:</b>
-
-                    ${escapeHtml(
-                        orderId
-                    )}
+                    ${escapeHtml(orderId)}
 
                     <br>
 
                     <b>Payment Method:</b>
-
                     ${escapeHtml(
-                        order.paymentMethod ||
-                        "—"
+                        order.paymentMethod || "—"
                     )}
 
                     <br>
 
                     <b>Total:</b>
-
-                    ₹${total.toLocaleString(
-                        "en-IN"
-                    )}
+                    ₹${total.toLocaleString("en-IN")}
 
                 </div>
 
@@ -4456,9 +3402,7 @@ function renderPaymentModal(order){
 
             <div class="payment-info">
 
-                <b>
-                    ✅ Payment Completed
-                </b>
+                <b>✅ Payment Completed</b>
 
                 <br>
 
@@ -4466,21 +3410,17 @@ function renderPaymentModal(order){
                 ₹${Number(
                     order.paymentPaidAmount ||
                     total
-                ).toLocaleString(
-                    "en-IN"
-                )}
-
-                <br>
+                ).toLocaleString("en-IN")}
 
                 ${
                     order.paymentTransactionId
                     ?
                     `
+                    <br>
                     UTR / Transaction ID:
                     ${escapeHtml(
                         order.paymentTransactionId
                     )}
-                    <br>
                     `
                     :
                     ""
@@ -4490,11 +3430,11 @@ function renderPaymentModal(order){
                     order.paymentReceivedAt
                     ?
                     `
+                    <br>
                     Payment Date:
                     ${formatDate(
                         order.paymentReceivedAt
                     )}
-                    <br>
                     `
                     :
                     ""
@@ -4504,11 +3444,11 @@ function renderPaymentModal(order){
                     order.paymentVerifiedBy
                     ?
                     `
+                    <br>
                     Verified By:
                     ${escapeHtml(
                         order.paymentVerifiedBy
                     )}
-                    <br>
                     `
                     :
                     ""
@@ -4518,11 +3458,11 @@ function renderPaymentModal(order){
                     order.cashReceivedBy
                     ?
                     `
+                    <br>
                     Cash Received By:
                     ${escapeHtml(
                         order.cashReceivedBy
                     )}
-                    <br>
                     `
                     :
                     ""
@@ -4532,6 +3472,7 @@ function renderPaymentModal(order){
                     order.cashDepositedBy
                     ?
                     `
+                    <br>
                     Cash Deposited By:
                     ${escapeHtml(
                         order.cashDepositedBy
@@ -4550,51 +3491,41 @@ function renderPaymentModal(order){
     }
 
 
-    /* =================================================
-       COD
-    ================================================= */
+    /* COD */
 
     if(
         method.includes("cod") ||
         method.includes("cash")
     ){
 
-        content.innerHTML = `
+        content.innerHTML=`
 
             <div class="modal-section">
 
-                <h3>
-                    💰 COD Payment
-                </h3>
+                <h3>💰 COD Payment</h3>
 
                 <div class="info">
 
                     <b>Order ID:</b>
-
-                    ${escapeHtml(
-                        orderId
-                    )}
+                    ${escapeHtml(orderId)}
 
                     <br>
 
                     <b>Order Total:</b>
-
-                    ₹${total.toLocaleString(
-                        "en-IN"
-                    )}
+                    ₹${total.toLocaleString("en-IN")}
 
                     <br>
 
-                    <b>Payment Status:</b>
+                    <b>Cash Status:</b>
 
                     ${
-                        cashStatus === "deposited"
-                        ?
-                        "🏦 Cash Deposited"
-                        :
-                        cashStatus === "received"
+                        cashStatus==="received"
                         ?
                         "💰 Cash Received"
+                        :
+                        cashStatus==="deposited"
+                        ?
+                        "🏦 Cash Deposited"
                         :
                         "⏳ Cash Not Received"
                     }
@@ -4606,16 +3537,15 @@ function renderPaymentModal(order){
 
             <div class="cash-warning">
 
-                ⚠️ Delivery Boy customerଙ୍କଠାରୁ
-                actual cash receive କରିବା ପରେ
-                ମାତ୍ର “Cash Received” କରନ୍ତୁ।
+                ⚠️ Customerଙ୍କଠାରୁ actual cash
+                receive ହେବା ପରେ ମାତ୍ର
+                “Cash Received” କରନ୍ତୁ।
 
             </div>
 
 
             ${
-                cashStatus ===
-                "not_received"
+                cashStatus==="not_received"
                 ?
                 `
                 <button
@@ -4632,8 +3562,7 @@ function renderPaymentModal(order){
 
 
             ${
-                cashStatus ===
-                "received"
+                cashStatus==="received"
                 ?
                 `
                 <div class="payment-info">
@@ -4643,16 +3572,14 @@ function renderPaymentModal(order){
                     <br>
 
                     Amount:
-                    ₹${total.toLocaleString(
-                        "en-IN"
-                    )}
+                    ₹${total.toLocaleString("en-IN")}
 
                     ${
                         order.cashReceivedAt
                         ?
                         `
                         <br>
-                        Received:
+                        Date:
                         ${formatDate(
                             order.cashReceivedAt
                         )}
@@ -4663,7 +3590,6 @@ function renderPaymentModal(order){
 
                 </div>
 
-
                 <button
                     class="payment-save"
                     onclick="markCashDeposited()">
@@ -4671,7 +3597,6 @@ function renderPaymentModal(order){
                     🏦 Mark Cash Deposited
 
                 </button>
-
                 `
                 :
                 ""
@@ -4679,8 +3604,7 @@ function renderPaymentModal(order){
 
 
             ${
-                cashStatus ===
-                "deposited"
+                cashStatus==="deposited"
                 ?
                 `
                 <div class="payment-info">
@@ -4690,23 +3614,7 @@ function renderPaymentModal(order){
                     <br>
 
                     Amount:
-                    ₹${total.toLocaleString(
-                        "en-IN"
-                    )}
-
-                    ${
-                        order.cashDepositedAt
-                        ?
-                        `
-                        <br>
-                        Deposited:
-                        ${formatDate(
-                            order.cashDepositedAt
-                        )}
-                        `
-                        :
-                        ""
-                    }
+                    ₹${total.toLocaleString("en-IN")}
 
                 </div>
                 `
@@ -4721,38 +3629,27 @@ function renderPaymentModal(order){
     }
 
 
-    /* =================================================
-       UPI
-    ================================================= */
+    /* UPI */
 
-    content.innerHTML = `
+    content.innerHTML=`
 
         <div class="modal-section">
 
-            <h3>
-                📱 UPI Payment Verification
-            </h3>
+            <h3>📱 UPI Payment Verification</h3>
 
             <div class="info">
 
                 <b>Order ID:</b>
-
-                ${escapeHtml(
-                    orderId
-                )}
+                ${escapeHtml(orderId)}
 
                 <br>
 
                 <b>Order Total:</b>
-
-                ₹${total.toLocaleString(
-                    "en-IN"
-                )}
+                ₹${total.toLocaleString("en-IN")}
 
                 <br>
 
                 <b>Current Status:</b>
-
                 ⏳ Payment Pending
 
             </div>
@@ -4763,17 +3660,19 @@ function renderPaymentModal(order){
         <div class="cash-warning">
 
             ⚠️ Customer ଦେଇଥିବା UTR କୁ
-            କେବଳ ଦେଖି automatically Paid କରନ୍ତୁ ନାହିଁ।
-            ଆପଣଙ୍କ UPI/Bank account ରେ payment
-            receive ହୋଇଛି କି ନିଜେ verify କରନ୍ତୁ।
+            କେବଳ ଦେଖି automatically Paid
+            କରନ୍ତୁ ନାହିଁ।
+
+            <br>
+
+            ନିଜ UPI/Bank account ରେ payment
+            receive ହୋଇଛି କି verify କରନ୍ତୁ।
 
         </div>
 
 
         <label class="payment-label">
-
             UTR / Transaction ID
-
         </label>
 
         <input
@@ -4781,16 +3680,13 @@ function renderPaymentModal(order){
             id="adminUTR"
             type="text"
             value="${escapeHtml(
-                order.paymentTransactionId ||
-                ""
+                order.paymentTransactionId || ""
             )}"
             placeholder="Customer UTR">
 
 
         <label class="payment-label">
-
             Paid Amount
-
         </label>
 
         <input
@@ -4804,9 +3700,7 @@ function renderPaymentModal(order){
 
 
         <label class="payment-label">
-
             Admin Note
-
         </label>
 
         <input
@@ -4814,8 +3708,7 @@ function renderPaymentModal(order){
             id="adminPaymentNote"
             type="text"
             value="${escapeHtml(
-                order.paymentNote ||
-                ""
+                order.paymentNote || ""
             )}"
             placeholder="Payment verification note">
 
@@ -4834,7 +3727,7 @@ function renderPaymentModal(order){
 
 
 /* =====================================================
-   COD — CASH RECEIVED
+   CASH RECEIVED
 ===================================================== */
 
 window.markCashReceived =
@@ -4845,24 +3738,6 @@ async function(){
 
     const order =
         selectedOrder;
-
-
-    if(
-        String(
-            order.paymentStatus ||
-            "pending"
-        ).toLowerCase()
-        ===
-        "paid"
-    ){
-
-        toast(
-            "ℹ️ Payment already paid."
-        );
-
-        return;
-
-    }
 
 
     const orderRef =
@@ -4904,13 +3779,9 @@ async function(){
         );
 
 
-        order.cashStatus =
-            "received";
+        order.cashStatus="received";
 
-
-        order.cashReceivedBy =
-            auth.currentUser?.email ||
-            ADMIN_EMAIL;
+        order.paymentStatus="pending";
 
 
         closePaymentModal();
@@ -4925,14 +3796,10 @@ async function(){
     }
     catch(error){
 
-        console.error(
-            "CASH RECEIVED ERROR:",
-            error
-        );
-
+        console.error(error);
 
         toast(
-            "❌ Cash Received failed: " +
+            "❌ Cash Received failed: "+
             error.message
         );
 
@@ -4942,7 +3809,7 @@ async function(){
 
 
 /* =====================================================
-   COD — CASH DEPOSITED
+   CASH DEPOSITED
 ===================================================== */
 
 window.markCashDeposited =
@@ -4955,27 +3822,9 @@ async function(){
         selectedOrder;
 
 
-    if(
-        String(
-            order.cashStatus ||
-            ""
-        ).toLowerCase()
-        !==
-        "received"
-    ){
-
-        toast(
-            "⚠️ ପ୍ରଥମେ Cash Received କରନ୍ତୁ।"
-        );
-
-        return;
-
-    }
-
-
     const yes =
         confirm(
-            "Cash ଆସିଛି ଏବଂ office/trust account ରେ deposit ହୋଇଛି ବୋଲି confirm କରିବେ କି?"
+            "Cash office/trust account ରେ deposit ହୋଇଛି ବୋଲି confirm କରିବେ କି?"
         );
 
 
@@ -5036,18 +3885,12 @@ async function(){
         );
 
 
-        order.cashStatus =
-            "deposited";
+        order.cashStatus="deposited";
 
-
-        order.paymentStatus =
-            "paid";
-
+        order.paymentStatus="paid";
 
         order.paymentPaidAmount =
-            Number(
-                order.total || 0
-            );
+            Number(order.total || 0);
 
 
         closePaymentModal();
@@ -5064,14 +3907,10 @@ async function(){
     }
     catch(error){
 
-        console.error(
-            "CASH DEPOSITED ERROR:",
-            error
-        );
-
+        console.error(error);
 
         toast(
-            "❌ Cash Deposited failed: " +
+            "❌ Cash Deposited failed: "+
             error.message
         );
 
@@ -5081,7 +3920,7 @@ async function(){
 
 
 /* =====================================================
-   UPI — VERIFY & PAID
+   UPI PAID
 ===================================================== */
 
 window.markUPIPaid =
@@ -5094,62 +3933,30 @@ async function(){
         selectedOrder;
 
 
-    const utrInput =
-        document.getElementById(
-            "adminUTR"
-        );
-
-
-    const amountInput =
-        document.getElementById(
-            "adminPaidAmount"
-        );
-
-
-    const noteInput =
-        document.getElementById(
-            "adminPaymentNote"
-        );
-
-
-    if(
-        !utrInput ||
-        !amountInput ||
-        !noteInput
-    ){
-
-        toast(
-            "❌ Payment form load ହୋଇନାହିଁ।"
-        );
-
-        return;
-
-    }
-
-
     const utr =
-        utrInput
+        document
+        .getElementById("adminUTR")
         .value
         .trim();
 
 
     const paidAmount =
         Number(
-            amountInput
+            document
+            .getElementById("adminPaidAmount")
             .value
         );
 
 
     const note =
-        noteInput
+        document
+        .getElementById("adminPaymentNote")
         .value
         .trim();
 
 
     const total =
-        Number(
-            order.total || 0
-        );
+        Number(order.total || 0);
 
 
     if(!utr){
@@ -5163,10 +3970,7 @@ async function(){
     }
 
 
-    if(
-        !paidAmount ||
-        paidAmount <= 0
-    ){
+    if(!paidAmount || paidAmount<=0){
 
         toast(
             "⚠️ Paid Amount ଠିକ୍ ଭାବରେ ଦିଅନ୍ତୁ।"
@@ -5177,29 +3981,25 @@ async function(){
     }
 
 
-    if(
-        paidAmount !==
-        total
-    ){
+    if(paidAmount!==total){
 
         const yes =
             confirm(
                 `Order Total ₹${total}\nPaid Amount ₹${paidAmount}\n\nAmount mismatch ଅଛି। ତଥାପି Paid କରିବେ କି?`
             );
 
-
         if(!yes)return;
 
     }
 
 
-    const yes =
+    const verified =
         confirm(
             "ଆପଣ UPI/Bank account ରେ ଏହି payment verify କରିଛନ୍ତି କି?\n\nVerify କରିଥିଲେ OK କରନ୍ତୁ।"
         );
 
 
-    if(!yes)return;
+    if(!verified)return;
 
 
     const orderRef =
@@ -5248,22 +4048,15 @@ async function(){
         );
 
 
-        order.paymentStatus =
-            "paid";
+        order.paymentStatus="paid";
 
+        order.paymentTransactionId=utr;
 
-        order.paymentTransactionId =
-            utr;
-
-
-        order.paymentPaidAmount =
-            paidAmount;
-
+        order.paymentPaidAmount=paidAmount;
 
         order.paymentNote =
             note ||
             "UPI payment verified";
-
 
         order.paymentVerifiedBy =
             auth.currentUser?.email ||
@@ -5284,14 +4077,10 @@ async function(){
     }
     catch(error){
 
-        console.error(
-            "UPI PAYMENT ERROR:",
-            error
-        );
-
+        console.error(error);
 
         toast(
-            "❌ UPI Payment failed: " +
+            "❌ UPI Payment failed: "+
             error.message
         );
 
@@ -5301,26 +4090,35 @@ async function(){
 
 
 /* =====================================================
+   CLOSE PAYMENT
+===================================================== */
+
+window.closePaymentModal =
+function(){
+
+    document
+    .getElementById("paymentModal")
+    .style.display="none";
+
+};
+
+
+/* =====================================================
    WHATSAPP
 ===================================================== */
 
 window.openWhatsApp =
-function(
-    mobile,
-    orderId
-){
+function(mobile,orderId){
 
     const message =
         `ନମସ୍କାର, Utkala Mart Order ${orderId} ବିଷୟରେ ଯୋଗାଯୋଗ କରୁଛୁ।`;
 
 
     const url =
-        "https://wa.me/91" +
-        mobile +
-        "?text=" +
-        encodeURIComponent(
-            message
-        );
+        "https://wa.me/91"+
+        mobile+
+        "?text="+
+        encodeURIComponent(message);
 
 
     window.open(
@@ -5338,32 +4136,23 @@ function(
 function toast(message){
 
     const element =
-        document.getElementById(
-            "toast"
-        );
+        document.getElementById("toast");
 
 
-    element.innerText =
-        message;
+    element.innerText=message;
 
 
-    element.classList.add(
-        "show"
-    );
+    element.classList.add("show");
 
 
-    clearTimeout(
-        window.toastTimer
-    );
+    clearTimeout(window.toastTimer);
 
 
     window.toastTimer =
         setTimeout(
             function(){
 
-                element.classList.remove(
-                    "show"
-                );
+                element.classList.remove("show");
 
             },
             3000
@@ -5373,17 +4162,57 @@ function toast(message){
 
 
 /* =====================================================
-   ESC KEY
+   BACKDROP
+===================================================== */
+
+document
+.getElementById("viewModal")
+.addEventListener(
+    "click",
+    function(event){
+
+        if(event.target===this)
+            closeViewModal();
+
+    }
+);
+
+
+document
+.getElementById("statusModal")
+.addEventListener(
+    "click",
+    function(event){
+
+        if(event.target===this)
+            closeStatusModal();
+
+    }
+);
+
+
+document
+.getElementById("paymentModal")
+.addEventListener(
+    "click",
+    function(event){
+
+        if(event.target===this)
+            closePaymentModal();
+
+    }
+);
+
+
+/* =====================================================
+   ESC
 ===================================================== */
 
 document.addEventListener(
     "keydown",
     function(event){
 
-        if(
-            event.key ===
-            "Escape"
-        ){
+        if(event.key==="Escape"){
 
             closeViewModal();
 
@@ -5407,14 +4236,8 @@ document
     "keydown",
     function(event){
 
-        if(
-            event.key ===
-            "Enter"
-        ){
-
+        if(event.key==="Enter")
             login();
-
-        }
 
     }
 );
@@ -5423,4 +4246,4 @@ document
 
 </body>
 
-              </html>
+      </html>
