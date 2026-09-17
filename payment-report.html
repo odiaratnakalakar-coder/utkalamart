@@ -1,0 +1,2744 @@
+<!DOCTYPE html>
+<html lang="or">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width,initial-scale=1.0">
+
+<meta name="theme-color"
+      content="#075b3b">
+
+<title>Utkala Mart | Payment Report</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:
+        Arial,
+        "Noto Sans Oriya",
+        "Nirmala UI",
+        sans-serif;
+    background:#f4f7f5;
+    color:#222;
+}
+
+button,
+input,
+select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header{
+    background:#075b3b;
+    color:#fff;
+    padding:15px 4%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.header h1{
+    margin:0;
+    font-size:23px;
+}
+
+.header p{
+    margin:4px 0 0;
+    font-size:11px;
+    opacity:.9;
+}
+
+.header-actions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.header-btn{
+    border:0;
+    border-radius:8px;
+    padding:9px 13px;
+    font-weight:900;
+}
+
+.back-btn{
+    background:#fff;
+    color:#075b3b;
+}
+
+.logout{
+    background:#d9272e;
+    color:#fff;
+}
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+.login-page{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:#f4f7f5;
+}
+
+.login-box{
+    width:min(400px,100%);
+    background:#fff;
+    padding:25px;
+    border-radius:16px;
+    box-shadow:0 5px 25px rgba(0,0,0,.12);
+}
+
+.login-box h2{
+    margin-top:0;
+    color:#075b3b;
+}
+
+.login-box p{
+    color:#666;
+    font-size:13px;
+    line-height:1.6;
+}
+
+.login-box input{
+    width:100%;
+    height:44px;
+    margin-top:8px;
+    padding:0 12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    outline:none;
+}
+
+.login-box button{
+    width:100%;
+    height:44px;
+    margin-top:15px;
+    border:0;
+    border-radius:8px;
+    background:#075b3b;
+    color:#fff;
+    font-weight:900;
+}
+
+.login-error{
+    display:none;
+    margin-top:12px;
+    background:#ffe5e5;
+    color:#a00000;
+    padding:10px;
+    border-radius:8px;
+    font-size:12px;
+}
+
+
+/* =====================================================
+   PANEL
+===================================================== */
+
+#adminPanel{
+    display:none;
+}
+
+.container{
+    width:min(1250px,95%);
+    margin:20px auto 60px;
+}
+
+
+/* =====================================================
+   PAGE TITLE
+===================================================== */
+
+.page-title{
+    background:#fff;
+    border-radius:14px;
+    padding:16px;
+    margin-bottom:15px;
+    box-shadow:0 3px 12px rgba(0,0,0,.07);
+}
+
+.page-title h2{
+    margin:0;
+    color:#075b3b;
+    font-size:20px;
+}
+
+.page-title p{
+    margin:5px 0 0;
+    color:#777;
+    font-size:12px;
+}
+
+
+/* =====================================================
+   STATS
+===================================================== */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-bottom:12px;
+}
+
+.stats.second-row{
+    margin-bottom:18px;
+}
+
+.stat{
+    background:#fff;
+    padding:16px;
+    border-radius:13px;
+    box-shadow:0 3px 12px rgba(0,0,0,.07);
+}
+
+.stat-icon{
+    font-size:24px;
+}
+
+.stat-label{
+    color:#777;
+    font-size:11px;
+    margin-top:5px;
+}
+
+.stat-value{
+    font-size:23px;
+    font-weight:900;
+    color:#075b3b;
+    margin-top:3px;
+}
+
+.pending-value{
+    color:#b77900;
+}
+
+.cod-value{
+    color:#1769aa;
+}
+
+.upi-value{
+    color:#087333;
+}
+
+.deposit-value{
+    color:#6336a3;
+}
+
+
+/* =====================================================
+   FILTER BOX
+===================================================== */
+
+.filters{
+    background:#fff;
+    padding:14px;
+    border-radius:13px;
+    box-shadow:0 3px 12px rgba(0,0,0,.07);
+    margin-bottom:18px;
+}
+
+.filter-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:10px;
+}
+
+.filter-grid input,
+.filter-grid select{
+    width:100%;
+    height:42px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    padding:0 11px;
+    background:#fff;
+    outline:none;
+}
+
+.filter-buttons{
+    display:flex;
+    gap:8px;
+    margin-top:10px;
+}
+
+.refresh{
+    height:42px;
+    border:0;
+    border-radius:8px;
+    padding:0 15px;
+    background:#075b3b;
+    color:#fff;
+    font-weight:900;
+}
+
+.clear{
+    height:42px;
+    border:0;
+    border-radius:8px;
+    padding:0 15px;
+    background:#eee;
+    color:#333;
+    font-weight:900;
+}
+
+
+/* =====================================================
+   REPORT SUMMARY
+===================================================== */
+
+.summary{
+    background:#fff;
+    border-radius:14px;
+    padding:15px;
+    box-shadow:0 3px 12px rgba(0,0,0,.07);
+    margin-bottom:15px;
+}
+
+.summary-title{
+    color:#075b3b;
+    font-size:14px;
+    font-weight:900;
+    margin-bottom:10px;
+}
+
+.summary-row{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    padding:7px 0;
+    border-bottom:1px solid #eee;
+    font-size:12px;
+}
+
+.summary-row:last-child{
+    border-bottom:0;
+}
+
+.summary-row b:last-child{
+    color:#075b3b;
+}
+
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.table-wrap{
+    background:#fff;
+    border-radius:14px;
+    box-shadow:0 3px 12px rgba(0,0,0,.07);
+    overflow:auto;
+}
+
+table{
+    width:100%;
+    min-width:950px;
+    border-collapse:collapse;
+}
+
+thead{
+    background:#075b3b;
+    color:#fff;
+}
+
+th{
+    padding:12px 10px;
+    text-align:left;
+    font-size:11px;
+    white-space:nowrap;
+}
+
+td{
+    padding:11px 10px;
+    border-bottom:1px solid #eee;
+    font-size:11px;
+    vertical-align:top;
+}
+
+tbody tr:hover{
+    background:#f7fbf8;
+}
+
+.order-id{
+    color:#075b3b;
+    font-weight:900;
+}
+
+.customer{
+    font-weight:900;
+}
+
+.mobile{
+    color:#666;
+    margin-top:3px;
+}
+
+.amount{
+    font-weight:900;
+}
+
+.payment-method{
+    font-weight:900;
+}
+
+.payment-badge{
+    display:inline-block;
+    padding:5px 8px;
+    border-radius:15px;
+    font-size:9px;
+    font-weight:900;
+    margin-top:4px;
+}
+
+.paid{
+    background:#dcfce7;
+    color:#166534;
+}
+
+.pending{
+    background:#fff3cd;
+    color:#856404;
+}
+
+.cancelled{
+    background:#fee2e2;
+    color:#b91c1c;
+}
+
+.received{
+    background:#dff4ff;
+    color:#075f91;
+}
+
+.deposited{
+    background:#eee7ff;
+    color:#6336a3;
+}
+
+.date{
+    color:#666;
+    white-space:nowrap;
+}
+
+
+/* =====================================================
+   EMPTY / LOADING
+===================================================== */
+
+.empty{
+    background:#fff;
+    padding:50px 20px;
+    text-align:center;
+    border-radius:14px;
+    color:#777;
+}
+
+.loading{
+    background:#fff;
+    padding:35px;
+    text-align:center;
+    border-radius:14px;
+    color:#777;
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:25px;
+    transform:translate(-50%,20px);
+    background:#075b3b;
+    color:#fff;
+    padding:11px 18px;
+    border-radius:9px;
+    font-size:12px;
+    font-weight:800;
+    opacity:0;
+    pointer-events:none;
+    transition:.25s;
+    z-index:9000;
+    max-width:90%;
+    text-align:center;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translate(-50%,0);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:900px){
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .filter-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .header{
+        padding:12px;
+    }
+
+    .header h1{
+        font-size:18px;
+    }
+
+    .header p{
+        font-size:10px;
+    }
+
+    .header-actions{
+        flex-direction:column;
+    }
+
+    .header-btn{
+        font-size:10px;
+        padding:8px 10px;
+    }
+
+    .container{
+        width:94%;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+        gap:8px;
+    }
+
+    .stat{
+        padding:12px;
+    }
+
+    .stat-value{
+        font-size:18px;
+    }
+
+    .filter-grid{
+        grid-template-columns:1fr;
+    }
+
+    .filter-buttons{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+
+@media(max-width:400px){
+
+    .stat-label{
+        font-size:9px;
+    }
+
+    .stat-value{
+        font-size:16px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     LOGIN
+===================================================== -->
+
+<div
+    class="login-page"
+    id="loginPage">
+
+    <div class="login-box">
+
+        <h2>
+            🔐 Utkala Mart Admin
+        </h2>
+
+        <p>
+            Payment Report Dashboardକୁ
+            access କରିବା ପାଇଁ Admin Login କରନ୍ତୁ।
+        </p>
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Admin Email"
+            autocomplete="username">
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            autocomplete="current-password">
+
+        <button id="loginBtn">
+            🔐 Login
+        </button>
+
+        <div
+            id="loginError"
+            class="login-error">
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     ADMIN PANEL
+===================================================== -->
+
+<div id="adminPanel">
+
+
+<header class="header">
+
+    <div>
+
+        <h1>
+            💳 Utkala Mart Payment Report
+        </h1>
+
+        <p>
+            Payment Collection & Cash Management
+        </p>
+
+    </div>
+
+
+    <div class="header-actions">
+
+        <button
+            class="header-btn back-btn"
+            onclick="goOrders()">
+
+            📦 Orders
+
+        </button>
+
+
+        <button
+            class="header-btn logout"
+            onclick="logout()">
+
+            Logout
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+
+<!-- =====================================================
+     TITLE
+===================================================== -->
+
+<section class="page-title">
+
+    <h2>
+        📊 Payment Collection Report
+    </h2>
+
+    <p>
+        Existing Orders collection data ଉପରେ based କରି report।
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     FIRST STATS
+===================================================== -->
+
+<section class="stats">
+
+
+    <div class="stat">
+
+        <div class="stat-icon">
+            💰
+        </div>
+
+        <div class="stat-label">
+            Total Sales
+        </div>
+
+        <div
+            class="stat-value"
+            id="totalSales">
+
+            ₹0
+
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-icon">
+            ✅
+        </div>
+
+        <div class="stat-label">
+            Paid Collection
+        </div>
+
+        <div
+            class="stat-value"
+            id="paidCollection">
+
+            ₹0
+
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-icon">
+            ⏳
+        </div>
+
+        <div class="stat-label">
+            Pending Payment
+        </div>
+
+        <div
+            class="stat-value pending-value"
+            id="pendingPayment">
+
+            ₹0
+
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-icon">
+            📦
+        </div>
+
+        <div class="stat-label">
+            Orders
+        </div>
+
+        <div
+            class="stat-value"
+            id="totalOrders">
+
+            0
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SECOND STATS
+===================================================== -->
+
+<section class="stats second-row">
+
+
+    <div class="stat">
+
+        <div class="stat-icon">
+            💵
+        </div>
+
+        <div class="stat-label">
+            COD Collection
+        </div>
+
+        <div
+            class="stat-value cod-value"
+            id="codCollection">
+
+            ₹0
+
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-icon">
+            📱
+        </div>
+
+        <div class="stat-label">
+            UPI Collection
+        </div>
+
+        <div
+            class="stat-value upi-value"
+            id="upiCollection">
+
+            ₹0
+
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-icon">
+            🏦
+        </div>
+
+        <div class="stat-label">
+            Cash Deposited
+        </div>
+
+        <div
+            class="stat-value deposit-value"
+            id="cashDeposited">
+
+            ₹0
+
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-icon">
+            💰
+        </div>
+
+        <div class="stat-label">
+            Cash Received
+        </div>
+
+        <div
+            class="stat-value"
+            id="cashReceived">
+
+            ₹0
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FILTERS
+===================================================== -->
+
+<section class="filters">
+
+    <div class="filter-grid">
+
+
+        <input
+            type="search"
+            id="searchInput"
+            placeholder="🔎 Order ID / Customer / Mobile">
+
+
+        <select id="paymentFilter">
+
+            <option value="all">
+                All Payment
+            </option>
+
+            <option value="pending">
+                Payment Pending
+            </option>
+
+            <option value="paid">
+                Paid
+            </option>
+
+        </select>
+
+
+        <select id="methodFilter">
+
+            <option value="all">
+                All Methods
+            </option>
+
+            <option value="COD">
+                COD
+            </option>
+
+            <option value="UPI">
+                UPI
+            </option>
+
+        </select>
+
+
+        <select id="dateFilter">
+
+            <option value="all">
+                All Dates
+            </option>
+
+            <option value="today">
+                Today
+            </option>
+
+            <option value="7">
+                Last 7 Days
+            </option>
+
+            <option value="30">
+                Last 30 Days
+            </option>
+
+        </select>
+
+
+    </div>
+
+
+    <div class="filter-buttons">
+
+        <button
+            class="refresh"
+            onclick="loadOrders()">
+
+            🔄 Refresh
+
+        </button>
+
+
+        <button
+            class="clear"
+            onclick="clearFilters()">
+
+            ✖ Clear
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SUMMARY
+===================================================== -->
+
+<section class="summary">
+
+    <div class="summary-title">
+        📋 Current Report
+    </div>
+
+
+    <div class="summary-row">
+
+        <span>
+            Filtered Orders
+        </span>
+
+        <b id="summaryOrders">
+            0
+        </b>
+
+    </div>
+
+
+    <div class="summary-row">
+
+        <span>
+            Filtered Sales
+        </span>
+
+        <b id="summarySales">
+            ₹0
+        </b>
+
+    </div>
+
+
+    <div class="summary-row">
+
+        <span>
+            Filtered Paid
+        </span>
+
+        <b id="summaryPaid">
+            ₹0
+        </b>
+
+    </div>
+
+
+    <div class="summary-row">
+
+        <span>
+            Filtered Pending
+        </span>
+
+        <b id="summaryPending">
+            ₹0
+        </b>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TABLE
+===================================================== -->
+
+<div id="reportContainer">
+
+    <div class="loading">
+
+        ⏳ Payment Report load ହେଉଛି...
+
+    </div>
+
+</div>
+
+
+</main>
+
+</div>
+
+
+<div
+    class="toast"
+    id="toast">
+</div>
+
+
+<!-- =====================================================
+     FIREBASE
+===================================================== -->
+
+<script type="module">
+
+
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+import {
+    getFirestore,
+    collection,
+    getDocs
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =====================================================
+   FIREBASE CONFIG
+===================================================== */
+
+const firebaseConfig = {
+
+    apiKey:
+    "AIzaSyDonHK2CtrUjAkAaro6stnJmdDUwB59JT0",
+
+    authDomain:
+    "utkalamart-1ec68.firebaseapp.com",
+
+    projectId:
+    "utkalamart-1ec68",
+
+    storageBucket:
+    "utkalamart-1ec68.firebasestorage.app",
+
+    messagingSenderId:
+    "664871353747",
+
+    appId:
+    "1:664871353747:web:96532fdafe78aabe7f3c66"
+
+};
+
+
+const app =
+    initializeApp(firebaseConfig);
+
+const auth =
+    getAuth(app);
+
+const db =
+    getFirestore(app);
+
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+const ADMIN_EMAIL =
+    "suryakantabehera629@gmail.com";
+
+
+let allOrders = [];
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+document
+.getElementById("loginBtn")
+.addEventListener(
+    "click",
+    login
+);
+
+
+async function login(){
+
+    const email =
+        document
+        .getElementById("email")
+        .value
+        .trim();
+
+    const password =
+        document
+        .getElementById("password")
+        .value;
+
+    const error =
+        document
+        .getElementById("loginError");
+
+
+    error.style.display =
+        "none";
+
+
+    if(!email || !password){
+
+        error.innerText =
+            "Email ଏବଂ Password ଦିଅନ୍ତୁ।";
+
+        error.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+    const button =
+        document.getElementById(
+            "loginBtn"
+        );
+
+
+    button.disabled =
+        true;
+
+    button.innerText =
+        "⏳ Login...";
+
+
+    try{
+
+        await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        const loginError =
+            document.getElementById(
+                "loginError"
+            );
+
+        loginError.innerText =
+            "❌ Login failed. Email କିମ୍ବା Password check କରନ୍ତୁ।";
+
+        loginError.style.display =
+            "block";
+
+    }
+
+
+    button.disabled =
+        false;
+
+    button.innerText =
+        "🔐 Login";
+
+}
+
+
+/* =====================================================
+   AUTH
+===================================================== */
+
+onAuthStateChanged(
+    auth,
+    async function(user){
+
+        if(
+            user &&
+            user.email === ADMIN_EMAIL
+        ){
+
+            document
+            .getElementById(
+                "loginPage"
+            )
+            .style.display =
+                "none";
+
+
+            document
+            .getElementById(
+                "adminPanel"
+            )
+            .style.display =
+                "block";
+
+
+            await loadOrders();
+
+        }
+        else{
+
+            document
+            .getElementById(
+                "loginPage"
+            )
+            .style.display =
+                "flex";
+
+
+            document
+            .getElementById(
+                "adminPanel"
+            )
+            .style.display =
+                "none";
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+window.logout =
+async function(){
+
+    await signOut(auth);
+
+};
+
+
+/* =====================================================
+   ORDERS PAGE
+===================================================== */
+
+window.goOrders =
+function(){
+
+    window.location.href =
+        "admin-orders.html";
+
+};
+
+
+/* =====================================================
+   DATE
+===================================================== */
+
+function getDate(value){
+
+    if(!value){
+        return null;
+    }
+
+    try{
+
+        if(
+            value.toDate
+        ){
+            return value.toDate();
+        }
+
+        const date =
+            new Date(value);
+
+        if(
+            isNaN(
+                date.getTime()
+            )
+        ){
+            return null;
+        }
+
+        return date;
+
+    }
+    catch(e){
+
+        return null;
+
+    }
+
+}
+
+
+function formatDate(value){
+
+    const date =
+        getDate(value);
+
+
+    if(!date){
+        return "—";
+    }
+
+
+    return date.toLocaleString(
+        "en-IN",
+        {
+            day:"2-digit",
+            month:"short",
+            year:"numeric",
+            hour:"2-digit",
+            minute:"2-digit"
+        }
+    );
+
+}
+
+
+/* =====================================================
+   ESCAPE
+===================================================== */
+
+function escapeHtml(value){
+
+    return String(
+        value ?? ""
+    )
+    .replace(
+        /[&<>"']/g,
+        function(match){
+
+            return {
+
+                "&":"&amp;",
+                "<":"&lt;",
+                ">":"&gt;",
+                '"':"&quot;",
+                "'":"&#039;"
+
+            }[match];
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   CUSTOMER
+===================================================== */
+
+function getCustomer(order){
+
+    return order.customer || {};
+
+}
+
+
+function getMobile(order){
+
+    const customer =
+        getCustomer(order);
+
+
+    return String(
+        customer.mobile ||
+        customer.phone ||
+        ""
+    )
+    .replace(
+        /\D/g,
+        ""
+    )
+    .slice(-10);
+
+}
+
+
+function getCustomerOrderId(order){
+
+    return String(
+        order.orderId ||
+        order.id ||
+        ""
+    ).trim();
+
+}
+
+
+/* =====================================================
+   PAYMENT HELPERS
+===================================================== */
+
+function paymentMethod(order){
+
+    return String(
+        order.paymentMethod ||
+        "COD"
+    )
+    .trim()
+    .toUpperCase();
+
+}
+
+
+function paymentStatus(order){
+
+    return String(
+        order.paymentStatus ||
+        "pending"
+    )
+    .trim()
+    .toLowerCase();
+
+}
+
+
+function totalAmount(order){
+
+    return Number(
+        order.total || 0
+    );
+
+}
+
+
+/*
+   Paid amount:
+   Prefer paymentPaidAmount.
+   If missing and payment is paid,
+   use order total.
+*/
+
+function paidAmount(order){
+
+    const amount =
+        Number(
+            order.paymentPaidAmount
+        );
+
+
+    if(
+        paymentStatus(order) === "paid"
+    ){
+
+        if(
+            Number.isFinite(amount) &&
+            amount > 0
+        ){
+
+            return amount;
+
+        }
+
+
+        return totalAmount(order);
+
+    }
+
+
+    return 0;
+
+}
+
+
+/* =====================================================
+   CASH RECEIVED
+===================================================== */
+
+function isCashReceived(order){
+
+    return (
+        order.cashReceived === true
+        ||
+        order.cashStatus ===
+            "received"
+        ||
+        order.cashStatus ===
+            "cash_received"
+        ||
+        !!order.cashReceivedAt
+    );
+
+}
+
+
+function isCashDeposited(order){
+
+    return (
+        order.cashDeposited === true
+        ||
+        order.cashStatus ===
+            "deposited"
+        ||
+        order.cashStatus ===
+            "cash_deposited"
+        ||
+        !!order.cashDepositedAt
+    );
+
+}
+
+
+/* =====================================================
+   PAYMENT STATE TEXT
+===================================================== */
+
+function paymentStateText(order){
+
+    const status =
+        paymentStatus(order);
+
+
+    if(
+        status === "paid"
+    ){
+
+        return "PAID";
+
+    }
+
+
+    if(
+        isCashDeposited(order)
+    ){
+
+        return "PAID";
+
+    }
+
+
+    if(
+        isCashReceived(order)
+    ){
+
+        return "CASH RECEIVED";
+
+    }
+
+
+    return "PAYMENT PENDING";
+
+}
+
+
+/* =====================================================
+   LOAD ORDERS
+===================================================== */
+
+window.loadOrders =
+async function(){
+
+    const container =
+        document.getElementById(
+            "reportContainer"
+        );
+
+
+    container.innerHTML = `
+
+        <div class="loading">
+
+            ⏳ Payment Report load ହେଉଛି...
+
+        </div>
+
+    `;
+
+
+    try{
+
+        const snapshot =
+            await getDocs(
+                collection(
+                    db,
+                    "orders"
+                )
+            );
+
+
+        allOrders = [];
+
+
+        snapshot.forEach(
+            function(orderDoc){
+
+                allOrders.push({
+
+                    id:
+                        orderDoc.id,
+
+                    ...orderDoc.data()
+
+                });
+
+            }
+        );
+
+
+        allOrders.sort(
+            function(a,b){
+
+                const aDate =
+                    getDate(
+                        a.createdAt
+                    );
+
+                const bDate =
+                    getDate(
+                        b.createdAt
+                    );
+
+
+                return (
+                    (bDate?.getTime() || 0)
+                    -
+                    (aDate?.getTime() || 0)
+                );
+
+            }
+        );
+
+
+        updateDashboard();
+
+        renderReport();
+
+    }
+    catch(error){
+
+        console.error(
+            "PAYMENT REPORT ERROR:",
+            error
+        );
+
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                ❌ Payment Report load ହୋଇପାରିଲା ନାହିଁ।
+
+                <br><br>
+
+                Firebase Rules / Admin Login check କରନ୍ତୁ।
+
+            </div>
+
+        `;
+
+    }
+
+};
+
+
+/* =====================================================
+   UPDATE MAIN DASHBOARD
+===================================================== */
+
+function updateDashboard(){
+
+    let totalSales = 0;
+
+    let paidCollection = 0;
+
+    let pendingPayment = 0;
+
+    let codCollection = 0;
+
+    let upiCollection = 0;
+
+    let cashReceived = 0;
+
+    let cashDeposited = 0;
+
+
+    let orderCount = 0;
+
+
+    allOrders.forEach(
+        function(order){
+
+            const status =
+                String(
+                    order.orderStatus ||
+                    "placed"
+                ).toLowerCase();
+
+
+            /*
+               Cancelled orders are not
+               included in sales/collection.
+            */
+
+            if(
+                status === "cancelled"
+            ){
+
+                return;
+
+            }
+
+
+            orderCount++;
+
+
+            const total =
+                totalAmount(order);
+
+
+            totalSales +=
+                total;
+
+
+            const method =
+                paymentMethod(order);
+
+
+            const paid =
+                paymentStatus(order) ===
+                "paid";
+
+
+            if(paid){
+
+                const amount =
+                    paidAmount(order);
+
+
+                paidCollection +=
+                    amount;
+
+
+                if(
+                    method === "COD"
+                ){
+
+                    codCollection +=
+                        amount;
+
+                }
+
+
+                if(
+                    method === "UPI"
+                ){
+
+                    upiCollection +=
+                        amount;
+
+                }
+
+            }
+            else{
+
+                pendingPayment +=
+                    total;
+
+            }
+
+
+            if(
+                method === "COD" &&
+                isCashReceived(order)
+            ){
+
+                cashReceived +=
+                    total;
+
+            }
+
+
+            if(
+                method === "COD" &&
+                isCashDeposited(order)
+            ){
+
+                cashDeposited +=
+                    total;
+
+            }
+
+        }
+    );
+
+
+    document
+    .getElementById(
+        "totalSales"
+    )
+    .innerText =
+        money(totalSales);
+
+
+    document
+    .getElementById(
+        "paidCollection"
+    )
+    .innerText =
+        money(paidCollection);
+
+
+    document
+    .getElementById(
+        "pendingPayment"
+    )
+    .innerText =
+        money(pendingPayment);
+
+
+    document
+    .getElementById(
+        "totalOrders"
+    )
+    .innerText =
+        orderCount;
+
+
+    document
+    .getElementById(
+        "codCollection"
+    )
+    .innerText =
+        money(codCollection);
+
+
+    document
+    .getElementById(
+        "upiCollection"
+    )
+    .innerText =
+        money(upiCollection);
+
+
+    document
+    .getElementById(
+        "cashReceived"
+    )
+    .innerText =
+        money(cashReceived);
+
+
+    document
+    .getElementById(
+        "cashDeposited"
+    )
+    .innerText =
+        money(cashDeposited);
+
+}
+
+
+/* =====================================================
+   MONEY
+===================================================== */
+
+function money(value){
+
+    return "₹" +
+        Number(
+            value || 0
+        ).toLocaleString(
+            "en-IN",
+            {
+                maximumFractionDigits:2
+            }
+        );
+
+}
+
+
+/* =====================================================
+   FILTER EVENTS
+===================================================== */
+
+document
+.getElementById("searchInput")
+.addEventListener(
+    "input",
+    renderReport
+);
+
+
+document
+.getElementById("paymentFilter")
+.addEventListener(
+    "change",
+    renderReport
+);
+
+
+document
+.getElementById("methodFilter")
+.addEventListener(
+    "change",
+    renderReport
+);
+
+
+document
+.getElementById("dateFilter")
+.addEventListener(
+    "change",
+    renderReport
+);
+
+
+/* =====================================================
+   DATE FILTER
+===================================================== */
+
+function matchesDateFilter(
+    order,
+    filter
+){
+
+    if(
+        filter === "all"
+    ){
+
+        return true;
+
+    }
+
+
+    const date =
+        getDate(
+            order.createdAt
+        );
+
+
+    if(!date){
+        return false;
+    }
+
+
+    const now =
+        new Date();
+
+
+    if(
+        filter === "today"
+    ){
+
+        return (
+            date.getFullYear()
+            ===
+            now.getFullYear()
+
+            &&
+
+            date.getMonth()
+            ===
+            now.getMonth()
+
+            &&
+
+            date.getDate()
+            ===
+            now.getDate()
+        );
+
+    }
+
+
+    const days =
+        Number(filter);
+
+
+    if(!days){
+        return true;
+    }
+
+
+    const start =
+        new Date();
+
+
+    start.setDate(
+        start.getDate() -
+        days
+    );
+
+
+    start.setHours(
+        0,0,0,0
+    );
+
+
+    return date >= start;
+
+}
+
+
+/* =====================================================
+   FILTER ORDERS
+===================================================== */
+
+function getFilteredOrders(){
+
+    const query =
+        document
+        .getElementById(
+            "searchInput"
+        )
+        .value
+        .trim()
+        .toLowerCase();
+
+
+    const paymentFilter =
+        document
+        .getElementById(
+            "paymentFilter"
+        )
+        .value;
+
+
+    const methodFilter =
+        document
+        .getElementById(
+            "methodFilter"
+        )
+        .value;
+
+
+    const dateFilter =
+        document
+        .getElementById(
+            "dateFilter"
+        )
+        .value;
+
+
+    return allOrders.filter(
+        function(order){
+
+            const customer =
+                getCustomer(order);
+
+
+            const status =
+                String(
+                    order.orderStatus ||
+                    "placed"
+                ).toLowerCase();
+
+
+            /*
+               Cancelled orders are still
+               shown in the report if the
+               user searches All Payment.
+            */
+
+            const method =
+                paymentMethod(order);
+
+
+            const pStatus =
+                paymentStatus(order);
+
+
+            const searchable = [
+
+                getCustomerOrderId(order),
+
+                order.id,
+
+                customer.name,
+
+                customer.fullName,
+
+                customer.mobile,
+
+                customer.phone,
+
+                customer.address
+
+            ]
+            .map(
+                value =>
+                    String(
+                        value || ""
+                    ).toLowerCase()
+            )
+            .join(" ");
+
+
+            const matchesSearch =
+                !query ||
+                searchable.includes(
+                    query
+                );
+
+
+            const matchesPayment =
+                paymentFilter === "all"
+                ||
+                (
+                    paymentFilter === "paid"
+                    &&
+                    pStatus === "paid"
+                )
+                ||
+                (
+                    paymentFilter === "pending"
+                    &&
+                    pStatus !== "paid"
+                );
+
+
+            const matchesMethod =
+                methodFilter === "all"
+                ||
+                method ===
+                    methodFilter;
+
+
+            const matchesDate =
+                matchesDateFilter(
+                    order,
+                    dateFilter
+                );
+
+
+            return (
+                matchesSearch &&
+                matchesPayment &&
+                matchesMethod &&
+                matchesDate
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   RENDER REPORT
+===================================================== */
+
+function renderReport(){
+
+    const container =
+        document.getElementById(
+            "reportContainer"
+        );
+
+
+    const orders =
+        getFilteredOrders();
+
+
+    let filteredSales = 0;
+
+    let filteredPaid = 0;
+
+    let filteredPending = 0;
+
+
+    orders.forEach(
+        function(order){
+
+            const status =
+                String(
+                    order.orderStatus ||
+                    "placed"
+                ).toLowerCase();
+
+
+            if(
+                status === "cancelled"
+            ){
+
+                return;
+
+            }
+
+
+            const total =
+                totalAmount(order);
+
+
+            filteredSales +=
+                total;
+
+
+            if(
+                paymentStatus(order)
+                ===
+                "paid"
+            ){
+
+                filteredPaid +=
+                    paidAmount(order);
+
+            }
+            else{
+
+                filteredPending +=
+                    total;
+
+            }
+
+        }
+    );
+
+
+    document
+    .getElementById(
+        "summaryOrders"
+    )
+    .innerText =
+        orders.length;
+
+
+    document
+    .getElementById(
+        "summarySales"
+    )
+    .innerText =
+        money(filteredSales);
+
+
+    document
+    .getElementById(
+        "summaryPaid"
+    )
+    .innerText =
+        money(filteredPaid);
+
+
+    document
+    .getElementById(
+        "summaryPending"
+    )
+    .innerText =
+        money(filteredPending);
+
+
+    if(!orders.length){
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                📋 କୌଣସି Payment Record ମିଳିଲା ନାହିଁ।
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML = `
+
+        <div class="table-wrap">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Order
+                        </th>
+
+                        <th>
+                            Customer
+                        </th>
+
+                        <th>
+                            Date
+                        </th>
+
+                        <th>
+                            Method
+                        </th>
+
+                        <th>
+                            Order Status
+                        </th>
+
+                        <th>
+                            Amount
+                        </th>
+
+                        <th>
+                            Payment
+                        </th>
+
+                        <th>
+                            Transaction
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    ${
+                        orders.map(
+                            createRow
+                        ).join("")
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =====================================================
+   CREATE ROW
+===================================================== */
+
+function createRow(order){
+
+    const customer =
+        getCustomer(order);
+
+
+    const orderId =
+        getCustomerOrderId(order);
+
+
+    const mobile =
+        getMobile(order);
+
+
+    const status =
+        String(
+            order.orderStatus ||
+            "placed"
+        ).toLowerCase();
+
+
+    const pStatus =
+        paymentStatus(order);
+
+
+    const method =
+        paymentMethod(order);
+
+
+    const total =
+        totalAmount(order);
+
+
+    const paid =
+        pStatus === "paid";
+
+
+    let paymentClass =
+        "pending";
+
+
+    if(paid){
+
+        paymentClass =
+            "paid";
+
+    }
+    else if(
+        isCashDeposited(order)
+    ){
+
+        paymentClass =
+            "deposited";
+
+    }
+    else if(
+        isCashReceived(order)
+    ){
+
+        paymentClass =
+            "received";
+
+    }
+
+
+    let paymentText =
+        paymentStateText(order);
+
+
+    let transaction =
+        order.paymentTransactionId ||
+        order.utr ||
+        order.UTR ||
+        "—";
+
+
+    return `
+
+        <tr>
+
+            <td>
+
+                <div class="order-id">
+
+                    ${escapeHtml(
+                        orderId
+                    )}
+
+                </div>
+
+            </td>
+
+
+            <td>
+
+                <div class="customer">
+
+                    ${escapeHtml(
+                        customer.name ||
+                        customer.fullName ||
+                        "Customer"
+                    )}
+
+                </div>
+
+                <div class="mobile">
+
+                    📱
+                    ${escapeHtml(
+                        mobile || "—"
+                    )}
+
+                </div>
+
+            </td>
+
+
+            <td>
+
+                <div class="date">
+
+                    ${formatDate(
+                        order.createdAt
+                    )}
+
+                </div>
+
+            </td>
+
+
+            <td>
+
+                <div class="payment-method">
+
+                    ${
+                        method === "UPI"
+                        ? "📱 UPI"
+                        : "💵 COD"
+                    }
+
+                </div>
+
+            </td>
+
+
+            <td>
+
+                ${escapeHtml(
+                    status
+                )}
+
+            </td>
+
+
+            <td>
+
+                <div class="amount">
+
+                    ${money(total)}
+
+                </div>
+
+            </td>
+
+
+            <td>
+
+                <span
+                    class="payment-badge ${paymentClass}">
+
+                    ${
+                        escapeHtml(
+                            paymentText
+                        )
+                    }
+
+                </span>
+
+
+                ${
+                    method === "COD" &&
+                    isCashReceived(order)
+                    ?
+                    `
+                    <br>
+
+                    <span
+                        class="payment-badge received">
+
+                        💰 Cash Received
+
+                    </span>
+                    `
+                    :
+                    ""
+                }
+
+
+                ${
+                    method === "COD" &&
+                    isCashDeposited(order)
+                    ?
+                    `
+                    <br>
+
+                    <span
+                        class="payment-badge deposited">
+
+                        🏦 Cash Deposited
+
+                    </span>
+                    `
+                    :
+                    ""
+                }
+
+            </td>
+
+
+            <td>
+
+                ${escapeHtml(
+                    transaction
+                )}
+
+            </td>
+
+        </tr>
+
+    `;
+
+}
+
+
+/* =====================================================
+   CLEAR FILTERS
+===================================================== */
+
+window.clearFilters =
+function(){
+
+    document
+    .getElementById(
+        "searchInput"
+    )
+    .value = "";
+
+
+    document
+    .getElementById(
+        "paymentFilter"
+    )
+    .value = "all";
+
+
+    document
+    .getElementById(
+        "methodFilter"
+    )
+    .value = "all";
+
+
+    document
+    .getElementById(
+        "dateFilter"
+    )
+    .value = "all";
+
+
+    renderReport();
+
+};
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+function toast(message){
+
+    const element =
+        document.getElementById(
+            "toast"
+        );
+
+
+    element.innerText =
+        message;
+
+
+    element.classList.add(
+        "show"
+    );
+
+
+    clearTimeout(
+        window.toastTimer
+    );
+
+
+    window.toastTimer =
+        setTimeout(
+            function(){
+
+                element.classList.remove(
+                    "show"
+                );
+
+            },
+            3000
+        );
+
+}
+
+
+/* =====================================================
+   ENTER LOGIN
+===================================================== */
+
+document
+.getElementById("password")
+.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key ===
+            "Enter"
+        ){
+
+            login();
+
+        }
+
+    }
+);
+
+
+</script>
+
+</body>
+
+</html>
