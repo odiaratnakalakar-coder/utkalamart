@@ -13,6 +13,11 @@ content="width=device-width, initial-scale=1.0">
 <meta name="theme-color"
 content="#138a45">
 
+<!-- QR CODE LIBRARY -->
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js">
+</script>
+
 <style>
 
 *{
@@ -284,6 +289,11 @@ label{
   font-weight:bold;
 }
 
+
+/* =================================
+   PAYMENT OPTION
+================================= */
+
 .payment-option{
   display:flex;
   align-items:center;
@@ -293,12 +303,136 @@ label{
   border-radius:10px;
   margin-bottom:10px;
   cursor:pointer;
+  transition:.2s;
+}
+
+.payment-option:hover{
+  border-color:#138a45;
+  background:#f8fffa;
 }
 
 .payment-option input{
   width:auto;
   margin:0;
 }
+
+
+/* =================================
+   UPI PAYMENT
+================================= */
+
+.upi-box{
+  display:none;
+  background:#f0faf4;
+  border:2px solid #9bd5af;
+  border-radius:14px;
+  padding:18px;
+  margin-top:12px;
+  text-align:center;
+}
+
+.upi-title{
+  margin:0 0 8px;
+  color:#138a45;
+  font-size:20px;
+}
+
+.upi-subtitle{
+  color:#666;
+  font-size:13px;
+  margin:5px 0 12px;
+}
+
+.upi-amount-label{
+  font-size:13px;
+  color:#666;
+}
+
+.upi-amount{
+  font-size:28px;
+  font-weight:bold;
+  color:#138a45;
+  margin:4px 0 15px;
+}
+
+.qr-wrapper{
+  width:230px;
+  min-height:230px;
+  margin:0 auto 15px;
+  background:#fff;
+  padding:15px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+#upiQr img,
+#upiQr canvas{
+  max-width:200px;
+  max-height:200px;
+}
+
+.upi-id-label{
+  font-size:13px;
+  color:#666;
+  margin:7px 0 3px;
+}
+
+.upi-id{
+  display:block;
+  color:#138a45;
+  font-size:15px;
+  font-weight:bold;
+  word-break:break-all;
+}
+
+.pay-now{
+  display:block;
+  width:100%;
+  background:#138a45;
+  color:#fff;
+  text-decoration:none;
+  padding:14px;
+  border-radius:10px;
+  font-weight:bold;
+  font-size:17px;
+  margin:15px 0;
+}
+
+.pay-now:hover{
+  background:#0d7138;
+}
+
+.upi-instruction{
+  background:#fff8df;
+  border:1px solid #f0d77a;
+  padding:12px;
+  border-radius:10px;
+  font-size:12px;
+  color:#665500;
+  text-align:left;
+  line-height:1.6;
+}
+
+.upi-utr-label{
+  display:block;
+  text-align:left;
+  margin-top:16px;
+}
+
+.upi-utr-note{
+  text-align:left;
+  font-size:12px;
+  color:#777;
+  margin-top:-8px;
+}
+
+
+/* =================================
+   BUTTON
+================================= */
 
 button{
   width:100%;
@@ -399,6 +533,11 @@ button:disabled{
 
   .order-id-value{
     font-size:20px;
+  }
+
+  .qr-wrapper{
+    width:220px;
+    min-height:220px;
   }
 
 }
@@ -746,6 +885,148 @@ value="UPI"
 
 </label>
 
+
+<!-- =========================
+     UPI BOX
+========================= -->
+
+<div
+id="upiPaymentBox"
+class="upi-box">
+
+
+<h3 class="upi-title">
+
+📱 UPI Payment
+
+</h3>
+
+
+<div class="upi-subtitle">
+
+PhonePe / Google Pay / Paytm / BHIM
+ଦ୍ୱାରା Payment କରିପାରିବେ।
+
+</div>
+
+
+<div class="upi-amount-label">
+
+Payable Amount
+
+</div>
+
+
+<div
+id="upiAmount"
+class="upi-amount">
+
+₹0
+
+</div>
+
+
+
+<!-- QR -->
+
+<div class="qr-wrapper">
+
+<div
+id="upiQr">
+</div>
+
+</div>
+
+
+
+<div class="upi-id-label">
+
+UPI ID
+
+</div>
+
+
+<strong
+id="upiIdText"
+class="upi-id">
+
+9827275681@pthdfc
+
+</strong>
+
+
+
+<!-- PAY NOW -->
+
+<a
+id="upiPayButton"
+class="pay-now"
+href="#">
+
+📲 Pay Now
+
+</a>
+
+
+
+<div class="upi-instruction">
+
+<b>Payment କିପରି କରିବେ?</b>
+
+<br>
+
+1️⃣ QR Code Scan କରନ୍ତୁ କିମ୍ବା
+<b>Pay Now</b> ଦବାନ୍ତୁ।
+
+<br>
+
+2️⃣ ଦେଖାଯାଉଥିବା amount ଯାଞ୍ଚ କରନ୍ତୁ।
+
+<br>
+
+3️⃣ Payment complete କରନ୍ତୁ।
+
+<br>
+
+4️⃣ Payment ପରେ UTR / Transaction ID
+ନିମ୍ନରେ ଦିଅନ୍ତୁ।
+
+<br>
+
+5️⃣ Admin payment ଯାଞ୍ଚ କରିବା ପରେ
+Payment <b>Paid</b> କରିବେ।
+
+</div>
+
+
+
+<label
+class="upi-utr-label">
+
+UTR / Transaction ID *
+
+</label>
+
+
+<input
+type="text"
+id="upiTransactionId"
+placeholder="Payment ପରେ UTR / Transaction ID"
+autocomplete="off"
+>
+
+
+<div class="upi-utr-note">
+
+⚠️ UPI Payment କରିବା ପରେ
+UTR / Transaction ID ଦିଅନ୍ତୁ।
+
+</div>
+
+
+</div>
+
+
 </div>
 
 
@@ -862,6 +1143,18 @@ from
 
 
 /* =================================
+   UPI SETTINGS
+================================= */
+
+const UPI_ID =
+  "9827275681@pthdfc";
+
+const UPI_NAME =
+  "Utkala Mart";
+
+
+
+/* =================================
    CART
 ================================= */
 
@@ -933,6 +1226,41 @@ document.getElementById(
 const customerOrderId =
 document.getElementById(
   "customerOrderId"
+);
+
+
+
+/* =================================
+   UPI DOM
+================================= */
+
+const upiPaymentBox =
+document.getElementById(
+  "upiPaymentBox"
+);
+
+
+const upiAmount =
+document.getElementById(
+  "upiAmount"
+);
+
+
+const upiQr =
+document.getElementById(
+  "upiQr"
+);
+
+
+const upiPayButton =
+document.getElementById(
+  "upiPayButton"
+);
+
+
+const upiTransactionId =
+document.getElementById(
+  "upiTransactionId"
 );
 
 
@@ -1015,7 +1343,7 @@ function money(
 
 
 /* =================================
-   PRICE
+   GET PRICE
 ================================= */
 
 function getPrice(
@@ -1121,16 +1449,6 @@ function formatDate(
 
 /* =================================
    GENERATE CUSTOMER ORDER ID
-=================================
-
-Format:
-
-UTK-YYYYMMDD-XXXX
-
-Example:
-
-UTK-20260915-4832
-
 ================================= */
 
 function generateOrderId(){
@@ -1161,14 +1479,6 @@ function generateOrderId(){
     );
 
 
-  /*
-    4 digit number.
-
-    Firebase document ID remains
-    separate from this customer-facing
-    Order ID.
-  */
-
   const number =
     String(
       Date.now() % 10000
@@ -1189,7 +1499,7 @@ function generateOrderId(){
 
 
 /* =================================
-   GET DELIVERY DAYS
+   DELIVERY RANGE
 ================================= */
 
 function getDeliveryRange(
@@ -1210,10 +1520,6 @@ function getDeliveryRange(
 
 
 
-  /* ==============================
-     GANJAM
-  ============================== */
-
   if(
     d.includes("ganjam")
   ){
@@ -1226,10 +1532,6 @@ function getDeliveryRange(
   }
 
 
-
-  /* ==============================
-     ODISHA
-  ============================== */
 
   if(
     s.includes("odisha") ||
@@ -1245,10 +1547,6 @@ function getDeliveryRange(
 
 
 
-  /* ==============================
-     GUJARAT
-  ============================== */
-
   if(
     s.includes("gujarat")
   ){
@@ -1262,10 +1560,6 @@ function getDeliveryRange(
 
 
 
-  /* ==============================
-     OTHER STATES
-  ============================== */
-
   return {
     min:4,
     max:7
@@ -1276,7 +1570,7 @@ function getDeliveryRange(
 
 
 /* =================================
-   CALCULATE DELIVERY DATE
+   CALCULATE DELIVERY
 ================================= */
 
 function calculateDelivery(
@@ -1408,13 +1702,195 @@ function showDeliveryEstimate(){
 
   deliveryDays.innerText =
 
-    `📦 Estimated delivery:
-    ${delivery.minDays}–${delivery.maxDays}
-    days`;
+    `📦 Estimated delivery: ${delivery.minDays}–${delivery.maxDays} days`;
 
 
   deliveryEstimate.style.display =
     "block";
+
+}
+
+
+
+/* =================================
+   GET CURRENT TOTAL
+================================= */
+
+function getCurrentTotal(){
+
+  let subtotal = 0;
+
+
+  cart.forEach(
+    item => {
+
+      const qty =
+        Number(
+          item.qty ??
+          item.quantity ??
+          1
+        ) || 1;
+
+
+      const price =
+        getPrice(item);
+
+
+      subtotal +=
+        price * qty;
+
+    }
+  );
+
+
+  return subtotal;
+
+}
+
+
+
+/* =================================
+   CREATE / UPDATE UPI QR
+================================= */
+
+function updateUPIPayment(){
+
+  const paymentMethod =
+    document.querySelector(
+      'input[name="payment"]:checked'
+    )?.value || "COD";
+
+
+  if(
+    paymentMethod !== "UPI"
+  ){
+
+    upiPaymentBox.style.display =
+      "none";
+
+    return;
+
+  }
+
+
+  const total =
+    getCurrentTotal();
+
+
+  if(total <= 0){
+
+    upiPaymentBox.style.display =
+      "none";
+
+    return;
+
+  }
+
+
+  upiPaymentBox.style.display =
+    "block";
+
+
+  upiAmount.innerText =
+    money(total);
+
+
+  /*
+    UPI payment link
+
+    Example:
+
+    upi://pay?pa=UPI_ID
+    &pn=Utkala%20Mart
+    &am=500.00
+    &cu=INR
+  */
+
+  const upiLink =
+
+    `upi://pay` +
+    `?pa=${encodeURIComponent(
+      UPI_ID
+    )}` +
+    `&pn=${encodeURIComponent(
+      UPI_NAME
+    )}` +
+    `&am=${encodeURIComponent(
+      total.toFixed(2)
+    )}` +
+    `&cu=INR`;
+
+
+  /*
+    Pay Now
+  */
+
+  upiPayButton.href =
+    upiLink;
+
+
+  /*
+    Clear old QR
+  */
+
+  upiQr.innerHTML = "";
+
+
+  /*
+    Generate QR
+  */
+
+  try{
+
+    new QRCode(
+      upiQr,
+      {
+        text:
+          upiLink,
+
+        width:
+          200,
+
+        height:
+          200,
+
+        correctLevel:
+          QRCode.CorrectLevel.M
+      }
+    );
+
+  }catch(error){
+
+    console.error(
+      "QR error:",
+      error
+    );
+
+    upiQr.innerHTML = `
+
+      <div
+        style="
+          color:#b00000;
+          font-size:13px;
+          padding:20px;
+        "
+      >
+
+        ❌ QR Code load ହୋଇପାରିଲା ନାହିଁ।
+
+        <br><br>
+
+        UPI ID:
+
+        <b>
+          ${UPI_ID}
+        </b>
+
+      </div>
+
+    `;
+
+  }
 
 }
 
@@ -1460,6 +1936,8 @@ function renderCart(){
     placeOrderBtn.disabled =
       true;
 
+
+    updateUPIPayment();
 
     return;
 
@@ -1617,9 +2095,9 @@ function renderCart(){
 
 
 
-  /* ================================
-     FREE DELIVERY FOR NOW
-  ================================= */
+  /*
+    Free delivery for now
+  */
 
   const delivery = 0;
 
@@ -1639,6 +2117,13 @@ function renderCart(){
 
   totalEl.innerText =
     money(total);
+
+
+  /*
+    Update QR if UPI selected
+  */
+
+  updateUPIPayment();
 
 }
 
@@ -1893,10 +2378,9 @@ async function lookupPIN(
       "✅ PIN Code found";
 
 
-
-    /* ==============================
-       DELIVERY DATE
-    ============================== */
+    /*
+      Delivery estimate
+    */
 
     showDeliveryEstimate();
 
@@ -1979,6 +2463,27 @@ function validPIN(
 
 
 /* =================================
+   PAYMENT METHOD CHANGE
+================================= */
+
+document
+  .querySelectorAll(
+    'input[name="payment"]'
+  )
+  .forEach(
+    radio => {
+
+      radio.addEventListener(
+        "change",
+        updateUPIPayment
+      );
+
+    }
+  );
+
+
+
+/* =================================
    PLACE ORDER
 ================================= */
 
@@ -2054,6 +2559,38 @@ async function placeOrder(){
     document.querySelector(
       'input[name="payment"]:checked'
     )?.value || "COD";
+
+
+
+  /* ===============================
+     UPI UTR
+  =============================== */
+
+  let upiUTR = "";
+
+
+  if(
+    paymentMethod === "UPI"
+  ){
+
+    upiUTR =
+      upiTransactionId
+        .value
+        .trim();
+
+
+    if(!upiUTR){
+
+      showStatus(
+        "📱 UPI Payment କରି UTR / Transaction ID ଦିଅନ୍ତୁ।",
+        "error"
+      );
+
+      return;
+
+    }
+
+  }
 
 
 
@@ -2167,7 +2704,7 @@ async function placeOrder(){
 
 
     /* ===============================
-       TOTAL
+       ORDER ITEMS
     =============================== */
 
     let subtotal = 0;
@@ -2268,7 +2805,7 @@ async function placeOrder(){
 
     /* ===============================
        FIREBASE DOCUMENT
-================================ */
+    =============================== */
 
     const orderRef =
       doc(
@@ -2279,11 +2816,6 @@ async function placeOrder(){
       );
 
 
-    /*
-      Firebase internal document ID.
-      This remains hidden from customer.
-    */
-
     const firebaseDocumentId =
       orderRef.id;
 
@@ -2291,13 +2823,7 @@ async function placeOrder(){
 
     /* ===============================
        CUSTOMER ORDER ID
-=================================
-
-       Example:
-
-       UTK-20260915-4832
-
-================================ */
+    =============================== */
 
     const orderId =
       generateOrderId();
@@ -2305,7 +2831,7 @@ async function placeOrder(){
 
 
     /* ===============================
-       CREATE MAIN ORDER
+       MAIN ORDER
     =============================== */
 
     await setDoc(
@@ -2314,18 +2840,8 @@ async function placeOrder(){
 
       {
 
-        /*
-          Customer-facing Order ID
-        */
-
         orderId:
           orderId,
-
-
-        /*
-          Firebase internal document ID
-          saved only for admin/reference
-        */
 
         firebaseDocumentId:
           firebaseDocumentId,
@@ -2376,8 +2892,36 @@ async function placeOrder(){
         paymentMethod,
 
 
+        /*
+          UPI:
+          paymentStatus remains pending
+          until Admin verifies it.
+
+          COD:
+          paymentStatus remains pending
+          until cash is collected.
+        */
+
         paymentStatus:
           "pending",
+
+
+        /*
+          UPI transaction ID is saved
+          for Admin verification.
+        */
+
+        paymentTransactionId:
+          upiUTR,
+
+
+        /*
+          UPI amount is NOT treated
+          as verified payment.
+        */
+
+        paymentPaidAmount:
+          0,
 
 
         orderStatus:
@@ -2441,12 +2985,6 @@ async function placeOrder(){
        TRACKING RECORD
     ================================= */
 
-    /*
-      Tracking document:
-
-      UTK-20260915-4832_9876543210
-    */
-
     const trackingId =
       `${orderId}_${mobile}`;
 
@@ -2461,10 +2999,6 @@ async function placeOrder(){
       ),
 
       {
-
-        /*
-          Customer-facing Order ID
-        */
 
         orderId:
           orderId,
@@ -2554,7 +3088,7 @@ async function placeOrder(){
 
 
     /* ===============================
-       SAVE LAST ORDER ID
+       SAVE ORDER ID
     =============================== */
 
     localStorage.setItem(
@@ -2578,7 +3112,7 @@ async function placeOrder(){
 
 
     /* ===============================
-       SHOW CUSTOMER ORDER ID
+       SHOW ORDER ID
     =============================== */
 
     customerOrderId.innerText =
@@ -2591,8 +3125,40 @@ async function placeOrder(){
 
 
     /* ===============================
-       SUCCESS
+       SUCCESS MESSAGE
     =============================== */
+
+    let paymentMessage = "";
+
+
+    if(
+      paymentMethod === "UPI"
+    ){
+
+      paymentMessage =
+
+        `📱 UPI Payment:
+Payment received for verification.
+
+UTR:
+${upiUTR}
+
+⚠️ Admin payment verify କରିବା ପରେ
+Payment Status Paid ହେବ।`;
+
+    }else{
+
+      paymentMessage =
+
+        `💵 Payment:
+Cash on Delivery
+
+Delivery Boy cash receive କରିବା ପରେ
+Admin payment confirm କରିବେ।`;
+
+    }
+
+
 
     showStatus(
 
@@ -2603,6 +3169,8 @@ ${orderId}
 
 🚚 Estimated Delivery:
 ${estimatedDeliveryText}
+
+${paymentMessage}
 
 Utkala Mart team ଆପଣଙ୍କ order ଯାଞ୍ଚ କରି confirm କରିବେ।`,
 
@@ -2632,7 +3200,7 @@ Utkala Mart team ଆପଣଙ୍କ order ଯାଞ୍ଚ କରି confirm କ�
 
       },
 
-      1800
+      2500
 
     );
 
@@ -2691,6 +3259,9 @@ placeOrderBtn.addEventListener(
 ================================= */
 
 renderCart();
+
+updateUPIPayment();
+
 
 </script>
 
