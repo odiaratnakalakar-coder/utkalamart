@@ -160,20 +160,20 @@ button{
 
 .stats{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(6,1fr);
     gap:12px;
     margin-bottom:18px;
 }
 
 .stat{
     background:#fff;
-    padding:17px;
+    padding:15px;
     border-radius:13px;
     box-shadow:0 3px 12px rgba(0,0,0,.07);
 }
 
 .stat-icon{
-    font-size:25px;
+    font-size:23px;
 }
 
 .stat-label{
@@ -183,10 +183,22 @@ button{
 }
 
 .stat-value{
-    font-size:25px;
+    font-size:22px;
     font-weight:900;
     color:#075b3b;
     margin-top:3px;
+}
+
+.stat.pending-payment .stat-value{
+    color:#b45309;
+}
+
+.stat.collected .stat-value{
+    color:#166534;
+}
+
+.stat.cash .stat-value{
+    color:#075f91;
 }
 
 
@@ -341,6 +353,40 @@ button{
 
 
 /* =====================================================
+   PAYMENT BADGES
+===================================================== */
+
+.payment-badge{
+    display:inline-block;
+    margin-top:4px;
+    padding:6px 10px;
+    border-radius:20px;
+    font-size:10px;
+    font-weight:900;
+}
+
+.payment-pending{
+    background:#fff3cd;
+    color:#856404;
+}
+
+.payment-paid{
+    background:#dcfce7;
+    color:#166534;
+}
+
+.payment-cash{
+    background:#e0f2fe;
+    color:#075f91;
+}
+
+.payment-deposited{
+    background:#eee7ff;
+    color:#6336a3;
+}
+
+
+/* =====================================================
    PRODUCTS
 ===================================================== */
 
@@ -439,6 +485,11 @@ button{
     color:#fff;
 }
 
+.payment-btn{
+    background:#fff7d6;
+    color:#7a5a00;
+}
+
 .call-btn{
     background:#e8f7ee;
     color:#087333;
@@ -498,6 +549,10 @@ button{
     overflow:auto;
     border-radius:15px;
     padding:20px;
+}
+
+.payment-modal-box{
+    width:min(550px,100%);
 }
 
 .modal-head{
@@ -564,6 +619,70 @@ button{
 
 
 /* =====================================================
+   PAYMENT MODAL
+===================================================== */
+
+.payment-info{
+    background:#f5f8f6;
+    border-radius:9px;
+    padding:12px;
+    margin-top:10px;
+    line-height:1.8;
+    font-size:12px;
+}
+
+.payment-input{
+    width:100%;
+    height:43px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    padding:0 11px;
+    margin-top:5px;
+    outline:none;
+}
+
+.payment-label{
+    display:block;
+    margin-top:12px;
+    font-size:12px;
+    font-weight:900;
+    color:#075b3b;
+}
+
+.payment-save{
+    width:100%;
+    height:44px;
+    margin-top:15px;
+    border:0;
+    border-radius:8px;
+    background:#075b3b;
+    color:#fff;
+    font-weight:900;
+}
+
+.cash-warning{
+    background:#fff3cd;
+    color:#7a5a00;
+    padding:10px;
+    border-radius:8px;
+    font-size:11px;
+    line-height:1.6;
+    margin-top:10px;
+}
+
+.payment-secondary{
+    width:100%;
+    height:42px;
+    margin-top:8px;
+    border:0;
+    border-radius:8px;
+    background:#e8f7ee;
+    color:#075b3b;
+    font-weight:900;
+}
+
+
+/* =====================================================
    TOAST
 ===================================================== */
 
@@ -595,6 +714,15 @@ button{
 /* =====================================================
    RESPONSIVE
 ===================================================== */
+
+@media(max-width:1050px){
+
+    .stats{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+}
+
 
 @media(max-width:850px){
 
@@ -637,7 +765,7 @@ button{
     }
 
     .stat-value{
-        font-size:21px;
+        font-size:19px;
     }
 
     .order-body{
@@ -679,7 +807,7 @@ button{
     }
 
     .stat-value{
-        font-size:18px;
+        font-size:17px;
     }
 
     .order-card{
@@ -755,7 +883,7 @@ button{
         </h1>
 
         <p>
-            Admin Order Management & Customer Tracking
+            Admin Order Management • Tracking • Payment
         </p>
 
     </div>
@@ -830,7 +958,7 @@ button{
             class="stat-value"
             id="deliveredOrders">
 
-        0
+            0
 
         </div>
 
@@ -842,12 +970,50 @@ button{
         <div class="stat-icon">💰</div>
 
         <div class="stat-label">
-            Sales
+            Order Value
         </div>
 
         <div
             class="stat-value"
             id="sales">
+
+            ₹0
+
+        </div>
+
+    </div>
+
+
+    <div class="stat pending-payment">
+
+        <div class="stat-icon">⏳</div>
+
+        <div class="stat-label">
+            Pending Payment
+        </div>
+
+        <div
+            class="stat-value"
+            id="pendingPayment">
+
+            ₹0
+
+        </div>
+
+    </div>
+
+
+    <div class="stat collected">
+
+        <div class="stat-icon">✅</div>
+
+        <div class="stat-label">
+            Paid Collection
+        </div>
+
+        <div
+            class="stat-value"
+            id="paidCollection">
 
             ₹0
 
@@ -901,6 +1067,33 @@ button{
 
         <option value="cancelled">
             Cancelled
+        </option>
+
+    </select>
+
+
+    <select
+        class="filter"
+        id="paymentFilter">
+
+        <option value="all">
+            All Payment
+        </option>
+
+        <option value="pending">
+            Payment Pending
+        </option>
+
+        <option value="paid">
+            Payment Paid
+        </option>
+
+        <option value="cash_received">
+            Cash Received
+        </option>
+
+        <option value="cash_deposited">
+            Cash Deposited
         </option>
 
     </select>
@@ -1057,6 +1250,45 @@ button{
 
 </div>
 
+
+<!-- =====================================================
+     PAYMENT MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="paymentModal">
+
+    <div
+        class="modal-box payment-modal-box"
+        onclick="event.stopPropagation()">
+
+        <div class="modal-head">
+
+            <h2>
+                💳 Payment Management
+            </h2>
+
+            <button
+                class="close"
+                onclick="closePaymentModal()">
+
+                ×
+
+            </button>
+
+        </div>
+
+        <div id="paymentContent"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
 
 <div
     class="toast"
@@ -1404,6 +1636,42 @@ function statusText(status){
 
 
 /* =====================================================
+   PAYMENT STATUS TEXT
+===================================================== */
+
+function paymentStatusText(order){
+
+    const paymentStatus =
+        String(
+            order.paymentStatus ||
+            "pending"
+        ).toLowerCase();
+
+    const cashStatus =
+        String(
+            order.cashStatus ||
+            "not_received"
+        ).toLowerCase();
+
+
+    if(paymentStatus === "paid"){
+        return "PAID";
+    }
+
+    if(cashStatus === "deposited"){
+        return "CASH DEPOSITED";
+    }
+
+    if(cashStatus === "received"){
+        return "CASH RECEIVED";
+    }
+
+    return "PAYMENT PENDING";
+
+}
+
+
+/* =====================================================
    ESCAPE
 ===================================================== */
 
@@ -1469,18 +1737,6 @@ function getMobile(order){
 /* =====================================================
    CUSTOMER ORDER ID
 ===================================================== */
-
-/*
-   IMPORTANT:
-
-   order.orderId =
-   UTK-20260917-6911
-
-   order.id =
-   Firebase internal document ID
-
-   Customer tracking uses order.orderId.
-*/
 
 function getCustomerOrderId(order){
 
@@ -1670,6 +1926,11 @@ function updateStats(){
         ).length;
 
 
+    /*
+       Order Value:
+       Cancelled orders excluded.
+    */
+
     const sales =
         allOrders.reduce(
             function(sum,order){
@@ -1692,6 +1953,95 @@ function updateStats(){
                 return sum +
                     Number(
                         order.total || 0
+                    );
+
+            },
+            0
+        );
+
+
+    /*
+       Pending Payment:
+       All non-cancelled orders
+       whose payment is not paid.
+    */
+
+    const pendingPayment =
+        allOrders.reduce(
+            function(sum,order){
+
+                const status =
+                    String(
+                        order.orderStatus ||
+                        ""
+                    ).toLowerCase();
+
+
+                const payment =
+                    String(
+                        order.paymentStatus ||
+                        "pending"
+                    ).toLowerCase();
+
+
+                if(
+                    status === "cancelled" ||
+                    payment === "paid"
+                ){
+
+                    return sum;
+
+                }
+
+
+                return sum +
+                    Number(
+                        order.total || 0
+                    );
+
+            },
+            0
+        );
+
+
+    /*
+       Paid Collection:
+       Only paymentStatus = paid.
+    */
+
+    const paidCollection =
+        allOrders.reduce(
+            function(sum,order){
+
+                const status =
+                    String(
+                        order.orderStatus ||
+                        ""
+                    ).toLowerCase();
+
+
+                const payment =
+                    String(
+                        order.paymentStatus ||
+                        "pending"
+                    ).toLowerCase();
+
+
+                if(
+                    status === "cancelled" ||
+                    payment !== "paid"
+                ){
+
+                    return sum;
+
+                }
+
+
+                return sum +
+                    Number(
+                        order.paymentPaidAmount ||
+                        order.total ||
+                        0
                     );
 
             },
@@ -1733,11 +2083,33 @@ function updateStats(){
             "en-IN"
         );
 
+
+    document
+    .getElementById(
+        "pendingPayment"
+    )
+    .innerText =
+        "₹" +
+        pendingPayment.toLocaleString(
+            "en-IN"
+        );
+
+
+    document
+    .getElementById(
+        "paidCollection"
+    )
+    .innerText =
+        "₹" +
+        paidCollection.toLocaleString(
+            "en-IN"
+        );
+
 }
 
 
 /* =====================================================
-   FILTER
+   FILTER EVENTS
 ===================================================== */
 
 document
@@ -1754,6 +2126,88 @@ document
     "change",
     renderOrders
 );
+
+
+document
+.getElementById("paymentFilter")
+.addEventListener(
+    "change",
+    renderOrders
+);
+
+
+/* =====================================================
+   PAYMENT FILTER MATCH
+===================================================== */
+
+function matchesPaymentFilter(
+    order,
+    filter
+){
+
+    if(filter === "all"){
+        return true;
+    }
+
+
+    const payment =
+        String(
+            order.paymentStatus ||
+            "pending"
+        ).toLowerCase();
+
+
+    const cash =
+        String(
+            order.cashStatus ||
+            "not_received"
+        ).toLowerCase();
+
+
+    if(
+        filter === "pending"
+    ){
+
+        return payment !== "paid";
+
+    }
+
+
+    if(
+        filter === "paid"
+    ){
+
+        return payment === "paid";
+
+    }
+
+
+    if(
+        filter === "cash_received"
+    ){
+
+        return (
+            cash === "received" &&
+            payment !== "paid"
+        );
+
+    }
+
+
+    if(
+        filter === "cash_deposited"
+    ){
+
+        return (
+            cash === "deposited"
+        );
+
+    }
+
+
+    return true;
+
+}
 
 
 /* =====================================================
@@ -1782,6 +2236,14 @@ function renderOrders(){
         document
         .getElementById(
             "statusFilter"
+        )
+        .value;
+
+
+    const paymentFilter =
+        document
+        .getElementById(
+            "paymentFilter"
         )
         .value;
 
@@ -1843,9 +2305,17 @@ function renderOrders(){
                     status === filter;
 
 
+                const matchesPayment =
+                    matchesPaymentFilter(
+                        order,
+                        paymentFilter
+                    );
+
+
                 return (
                     matchesSearch &&
-                    matchesStatus
+                    matchesStatus &&
+                    matchesPayment
                 );
 
             }
@@ -1936,15 +2406,6 @@ function createOrderCard(order){
         getMobile(order);
 
 
-    /*
-       IMPORTANT:
-
-       Customer sees:
-       UTK-20260917-6911
-
-       NOT Firebase internal ID.
-    */
-
     const orderId =
         getCustomerOrderId(order) ||
         getFirebaseDocumentId(order);
@@ -1966,6 +2427,87 @@ function createOrderCard(order){
         ]
         .filter(Boolean)
         .join(", ");
+
+
+    const paymentStatus =
+        String(
+            order.paymentStatus ||
+            "pending"
+        ).toLowerCase();
+
+
+    const cashStatus =
+        String(
+            order.cashStatus ||
+            "not_received"
+        ).toLowerCase();
+
+
+    let paymentBadge = "";
+
+
+    if(
+        paymentStatus === "paid"
+    ){
+
+        paymentBadge = `
+
+            <span
+                class="payment-badge payment-paid">
+
+                ✅ PAID
+
+            </span>
+
+        `;
+
+    }
+    else if(
+        cashStatus === "deposited"
+    ){
+
+        paymentBadge = `
+
+            <span
+                class="payment-badge payment-deposited">
+
+                🏦 CASH DEPOSITED
+
+            </span>
+
+        `;
+
+    }
+    else if(
+        cashStatus === "received"
+    ){
+
+        paymentBadge = `
+
+            <span
+                class="payment-badge payment-cash">
+
+                💰 CASH RECEIVED
+
+            </span>
+
+        `;
+
+    }
+    else{
+
+        paymentBadge = `
+
+            <span
+                class="payment-badge payment-pending">
+
+                ⏳ PAYMENT PENDING
+
+            </span>
+
+        `;
+
+    }
 
 
     card.innerHTML = `
@@ -2068,13 +2610,7 @@ function createOrderCard(order){
 
                     <br>
 
-                    Status:
-                    <b>
-                        ${escapeHtml(
-                            order.paymentStatus ||
-                            "pending"
-                        )}
-                    </b>
+                    ${paymentBadge}
 
                 </div>
 
@@ -2223,6 +2759,17 @@ function createOrderCard(order){
             </button>
 
 
+            <button
+                class="action-btn payment-btn"
+                onclick="openPaymentModal('${escapeHtml(
+                    getFirebaseDocumentId(order)
+                )}')">
+
+                💳 Payment
+
+            </button>
+
+
             ${
                 mobile
                 ?
@@ -2344,6 +2891,20 @@ function(firebaseDocumentId){
         .join(", ");
 
 
+    const paymentStatus =
+        String(
+            order.paymentStatus ||
+            "pending"
+        ).toLowerCase();
+
+
+    const cashStatus =
+        String(
+            order.cashStatus ||
+            "not_received"
+        ).toLowerCase();
+
+
     document
     .getElementById(
         "viewContent"
@@ -2459,8 +3020,15 @@ function(firebaseDocumentId){
                 <b>Payment Status:</b>
 
                 ${escapeHtml(
-                    order.paymentStatus ||
-                    "pending"
+                    paymentStatusText(order)
+                )}
+
+                <br>
+
+                <b>Cash Status:</b>
+
+                ${escapeHtml(
+                    cashStatus
                 )}
 
                 <br>
@@ -2492,6 +3060,56 @@ function(firebaseDocumentId){
                 ).toLocaleString(
                     "en-IN"
                 )}
+
+                ${
+                    order.paymentPaidAmount !== undefined
+                    ?
+                    `
+                    <br>
+
+                    <b>Paid Amount:</b>
+
+                    ₹${Number(
+                        order.paymentPaidAmount || 0
+                    ).toLocaleString(
+                        "en-IN"
+                    )}
+                    `
+                    :
+                    ""
+                }
+
+                ${
+                    order.paymentTransactionId
+                    ?
+                    `
+                    <br>
+
+                    <b>UTR / Transaction ID:</b>
+
+                    ${escapeHtml(
+                        order.paymentTransactionId
+                    )}
+                    `
+                    :
+                    ""
+                }
+
+                ${
+                    order.paymentVerifiedBy
+                    ?
+                    `
+                    <br>
+
+                    <b>Verified By:</b>
+
+                    ${escapeHtml(
+                        order.paymentVerifiedBy
+                    )}
+                    `
+                    :
+                    ""
+                }
 
             </div>
 
@@ -2669,6 +3287,23 @@ function(){
 
 
 /* =====================================================
+   CLOSE PAYMENT
+===================================================== */
+
+window.closePaymentModal =
+function(){
+
+    document
+    .getElementById(
+        "paymentModal"
+    )
+    .style.display =
+        "none";
+
+};
+
+
+/* =====================================================
    BACKDROP CLOSE
 ===================================================== */
 
@@ -2682,7 +3317,9 @@ document
             event.target ===
             this
         ){
+
             closeViewModal();
+
         }
 
     }
@@ -2699,7 +3336,28 @@ document
             event.target ===
             this
         ){
+
             closeStatusModal();
+
+        }
+
+    }
+);
+
+
+document
+.getElementById("paymentModal")
+.addEventListener(
+    "click",
+    function(event){
+
+        if(
+            event.target ===
+            this
+        ){
+
+            closePaymentModal();
+
         }
 
     }
@@ -2877,11 +3535,6 @@ function buildTrackingData(
     };
 
 
-    /*
-       Preserve estimated delivery
-       information if already present.
-    */
-
     if(
         order.estimatedDelivery
     ){
@@ -2930,12 +3583,6 @@ function buildTrackingData(
     }
 
 
-    /*
-       If tracking document does not have
-       createdAt yet, preserve existing
-       or use order createdAt.
-    */
-
     if(
         !existingData.createdAt
     ){
@@ -2946,10 +3593,6 @@ function buildTrackingData(
 
     }
 
-
-    /*
-       Preserve placedAt.
-    */
 
     if(
         !existingData.placedAt &&
@@ -2965,10 +3608,6 @@ function buildTrackingData(
 
     }
 
-
-    /*
-       Status timestamp.
-    */
 
     if(newStatus === "placed"){
 
@@ -3180,12 +3819,6 @@ async function(newStatus){
         }
 
 
-        /*
-           Tracking document uses:
-
-           UTK-20260917-6911_9827275681
-        */
-
         const trackingId =
             `${customerOrderId}_${mobile}`;
 
@@ -3205,11 +3838,6 @@ async function(newStatus){
                 trackingId
             );
 
-
-        /*
-           Use batch so main Order and
-           Customer Tracking update together.
-        */
 
         const batch =
             writeBatch(db);
@@ -3255,10 +3883,6 @@ async function(newStatus){
 
         await batch.commit();
 
-
-        /*
-           Update local copy.
-        */
 
         order.orderStatus =
             newStatus;
@@ -3346,14 +3970,6 @@ async function cancelOrderInternal(
         }
 
 
-        /*
-           FIRST:
-           Read all product documents.
-
-           Firestore transaction requires
-           reads before writes.
-        */
-
         await runTransaction(
             db,
             async function(transaction){
@@ -3430,12 +4046,6 @@ async function cancelOrderInternal(
 
                 const productRefs = [];
 
-                const productSnaps = [];
-
-
-                /*
-                   READ PRODUCTS
-                */
 
                 if(
                     freshOrder.stockRestored
@@ -3445,18 +4055,6 @@ async function cancelOrderInternal(
                     for(
                         const item of items
                     ){
-
-                        /*
-                           IMPORTANT:
-
-                           Checkout stores:
-                           productId
-
-                           Older code checked:
-                           item.id
-
-                           Now both are supported.
-                        */
 
                         const productId =
                             item.productId ||
@@ -3498,10 +4096,6 @@ async function cancelOrderInternal(
 
                     }
 
-
-                    /*
-                       NOW WRITE STOCK
-                    */
 
                     for(
                         const productData
@@ -3577,10 +4171,6 @@ async function cancelOrderInternal(
                 }
 
 
-                /*
-                   UPDATE MAIN ORDER
-                */
-
                 transaction.update(
                     orderRef,
                     {
@@ -3603,13 +4193,6 @@ async function cancelOrderInternal(
             }
         );
 
-
-        /*
-           UPDATE CUSTOMER TRACKING
-
-           Uses CUSTOMER Order ID,
-           not Firebase document ID.
-        */
 
         const trackingId =
             `${customerOrderId}_${mobile}`;
@@ -3748,6 +4331,976 @@ async function(firebaseDocumentId){
 
 
 /* =====================================================
+   PAYMENT MANAGEMENT
+===================================================== */
+
+window.openPaymentModal =
+function(firebaseDocumentId){
+
+    const order =
+        findOrder(
+            firebaseDocumentId
+        );
+
+
+    if(!order)return;
+
+
+    selectedOrder =
+        order;
+
+
+    renderPaymentModal(order);
+
+
+    document
+    .getElementById(
+        "paymentModal"
+    )
+    .style.display =
+        "flex";
+
+};
+
+
+/* =====================================================
+   RENDER PAYMENT MODAL
+===================================================== */
+
+function renderPaymentModal(order){
+
+    const orderId =
+        getCustomerOrderId(order) ||
+        getFirebaseDocumentId(order);
+
+
+    const method =
+        String(
+            order.paymentMethod ||
+            "COD"
+        ).toLowerCase();
+
+
+    const paymentStatus =
+        String(
+            order.paymentStatus ||
+            "pending"
+        ).toLowerCase();
+
+
+    const cashStatus =
+        String(
+            order.cashStatus ||
+            "not_received"
+        ).toLowerCase();
+
+
+    const total =
+        Number(
+            order.total || 0
+        );
+
+
+    const content =
+        document.getElementById(
+            "paymentContent"
+        );
+
+
+    /* =================================================
+       ALREADY PAID
+    ================================================= */
+
+    if(
+        paymentStatus ===
+        "paid"
+    ){
+
+        content.innerHTML = `
+
+            <div class="modal-section">
+
+                <h3>
+                    📦 Order
+                </h3>
+
+                <div class="info">
+
+                    <b>Order ID:</b>
+
+                    ${escapeHtml(
+                        orderId
+                    )}
+
+                    <br>
+
+                    <b>Payment Method:</b>
+
+                    ${escapeHtml(
+                        order.paymentMethod ||
+                        "—"
+                    )}
+
+                    <br>
+
+                    <b>Total:</b>
+
+                    ₹${total.toLocaleString(
+                        "en-IN"
+                    )}
+
+                </div>
+
+            </div>
+
+
+            <div class="payment-info">
+
+                <b>
+                    ✅ Payment Completed
+                </b>
+
+                <br>
+
+                Paid Amount:
+                ₹${Number(
+                    order.paymentPaidAmount ||
+                    total
+                ).toLocaleString(
+                    "en-IN"
+                )}
+
+                <br>
+
+                ${
+                    order.paymentTransactionId
+                    ?
+                    `
+                    UTR / Transaction ID:
+                    ${escapeHtml(
+                        order.paymentTransactionId
+                    )}
+                    <br>
+                    `
+                    :
+                    ""
+                }
+
+                ${
+                    order.paymentReceivedAt
+                    ?
+                    `
+                    Payment Date:
+                    ${formatDate(
+                        order.paymentReceivedAt
+                    )}
+                    <br>
+                    `
+                    :
+                    ""
+                }
+
+                ${
+                    order.paymentVerifiedBy
+                    ?
+                    `
+                    Verified By:
+                    ${escapeHtml(
+                        order.paymentVerifiedBy
+                    )}
+                    <br>
+                    `
+                    :
+                    ""
+                }
+
+                ${
+                    order.cashReceivedBy
+                    ?
+                    `
+                    Cash Received By:
+                    ${escapeHtml(
+                        order.cashReceivedBy
+                    )}
+                    <br>
+                    `
+                    :
+                    ""
+                }
+
+                ${
+                    order.cashDepositedBy
+                    ?
+                    `
+                    Cash Deposited By:
+                    ${escapeHtml(
+                        order.cashDepositedBy
+                    )}
+                    `
+                    :
+                    ""
+                }
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    /* =================================================
+       COD
+    ================================================= */
+
+    if(
+        method.includes("cod") ||
+        method.includes("cash")
+    ){
+
+        content.innerHTML = `
+
+            <div class="modal-section">
+
+                <h3>
+                    💰 COD Payment
+                </h3>
+
+                <div class="info">
+
+                    <b>Order ID:</b>
+
+                    ${escapeHtml(
+                        orderId
+                    )}
+
+                    <br>
+
+                    <b>Order Total:</b>
+
+                    ₹${total.toLocaleString(
+                        "en-IN"
+                    )}
+
+                    <br>
+
+                    <b>Payment Status:</b>
+
+                    ${
+                        cashStatus === "deposited"
+                        ?
+                        "🏦 Cash Deposited"
+                        :
+                        cashStatus === "received"
+                        ?
+                        "💰 Cash Received"
+                        :
+                        "⏳ Cash Not Received"
+                    }
+
+                </div>
+
+            </div>
+
+
+            <div class="cash-warning">
+
+                ⚠️ Delivery Boy customerଙ୍କଠାରୁ
+                actual cash receive କରିବା ପରେ
+                ମାତ୍ର “Cash Received” କରନ୍ତୁ।
+
+            </div>
+
+
+            ${
+                cashStatus ===
+                "not_received"
+                ?
+                `
+                <button
+                    class="payment-save"
+                    onclick="markCashReceived()">
+
+                    💰 Mark Cash Received
+
+                </button>
+                `
+                :
+                ""
+            }
+
+
+            ${
+                cashStatus ===
+                "received"
+                ?
+                `
+                <div class="payment-info">
+
+                    💰 Cash Received
+
+                    <br>
+
+                    Amount:
+                    ₹${total.toLocaleString(
+                        "en-IN"
+                    )}
+
+                    ${
+                        order.cashReceivedAt
+                        ?
+                        `
+                        <br>
+                        Received:
+                        ${formatDate(
+                            order.cashReceivedAt
+                        )}
+                        `
+                        :
+                        ""
+                    }
+
+                </div>
+
+
+                <button
+                    class="payment-save"
+                    onclick="markCashDeposited()">
+
+                    🏦 Mark Cash Deposited
+
+                </button>
+
+                `
+                :
+                ""
+            }
+
+
+            ${
+                cashStatus ===
+                "deposited"
+                ?
+                `
+                <div class="payment-info">
+
+                    🏦 Cash Deposited
+
+                    <br>
+
+                    Amount:
+                    ₹${total.toLocaleString(
+                        "en-IN"
+                    )}
+
+                    ${
+                        order.cashDepositedAt
+                        ?
+                        `
+                        <br>
+                        Deposited:
+                        ${formatDate(
+                            order.cashDepositedAt
+                        )}
+                        `
+                        :
+                        ""
+                    }
+
+                </div>
+                `
+                :
+                ""
+            }
+
+        `;
+
+        return;
+
+    }
+
+
+    /* =================================================
+       UPI
+    ================================================= */
+
+    content.innerHTML = `
+
+        <div class="modal-section">
+
+            <h3>
+                📱 UPI Payment Verification
+            </h3>
+
+            <div class="info">
+
+                <b>Order ID:</b>
+
+                ${escapeHtml(
+                    orderId
+                )}
+
+                <br>
+
+                <b>Order Total:</b>
+
+                ₹${total.toLocaleString(
+                    "en-IN"
+                )}
+
+                <br>
+
+                <b>Current Status:</b>
+
+                ⏳ Payment Pending
+
+            </div>
+
+        </div>
+
+
+        <div class="cash-warning">
+
+            ⚠️ Customer ଦେଇଥିବା UTR କୁ
+            କେବଳ ଦେଖି automatically Paid କରନ୍ତୁ ନାହିଁ।
+            ଆପଣଙ୍କ UPI/Bank account ରେ payment
+            receive ହୋଇଛି କି ନିଜେ verify କରନ୍ତୁ।
+
+        </div>
+
+
+        <label class="payment-label">
+
+            UTR / Transaction ID
+
+        </label>
+
+        <input
+            class="payment-input"
+            id="adminUTR"
+            type="text"
+            value="${escapeHtml(
+                order.paymentTransactionId ||
+                ""
+            )}"
+            placeholder="Customer UTR">
+
+
+        <label class="payment-label">
+
+            Paid Amount
+
+        </label>
+
+        <input
+            class="payment-input"
+            id="adminPaidAmount"
+            type="number"
+            min="0"
+            step="0.01"
+            value="${total}"
+            placeholder="Paid Amount">
+
+
+        <label class="payment-label">
+
+            Admin Note
+
+        </label>
+
+        <input
+            class="payment-input"
+            id="adminPaymentNote"
+            type="text"
+            value="${escapeHtml(
+                order.paymentNote ||
+                ""
+            )}"
+            placeholder="Payment verification note">
+
+
+        <button
+            class="payment-save"
+            onclick="markUPIPaid()">
+
+            ✅ Verify & Mark UPI Paid
+
+        </button>
+
+    `;
+
+}
+
+
+/* =====================================================
+   COD — CASH RECEIVED
+===================================================== */
+
+window.markCashReceived =
+async function(){
+
+    if(!selectedOrder)return;
+
+
+    const order =
+        selectedOrder;
+
+
+    if(
+        String(
+            order.paymentStatus ||
+            "pending"
+        ).toLowerCase()
+        ===
+        "paid"
+    ){
+
+        toast(
+            "ℹ️ Payment already paid."
+        );
+
+        return;
+
+    }
+
+
+    const orderRef =
+        doc(
+            db,
+            "orders",
+            getFirebaseDocumentId(order)
+        );
+
+
+    try{
+
+        toast(
+            "⏳ Cash Received update..."
+        );
+
+
+        await updateDoc(
+            orderRef,
+            {
+
+                cashStatus:
+                    "received",
+
+                cashReceivedAt:
+                    serverTimestamp(),
+
+                cashReceivedBy:
+                    auth.currentUser?.email ||
+                    ADMIN_EMAIL,
+
+                paymentStatus:
+                    "pending",
+
+                updatedAt:
+                    serverTimestamp()
+
+            }
+        );
+
+
+        order.cashStatus =
+            "received";
+
+
+        order.cashReceivedBy =
+            auth.currentUser?.email ||
+            ADMIN_EMAIL;
+
+
+        closePaymentModal();
+
+        renderOrders();
+
+
+        toast(
+            "✅ Cash Received save ହୋଇଗଲା।"
+        );
+
+    }
+    catch(error){
+
+        console.error(
+            "CASH RECEIVED ERROR:",
+            error
+        );
+
+
+        toast(
+            "❌ Cash Received failed: " +
+            error.message
+        );
+
+    }
+
+};
+
+
+/* =====================================================
+   COD — CASH DEPOSITED
+===================================================== */
+
+window.markCashDeposited =
+async function(){
+
+    if(!selectedOrder)return;
+
+
+    const order =
+        selectedOrder;
+
+
+    if(
+        String(
+            order.cashStatus ||
+            ""
+        ).toLowerCase()
+        !==
+        "received"
+    ){
+
+        toast(
+            "⚠️ ପ୍ରଥମେ Cash Received କରନ୍ତୁ।"
+        );
+
+        return;
+
+    }
+
+
+    const yes =
+        confirm(
+            "Cash ଆସିଛି ଏବଂ office/trust account ରେ deposit ହୋଇଛି ବୋଲି confirm କରିବେ କି?"
+        );
+
+
+    if(!yes)return;
+
+
+    const orderRef =
+        doc(
+            db,
+            "orders",
+            getFirebaseDocumentId(order)
+        );
+
+
+    try{
+
+        toast(
+            "⏳ Cash Deposited update..."
+        );
+
+
+        await updateDoc(
+            orderRef,
+            {
+
+                cashStatus:
+                    "deposited",
+
+                cashDepositedAt:
+                    serverTimestamp(),
+
+                cashDepositedBy:
+                    auth.currentUser?.email ||
+                    ADMIN_EMAIL,
+
+                paymentStatus:
+                    "paid",
+
+                paymentPaidAmount:
+                    Number(
+                        order.total || 0
+                    ),
+
+                paymentReceivedAt:
+                    serverTimestamp(),
+
+                paymentNote:
+                    "COD cash received and deposited",
+
+                paymentVerifiedBy:
+                    auth.currentUser?.email ||
+                    ADMIN_EMAIL,
+
+                updatedAt:
+                    serverTimestamp()
+
+            }
+        );
+
+
+        order.cashStatus =
+            "deposited";
+
+
+        order.paymentStatus =
+            "paid";
+
+
+        order.paymentPaidAmount =
+            Number(
+                order.total || 0
+            );
+
+
+        closePaymentModal();
+
+        updateStats();
+
+        renderOrders();
+
+
+        toast(
+            "✅ Cash Deposited ଏବଂ Payment Paid ହୋଇଗଲା।"
+        );
+
+    }
+    catch(error){
+
+        console.error(
+            "CASH DEPOSITED ERROR:",
+            error
+        );
+
+
+        toast(
+            "❌ Cash Deposited failed: " +
+            error.message
+        );
+
+    }
+
+};
+
+
+/* =====================================================
+   UPI — VERIFY & PAID
+===================================================== */
+
+window.markUPIPaid =
+async function(){
+
+    if(!selectedOrder)return;
+
+
+    const order =
+        selectedOrder;
+
+
+    const utrInput =
+        document.getElementById(
+            "adminUTR"
+        );
+
+
+    const amountInput =
+        document.getElementById(
+            "adminPaidAmount"
+        );
+
+
+    const noteInput =
+        document.getElementById(
+            "adminPaymentNote"
+        );
+
+
+    if(
+        !utrInput ||
+        !amountInput ||
+        !noteInput
+    ){
+
+        toast(
+            "❌ Payment form load ହୋଇନାହିଁ।"
+        );
+
+        return;
+
+    }
+
+
+    const utr =
+        utrInput
+        .value
+        .trim();
+
+
+    const paidAmount =
+        Number(
+            amountInput
+            .value
+        );
+
+
+    const note =
+        noteInput
+        .value
+        .trim();
+
+
+    const total =
+        Number(
+            order.total || 0
+        );
+
+
+    if(!utr){
+
+        toast(
+            "⚠️ UTR / Transaction ID ଦିଅନ୍ତୁ।"
+        );
+
+        return;
+
+    }
+
+
+    if(
+        !paidAmount ||
+        paidAmount <= 0
+    ){
+
+        toast(
+            "⚠️ Paid Amount ଠିକ୍ ଭାବରେ ଦିଅନ୍ତୁ।"
+        );
+
+        return;
+
+    }
+
+
+    if(
+        paidAmount !==
+        total
+    ){
+
+        const yes =
+            confirm(
+                `Order Total ₹${total}\nPaid Amount ₹${paidAmount}\n\nAmount mismatch ଅଛି। ତଥାପି Paid କରିବେ କି?`
+            );
+
+
+        if(!yes)return;
+
+    }
+
+
+    const yes =
+        confirm(
+            "ଆପଣ UPI/Bank account ରେ ଏହି payment verify କରିଛନ୍ତି କି?\n\nVerify କରିଥିଲେ OK କରନ୍ତୁ।"
+        );
+
+
+    if(!yes)return;
+
+
+    const orderRef =
+        doc(
+            db,
+            "orders",
+            getFirebaseDocumentId(order)
+        );
+
+
+    try{
+
+        toast(
+            "⏳ UPI Payment verify ହେଉଛି..."
+        );
+
+
+        await updateDoc(
+            orderRef,
+            {
+
+                paymentStatus:
+                    "paid",
+
+                paymentTransactionId:
+                    utr,
+
+                paymentPaidAmount:
+                    paidAmount,
+
+                paymentReceivedAt:
+                    serverTimestamp(),
+
+                paymentNote:
+                    note ||
+                    "UPI payment verified",
+
+                paymentVerifiedBy:
+                    auth.currentUser?.email ||
+                    ADMIN_EMAIL,
+
+                updatedAt:
+                    serverTimestamp()
+
+            }
+        );
+
+
+        order.paymentStatus =
+            "paid";
+
+
+        order.paymentTransactionId =
+            utr;
+
+
+        order.paymentPaidAmount =
+            paidAmount;
+
+
+        order.paymentNote =
+            note ||
+            "UPI payment verified";
+
+
+        order.paymentVerifiedBy =
+            auth.currentUser?.email ||
+            ADMIN_EMAIL;
+
+
+        closePaymentModal();
+
+        updateStats();
+
+        renderOrders();
+
+
+        toast(
+            "✅ UPI Payment Verified & Paid ହୋଇଗଲା।"
+        );
+
+    }
+    catch(error){
+
+        console.error(
+            "UPI PAYMENT ERROR:",
+            error
+        );
+
+
+        toast(
+            "❌ UPI Payment failed: " +
+            error.message
+        );
+
+    }
+
+};
+
+
+/* =====================================================
    WHATSAPP
 ===================================================== */
 
@@ -3836,6 +5389,8 @@ document.addEventListener(
 
             closeStatusModal();
 
+            closePaymentModal();
+
         }
 
     }
@@ -3868,4 +5423,4 @@ document
 
 </body>
 
-      </html>
+              </html>
