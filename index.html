@@ -19,7 +19,7 @@
       href="logo.png">
 
 <title>
-Utkala Mart V8.3 | ଗଞ୍ଜାମରୁ ଆରମ୍ଭ, ଭାରତ ପର୍ଯ୍ୟନ୍ତ
+Utkala Mart V9 | ଗଞ୍ଜାମରୁ ଆରମ୍ଭ, ଭାରତ ପର୍ଯ୍ୟନ୍ତ
 </title>
 
 
@@ -626,6 +626,8 @@ a{
         0 2px 8px rgba(0,0,0,.07);
 
     transition:.2s;
+
+    cursor:pointer;
 }
 
 .product-card:hover{
@@ -655,6 +657,14 @@ a{
     height:100%;
 
     object-fit:cover;
+
+    transition:
+        transform .25s;
+}
+
+.product-card:hover
+.product-image img{
+    transform:scale(1.03);
 }
 
 .product-badge{
@@ -695,10 +705,56 @@ a{
 
     box-shadow:
         0 1px 5px rgba(0,0,0,.12);
+
+    z-index:5;
 }
 
 .wishlist.liked{
     color:#d9272e;
+}
+
+
+/* =====================================================
+   QUICK VIEW BUTTON
+===================================================== */
+
+.quick-view{
+    position:absolute;
+
+    left:8px;
+    right:8px;
+    bottom:8px;
+
+    border:0;
+
+    border-radius:7px;
+
+    background:rgba(7,91,59,.95);
+
+    color:#fff;
+
+    padding:7px;
+
+    font-size:10px;
+
+    font-weight:900;
+
+    z-index:4;
+
+    opacity:0;
+
+    transform:
+        translateY(5px);
+
+    transition:.2s;
+}
+
+.product-card:hover
+.quick-view{
+    opacity:1;
+
+    transform:
+        translateY(0);
 }
 
 
@@ -812,6 +868,30 @@ a{
     background:#aaa;
 
     cursor:not-allowed;
+}
+
+.view-product{
+    width:100%;
+
+    margin-top:6px;
+
+    border:1px solid #075b3b;
+
+    border-radius:7px;
+
+    background:#fff;
+
+    color:#075b3b;
+
+    padding:7px;
+
+    font-size:10px;
+
+    font-weight:900;
+}
+
+.view-product:hover{
+    background:#f1f8f4;
 }
 
 .loading{
@@ -1503,6 +1583,14 @@ footer strong{
         padding:8px 4px;
     }
 
+    .quick-view{
+        display:none;
+    }
+
+    .view-product{
+        font-size:9px;
+    }
+
     .farmer-banner{
         margin:
             0 9px 18px;
@@ -1539,9 +1627,8 @@ footer strong{
         font-size:13px;
     }
 
-    /* ================================================
-       MOBILE BOTTOM
-    ================================================ */
+
+    /* MOBILE BOTTOM */
 
     .mobile-bottom{
         position:fixed;
@@ -1669,6 +1756,7 @@ footer strong{
 
         gap:8px;
     }
+
 }
 
 
@@ -1689,6 +1777,7 @@ footer strong{
     .product-image{
         height:132px;
     }
+
 }
 
 </style>
@@ -1715,8 +1804,6 @@ footer strong{
 
 
     <div class="top-right">
-
-        <!-- NEW ORDER TRACKING -->
 
         <a
             href="order-tracking.html"
@@ -1783,8 +1870,6 @@ footer strong{
     </a>
 
 
-    <!-- SEARCH -->
-
     <div class="search">
 
         <input
@@ -1804,12 +1889,8 @@ footer strong{
     </div>
 
 
-    <!-- ACTIONS -->
-
     <div class="actions">
 
-
-        <!-- ORDER TRACKING -->
 
         <a
             class="action track-action"
@@ -1823,8 +1904,6 @@ footer strong{
 
         </a>
 
-
-        <!-- CART -->
 
         <button
             class="action"
@@ -1848,8 +1927,6 @@ footer strong{
         </button>
 
 
-        <!-- WISHLIST -->
-
         <button
             class="action"
             onclick="toggleWishlistPage()">
@@ -1862,8 +1939,6 @@ footer strong{
 
         </button>
 
-
-        <!-- ACCOUNT -->
 
         <button
             class="action"
@@ -1888,11 +1963,14 @@ footer strong{
 
 <nav class="nav">
 
-
     <a
         class="active"
         href="#"
-        onclick="setActiveNav(this)">
+        onclick="
+            goHome();
+            setActiveNav(this);
+            return false;
+        ">
 
         🏠 Home
 
@@ -1964,8 +2042,6 @@ footer strong{
     </a>
 
 
-    <!-- TRACKING IN NAV -->
-
     <a
         href="order-tracking.html">
 
@@ -2000,9 +2076,7 @@ footer strong{
 
 <section class="hero">
 
-
     <div class="hero-content">
-
 
         <h1>
 
@@ -2240,7 +2314,7 @@ footer strong{
 
 
 <!-- =====================================================
-     ALL / SPECIAL PRODUCTS
+     ALL PRODUCTS
 ===================================================== -->
 
 <section
@@ -2297,20 +2371,15 @@ footer strong{
             🍚 ଖାଦ୍ୟ
         </h2>
 
-        <button
-            onclick="showAllProducts()">
-
+        <button onclick="showAllProducts()">
             ସବୁ ଦେଖନ୍ତୁ →
-
         </button>
 
     </div>
 
-
     <div
         class="product-grid"
         id="foodGrid">
-
     </div>
 
 </section>
@@ -2326,20 +2395,15 @@ footer strong{
             🏺 ହାତ ତିଆରି ଜିନିଷ
         </h2>
 
-        <button
-            onclick="showAllProducts()">
-
+        <button onclick="showAllProducts()">
             ସବୁ ଦେଖନ୍ତୁ →
-
         </button>
 
     </div>
 
-
     <div
         class="product-grid"
         id="handicraftGrid">
-
     </div>
 
 </section>
@@ -2355,20 +2419,15 @@ footer strong{
             👗 ପୋଷାକ ଏବଂ କପଡା
         </h2>
 
-        <button
-            onclick="showAllProducts()">
-
+        <button onclick="showAllProducts()">
             ସବୁ ଦେଖନ୍ତୁ →
-
         </button>
 
     </div>
 
-
     <div
         class="product-grid"
         id="clothingGrid">
-
     </div>
 
 </section>
@@ -2384,20 +2443,15 @@ footer strong{
             🌾 କୃଷକ ଉତ୍ପାଦ
         </h2>
 
-        <button
-            onclick="showAllProducts()">
-
+        <button onclick="showAllProducts()">
             ସବୁ ଦେଖନ୍ତୁ →
-
         </button>
 
     </div>
 
-
     <div
         class="product-grid"
         id="farmerGrid">
-
     </div>
 
 </section>
@@ -2415,12 +2469,10 @@ footer strong{
             🧑‍🌾 “ଆମ କୃଷକ, ଆମ ଗର୍ବ”
         </h2>
 
-
         <p>
             ଗାଁରୁ ସିଧା ଆପଣଙ୍କ ଘରକୁ
             Utkala Mart ମାଧ୍ୟମରେ
         </p>
-
 
         <button
             onclick="showCategory('farmer')">
@@ -2446,7 +2498,6 @@ footer strong{
         🌿 ଗଞ୍ଜାମରୁ ଆରମ୍ଭ,
         ପୁରା ଭାରତରେ 🇮🇳
     </h2>
-
 
     <p>
 
@@ -2475,48 +2526,24 @@ footer strong{
 
 <section class="values">
 
-
     <div class="value">
-
-        <div class="value-icon">
-            📍
-        </div>
-
+        <div class="value-icon">📍</div>
         ଗଞ୍ଜାମ ପାଇଁ
-
     </div>
 
-
     <div class="value">
-
-        <div class="value-icon">
-            ❤️
-        </div>
-
+        <div class="value-icon">❤️</div>
         ଓଡ଼ିଆ ଲୋକଙ୍କ ପାଇଁ
-
     </div>
 
-
     <div class="value">
-
-        <div class="value-icon">
-            👥
-        </div>
-
+        <div class="value-icon">👥</div>
         ଆମ ଲୋକଙ୍କ ପାଇଁ
-
     </div>
 
-
     <div class="value">
-
-        <div class="value-icon">
-            🌱
-        </div>
-
+        <div class="value-icon">🌱</div>
         ଭଲ ଭବିଷ୍ୟତ ପାଇଁ
-
     </div>
 
 </section>
@@ -2565,45 +2592,31 @@ footer strong{
 
 <div class="mobile-bottom">
 
-
-    <!-- HOME -->
-
     <button
         class="active"
         onclick="goHome()">
 
-        <span class="mi">
-            🏠
-        </span>
+        <span class="mi">🏠</span>
 
         Home
 
     </button>
 
 
-    <!-- CATEGORY -->
-
     <button
         onclick="scrollCategories()">
 
-        <span class="mi">
-            📂
-        </span>
+        <span class="mi">📂</span>
 
         ବିଭାଗ
 
     </button>
 
 
-    <!-- CART -->
-
     <button
         onclick="openCart()">
 
-        <span class="mi">
-            🛒
-        </span>
-
+        <span class="mi">🛒</span>
 
         <span
             class="mobile-cart-badge"
@@ -2618,29 +2631,21 @@ footer strong{
     </button>
 
 
-    <!-- ORDER TRACKING -->
-
     <button
         class="track-bottom"
         onclick="goOrderTracking()">
 
-        <span class="mi">
-            📦
-        </span>
+        <span class="mi">📦</span>
 
         Track
 
     </button>
 
 
-    <!-- ACCOUNT -->
-
     <button
         onclick="goAccount()">
 
-        <span class="mi">
-            👤
-        </span>
+        <span class="mi">👤</span>
 
         ଖାତା
 
@@ -2656,7 +2661,6 @@ footer strong{
 <div
     class="toast"
     id="toast">
-
 </div>
 
 
@@ -2668,9 +2672,7 @@ footer strong{
     class="market-view"
     id="marketView">
 
-
     <div class="market-head">
-
 
         <button
             class="market-back"
@@ -2686,7 +2688,6 @@ footer strong{
             <h2 id="marketTitle">
                 🛍️ ପ୍ରଡକ୍ଟ
             </h2>
-
 
             <p id="marketSubtitle">
                 Utkala Mart
@@ -2710,7 +2711,6 @@ footer strong{
         <div
             class="product-grid"
             id="marketGrid">
-
         </div>
 
     </div>
@@ -2727,18 +2727,15 @@ footer strong{
     id="cartOverlay"
     onclick="closeCart(event)">
 
-
     <div
         class="cart"
         onclick="event.stopPropagation()">
-
 
         <div class="cart-header">
 
             <h2>
                 🛒 My Cart
             </h2>
-
 
             <button
                 class="close-cart"
@@ -2751,9 +2748,7 @@ footer strong{
         </div>
 
 
-        <div id="cartItems">
-
-        </div>
+        <div id="cartItems"></div>
 
 
         <div
@@ -2784,16 +2779,14 @@ footer strong{
 
 <script type="module">
 
-
 /* =====================================================
-   FIREBASE IMPORT
+   FIREBASE
 ===================================================== */
 
 import {
     db
 }
 from "./js/firebase-config.js";
-
 
 import {
     collection,
@@ -2809,14 +2802,12 @@ from
 
 let allProducts = [];
 
-
 let cart =
     JSON.parse(
         localStorage.getItem(
             "utkalaCart"
         ) || "[]"
     );
-
 
 let wishlist =
     JSON.parse(
@@ -2840,15 +2831,25 @@ function updateCart(){
             0
         );
 
+    const desktop =
+        document.getElementById(
+            "cartCount"
+        );
 
-    document
-        .getElementById("cartCount")
-        .innerText = count;
+    const mobile =
+        document.getElementById(
+            "mobileCartCount"
+        );
 
+    if(desktop){
+        desktop.innerText =
+            count;
+    }
 
-    document
-        .getElementById("mobileCartCount")
-        .innerText = count;
+    if(mobile){
+        mobile.innerText =
+            count;
+    }
 
 }
 
@@ -2895,7 +2896,7 @@ function categoryMatch(
 
     if(category === "food"){
 
-        return(
+        return (
 
             value.includes("food") ||
             value.includes("grocery") ||
@@ -2909,7 +2910,7 @@ function categoryMatch(
 
     if(category === "handicraft"){
 
-        return(
+        return (
 
             value.includes("craft") ||
             value.includes("handmade") ||
@@ -2924,7 +2925,7 @@ function categoryMatch(
 
     if(category === "clothing"){
 
-        return(
+        return (
 
             value.includes("cloth") ||
             value.includes("textile") ||
@@ -2941,7 +2942,7 @@ function categoryMatch(
 
     if(category === "farmer"){
 
-        return(
+        return (
 
             value.includes("farmer") ||
             value.includes("agri") ||
@@ -3023,6 +3024,33 @@ function getStock(product){
 
 
 /* =====================================================
+   OPEN PRODUCT PAGE
+===================================================== */
+
+window.openProductPage =
+    function(productId){
+
+        if(!productId){
+
+            toast(
+                "⚠️ Product ID ମିଳିଲା ନାହିଁ।"
+            );
+
+            return;
+
+        }
+
+
+        window.location.href =
+            "product.html?id=" +
+            encodeURIComponent(
+                productId
+            );
+
+    };
+
+
+/* =====================================================
    PRODUCT CARD
 ===================================================== */
 
@@ -3032,23 +3060,43 @@ function createProductCard(
 ){
 
     const card =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
     card.className =
         "product-card";
 
 
-    /* IMAGE */
+    /* WHOLE CARD CLICK */
+
+    card.onclick =
+        function(){
+
+            openProductPage(
+                product.id
+            );
+
+        };
+
+
+    /* =================================================
+       IMAGE
+    ================================================= */
 
     const imageBox =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
     imageBox.className =
         "product-image";
 
 
     const img =
-        document.createElement("img");
+        document.createElement(
+            "img"
+        );
 
     img.src =
         getImage(product);
@@ -3064,9 +3112,11 @@ function createProductCard(
     img.onerror =
         function(){
 
-            this.onerror = null;
+            this.onerror =
+                null;
 
-            this.src = "logo.png";
+            this.src =
+                "logo.png";
 
         };
 
@@ -3074,7 +3124,9 @@ function createProductCard(
     /* BADGE */
 
     const badge =
-        document.createElement("span");
+        document.createElement(
+            "span"
+        );
 
     badge.className =
         "product-badge";
@@ -3088,12 +3140,16 @@ function createProductCard(
     /* WISHLIST */
 
     const wish =
-        document.createElement("button");
+        document.createElement(
+            "button"
+        );
 
     wish.className =
         "wishlist" +
         (
-            wishlist.includes(product.id)
+            wishlist.includes(
+                product.id
+            )
             ?
             " liked"
             :
@@ -3102,7 +3158,9 @@ function createProductCard(
 
 
     wish.innerText =
-        wishlist.includes(product.id)
+        wishlist.includes(
+            product.id
+        )
         ?
         "♥"
         :
@@ -3129,10 +3187,46 @@ function createProductCard(
     );
 
 
-    /* INFO */
+    /* =================================================
+       QUICK VIEW
+    ================================================= */
+
+    const quickView =
+        document.createElement(
+            "button"
+        );
+
+    quickView.className =
+        "quick-view";
+
+    quickView.innerText =
+        "👁️ ପ୍ରଡକ୍ଟ ଦେଖନ୍ତୁ";
+
+    quickView.onclick =
+        function(event){
+
+            event.stopPropagation();
+
+            openProductPage(
+                product.id
+            );
+
+        };
+
+
+    imageBox.appendChild(
+        quickView
+    );
+
+
+    /* =================================================
+       INFO
+    ================================================= */
 
     const info =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
     info.className =
         "product-info";
@@ -3141,7 +3235,9 @@ function createProductCard(
     /* NAME */
 
     const name =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
     name.className =
         "product-name";
@@ -3154,7 +3250,9 @@ function createProductCard(
     /* CATEGORY */
 
     const category =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
     category.className =
         "product-category";
@@ -3167,51 +3265,12 @@ function createProductCard(
         "";
 
 
-    /* PRICE */
-
-    const price =
-        document.createElement("div");
-
-    price.className =
-        "product-price";
-
-
-    const amount =
-        product.utkalaPrice ??
-        product.price ??
-        product.sellingPrice ??
-        0;
-
-
-    price.innerText =
-        "₹" + amount;
-
-
-    /* SELLER PRICE */
-
-    const sellerPrice =
-        document.createElement("div");
-
-    sellerPrice.className =
-        "seller-price";
-
-
-    if(
-        product.sellerPrice !== undefined &&
-        product.sellerPrice !== ""
-    ){
-
-        sellerPrice.innerText =
-            "Seller Price: ₹" +
-            product.sellerPrice;
-
-    }
-
-
     /* META */
 
     const meta =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
     meta.className =
         "product-meta";
@@ -3219,28 +3278,26 @@ function createProductCard(
 
     /* WEIGHT */
 
-    const weight =
-        product.weight;
+    if(product.weight){
 
+        const weightSpan =
+            document.createElement(
+                "span"
+            );
 
-    const unit =
-        product.weightUnit ||
-        product.unit ||
-        "";
-
-
-    if(weight){
-
-        const span =
-            document.createElement("span");
-
-        span.innerText =
+        weightSpan.innerText =
             "⚖️ " +
-            weight +
+            product.weight +
             " " +
-            unit;
+            (
+                product.weightUnit ||
+                product.unit ||
+                ""
+            );
 
-        meta.appendChild(span);
+        meta.appendChild(
+            weightSpan
+        );
 
     }
 
@@ -3252,7 +3309,9 @@ function createProductCard(
 
 
     const stockSpan =
-        document.createElement("span");
+        document.createElement(
+            "span"
+        );
 
 
     if(stock <= 0){
@@ -3291,10 +3350,69 @@ function createProductCard(
     );
 
 
-    /* CART BUTTON */
+    /* PRICE */
+
+    const price =
+        document.createElement(
+            "div"
+        );
+
+    price.className =
+        "product-price";
+
+
+    const amount =
+        Number(
+            product.utkalaPrice ??
+            product.price ??
+            product.sellingPrice ??
+            0
+        );
+
+
+    price.innerText =
+        "₹" +
+        amount.toLocaleString(
+            "en-IN"
+        );
+
+
+    /* SELLER PRICE */
+
+    const sellerPrice =
+        document.createElement(
+            "div"
+        );
+
+    sellerPrice.className =
+        "seller-price";
+
+
+    if(
+        product.sellerPrice !==
+            undefined &&
+        product.sellerPrice !== ""
+    ){
+
+        sellerPrice.innerText =
+            "Seller Price: ₹" +
+            Number(
+                product.sellerPrice
+            ).toLocaleString(
+                "en-IN"
+            );
+
+    }
+
+
+    /* =================================================
+       ADD CART
+    ================================================= */
 
     const button =
-        document.createElement("button");
+        document.createElement(
+            "button"
+        );
 
     button.className =
         "add-cart";
@@ -3320,11 +3438,41 @@ function createProductCard(
 
                 event.stopPropagation();
 
-                addToCart(product);
+                addToCart(
+                    product
+                );
 
             };
 
     }
+
+
+    /* =================================================
+       VIEW PRODUCT BUTTON
+    ================================================= */
+
+    const viewButton =
+        document.createElement(
+            "button"
+        );
+
+    viewButton.className =
+        "view-product";
+
+    viewButton.innerText =
+        "👁️ ପ୍ରଡକ୍ଟ ଦେଖନ୍ତୁ";
+
+
+    viewButton.onclick =
+        function(event){
+
+            event.stopPropagation();
+
+            openProductPage(
+                product.id
+            );
+
+        };
 
 
     info.append(
@@ -3333,6 +3481,7 @@ function createProductCard(
         meta,
         price,
         sellerPrice,
+        viewButton,
         button
     );
 
@@ -3343,7 +3492,9 @@ function createProductCard(
     );
 
 
-    container.appendChild(card);
+    container.appendChild(
+        card
+    );
 
 }
 
@@ -3361,21 +3512,20 @@ function renderProducts(
             "productGrid"
         );
 
-
     const loading =
         document.getElementById(
             "loading"
         );
 
 
-    grid.innerHTML = "";
+    grid.innerHTML =
+        "";
 
 
     if(!products.length){
 
         loading.style.display =
             "block";
-
 
         loading.innerText =
             "🛍️ ଏଠାରେ ପ୍ରଡକ୍ଟ ଖୁବ ଶୀଘ୍ର ଦେଖାଯିବ।";
@@ -3440,7 +3590,8 @@ function renderCategory(
         return;
 
 
-    grid.innerHTML = "";
+    grid.innerHTML =
+        "";
 
 
     const items =
@@ -3530,7 +3681,8 @@ function categoryTitle(
 }
 
 
-let currentMarketCategory = "";
+let currentMarketCategory =
+    "";
 
 
 /* =====================================================
@@ -3547,7 +3699,8 @@ function renderMarket(
         );
 
 
-    grid.innerHTML = "";
+    grid.innerHTML =
+        "";
 
 
     if(!products.length){
@@ -3621,7 +3774,8 @@ function openMarketView(
         .getElementById(
             "marketSearch"
         )
-        .value = "";
+        .value =
+            "";
 
 
     renderMarket(
@@ -3741,7 +3895,9 @@ document
                             .join(" ");
 
 
-                            return text.includes(q);
+                            return text.includes(
+                                q
+                            );
 
                         }
                     );
@@ -3749,7 +3905,9 @@ document
             }
 
 
-            renderMarket(items);
+            renderMarket(
+                items
+            );
 
         }
     );
@@ -3892,7 +4050,9 @@ window.searchProducts =
                         .join(" ");
 
 
-                        return text.includes(q);
+                        return text.includes(
+                            q
+                        );
 
                     }
                 );
@@ -4014,7 +4174,8 @@ function addToCart(
 
         cart.push({
 
-            id:id,
+            id:
+                id,
 
             name:
                 product.name ||
@@ -4028,12 +4189,14 @@ function addToCart(
                     0
                 ),
 
-            qty:1,
+            qty:
+                1,
 
             image:
                 getImage(product),
 
-            stock:stock
+            stock:
+                stock
 
         });
 
@@ -4081,7 +4244,9 @@ function changeQty(
 
 
     const newQty =
-        Number(item.qty || 1) +
+        Number(
+            item.qty || 1
+        ) +
         delta;
 
 
@@ -4140,10 +4305,12 @@ window.openCart =
             );
 
 
-        let total = 0;
+        let total =
+            0;
 
 
-        box.innerHTML = "";
+        box.innerHTML =
+            "";
 
 
         if(!cart.length){
@@ -4182,29 +4349,48 @@ window.openCart =
                 row.innerHTML =
                     `
                     <img
-                        src="${escapeAttribute(item.image)}"
-                        onerror="this.src='logo.png'">
+                        src="${escapeAttribute(
+                            item.image
+                        )}"
+                        onerror="
+                            this.onerror=null;
+                            this.src='logo.png';
+                        ">
 
 
                     <div
                         style="flex:1">
 
                         <b>
-                            ${escapeHtml(item.name)}
+                            ${escapeHtml(
+                                item.name
+                            )}
                         </b>
 
                         <br>
 
-                        ₹${Number(item.price)}
+                        ₹${Number(
+                            item.price
+                        ).toLocaleString(
+                            "en-IN"
+                        )}
+
                         ×
-                        ${Number(item.qty)}
+
+                        ${Number(
+                            item.qty
+                        )}
 
 
                         <div class="qty-row">
 
-
                             <button
-                                onclick="changeQty(${index},-1)">
+                                onclick="
+                                    changeQty(
+                                        ${index},
+                                        -1
+                                    )
+                                ">
 
                                 −
 
@@ -4212,12 +4398,19 @@ window.openCart =
 
 
                             <b>
-                                ${Number(item.qty)}
+                                ${Number(
+                                    item.qty
+                                )}
                             </b>
 
 
                             <button
-                                onclick="changeQty(${index},1)">
+                                onclick="
+                                    changeQty(
+                                        ${index},
+                                        1
+                                    )
+                                ">
 
                                 +
 
@@ -4225,12 +4418,16 @@ window.openCart =
 
 
                             <button
-                                onclick="removeCart(${index})"
+                                onclick="
+                                    removeCart(
+                                        ${index}
+                                    )
+                                "
                                 style="
                                     margin-left:5px;
                                     width:auto;
                                     padding:0 7px;
-                                    color:#d33
+                                    color:#d33;
                                 ">
 
                                 Remove
@@ -4243,7 +4440,9 @@ window.openCart =
                     `;
 
 
-                box.appendChild(row);
+                box.appendChild(
+                    row
+                );
 
             }
         );
@@ -4254,7 +4453,10 @@ window.openCart =
                 "cartTotal"
             )
             .innerText =
-                "ମୋଟ: ₹" + total;
+                "ମୋଟ: ₹" +
+                total.toLocaleString(
+                    "en-IN"
+                );
 
 
         document
@@ -4378,7 +4580,9 @@ function toggleWishlist(
     }
     else{
 
-        wishlist.push(id);
+        wishlist.push(
+            id
+        );
 
 
         button.classList.add(
@@ -4584,25 +4788,20 @@ async function loadProducts(){
                         productDoc.data();
 
 
-                    /*
-                       NEW APPROVED PRODUCT
-                    */
-
                     const isNewApproved =
                         data.approved === true &&
                         data.active === true &&
                         data.status === "approved";
 
 
-                    /*
-                       OLD PRODUCT
-                    */
-
                     const hasApprovalFields =
                         (
-                            data.status !== undefined ||
-                            data.approved !== undefined ||
-                            data.active !== undefined
+                            data.status !==
+                                undefined ||
+                            data.approved !==
+                                undefined ||
+                            data.active !==
+                                undefined
                         );
 
 
@@ -4724,9 +4923,8 @@ updateCart();
 
 loadProducts();
 
-
 </script>
 
 </body>
 
-          </html>
+      </html>
