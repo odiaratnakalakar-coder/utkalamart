@@ -18,6 +18,10 @@
 
 <style>
 
+/* =====================================================
+   BASIC
+===================================================== */
+
 *{
     box-sizing:border-box;
 }
@@ -46,13 +50,19 @@ body{
     background:#075b3b;
     color:#fff;
     padding:10px 4%;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
+
     gap:15px;
+
     position:sticky;
     top:0;
     z-index:1000;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,.15);
 }
 
 .logo-area{
@@ -64,8 +74,11 @@ body{
 .logo{
     width:45px;
     height:45px;
+
     border-radius:50%;
+
     object-fit:cover;
+
     background:#fff;
 }
 
@@ -86,13 +99,21 @@ body{
 
 .header-btn{
     border:0;
+
     border-radius:8px;
+
     padding:9px 12px;
+
     background:#fff;
+
     color:#075b3b;
+
     font-weight:900;
+
     cursor:pointer;
+
     text-decoration:none;
+
     font-size:12px;
 }
 
@@ -103,35 +124,48 @@ body{
 
 .breadcrumb{
     width:min(1200px,94%);
+
     margin:15px auto 0;
+
     color:#777;
+
     font-size:12px;
 }
 
 .breadcrumb a{
     color:#075b3b;
+
     text-decoration:none;
+
     font-weight:800;
 }
 
 
 /* =====================================================
-   PRODUCT AREA
+   MAIN CONTAINER
 ===================================================== */
 
 .product-container{
     width:min(1200px,94%);
+
     margin:15px auto 50px;
 }
 
 .product-box{
     background:#fff;
+
     border-radius:20px;
+
     padding:25px;
-    box-shadow:0 4px 20px rgba(0,0,0,.08);
+
+    box-shadow:
+        0 4px 20px rgba(0,0,0,.08);
 
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+        1fr 1fr;
+
     gap:35px;
 }
 
@@ -142,32 +176,47 @@ body{
 
 .product-image-area{
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
 }
 
 .main-image-box{
     width:100%;
+
     max-width:550px;
+
     aspect-ratio:1/1;
+
     border-radius:18px;
+
     background:#f5f5f5;
+
     overflow:hidden;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 }
 
 .main-image{
     width:100%;
+
     height:100%;
+
     object-fit:contain;
+
     padding:15px;
 }
 
 .image-note{
     margin-top:10px;
+
     color:#777;
+
     font-size:11px;
 }
 
@@ -182,26 +231,39 @@ body{
 
 .category{
     display:inline-block;
+
     background:#e8f7ee;
+
     color:#087333;
+
     padding:6px 11px;
+
     border-radius:20px;
+
     font-size:11px;
+
     font-weight:900;
+
     margin-bottom:10px;
 }
 
 .product-title{
     margin:0;
+
     font-size:30px;
+
     line-height:1.3;
+
     color:#075b3b;
 }
 
 .product-description{
     margin-top:14px;
+
     color:#666;
+
     font-size:14px;
+
     line-height:1.7;
 }
 
@@ -212,37 +274,53 @@ body{
 
 .price-box{
     margin-top:20px;
+
     padding:15px;
+
     background:#f2faf5;
+
     border-radius:12px;
 }
 
 .price-label{
     color:#777;
+
     font-size:11px;
 }
 
 .price{
     color:#075b3b;
+
     font-size:30px;
+
     font-weight:900;
 }
 
 .market-price{
     color:#999;
+
     text-decoration:line-through;
+
     margin-left:8px;
+
     font-size:14px;
 }
 
 .discount{
     display:inline-block;
+
     margin-left:8px;
+
     background:#ffe8e8;
+
     color:#c62828;
+
     padding:4px 7px;
+
     border-radius:5px;
+
     font-size:10px;
+
     font-weight:900;
 }
 
@@ -253,7 +331,9 @@ body{
 
 .stock{
     margin-top:12px;
+
     font-size:13px;
+
     font-weight:900;
 }
 
@@ -276,26 +356,37 @@ body{
 
 .meta{
     margin-top:15px;
+
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+        1fr 1fr;
+
     gap:10px;
 }
 
 .meta-item{
     background:#f7f8f8;
+
     border-radius:9px;
+
     padding:10px;
 }
 
 .meta-label{
     color:#777;
+
     font-size:10px;
 }
 
 .meta-value{
     margin-top:3px;
+
     font-size:12px;
+
     font-weight:900;
+
+    word-break:break-word;
 }
 
 
@@ -309,45 +400,69 @@ body{
 
 .quantity-title{
     font-weight:900;
+
     font-size:13px;
+
     margin-bottom:7px;
 }
 
 .quantity-control{
     display:flex;
+
     align-items:center;
+
     width:145px;
+
     height:44px;
+
     border:1px solid #ccc;
+
     border-radius:9px;
+
     overflow:hidden;
 }
 
 .qty-btn{
     width:44px;
+
     height:100%;
+
     border:0;
+
     background:#f1f3f2;
+
     font-size:20px;
+
     font-weight:900;
+
     cursor:pointer;
+}
+
+.qty-btn:hover{
+    background:#e2e6e4;
 }
 
 .qty-number{
     flex:1;
+
     text-align:center;
+
     font-weight:900;
 }
 
 
 /* =====================================================
-   BUTTONS
+   ACTION BUTTONS
 ===================================================== */
 
 .action-buttons{
     margin-top:20px;
+
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+        1fr 1fr;
+
     gap:10px;
 }
 
@@ -355,34 +470,107 @@ body{
 .cart-btn,
 .share-btn{
     border:0;
+
     min-height:50px;
+
     border-radius:10px;
+
     font-weight:900;
+
     cursor:pointer;
+
     font-size:14px;
 }
 
 .buy-btn{
     background:#075b3b;
+
     color:#fff;
+}
+
+.buy-btn:hover{
+    background:#064b31;
 }
 
 .cart-btn{
     background:#f6b800;
+
     color:#222;
+}
+
+.cart-btn:hover{
+    background:#e7aa00;
 }
 
 .share-btn{
     margin-top:10px;
+
     width:100%;
+
     background:#e8f7ee;
+
     color:#087333;
+}
+
+.share-btn:hover{
+    background:#d8f0e3;
 }
 
 .buy-btn:disabled,
 .cart-btn:disabled{
     background:#aaa;
+
+    color:#fff;
+
     cursor:not-allowed;
+}
+
+
+/* =====================================================
+   SOCIAL SHARE
+===================================================== */
+
+.social-buttons{
+    margin-top:10px;
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr 1fr;
+
+    gap:8px;
+}
+
+.social-btn{
+    border:0;
+
+    min-height:42px;
+
+    border-radius:8px;
+
+    font-size:12px;
+
+    font-weight:900;
+
+    cursor:pointer;
+}
+
+.copy-btn{
+    background:#087d5b;
+
+    color:#fff;
+}
+
+.whatsapp-btn{
+    background:#25d366;
+
+    color:#fff;
+}
+
+.facebook-btn{
+    background:#1877f2;
+
+    color:#fff;
 }
 
 
@@ -392,13 +580,66 @@ body{
 
 .delivery-box{
     margin-top:18px;
+
     background:#fff9e7;
+
     border:1px solid #f0dc91;
+
     border-radius:11px;
+
     padding:13px;
+
     color:#66551a;
+
     font-size:12px;
+
     line-height:1.7;
+}
+
+
+/* =====================================================
+   SHARE INFO
+===================================================== */
+
+.share-info{
+    margin-top:25px;
+
+    background:#fff;
+
+    padding:18px;
+
+    border-radius:15px;
+
+    box-shadow:
+        0 3px 14px rgba(0,0,0,.06);
+}
+
+.share-info h3{
+    margin:0 0 8px;
+
+    color:#075b3b;
+}
+
+.share-info p{
+    font-size:12px;
+
+    color:#666;
+
+    line-height:1.6;
+}
+
+.share-url{
+    background:#f3f5f4;
+
+    padding:10px;
+
+    border-radius:8px;
+
+    font-size:11px;
+
+    word-break:break-all;
+
+    color:#555;
 }
 
 
@@ -408,91 +649,63 @@ body{
 
 .loading{
     width:min(700px,94%);
+
     margin:60px auto;
+
     background:#fff;
+
     padding:50px 20px;
+
     text-align:center;
+
     border-radius:18px;
+
     color:#777;
-    box-shadow:0 4px 18px rgba(0,0,0,.08);
+
+    box-shadow:
+        0 4px 18px rgba(0,0,0,.08);
 }
+
+
+/* =====================================================
+   ERROR
+===================================================== */
 
 .error-box{
     width:min(700px,94%);
+
     margin:60px auto;
+
     background:#fff;
+
     padding:40px 20px;
+
     text-align:center;
+
     border-radius:18px;
+
     color:#b91c1c;
-    box-shadow:0 4px 18px rgba(0,0,0,.08);
+
+    box-shadow:
+        0 4px 18px rgba(0,0,0,.08);
 }
 
 .home-btn{
     display:inline-block;
+
     margin-top:15px;
+
     padding:10px 16px;
+
     border-radius:8px;
+
     background:#075b3b;
+
     color:#fff;
+
     text-decoration:none;
+
     font-weight:900;
-}
-
-
-/* =====================================================
-   SHARE BOX
-===================================================== */
-
-.share-info{
-    margin-top:25px;
-    background:#fff;
-    padding:18px;
-    border-radius:15px;
-    box-shadow:0 3px 14px rgba(0,0,0,.06);
-}
-
-.share-info h3{
-    margin:0 0 8px;
-    color:#075b3b;
-}
-
-.share-url{
-    background:#f3f5f4;
-    padding:10px;
-    border-radius:8px;
-    font-size:11px;
-    word-break:break-all;
-    color:#555;
-}
-
-
-/* =====================================================
-   TOAST
-===================================================== */
-
-.toast{
-    position:fixed;
-    left:50%;
-    bottom:25px;
-    transform:translate(-50%,20px);
-    background:#075b3b;
-    color:#fff;
-    padding:12px 18px;
-    border-radius:10px;
-    font-size:12px;
-    font-weight:900;
-    opacity:0;
-    pointer-events:none;
-    transition:.25s;
-    z-index:9999;
-    max-width:90%;
-    text-align:center;
-}
-
-.toast.show{
-    opacity:1;
-    transform:translate(-50%,0);
 }
 
 
@@ -502,14 +715,65 @@ body{
 
 .footer{
     background:#075b3b;
+
     color:#fff;
+
     text-align:center;
+
     padding:25px 15px;
+
     font-size:11px;
 }
 
 .footer b{
     font-size:15px;
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+.toast{
+    position:fixed;
+
+    left:50%;
+
+    bottom:25px;
+
+    transform:
+        translate(-50%,20px);
+
+    background:#075b3b;
+
+    color:#fff;
+
+    padding:12px 18px;
+
+    border-radius:10px;
+
+    font-size:12px;
+
+    font-weight:900;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.25s;
+
+    z-index:9999;
+
+    max-width:90%;
+
+    text-align:center;
+}
+
+.toast.show{
+    opacity:1;
+
+    transform:
+        translate(-50%,0);
 }
 
 
@@ -534,12 +798,15 @@ body{
 
     .header-btn{
         padding:8px 9px;
+
         font-size:10px;
     }
 
     .product-box{
         grid-template-columns:1fr;
+
         padding:15px;
+
         gap:20px;
     }
 
@@ -553,6 +820,15 @@ body{
 
     .product-description{
         font-size:13px;
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .social-buttons{
+        grid-template-columns:1fr;
     }
 
 }
@@ -577,15 +853,12 @@ body{
     }
 
     .meta{
-        grid-template-columns:1fr 1fr;
+        grid-template-columns:
+            1fr 1fr;
     }
 
 }
 
-
-/* =====================================================
-   VERY SMALL
-===================================================== */
 
 @media(max-width:360px){
 
@@ -606,6 +879,7 @@ body{
 </style>
 
 </head>
+
 
 <body>
 
@@ -694,7 +968,7 @@ body{
 
 
 <!-- =====================================================
-     PRODUCT
+     PRODUCT CONTAINER
 ===================================================== -->
 
 <main
@@ -702,10 +976,13 @@ body{
     class="product-container"
     style="display:none;">
 
+
     <div class="product-box">
 
 
-        <!-- IMAGE -->
+        <!-- =================================================
+             PRODUCT IMAGE
+        ================================================= -->
 
         <section class="product-image-area">
 
@@ -719,14 +996,19 @@ body{
 
             </div>
 
+
             <div class="image-note">
+
                 Utkala Mart Product
+
             </div>
 
         </section>
 
 
-        <!-- INFO -->
+        <!-- =================================================
+             PRODUCT INFORMATION
+        ================================================= -->
 
         <section class="product-info">
 
@@ -756,13 +1038,18 @@ body{
             </div>
 
 
-            <!-- PRICE -->
+            <!-- =================================================
+                 PRICE
+            ================================================= -->
 
             <div class="price-box">
 
                 <div class="price-label">
+
                     Utkala Mart Price
+
                 </div>
+
 
                 <span
                     id="productPrice"
@@ -791,7 +1078,9 @@ body{
             </div>
 
 
-            <!-- STOCK -->
+            <!-- =================================================
+                 STOCK
+            ================================================= -->
 
             <div
                 id="stockText"
@@ -802,7 +1091,9 @@ body{
             </div>
 
 
-            <!-- META -->
+            <!-- =================================================
+                 META
+            ================================================= -->
 
             <div class="meta">
 
@@ -810,8 +1101,11 @@ body{
                 <div class="meta-item">
 
                     <div class="meta-label">
+
                         Weight
+
                     </div>
+
 
                     <div
                         id="weightText"
@@ -827,8 +1121,11 @@ body{
                 <div class="meta-item">
 
                     <div class="meta-label">
+
                         Seller
+
                     </div>
+
 
                     <div
                         id="sellerText"
@@ -843,17 +1140,24 @@ body{
             </div>
 
 
-            <!-- QUANTITY -->
+            <!-- =================================================
+                 QUANTITY
+            ================================================= -->
 
             <div class="quantity-box">
 
                 <div class="quantity-title">
+
                     Quantity
+
                 </div>
+
 
                 <div class="quantity-control">
 
+
                     <button
+                        type="button"
                         class="qty-btn"
                         onclick="changeQuantity(-1)">
 
@@ -872,6 +1176,7 @@ body{
 
 
                     <button
+                        type="button"
                         class="qty-btn"
                         onclick="changeQuantity(1)">
 
@@ -879,17 +1184,22 @@ body{
 
                     </button>
 
+
                 </div>
 
             </div>
 
 
-            <!-- ACTION -->
+            <!-- =================================================
+                 BUY / CART
+            ================================================= -->
 
             <div class="action-buttons">
 
+
                 <button
                     id="buyBtn"
+                    type="button"
                     class="buy-btn"
                     onclick="buyNow()">
 
@@ -900,6 +1210,7 @@ body{
 
                 <button
                     id="cartBtn"
+                    type="button"
                     class="cart-btn"
                     onclick="addToCart()">
 
@@ -907,10 +1218,16 @@ body{
 
                 </button>
 
+
             </div>
 
 
+            <!-- =================================================
+                 SHARE
+            ================================================= -->
+
             <button
+                type="button"
                 class="share-btn"
                 onclick="shareProduct()">
 
@@ -919,7 +1236,45 @@ body{
             </button>
 
 
-            <!-- DELIVERY -->
+            <div class="social-buttons">
+
+
+                <button
+                    type="button"
+                    class="social-btn copy-btn"
+                    onclick="copyProductLink()">
+
+                    📋 Copy Link
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="social-btn whatsapp-btn"
+                    onclick="shareWhatsApp()">
+
+                    🟢 WhatsApp
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="social-btn facebook-btn"
+                    onclick="shareFacebook()">
+
+                    🔵 Facebook
+
+                </button>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 DELIVERY
+            ================================================= -->
 
             <div class="delivery-box">
 
@@ -953,20 +1308,27 @@ body{
     </div>
 
 
-    <!-- SHARE INFO -->
+    <!-- =================================================
+         PRODUCT LINK
+    ================================================= -->
 
     <section class="share-info">
 
         <h3>
-            🔗 Social Media Product Link
+
+            🔗 Product Link
+
         </h3>
 
-        <div>
-            ଏହି link Facebook / WhatsApp / Instagram ରେ
-            share କରିପାରିବେ।
-        </div>
 
-        <br>
+        <p>
+
+            ଏହି Product link କୁ WhatsApp,
+            Facebook ଏବଂ ଅନ୍ୟ Social Media ରେ
+            share କରିପାରିବେ।
+
+        </p>
+
 
         <div
             id="shareUrl"
@@ -975,6 +1337,7 @@ body{
         </div>
 
     </section>
+
 
 </main>
 
@@ -991,6 +1354,7 @@ body{
     ❌ Product ମିଳିଲା ନାହିଁ।
 
     <br>
+
 
     <a
         href="index.html"
@@ -1010,7 +1374,9 @@ body{
 <footer class="footer">
 
     <b>
+
         ଉତ୍କଳ Mart
+
     </b>
 
     <br><br>
@@ -1042,6 +1408,10 @@ body{
 <script type="module">
 
 
+/* =====================================================
+   FIREBASE IMPORT
+===================================================== */
+
 import {
     initializeApp
 }
@@ -1065,35 +1435,44 @@ from
 const firebaseConfig = {
 
     apiKey:
-    "AIzaSyDonHK2CtrUjAkAaro6stnJmdDUwB59JT0",
+        "AIzaSyDonHK2CtrUjAkAaro6stnJmdDUwB59JT0",
 
     authDomain:
-    "utkalamart-1ec68.firebaseapp.com",
+        "utkalamart-1ec68.firebaseapp.com",
 
     projectId:
-    "utkalamart-1ec68",
+        "utkalamart-1ec68",
 
     storageBucket:
-    "utkalamart-1ec68.firebasestorage.app",
+        "utkalamart-1ec68.firebasestorage.app",
 
     messagingSenderId:
-    "664871353747",
+        "664871353747",
 
     appId:
-    "1:664871353747:web:96532fdafe78aabe7f3c66"
+        "1:664871353747:web:96532fdafe78aabe7f3c66"
 
 };
 
 
+/* =====================================================
+   FIREBASE INIT
+===================================================== */
+
 const app =
-    initializeApp(firebaseConfig);
+    initializeApp(
+        firebaseConfig
+    );
+
 
 const db =
-    getFirestore(app);
+    getFirestore(
+        app
+    );
 
 
 /* =====================================================
-   GLOBAL
+   GLOBAL VARIABLES
 ===================================================== */
 
 let product = null;
@@ -1104,7 +1483,7 @@ let maxStock = 0;
 
 
 /* =====================================================
-   GET PRODUCT ID
+   URL PARAMETERS
 ===================================================== */
 
 const params =
@@ -1117,8 +1496,12 @@ const productId =
     params.get("id");
 
 
+const productSource =
+    params.get("source");
+
+
 /* =====================================================
-   HELPERS
+   HTML ESCAPE
 ===================================================== */
 
 function escapeHtml(value){
@@ -1146,6 +1529,10 @@ function escapeHtml(value){
 }
 
 
+/* =====================================================
+   PRODUCT IMAGE
+===================================================== */
+
 function getImage(data){
 
     return String(
@@ -1161,28 +1548,60 @@ function getImage(data){
 }
 
 
-function getPrice(data){
+/* =====================================================
+   PRODUCT NAME
+===================================================== */
 
-    return Number(
+function getName(data){
 
-        data.price ??
-        data.sellingPrice ??
-        data.utkalaPrice ??
-        data.salePrice ??
-        0
+    return (
+
+        data.name ||
+        data.productName ||
+        "Utkala Mart Product"
 
     );
 
 }
 
 
+/* =====================================================
+   PRODUCT PRICE
+===================================================== */
+
+function getPrice(data){
+
+    const value =
+
+        data.price ??
+        data.utkalaPrice ??
+        data.sellingPrice ??
+        data.salePrice ??
+        0;
+
+
+    const number =
+        Number(value);
+
+
+    return Number.isFinite(number)
+        ? number
+        : 0;
+
+}
+
+
+/* =====================================================
+   PRODUCT STOCK
+===================================================== */
+
 function getStock(data){
 
     const values = [
 
+        data.stock,
         data.stockQty,
         data.availableStock,
-        data.stock,
         data.quantity
 
     ];
@@ -1198,10 +1617,20 @@ function getStock(data){
             value !== ""
         ){
 
-            return Math.max(
-                0,
-                Number(value)
-            );
+            const number =
+                Number(value);
+
+
+            if(
+                Number.isFinite(number)
+            ){
+
+                return Math.max(
+                    0,
+                    number
+                );
+
+            }
 
         }
 
@@ -1213,12 +1642,16 @@ function getStock(data){
 }
 
 
+/* =====================================================
+   CATEGORY
+===================================================== */
+
 function getCategory(data){
 
     return (
 
-        data.category ||
         data.categoryName ||
+        data.category ||
         data.type ||
         "Odisha Products"
 
@@ -1227,25 +1660,42 @@ function getCategory(data){
 }
 
 
+/* =====================================================
+   WEIGHT
+===================================================== */
+
 function getWeight(data){
 
-    if(!data.weight){
+    if(
+        data.weight === undefined ||
+        data.weight === null ||
+        data.weight === ""
+    ){
 
         return "—";
 
     }
 
 
+    const unit =
+        data.weightUnit || "";
+
+
     return (
+        String(data.weight) +
+        (unit ? " " + unit : "")
+    );
 
-        data.weight +
-        " " +
-        (
-            data.weightUnit ||
-            ""
-        )
+}
 
-    ).trim();
+
+/* =====================================================
+   PRODUCT URL
+===================================================== */
+
+function getProductUrl(){
+
+    return window.location.href;
 
 }
 
@@ -1271,40 +1721,56 @@ async function loadProduct(){
 
         let snap = null;
 
-
-        /*
-           FIRST:
-           products collection
-        */
-
-        const productRef =
-            doc(
-                db,
-                "products",
-                productId
-            );
+        let source = "";
 
 
-        const productSnap =
-            await getDoc(
-                productRef
-            );
-
+        /* =================================================
+           IF SOURCE IS products
+        ================================================= */
 
         if(
-            productSnap.exists()
+            productSource ===
+            "products"
         ){
 
-            snap =
-                productSnap;
+            const productRef =
+                doc(
+                    db,
+                    "products",
+                    productId
+                );
+
+
+            const result =
+                await getDoc(
+                    productRef
+                );
+
+
+            if(
+                result.exists()
+            ){
+
+                snap =
+                    result;
+
+                source =
+                    "products";
+
+            }
 
         }
-        else{
 
-            /*
-               FALLBACK:
-               martProducts collection
-            */
+
+        /* =================================================
+           IF SOURCE IS martProducts
+        ================================================= */
+
+        if(
+            !snap &&
+            productSource ===
+            "martProducts"
+        ){
 
             const martRef =
                 doc(
@@ -1314,23 +1780,100 @@ async function loadProduct(){
                 );
 
 
-            const martSnap =
+            const result =
                 await getDoc(
                     martRef
                 );
 
 
             if(
-                martSnap.exists()
+                result.exists()
             ){
 
                 snap =
-                    martSnap;
+                    result;
+
+                source =
+                    "martProducts";
 
             }
 
         }
 
+
+        /* =================================================
+           OLD LINK SUPPORT
+        ================================================= */
+
+        if(!snap){
+
+            const productRef =
+                doc(
+                    db,
+                    "products",
+                    productId
+                );
+
+
+            const productResult =
+                await getDoc(
+                    productRef
+                );
+
+
+            if(
+                productResult.exists()
+            ){
+
+                snap =
+                    productResult;
+
+                source =
+                    "products";
+
+            }
+
+        }
+
+
+        /* =================================================
+           MART PRODUCT FALLBACK
+        ================================================= */
+
+        if(!snap){
+
+            const martRef =
+                doc(
+                    db,
+                    "martProducts",
+                    productId
+                );
+
+
+            const martResult =
+                await getDoc(
+                    martRef
+                );
+
+
+            if(
+                martResult.exists()
+            ){
+
+                snap =
+                    martResult;
+
+                source =
+                    "martProducts";
+
+            }
+
+        }
+
+
+        /* =================================================
+           NOT FOUND
+        ================================================= */
 
         if(!snap){
 
@@ -1343,22 +1886,61 @@ async function loadProduct(){
         }
 
 
+        /* =================================================
+           PRODUCT OBJECT
+        ================================================= */
+
         product = {
 
             id:
                 snap.id,
+
+            source:
+                source,
 
             ...snap.data()
 
         };
 
 
-        /*
-           Check inactive product
-        */
+        /* =================================================
+           SELLER PRODUCT APPROVAL
+        ================================================= */
 
         if(
-            product.active === false
+            source ===
+            "products"
+        ){
+
+            if(
+                product.status !==
+                    "approved"
+                ||
+                product.approved !==
+                    true
+                ||
+                product.active !==
+                    true
+            ){
+
+                showError(
+                    "ଏହି Product ବର୍ତ୍ତମାନ public sale ପାଇଁ available ନାହିଁ।"
+                );
+
+                return;
+
+            }
+
+        }
+
+
+        /* =================================================
+           ACTIVE CHECK
+        ================================================= */
+
+        if(
+            product.active ===
+            false
         ){
 
             showError(
@@ -1370,20 +1952,23 @@ async function loadProduct(){
         }
 
 
-        renderProduct();
+        /* =================================================
+           RENDER
+        ================================================= */
 
+        renderProduct();
 
     }
     catch(error){
 
         console.error(
-            "PRODUCT LOAD ERROR:",
+            "Product load error:",
             error
         );
 
 
         showError(
-            "Product load ହୋଇପାରିଲା ନାହିଁ। Firebase check କରନ୍ତୁ।"
+            "Product load ହୋଇପାରିଲା ନାହିଁ।"
         );
 
     }
@@ -1397,14 +1982,12 @@ async function loadProduct(){
 
 function renderProduct(){
 
+    const name =
+        getName(product);
+
+
     const image =
         getImage(product);
-
-
-    const name =
-        product.name ||
-        product.productName ||
-        "Product";
 
 
     const price =
@@ -1419,36 +2002,30 @@ function renderProduct(){
         stock;
 
 
-    const category =
-        getCategory(product);
-
+    /* TITLE */
 
     document.title =
         name +
         " | Utkala Mart";
 
 
-    document
-    .getElementById(
-        "productImage"
-    )
-    .src =
+    /* IMAGE */
+
+    const imageElement =
+        document.getElementById(
+            "productImage"
+        );
+
+
+    imageElement.src =
         image;
 
 
-    document
-    .getElementById(
-        "productImage"
-    )
-    .alt =
+    imageElement.alt =
         name;
 
 
-    document
-    .getElementById(
-        "productImage"
-    )
-    .onerror =
+    imageElement.onerror =
     function(){
 
         this.onerror =
@@ -1460,38 +2037,43 @@ function renderProduct(){
     };
 
 
-    document
-    .getElementById(
-        "productName"
-    )
-    .innerText =
-        name;
-
+    /* NAME */
 
     document
-    .getElementById(
-        "productCategory"
-    )
-    .innerText =
-        category;
+        .getElementById(
+            "productName"
+        )
+        .innerText =
+            name;
 
+
+    /* CATEGORY */
 
     document
-    .getElementById(
-        "productPrice"
-    )
-    .innerText =
-        "₹" +
-        price.toLocaleString(
-            "en-IN"
-        );
+        .getElementById(
+            "productCategory"
+        )
+        .innerText =
+            getCategory(product);
 
 
-    /*
-       Description
-    */
+    /* PRICE */
+
+    document
+        .getElementById(
+            "productPrice"
+        )
+        .innerText =
+            "₹" +
+            price.toLocaleString(
+                "en-IN"
+            );
+
+
+    /* DESCRIPTION */
 
     const description =
+
         product.description ||
         product.details ||
         product.shortDescription ||
@@ -1499,24 +2081,40 @@ function renderProduct(){
 
 
     document
-    .getElementById(
-        "productDescription"
-    )
-    .innerText =
-        description ||
-        "ଓଡ଼ିଶାର ନିଜସ୍ୱ Product — Utkala Mart ମାଧ୍ୟମରେ ଆପଣଙ୍କ ଘରେ।";
+        .getElementById(
+            "productDescription"
+        )
+        .innerText =
+
+            description ||
+
+            "ଓଡ଼ିଶାର ନିଜସ୍ୱ Product — Utkala Mart ମାଧ୍ୟମରେ ଆପଣଙ୍କ ଘରେ।";
 
 
-    /*
-       Market Price
-    */
+    /* =================================================
+       MARKET PRICE
+    ================================================= */
 
     const marketPrice =
         Number(
+
             product.marketPrice ||
             product.mrp ||
             product.originalPrice ||
             0
+
+        );
+
+
+    const marketElement =
+        document.getElementById(
+            "marketPrice"
+        );
+
+
+    const discountElement =
+        document.getElementById(
+            "discount"
         );
 
 
@@ -1524,12 +2122,6 @@ function renderProduct(){
         marketPrice > price &&
         price > 0
     ){
-
-        const marketElement =
-            document.getElementById(
-                "marketPrice"
-            );
-
 
         marketElement.innerText =
             "₹" +
@@ -1544,6 +2136,7 @@ function renderProduct(){
 
         const discount =
             Math.round(
+
                 (
                     (
                         marketPrice -
@@ -1552,18 +2145,13 @@ function renderProduct(){
                     /
                     marketPrice
                 ) * 100
+
             );
 
 
         if(
             discount > 0
         ){
-
-            const discountElement =
-                document.getElementById(
-                    "discount"
-                );
-
 
             discountElement.innerText =
                 discount +
@@ -1576,11 +2164,21 @@ function renderProduct(){
         }
 
     }
+    else{
+
+        marketElement.style.display =
+            "none";
 
 
-    /*
-       Stock
-    */
+        discountElement.style.display =
+            "none";
+
+    }
+
+
+    /* =================================================
+       STOCK
+    ================================================= */
 
     const stockElement =
         document.getElementById(
@@ -1588,23 +2186,30 @@ function renderProduct(){
         );
 
 
-    if(stock <= 0){
+    if(
+        stock <= 0
+    ){
 
         stockElement.innerText =
             "❌ Out of Stock";
 
+
         stockElement.className =
             "stock out";
+
 
         disableButtons();
 
     }
-    else if(stock <= 5){
+    else if(
+        stock <= 5
+    ){
 
         stockElement.innerText =
             "⚠️ Only " +
             stock +
             " left in stock";
+
 
         stockElement.className =
             "stock low";
@@ -1616,72 +2221,66 @@ function renderProduct(){
             "📦 Stock: " +
             stock;
 
+
         stockElement.className =
             "stock available";
 
     }
 
 
-    /*
-       Weight
-    */
+    /* WEIGHT */
 
     document
-    .getElementById(
-        "weightText"
-    )
-    .innerText =
-        getWeight(product);
+        .getElementById(
+            "weightText"
+        )
+        .innerText =
+            getWeight(product);
 
 
-    /*
-       Seller
-    */
+    /* SELLER */
 
     document
-    .getElementById(
-        "sellerText"
-    )
-    .innerText =
-        product.sellerName ||
-        product.seller ||
-        "Utkala Mart";
+        .getElementById(
+            "sellerText"
+        )
+        .innerText =
+
+            product.sellerName ||
+            product.seller ||
+            "Utkala Mart";
 
 
-    /*
-       Share URL
-    */
-
-    const shareUrl =
-        window.location.href;
-
+    /* =================================================
+       SHARE URL
+    ================================================= */
 
     document
-    .getElementById(
-        "shareUrl"
-    )
-    .innerText =
-        shareUrl;
+        .getElementById(
+            "shareUrl"
+        )
+        .innerText =
+            getProductUrl();
 
 
-    /*
-       Show
-    */
+    /* =================================================
+       SHOW
+    ================================================= */
 
     document
-    .getElementById(
-        "loading"
-    )
-    .style.display =
-        "none";
+        .getElementById(
+            "loading"
+        )
+        .style.display =
+            "none";
 
 
     document
-    .getElementById(
-        "productContainer"
-    )
-    .style.display =
-        "block";
+        .getElementById(
+            "productContainer"
+        )
+        .style.display =
+            "block";
 
 }
 
@@ -1694,13 +2293,15 @@ window.changeQuantity =
 function(change){
 
     if(!product){
+
         return;
+
     }
 
 
     let newQuantity =
         quantity +
-        change;
+        Number(change);
 
 
     if(
@@ -1734,33 +2335,43 @@ function(change){
 
 
     document
-    .getElementById(
-        "quantity"
-    )
-    .innerText =
-        quantity;
+        .getElementById(
+            "quantity"
+        )
+        .innerText =
+            quantity;
 
 };
 
 
 /* =====================================================
-   CART STORAGE
+   CART GET
 ===================================================== */
 
 function getCart(){
 
     try{
 
-        const cart =
-            JSON.parse(
-                localStorage.getItem(
-                    "utkalaCart"
-                ) ||
-                localStorage.getItem(
-                    "cart"
-                ) ||
-                "[]"
+        const primary =
+            localStorage.getItem(
+                "utkalaCart"
             );
+
+
+        const old =
+            localStorage.getItem(
+                "cart"
+            );
+
+
+        const data =
+            primary ||
+            old ||
+            "[]";
+
+
+        const cart =
+            JSON.parse(data);
 
 
         return Array.isArray(cart)
@@ -1768,7 +2379,12 @@ function getCart(){
             : [];
 
     }
-    catch(e){
+    catch(error){
+
+        console.error(
+            error
+        );
+
 
         return [];
 
@@ -1777,32 +2393,34 @@ function getCart(){
 }
 
 
+/* =====================================================
+   CART SAVE
+===================================================== */
+
 function saveCart(cart){
 
-    /*
-       Main Utkala Mart cart key
-    */
+    const data =
+        JSON.stringify(
+            cart
+        );
+
 
     localStorage.setItem(
         "utkalaCart",
-        JSON.stringify(cart)
+        data
     );
 
 
-    /*
-       Compatibility key
-    */
-
     localStorage.setItem(
         "cart",
-        JSON.stringify(cart)
+        data
     );
 
 }
 
 
 /* =====================================================
-   PRODUCT CART OBJECT
+   MAKE CART ITEM
 ===================================================== */
 
 function makeCartItem(){
@@ -1815,10 +2433,11 @@ function makeCartItem(){
         id:
             product.id,
 
+        source:
+            product.source,
+
         name:
-            product.name ||
-            product.productName ||
-            "Product",
+            getName(product),
 
         price:
             getPrice(product),
@@ -1846,7 +2465,10 @@ function makeCartItem(){
 
         sellerName:
             product.sellerName ||
-            ""
+            "",
+
+        category:
+            getCategory(product)
 
     };
 
@@ -1867,7 +2489,9 @@ function(){
     }
 
 
-    if(maxStock <= 0){
+    if(
+        maxStock <= 0
+    ){
 
         toast(
             "❌ Product Out of Stock"
@@ -1884,19 +2508,41 @@ function(){
 
     const index =
         cart.findIndex(
-            item =>
-                String(
-                    item.productId ||
-                    item.id
-                )
-                ===
-                String(
-                    product.id
-                )
+            function(item){
+
+                return (
+
+                    String(
+                        item.productId ||
+                        item.id ||
+                        ""
+                    )
+                    ===
+                    String(
+                        product.id
+                    )
+
+                    &&
+
+                    String(
+                        item.source ||
+                        ""
+                    )
+                    ===
+                    String(
+                        product.source ||
+                        ""
+                    )
+
+                );
+
+            }
         );
 
 
-    if(index >= 0){
+    if(
+        index >= 0
+    ){
 
         const oldQty =
             Number(
@@ -1905,7 +2551,7 @@ function(){
             );
 
 
-        const newQty =
+        let newQty =
             oldQty +
             quantity;
 
@@ -1915,16 +2561,26 @@ function(){
             newQty > maxStock
         ){
 
-            cart[index].qty =
+            newQty =
                 maxStock;
+
+
+            toast(
+                "⚠️ Maximum stock ପର୍ଯ୍ୟନ୍ତ quantity set ହୋଇଛି।"
+            );
 
         }
         else{
 
-            cart[index].qty =
-                newQty;
+            toast(
+                "✅ Cart quantity updated।"
+            );
 
         }
+
+
+        cart[index].qty =
+            newQty;
 
     }
     else{
@@ -1933,14 +2589,16 @@ function(){
             makeCartItem()
         );
 
+
+        toast(
+            "✅ Product Cartରେ Add ହୋଇଗଲା।"
+        );
+
     }
 
 
-    saveCart(cart);
-
-
-    toast(
-        "✅ Product Cartରେ Add ହୋଇଗଲା।"
+    saveCart(
+        cart
     );
 
 };
@@ -1960,7 +2618,9 @@ function(){
     }
 
 
-    if(maxStock <= 0){
+    if(
+        maxStock <= 0
+    ){
 
         toast(
             "❌ Product Out of Stock"
@@ -1972,7 +2632,9 @@ function(){
 
 
     /*
-       BUY NOW = only this product
+       BUY NOW କଲେ
+       କେବଳ ଏହି Product
+       Checkout କୁ ଯିବ।
     */
 
     const cart = [
@@ -1982,12 +2644,10 @@ function(){
     ];
 
 
-    saveCart(cart);
+    saveCart(
+        cart
+    );
 
-
-    /*
-       Go directly to checkout
-    */
 
     window.location.href =
         "checkout.html";
@@ -1996,7 +2656,185 @@ function(){
 
 
 /* =====================================================
-   SHARE
+   COPY PRODUCT LINK
+===================================================== */
+
+window.copyProductLink =
+async function(){
+
+    const url =
+        getProductUrl();
+
+
+    try{
+
+        if(
+            navigator.clipboard
+        ){
+
+            await navigator.clipboard.writeText(
+                url
+            );
+
+            toast(
+                "✅ Product Link copy ହୋଇଗଲା।"
+            );
+
+            return;
+
+        }
+
+    }
+    catch(error){
+
+        console.log(
+            error
+        );
+
+    }
+
+
+    /* FALLBACK */
+
+    const textarea =
+        document.createElement(
+            "textarea"
+        );
+
+
+    textarea.value =
+        url;
+
+
+    textarea.style.position =
+        "fixed";
+
+
+    textarea.style.opacity =
+        "0";
+
+
+    document.body.appendChild(
+        textarea
+    );
+
+
+    textarea.focus();
+
+    textarea.select();
+
+
+    try{
+
+        document.execCommand(
+            "copy"
+        );
+
+
+        toast(
+            "✅ Product Link copy ହୋଇଗଲା।"
+        );
+
+    }
+    catch(error){
+
+        toast(
+            "🔗 Link: " +
+            url
+        );
+
+    }
+
+
+    textarea.remove();
+
+};
+
+
+/* =====================================================
+   WHATSAPP SHARE
+===================================================== */
+
+window.shareWhatsApp =
+function(){
+
+    if(!product){
+
+        return;
+
+    }
+
+
+    const name =
+        getName(product);
+
+
+    const price =
+        getPrice(product);
+
+
+    const url =
+        getProductUrl();
+
+
+    const message =
+
+`🛍️ ${name}
+
+💰 Price: ₹${price.toLocaleString("en-IN")}
+
+🛒 Utkala Mart
+
+👉 BUY NOW:
+${url}`;
+
+
+    const whatsappUrl =
+        "https://wa.me/?text=" +
+        encodeURIComponent(
+            message
+        );
+
+
+    window.open(
+        whatsappUrl,
+        "_blank"
+    );
+
+};
+
+
+/* =====================================================
+   FACEBOOK SHARE
+===================================================== */
+
+window.shareFacebook =
+function(){
+
+    const url =
+        getProductUrl();
+
+
+    const facebookUrl =
+
+        "https://www.facebook.com/sharer/sharer.php?u=" +
+
+        encodeURIComponent(
+            url
+        );
+
+
+    window.open(
+        facebookUrl,
+        "_blank",
+        "width=600,height=500"
+    );
+
+};
+
+
+/* =====================================================
+   NATIVE SHARE
 ===================================================== */
 
 window.shareProduct =
@@ -2010,9 +2848,7 @@ async function(){
 
 
     const name =
-        product.name ||
-        product.productName ||
-        "Utkala Mart Product";
+        getName(product);
 
 
     const price =
@@ -2020,11 +2856,12 @@ async function(){
 
 
     const url =
-        window.location.href;
+        getProductUrl();
 
 
-    const shareText =
-        `🛍️ ${name}
+    const text =
+
+`🛍️ ${name}
 
 💰 Price: ₹${price.toLocaleString("en-IN")}
 
@@ -2047,7 +2884,7 @@ ${url}`;
                     " | Utkala Mart",
 
                 text:
-                    shareText,
+                    text,
 
                 url:
                     url
@@ -2059,14 +2896,7 @@ ${url}`;
         }
 
 
-        await navigator.clipboard.writeText(
-            url
-        );
-
-
-        toast(
-            "🔗 Product link copy ହୋଇଗଲା।"
-        );
+        await copyProductLink();
 
     }
     catch(error){
@@ -2081,56 +2911,66 @@ ${url}`;
 
 
 /* =====================================================
-   DISABLE
+   DISABLE BUTTONS
 ===================================================== */
 
 function disableButtons(){
 
-    document
-    .getElementById(
-        "buyBtn"
-    )
-    .disabled =
-        true;
+    const buyBtn =
+        document.getElementById(
+            "buyBtn"
+        );
 
 
-    document
-    .getElementById(
-        "cartBtn"
-    )
-    .disabled =
-        true;
+    const cartBtn =
+        document.getElementById(
+            "cartBtn"
+        );
+
+
+    if(buyBtn){
+
+        buyBtn.disabled =
+            true;
+
+    }
+
+
+    if(cartBtn){
+
+        cartBtn.disabled =
+            true;
+
+    }
 
 }
 
 
 /* =====================================================
-   ERROR
+   SHOW ERROR
 ===================================================== */
 
 function showError(message){
 
     document
-    .getElementById(
-        "loading"
-    )
-    .style.display =
-        "none";
+        .getElementById(
+            "loading"
+        )
+        .style.display =
+            "none";
 
 
-    document
-    .getElementById(
-        "errorBox"
-    )
-    .style.display =
+    const errorBox =
+        document.getElementById(
+            "errorBox"
+        );
+
+
+    errorBox.style.display =
         "block";
 
 
-    document
-    .getElementById(
-        "errorBox"
-    )
-    .innerHTML = `
+    errorBox.innerHTML = `
 
         ❌ ${escapeHtml(message)}
 
@@ -2153,6 +2993,9 @@ function showError(message){
    TOAST
 ===================================================== */
 
+let toastTimer = null;
+
+
 function toast(message){
 
     const element =
@@ -2171,11 +3014,11 @@ function toast(message){
 
 
     clearTimeout(
-        window.toastTimer
+        toastTimer
     );
 
 
-    window.toastTimer =
+    toastTimer =
         setTimeout(
             function(){
 
@@ -2198,7 +3041,6 @@ loadProduct();
 
 </script>
 
-
 </body>
 
-  </html>
+      </html>
