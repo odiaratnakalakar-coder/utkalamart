@@ -1,0 +1,2204 @@
+<!DOCTYPE html>
+<html lang="or">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color"
+      content="#075b3b">
+
+<meta name="description"
+      content="Utkala Mart — Odisha Products">
+
+<title>Product | Utkala Mart</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:
+        Arial,
+        "Noto Sans Oriya",
+        "Nirmala UI",
+        sans-serif;
+    background:#f5f8f6;
+    color:#222;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header{
+    background:#075b3b;
+    color:#fff;
+    padding:10px 4%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    object-fit:cover;
+    background:#fff;
+}
+
+.logo-text{
+    font-weight:900;
+    font-size:20px;
+}
+
+.logo-sub{
+    font-size:9px;
+    opacity:.9;
+}
+
+.header-actions{
+    display:flex;
+    gap:8px;
+}
+
+.header-btn{
+    border:0;
+    border-radius:8px;
+    padding:9px 12px;
+    background:#fff;
+    color:#075b3b;
+    font-weight:900;
+    cursor:pointer;
+    text-decoration:none;
+    font-size:12px;
+}
+
+
+/* =====================================================
+   BREADCRUMB
+===================================================== */
+
+.breadcrumb{
+    width:min(1200px,94%);
+    margin:15px auto 0;
+    color:#777;
+    font-size:12px;
+}
+
+.breadcrumb a{
+    color:#075b3b;
+    text-decoration:none;
+    font-weight:800;
+}
+
+
+/* =====================================================
+   PRODUCT AREA
+===================================================== */
+
+.product-container{
+    width:min(1200px,94%);
+    margin:15px auto 50px;
+}
+
+.product-box{
+    background:#fff;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 4px 20px rgba(0,0,0,.08);
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:35px;
+}
+
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+.product-image-area{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.main-image-box{
+    width:100%;
+    max-width:550px;
+    aspect-ratio:1/1;
+    border-radius:18px;
+    background:#f5f5f5;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.main-image{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    padding:15px;
+}
+
+.image-note{
+    margin-top:10px;
+    color:#777;
+    font-size:11px;
+}
+
+
+/* =====================================================
+   PRODUCT INFO
+===================================================== */
+
+.product-info{
+    padding:5px;
+}
+
+.category{
+    display:inline-block;
+    background:#e8f7ee;
+    color:#087333;
+    padding:6px 11px;
+    border-radius:20px;
+    font-size:11px;
+    font-weight:900;
+    margin-bottom:10px;
+}
+
+.product-title{
+    margin:0;
+    font-size:30px;
+    line-height:1.3;
+    color:#075b3b;
+}
+
+.product-description{
+    margin-top:14px;
+    color:#666;
+    font-size:14px;
+    line-height:1.7;
+}
+
+
+/* =====================================================
+   PRICE
+===================================================== */
+
+.price-box{
+    margin-top:20px;
+    padding:15px;
+    background:#f2faf5;
+    border-radius:12px;
+}
+
+.price-label{
+    color:#777;
+    font-size:11px;
+}
+
+.price{
+    color:#075b3b;
+    font-size:30px;
+    font-weight:900;
+}
+
+.market-price{
+    color:#999;
+    text-decoration:line-through;
+    margin-left:8px;
+    font-size:14px;
+}
+
+.discount{
+    display:inline-block;
+    margin-left:8px;
+    background:#ffe8e8;
+    color:#c62828;
+    padding:4px 7px;
+    border-radius:5px;
+    font-size:10px;
+    font-weight:900;
+}
+
+
+/* =====================================================
+   STOCK
+===================================================== */
+
+.stock{
+    margin-top:12px;
+    font-size:13px;
+    font-weight:900;
+}
+
+.stock.available{
+    color:#087333;
+}
+
+.stock.low{
+    color:#d97706;
+}
+
+.stock.out{
+    color:#c62828;
+}
+
+
+/* =====================================================
+   META
+===================================================== */
+
+.meta{
+    margin-top:15px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.meta-item{
+    background:#f7f8f8;
+    border-radius:9px;
+    padding:10px;
+}
+
+.meta-label{
+    color:#777;
+    font-size:10px;
+}
+
+.meta-value{
+    margin-top:3px;
+    font-size:12px;
+    font-weight:900;
+}
+
+
+/* =====================================================
+   QUANTITY
+===================================================== */
+
+.quantity-box{
+    margin-top:20px;
+}
+
+.quantity-title{
+    font-weight:900;
+    font-size:13px;
+    margin-bottom:7px;
+}
+
+.quantity-control{
+    display:flex;
+    align-items:center;
+    width:145px;
+    height:44px;
+    border:1px solid #ccc;
+    border-radius:9px;
+    overflow:hidden;
+}
+
+.qty-btn{
+    width:44px;
+    height:100%;
+    border:0;
+    background:#f1f3f2;
+    font-size:20px;
+    font-weight:900;
+    cursor:pointer;
+}
+
+.qty-number{
+    flex:1;
+    text-align:center;
+    font-weight:900;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.action-buttons{
+    margin-top:20px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.buy-btn,
+.cart-btn,
+.share-btn{
+    border:0;
+    min-height:50px;
+    border-radius:10px;
+    font-weight:900;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.buy-btn{
+    background:#075b3b;
+    color:#fff;
+}
+
+.cart-btn{
+    background:#f6b800;
+    color:#222;
+}
+
+.share-btn{
+    margin-top:10px;
+    width:100%;
+    background:#e8f7ee;
+    color:#087333;
+}
+
+.buy-btn:disabled,
+.cart-btn:disabled{
+    background:#aaa;
+    cursor:not-allowed;
+}
+
+
+/* =====================================================
+   DELIVERY
+===================================================== */
+
+.delivery-box{
+    margin-top:18px;
+    background:#fff9e7;
+    border:1px solid #f0dc91;
+    border-radius:11px;
+    padding:13px;
+    color:#66551a;
+    font-size:12px;
+    line-height:1.7;
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.loading{
+    width:min(700px,94%);
+    margin:60px auto;
+    background:#fff;
+    padding:50px 20px;
+    text-align:center;
+    border-radius:18px;
+    color:#777;
+    box-shadow:0 4px 18px rgba(0,0,0,.08);
+}
+
+.error-box{
+    width:min(700px,94%);
+    margin:60px auto;
+    background:#fff;
+    padding:40px 20px;
+    text-align:center;
+    border-radius:18px;
+    color:#b91c1c;
+    box-shadow:0 4px 18px rgba(0,0,0,.08);
+}
+
+.home-btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:10px 16px;
+    border-radius:8px;
+    background:#075b3b;
+    color:#fff;
+    text-decoration:none;
+    font-weight:900;
+}
+
+
+/* =====================================================
+   SHARE BOX
+===================================================== */
+
+.share-info{
+    margin-top:25px;
+    background:#fff;
+    padding:18px;
+    border-radius:15px;
+    box-shadow:0 3px 14px rgba(0,0,0,.06);
+}
+
+.share-info h3{
+    margin:0 0 8px;
+    color:#075b3b;
+}
+
+.share-url{
+    background:#f3f5f4;
+    padding:10px;
+    border-radius:8px;
+    font-size:11px;
+    word-break:break-all;
+    color:#555;
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:25px;
+    transform:translate(-50%,20px);
+    background:#075b3b;
+    color:#fff;
+    padding:12px 18px;
+    border-radius:10px;
+    font-size:12px;
+    font-weight:900;
+    opacity:0;
+    pointer-events:none;
+    transition:.25s;
+    z-index:9999;
+    max-width:90%;
+    text-align:center;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translate(-50%,0);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer{
+    background:#075b3b;
+    color:#fff;
+    text-align:center;
+    padding:25px 15px;
+    font-size:11px;
+}
+
+.footer b{
+    font-size:15px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:800px){
+
+    .header{
+        padding:9px 3%;
+    }
+
+    .logo{
+        width:38px;
+        height:38px;
+    }
+
+    .logo-text{
+        font-size:17px;
+    }
+
+    .header-btn{
+        padding:8px 9px;
+        font-size:10px;
+    }
+
+    .product-box{
+        grid-template-columns:1fr;
+        padding:15px;
+        gap:20px;
+    }
+
+    .product-title{
+        font-size:23px;
+    }
+
+    .price{
+        font-size:27px;
+    }
+
+    .product-description{
+        font-size:13px;
+    }
+
+}
+
+
+@media(max-width:500px){
+
+    .header-actions .home-header{
+        display:none;
+    }
+
+    .product-container{
+        width:94%;
+    }
+
+    .main-image-box{
+        border-radius:14px;
+    }
+
+    .action-buttons{
+        grid-template-columns:1fr;
+    }
+
+    .meta{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL
+===================================================== */
+
+@media(max-width:360px){
+
+    .logo-sub{
+        display:none;
+    }
+
+    .product-title{
+        font-size:21px;
+    }
+
+    .price{
+        font-size:24px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <div class="logo-area">
+
+        <img
+            id="headerLogo"
+            class="logo"
+            src="logo.png"
+            alt="Utkala Mart">
+
+        <div>
+
+            <div class="logo-text">
+                ଉତ୍କଳ Mart
+            </div>
+
+            <div class="logo-sub">
+                From Ganjam to Every Home
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="header-actions">
+
+        <a
+            class="header-btn home-header"
+            href="index.html">
+
+            🏠 Home
+
+        </a>
+
+
+        <a
+            class="header-btn"
+            href="checkout.html">
+
+            🛒 Cart
+
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     BREADCRUMB
+===================================================== -->
+
+<div class="breadcrumb">
+
+    <a href="index.html">
+        Home
+    </a>
+
+    &nbsp;›&nbsp;
+
+    Product
+
+</div>
+
+
+<!-- =====================================================
+     LOADING
+===================================================== -->
+
+<div
+    id="loading"
+    class="loading">
+
+    ⏳ Product load ହେଉଛି...
+
+</div>
+
+
+<!-- =====================================================
+     PRODUCT
+===================================================== -->
+
+<main
+    id="productContainer"
+    class="product-container"
+    style="display:none;">
+
+    <div class="product-box">
+
+
+        <!-- IMAGE -->
+
+        <section class="product-image-area">
+
+            <div class="main-image-box">
+
+                <img
+                    id="productImage"
+                    class="main-image"
+                    src="logo.png"
+                    alt="Product">
+
+            </div>
+
+            <div class="image-note">
+                Utkala Mart Product
+            </div>
+
+        </section>
+
+
+        <!-- INFO -->
+
+        <section class="product-info">
+
+
+            <div
+                id="productCategory"
+                class="category">
+
+                Product
+
+            </div>
+
+
+            <h1
+                id="productName"
+                class="product-title">
+
+                Product Name
+
+            </h1>
+
+
+            <div
+                id="productDescription"
+                class="product-description">
+
+            </div>
+
+
+            <!-- PRICE -->
+
+            <div class="price-box">
+
+                <div class="price-label">
+                    Utkala Mart Price
+                </div>
+
+                <span
+                    id="productPrice"
+                    class="price">
+
+                    ₹0
+
+                </span>
+
+
+                <span
+                    id="marketPrice"
+                    class="market-price"
+                    style="display:none;">
+
+                </span>
+
+
+                <span
+                    id="discount"
+                    class="discount"
+                    style="display:none;">
+
+                </span>
+
+            </div>
+
+
+            <!-- STOCK -->
+
+            <div
+                id="stockText"
+                class="stock available">
+
+                📦 Stock available
+
+            </div>
+
+
+            <!-- META -->
+
+            <div class="meta">
+
+
+                <div class="meta-item">
+
+                    <div class="meta-label">
+                        Weight
+                    </div>
+
+                    <div
+                        id="weightText"
+                        class="meta-value">
+
+                        —
+
+                    </div>
+
+                </div>
+
+
+                <div class="meta-item">
+
+                    <div class="meta-label">
+                        Seller
+                    </div>
+
+                    <div
+                        id="sellerText"
+                        class="meta-value">
+
+                        Utkala Mart
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUANTITY -->
+
+            <div class="quantity-box">
+
+                <div class="quantity-title">
+                    Quantity
+                </div>
+
+                <div class="quantity-control">
+
+                    <button
+                        class="qty-btn"
+                        onclick="changeQuantity(-1)">
+
+                        −
+
+                    </button>
+
+
+                    <div
+                        id="quantity"
+                        class="qty-number">
+
+                        1
+
+                    </div>
+
+
+                    <button
+                        class="qty-btn"
+                        onclick="changeQuantity(1)">
+
+                        +
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTION -->
+
+            <div class="action-buttons">
+
+                <button
+                    id="buyBtn"
+                    class="buy-btn"
+                    onclick="buyNow()">
+
+                    ⚡ BUY NOW
+
+                </button>
+
+
+                <button
+                    id="cartBtn"
+                    class="cart-btn"
+                    onclick="addToCart()">
+
+                    🛒 ADD TO CART
+
+                </button>
+
+            </div>
+
+
+            <button
+                class="share-btn"
+                onclick="shareProduct()">
+
+                📤 Share Product
+
+            </button>
+
+
+            <!-- DELIVERY -->
+
+            <div class="delivery-box">
+
+                🚚 <b>Delivery Information</b>
+
+                <br>
+
+                Ganjam:
+                1–2 days
+
+                <br>
+
+                Odisha:
+                2–4 days
+
+                <br>
+
+                Gujarat:
+                3–5 days
+
+                <br>
+
+                Other States:
+                4–7 days
+
+            </div>
+
+
+        </section>
+
+    </div>
+
+
+    <!-- SHARE INFO -->
+
+    <section class="share-info">
+
+        <h3>
+            🔗 Social Media Product Link
+        </h3>
+
+        <div>
+            ଏହି link Facebook / WhatsApp / Instagram ରେ
+            share କରିପାରିବେ।
+        </div>
+
+        <br>
+
+        <div
+            id="shareUrl"
+            class="share-url">
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =====================================================
+     ERROR
+===================================================== -->
+
+<div
+    id="errorBox"
+    class="error-box"
+    style="display:none;">
+
+    ❌ Product ମିଳିଲା ନାହିଁ।
+
+    <br>
+
+    <a
+        href="index.html"
+        class="home-btn">
+
+        🏠 Back to Home
+
+    </a>
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <b>
+        ଉତ୍କଳ Mart
+    </b>
+
+    <br><br>
+
+    Odisha Products • Food • Clothing • Handicraft • Farmer Products
+
+    <br><br>
+
+    © 2026 Utkala Mart
+
+</footer>
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div
+    id="toast"
+    class="toast">
+
+</div>
+
+
+<!-- =====================================================
+     FIREBASE
+===================================================== -->
+
+<script type="module">
+
+
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import {
+    getFirestore,
+    doc,
+    getDoc
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =====================================================
+   FIREBASE CONFIG
+===================================================== */
+
+const firebaseConfig = {
+
+    apiKey:
+    "AIzaSyDonHK2CtrUjAkAaro6stnJmdDUwB59JT0",
+
+    authDomain:
+    "utkalamart-1ec68.firebaseapp.com",
+
+    projectId:
+    "utkalamart-1ec68",
+
+    storageBucket:
+    "utkalamart-1ec68.firebasestorage.app",
+
+    messagingSenderId:
+    "664871353747",
+
+    appId:
+    "1:664871353747:web:96532fdafe78aabe7f3c66"
+
+};
+
+
+const app =
+    initializeApp(firebaseConfig);
+
+const db =
+    getFirestore(app);
+
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+let product = null;
+
+let quantity = 1;
+
+let maxStock = 0;
+
+
+/* =====================================================
+   GET PRODUCT ID
+===================================================== */
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+const productId =
+    params.get("id");
+
+
+/* =====================================================
+   HELPERS
+===================================================== */
+
+function escapeHtml(value){
+
+    return String(
+        value ?? ""
+    )
+    .replace(
+        /[&<>"']/g,
+        function(match){
+
+            return {
+
+                "&":"&amp;",
+                "<":"&lt;",
+                ">":"&gt;",
+                '"':"&quot;",
+                "'":"&#039;"
+
+            }[match];
+
+        }
+    );
+
+}
+
+
+function getImage(data){
+
+    return String(
+
+        data.image ||
+        data.imageUrl ||
+        data.photo ||
+        data.productImage ||
+        "logo.png"
+
+    ).trim() || "logo.png";
+
+}
+
+
+function getPrice(data){
+
+    return Number(
+
+        data.price ??
+        data.sellingPrice ??
+        data.utkalaPrice ??
+        data.salePrice ??
+        0
+
+    );
+
+}
+
+
+function getStock(data){
+
+    const values = [
+
+        data.stockQty,
+        data.availableStock,
+        data.stock,
+        data.quantity
+
+    ];
+
+
+    for(
+        const value of values
+    ){
+
+        if(
+            value !== undefined &&
+            value !== null &&
+            value !== ""
+        ){
+
+            return Math.max(
+                0,
+                Number(value)
+            );
+
+        }
+
+    }
+
+
+    return 0;
+
+}
+
+
+function getCategory(data){
+
+    return (
+
+        data.category ||
+        data.categoryName ||
+        data.type ||
+        "Odisha Products"
+
+    );
+
+}
+
+
+function getWeight(data){
+
+    if(!data.weight){
+
+        return "—";
+
+    }
+
+
+    return (
+
+        data.weight +
+        " " +
+        (
+            data.weightUnit ||
+            ""
+        )
+
+    ).trim();
+
+}
+
+
+/* =====================================================
+   LOAD PRODUCT
+===================================================== */
+
+async function loadProduct(){
+
+    if(!productId){
+
+        showError(
+            "Product ID ମିଳିଲା ନାହିଁ।"
+        );
+
+        return;
+
+    }
+
+
+    try{
+
+        let snap = null;
+
+
+        /*
+           FIRST:
+           products collection
+        */
+
+        const productRef =
+            doc(
+                db,
+                "products",
+                productId
+            );
+
+
+        const productSnap =
+            await getDoc(
+                productRef
+            );
+
+
+        if(
+            productSnap.exists()
+        ){
+
+            snap =
+                productSnap;
+
+        }
+        else{
+
+            /*
+               FALLBACK:
+               martProducts collection
+            */
+
+            const martRef =
+                doc(
+                    db,
+                    "martProducts",
+                    productId
+                );
+
+
+            const martSnap =
+                await getDoc(
+                    martRef
+                );
+
+
+            if(
+                martSnap.exists()
+            ){
+
+                snap =
+                    martSnap;
+
+            }
+
+        }
+
+
+        if(!snap){
+
+            showError(
+                "ଏହି Product ମିଳିଲା ନାହିଁ।"
+            );
+
+            return;
+
+        }
+
+
+        product = {
+
+            id:
+                snap.id,
+
+            ...snap.data()
+
+        };
+
+
+        /*
+           Check inactive product
+        */
+
+        if(
+            product.active === false
+        ){
+
+            showError(
+                "ଏହି Product ବର୍ତ୍ତମାନ available ନାହିଁ।"
+            );
+
+            return;
+
+        }
+
+
+        renderProduct();
+
+
+    }
+    catch(error){
+
+        console.error(
+            "PRODUCT LOAD ERROR:",
+            error
+        );
+
+
+        showError(
+            "Product load ହୋଇପାରିଲା ନାହିଁ। Firebase check କରନ୍ତୁ।"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   RENDER PRODUCT
+===================================================== */
+
+function renderProduct(){
+
+    const image =
+        getImage(product);
+
+
+    const name =
+        product.name ||
+        product.productName ||
+        "Product";
+
+
+    const price =
+        getPrice(product);
+
+
+    const stock =
+        getStock(product);
+
+
+    maxStock =
+        stock;
+
+
+    const category =
+        getCategory(product);
+
+
+    document.title =
+        name +
+        " | Utkala Mart";
+
+
+    document
+    .getElementById(
+        "productImage"
+    )
+    .src =
+        image;
+
+
+    document
+    .getElementById(
+        "productImage"
+    )
+    .alt =
+        name;
+
+
+    document
+    .getElementById(
+        "productImage"
+    )
+    .onerror =
+    function(){
+
+        this.onerror =
+            null;
+
+        this.src =
+            "logo.png";
+
+    };
+
+
+    document
+    .getElementById(
+        "productName"
+    )
+    .innerText =
+        name;
+
+
+    document
+    .getElementById(
+        "productCategory"
+    )
+    .innerText =
+        category;
+
+
+    document
+    .getElementById(
+        "productPrice"
+    )
+    .innerText =
+        "₹" +
+        price.toLocaleString(
+            "en-IN"
+        );
+
+
+    /*
+       Description
+    */
+
+    const description =
+        product.description ||
+        product.details ||
+        product.shortDescription ||
+        "";
+
+
+    document
+    .getElementById(
+        "productDescription"
+    )
+    .innerText =
+        description ||
+        "ଓଡ଼ିଶାର ନିଜସ୍ୱ Product — Utkala Mart ମାଧ୍ୟମରେ ଆପଣଙ୍କ ଘରେ।";
+
+
+    /*
+       Market Price
+    */
+
+    const marketPrice =
+        Number(
+            product.marketPrice ||
+            product.mrp ||
+            product.originalPrice ||
+            0
+        );
+
+
+    if(
+        marketPrice > price &&
+        price > 0
+    ){
+
+        const marketElement =
+            document.getElementById(
+                "marketPrice"
+            );
+
+
+        marketElement.innerText =
+            "₹" +
+            marketPrice.toLocaleString(
+                "en-IN"
+            );
+
+
+        marketElement.style.display =
+            "inline";
+
+
+        const discount =
+            Math.round(
+                (
+                    (
+                        marketPrice -
+                        price
+                    )
+                    /
+                    marketPrice
+                ) * 100
+            );
+
+
+        if(
+            discount > 0
+        ){
+
+            const discountElement =
+                document.getElementById(
+                    "discount"
+                );
+
+
+            discountElement.innerText =
+                discount +
+                "% OFF";
+
+
+            discountElement.style.display =
+                "inline";
+
+        }
+
+    }
+
+
+    /*
+       Stock
+    */
+
+    const stockElement =
+        document.getElementById(
+            "stockText"
+        );
+
+
+    if(stock <= 0){
+
+        stockElement.innerText =
+            "❌ Out of Stock";
+
+        stockElement.className =
+            "stock out";
+
+        disableButtons();
+
+    }
+    else if(stock <= 5){
+
+        stockElement.innerText =
+            "⚠️ Only " +
+            stock +
+            " left in stock";
+
+        stockElement.className =
+            "stock low";
+
+    }
+    else{
+
+        stockElement.innerText =
+            "📦 Stock: " +
+            stock;
+
+        stockElement.className =
+            "stock available";
+
+    }
+
+
+    /*
+       Weight
+    */
+
+    document
+    .getElementById(
+        "weightText"
+    )
+    .innerText =
+        getWeight(product);
+
+
+    /*
+       Seller
+    */
+
+    document
+    .getElementById(
+        "sellerText"
+    )
+    .innerText =
+        product.sellerName ||
+        product.seller ||
+        "Utkala Mart";
+
+
+    /*
+       Share URL
+    */
+
+    const shareUrl =
+        window.location.href;
+
+
+    document
+    .getElementById(
+        "shareUrl"
+    )
+    .innerText =
+        shareUrl;
+
+
+    /*
+       Show
+    */
+
+    document
+    .getElementById(
+        "loading"
+    )
+    .style.display =
+        "none";
+
+
+    document
+    .getElementById(
+        "productContainer"
+    )
+    .style.display =
+        "block";
+
+}
+
+
+/* =====================================================
+   QUANTITY
+===================================================== */
+
+window.changeQuantity =
+function(change){
+
+    if(!product){
+        return;
+    }
+
+
+    let newQuantity =
+        quantity +
+        change;
+
+
+    if(
+        newQuantity < 1
+    ){
+
+        newQuantity =
+            1;
+
+    }
+
+
+    if(
+        maxStock > 0 &&
+        newQuantity > maxStock
+    ){
+
+        newQuantity =
+            maxStock;
+
+
+        toast(
+            "⚠️ Stock ଠାରୁ ଅଧିକ quantity ନେଇପାରିବେ ନାହିଁ।"
+        );
+
+    }
+
+
+    quantity =
+        newQuantity;
+
+
+    document
+    .getElementById(
+        "quantity"
+    )
+    .innerText =
+        quantity;
+
+};
+
+
+/* =====================================================
+   CART STORAGE
+===================================================== */
+
+function getCart(){
+
+    try{
+
+        const cart =
+            JSON.parse(
+                localStorage.getItem(
+                    "utkalaCart"
+                ) ||
+                localStorage.getItem(
+                    "cart"
+                ) ||
+                "[]"
+            );
+
+
+        return Array.isArray(cart)
+            ? cart
+            : [];
+
+    }
+    catch(e){
+
+        return [];
+
+    }
+
+}
+
+
+function saveCart(cart){
+
+    /*
+       Main Utkala Mart cart key
+    */
+
+    localStorage.setItem(
+        "utkalaCart",
+        JSON.stringify(cart)
+    );
+
+
+    /*
+       Compatibility key
+    */
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+/* =====================================================
+   PRODUCT CART OBJECT
+===================================================== */
+
+function makeCartItem(){
+
+    return {
+
+        productId:
+            product.id,
+
+        id:
+            product.id,
+
+        name:
+            product.name ||
+            product.productName ||
+            "Product",
+
+        price:
+            getPrice(product),
+
+        image:
+            getImage(product),
+
+        imageUrl:
+            getImage(product),
+
+        qty:
+            quantity,
+
+        weight:
+            product.weight ||
+            "",
+
+        weightUnit:
+            product.weightUnit ||
+            "",
+
+        sellerId:
+            product.sellerId ||
+            "",
+
+        sellerName:
+            product.sellerName ||
+            ""
+
+    };
+
+}
+
+
+/* =====================================================
+   ADD TO CART
+===================================================== */
+
+window.addToCart =
+function(){
+
+    if(!product){
+
+        return;
+
+    }
+
+
+    if(maxStock <= 0){
+
+        toast(
+            "❌ Product Out of Stock"
+        );
+
+        return;
+
+    }
+
+
+    const cart =
+        getCart();
+
+
+    const index =
+        cart.findIndex(
+            item =>
+                String(
+                    item.productId ||
+                    item.id
+                )
+                ===
+                String(
+                    product.id
+                )
+        );
+
+
+    if(index >= 0){
+
+        const oldQty =
+            Number(
+                cart[index].qty ||
+                0
+            );
+
+
+        const newQty =
+            oldQty +
+            quantity;
+
+
+        if(
+            maxStock > 0 &&
+            newQty > maxStock
+        ){
+
+            cart[index].qty =
+                maxStock;
+
+        }
+        else{
+
+            cart[index].qty =
+                newQty;
+
+        }
+
+    }
+    else{
+
+        cart.push(
+            makeCartItem()
+        );
+
+    }
+
+
+    saveCart(cart);
+
+
+    toast(
+        "✅ Product Cartରେ Add ହୋଇଗଲା।"
+    );
+
+};
+
+
+/* =====================================================
+   BUY NOW
+===================================================== */
+
+window.buyNow =
+function(){
+
+    if(!product){
+
+        return;
+
+    }
+
+
+    if(maxStock <= 0){
+
+        toast(
+            "❌ Product Out of Stock"
+        );
+
+        return;
+
+    }
+
+
+    /*
+       BUY NOW = only this product
+    */
+
+    const cart = [
+
+        makeCartItem()
+
+    ];
+
+
+    saveCart(cart);
+
+
+    /*
+       Go directly to checkout
+    */
+
+    window.location.href =
+        "checkout.html";
+
+};
+
+
+/* =====================================================
+   SHARE
+===================================================== */
+
+window.shareProduct =
+async function(){
+
+    if(!product){
+
+        return;
+
+    }
+
+
+    const name =
+        product.name ||
+        product.productName ||
+        "Utkala Mart Product";
+
+
+    const price =
+        getPrice(product);
+
+
+    const url =
+        window.location.href;
+
+
+    const shareText =
+        `🛍️ ${name}
+
+💰 Price: ₹${price.toLocaleString("en-IN")}
+
+🛒 Utkala Mart
+
+👉 BUY NOW:
+${url}`;
+
+
+    try{
+
+        if(
+            navigator.share
+        ){
+
+            await navigator.share({
+
+                title:
+                    name +
+                    " | Utkala Mart",
+
+                text:
+                    shareText,
+
+                url:
+                    url
+
+            });
+
+            return;
+
+        }
+
+
+        await navigator.clipboard.writeText(
+            url
+        );
+
+
+        toast(
+            "🔗 Product link copy ହୋଇଗଲା।"
+        );
+
+    }
+    catch(error){
+
+        console.log(
+            "Share cancelled"
+        );
+
+    }
+
+};
+
+
+/* =====================================================
+   DISABLE
+===================================================== */
+
+function disableButtons(){
+
+    document
+    .getElementById(
+        "buyBtn"
+    )
+    .disabled =
+        true;
+
+
+    document
+    .getElementById(
+        "cartBtn"
+    )
+    .disabled =
+        true;
+
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+function showError(message){
+
+    document
+    .getElementById(
+        "loading"
+    )
+    .style.display =
+        "none";
+
+
+    document
+    .getElementById(
+        "errorBox"
+    )
+    .style.display =
+        "block";
+
+
+    document
+    .getElementById(
+        "errorBox"
+    )
+    .innerHTML = `
+
+        ❌ ${escapeHtml(message)}
+
+        <br>
+
+        <a
+            href="index.html"
+            class="home-btn">
+
+            🏠 Back to Home
+
+        </a>
+
+    `;
+
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+function toast(message){
+
+    const element =
+        document.getElementById(
+            "toast"
+        );
+
+
+    element.innerText =
+        message;
+
+
+    element.classList.add(
+        "show"
+    );
+
+
+    clearTimeout(
+        window.toastTimer
+    );
+
+
+    window.toastTimer =
+        setTimeout(
+            function(){
+
+                element.classList.remove(
+                    "show"
+                );
+
+            },
+            3000
+        );
+
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+loadProduct();
+
+</script>
+
+
+</body>
+
+  </html>
