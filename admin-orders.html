@@ -24,8 +24,10 @@ body{
     font-family:
         Arial,
         "Noto Sans Oriya",
+        "Noto Sans Odia",
         "Nirmala UI",
         sans-serif;
+
     background:#f4f7f5;
     color:#222;
 }
@@ -40,621 +42,1071 @@ button{
     cursor:pointer;
 }
 
-/* HEADER */
+
+/* =====================================
+   HEADER
+===================================== */
 
 .header{
+
     background:#075b3b;
+
     color:#fff;
-    padding:15px 4%;
+
+    padding:14px 4%;
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
     gap:15px;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
 }
 
-.header h1{
+.header-title h1{
+
     margin:0;
-    font-size:23px;
+
+    font-size:22px;
 }
 
-.header p{
+.header-title p{
+
     margin:4px 0 0;
+
     font-size:11px;
+
     opacity:.9;
 }
 
-.logout{
-    border:0;
-    background:#d9272e;
-    color:#fff;
-    padding:9px 14px;
-    border-radius:8px;
-    font-weight:800;
+.header-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-end;
+
+    gap:7px;
+
+    flex-wrap:wrap;
 }
 
-/* LOGIN */
+.nav-btn{
+
+    text-decoration:none;
+
+    background:#fff;
+
+    color:#075b3b;
+
+    padding:8px 11px;
+
+    border-radius:8px;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    white-space:nowrap;
+}
+
+.cancel-nav{
+
+    color:#b91c1c;
+}
+
+.return-nav{
+
+    color:#075b3b;
+}
+
+.logout{
+
+    border:0;
+
+    background:#d9272e;
+
+    color:#fff;
+
+    padding:9px 13px;
+
+    border-radius:8px;
+
+    font-weight:800;
+
+    font-size:11px;
+}
+
+
+/* =====================================
+   LOGIN
+===================================== */
 
 .login-page{
+
     min-height:100vh;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     padding:20px;
+
     background:#f4f7f5;
 }
 
 .login-box{
+
     width:min(400px,100%);
+
     background:#fff;
+
     padding:25px;
+
     border-radius:16px;
-    box-shadow:0 5px 25px rgba(0,0,0,.12);
+
+    box-shadow:
+        0 5px 25px rgba(0,0,0,.12);
 }
 
 .login-box h2{
+
     margin-top:0;
+
     color:#075b3b;
 }
 
 .login-box p{
+
     color:#666;
+
     font-size:13px;
+
     line-height:1.6;
 }
 
 .login-box input{
+
     width:100%;
+
     height:44px;
-    margin-top:7px;
+
+    margin-top:8px;
+
     padding:0 12px;
+
     border:1px solid #ccc;
+
     border-radius:8px;
+
     outline:none;
 }
 
+.login-box input:focus{
+
+    border-color:#075b3b;
+}
+
 .login-box button{
+
     width:100%;
+
     height:44px;
+
     margin-top:15px;
+
     border:0;
+
     border-radius:8px;
+
     background:#075b3b;
+
     color:#fff;
+
     font-weight:900;
 }
 
+.login-box button:disabled{
+
+    opacity:.6;
+
+    cursor:not-allowed;
+}
+
 .login-error{
+
     display:none;
+
     margin-top:12px;
+
     background:#ffe5e5;
+
     color:#a00000;
+
     padding:10px;
+
     border-radius:8px;
+
     font-size:12px;
 }
 
-/* MAIN */
+
+/* =====================================
+   ADMIN PANEL
+===================================== */
 
 #adminPanel{
+
     display:none;
 }
 
 .container{
+
     width:min(1250px,95%);
+
     margin:20px auto 60px;
 }
 
-/* STATS */
+
+/* =====================================
+   STATS
+===================================== */
 
 .stats{
+
     display:grid;
-    grid-template-columns:repeat(5,1fr);
+
+    grid-template-columns:
+        repeat(5,1fr);
+
     gap:12px;
+
     margin-bottom:18px;
 }
 
 .stat{
+
     background:#fff;
-    padding:17px;
+
+    padding:16px;
+
     border-radius:13px;
-    box-shadow:0 3px 12px rgba(0,0,0,.07);
+
+    box-shadow:
+        0 3px 12px rgba(0,0,0,.07);
 }
 
 .stat-icon{
-    font-size:25px;
+
+    font-size:24px;
 }
 
 .stat-label{
+
     color:#777;
+
     font-size:11px;
+
     margin-top:5px;
 }
 
 .stat-value{
-    font-size:23px;
+
+    font-size:22px;
+
     font-weight:900;
+
     color:#075b3b;
+
     margin-top:3px;
 }
 
-/* TOOLBAR */
+
+/* =====================================
+   TOOLBAR
+===================================== */
 
 .toolbar{
+
     background:#fff;
+
     padding:14px;
+
     border-radius:13px;
-    box-shadow:0 3px 12px rgba(0,0,0,.07);
+
+    box-shadow:
+        0 3px 12px rgba(0,0,0,.07);
+
     display:flex;
+
     gap:10px;
+
     flex-wrap:wrap;
+
     margin-bottom:18px;
 }
 
 .search{
+
     flex:1;
+
     min-width:220px;
+
     height:42px;
+
     border:1px solid #ccc;
+
     border-radius:8px;
+
     padding:0 12px;
+
     outline:none;
 }
 
+.search:focus{
+
+    border-color:#075b3b;
+}
+
 .filter{
+
     height:42px;
+
     border:1px solid #ccc;
+
     border-radius:8px;
+
     padding:0 10px;
+
     background:#fff;
 }
 
 .refresh{
+
     height:42px;
+
     border:0;
+
     border-radius:8px;
+
     padding:0 15px;
+
     background:#075b3b;
+
     color:#fff;
+
     font-weight:900;
 }
 
-/* ORDER */
+
+/* =====================================
+   ORDERS
+===================================== */
 
 .orders{
+
     display:grid;
+
     gap:14px;
 }
 
 .order-card{
+
     background:#fff;
+
     border-radius:14px;
+
     padding:16px;
-    box-shadow:0 3px 14px rgba(0,0,0,.07);
+
+    box-shadow:
+        0 3px 14px rgba(0,0,0,.07);
 }
 
 .order-top{
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:flex-start;
+
     gap:12px;
+
     flex-wrap:wrap;
+
     border-bottom:1px solid #eee;
+
     padding-bottom:12px;
 }
 
 .order-id{
+
     font-weight:900;
+
     color:#075b3b;
+
     font-size:14px;
+
     word-break:break-all;
 }
 
 .order-date{
+
     color:#777;
+
     font-size:10px;
+
     margin-top:5px;
 }
 
+
+/* =====================================
+   STATUS
+===================================== */
+
 .status{
+
     display:inline-block;
+
     padding:7px 11px;
+
     border-radius:20px;
+
     font-size:10px;
+
     font-weight:900;
 }
 
 .placed{
+
     background:#fff3cd;
+
     color:#856404;
 }
 
 .confirmed{
+
     background:#dff4ff;
+
     color:#075f91;
 }
 
 .processing{
+
     background:#e0f2fe;
+
     color:#0369a1;
 }
 
 .shipped{
+
     background:#eee7ff;
+
     color:#6336a3;
 }
 
 .delivered{
+
     background:#dcfce7;
+
     color:#166534;
 }
 
 .cancelled{
+
     background:#fee2e2;
+
     color:#b91c1c;
 }
 
-/* PAYMENT */
+
+/* =====================================
+   PAYMENT
+===================================== */
 
 .payment-badge{
+
     display:inline-block;
+
     padding:5px 9px;
+
     border-radius:20px;
+
     font-size:9px;
+
     font-weight:900;
 }
 
 .payment-pending{
+
     background:#fff3cd;
+
     color:#856404;
 }
 
 .payment-paid{
+
     background:#dcfce7;
+
     color:#166534;
 }
 
 .payment-cash{
+
     background:#e0f2fe;
+
     color:#075f91;
 }
 
 .payment-deposited{
+
     background:#eee7ff;
+
     color:#6336a3;
 }
 
-/* ORDER BODY */
+
+/* =====================================
+   ORDER BODY
+===================================== */
 
 .order-body{
+
     display:grid;
-    grid-template-columns:1fr 1fr 1fr;
+
+    grid-template-columns:
+        1fr 1fr 1fr;
+
     gap:15px;
+
     padding:15px 0;
 }
 
 .info-title{
+
     color:#075b3b;
+
     font-size:12px;
+
     font-weight:900;
+
     margin-bottom:7px;
 }
 
 .info{
+
     font-size:12px;
+
     line-height:1.7;
 }
 
 .info b{
+
     color:#333;
 }
 
-/* PRODUCTS */
+
+/* =====================================
+   PRODUCTS
+===================================== */
 
 .products{
+
     border-top:1px solid #eee;
+
     padding-top:12px;
 }
 
 .product{
+
     display:flex;
+
     align-items:center;
+
     gap:10px;
+
     padding:8px 0;
+
     border-bottom:1px solid #f0f0f0;
 }
 
 .product:last-child{
+
     border-bottom:0;
 }
 
 .product img{
+
     width:52px;
+
     height:52px;
+
     object-fit:cover;
+
     border-radius:7px;
+
     background:#eee;
 }
 
 .product-info{
+
     flex:1;
 }
 
 .product-name{
+
     font-weight:800;
+
     font-size:12px;
 }
 
 .product-meta{
+
     color:#777;
+
     font-size:10px;
+
     margin-top:3px;
 }
 
 .product-price{
+
     font-weight:900;
+
     font-size:12px;
 }
 
-/* TOTAL */
+
+/* =====================================
+   TOTAL
+===================================== */
 
 .order-total{
+
     display:flex;
+
     justify-content:flex-end;
+
     gap:20px;
+
     border-top:2px solid #075b3b;
+
     margin-top:7px;
+
     padding-top:10px;
+
     font-size:17px;
+
     font-weight:900;
+
     color:#075b3b;
 }
 
-/* ACTIONS */
+
+/* =====================================
+   ACTIONS
+===================================== */
 
 .order-actions{
+
     display:flex;
+
     gap:8px;
+
     flex-wrap:wrap;
+
     margin-top:13px;
 }
 
 .action-btn{
+
     border:0;
+
     border-radius:7px;
+
     padding:9px 12px;
+
     font-size:11px;
+
     font-weight:900;
+
     text-decoration:none;
+
     display:inline-block;
+
     text-align:center;
 }
 
 .view-btn{
+
     background:#075b3b;
+
     color:#fff;
 }
 
 .status-btn{
+
     background:#0b8b4f;
+
     color:#fff;
 }
 
 .payment-btn{
+
     background:#fff3cd;
+
     color:#7a5a00;
 }
 
 .call-btn{
+
     background:#e8f7ee;
+
     color:#087333;
 }
 
 .whatsapp-btn{
+
     background:#dff8e8;
+
     color:#087333;
 }
 
 .cancel-btn{
+
     background:#ffe5e5;
+
     color:#b91c1c;
 }
 
-/* NEW DELETE BUTTON */
-
 .delete-btn{
+
     background:#dc2626;
+
     color:#fff;
 }
 
-.delete-btn:hover{
-    background:#b91c1c;
-}
 
-/* EMPTY */
+/* =====================================
+   EMPTY / LOADING
+===================================== */
 
 .empty{
+
     background:#fff;
+
     padding:50px 20px;
+
     text-align:center;
+
     border-radius:14px;
+
     color:#777;
 }
 
 .loading{
+
     background:#fff;
+
     padding:35px;
+
     text-align:center;
+
     border-radius:14px;
+
     color:#777;
 }
 
-/* MODAL */
+
+/* =====================================
+   MODAL
+===================================== */
 
 .modal{
+
     display:none;
+
     position:fixed;
+
     inset:0;
+
     background:rgba(0,0,0,.5);
+
     z-index:5000;
+
     align-items:center;
+
     justify-content:center;
+
     padding:15px;
 }
 
 .modal-box{
+
     background:#fff;
+
     width:min(650px,100%);
+
     max-height:90vh;
+
     overflow:auto;
+
     border-radius:15px;
+
     padding:20px;
 }
 
-.payment-modal-box{
-    width:min(550px,100%);
-}
-
 .modal-head{
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
+
     gap:10px;
+
     border-bottom:1px solid #eee;
+
     padding-bottom:10px;
+
     margin-bottom:12px;
 }
 
 .modal-head h2{
+
     margin:0;
+
     color:#075b3b;
+
     font-size:20px;
 }
 
 .close{
+
     border:0;
+
     background:#eee;
+
     width:34px;
+
     height:34px;
+
     border-radius:50%;
+
     font-size:20px;
 }
 
 .modal-section{
+
     background:#f5f8f6;
+
     padding:12px;
+
     border-radius:9px;
+
     margin-bottom:10px;
 }
 
 .modal-section h3{
+
     margin:0 0 7px;
+
     color:#075b3b;
+
     font-size:13px;
 }
 
-/* STATUS MODAL */
+
+/* =====================================
+   STATUS OPTIONS
+===================================== */
 
 .status-options{
+
     display:grid;
+
     gap:9px;
 }
 
 .status-option{
+
     border:1px solid #ddd;
+
     background:#fff;
+
     border-radius:9px;
+
     padding:12px;
+
     text-align:left;
+
     font-weight:900;
 }
 
 .status-option:hover{
+
     border-color:#075b3b;
+
     background:#f0f8f3;
 }
 
-/* PAYMENT MODAL */
+
+/* =====================================
+   PAYMENT
+===================================== */
 
 .payment-info{
+
     background:#f5f8f6;
+
     border-radius:9px;
+
     padding:12px;
+
     margin-top:10px;
+
     line-height:1.8;
+
     font-size:12px;
 }
 
 .payment-label{
+
     display:block;
+
     margin-top:12px;
+
     font-size:12px;
+
     font-weight:900;
+
     color:#075b3b;
 }
 
 .payment-input{
+
     width:100%;
+
     height:43px;
+
     border:1px solid #ccc;
+
     border-radius:8px;
+
     padding:0 11px;
+
     margin-top:5px;
+
     outline:none;
 }
 
 .payment-save{
+
     width:100%;
+
     height:44px;
+
     margin-top:15px;
+
     border:0;
+
     border-radius:8px;
+
     background:#075b3b;
+
     color:#fff;
+
     font-weight:900;
 }
 
 .cash-warning{
+
     background:#fff3cd;
+
     color:#7a5a00;
+
     padding:10px;
+
     border-radius:8px;
+
     font-size:11px;
+
     line-height:1.6;
+
     margin-top:10px;
 }
 
-/* TOAST */
+
+/* =====================================
+   TOAST
+===================================== */
 
 .toast{
+
     position:fixed;
+
     left:50%;
+
     bottom:25px;
-    transform:translate(-50%,20px);
+
+    transform:
+        translate(-50%,20px);
+
     background:#075b3b;
+
     color:#fff;
+
     padding:11px 18px;
+
     border-radius:9px;
+
     font-size:12px;
+
     font-weight:800;
+
     opacity:0;
+
     pointer-events:none;
+
     transition:.25s;
+
     z-index:9000;
+
     max-width:90%;
+
     text-align:center;
 }
 
 .toast.show{
+
     opacity:1;
-    transform:translate(-50%,0);
+
+    transform:
+        translate(-50%,0);
 }
 
-/* RESPONSIVE */
+
+/* =====================================
+   MOBILE
+===================================== */
 
 @media(max-width:1000px){
 
     .stats{
-        grid-template-columns:repeat(3,1fr);
+
+        grid-template-columns:
+            repeat(3,1fr);
     }
 
 }
@@ -662,11 +1114,15 @@ button{
 @media(max-width:850px){
 
     .stats{
-        grid-template-columns:repeat(2,1fr);
+
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
     .order-body{
-        grid-template-columns:1fr 1fr;
+
+        grid-template-columns:
+            1fr 1fr;
     }
 
 }
@@ -674,77 +1130,62 @@ button{
 @media(max-width:600px){
 
     .header{
+
+        align-items:flex-start;
+
+        flex-direction:column;
+
         padding:12px;
     }
 
-    .header h1{
+    .header-actions{
+
+        width:100%;
+
+        justify-content:flex-start;
+    }
+
+    .header-title h1{
+
         font-size:18px;
     }
 
-    .logout{
-        padding:8px 10px;
-        font-size:11px;
-    }
-
     .container{
+
         width:94%;
     }
 
     .stats{
-        grid-template-columns:repeat(2,1fr);
+
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
     .stat{
+
         padding:12px;
     }
 
     .stat-value{
-        font-size:20px;
+
+        font-size:19px;
     }
 
     .order-body{
+
         grid-template-columns:1fr;
     }
 
-    .toolbar{
-        padding:10px;
-    }
-
     .search{
+
         min-width:100%;
     }
 
-    .filter{
-        flex:1;
-    }
-
-    .refresh{
-        flex:1;
-    }
-
     .action-btn{
+
         flex:1;
+
         min-width:100px;
-    }
-
-}
-
-@media(max-width:400px){
-
-    .stats{
-        gap:7px;
-    }
-
-    .stat-label{
-        font-size:9px;
-    }
-
-    .stat-value{
-        font-size:17px;
-    }
-
-    .order-card{
-        padding:12px;
     }
 
 }
@@ -753,10 +1194,13 @@ button{
 
 </head>
 
+
 <body>
 
 
-<!-- LOGIN -->
+<!-- =====================================
+     LOGIN
+===================================== -->
 
 <div
     class="login-page"
@@ -779,15 +1223,21 @@ button{
             placeholder="Admin Email"
             autocomplete="username">
 
+
         <input
             type="password"
             id="password"
             placeholder="Password"
             autocomplete="current-password">
 
-        <button id="loginBtn">
+
+        <button
+            id="loginBtn">
+
             🔐 Login
+
         </button>
+
 
         <div
             id="loginError"
@@ -799,13 +1249,17 @@ button{
 </div>
 
 
-<!-- ADMIN -->
+<!-- =====================================
+     ADMIN PANEL
+===================================== -->
 
 <div id="adminPanel">
 
+
 <header class="header">
 
-    <div>
+
+    <div class="header-title">
 
         <h1>
             📦 Utkala Mart Orders
@@ -817,13 +1271,43 @@ button{
 
     </div>
 
-    <button
-        class="logout"
-        onclick="logout()">
 
-        Logout
+    <div class="header-actions">
 
-    </button>
+
+        <!-- CANCEL REQUEST -->
+
+        <a
+            href="admin-cancellations.html"
+            class="nav-btn cancel-nav">
+
+            ❌ Cancel Requests
+
+        </a>
+
+
+        <!-- RETURNS -->
+
+        <a
+            href="admin-returns.html"
+            class="nav-btn return-nav">
+
+            🔄 Returns
+
+        </a>
+
+
+        <!-- LOGOUT -->
+
+        <button
+            class="logout"
+            onclick="logout()">
+
+            Logout
+
+        </button>
+
+    </div>
 
 </header>
 
@@ -831,46 +1315,127 @@ button{
 <main class="container">
 
 
-<!-- STATS -->
+<!-- =====================================
+     STATS
+===================================== -->
 
 <section class="stats">
 
-    <div class="stat">
-        <div class="stat-icon">📦</div>
-        <div class="stat-label">Total Orders</div>
-        <div class="stat-value" id="totalOrders">0</div>
-    </div>
 
     <div class="stat">
-        <div class="stat-icon">⏳</div>
-        <div class="stat-label">Pending Orders</div>
-        <div class="stat-value" id="pendingOrders">0</div>
+
+        <div class="stat-icon">
+            📦
+        </div>
+
+        <div class="stat-label">
+            Total Orders
+        </div>
+
+        <div
+            class="stat-value"
+            id="totalOrders">
+
+            0
+
+        </div>
+
     </div>
 
-    <div class="stat">
-        <div class="stat-icon">🏠</div>
-        <div class="stat-label">Delivered</div>
-        <div class="stat-value" id="deliveredOrders">0</div>
-    </div>
 
     <div class="stat">
-        <div class="stat-icon">💰</div>
-        <div class="stat-label">Paid Collection</div>
-        <div class="stat-value" id="paidSales">₹0</div>
+
+        <div class="stat-icon">
+            ⏳
+        </div>
+
+        <div class="stat-label">
+            Pending Orders
+        </div>
+
+        <div
+            class="stat-value"
+            id="pendingOrders">
+
+            0
+
+        </div>
+
     </div>
 
+
     <div class="stat">
-        <div class="stat-icon">⏱️</div>
-        <div class="stat-label">Pending Payment</div>
-        <div class="stat-value" id="pendingPayment">₹0</div>
+
+        <div class="stat-icon">
+            🏠
+        </div>
+
+        <div class="stat-label">
+            Delivered
+        </div>
+
+        <div
+            class="stat-value"
+            id="deliveredOrders">
+
+            0
+
+        </div>
+
     </div>
+
+
+    <div class="stat">
+
+        <div class="stat-icon">
+            💰
+        </div>
+
+        <div class="stat-label">
+            Paid Collection
+        </div>
+
+        <div
+            class="stat-value"
+            id="paidSales">
+
+            ₹0
+
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-icon">
+            ⏱️
+        </div>
+
+        <div class="stat-label">
+            Pending Payment
+        </div>
+
+        <div
+            class="stat-value"
+            id="pendingPayment">
+
+            ₹0
+
+        </div>
+
+    </div>
+
 
 </section>
 
 
-<!-- TOOLBAR -->
+<!-- =====================================
+     TOOLBAR
+===================================== -->
 
 <section class="toolbar">
+
 
     <input
         class="search"
@@ -883,13 +1448,33 @@ button{
         class="filter"
         id="statusFilter">
 
-        <option value="all">All Status</option>
-        <option value="placed">Order Placed</option>
-        <option value="confirmed">Confirmed</option>
-        <option value="processing">Processing</option>
-        <option value="shipped">Shipped</option>
-        <option value="delivered">Delivered</option>
-        <option value="cancelled">Cancelled</option>
+        <option value="all">
+            All Status
+        </option>
+
+        <option value="placed">
+            Order Placed
+        </option>
+
+        <option value="confirmed">
+            Confirmed
+        </option>
+
+        <option value="processing">
+            Processing
+        </option>
+
+        <option value="shipped">
+            Shipped
+        </option>
+
+        <option value="delivered">
+            Delivered
+        </option>
+
+        <option value="cancelled">
+            Cancelled
+        </option>
 
     </select>
 
@@ -898,9 +1483,17 @@ button{
         class="filter"
         id="paymentFilter">
 
-        <option value="all">All Payment</option>
-        <option value="pending">Payment Pending</option>
-        <option value="paid">Paid</option>
+        <option value="all">
+            All Payment
+        </option>
+
+        <option value="pending">
+            Payment Pending
+        </option>
+
+        <option value="paid">
+            Paid
+        </option>
 
     </select>
 
@@ -916,22 +1509,31 @@ button{
 </section>
 
 
+<!-- =====================================
+     ORDERS
+===================================== -->
+
 <div
     id="orders"
     class="orders">
 
     <div class="loading">
+
         ⏳ Orders load ହେଉଛି...
+
     </div>
 
 </div>
+
 
 </main>
 
 </div>
 
 
-<!-- VIEW MODAL -->
+<!-- =====================================
+     VIEW MODAL
+===================================== -->
 
 <div
     class="modal"
@@ -964,7 +1566,9 @@ button{
 </div>
 
 
-<!-- STATUS MODAL -->
+<!-- =====================================
+     STATUS MODAL
+===================================== -->
 
 <div
     class="modal"
@@ -990,12 +1594,15 @@ button{
 
         </div>
 
+
         <div
             id="statusOrderInfo"
             class="modal-section">
         </div>
 
+
         <div class="status-options">
+
 
             <button
                 class="status-option"
@@ -1005,6 +1612,7 @@ button{
 
             </button>
 
+
             <button
                 class="status-option"
                 onclick="changeStatus('confirmed')">
@@ -1012,6 +1620,7 @@ button{
                 ✅ Order Confirmed
 
             </button>
+
 
             <button
                 class="status-option"
@@ -1021,6 +1630,7 @@ button{
 
             </button>
 
+
             <button
                 class="status-option"
                 onclick="changeStatus('shipped')">
@@ -1028,6 +1638,7 @@ button{
                 🚚 Order Shipped
 
             </button>
+
 
             <button
                 class="status-option"
@@ -1037,6 +1648,7 @@ button{
 
             </button>
 
+
             <button
                 class="status-option"
                 onclick="changeStatus('cancelled')">
@@ -1045,6 +1657,7 @@ button{
 
             </button>
 
+
         </div>
 
     </div>
@@ -1052,14 +1665,16 @@ button{
 </div>
 
 
-<!-- PAYMENT MODAL -->
+<!-- =====================================
+     PAYMENT MODAL
+===================================== -->
 
 <div
     class="modal"
     id="paymentModal">
 
     <div
-        class="modal-box payment-modal-box"
+        class="modal-box"
         onclick="event.stopPropagation()">
 
         <div class="modal-head">
@@ -1078,6 +1693,7 @@ button{
 
         </div>
 
+
         <div id="paymentContent"></div>
 
     </div>
@@ -1091,7 +1707,12 @@ button{
 </div>
 
 
+<!-- =====================================
+     FIREBASE
+===================================== -->
+
 <script type="module">
+
 
 import {
     initializeApp
@@ -1126,29 +1747,29 @@ from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-/* =====================================================
-   FIREBASE
-===================================================== */
+/* =====================================
+   FIREBASE CONFIG
+===================================== */
 
 const firebaseConfig = {
 
     apiKey:
-    "AIzaSyDonHK2CtrUjAkAaro6stnJmdDUwB59JT0",
+        "AIzaSyDonHK2CtrUjAkAaro6stnJmdDUwB59JT0",
 
     authDomain:
-    "utkalamart-1ec68.firebaseapp.com",
+        "utkalamart-1ec68.firebaseapp.com",
 
     projectId:
-    "utkalamart-1ec68",
+        "utkalamart-1ec68",
 
     storageBucket:
-    "utkalamart-1ec68.firebasestorage.app",
+        "utkalamart-1ec68.firebasestorage.app",
 
     messagingSenderId:
-    "664871353747",
+        "664871353747",
 
     appId:
-    "1:664871353747:web:96532fdafe78aabe7f3c66"
+        "1:664871353747:web:96532fdafe78aabe7f3c66"
 
 };
 
@@ -1156,11 +1777,17 @@ const firebaseConfig = {
 const app =
     initializeApp(firebaseConfig);
 
+
 const auth =
     getAuth(app);
 
+
 const db =
     getFirestore(app);
+
+
+const ADMIN_EMAIL =
+    "suryakantabehera629@gmail.com";
 
 
 let allOrders = [];
@@ -1168,17 +1795,16 @@ let allOrders = [];
 let selectedOrder = null;
 
 
-const ADMIN_EMAIL =
-    "suryakantabehera629@gmail.com";
-
-
-/* =====================================================
+/* =====================================
    LOGIN
-===================================================== */
+===================================== */
 
 document
-.getElementById("loginBtn")
-.addEventListener("click",login);
+    .getElementById("loginBtn")
+    .addEventListener(
+        "click",
+        login
+    );
 
 
 async function login(){
@@ -1189,35 +1815,49 @@ async function login(){
         .value
         .trim();
 
+
     const password =
         document
         .getElementById("password")
         .value;
+
 
     const error =
         document
         .getElementById("loginError");
 
 
-    error.style.display="none";
+    error.style.display =
+        "none";
 
 
-    if(!email || !password){
+    if(
+        !email ||
+        !password
+    ){
 
         error.innerText =
             "Email ଏବଂ Password ଦିଅନ୍ତୁ।";
 
-        error.style.display="block";
+        error.style.display =
+            "block";
 
         return;
+
     }
 
 
     const button =
-        document.getElementById("loginBtn");
+        document.getElementById(
+            "loginBtn"
+        );
 
-    button.disabled=true;
-    button.innerText="⏳ Login...";
+
+    button.disabled =
+        true;
+
+    button.innerText =
+        "⏳ Login...";
 
 
     try{
@@ -1229,61 +1869,90 @@ async function login(){
         );
 
     }
+
     catch(error){
 
         console.error(error);
 
+
         document
-        .getElementById("loginError")
+        .getElementById(
+            "loginError"
+        )
         .innerText =
             "❌ Login failed. Email କିମ୍ବା Password check କରନ୍ତୁ।";
 
+
         document
-        .getElementById("loginError")
-        .style.display="block";
+        .getElementById(
+            "loginError"
+        )
+        .style.display =
+            "block";
 
     }
 
 
-    button.disabled=false;
-    button.innerText="🔐 Login";
+    button.disabled =
+        false;
+
+    button.innerText =
+        "🔐 Login";
 
 }
 
 
-/* =====================================================
+/* =====================================
    AUTH
-===================================================== */
+===================================== */
 
 onAuthStateChanged(
     auth,
-    async function(user){
+    async user => {
 
         if(
             user &&
-            user.email === ADMIN_EMAIL
+            user.email &&
+            user.email.toLowerCase() ===
+            ADMIN_EMAIL.toLowerCase()
         ){
 
             document
-            .getElementById("loginPage")
-            .style.display="none";
+            .getElementById(
+                "loginPage"
+            )
+            .style.display =
+                "none";
+
 
             document
-            .getElementById("adminPanel")
-            .style.display="block";
+            .getElementById(
+                "adminPanel"
+            )
+            .style.display =
+                "block";
+
 
             await loadOrders();
 
         }
+
         else{
 
             document
-            .getElementById("loginPage")
-            .style.display="flex";
+            .getElementById(
+                "loginPage"
+            )
+            .style.display =
+                "flex";
+
 
             document
-            .getElementById("adminPanel")
-            .style.display="none";
+            .getElementById(
+                "adminPanel"
+            )
+            .style.display =
+                "none";
 
         }
 
@@ -1291,9 +1960,9 @@ onAuthStateChanged(
 );
 
 
-/* =====================================================
+/* =====================================
    LOGOUT
-===================================================== */
+===================================== */
 
 window.logout =
 async function(){
@@ -1303,23 +1972,27 @@ async function(){
 };
 
 
-/* =====================================================
+/* =====================================
    HELPERS
-===================================================== */
+===================================== */
 
 function escapeHtml(value){
 
-    return String(value ?? "")
+    return String(
+        value ?? ""
+    )
     .replace(
         /[&<>"']/g,
-        function(match){
+        match => {
 
             return {
+
                 "&":"&amp;",
                 "<":"&lt;",
                 ">":"&gt;",
                 '"':"&quot;",
                 "'":"&#039;"
+
             }[match];
 
         }
@@ -1340,30 +2013,27 @@ function getMobile(order){
     const customer =
         getCustomer(order);
 
+
     return String(
         customer.mobile ||
         customer.phone ||
         ""
     )
-    .replace(/\D/g,"")
+    .replace(
+        /\D/g,
+        ""
+    )
     .slice(-10);
 
 }
 
 
-function getCustomerOrderId(order){
+function getOrderId(order){
 
     return String(
-        order.orderId || ""
-    ).trim();
-
-}
-
-
-function getFirebaseDocumentId(order){
-
-    return String(
-        order.id || ""
+        order.orderId ||
+        order.id ||
+        ""
     ).trim();
 
 }
@@ -1376,7 +2046,7 @@ function getImage(item){
         item.imageUrl ||
         item.photo ||
         "logo.png"
-    ).trim() || "logo.png";
+    ).trim();
 
 }
 
@@ -1391,11 +2061,17 @@ function formatDate(value){
 
         const date =
             value.toDate
-            ? value.toDate()
-            : new Date(value);
+            ?
+            value.toDate()
+            :
+            new Date(value);
 
 
-        if(isNaN(date.getTime()))
+        if(
+            isNaN(
+                date.getTime()
+            )
+        )
             return "Date unavailable";
 
 
@@ -1411,7 +2087,8 @@ function formatDate(value){
         );
 
     }
-    catch(e){
+
+    catch(error){
 
         return "Date unavailable";
 
@@ -1422,37 +2099,56 @@ function formatDate(value){
 
 function statusText(status){
 
-    const map={
+    const map = {
 
-        placed:"Order Placed",
-        confirmed:"Order Confirmed",
-        processing:"Processing",
-        shipped:"Order Shipped",
-        delivered:"Order Delivered",
-        cancelled:"Order Cancelled"
+        placed:
+            "Order Placed",
+
+        confirmed:
+            "Order Confirmed",
+
+        processing:
+            "Processing",
+
+        shipped:
+            "Order Shipped",
+
+        delivered:
+            "Order Delivered",
+
+        cancelled:
+            "Order Cancelled"
 
     };
 
-    return map[status] || "Order Placed";
+
+    return (
+        map[status] ||
+        "Order Placed"
+    );
 
 }
 
 
-/* =====================================================
+/* =====================================
    LOAD ORDERS
-===================================================== */
+===================================== */
 
 window.loadOrders =
 async function(){
 
     const container =
-        document.getElementById("orders");
+        document.getElementById(
+            "orders"
+        );
 
 
-    container.innerHTML=`
+    container.innerHTML = `
 
         <div class="loading">
+
             ⏳ Orders load ହେଉଛି...
+
         </div>
 
     `;
@@ -1462,19 +2158,24 @@ async function(){
 
         const snapshot =
             await getDocs(
-                collection(db,"orders")
+                collection(
+                    db,
+                    "orders"
+                )
             );
 
 
-        allOrders=[];
+        allOrders = [];
 
 
         snapshot.forEach(
-            function(orderDoc){
+            orderDoc => {
 
                 allOrders.push({
 
-                    id:orderDoc.id,
+                    id:
+                        orderDoc.id,
+
                     ...orderDoc.data()
 
                 });
@@ -1484,19 +2185,25 @@ async function(){
 
 
         allOrders.sort(
-            function(a,b){
+            (a,b) => {
 
                 const aTime =
                     a.createdAt?.toMillis
-                    ? a.createdAt.toMillis()
-                    : 0;
+                    ?
+                    a.createdAt.toMillis()
+                    :
+                    0;
+
 
                 const bTime =
                     b.createdAt?.toMillis
-                    ? b.createdAt.toMillis()
-                    : 0;
+                    ?
+                    b.createdAt.toMillis()
+                    :
+                    0;
 
-                return bTime-aTime;
+
+                return bTime - aTime;
 
             }
         );
@@ -1507,11 +2214,16 @@ async function(){
         renderOrders();
 
     }
+
     catch(error){
 
-        console.error(error);
+        console.error(
+            "Load Orders Error:",
+            error
+        );
 
-        container.innerHTML=`
+
+        container.innerHTML = `
 
             <div class="empty">
 
@@ -1519,7 +2231,8 @@ async function(){
 
                 <br><br>
 
-                Firebase Rules / Admin Login check କରନ୍ତୁ।
+                Firebase Rules /
+                Admin access check କରନ୍ତୁ।
 
             </div>
 
@@ -1530,9 +2243,9 @@ async function(){
 };
 
 
-/* =====================================================
+/* =====================================
    STATS
-===================================================== */
+===================================== */
 
 function updateStats(){
 
@@ -1542,7 +2255,7 @@ function updateStats(){
 
     const pending =
         allOrders.filter(
-            order=>{
+            order => {
 
                 const status =
                     String(
@@ -1550,12 +2263,17 @@ function updateStats(){
                         "placed"
                     ).toLowerCase();
 
+
                 return [
+
                     "placed",
                     "confirmed",
                     "processing",
                     "shipped"
-                ].includes(status);
+
+                ].includes(
+                    status
+                );
 
             }
         ).length;
@@ -1564,8 +2282,10 @@ function updateStats(){
     const delivered =
         allOrders.filter(
             order =>
+
                 String(
-                    order.orderStatus || ""
+                    order.orderStatus ||
+                    ""
                 ).toLowerCase()
                 ===
                 "delivered"
@@ -1574,18 +2294,21 @@ function updateStats(){
 
     const paid =
         allOrders.reduce(
-            function(sum,order){
+            (sum,order) => {
 
-                if(
+                const payment =
                     String(
                         order.paymentStatus ||
                         "pending"
-                    ).toLowerCase()
-                    !==
+                    ).toLowerCase();
+
+
+                if(
+                    payment !==
                     "paid"
-                ){
+                )
                     return sum;
-                }
+
 
                 return sum +
                     Number(
@@ -1599,9 +2322,9 @@ function updateStats(){
         );
 
 
-    const pendingMoney =
+    const pendingPayment =
         allOrders.reduce(
-            function(sum,order){
+            (sum,order) => {
 
                 const status =
                     String(
@@ -1620,9 +2343,8 @@ function updateStats(){
                 if(
                     status === "cancelled" ||
                     payment === "paid"
-                ){
+                )
                     return sum;
-                }
 
 
                 return sum +
@@ -1635,62 +2357,105 @@ function updateStats(){
         );
 
 
-    document.getElementById("totalOrders")
-    .innerText=total;
+    document
+        .getElementById(
+            "totalOrders"
+        )
+        .innerText =
+        total;
 
 
-    document.getElementById("pendingOrders")
-    .innerText=pending;
+    document
+        .getElementById(
+            "pendingOrders"
+        )
+        .innerText =
+        pending;
 
 
-    document.getElementById("deliveredOrders")
-    .innerText=delivered;
+    document
+        .getElementById(
+            "deliveredOrders"
+        )
+        .innerText =
+        delivered;
 
 
-    document.getElementById("paidSales")
-    .innerText=
-        "₹"+paid.toLocaleString("en-IN");
+    document
+        .getElementById(
+            "paidSales"
+        )
+        .innerText =
+        "₹" +
+        paid.toLocaleString(
+            "en-IN"
+        );
 
 
-    document.getElementById("pendingPayment")
-    .innerText=
-        "₹"+pendingMoney.toLocaleString("en-IN");
+    document
+        .getElementById(
+            "pendingPayment"
+        )
+        .innerText =
+        "₹" +
+        pendingPayment.toLocaleString(
+            "en-IN"
+        );
 
 }
 
 
-/* =====================================================
+/* =====================================
    FILTER
-===================================================== */
+===================================== */
 
 document
-.getElementById("searchInput")
-.addEventListener("input",renderOrders);
+    .getElementById(
+        "searchInput"
+    )
+    .addEventListener(
+        "input",
+        renderOrders
+    );
 
 
 document
-.getElementById("statusFilter")
-.addEventListener("change",renderOrders);
+    .getElementById(
+        "statusFilter"
+    )
+    .addEventListener(
+        "change",
+        renderOrders
+    );
 
 
 document
-.getElementById("paymentFilter")
-.addEventListener("change",renderOrders);
+    .getElementById(
+        "paymentFilter"
+    )
+    .addEventListener(
+        "change",
+        renderOrders
+    );
 
 
-/* =====================================================
-   RENDER
-===================================================== */
+/* =====================================
+   RENDER ORDERS
+===================================== */
 
 function renderOrders(){
 
     const container =
-        document.getElementById("orders");
+        document.getElementById(
+            "orders"
+        );
 
 
     const query =
         document
-        .getElementById("searchInput")
+        .getElementById(
+            "searchInput"
+        )
         .value
         .trim()
         .toLowerCase();
@@ -1698,19 +2463,23 @@ function renderOrders(){
 
     const statusFilter =
         document
-        .getElementById("statusFilter")
+        .getElementById(
+            "statusFilter"
+        )
         .value;
 
 
     const paymentFilter =
         document
-        .getElementById("paymentFilter")
+        .getElementById(
+            "paymentFilter"
+        )
         .value;
 
 
     const filtered =
         allOrders.filter(
-            function(order){
+            order => {
 
                 const customer =
                     getCustomer(order);
@@ -1730,26 +2499,23 @@ function renderOrders(){
                     ).toLowerCase();
 
 
-                const searchable=[
+                const searchable = [
 
-                    getCustomerOrderId(order),
-
-                    getFirebaseDocumentId(order),
+                    order.orderId,
+                    order.id,
 
                     customer.name,
+                    customer.fullName,
 
                     customer.mobile,
-
                     customer.phone,
 
                     customer.address,
-
                     customer.city,
 
                     customer.state,
 
                     customer.pincode,
-
                     customer.pin
 
                 ]
@@ -1764,21 +2530,25 @@ function renderOrders(){
 
                 return (
 
-                    (!query ||
-                    searchable.includes(query))
-
-                    &&
-
                     (
-                        statusFilter==="all" ||
-                        status===statusFilter
+                        !query ||
+                        searchable.includes(
+                            query
+                        )
                     )
 
                     &&
 
                     (
-                        paymentFilter==="all" ||
-                        payment===paymentFilter
+                        statusFilter === "all" ||
+                        status === statusFilter
+                    )
+
+                    &&
+
+                    (
+                        paymentFilter === "all" ||
+                        payment === paymentFilter
                     )
 
                 );
@@ -1787,12 +2557,14 @@ function renderOrders(){
         );
 
 
-    container.innerHTML="";
+    container.innerHTML = "";
 
 
-    if(!filtered.length){
+    if(
+        filtered.length === 0
+    ){
 
-        container.innerHTML=`
+        container.innerHTML = `
 
             <div class="empty">
 
@@ -1808,10 +2580,12 @@ function renderOrders(){
 
 
     filtered.forEach(
-        function(order){
+        order => {
 
             container.appendChild(
-                createOrderCard(order)
+                createOrderCard(
+                    order
+                )
             );
 
         }
@@ -1820,16 +2594,20 @@ function renderOrders(){
 }
 
 
-/* =====================================================
-   ORDER CARD
-===================================================== */
+/* =====================================
+   CREATE ORDER CARD
+===================================== */
 
 function createOrderCard(order){
 
     const card =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
-    card.className="order-card";
+
+    card.className =
+        "order-card";
 
 
     const customer =
@@ -1843,16 +2621,22 @@ function createOrderCard(order){
         ).toLowerCase();
 
 
-    const safeStatus=[
+    const safeStatus = [
+
         "placed",
         "confirmed",
         "processing",
         "shipped",
         "delivered",
         "cancelled"
-    ].includes(status)
-    ? status
-    : "placed";
+
+    ].includes(
+        status
+    )
+    ?
+    status
+    :
+    "placed";
 
 
     const paymentStatus =
@@ -1870,9 +2654,13 @@ function createOrderCard(order){
 
 
     const items =
-        Array.isArray(order.items)
-        ? order.items
-        : [];
+        Array.isArray(
+            order.items
+        )
+        ?
+        order.items
+        :
+        [];
 
 
     const mobile =
@@ -1880,12 +2668,7 @@ function createOrderCard(order){
 
 
     const orderId =
-        getCustomerOrderId(order) ||
-        getFirebaseDocumentId(order);
-
-
-    const firebaseId =
-        getFirebaseDocumentId(order);
+        getOrderId(order);
 
 
     const customerName =
@@ -1894,60 +2677,103 @@ function createOrderCard(order){
         "Customer";
 
 
-    const address=[
+    const address = [
+
         customer.address,
         customer.city,
         customer.state,
+
         customer.pincode ||
         customer.pin
+
     ]
     .filter(Boolean)
     .join(", ");
 
 
-    let paymentBadge="";
+    let paymentBadge = "";
 
-    if(paymentStatus==="paid"){
 
-        paymentBadge=`
-            <span class="payment-badge payment-paid">
+    if(
+        paymentStatus ===
+        "paid"
+    ){
+
+        paymentBadge = `
+
+            <span
+                class="payment-badge payment-paid">
+
                 ✅ PAID
+
             </span>
+
         `;
 
     }
-    else if(cashStatus==="deposited"){
 
-        paymentBadge=`
-            <span class="payment-badge payment-deposited">
+    else if(
+        cashStatus ===
+        "deposited"
+    ){
+
+        paymentBadge = `
+
+            <span
+                class="
+                    payment-badge
+                    payment-deposited">
+
                 🏦 CASH DEPOSITED
+
             </span>
+
         `;
 
     }
-    else if(cashStatus==="received"){
 
-        paymentBadge=`
-            <span class="payment-badge payment-cash">
+    else if(
+        cashStatus ===
+        "received"
+    ){
+
+        paymentBadge = `
+
+            <span
+                class="
+                    payment-badge
+                    payment-cash">
+
                 💰 CASH RECEIVED
+
             </span>
+
         `;
 
     }
+
     else{
 
-        paymentBadge=`
-            <span class="payment-badge payment-pending">
+        paymentBadge = `
+
+            <span
+                class="
+                    payment-badge
+                    payment-pending">
+
                 ⏳ PAYMENT PENDING
+
             </span>
+
         `;
 
     }
 
 
-    card.innerHTML=`
+    card.innerHTML = `
 
         <div class="order-top">
+
 
             <div>
 
@@ -1958,42 +2784,59 @@ function createOrderCard(order){
 
                 </div>
 
+
                 <div class="order-date">
 
-                    ${formatDate(order.createdAt)}
+                    ${formatDate(
+                        order.createdAt
+                    )}
 
                 </div>
 
             </div>
 
 
-            <span class="status ${safeStatus}">
+            <span
+                class="
+                    status
+                    ${safeStatus}">
 
-                ${statusText(safeStatus)}
+                ${statusText(
+                    safeStatus
+                )}
 
             </span>
+
 
         </div>
 
 
         <div class="order-body">
 
+
             <div>
 
                 <div class="info-title">
+
                     👤 Customer
+
                 </div>
+
 
                 <div class="info">
 
                     <b>
-                        ${escapeHtml(customerName)}
+                        ${escapeHtml(
+                            customerName
+                        )}
                     </b>
 
                     <br>
 
                     📱
-                    ${escapeHtml(mobile || "—")}
+                    ${escapeHtml(
+                        mobile || "—"
+                    )}
 
                 </div>
 
@@ -2003,12 +2846,17 @@ function createOrderCard(order){
             <div>
 
                 <div class="info-title">
+
                     📍 Delivery Address
+
                 </div>
+
 
                 <div class="info">
 
-                    ${escapeHtml(address || "—")}
+                    ${escapeHtml(
+                        address || "—"
+                    )}
 
                 </div>
 
@@ -2018,15 +2866,19 @@ function createOrderCard(order){
             <div>
 
                 <div class="info-title">
+
                     💳 Payment
+
                 </div>
+
 
                 <div class="info">
 
                     Method:
                     <b>
                         ${escapeHtml(
-                            order.paymentMethod || "—"
+                            order.paymentMethod ||
+                            "—"
                         )}
                     </b>
 
@@ -2038,44 +2890,61 @@ function createOrderCard(order){
 
             </div>
 
+
         </div>
 
 
         <div class="products">
 
+
             <div class="info-title">
+
                 🛍️ Products
+
             </div>
+
 
             ${
                 items.length
                 ?
+
                 items.map(
-                    function(item){
+                    item => {
 
                         const qty =
-                            Number(item.qty || 1);
+                            Number(
+                                item.qty || 1
+                            );
+
 
                         const price =
-                            Number(item.price || 0);
+                            Number(
+                                item.price || 0
+                            );
 
 
                         return `
 
                             <div class="product">
 
+
                                 <img
                                     src="${escapeHtml(
                                         getImage(item)
                                     )}"
+
                                     onerror="
                                     this.onerror=null;
                                     this.src='logo.png';
                                     ">
 
-                                <div class="product-info">
 
-                                    <div class="product-name">
+                                <div
+                                    class="product-info">
+
+
+                                    <div
+                                        class="product-name">
 
                                         ${escapeHtml(
                                             item.name ||
@@ -2084,37 +2953,30 @@ function createOrderCard(order){
 
                                     </div>
 
-                                    <div class="product-meta">
 
-                                        Qty: ${qty}
+                                    <div
+                                        class="product-meta">
 
-                                        ${
-                                            item.weight
-                                            ?
-                                            " • "+
-                                            escapeHtml(
-                                                item.weight
-                                            )+
-                                            " "+
-                                            escapeHtml(
-                                                item.weightUnit ||
-                                                ""
-                                            )
-                                            :
-                                            ""
-                                        }
+                                        Qty:
+                                        ${qty}
 
                                     </div>
 
+
                                 </div>
 
-                                <div class="product-price">
+
+                                <div
+                                    class="product-price">
 
                                     ₹${(
-                                        price*qty
-                                    ).toLocaleString("en-IN")}
+                                        price * qty
+                                    ).toLocaleString(
+                                        "en-IN"
+                                    )}
 
                                 </div>
+
 
                             </div>
 
@@ -2122,10 +2984,14 @@ function createOrderCard(order){
 
                     }
                 ).join("")
+
                 :
+
                 `
                     <div class="info">
+
                         Product details ନାହିଁ।
+
                     </div>
                 `
             }
@@ -2133,26 +2999,38 @@ function createOrderCard(order){
 
             <div class="order-total">
 
-                <span>Total</span>
+                <span>
+                    Total
+                </span>
 
                 <span>
+
                     ₹${Number(
                         order.total || 0
-                    ).toLocaleString("en-IN")}
+                    ).toLocaleString(
+                        "en-IN"
+                    )}
+
                 </span>
 
             </div>
+
 
         </div>
 
 
         <div class="order-actions">
 
+
             <button
-                class="action-btn view-btn"
-                onclick="viewOrder('${escapeHtml(
-                    firebaseId
-                )}')">
+                class="
+                    action-btn
+                    view-btn"
+                onclick="viewOrder(
+                    '${escapeHtml(
+                        order.id
+                    )}'
+                )">
 
                 👁️ View
 
@@ -2160,10 +3038,14 @@ function createOrderCard(order){
 
 
             <button
-                class="action-btn status-btn"
-                onclick="openStatusModal('${escapeHtml(
-                    firebaseId
-                )}')">
+                class="
+                    action-btn
+                    status-btn"
+                onclick="openStatusModal(
+                    '${escapeHtml(
+                        order.id
+                    )}'
+                )">
 
                 🔄 Status
 
@@ -2171,10 +3053,14 @@ function createOrderCard(order){
 
 
             <button
-                class="action-btn payment-btn"
-                onclick="openPaymentModal('${escapeHtml(
-                    firebaseId
-                )}')">
+                class="
+                    action-btn
+                    payment-btn"
+                onclick="openPaymentModal(
+                    '${escapeHtml(
+                        order.id
+                    )}'
+                )">
 
                 💳 Payment
 
@@ -2184,68 +3070,109 @@ function createOrderCard(order){
             ${
                 mobile
                 ?
+
                 `
-                <a
-                    class="action-btn call-btn"
-                    href="tel:${escapeHtml(mobile)}">
 
-                    📞 Call
+                    <a
+                        class="
+                            action-btn
+                            call-btn"
+                        href="tel:${escapeHtml(
+                            mobile
+                        )}">
 
-                </a>
+                        📞 Call
 
-                <button
-                    class="action-btn whatsapp-btn"
-                    onclick="openWhatsApp(
-                        '${escapeHtml(mobile)}',
-                        '${escapeHtml(orderId)}'
-                    )">
+                    </a>
 
-                    💬 WhatsApp
 
-                </button>
+                    <button
+                        class="
+                            action-btn
+                            whatsapp-btn"
+                        onclick="openWhatsApp(
+                            '${escapeHtml(
+                                mobile
+                            )}',
+                            '${escapeHtml(
+                                orderId
+                            )}'
+                        )">
+
+                        💬 WhatsApp
+
+                    </button>
+
                 `
+
                 :
+
                 ""
             }
 
 
             ${
-                safeStatus!=="cancelled" &&
-                safeStatus!=="delivered"
+                safeStatus !==
+                    "cancelled" &&
+
+                safeStatus !==
+                    "delivered"
+
                 ?
-                `
-                <button
-                    class="action-btn cancel-btn"
-                    onclick="cancelOrder('${escapeHtml(
-                        firebaseId
-                    )}')">
 
-                    ❌ Cancel
-
-                </button>
                 `
+
+                    <button
+                        class="
+                            action-btn
+                            cancel-btn"
+                        onclick="cancelOrder(
+                            '${escapeHtml(
+                                order.id
+                            )}'
+                        )">
+
+                        ❌ Cancel
+
+                    </button>
+
+                `
+
                 :
+
                 ""
             }
 
 
             ${
-                safeStatus==="delivered"
+                safeStatus ===
+                    "delivered"
+
                 ?
-                `
-                <button
-                    class="action-btn delete-btn"
-                    onclick="deleteDeliveredOrder('${escapeHtml(
-                        firebaseId
-                    )}')">
 
-                    🗑️ Delete
-
-                </button>
                 `
+
+                    <button
+                        class="
+                            action-btn
+                            delete-btn"
+                        onclick="deleteDeliveredOrder(
+                            '${escapeHtml(
+                                order.id
+                            )}'
+                        )">
+
+                        🗑️ Delete
+
+                    </button>
+
+                `
+
                 :
+
                 ""
             }
+
 
         </div>
 
@@ -2257,159 +3184,33 @@ function createOrderCard(order){
 }
 
 
-/* =====================================================
+/* =====================================
    FIND ORDER
-===================================================== */
+===================================== */
 
-function findOrder(firebaseDocumentId){
+function findOrder(id){
 
     return allOrders.find(
         order =>
-            order.id===firebaseDocumentId
+            order.id === id
     );
 
 }
 
 
-/* =====================================================
-   DELETE DELIVERED ORDER
-===================================================== */
-
-window.deleteDeliveredOrder =
-async function(firebaseDocumentId){
-
-    const order =
-        findOrder(firebaseDocumentId);
-
-    if(!order){
-
-        toast(
-            "❌ Order ମିଳିଲା ନାହିଁ।"
-        );
-
-        return;
-
-    }
-
-
-    const status =
-        String(
-            order.orderStatus ||
-            ""
-        ).toLowerCase();
-
-
-    /* ONLY DELIVERED ORDER */
-
-    if(status!=="delivered"){
-
-        toast(
-            "❌ କେବଳ Delivered Order delete କରିହେବ।"
-        );
-
-        return;
-
-    }
-
-
-    const orderId =
-        getCustomerOrderId(order) ||
-        getFirebaseDocumentId(order);
-
-
-    const customer =
-        getCustomer(order);
-
-
-    const customerName =
-        customer.name ||
-        customer.fullName ||
-        "Customer";
-
-
-    const yes =
-        confirm(
-            `🗑️ Delivered Order Delete କରିବେ କି?\n\n`+
-            `Order ID: ${orderId}\n`+
-            `Customer: ${customerName}\n\n`+
-            `ଏହି Order admin order list ରୁ permanently delete ହେବ।\n`+
-            `Customer Tracking record delete ହେବ ନାହିଁ।`
-        );
-
-
-    if(!yes)
-        return;
-
-
-    try{
-
-        toast(
-            "⏳ Delivered Order delete ହେଉଛି..."
-        );
-
-
-        const orderRef =
-            doc(
-                db,
-                "orders",
-                firebaseDocumentId
-            );
-
-
-        await deleteDoc(orderRef);
-
-
-        /* REMOVE FROM LOCAL ARRAY */
-
-        allOrders =
-            allOrders.filter(
-                currentOrder =>
-                    currentOrder.id !==
-                    firebaseDocumentId
-            );
-
-
-        /* UPDATE UI */
-
-        updateStats();
-
-        renderOrders();
-
-
-        toast(
-            "✅ Delivered Order successfully deleted।"
-        );
-
-    }
-    catch(error){
-
-        console.error(
-            "DELETE ORDER ERROR:",
-            error
-        );
-
-
-        toast(
-            "❌ Order Delete failed: "+
-            error.message
-        );
-
-    }
-
-};
-
-
-/* =====================================================
+/* =====================================
    VIEW ORDER
-===================================================== */
+===================================== */
 
 window.viewOrder =
-function(firebaseDocumentId){
+function(id){
 
     const order =
-        findOrder(firebaseDocumentId);
+        findOrder(id);
 
-    if(!order)return;
+
+    if(!order)
+        return;
 
 
     const customer =
@@ -2417,9 +3218,27 @@ function(firebaseDocumentId){
 
 
     const items =
-        Array.isArray(order.items)
-        ? order.items
-        : [];
+        Array.isArray(
+            order.items
+        )
+        ?
+        order.items
+        :
+        [];
+
+
+    const address = [
+
+        customer.address,
+        customer.city,
+        customer.state,
+
+        customer.pincode ||
+        customer.pin
+
+    ]
+    .filter(Boolean)
+    .join(", ");
 
 
     const status =
@@ -2429,48 +3248,57 @@ function(firebaseDocumentId){
         ).toLowerCase();
 
 
-    const address=[
-        customer.address,
-        customer.city,
-        customer.state,
-        customer.pincode ||
-        customer.pin
-    ]
-    .filter(Boolean)
-    .join(", ");
-
-
     document
-    .getElementById("viewContent")
-    .innerHTML=`
+        .getElementById(
+            "viewContent"
+        )
+        .innerHTML = `
 
         <div class="modal-section">
 
-            <h3>📦 Order</h3>
+            <h3>
+                📦 Order
+            </h3>
 
             <div class="info">
 
-                <b>Customer Order ID:</b>
+                <b>
+                    Order ID:
+                </b>
+
                 ${escapeHtml(
-                    getCustomerOrderId(order) || "—"
+                    getOrderId(order)
                 )}
 
                 <br>
 
-                <b>Firebase Document ID:</b>
+                <b>
+                    Firebase ID:
+                </b>
+
                 ${escapeHtml(
-                    getFirebaseDocumentId(order)
+                    order.id
                 )}
 
                 <br>
 
-                <b>Created:</b>
-                ${formatDate(order.createdAt)}
+                <b>
+                    Created:
+                </b>
+
+                ${formatDate(
+                    order.createdAt
+                )}
 
                 <br>
 
-                <b>Status:</b>
-                ${statusText(status)}
+                <b>
+                    Status:
+                </b>
+
+                ${statusText(
+                    status
+                )}
 
             </div>
 
@@ -2479,11 +3307,14 @@ function(firebaseDocumentId){
 
         <div class="modal-section">
 
-            <h3>👤 Customer</h3>
+            <h3>
+                👤 Customer
+            </h3>
 
             <div class="info">
 
                 <b>Name:</b>
+
                 ${escapeHtml(
                     customer.name ||
                     customer.fullName ||
@@ -2493,14 +3324,20 @@ function(firebaseDocumentId){
                 <br>
 
                 <b>Mobile:</b>
+
                 ${escapeHtml(
-                    getMobile(order) || "—"
+                    getMobile(order) ||
+                    "—"
                 )}
 
                 <br>
 
                 <b>Address:</b>
-                ${escapeHtml(address || "—")}
+
+                ${escapeHtml(
+                    address ||
+                    "—"
+                )}
 
             </div>
 
@@ -2509,61 +3346,55 @@ function(firebaseDocumentId){
 
         <div class="modal-section">
 
-            <h3>💳 Payment</h3>
+            <h3>
+                💳 Payment
+            </h3>
 
             <div class="info">
 
                 <b>Method:</b>
+
                 ${escapeHtml(
-                    order.paymentMethod || "—"
+                    order.paymentMethod ||
+                    "—"
                 )}
 
                 <br>
 
-                <b>Payment Status:</b>
+                <b>Status:</b>
+
                 ${escapeHtml(
-                    order.paymentStatus || "pending"
+                    order.paymentStatus ||
+                    "pending"
                 )}
-
-                <br>
-
-                <b>Cash Status:</b>
-                ${escapeHtml(
-                    order.cashStatus || "not_received"
-                )}
-
-                <br>
-
-                <b>Subtotal:</b>
-                ₹${Number(
-                    order.subtotal || 0
-                ).toLocaleString("en-IN")}
-
-                <br>
-
-                <b>Delivery:</b>
-                ₹${Number(
-                    order.deliveryCharge || 0
-                ).toLocaleString("en-IN")}
 
                 <br>
 
                 <b>Total:</b>
+
                 ₹${Number(
                     order.total || 0
-                ).toLocaleString("en-IN")}
+                ).toLocaleString(
+                    "en-IN"
+                )}
 
                 ${
                     order.paymentTransactionId
                     ?
+
                     `
                     <br>
+
                     <b>UTR:</b>
+
                     ${escapeHtml(
                         order.paymentTransactionId
                     )}
+
                     `
+
                     :
+
                     ""
                 }
 
@@ -2572,38 +3403,18 @@ function(firebaseDocumentId){
         </div>
 
 
-        ${
-            order.estimatedDelivery
-            ?
-            `
-            <div class="modal-section">
-
-                <h3>🚚 Estimated Delivery</h3>
-
-                <div class="info">
-
-                    ${escapeHtml(
-                        order.estimatedDelivery
-                    )}
-
-                </div>
-
-            </div>
-            `
-            :
-            ""
-        }
-
-
         <div class="modal-section">
 
-            <h3>🛍️ Products</h3>
+            <h3>
+                🛍️ Products
+            </h3>
 
             ${
                 items.length
                 ?
+
                 items.map(
-                    item=>`
+                    item => `
 
                     <div class="product">
 
@@ -2611,14 +3422,18 @@ function(firebaseDocumentId){
                             src="${escapeHtml(
                                 getImage(item)
                             )}"
+
                             onerror="
                             this.onerror=null;
                             this.src='logo.png';
                             ">
 
-                        <div class="product-info">
 
-                            <div class="product-name">
+                        <div
+                            class="product-info">
+
+                            <div
+                                class="product-name">
 
                                 ${escapeHtml(
                                     item.name ||
@@ -2627,9 +3442,11 @@ function(firebaseDocumentId){
 
                             </div>
 
-                            <div class="product-meta">
 
-                                Qty:
+                            <div
+                                class="product-meta">
+
+                                Quantity:
                                 ${Number(
                                     item.qty || 1
                                 )}
@@ -2638,12 +3455,20 @@ function(firebaseDocumentId){
 
                         </div>
 
-                        <div class="product-price">
+
+                        <div
+                            class="product-price">
 
                             ₹${(
-                                Number(item.price || 0) *
-                                Number(item.qty || 1)
-                            ).toLocaleString("en-IN")}
+                                Number(
+                                    item.price || 0
+                                ) *
+                                Number(
+                                    item.qty || 1
+                                )
+                            ).toLocaleString(
+                                "en-IN"
+                            )}
 
                         </div>
 
@@ -2651,41 +3476,24 @@ function(firebaseDocumentId){
 
                     `
                 ).join("")
+
                 :
+
                 "No products"
+
             }
 
         </div>
-
-
-        ${
-            order.customerNote
-            ?
-            `
-            <div class="modal-section">
-
-                <h3>📝 Customer Note</h3>
-
-                <div class="info">
-
-                    ${escapeHtml(
-                        order.customerNote
-                    )}
-
-                </div>
-
-            </div>
-            `
-            :
-            ""
-        }
 
     `;
 
 
     document
-    .getElementById("viewModal")
-    .style.display="flex";
+        .getElementById(
+            "viewModal"
+        )
+        .style.display =
+        "flex";
 
 };
 
@@ -2694,35 +3502,28 @@ window.closeViewModal =
 function(){
 
     document
-    .getElementById("viewModal")
-    .style.display="none";
+        .getElementById(
+            "viewModal"
+        )
+        .style.display =
+        "none";
 
 };
 
 
-/* =====================================================
+/* =====================================
    STATUS MODAL
-===================================================== */
-
-window.closeStatusModal =
-function(){
-
-    document
-    .getElementById("statusModal")
-    .style.display="none";
-
-    selectedOrder=null;
-
-};
-
+===================================== */
 
 window.openStatusModal =
-function(firebaseDocumentId){
+function(id){
 
     selectedOrder =
-        findOrder(firebaseDocumentId);
+        findOrder(id);
 
-    if(!selectedOrder)return;
+
+    if(!selectedOrder)
+        return;
 
 
     const status =
@@ -2733,374 +3534,200 @@ function(firebaseDocumentId){
 
 
     document
-    .getElementById("statusOrderInfo")
-    .innerHTML=`
+        .getElementById(
+            "statusOrderInfo"
+        )
+        .innerHTML = `
 
-        <b>📦 Order ID:</b>
+        <b>
+            📦 Order ID:
+        </b>
 
         ${escapeHtml(
-            getCustomerOrderId(selectedOrder) ||
-            getFirebaseDocumentId(selectedOrder)
+            getOrderId(
+                selectedOrder
+            )
         )}
 
         <br>
 
-        <b>Current:</b>
+        <b>
+            Current Status:
+        </b>
 
-        ${statusText(status)}
+        ${statusText(
+            status
+        )}
 
     `;
 
 
     document
-    .getElementById("statusModal")
-    .style.display="flex";
+        .getElementById(
+            "statusModal"
+        )
+        .style.display =
+        "flex";
 
 };
 
 
-const statusOrder=[
-    "placed",
-    "confirmed",
-    "processing",
-    "shipped",
-    "delivered"
-];
+window.closeStatusModal =
+function(){
+
+    document
+        .getElementById(
+            "statusModal"
+        )
+        .style.display =
+        "none";
+
+    selectedOrder =
+        null;
+
+};
 
 
-/* =====================================================
-   TRACKING
-===================================================== */
-
-function buildTrackingData(
-    order,
-    newStatus,
-    existingData={}
-){
-
-    const mobile =
-        getMobile(order);
-
-
-    const customerOrderId =
-        getCustomerOrderId(order);
-
-
-    if(!mobile)
-        throw new Error(
-            "Customer mobile number missing"
-        );
-
-
-    if(!customerOrderId)
-        throw new Error(
-            "Customer Order ID missing"
-        );
-
-
-    const trackingData={
-
-        orderId:
-            customerOrderId,
-
-        orderStatus:
-            newStatus,
-
-        total:
-            Number(order.total || 0),
-
-        items:
-            Array.isArray(order.items)
-            ?
-            order.items.map(
-                item=>({
-
-                    name:
-                        item.name || "Product",
-
-                    qty:
-                        Number(item.qty || 1),
-
-                    price:
-                        Number(item.price || 0),
-
-                    image:
-                        item.image ||
-                        item.imageUrl ||
-                        "",
-
-                    weight:
-                        item.weight || "",
-
-                    weightUnit:
-                        item.weightUnit || ""
-
-                })
-            )
-            :
-            [],
-
-        updatedAt:
-            serverTimestamp()
-
-    };
-
-
-    if(order.estimatedDelivery)
-        trackingData.estimatedDelivery =
-            order.estimatedDelivery;
-
-
-    if(order.estimatedDeliveryStart)
-        trackingData.estimatedDeliveryStart =
-            order.estimatedDeliveryStart;
-
-
-    if(order.estimatedDeliveryEnd)
-        trackingData.estimatedDeliveryEnd =
-            order.estimatedDeliveryEnd;
-
-
-    if(
-        order.estimatedDeliveryMinDays !==
-        undefined
-    )
-        trackingData.estimatedDeliveryMinDays =
-            order.estimatedDeliveryMinDays;
-
-
-    if(
-        order.estimatedDeliveryMaxDays !==
-        undefined
-    )
-        trackingData.estimatedDeliveryMaxDays =
-            order.estimatedDeliveryMaxDays;
-
-
-    if(!existingData.createdAt)
-        trackingData.createdAt =
-            order.createdAt ||
-            serverTimestamp();
-
-
-    if(
-        newStatus==="placed" &&
-        !existingData.placedAt
-    )
-        trackingData.placedAt =
-            order.createdAt ||
-            serverTimestamp();
-
-
-    if(newStatus==="confirmed")
-        trackingData.confirmedAt =
-            existingData.confirmedAt ||
-            serverTimestamp();
-
-
-    if(newStatus==="processing")
-        trackingData.processingAt =
-            existingData.processingAt ||
-            serverTimestamp();
-
-
-    if(newStatus==="shipped")
-        trackingData.shippedAt =
-            existingData.shippedAt ||
-            serverTimestamp();
-
-
-    if(newStatus==="delivered")
-        trackingData.deliveredAt =
-            existingData.deliveredAt ||
-            serverTimestamp();
-
-
-    if(newStatus==="cancelled")
-        trackingData.cancelledAt =
-            existingData.cancelledAt ||
-            serverTimestamp();
-
-
-    return trackingData;
-
-}
-
-
-/* =====================================================
+/* =====================================
    CHANGE STATUS
-===================================================== */
+===================================== */
 
 window.changeStatus =
 async function(newStatus){
 
-    if(!selectedOrder)return;
+    if(!selectedOrder)
+        return;
 
 
     const order =
         selectedOrder;
 
 
-    const currentStatus =
-        String(
-            order.orderStatus ||
-            "placed"
-        ).toLowerCase();
-
-
-    if(currentStatus===newStatus){
-
-        toast(
-            "ℹ️ Order already has this status."
+    const orderRef =
+        doc(
+            db,
+            "orders",
+            order.id
         );
-
-        return;
-
-    }
-
-
-    if(
-        currentStatus==="delivered" ||
-        currentStatus==="cancelled"
-    ){
-
-        toast(
-            "❌ ଏହି Orderର status change କରାଯିବ ନାହିଁ।"
-        );
-
-        return;
-
-    }
-
-
-    if(newStatus!=="cancelled"){
-
-        const currentIndex =
-            statusOrder.indexOf(currentStatus);
-
-        const newIndex =
-            statusOrder.indexOf(newStatus);
-
-
-        if(newIndex<currentIndex){
-
-            toast(
-                "⚠️ Order status ପଛକୁ change କରିହେବ ନାହିଁ।"
-            );
-
-            return;
-
-        }
-
-    }
-
-
-    if(newStatus==="cancelled"){
-
-        const yes =
-            confirm(
-                "ଏହି Order cancel କରିବେ କି?\n\nStock automatically restore ହେବ।"
-            );
-
-        if(!yes)return;
-
-        await cancelOrderInternal(order);
-
-        return;
-
-    }
 
 
     try{
 
-        toast(
-            "⏳ Status update ହେଉଛି..."
-        );
-
-
         const customerOrderId =
-            getCustomerOrderId(order);
+            getOrderId(order);
 
 
         const mobile =
             getMobile(order);
 
 
-        if(!customerOrderId)
+        if(
+            !customerOrderId ||
+            !mobile
+        ){
+
             throw new Error(
-                "Customer Order ID missing"
+                "Order ID କିମ୍ବା Customer Mobile missing"
             );
 
+        }
 
-        if(!mobile)
-            throw new Error(
-                "Customer mobile number missing"
+
+        if(
+            newStatus ===
+            "cancelled"
+        ){
+
+            const yes =
+                confirm(
+                    "ଏହି Order Cancel କରିବେ କି?"
+                );
+
+
+            if(!yes)
+                return;
+
+
+            await updateDoc(
+                orderRef,
+                {
+
+                    orderStatus:
+                        "cancelled",
+
+                    cancelledAt:
+                        serverTimestamp(),
+
+                    updatedAt:
+                        serverTimestamp()
+
+                }
             );
 
+        }
 
-        const trackingId =
-            `${customerOrderId}_${mobile}`;
+        else{
 
+            await updateDoc(
+                orderRef,
+                {
 
-        const orderRef =
-            doc(
-                db,
-                "orders",
-                getFirebaseDocumentId(order)
+                    orderStatus:
+                        newStatus,
+
+                    updatedAt:
+                        serverTimestamp()
+
+                }
             );
 
+        }
+
+
+        /*
+        CUSTOMER TRACKING
+        */
 
         const trackingRef =
             doc(
                 db,
                 "orderTracking",
-                trackingId
+                `${customerOrderId}_${mobile}`
             );
 
 
-        const batch =
-            writeBatch(db);
-
-
-        batch.update(
-            orderRef,
+        await setDoc(
+            trackingRef,
             {
+
+                orderId:
+                    customerOrderId,
 
                 orderStatus:
                     newStatus,
 
-                updatedAt:
-                    serverTimestamp(),
+                total:
+                    Number(
+                        order.total || 0
+                    ),
 
-                adminConfirmed:
-                    newStatus==="confirmed"
+                items:
+                    Array.isArray(
+                        order.items
+                    )
                     ?
-                    true
+                    order.items
                     :
-                    order.adminConfirmed ||
-                    false
+                    [],
 
-            }
-        );
+                updatedAt:
+                    serverTimestamp()
 
-
-        const trackingData =
-            buildTrackingData(
-                order,
-                newStatus
-            );
-
-
-        batch.set(
-            trackingRef,
-            trackingData,
+            },
             {
                 merge:true
             }
         );
-
-
-        await batch.commit();
 
 
         order.orderStatus =
@@ -3115,16 +3742,17 @@ async function(newStatus){
 
 
         toast(
-            "✅ Status update ହୋଇଗଲା। Customer tracking ମଧ୍ୟ update ହେଲା।"
+            "✅ Order Status Update ହୋଇଗଲା।"
         );
 
     }
+
     catch(error){
 
         console.error(error);
 
         toast(
-            "❌ Status update failed: "+
+            "❌ Status update failed: " +
             error.message
         );
 
@@ -3133,262 +3761,60 @@ async function(newStatus){
 };
 
 
-/* =====================================================
-   CANCEL
-===================================================== */
+/* =====================================
+   CANCEL ORDER
+===================================== */
 
-async function cancelOrderInternal(order){
+window.cancelOrder =
+async function(id){
+
+    const order =
+        findOrder(id);
+
+
+    if(!order)
+        return;
+
+
+    const yes =
+        confirm(
+            "Order Cancel କରିବେ କି?"
+        );
+
+
+    if(!yes)
+        return;
+
 
     try{
 
-        toast(
-            "⏳ Order cancel + stock restore..."
-        );
+        await updateDoc(
 
-
-        const firebaseDocumentId =
-            getFirebaseDocumentId(order);
-
-
-        const customerOrderId =
-            getCustomerOrderId(order);
-
-
-        const mobile =
-            getMobile(order);
-
-
-        if(!customerOrderId)
-            throw new Error(
-                "Customer Order ID missing"
-            );
-
-
-        if(!mobile)
-            throw new Error(
-                "Customer mobile number missing"
-            );
-
-
-        await runTransaction(
-            db,
-            async function(transaction){
-
-                const orderRef =
-                    doc(
-                        db,
-                        "orders",
-                        firebaseDocumentId
-                    );
-
-
-                const orderSnap =
-                    await transaction.get(orderRef);
-
-
-                if(!orderSnap.exists())
-                    throw new Error(
-                        "Order not found"
-                    );
-
-
-                const freshOrder =
-                    orderSnap.data();
-
-
-                const currentStatus =
-                    String(
-                        freshOrder.orderStatus ||
-                        "placed"
-                    ).toLowerCase();
-
-
-                if(currentStatus==="cancelled")
-                    throw new Error(
-                        "Order already cancelled"
-                    );
-
-
-                if(currentStatus==="delivered")
-                    throw new Error(
-                        "Delivered order cannot be cancelled"
-                    );
-
-
-                const items =
-                    Array.isArray(
-                        freshOrder.items
-                    )
-                    ?
-                    freshOrder.items
-                    :
-                    [];
-
-
-                const productData=[];
-
-
-                if(
-                    freshOrder.stockRestored!==true
-                ){
-
-                    for(
-                        const item of items
-                    ){
-
-                        const productId =
-                            item.productId ||
-                            item.id ||
-                            "";
-
-
-                        if(!productId)
-                            continue;
-
-
-                        const productRef =
-                            doc(
-                                db,
-                                "products",
-                                productId
-                            );
-
-
-                        const productSnap =
-                            await transaction.get(
-                                productRef
-                            );
-
-
-                        productData.push({
-
-                            ref:productRef,
-                            snap:productSnap,
-                            item:item
-
-                        });
-
-                    }
-
-
-                    for(
-                        const data of productData
-                    ){
-
-                        if(!data.snap.exists())
-                            continue;
-
-
-                        const product =
-                            data.snap.data();
-
-
-                        const item =
-                            data.item;
-
-
-                        const qty =
-                            Number(
-                                item.qty || 1
-                            );
-
-
-                        const field =
-                            product.stockQty !== undefined
-                            ?
-                            "stockQty"
-                            :
-                            product.availableStock !== undefined
-                            ?
-                            "availableStock"
-                            :
-                            product.stock !== undefined
-                            ?
-                            "stock"
-                            :
-                            product.quantity !== undefined
-                            ?
-                            "quantity"
-                            :
-                            "stockQty";
-
-
-                        const currentStock =
-                            Number(
-                                product[field] || 0
-                            );
-
-
-                        transaction.update(
-                            data.ref,
-                            {
-                                [field]:
-                                    currentStock+qty
-                            }
-                        );
-
-                    }
-
-                }
-
-
-                transaction.update(
-                    orderRef,
-                    {
-
-                        orderStatus:
-                            "cancelled",
-
-                        stockRestored:
-                            true,
-
-                        updatedAt:
-                            serverTimestamp(),
-
-                        cancelledAt:
-                            serverTimestamp()
-
-                    }
-                );
-
-            }
-        );
-
-
-        const trackingId =
-            `${customerOrderId}_${mobile}`;
-
-
-        const trackingRef =
             doc(
                 db,
-                "orderTracking",
-                trackingId
-            );
+                "orders",
+                order.id
+            ),
 
-
-        const trackingData =
-            buildTrackingData(
-                order,
-                "cancelled"
-            );
-
-
-        await setDoc(
-            trackingRef,
-            trackingData,
             {
-                merge:true
+
+                orderStatus:
+                    "cancelled",
+
+                cancelledAt:
+                    serverTimestamp(),
+
+                updatedAt:
+                    serverTimestamp()
+
             }
+
         );
 
 
-        order.orderStatus="cancelled";
+        order.orderStatus =
+            "cancelled";
 
-        order.stockRestored=true;
-
-
-        closeStatusModal();
 
         updateStats();
 
@@ -3396,55 +3822,51 @@ async function cancelOrderInternal(order){
 
 
         toast(
-            "✅ Order Cancelled ଏବଂ Customer Tracking update ହୋଇଗଲା।"
+            "✅ Order Cancelled।"
         );
 
     }
+
     catch(error){
 
         console.error(error);
 
         toast(
-            "❌ Cancel failed: "+
+            "❌ Cancel failed: " +
             error.message
         );
 
     }
 
-}
+};
 
 
-window.cancelOrder =
-async function(firebaseDocumentId){
+/* =====================================
+   DELETE DELIVERED
+===================================== */
+
+window.deleteDeliveredOrder =
+async function(id){
 
     const order =
-        findOrder(firebaseDocumentId);
-
-    if(!order)return;
+        findOrder(id);
 
 
-    const status =
-        String(
-            order.orderStatus ||
-            "placed"
-        ).toLowerCase();
-
-
-    if(status==="delivered"){
-
-        toast(
-            "❌ Delivered Order cancel କରିହେବ ନାହିଁ।"
-        );
-
+    if(!order)
         return;
 
-    }
 
-
-    if(status==="cancelled"){
+    if(
+        String(
+            order.orderStatus ||
+            ""
+        ).toLowerCase()
+        !==
+        "delivered"
+    ){
 
         toast(
-            "ℹ️ Order already cancelled."
+            "❌ କେବଳ Delivered Order delete କରିହେବ।"
         );
 
         return;
@@ -3454,69 +3876,75 @@ async function(firebaseDocumentId){
 
     const yes =
         confirm(
-            "Order Cancel କରିବେ କି?\n\nCancel ପରେ stock automatically restore ହେବ।"
+            "Delivered Order permanently delete କରିବେ କି?"
         );
 
 
-    if(!yes)return;
+    if(!yes)
+        return;
 
 
-    await cancelOrderInternal(order);
+    try{
+
+        await deleteDoc(
+            doc(
+                db,
+                "orders",
+                order.id
+            )
+        );
+
+
+        allOrders =
+            allOrders.filter(
+                item =>
+                    item.id !==
+                    id
+            );
+
+
+        updateStats();
+
+        renderOrders();
+
+
+        toast(
+            "🗑️ Delivered Order deleted।"
+        );
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        toast(
+            "❌ Delete failed: " +
+            error.message
+        );
+
+    }
 
 };
 
 
-/* =====================================================
-   PAYMENT MANAGEMENT
-===================================================== */
+/* =====================================
+   PAYMENT MODAL
+===================================== */
 
 window.openPaymentModal =
-function(firebaseDocumentId){
+function(id){
+
+    selectedOrder =
+        findOrder(id);
+
+
+    if(!selectedOrder)
+        return;
+
 
     const order =
-        findOrder(firebaseDocumentId);
-
-    if(!order)return;
-
-
-    selectedOrder=order;
-
-    renderPaymentModal(order);
-
-
-    document
-    .getElementById("paymentModal")
-    .style.display="flex";
-
-};
-
-
-function renderPaymentModal(order){
-
-    const orderId =
-        getCustomerOrderId(order) ||
-        getFirebaseDocumentId(order);
-
-
-    const method =
-        String(
-            order.paymentMethod ||
-            "COD"
-        ).toLowerCase();
-
-
-    const paymentStatus =
-        String(
-            order.paymentStatus ||
-            "pending"
-        ).toLowerCase();
-
-
-    const cashStatus =
-        String(
-            order.cashStatus ||
-            "not_received"
-        ).toLowerCase();
+        selectedOrder;
 
 
     const total =
@@ -3525,401 +3953,341 @@ function renderPaymentModal(order){
         );
 
 
-    const content =
-        document.getElementById(
+    document
+        .getElementById(
             "paymentContent"
-        );
-
-
-    /* PAID */
-
-    if(paymentStatus==="paid"){
-
-        content.innerHTML=`
-
-            <div class="modal-section">
-
-                <h3>📦 Order</h3>
-
-                <div class="info">
-
-                    <b>Order ID:</b>
-                    ${escapeHtml(orderId)}
-
-                    <br>
-
-                    <b>Payment Method:</b>
-                    ${escapeHtml(
-                        order.paymentMethod || "—"
-                    )}
-
-                    <br>
-
-                    <b>Total:</b>
-                    ₹${total.toLocaleString("en-IN")}
-
-                </div>
-
-            </div>
-
-
-            <div class="payment-info">
-
-                <b>✅ Payment Completed</b>
-
-                <br>
-
-                Paid Amount:
-                ₹${Number(
-                    order.paymentPaidAmount ||
-                    total
-                ).toLocaleString("en-IN")}
-
-                ${
-                    order.paymentTransactionId
-                    ?
-                    `
-                    <br>
-                    UTR / Transaction ID:
-                    ${escapeHtml(
-                        order.paymentTransactionId
-                    )}
-                    `
-                    :
-                    ""
-                }
-
-                ${
-                    order.paymentReceivedAt
-                    ?
-                    `
-                    <br>
-                    Payment Date:
-                    ${formatDate(
-                        order.paymentReceivedAt
-                    )}
-                    `
-                    :
-                    ""
-                }
-
-                ${
-                    order.paymentVerifiedBy
-                    ?
-                    `
-                    <br>
-                    Verified By:
-                    ${escapeHtml(
-                        order.paymentVerifiedBy
-                    )}
-                    `
-                    :
-                    ""
-                }
-
-                ${
-                    order.cashReceivedBy
-                    ?
-                    `
-                    <br>
-                    Cash Received By:
-                    ${escapeHtml(
-                        order.cashReceivedBy
-                    )}
-                    `
-                    :
-                    ""
-                }
-
-                ${
-                    order.cashDepositedBy
-                    ?
-                    `
-                    <br>
-                    Cash Deposited By:
-                    ${escapeHtml(
-                        order.cashDepositedBy
-                    )}
-                    `
-                    :
-                    ""
-                }
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    /* COD */
-
-    if(
-        method.includes("cod") ||
-        method.includes("cash")
-    ){
-
-        content.innerHTML=`
-
-            <div class="modal-section">
-
-                <h3>💰 COD Payment</h3>
-
-                <div class="info">
-
-                    <b>Order ID:</b>
-                    ${escapeHtml(orderId)}
-
-                    <br>
-
-                    <b>Order Total:</b>
-                    ₹${total.toLocaleString("en-IN")}
-
-                    <br>
-
-                    <b>Cash Status:</b>
-
-                    ${
-                        cashStatus==="received"
-                        ?
-                        "💰 Cash Received"
-                        :
-                        cashStatus==="deposited"
-                        ?
-                        "🏦 Cash Deposited"
-                        :
-                        "⏳ Cash Not Received"
-                    }
-
-                </div>
-
-            </div>
-
-
-            <div class="cash-warning">
-
-                ⚠️ Customerଙ୍କଠାରୁ actual cash
-                receive ହେବା ପରେ ମାତ୍ର
-                “Cash Received” କରନ୍ତୁ।
-
-            </div>
-
-
-            ${
-                cashStatus==="not_received"
-                ?
-                `
-                <button
-                    class="payment-save"
-                    onclick="markCashReceived()">
-
-                    💰 Mark Cash Received
-
-                </button>
-                `
-                :
-                ""
-            }
-
-
-            ${
-                cashStatus==="received"
-                ?
-                `
-                <div class="payment-info">
-
-                    💰 Cash Received
-
-                    <br>
-
-                    Amount:
-                    ₹${total.toLocaleString("en-IN")}
-
-                    ${
-                        order.cashReceivedAt
-                        ?
-                        `
-                        <br>
-                        Date:
-                        ${formatDate(
-                            order.cashReceivedAt
-                        )}
-                        `
-                        :
-                        ""
-                    }
-
-                </div>
-
-                <button
-                    class="payment-save"
-                    onclick="markCashDeposited()">
-
-                    🏦 Mark Cash Deposited
-
-                </button>
-                `
-                :
-                ""
-            }
-
-
-            ${
-                cashStatus==="deposited"
-                ?
-                `
-                <div class="payment-info">
-
-                    🏦 Cash Deposited
-
-                    <br>
-
-                    Amount:
-                    ₹${total.toLocaleString("en-IN")}
-
-                </div>
-                `
-                :
-                ""
-            }
-
-        `;
-
-        return;
-
-    }
-
-
-    /* UPI */
-
-    content.innerHTML=`
+        )
+        .innerHTML = `
 
         <div class="modal-section">
 
-            <h3>📱 UPI Payment Verification</h3>
+            <h3>
+                📦 Order
+            </h3>
 
             <div class="info">
 
-                <b>Order ID:</b>
-                ${escapeHtml(orderId)}
+                <b>
+                    Order ID:
+                </b>
+
+                ${escapeHtml(
+                    getOrderId(order)
+                )}
 
                 <br>
 
-                <b>Order Total:</b>
-                ₹${total.toLocaleString("en-IN")}
+                <b>
+                    Total:
+                </b>
+
+                ₹${total.toLocaleString(
+                    "en-IN"
+                )}
 
                 <br>
 
-                <b>Current Status:</b>
-                ⏳ Payment Pending
+                <b>
+                    Payment Method:
+                </b>
+
+                ${escapeHtml(
+                    order.paymentMethod ||
+                    "—"
+                )}
 
             </div>
 
         </div>
 
 
-        <div class="cash-warning">
+        <label
+            class="payment-label">
 
-            ⚠️ Customer ଦେଇଥିବା UTR କୁ
-            କେବଳ ଦେଖି automatically Paid
-            କରନ୍ତୁ ନାହିଁ।
-
-            <br>
-
-            ନିଜ UPI/Bank account ରେ payment
-            receive ହୋଇଛି କି verify କରନ୍ତୁ।
-
-        </div>
-
-
-        <label class="payment-label">
             UTR / Transaction ID
+
         </label>
+
 
         <input
             class="payment-input"
             id="adminUTR"
-            type="text"
             value="${escapeHtml(
-                order.paymentTransactionId || ""
+                order.paymentTransactionId ||
+                ""
             )}"
-            placeholder="Customer UTR">
+            placeholder="UTR / Transaction ID">
 
 
-        <label class="payment-label">
+        <label
+            class="payment-label">
+
             Paid Amount
+
         </label>
+
 
         <input
             class="payment-input"
             id="adminPaidAmount"
             type="number"
-            min="0"
-            step="0.01"
-            value="${total}"
-            placeholder="Paid Amount">
+            value="${total}">
 
 
-        <label class="payment-label">
-            Admin Note
+        <label
+            class="payment-label">
+
+            Payment Note
+
         </label>
+
 
         <input
             class="payment-input"
             id="adminPaymentNote"
-            type="text"
             value="${escapeHtml(
-                order.paymentNote || ""
+                order.paymentNote ||
+                ""
             )}"
-            placeholder="Payment verification note">
+            placeholder="Payment note">
 
 
         <button
             class="payment-save"
-            onclick="markUPIPaid()">
+            onclick="markPaid()">
 
-            ✅ Verify & Mark UPI Paid
+            ✅ Verify & Mark Paid
 
         </button>
 
+
+        ${
+            String(
+                order.paymentMethod ||
+                ""
+            ).toLowerCase()
+            .includes("cod")
+            ?
+
+            `
+
+            <button
+                class="payment-save"
+                onclick="markCashReceived()">
+
+                💰 Mark Cash Received
+
+            </button>
+
+            `
+
+            :
+
+            ""
+        }
+
     `;
 
-}
+
+    document
+        .getElementById(
+            "paymentModal"
+        )
+        .style.display =
+        "flex";
+
+};
 
 
-/* =====================================================
-   CASH RECEIVED
-===================================================== */
+window.closePaymentModal =
+function(){
 
-window.markCashReceived =
+    document
+        .getElementById(
+            "paymentModal"
+        )
+        .style.display =
+        "none";
+
+    selectedOrder =
+        null;
+
+};
+
+
+/* =====================================
+   MARK PAID
+===================================== */
+
+window.markPaid =
 async function(){
 
-    if(!selectedOrder)return;
+    if(!selectedOrder)
+        return;
 
 
-    const order =
-        selectedOrder;
+    const utr =
+        document
+        .getElementById(
+            "adminUTR"
+        )
+        .value
+        .trim();
 
 
-    const orderRef =
-        doc(
-            db,
-            "orders",
-            getFirebaseDocumentId(order)
+    const amount =
+        Number(
+            document
+            .getElementById(
+                "adminPaidAmount"
+            )
+            .value
         );
+
+
+    const note =
+        document
+        .getElementById(
+            "adminPaymentNote"
+        )
+        .value
+        .trim();
+
+
+    if(!utr){
+
+        toast(
+            "⚠️ UTR ଦିଅନ୍ତୁ।"
+        );
+
+        return;
+
+    }
+
+
+    if(
+        !amount ||
+        amount <= 0
+    ){
+
+        toast(
+            "⚠️ Paid amount ଦିଅନ୍ତୁ।"
+        );
+
+        return;
+
+    }
+
+
+    const yes =
+        confirm(
+            "Payment verify କରି Paid କରିବେ କି?"
+        );
+
+
+    if(!yes)
+        return;
 
 
     try{
 
-        toast(
-            "⏳ Cash Received update..."
+        await updateDoc(
+
+            doc(
+                db,
+                "orders",
+                selectedOrder.id
+            ),
+
+            {
+
+                paymentStatus:
+                    "paid",
+
+                paymentTransactionId:
+                    utr,
+
+                paymentPaidAmount:
+                    amount,
+
+                paymentNote:
+                    note,
+
+                paymentReceivedAt:
+                    serverTimestamp(),
+
+                paymentVerifiedBy:
+                    auth.currentUser?.email ||
+                    ADMIN_EMAIL,
+
+                updatedAt:
+                    serverTimestamp()
+
+            }
+
         );
 
 
+        selectedOrder.paymentStatus =
+            "paid";
+
+
+        selectedOrder.paymentTransactionId =
+            utr;
+
+
+        selectedOrder.paymentPaidAmount =
+            amount;
+
+
+        closePaymentModal();
+
+        updateStats();
+
+        renderOrders();
+
+
+        toast(
+            "✅ Payment Paid ହୋଇଗଲା।"
+        );
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        toast(
+            "❌ Payment update failed: " +
+            error.message
+        );
+
+    }
+
+};
+
+
+/* =====================================
+   CASH RECEIVED
+===================================== */
+
+window.markCashReceived =
+async function(){
+
+    if(!selectedOrder)
+        return;
+
+
+    try{
+
         await updateDoc(
-            orderRef,
+
+            doc(
+                db,
+                "orders",
+                selectedOrder.id
+            ),
+
             {
 
                 cashStatus:
@@ -3932,19 +4300,16 @@ async function(){
                     auth.currentUser?.email ||
                     ADMIN_EMAIL,
 
-                paymentStatus:
-                    "pending",
-
                 updatedAt:
                     serverTimestamp()
 
             }
+
         );
 
 
-        order.cashStatus="received";
-
-        order.paymentStatus="pending";
+        selectedOrder.cashStatus =
+            "received";
 
 
         closePaymentModal();
@@ -3953,16 +4318,17 @@ async function(){
 
 
         toast(
-            "✅ Cash Received save ହୋଇଗଲା।"
+            "💰 Cash Received save ହୋଇଗଲା।"
         );
 
     }
+
     catch(error){
 
         console.error(error);
 
         toast(
-            "❌ Cash Received failed: "+
+            "❌ Cash update failed: " +
             error.message
         );
 
@@ -3971,317 +4337,27 @@ async function(){
 };
 
 
-/* =====================================================
-   CASH DEPOSITED
-===================================================== */
-
-window.markCashDeposited =
-async function(){
-
-    if(!selectedOrder)return;
-
-
-    const order =
-        selectedOrder;
-
-
-    const yes =
-        confirm(
-            "Cash office/trust account ରେ deposit ହୋଇଛି ବୋଲି confirm କରିବେ କି?"
-        );
-
-
-    if(!yes)return;
-
-
-    const orderRef =
-        doc(
-            db,
-            "orders",
-            getFirebaseDocumentId(order)
-        );
-
-
-    try{
-
-        toast(
-            "⏳ Cash Deposited update..."
-        );
-
-
-        await updateDoc(
-            orderRef,
-            {
-
-                cashStatus:
-                    "deposited",
-
-                cashDepositedAt:
-                    serverTimestamp(),
-
-                cashDepositedBy:
-                    auth.currentUser?.email ||
-                    ADMIN_EMAIL,
-
-                paymentStatus:
-                    "paid",
-
-                paymentPaidAmount:
-                    Number(
-                        order.total || 0
-                    ),
-
-                paymentReceivedAt:
-                    serverTimestamp(),
-
-                paymentNote:
-                    "COD cash received and deposited",
-
-                paymentVerifiedBy:
-                    auth.currentUser?.email ||
-                    ADMIN_EMAIL,
-
-                updatedAt:
-                    serverTimestamp()
-
-            }
-        );
-
-
-        order.cashStatus="deposited";
-
-        order.paymentStatus="paid";
-
-        order.paymentPaidAmount =
-            Number(order.total || 0);
-
-
-        closePaymentModal();
-
-        updateStats();
-
-        renderOrders();
-
-
-        toast(
-            "✅ Cash Deposited ଏବଂ Payment Paid ହୋଇଗଲା।"
-        );
-
-    }
-    catch(error){
-
-        console.error(error);
-
-        toast(
-            "❌ Cash Deposited failed: "+
-            error.message
-        );
-
-    }
-
-};
-
-
-/* =====================================================
-   UPI PAID
-===================================================== */
-
-window.markUPIPaid =
-async function(){
-
-    if(!selectedOrder)return;
-
-
-    const order =
-        selectedOrder;
-
-
-    const utr =
-        document
-        .getElementById("adminUTR")
-        .value
-        .trim();
-
-
-    const paidAmount =
-        Number(
-            document
-            .getElementById("adminPaidAmount")
-            .value
-        );
-
-
-    const note =
-        document
-        .getElementById("adminPaymentNote")
-        .value
-        .trim();
-
-
-    const total =
-        Number(order.total || 0);
-
-
-    if(!utr){
-
-        toast(
-            "⚠️ UTR / Transaction ID ଦିଅନ୍ତୁ।"
-        );
-
-        return;
-
-    }
-
-
-    if(!paidAmount || paidAmount<=0){
-
-        toast(
-            "⚠️ Paid Amount ଠିକ୍ ଭାବରେ ଦିଅନ୍ତୁ।"
-        );
-
-        return;
-
-    }
-
-
-    if(paidAmount!==total){
-
-        const yes =
-            confirm(
-                `Order Total ₹${total}\nPaid Amount ₹${paidAmount}\n\nAmount mismatch ଅଛି। ତଥାପି Paid କରିବେ କି?`
-            );
-
-        if(!yes)return;
-
-    }
-
-
-    const verified =
-        confirm(
-            "ଆପଣ UPI/Bank account ରେ ଏହି payment verify କରିଛନ୍ତି କି?\n\nVerify କରିଥିଲେ OK କରନ୍ତୁ।"
-        );
-
-
-    if(!verified)return;
-
-
-    const orderRef =
-        doc(
-            db,
-            "orders",
-            getFirebaseDocumentId(order)
-        );
-
-
-    try{
-
-        toast(
-            "⏳ UPI Payment verify ହେଉଛି..."
-        );
-
-
-        await updateDoc(
-            orderRef,
-            {
-
-                paymentStatus:
-                    "paid",
-
-                paymentTransactionId:
-                    utr,
-
-                paymentPaidAmount:
-                    paidAmount,
-
-                paymentReceivedAt:
-                    serverTimestamp(),
-
-                paymentNote:
-                    note ||
-                    "UPI payment verified",
-
-                paymentVerifiedBy:
-                    auth.currentUser?.email ||
-                    ADMIN_EMAIL,
-
-                updatedAt:
-                    serverTimestamp()
-
-            }
-        );
-
-
-        order.paymentStatus="paid";
-
-        order.paymentTransactionId=utr;
-
-        order.paymentPaidAmount=paidAmount;
-
-        order.paymentNote =
-            note ||
-            "UPI payment verified";
-
-        order.paymentVerifiedBy =
-            auth.currentUser?.email ||
-            ADMIN_EMAIL;
-
-
-        closePaymentModal();
-
-        updateStats();
-
-        renderOrders();
-
-
-        toast(
-            "✅ UPI Payment Verified & Paid ହୋଇଗଲା।"
-        );
-
-    }
-    catch(error){
-
-        console.error(error);
-
-        toast(
-            "❌ UPI Payment failed: "+
-            error.message
-        );
-
-    }
-
-};
-
-
-/* =====================================================
-   CLOSE PAYMENT
-===================================================== */
-
-window.closePaymentModal =
-function(){
-
-    document
-    .getElementById("paymentModal")
-    .style.display="none";
-
-};
-
-
-/* =====================================================
+/* =====================================
    WHATSAPP
-===================================================== */
+===================================== */
 
 window.openWhatsApp =
-function(mobile,orderId){
+function(
+    mobile,
+    orderId
+){
 
     const message =
         `ନମସ୍କାର, Utkala Mart Order ${orderId} ବିଷୟରେ ଯୋଗାଯୋଗ କରୁଛୁ।`;
 
 
     const url =
-        "https://wa.me/91"+
-        mobile+
-        "?text="+
-        encodeURIComponent(message);
+        "https://wa.me/91" +
+        mobile +
+        "?text=" +
+        encodeURIComponent(
+            message
+        );
 
 
     window.open(
@@ -4292,30 +4368,39 @@ function(mobile,orderId){
 };
 
 
-/* =====================================================
+/* =====================================
    TOAST
-===================================================== */
+===================================== */
 
 function toast(message){
 
     const element =
-        document.getElementById("toast");
+        document.getElementById(
+            "toast"
+        );
 
 
-    element.innerText=message;
+    element.innerText =
+        message;
 
 
-    element.classList.add("show");
+    element.classList.add(
+        "show"
+    );
 
 
-    clearTimeout(window.toastTimer);
+    clearTimeout(
+        window.toastTimer
+    );
 
 
     window.toastTimer =
         setTimeout(
-            function(){
+            () => {
 
-                element.classList.remove("show");
+                element.classList.remove(
+                    "show"
+                );
 
             },
             3000
@@ -4324,58 +4409,85 @@ function toast(message){
 }
 
 
-/* =====================================================
-   BACKDROP
-===================================================== */
+/* =====================================
+   MODAL BACKDROP
+===================================== */
 
 document
-.getElementById("viewModal")
-.addEventListener(
-    "click",
-    function(event){
+    .getElementById(
+        "viewModal"
+    )
+    .addEventListener(
+        "click",
+        function(event){
 
-        if(event.target===this)
-            closeViewModal();
+            if(
+                event.target ===
+                this
+            ){
 
-    }
-);
+                closeViewModal();
 
+            }
 
-document
-.getElementById("statusModal")
-.addEventListener(
-    "click",
-    function(event){
-
-        if(event.target===this)
-            closeStatusModal();
-
-    }
-);
+        }
+    );
 
 
 document
-.getElementById("paymentModal")
-.addEventListener(
-    "click",
-    function(event){
+    .getElementById(
+        "statusModal"
+    )
+    .addEventListener(
+        "click",
+        function(event){
 
-        if(event.target===this)
-            closePaymentModal();
+            if(
+                event.target ===
+                this
+            ){
 
-    }
-);
+                closeStatusModal();
+
+            }
+
+        }
+    );
 
 
-/* =====================================================
-   ESC
-===================================================== */
+document
+    .getElementById(
+        "paymentModal"
+    )
+    .addEventListener(
+        "click",
+        function(event){
+
+            if(
+                event.target ===
+                this
+            ){
+
+                closePaymentModal();
+
+            }
+
+        }
+    );
+
+
+/* =====================================
+   ESC KEY
+===================================== */
 
 document.addEventListener(
     "keydown",
-    function(event){
+    event => {
 
-        if(event.key==="Escape"){
+        if(
+            event.key ===
+            "Escape"
+        ){
 
             closeViewModal();
 
@@ -4389,24 +4501,32 @@ document.addEventListener(
 );
 
 
-/* =====================================================
+/* =====================================
    ENTER LOGIN
-===================================================== */
+===================================== */
 
 document
-.getElementById("password")
-.addEventListener(
-    "keydown",
-    function(event){
+    .getElementById(
+        "password"
+    )
+    .addEventListener(
+        "keydown",
+        event => {
 
-        if(event.key==="Enter")
-            login();
+            if(
+                event.key ===
+                "Enter"
+            ){
 
-    }
-);
+                login();
+
+            }
+
+        }
+    );
 
 </script>
 
 </body>
 
-</html>
+      </html>
