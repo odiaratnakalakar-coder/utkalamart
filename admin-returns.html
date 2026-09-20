@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="or">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color"
+content="#138a45">
+
+<title>Admin Returns | Utkala Mart</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:
+        Arial,
+        "Noto Sans Odia",
+        "Noto Sans Oriya",
+        sans-serif;
+
+    background:#f5f7f6;
+    color:#222;
+}
+
+/* HEADER */
+
+header{
+    background:#138a45;
+    color:white;
+    padding:15px 18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.back{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+}
+
+/* CONTAINER */
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:18px;
+}
+
+/* TITLE */
+
+.title-box{
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:18px;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,.07);
+}
+
+.title-box h1{
+    margin:0 0 6px;
+    color:#138a45;
+    font-size:24px;
+}
+
+.title-box p{
+    margin:0;
+    color:#777;
+}
+
+/* SUMMARY */
+
+.summary{
+    display:grid;
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:12px;
+    margin-bottom:20px;
+}
+
+.summary-card{
+    background:white;
+    border-radius:14px;
+    padding:18px;
+
+    text-align:center;
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,.06);
+}
+
+.summary-card .number{
+    font-size:28px;
+    font-weight:bold;
+    color:#138a45;
+}
+
+.summary-card .label{
+    color:#666;
+    font-size:14px;
+    margin-top:5px;
+}
+
+/* FILTER */
+
+.filter-box{
+    background:white;
+    padding:14px;
+    border-radius:14px;
+    margin-bottom:18px;
+
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.filter-btn{
+    border:1px solid #ccc;
+    background:white;
+    padding:9px 15px;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+.filter-btn.active{
+    background:#138a45;
+    color:white;
+    border-color:#138a45;
+}
+
+/* RETURN CARD */
+
+.return-card{
+    background:white;
+    border-radius:15px;
+    padding:18px;
+    margin-bottom:15px;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,.07);
+}
+
+.return-header{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    flex-wrap:wrap;
+
+    border-bottom:1px solid #eee;
+    padding-bottom:12px;
+}
+
+.return-id{
+    color:#138a45;
+    font-weight:bold;
+}
+
+.status{
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.pending{
+    background:#fff3cd;
+    color:#856404;
+}
+
+.approved{
+    background:#e8f5e9;
+    color:#138a45;
+}
+
+.rejected{
+    background:#fde8e8;
+    color:#c62828;
+}
+
+.refunded{
+    background:#e3f2fd;
+    color:#1565c0;
+}
+
+.return-info{
+    margin-top:14px;
+}
+
+.row{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+
+    padding:7px 0;
+
+    border-bottom:1px solid #f1f1f1;
+
+    font-size:14px;
+}
+
+.row span:first-child{
+    color:#777;
+}
+
+.row span:last-child{
+    text-align:right;
+    font-weight:600;
+}
+
+/* ACTIONS */
+
+.actions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+
+    margin-top:15px;
+}
+
+.btn{
+    border:0;
+    padding:10px 15px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.approve-btn{
+    background:#138a45;
+    color:white;
+}
+
+.reject-btn{
+    background:#f44336;
+    color:white;
+}
+
+.refund-btn{
+    background:#1565c0;
+    color:white;
+}
+
+.delete-btn{
+    background:#eee;
+    color:#333;
+}
+
+/* EMPTY */
+
+.empty{
+    background:white;
+    border-radius:15px;
+    padding:40px 20px;
+    text-align:center;
+    color:#777;
+}
+
+/* MOBILE */
+
+@media(max-width:650px){
+
+    .container{
+        padding:12px;
+    }
+
+    .summary{
+        grid-template-columns:1fr;
+    }
+
+    .row{
+        flex-direction:column;
+        gap:3px;
+    }
+
+    .row span:last-child{
+        text-align:left;
+    }
+
+    .actions .btn{
+        width:100%;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        🛍️ Utkala Mart — Admin
+    </div>
+
+    <a
+        href="admin-orders.html"
+        class="back">
+
+        ← Admin Orders
+
+    </a>
+
+</header>
+
+
+<div class="container">
+
+
+    <!-- TITLE -->
+
+    <div class="title-box">
+
+        <h1>
+            🔄 Return & Refund Requests
+        </h1>
+
+        <p>
+            Customer Return / Refund Requests
+            manage କରନ୍ତୁ।
+        </p>
+
+    </div>
+
+
+    <!-- SUMMARY -->
+
+    <div class="summary">
+
+        <div class="summary-card">
+
+            <div
+                class="number"
+                id="totalCount">
+                0
+            </div>
+
+            <div class="label">
+                Total Requests
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div
+                class="number"
+                id="pendingCount">
+                0
+            </div>
+
+            <div class="label">
+                Pending
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div
+                class="number"
+                id="refundedCount">
+                0
+            </div>
+
+            <div class="label">
+                Refunded
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- FILTER -->
+
+    <div class="filter-box">
+
+        <button
+            class="filter-btn active"
+            onclick="filterRequests('All',this)">
+
+            ସମସ୍ତ
+
+        </button>
+
+        <button
+            class="filter-btn"
+            onclick="filterRequests('Pending',this)">
+
+            Pending
+
+        </button>
+
+        <button
+            class="filter-btn"
+            onclick="filterRequests('Approved',this)">
+
+            Approved
+
+        </button>
+
+        <button
+            class="filter-btn"
+            onclick="filterRequests('Rejected',this)">
+
+            Rejected
+
+        </button>
+
+        <button
+            class="filter-btn"
+            onclick="filterRequests('Refunded',this)">
+
+            Refunded
+
+        </button>
+
+    </div>
+
+
+    <!-- REQUEST LIST -->
+
+    <div id="requestsList"></div>
+
+
+</div>
+
+
+<script type="module">
+
+/* =====================================
+   FIREBASE
+===================================== */
+
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import {
+    getAuth,
+    onAuthStateChanged
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+import {
+    getFirestore,
+    collection,
+    getDocs,
+    updateDoc,
+    deleteDoc,
+    doc
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =====================================
+   CONFIG
+===================================== */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyBYJ_KKsS_7SNz108jnw6hpOlmegofRhJg",
+
+    authDomain:
+        "utkalamart-1ec68.firebaseapp.com",
+
+    projectId:
+        "utkalamart-1ec68",
+
+    storageBucket:
+        "utkalamart-1ec68.firebasestorage.app",
+
+    messagingSenderId:
+        "664871353747",
+
+    appId:
+        "1:664871353747:web:96532fdafe78aabe7f3c66"
+
+};
+
+
+/* =====================================
+   FIREBASE INIT
+===================================== */
+
+const app =
+    initializeApp(firebaseConfig);
+
+const auth =
+    getAuth(app);
+
+const db =
+    getFirestore(app);
+
+
+/* =====================================
+   ADMIN
+===================================== */
+
+const ADMIN_EMAIL =
+    "Suryakantabehera629@gmail.com";
+
+
+/* =====================================
+   DATA
+===================================== */
+
+let requests = [];
+
+let currentFilter = "All";
+
+
+/* =====================================
+   AUTH CHECK
+===================================== */
+
+onAuthStateChanged(
+    auth,
+    async (user) => {
+
+        if(!user){
+
+            window.location.href =
+                "admin-login.html";
+
+            return;
+
+        }
+
+
+        if(
+            !user.email ||
+            user.email.toLowerCase() !==
+            ADMIN_EMAIL.toLowerCase()
+        ){
+
+            window.location.href =
+                "admin-login.html";
+
+            return;
+
+        }
+
+
+        loadRequests();
+
+    }
+);
+
+
+/* =====================================
+   LOAD REQUESTS
+===================================== */
+
+async function loadRequests(){
+
+    const list =
+        document.getElementById(
+            "requestsList"
+        );
+
+    list.innerHTML = `
+        <div class="empty">
+            ⏳ Loading Return Requests...
+        </div>
+    `;
+
+
+    try{
+
+        const snapshot =
+            await getDocs(
+                collection(
+                    db,
+                    "returnRequests"
+                )
+            );
+
+
+        requests = [];
+
+
+        snapshot.forEach(
+            item => {
+
+                requests.push({
+
+                    firestoreId:item.id,
+
+                    ...item.data()
+
+                });
+
+            }
+        );
+
+
+        requests.sort(
+            (a,b) =>
+                (b.createdAt || "")
+                .localeCompare(
+                    a.createdAt || ""
+                )
+        );
+
+
+        updateSummary();
+
+        renderRequests();
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        list.innerHTML = `
+            <div class="empty">
+                ❌ Return Requests load ହେଲା ନାହିଁ।
+                <br><br>
+                Firebase Firestore check କରନ୍ତୁ।
+            </div>
+        `;
+
+    }
+
+}
+
+
+/* =====================================
+   SUMMARY
+===================================== */
+
+function updateSummary(){
+
+    document.getElementById(
+        "totalCount"
+    ).textContent =
+        requests.length;
+
+
+    document.getElementById(
+        "pendingCount"
+    ).textContent =
+        requests.filter(
+            x => x.status === "Pending"
+        ).length;
+
+
+    document.getElementById(
+        "refundedCount"
+    ).textContent =
+        requests.filter(
+            x => x.status === "Refunded"
+        ).length;
+
+}
+
+
+/* =====================================
+   FILTER
+===================================== */
+
+window.filterRequests =
+function(status,button){
+
+    currentFilter = status;
+
+
+    document
+        .querySelectorAll(
+            ".filter-btn"
+        )
+        .forEach(
+            btn =>
+                btn.classList.remove(
+                    "active"
+                )
+        );
+
+
+    button.classList.add("active");
+
+
+    renderRequests();
+
+};
+
+
+/* =====================================
+   RENDER
+===================================== */
+
+function renderRequests(){
+
+    const list =
+        document.getElementById(
+            "requestsList"
+        );
+
+
+    let filtered =
+        requests;
+
+
+    if(currentFilter !== "All"){
+
+        filtered =
+            requests.filter(
+                item =>
+                    item.status ===
+                    currentFilter
+            );
+
+    }
+
+
+    if(filtered.length === 0){
+
+        list.innerHTML = `
+            <div class="empty">
+                📋 କୌଣସି Return Request ନାହିଁ।
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    list.innerHTML = "";
+
+
+    filtered.forEach(
+        item => {
+
+            const status =
+                item.status || "Pending";
+
+
+            const statusClass =
+                status.toLowerCase();
+
+
+            list.innerHTML += `
+
+            <div class="return-card">
+
+                <div class="return-header">
+
+                    <div class="return-id">
+
+                        Return ID:
+                        ${item.id || item.firestoreId}
+
+                    </div>
+
+                    <div
+                        class="status ${statusClass}">
+
+                        ${status}
+
+                    </div>
+
+                </div>
+
+
+                <div class="return-info">
+
+                    <div class="row">
+
+                        <span>
+                            Product
+                        </span>
+
+                        <span>
+                            ${item.product || "-"}
+                        </span>
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <span>
+                            Order
+                        </span>
+
+                        <span>
+                            #${item.orderId || "-"}
+                        </span>
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <span>
+                            Refund
+                        </span>
+
+                        <span>
+                            ₹${item.amount || 0}
+                        </span>
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <span>
+                            Reason
+                        </span>
+
+                        <span>
+                            ${item.reason || "-"}
+                        </span>
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <span>
+                            Refund Method
+                        </span>
+
+                        <span>
+                            ${item.refundMethod || "-"}
+                        </span>
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <span>
+                            Note
+                        </span>
+
+                        <span>
+                            ${item.note || "-"}
+                        </span>
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <span>
+                            Request Date
+                        </span>
+
+                        <span>
+                            ${item.date || "-"}
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="actions">
+
+                    ${
+                        status === "Pending"
+
+                        ?
+
+                        `
+                        <button
+                            class="btn approve-btn"
+                            onclick="changeStatus(
+                                '${item.firestoreId}',
+                                'Approved'
+                            )">
+
+                            ✅ Approve
+
+                        </button>
+
+                        <button
+                            class="btn reject-btn"
+                            onclick="changeStatus(
+                                '${item.firestoreId}',
+                                'Rejected'
+                            )">
+
+                            ❌ Reject
+
+                        </button>
+                        `
+
+                        :
+
+                        ""
+                    }
+
+
+                    ${
+                        status === "Approved"
+
+                        ?
+
+                        `
+                        <button
+                            class="btn refund-btn"
+                            onclick="changeStatus(
+                                '${item.firestoreId}',
+                                'Refunded'
+                            )">
+
+                            💰 Mark Refunded
+
+                        </button>
+                        `
+
+                        :
+
+                        ""
+                    }
+
+
+                    <button
+                        class="btn delete-btn"
+                        onclick="deleteRequest(
+                            '${item.firestoreId}'
+                        )">
+
+                        🗑️ Delete
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            `;
+
+        }
+    );
+
+}
+
+
+/* =====================================
+   CHANGE STATUS
+===================================== */
+
+window.changeStatus =
+async function(id,status){
+
+    const message =
+        status === "Approved"
+        ? "Return Request Approve କରିବେ?"
+        : status === "Rejected"
+        ? "Return Request Reject କରିବେ?"
+        : "Refund complete ହୋଇଛି କି?";
+
+
+    if(!confirm(message)){
+
+        return;
+
+    }
+
+
+    try{
+
+        await updateDoc(
+            doc(
+                db,
+                "returnRequests",
+                id
+            ),
+            {
+                status:status,
+                updatedAt:
+                    new Date().toISOString()
+            }
+        );
+
+
+        await loadRequests();
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "❌ Status update ହୋଇନାହିଁ।"
+        );
+
+    }
+
+};
+
+
+/* =====================================
+   DELETE
+===================================== */
+
+window.deleteRequest =
+async function(id){
+
+    if(
+        !confirm(
+            "ଏହି Return Request delete କରିବେ?"
+        )
+    ){
+
+        return;
+
+    }
+
+
+    try{
+
+        await deleteDoc(
+            doc(
+                db,
+                "returnRequests",
+                id
+            )
+        );
+
+
+        await loadRequests();
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "❌ Delete ହୋଇନାହିଁ।"
+        );
+
+    }
+
+};
+
+</script>
+
+</body>
+
+</html>
