@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="or">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#075b3b">
+
+<title>Payment History | Utkala Mart</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:
+        Arial,
+        "Noto Sans Odia",
+        "Noto Sans Oriya",
+        sans-serif;
+    background:#f5f7f6;
+    color:#222;
+    padding-bottom:80px;
+}
+
+/* TOP BAR */
+
+.topbar{
+    background:#075b3b;
+    color:#fff;
+    padding:8px 14px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:12px;
+}
+
+.topbar a{
+    color:#fff;
+    text-decoration:none;
+    margin-left:10px;
+}
+
+/* HEADER */
+
+.header{
+    background:#fff;
+    padding:10px 15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #ddd;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    text-decoration:none;
+}
+
+.logo{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.brand h1{
+    margin:0;
+    font-size:24px;
+    color:#e87522;
+}
+
+.brand h1 span{
+    color:#08734b;
+}
+
+.brand p{
+    margin:2px 0 0;
+    font-size:10px;
+    color:#777;
+}
+
+.header-links{
+    display:flex;
+    gap:12px;
+}
+
+.header-links a{
+    text-decoration:none;
+    color:#333;
+    text-align:center;
+    font-size:11px;
+}
+
+.header-links .icon{
+    display:block;
+    font-size:23px;
+}
+
+/* MAIN */
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:15px;
+}
+
+.back{
+    display:inline-block;
+    margin-bottom:12px;
+    color:#075b3b;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* TITLE */
+
+.page-title{
+    background:linear-gradient(
+        135deg,
+        #075b3b,
+        #0b8054
+    );
+    color:#fff;
+    padding:19px;
+    border-radius:16px;
+    margin-bottom:15px;
+}
+
+.page-title h2{
+    margin:0;
+    font-size:22px;
+}
+
+.page-title p{
+    margin:6px 0 0;
+    font-size:13px;
+    opacity:.9;
+}
+
+/* SUMMARY */
+
+.summary{
+    display:grid;
+    grid-template-columns:
+        repeat(3,1fr);
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.summary-card{
+    background:#fff;
+    border-radius:14px;
+    padding:14px;
+    text-align:center;
+    box-shadow:
+        0 2px 7px rgba(0,0,0,.06);
+}
+
+.summary-icon{
+    font-size:27px;
+}
+
+.summary-value{
+    font-size:19px;
+    font-weight:bold;
+    color:#075b3b;
+    margin-top:4px;
+}
+
+.summary-label{
+    color:#777;
+    font-size:11px;
+    margin-top:3px;
+}
+
+/* FILTER */
+
+.filter{
+    background:#fff;
+    padding:10px;
+    border-radius:14px;
+    display:flex;
+    gap:7px;
+    overflow-x:auto;
+    margin-bottom:15px;
+    box-shadow:
+        0 2px 7px rgba(0,0,0,.06);
+}
+
+.filter button{
+    border:1px solid #ddd;
+    background:#fff;
+    color:#333;
+    padding:9px 14px;
+    border-radius:20px;
+    white-space:nowrap;
+    cursor:pointer;
+}
+
+.filter button.active{
+    background:#075b3b;
+    color:#fff;
+    border-color:#075b3b;
+}
+
+/* PAYMENT CARD */
+
+.payment-card{
+    background:#fff;
+    border-radius:16px;
+    padding:16px;
+    margin-bottom:13px;
+    box-shadow:
+        0 2px 8px rgba(0,0,0,.07);
+}
+
+.payment-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:10px;
+    border-bottom:1px solid #eee;
+    padding-bottom:11px;
+}
+
+.payment-id{
+    color:#075b3b;
+    font-weight:bold;
+}
+
+.payment-date{
+    color:#888;
+    font-size:12px;
+    margin-top:4px;
+}
+
+.status{
+    padding:6px 10px;
+    border-radius:18px;
+    font-size:11px;
+    font-weight:bold;
+    white-space:nowrap;
+}
+
+.paid{
+    background:#e6f7ed;
+    color:#08734b;
+}
+
+.pending{
+    background:#fff4d6;
+    color:#9a6800;
+}
+
+.failed{
+    background:#ffe8e8;
+    color:#c62828;
+}
+
+.payment-details{
+    padding:13px 0;
+}
+
+.detail-row{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    padding:6px 0;
+    font-size:13px;
+}
+
+.detail-label{
+    color:#777;
+}
+
+.detail-value{
+    text-align:right;
+    font-weight:bold;
+}
+
+.amount{
+    color:#075b3b;
+    font-size:19px;
+}
+
+.payment-actions{
+    border-top:1px solid #eee;
+    padding-top:12px;
+    display:flex;
+    gap:8px;
+}
+
+.btn{
+    flex:1;
+    padding:9px;
+    border-radius:8px;
+    font-size:12px;
+    cursor:pointer;
+    text-align:center;
+    text-decoration:none;
+}
+
+.receipt-btn{
+    background:#075b3b;
+    color:#fff;
+    border:1px solid #075b3b;
+}
+
+.track-btn{
+    background:#fff;
+    color:#075b3b;
+    border:1px solid #075b3b;
+}
+
+/* EMPTY */
+
+.empty{
+    background:#fff;
+    border-radius:16px;
+    padding:45px 20px;
+    text-align:center;
+}
+
+.empty-icon{
+    font-size:58px;
+}
+
+.empty h3{
+    color:#075b3b;
+    margin:10px 0 6px;
+}
+
+.empty p{
+    color:#777;
+    font-size:13px;
+}
+
+/* RECEIPT MODAL */
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.5);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    padding:15px;
+    z-index:300;
+}
+
+.receipt{
+    width:100%;
+    max-width:420px;
+    background:#fff;
+    border-radius:16px;
+    padding:22px;
+}
+
+.receipt h2{
+    margin:0;
+    color:#075b3b;
+    text-align:center;
+}
+
+.receipt-logo{
+    text-align:center;
+    margin:10px 0;
+    font-size:28px;
+}
+
+.receipt-line{
+    border-top:1px dashed #bbb;
+    margin:14px 0;
+}
+
+.receipt-row{
+    display:flex;
+    justify-content:space-between;
+    padding:6px 0;
+    font-size:13px;
+}
+
+.receipt-total{
+    font-size:20px;
+    font-weight:bold;
+    color:#075b3b;
+}
+
+.modal-buttons{
+    display:flex;
+    gap:8px;
+    margin-top:15px;
+}
+
+.modal-btn{
+    flex:1;
+    padding:11px;
+    border:0;
+    border-radius:9px;
+    cursor:pointer;
+}
+
+.print-btn{
+    background:#075b3b;
+    color:#fff;
+}
+
+.close-btn{
+    background:#eee;
+}
+
+/* TOAST */
+
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:85px;
+    transform:translateX(-50%);
+    background:#222;
+    color:#fff;
+    padding:11px 18px;
+    border-radius:25px;
+    font-size:13px;
+    display:none;
+    z-index:500;
+}
+
+/* BOTTOM */
+
+.bottom-nav{
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    height:67px;
+    background:#fff;
+    border-top:1px solid #ddd;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    z-index:100;
+}
+
+.bottom-nav a{
+    color:#555;
+    text-decoration:none;
+    text-align:center;
+    font-size:11px;
+}
+
+.bottom-nav .icon{
+    display:block;
+    font-size:24px;
+    line-height:27px;
+}
+
+.bottom-nav a.active{
+    color:#075b3b;
+    font-weight:bold;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .topbar{
+        font-size:10px;
+    }
+
+    .header{
+        padding:8px 10px;
+    }
+
+    .logo{
+        width:47px;
+        height:47px;
+    }
+
+    .brand h1{
+        font-size:21px;
+    }
+
+    .brand p{
+        font-size:9px;
+    }
+
+    .header-links{
+        gap:6px;
+    }
+
+    .header-links .icon{
+        font-size:20px;
+    }
+
+    .container{
+        padding:12px;
+    }
+
+    .page-title h2{
+        font-size:19px;
+    }
+
+    .summary{
+        grid-template-columns:
+            repeat(3,1fr);
+        gap:7px;
+    }
+
+    .summary-card{
+        padding:10px 5px;
+    }
+
+    .summary-icon{
+        font-size:22px;
+    }
+
+    .summary-value{
+        font-size:15px;
+    }
+
+    .summary-label{
+        font-size:9px;
+    }
+
+    .payment-head{
+        align-items:flex-start;
+    }
+
+    .detail-row{
+        font-size:12px;
+    }
+
+    .payment-actions{
+        flex-direction:column;
+    }
+
+}
+
+@media print{
+
+    body{
+        background:#fff;
+        padding:0;
+    }
+
+    body > *:not(#receiptOverlay){
+        display:none !important;
+    }
+
+    #receiptOverlay{
+        display:flex !important;
+        position:static;
+        background:#fff;
+        padding:0;
+    }
+
+    .receipt{
+        box-shadow:none;
+        max-width:none;
+    }
+
+    .modal-buttons{
+        display:none;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- TOP BAR -->
+
+<div class="topbar">
+
+    <div>
+        ଗଞ୍ଜାମରୁ ସାରା ଓଡ଼ିଶା
+    </div>
+
+    <div>
+
+        <a href="order-tracking.html">
+            📦 Order Track
+        </a>
+
+        <a href="seller.html">
+            👤 Seller Login
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <a href="index.html"
+       class="brand">
+
+        <img
+            src="logo.png"
+            class="logo"
+            alt="Utkala Mart"
+        >
+
+        <div>
+
+            <h1>
+                <span>ଉତ୍କଳ</span> Mart
+            </h1>
+
+            <p>
+                From Ganjam to Every Home
+            </p>
+
+        </div>
+
+    </a>
+
+
+    <div class="header-links">
+
+        <a href="checkout.html">
+
+            <span class="icon">
+                🛒
+            </span>
+
+            Cart
+
+        </a>
+
+
+        <a href="account.html">
+
+            <span class="icon">
+                👤
+            </span>
+
+            ଖାତା
+
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- MAIN -->
+
+<main class="container">
+
+
+    <a href="account.html"
+       class="back">
+
+        ← ମୋ ଖାତାକୁ ଫେରନ୍ତୁ
+
+    </a>
+
+
+    <!-- TITLE -->
+
+    <div class="page-title">
+
+        <h2>
+            💰 Payment History
+        </h2>
+
+        <p>
+            ଆପଣଙ୍କ ସମସ୍ତ Payment ର ତଥ୍ୟ
+        </p>
+
+    </div>
+
+
+    <!-- SUMMARY -->
+
+    <div class="summary">
+
+        <div class="summary-card">
+
+            <div class="summary-icon">
+                ✅
+            </div>
+
+            <div
+                class="summary-value"
+                id="paidCount">
+
+                0
+
+            </div>
+
+            <div class="summary-label">
+                Paid
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="summary-icon">
+                ⏳
+            </div>
+
+            <div
+                class="summary-value"
+                id="pendingCount">
+
+                0
+
+            </div>
+
+            <div class="summary-label">
+                Pending
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="summary-icon">
+                💰
+            </div>
+
+            <div
+                class="summary-value"
+                id="totalPaid">
+
+                ₹0
+
+            </div>
+
+            <div class="summary-label">
+                Total Paid
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- FILTER -->
+
+    <div class="filter">
+
+        <button
+            class="active"
+            onclick="filterPayments('all',this)">
+
+            ସମସ୍ତ
+
+        </button>
+
+
+        <button
+            onclick="filterPayments('paid',this)">
+
+            Paid
+
+        </button>
+
+
+        <button
+            onclick="filterPayments('pending',this)">
+
+            Pending
+
+        </button>
+
+
+        <button
+            onclick="filterPayments('failed',this)">
+
+            Failed
+
+        </button>
+
+    </div>
+
+
+    <!-- PAYMENT LIST -->
+
+    <div id="paymentContainer"></div>
+
+
+</main>
+
+
+<!-- RECEIPT -->
+
+<div
+    class="overlay"
+    id="receiptOverlay">
+
+    <div class="receipt"
+         id="receiptContent">
+
+        <h2>
+            ଉତ୍କଳ Mart
+        </h2>
+
+        <div class="receipt-logo">
+            🧾
+        </div>
+
+        <div style="
+            text-align:center;
+            font-size:13px;
+            color:#777;
+        ">
+
+            Payment Receipt
+
+        </div>
+
+
+        <div class="receipt-line"></div>
+
+
+        <div class="receipt-row">
+
+            <span>
+                Order ID
+            </span>
+
+            <strong id="rOrder">
+                -
+            </strong>
+
+        </div>
+
+
+        <div class="receipt-row">
+
+            <span>
+                Transaction ID
+            </span>
+
+            <strong id="rTransaction">
+                -
+            </strong>
+
+        </div>
+
+
+        <div class="receipt-row">
+
+            <span>
+                Date
+            </span>
+
+            <strong id="rDate">
+                -
+            </strong>
+
+        </div>
+
+
+        <div class="receipt-row">
+
+            <span>
+                Payment Method
+            </span>
+
+            <strong id="rMethod">
+                -
+            </strong>
+
+        </div>
+
+
+        <div class="receipt-line"></div>
+
+
+        <div class="receipt-row">
+
+            <span>
+                Amount Paid
+            </span>
+
+            <strong
+                class="receipt-total"
+                id="rAmount">
+
+                ₹0
+
+            </strong>
+
+        </div>
+
+
+        <div style="
+            text-align:center;
+            margin-top:15px;
+            color:#08734b;
+            font-size:12px;
+        ">
+
+            ✅ Payment information recorded
+
+        </div>
+
+
+        <div class="modal-buttons">
+
+            <button
+                class="modal-btn print-btn"
+                onclick="printReceipt()">
+
+                🖨️ Print / Save PDF
+
+            </button>
+
+
+            <button
+                class="modal-btn close-btn"
+                onclick="closeReceipt()">
+
+                Close
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div
+    class="toast"
+    id="toast">
+</div>
+
+
+<!-- BOTTOM NAV -->
+
+<nav class="bottom-nav">
+
+
+    <a href="index.html">
+
+        <span class="icon">
+            🏠
+        </span>
+
+        Home
+
+    </a>
+
+
+    <a href="index.html#categories">
+
+        <span class="icon">
+            📁
+        </span>
+
+        ବିଭାଗ
+
+    </a>
+
+
+    <a href="checkout.html">
+
+        <span class="icon">
+            🛒
+        </span>
+
+        Cart
+
+    </a>
+
+
+    <a href="order-tracking.html">
+
+        <span class="icon">
+            📦
+        </span>
+
+        Track
+
+    </a>
+
+
+    <a href="account.html"
+       class="active">
+
+        <span class="icon">
+            👤
+        </span>
+
+        ଖାତା
+
+    </a>
+
+
+</nav>
+
+
+<script>
+
+/*
+========================================
+UTKALA MART - PAYMENT HISTORY
+========================================
+
+ବର୍ତ୍ତମାନ DEMO data।
+
+ପରବର୍ତ୍ତୀ ପର୍ଯ୍ୟାୟରେ Firebase
+Firestore payment data ସହିତ
+connect କରାଯିବ।
+
+ଏହି code ପୁରୁଣା Firebase data
+କୁ କିଛି change କରୁନାହିଁ।
+*/
+
+
+const payments = [
+
+    {
+        id:"PAY001",
+
+        orderId:"UTK10001",
+
+        date:"20 Sep 2026",
+
+        amount:240,
+
+        method:"Cash on Delivery",
+
+        transaction:"COD-UTK10001",
+
+        status:"paid"
+
+    },
+
+
+    {
+        id:"PAY002",
+
+        orderId:"UTK10002",
+
+        date:"18 Sep 2026",
+
+        amount:350,
+
+        method:"UPI",
+
+        transaction:"UPI-UTK10002",
+
+        status:"paid"
+
+    },
+
+
+    {
+        id:"PAY003",
+
+        orderId:"UTK10003",
+
+        date:"17 Sep 2026",
+
+        amount:599,
+
+        method:"UPI",
+
+        transaction:"Pending",
+
+        status:"pending"
+
+    }
+
+];
+
+
+let currentFilter = "all";
+
+
+/* DISPLAY */
+
+function displayPayments(){
+
+    const container =
+        document.getElementById(
+            "paymentContainer"
+        );
+
+
+    let list = payments;
+
+
+    if(currentFilter !== "all"){
+
+        list =
+            payments.filter(
+                payment =>
+                payment.status === currentFilter
+            );
+
+    }
+
+
+    updateSummary();
+
+
+    if(list.length === 0){
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-icon">
+                    💰
+                </div>
+
+                <h3>
+                    କୌଣସି Payment ନାହିଁ
+                </h3>
+
+                <p>
+                    ଏହି category ରେ
+                    କୌଣସି Payment ମିଳିଲା ନାହିଁ।
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+        list.map(
+            payment => `
+
+        <div class="payment-card">
+
+            <div class="payment-head">
+
+                <div>
+
+                    <div class="payment-id">
+                        Payment #${payment.id}
+                    </div>
+
+                    <div class="payment-date">
+                        ${payment.date}
+                    </div>
+
+                </div>
+
+
+                <span
+                    class="status ${payment.status}">
+
+                    ${
+                        payment.status === "paid"
+                        ? "Paid"
+                        :
+                        payment.status === "pending"
+                        ? "Pending"
+                        :
+                        "Failed"
+                    }
+
+                </span>
+
+            </div>
+
+
+            <div class="payment-details">
+
+
+                <div class="detail-row">
+
+                    <span class="detail-label">
+                        📦 Order ID
+                    </span>
+
+                    <span class="detail-value">
+                        ${payment.orderId}
+                    </span>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <span class="detail-label">
+                        💳 Payment Method
+                    </span>
+
+                    <span class="detail-value">
+                        ${payment.method}
+                    </span>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <span class="detail-label">
+                        🔢 Transaction ID
+                    </span>
+
+                    <span class="detail-value">
+                        ${payment.transaction}
+                    </span>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <span class="detail-label">
+                        💰 Amount
+                    </span>
+
+                    <span
+                        class="detail-value amount">
+
+                        ₹${payment.amount}
+
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="payment-actions">
+
+
+                ${
+                    payment.status === "paid"
+                    ?
+                    `
+                    <button
+                        class="btn receipt-btn"
+                        onclick="
+                        showReceipt('${payment.id}')
+                        ">
+
+                        🧾 Payment Receipt
+
+                    </button>
+                    `
+                    :
+                    `
+                    <button
+                        class="btn receipt-btn"
+                        onclick="
+                        showToast(
+                        '⏳ Payment complete ହେଲେ Receipt ମିଳିବ'
+                        )
+                        ">
+
+                        🧾 Receipt
+
+                    </button>
+                    `
+                }
+
+
+                <a
+                    href="order-tracking.html?order=${payment.orderId}"
+                    class="btn track-btn">
+
+                    📦 Track Order
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+        `
+        ).join("");
+
+}
+
+
+/* SUMMARY */
+
+function updateSummary(){
+
+    const paid =
+        payments.filter(
+            item =>
+            item.status === "paid"
+        );
+
+
+    const pending =
+        payments.filter(
+            item =>
+            item.status === "pending"
+        );
+
+
+    const total =
+        paid.reduce(
+            (sum,item) =>
+            sum + Number(item.amount),
+            0
+        );
+
+
+    document.getElementById(
+        "paidCount"
+    ).textContent =
+        paid.length;
+
+
+    document.getElementById(
+        "pendingCount"
+    ).textContent =
+        pending.length;
+
+
+    document.getElementById(
+        "totalPaid"
+    ).textContent =
+        "₹" + total;
+
+}
+
+
+/* FILTER */
+
+function filterPayments(status,button){
+
+    currentFilter =
+        status;
+
+
+    document
+        .querySelectorAll(
+            ".filter button"
+        )
+        .forEach(
+            btn =>
+            btn.classList.remove(
+                "active"
+            )
+        );
+
+
+    button.classList.add(
+        "active"
+    );
+
+
+    displayPayments();
+
+}
+
+
+/* SHOW RECEIPT */
+
+function showReceipt(id){
+
+    const payment =
+        payments.find(
+            item =>
+            item.id === id
+        );
+
+
+    if(!payment){
+        return;
+    }
+
+
+    document.getElementById(
+        "rOrder"
+    ).textContent =
+        payment.orderId;
+
+
+    document.getElementById(
+        "rTransaction"
+    ).textContent =
+        payment.transaction;
+
+
+    document.getElementById(
+        "rDate"
+    ).textContent =
+        payment.date;
+
+
+    document.getElementById(
+        "rMethod"
+    ).textContent =
+        payment.method;
+
+
+    document.getElementById(
+        "rAmount"
+    ).textContent =
+        "₹" + payment.amount;
+
+
+    document.getElementById(
+        "receiptOverlay"
+    ).style.display =
+        "flex";
+
+}
+
+
+/* CLOSE RECEIPT */
+
+function closeReceipt(){
+
+    document.getElementById(
+        "receiptOverlay"
+    ).style.display =
+        "none";
+
+}
+
+
+/* PRINT */
+
+function printReceipt(){
+
+    window.print();
+
+}
+
+
+/* TOAST */
+
+function showToast(message){
+
+    const toast =
+        document.getElementById(
+            "toast"
+        );
+
+
+    toast.textContent =
+        message;
+
+
+    toast.style.display =
+        "block";
+
+
+    clearTimeout(
+        window.toastTimer
+    );
+
+
+    window.toastTimer =
+        setTimeout(
+            function(){
+
+                toast.style.display =
+                    "none";
+
+            },
+            2200
+        );
+
+}
+
+
+/* CLOSE OUTSIDE */
+
+document.getElementById(
+    "receiptOverlay"
+).addEventListener(
+    "click",
+    function(event){
+
+        if(event.target === this){
+
+            closeReceipt();
+
+        }
+
+    }
+);
+
+
+/* START */
+
+displayPayments();
+
+</script>
+
+
+</body>
+
+  </html>
