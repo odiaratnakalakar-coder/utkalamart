@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+      content="width=device-width,initial-scale=1.0">
 
 <meta name="theme-color"
       content="#075b3b">
@@ -33,15 +33,13 @@ body{
     padding-bottom:80px;
 }
 
-
-/* =====================================
-   TOP BAR
-===================================== */
+/* ===============================
+TOP BAR
+================================ */
 
 .topbar{
     background:#075b3b;
     color:#fff;
-
     padding:8px 14px;
 
     display:flex;
@@ -57,14 +55,12 @@ body{
     margin-left:10px;
 }
 
-
-/* =====================================
-   HEADER
-===================================== */
+/* ===============================
+HEADER
+================================ */
 
 .header{
     background:#fff;
-
     padding:10px 15px;
 
     display:flex;
@@ -77,26 +73,20 @@ body{
 .brand{
     display:flex;
     align-items:center;
-
     gap:9px;
-
     text-decoration:none;
 }
 
 .logo{
     width:55px;
     height:55px;
-
     border-radius:50%;
-
     object-fit:cover;
 }
 
 .brand h1{
     margin:0;
-
     font-size:24px;
-
     color:#e87522;
 }
 
@@ -106,66 +96,51 @@ body{
 
 .brand p{
     margin:2px 0 0;
-
     font-size:10px;
-
     color:#777;
 }
 
 .header-links{
     display:flex;
-
     gap:12px;
 }
 
 .header-links a{
     text-decoration:none;
-
     color:#333;
-
     text-align:center;
-
     font-size:11px;
 }
 
 .header-links .icon{
     display:block;
-
     font-size:23px;
 }
 
-
-/* =====================================
-   MAIN
-===================================== */
+/* ===============================
+MAIN
+================================ */
 
 .container{
     max-width:950px;
-
     margin:auto;
-
     padding:15px;
 }
 
 .back{
     display:inline-block;
-
     margin-bottom:12px;
 
     color:#075b3b;
-
     text-decoration:none;
-
     font-weight:bold;
 }
 
-
-/* =====================================
-   TITLE
-===================================== */
+/* ===============================
+TITLE
+================================ */
 
 .page-title{
-
     background:
         linear-gradient(
             135deg,
@@ -174,47 +149,35 @@ body{
         );
 
     color:#fff;
-
     padding:19px;
-
     border-radius:16px;
-
     margin-bottom:15px;
 }
 
 .page-title h2{
     margin:0;
-
     font-size:22px;
 }
 
 .page-title p{
     margin:6px 0 0;
-
     font-size:13px;
-
     opacity:.9;
 }
 
-
-/* =====================================
-   FILTER
-===================================== */
+/* ===============================
+FILTER
+================================ */
 
 .filter{
-
     background:#fff;
-
     padding:10px;
-
     border-radius:14px;
 
     display:flex;
-
     gap:7px;
 
     overflow-x:auto;
-
     margin-bottom:15px;
 
     box-shadow:
@@ -222,44 +185,32 @@ body{
 }
 
 .filter button{
-
     border:1px solid #ddd;
-
     background:#fff;
-
     color:#333;
 
     padding:9px 14px;
-
     border-radius:20px;
 
     white-space:nowrap;
-
     cursor:pointer;
+    font-family:inherit;
 }
 
 .filter button.active{
-
     background:#075b3b;
-
     border-color:#075b3b;
-
     color:#fff;
 }
 
-
-/* =====================================
-   ORDER CARD
-===================================== */
+/* ===============================
+ORDER CARD
+================================ */
 
 .order-card{
-
     background:#fff;
-
     border-radius:16px;
-
     padding:15px;
-
     margin-bottom:13px;
 
     box-shadow:
@@ -267,218 +218,156 @@ body{
 }
 
 .order-head{
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
 
     gap:10px;
 
     border-bottom:1px solid #eee;
-
     padding-bottom:11px;
 }
 
 .order-id{
-
     color:#075b3b;
-
     font-weight:bold;
+    word-break:break-word;
 }
 
 .order-date{
-
     color:#888;
-
     font-size:12px;
-
     margin-top:4px;
 }
 
-
-/* =====================================
-   STATUS
-===================================== */
+/* ===============================
+STATUS
+================================ */
 
 .status{
-
     padding:6px 10px;
-
     border-radius:18px;
 
     font-size:11px;
-
     font-weight:bold;
-
     white-space:nowrap;
 }
 
 .pending{
-
     background:#fff4d6;
-
     color:#9a6800;
 }
 
 .confirmed{
-
     background:#e7f2ff;
-
     color:#1261a0;
 }
 
 .shipped{
-
     background:#eee8ff;
-
     color:#6240a8;
 }
 
 .delivered{
-
     background:#e7f7ed;
-
     color:#08734b;
 }
 
 .cancelled{
-
     background:#ffe8e8;
-
     color:#c62828;
 }
 
-
-/* =====================================
-   PRODUCT
-===================================== */
+/* ===============================
+PRODUCT
+================================ */
 
 .product{
-
     display:flex;
-
     align-items:center;
-
     gap:12px;
-
     padding:13px 0;
 }
 
 .product-img{
-
     width:72px;
-
     height:72px;
 
     border-radius:12px;
-
     background:#f0f3f2;
 
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
     font-size:35px;
-
     overflow:hidden;
-
     flex-shrink:0;
 }
 
 .product-img img{
-
     width:100%;
-
     height:100%;
-
     object-fit:cover;
 }
 
 .product-info{
-
     flex:1;
+    min-width:0;
 }
 
 .product-name{
-
     font-weight:bold;
-
     margin-bottom:5px;
 }
 
 .product-info small{
-
     display:block;
-
     color:#777;
-
     margin-top:3px;
 }
 
-
-/* =====================================
-   ORDER BOTTOM
-===================================== */
+/* ===============================
+ORDER BOTTOM
+================================ */
 
 .order-bottom{
-
     border-top:1px solid #eee;
-
     padding-top:12px;
 
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
 
     gap:10px;
 }
 
 .amount-label{
-
     color:#888;
-
     font-size:11px;
 }
 
 .amount{
-
     color:#075b3b;
-
     font-weight:bold;
-
     font-size:18px;
-
     margin-top:2px;
 }
 
 .actions{
-
     display:flex;
-
     gap:7px;
-
     flex-wrap:wrap;
-
     justify-content:flex-end;
 }
 
-
-/* =====================================
-   BUTTON
-===================================== */
+/* ===============================
+BUTTON
+================================ */
 
 .btn{
-
     border:1px solid #075b3b;
-
     background:#fff;
-
     color:#075b3b;
 
     border-radius:8px;
@@ -486,57 +375,34 @@ body{
     padding:8px 11px;
 
     font-size:12px;
-
     text-decoration:none;
 
     cursor:pointer;
-
     font-family:inherit;
 }
 
 .btn.primary{
-
     background:#075b3b;
-
     color:#fff;
 }
 
 .btn.cancel{
-
     border-color:#c62828;
-
     color:#c62828;
-
     background:#fff;
 }
 
 .btn.cancel:hover{
-
     background:#c62828;
-
     color:#fff;
 }
 
-.btn.pending-cancel{
-
-    border-color:#d6a800;
-
-    background:#fff8dc;
-
-    color:#856404;
-
-    cursor:not-allowed;
-}
-
-
-/* =====================================
-   EMPTY
-===================================== */
+/* ===============================
+EMPTY
+================================ */
 
 .empty{
-
     background:#fff;
-
     border-radius:16px;
 
     padding:45px 20px;
@@ -548,26 +414,20 @@ body{
 }
 
 .empty-icon{
-
     font-size:55px;
 }
 
 .empty h3{
-
     color:#075b3b;
-
     margin:10px 0 5px;
 }
 
 .empty p{
-
     color:#777;
-
     font-size:13px;
 }
 
 .shop-btn{
-
     display:inline-block;
 
     margin-top:10px;
@@ -577,57 +437,67 @@ body{
     border-radius:9px;
 
     background:#075b3b;
-
     color:#fff;
 
     text-decoration:none;
 }
 
-
-/* =====================================
-   CANCEL INFO
-===================================== */
-
-.cancel-info{
-
-    margin-top:10px;
-
-    padding:9px 11px;
-
-    background:#fff8dc;
-
-    border-radius:8px;
-
-    color:#856404;
-
-    font-size:12px;
-}
-
-
-/* =====================================
-   LOADING
-===================================== */
+/* ===============================
+LOADING
+================================ */
 
 .loading{
-
     background:#fff;
-
     border-radius:16px;
 
     padding:35px;
 
     text-align:center;
-
     color:#777;
 }
 
+/* ===============================
+ERROR
+================================ */
 
-/* =====================================
-   MODAL
-===================================== */
+.error-box{
+    background:#fff;
+    border-radius:16px;
+
+    padding:30px 20px;
+
+    text-align:center;
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,.06);
+}
+
+.error-box h3{
+    color:#c62828;
+}
+
+.error-box p{
+    color:#777;
+    font-size:13px;
+}
+
+.retry-btn{
+    border:0;
+    background:#075b3b;
+    color:#fff;
+
+    padding:11px 20px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+}
+
+/* ===============================
+MODAL
+================================ */
 
 .modal{
-
     display:none;
 
     position:fixed;
@@ -644,7 +514,6 @@ body{
 }
 
 .modal-box{
-
     max-width:520px;
 
     margin:40px auto;
@@ -657,22 +526,17 @@ body{
 }
 
 .modal-box h2{
-
     margin-top:0;
-
     color:#075b3b;
 }
 
 .close{
-
     float:right;
 
     width:34px;
-
     height:34px;
 
     border:0;
-
     border-radius:50%;
 
     background:#eee;
@@ -683,7 +547,6 @@ body{
 }
 
 .modal-order{
-
     background:#f5f7f6;
 
     padding:13px;
@@ -694,7 +557,6 @@ body{
 }
 
 .modal-label{
-
     display:block;
 
     margin:12px 0 6px;
@@ -705,7 +567,6 @@ body{
 }
 
 .modal textarea{
-
     width:100%;
 
     min-height:100px;
@@ -724,7 +585,6 @@ body{
 }
 
 .submit-cancel{
-
     width:100%;
 
     margin-top:15px;
@@ -744,26 +604,15 @@ body{
     cursor:pointer;
 }
 
-.submit-cancel:disabled{
-
-    opacity:.6;
-
-    cursor:not-allowed;
-}
-
-
-/* =====================================
-   BOTTOM NAV
-===================================== */
+/* ===============================
+BOTTOM NAV
+================================ */
 
 .bottom-nav{
-
     position:fixed;
 
     left:0;
-
     right:0;
-
     bottom:0;
 
     height:67px;
@@ -773,16 +622,13 @@ body{
     border-top:1px solid #ddd;
 
     display:flex;
-
     justify-content:space-around;
-
     align-items:center;
 
     z-index:100;
 }
 
 .bottom-nav a{
-
     color:#555;
 
     text-decoration:none;
@@ -793,7 +639,6 @@ body{
 }
 
 .bottom-nav .icon{
-
     display:block;
 
     font-size:24px;
@@ -802,96 +647,74 @@ body{
 }
 
 .bottom-nav a.active{
-
     color:#075b3b;
-
     font-weight:bold;
 }
 
-
-/* =====================================
-   MOBILE
-===================================== */
+/* ===============================
+MOBILE
+================================ */
 
 @media(max-width:600px){
 
     .topbar{
-
         font-size:10px;
     }
 
     .header{
-
         padding:8px 10px;
     }
 
     .logo{
-
         width:47px;
-
         height:47px;
     }
 
     .brand h1{
-
         font-size:21px;
     }
 
     .brand p{
-
         font-size:9px;
     }
 
     .header-links{
-
         gap:6px;
     }
 
     .header-links .icon{
-
         font-size:20px;
     }
 
     .container{
-
         padding:12px;
     }
 
     .page-title h2{
-
         font-size:19px;
     }
 
     .order-head{
-
         align-items:flex-start;
     }
 
     .product-img{
-
         width:63px;
-
         height:63px;
     }
 
     .order-bottom{
-
         align-items:flex-start;
-
         flex-direction:column;
     }
 
     .actions{
-
         width:100%;
-
         justify-content:flex-start;
     }
 
     .modal-box{
-
         margin:20px auto;
-
         padding:17px;
     }
 
@@ -905,9 +728,9 @@ body{
 <body>
 
 
-<!-- =====================================
-     TOP BAR
-===================================== -->
+<!-- ===============================
+TOP BAR
+================================ -->
 
 <div class="topbar">
 
@@ -930,9 +753,9 @@ body{
 </div>
 
 
-<!-- =====================================
-     HEADER
-===================================== -->
+<!-- ===============================
+HEADER
+================================ -->
 
 <header class="header">
 
@@ -990,9 +813,9 @@ body{
 </header>
 
 
-<!-- =====================================
-     MAIN
-===================================== -->
+<!-- ===============================
+MAIN
+================================ -->
 
 <main class="container">
 
@@ -1013,7 +836,7 @@ body{
         </h2>
 
         <p>
-            ଆପଣ କରିଥିବା ସମସ୍ତ Order ଏଠାରେ ଦେଖନ୍ତୁ
+            ଆପଣଙ୍କର ସମସ୍ତ Real Order ଏଠାରେ ଦେଖନ୍ତୁ
         </p>
 
     </div>
@@ -1080,7 +903,7 @@ body{
 
         <div class="loading">
 
-            ⏳ Orders Loading...
+            ⏳ Real Orders Loading...
 
         </div>
 
@@ -1089,9 +912,9 @@ body{
 </main>
 
 
-<!-- =====================================
-     CANCEL MODAL
-===================================== -->
+<!-- ===============================
+CANCEL MODAL
+================================ -->
 
 <div
     class="modal"
@@ -1147,12 +970,11 @@ body{
 </div>
 
 
-<!-- =====================================
-     BOTTOM NAV
-===================================== -->
+<!-- ===============================
+BOTTOM NAV
+================================ -->
 
 <nav class="bottom-nav">
-
 
     <a href="index.html">
 
@@ -1213,42 +1035,34 @@ body{
 </nav>
 
 
-<!-- =====================================
-     FIREBASE SCRIPT
-===================================== -->
+<!-- ===============================
+FIREBASE
+================================ -->
 
 <script type="module">
 
 
-/* =====================================
-   FIREBASE IMPORT
-===================================== */
-
 import {
-
     initializeApp
-
 }
 from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 
 import {
-
     getFirestore,
     collection,
     getDocs,
-    doc,
-    setDoc
-
+    addDoc,
+    serverTimestamp
 }
 from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-/* =====================================
-   FIREBASE CONFIG
-===================================== */
+/* ===============================
+FIREBASE CONFIG
+================================ */
 
 const firebaseConfig = {
 
@@ -1283,598 +1097,256 @@ const db =
     getFirestore(app);
 
 
-/* =====================================
-   DEMO ORDERS
-===================================== */
+/* ===============================
+VARIABLES
+================================ */
 
-const demoOrders = [
+let allOrders = [];
 
-    {
-        id:"UTK10001",
+let currentFilter = "all";
 
-        date:"20 Sep 2026",
-
-        product:"ଗଞ୍ଜାମ ପାପଡ଼",
-
-        quantity:2,
-
-        amount:"₹240",
-
-        status:"delivered",
-
-        emoji:"🥣"
-
-    },
+let selectedCancelOrder = null;
 
 
-    {
-        id:"UTK10002",
+/* ===============================
+STATUS
+================================ */
 
-        date:"18 Sep 2026",
+function normalizeStatus(status){
 
-        product:"ହସ୍ତ ତିଆରି ଝୁଡ଼ି",
-
-        quantity:1,
-
-        amount:"₹350",
-
-        status:"shipped",
-
-        emoji:"🧺"
-
-    },
+    let value =
+        String(
+            status || "placed"
+        )
+        .toLowerCase()
+        .trim();
 
 
-    {
-        id:"UTK10003",
+    if(
+        value === "placed" ||
+        value === "order placed"
+    ){
 
-        date:"12 Sep 2026",
-
-        product:"Sambalpuri Shirt",
-
-        quantity:1,
-
-        amount:"₹850",
-
-        status:"confirmed",
-
-        emoji:"👕"
+        return "pending";
 
     }
 
-];
+
+    if(
+        value === "processing" ||
+        value === "order confirmed" ||
+        value === "confirmed"
+    ){
+
+        return "confirmed";
+
+    }
 
 
-/* =====================================
-   VARIABLES
-===================================== */
+    if(
+        value === "order shipped" ||
+        value === "shipped"
+    ){
 
-let currentFilter =
-    "all";
+        return "shipped";
 
-
-let selectedCancelOrder =
-    null;
+    }
 
 
-const CANCEL_KEY =
-    "utkalaOrderCancellations";
+    if(
+        value === "order delivered" ||
+        value === "delivered"
+    ){
+
+        return "delivered";
+
+    }
 
 
-/* =====================================
-   STATUS TEXT
-===================================== */
+    if(
+        value === "cancelled" ||
+        value === "canceled"
+    ){
 
-function getStatusText(
-    status
-){
+        return "cancelled";
 
-    const text = {
+    }
 
-        pending:
-            "Pending",
 
-        confirmed:
-            "Confirmed",
+    return value;
 
-        shipped:
-            "Shipped",
+}
 
-        delivered:
-            "Delivered",
 
-        cancelled:
-            "Cancelled"
+function statusText(status){
+
+    const map = {
+
+        pending:"Pending",
+
+        confirmed:"Confirmed",
+
+        shipped:"Shipped",
+
+        delivered:"Delivered",
+
+        cancelled:"Cancelled"
 
     };
 
 
     return (
-        text[status] ||
+        map[status] ||
         status
     );
 
 }
 
 
-/* =====================================
-   GET FIREBASE CANCEL REQUESTS
-===================================== */
+/* ===============================
+ESCAPE
+================================ */
 
-async function getCancellationRequests(){
+function escapeHtml(value){
 
-    try{
+    return String(
+        value ?? ""
+    )
+    .replace(
+        /[&<>"']/g,
+        function(match){
 
-        const snapshot =
-            await getDocs(
+            const chars = {
 
-                collection(
-                    db,
-                    "orderCancellations"
-                )
+                "&":"&amp;",
+                "<":"&lt;",
+                ">":"&gt;",
+                '"':"&quot;",
+                "'":"&#039;"
 
-            );
+            };
 
-
-        const requests = [];
-
-
-        snapshot.forEach(
-            item => {
-
-                requests.push({
-
-                    ...item.data(),
-
-                    firestoreId:
-                        item.id
-
-                });
-
-            }
-        );
-
-
-        return requests;
-
-    }
-
-    catch(error){
-
-        console.error(
-            "Cancellation Load Error:",
-            error
-        );
-
-
-        return [];
-
-    }
-
-}
-
-
-/* =====================================
-   GET ALL CANCEL REQUESTS
-===================================== */
-
-async function getAllCancelRequests(){
-
-    const firestoreRequests =
-        await getCancellationRequests();
-
-
-    const localRequests =
-        JSON.parse(
-
-            localStorage.getItem(
-                CANCEL_KEY
-            ) || "[]"
-
-        );
-
-
-    const map =
-        new Map();
-
-
-    firestoreRequests.forEach(
-        item => {
-
-            if(item.id){
-
-                map.set(
-                    item.id,
-                    item
-                );
-
-            }
+            return chars[match];
 
         }
-    );
-
-
-    localRequests.forEach(
-        item => {
-
-            if(
-                item.id &&
-                !map.has(item.id)
-            ){
-
-                map.set(
-                    item.id,
-                    item
-                );
-
-            }
-
-        }
-    );
-
-
-    return Array.from(
-        map.values()
     );
 
 }
 
 
-/* =====================================
-   OPEN CANCEL MODAL
-===================================== */
+/* ===============================
+DATE
+================================ */
 
-window.openCancelModal =
-async function(orderId){
+function formatDate(value){
 
-    const order =
-        demoOrders.find(
-            item =>
-                item.id ===
-                orderId
-        );
+    if(!value){
 
-
-    if(!order){
-
-        alert(
-            "Order ମିଳିଲା ନାହିଁ।"
-        );
-
-        return;
+        return "Date unavailable";
 
     }
-
-
-    if(
-        order.status !==
-            "pending" &&
-
-        order.status !==
-            "confirmed"
-    ){
-
-        alert(
-            "ଏହି Order ବର୍ତ୍ତମାନ Cancel କରିହେବ ନାହିଁ।"
-        );
-
-        return;
-
-    }
-
-
-    const requests =
-        await getAllCancelRequests();
-
-
-    const existing =
-        requests.find(
-            item =>
-
-                item.orderId ===
-                order.id &&
-
-                item.status !==
-                "Rejected"
-        );
-
-
-    if(existing){
-
-        alert(
-            "ଏହି Order ପାଇଁ Cancel Request ପୂର୍ବରୁ ପଠାଯାଇଛି।"
-        );
-
-        return;
-
-    }
-
-
-    selectedCancelOrder =
-        order;
-
-
-    document.getElementById(
-        "cancelOrderDetails"
-    ).innerHTML = `
-
-        <b>
-            Order #${order.id}
-        </b>
-
-        <br><br>
-
-        Product:
-        ${order.product}
-
-        <br>
-
-        Quantity:
-        ${order.quantity}
-
-        <br>
-
-        Amount:
-        <b>${order.amount}</b>
-
-    `;
-
-
-    document.getElementById(
-        "cancelReason"
-    ).value = "";
-
-
-    document.getElementById(
-        "cancelModal"
-    ).style.display =
-        "block";
-
-};
-
-
-/* =====================================
-   CLOSE CANCEL MODAL
-===================================== */
-
-window.closeCancelModal =
-function(){
-
-    document.getElementById(
-        "cancelModal"
-    ).style.display =
-        "none";
-
-
-    selectedCancelOrder =
-        null;
-
-};
-
-
-/* =====================================
-   SUBMIT CANCEL REQUEST
-===================================== */
-
-window.submitCancelRequest =
-async function(){
-
-    if(!selectedCancelOrder){
-
-        alert(
-            "Order select କରନ୍ତୁ।"
-        );
-
-        return;
-
-    }
-
-
-    const reason =
-        document.getElementById(
-            "cancelReason"
-        ).value.trim();
-
-
-    if(!reason){
-
-        alert(
-            "Cancel କରିବାର କାରଣ ଲେଖନ୍ତୁ।"
-        );
-
-        return;
-
-    }
-
-
-    const submitBtn =
-        document.getElementById(
-            "submitCancelBtn"
-        );
-
-
-    submitBtn.disabled =
-        true;
-
-
-    submitBtn.textContent =
-        "⏳ Saving...";
-
-
-    const cancelId =
-        "CNL" +
-        Date.now();
-
-
-    const request = {
-
-        id:
-            cancelId,
-
-        orderId:
-            selectedCancelOrder.id,
-
-        product:
-            selectedCancelOrder.product,
-
-        quantity:
-            selectedCancelOrder.quantity,
-
-        amount:
-            selectedCancelOrder.amount,
-
-        reason:
-            reason,
-
-        status:
-            "Pending",
-
-        date:
-            new Date().toLocaleDateString(
-                "en-IN"
-            ),
-
-        createdAt:
-            new Date().toISOString(),
-
-        updatedAt:
-            new Date().toISOString()
-
-    };
 
 
     try{
 
-        /* ==============================
-           FIREBASE SAVE
-        ============================== */
+        let date;
 
-        await setDoc(
 
-            doc(
-                db,
-                "orderCancellations",
-                cancelId
-            ),
+        if(
+            value &&
+            typeof value.toDate ===
+            "function"
+        ){
 
-            request,
+            date =
+                value.toDate();
 
+        }
+        else{
+
+            date =
+                new Date(value);
+
+        }
+
+
+        if(
+            isNaN(
+                date.getTime()
+            )
+        ){
+
+            return "Date unavailable";
+
+        }
+
+
+        return date.toLocaleDateString(
+            "en-IN",
             {
-                merge:true
+                day:"2-digit",
+                month:"short",
+                year:"numeric"
             }
-
         );
-
-
-        /* ==============================
-           LOCAL BACKUP
-        ============================== */
-
-        let localRequests =
-            JSON.parse(
-
-                localStorage.getItem(
-                    CANCEL_KEY
-                ) || "[]"
-
-            );
-
-
-        localRequests.unshift(
-            request
-        );
-
-
-        localStorage.setItem(
-
-            CANCEL_KEY,
-
-            JSON.stringify(
-                localRequests
-            )
-
-        );
-
-
-        alert(
-            "✅ Cancel Request Admin ପାଖକୁ ସଫଳତାର ସହିତ ପଠାଯାଇଛି।"
-        );
-
-
-        closeCancelModal();
-
-
-        displayOrders();
 
     }
-
     catch(error){
 
-        console.error(
-            "Cancel Request Error:",
-            error
+        return "Date unavailable";
+
+    }
+
+}
+
+
+/* ===============================
+NUMBER
+================================ */
+
+function money(value){
+
+    const number =
+        Number(value || 0);
+
+
+    return "₹" +
+        number.toLocaleString(
+            "en-IN"
         );
 
-
-        /*
-        Firebase fail ହେଲେ
-        Local backup
-        */
-
-        let localRequests =
-            JSON.parse(
-
-                localStorage.getItem(
-                    CANCEL_KEY
-                ) || "[]"
-
-            );
+}
 
 
-        localRequests.unshift(
-            request
-        );
+/* ===============================
+IMAGE
+================================ */
 
+function productImage(item){
 
-        localStorage.setItem(
+    if(!item){
 
-            CANCEL_KEY,
-
-            JSON.stringify(
-                localRequests
-            )
-
-        );
-
-
-        alert(
-            "⚠️ Firebase connection problem। Request phone ରେ save ହୋଇଛି।"
-        );
-
-
-        closeCancelModal();
-
-
-        displayOrders();
+        return "logo.png";
 
     }
 
 
-    submitBtn.disabled =
-        false;
+    return (
+        item.image ||
+        item.imageUrl ||
+        item.photo ||
+        item.productImage ||
+        "logo.png"
+    );
+
+}
 
 
-    submitBtn.textContent =
-        "❌ Cancel Request Submit";
+/* ===============================
+LOAD FIREBASE ORDERS
+================================ */
 
-};
-
-
-/* =====================================
-   DISPLAY ORDERS
-===================================== */
-
-async function displayOrders(){
+async function loadOrders(){
 
     const container =
         document.getElementById(
@@ -1886,37 +1358,274 @@ async function displayOrders(){
 
         <div class="loading">
 
-            ⏳ Orders Loading...
+            ⏳ Firebase ରୁ Real Orders Loading...
 
         </div>
 
     `;
 
 
+    try{
+
+        const snapshot =
+            await getDocs(
+
+                collection(
+                    db,
+                    "orderTracking"
+                )
+
+            );
+
+
+        allOrders = [];
+
+
+        snapshot.forEach(
+            function(orderDoc){
+
+                const data =
+                    orderDoc.data();
+
+
+                let orderId =
+                    data.orderId;
+
+
+                if(!orderId){
+
+                    const parts =
+                        orderDoc.id.split("_");
+
+                    orderId =
+                        parts[0] ||
+                        orderDoc.id;
+
+                }
+
+
+                let items =
+                    Array.isArray(
+                        data.items
+                    )
+                    ?
+                    data.items
+                    :
+                    [];
+
+
+                allOrders.push({
+
+                    firestoreId:
+                        orderDoc.id,
+
+                    orderId:
+                        orderId,
+
+                    status:
+                        normalizeStatus(
+                            data.orderStatus
+                        ),
+
+                    items:
+                        items,
+
+                    total:
+                        Number(
+                            data.total ||
+                            data.amount ||
+                            0
+                        ),
+
+                    createdAt:
+                        data.createdAt ||
+                        data.placedAt ||
+                        null,
+
+                    updatedAt:
+                        data.updatedAt ||
+                        null,
+
+                    mobile:
+                        data.mobile ||
+                        data.customer?.mobile ||
+                        "",
+
+                    customer:
+                        data.customer ||
+                        {},
+
+                    estimatedDelivery:
+                        data.estimatedDelivery ||
+                        ""
+
+                });
+
+            }
+        );
+
+
+        /* =========================
+           NEWEST FIRST
+        ========================= */
+
+        allOrders.sort(
+            function(a,b){
+
+                const aTime =
+                    getTime(
+                        a.createdAt
+                    );
+
+
+                const bTime =
+                    getTime(
+                        b.createdAt
+                    );
+
+
+                return bTime - aTime;
+
+            }
+        );
+
+
+        displayOrders();
+
+    }
+    catch(error){
+
+        console.error(
+            "Firebase Order Error:",
+            error
+        );
+
+
+        container.innerHTML = `
+
+            <div class="error-box">
+
+                <div class="empty-icon">
+                    ❌
+                </div>
+
+                <h3>
+                    Orders Load Error
+                </h3>
+
+                <p>
+                    Firebase ରୁ Order ଆସିପାରିଲା ନାହିଁ।
+                </p>
+
+                <p>
+                    Firestore Rules ଏବଂ
+                    orderTracking collection
+                    check କରନ୍ତୁ।
+                </p>
+
+                <button
+                    class="retry-btn"
+                    onclick="loadOrders()">
+
+                    🔄 Retry
+
+                </button>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* ===============================
+TIME
+================================ */
+
+function getTime(value){
+
+    if(!value)
+        return 0;
+
+
+    try{
+
+        if(
+            value &&
+            typeof value.toMillis ===
+            "function"
+        ){
+
+            return value.toMillis();
+
+        }
+
+
+        if(
+            value &&
+            typeof value.toDate ===
+            "function"
+        ){
+
+            return value.toDate().getTime();
+
+        }
+
+
+        return new Date(
+            value
+        ).getTime() || 0;
+
+    }
+    catch(error){
+
+        return 0;
+
+    }
+
+}
+
+
+/* ===============================
+DISPLAY
+================================ */
+
+function displayOrders(){
+
+    const container =
+        document.getElementById(
+            "ordersContainer"
+        );
+
+
     let orders =
-        demoOrders;
+        [...allOrders];
 
 
     if(
-        currentFilter !==
-        "all"
+        currentFilter !== "all"
     ){
 
         orders =
-            demoOrders.filter(
-                order =>
+            orders.filter(
+                function(order){
 
-                    order.status ===
-                    currentFilter
+                    return (
+                        normalizeStatus(
+                            order.status
+                        ) ===
+                        currentFilter
+                    );
+
+                }
             );
 
     }
 
 
-    if(
-        orders.length ===
-        0
-    ){
+    if(!orders.length){
 
         container.innerHTML = `
 
@@ -1952,262 +1661,244 @@ async function displayOrders(){
     }
 
 
-    const cancelRequests =
-        await getAllCancelRequests();
-
-
     container.innerHTML =
-        orders.map(
-
-            order => {
-
-
-                const cancelRequest =
-                    cancelRequests.find(
-
-                        item =>
-
-                            item.orderId ===
-                            order.id &&
-
-                            item.status !==
-                            "Rejected"
-
-                    );
-
-
-                let cancelButton =
-                    "";
-
-
-                /*
-                =========================
-                CANCEL BUTTON
-                =========================
-                */
-
-                if(
-
-                    order.status ===
-                        "pending" ||
-
-                    order.status ===
-                        "confirmed"
-
-                ){
-
-                    if(
-                        cancelRequest
-                    ){
-
-                        cancelButton = `
-
-                            <button
-                                class="btn pending-cancel"
-                                disabled>
-
-                                ⏳ Cancel Pending
-
-                            </button>
-
-                        `;
-
-                    }
-
-                    else{
-
-                        cancelButton = `
-
-                            <button
-                                class="btn cancel"
-                                onclick="openCancelModal(
-                                    '${order.id}'
-                                )">
-
-                                ❌ Cancel Order
-
-                            </button>
-
-                        `;
-
-                    }
-
-                }
-
-
-                let cancelInfo =
-                    "";
-
-
-                if(
-                    cancelRequest
-                ){
-
-                    cancelInfo = `
-
-                        <div
-                            class="cancel-info">
-
-                            ⏳ Cancel Request:
-                            <b>
-                                ${cancelRequest.status}
-                            </b>
-
-                            <br>
-
-                            Return/Cancel ID:
-                            ${cancelRequest.id}
-
-                        </div>
-
-                    `;
-
-                }
-
-
-                return `
-
-                <div class="order-card">
-
-                    <div class="order-head">
-
-                        <div>
-
-                            <div class="order-id">
-
-                                Order #${order.id}
-
-                            </div>
-
-                            <div class="order-date">
-
-                                ${order.date}
-
-                            </div>
-
-                        </div>
-
-
-                        <span
-                            class="status ${order.status}">
-
-                            ${getStatusText(
-                                order.status
-                            )}
-
-                        </span>
-
-                    </div>
-
-
-                    <div class="product">
-
-                        <div
-                            class="product-img">
-
-                            ${order.emoji}
-
-                        </div>
-
-
-                        <div
-                            class="product-info">
-
-                            <div
-                                class="product-name">
-
-                                ${order.product}
-
-                            </div>
-
-
-                            <small>
-
-                                Quantity:
-                                ${order.quantity}
-
-                            </small>
-
-
-                            <small>
-
-                                Utkala Mart Product
-
-                            </small>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="order-bottom">
-
-                        <div>
-
-                            <div
-                                class="amount-label">
-
-                                Total Amount
-
-                            </div>
-
-
-                            <div class="amount">
-
-                                ${order.amount}
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="actions">
-
-
-                            <a
-                                href="order-tracking.html?order=${order.id}"
-                                class="btn">
-
-                                🚚 Track
-
-                            </a>
-
-
-                            ${cancelButton}
-
-
-                            <button
-                                class="btn primary"
-                                onclick="viewOrder(
-                                    '${order.id}'
-                                )">
-
-                                View
-
-                            </button>
-
-
-                        </div>
-
-                    </div>
-
-
-                    ${cancelInfo}
-
-                </div>
-
-                `;
-
-            }
-
-        ).join("");
+        orders
+        .map(
+            createOrderCard
+        )
+        .join("");
 
 }
 
 
-/* =====================================
-   FILTER ORDERS
-===================================== */
+/* ===============================
+CREATE ORDER CARD
+================================ */
+
+function createOrderCard(order){
+
+    const item =
+        order.items &&
+        order.items.length
+        ?
+        order.items[0]
+        :
+        {};
+
+
+    const productName =
+        item.name ||
+        item.productName ||
+        item.title ||
+        "Utkala Mart Product";
+
+
+    const quantity =
+        Number(
+            item.quantity ||
+            item.qty ||
+            1
+        );
+
+
+    const image =
+        productImage(
+            item
+        );
+
+
+    const status =
+        normalizeStatus(
+            order.status
+        );
+
+
+    const canCancel =
+        status === "pending" ||
+        status === "confirmed";
+
+
+    return `
+
+        <div class="order-card">
+
+            <div class="order-head">
+
+                <div>
+
+                    <div class="order-id">
+
+                        📦 Order #${escapeHtml(
+                            order.orderId
+                        )}
+
+                    </div>
+
+                    <div class="order-date">
+
+                        ${formatDate(
+                            order.createdAt
+                        )}
+
+                    </div>
+
+                </div>
+
+
+                <span
+                    class="status ${status}">
+
+                    ${statusText(
+                        status
+                    )}
+
+                </span>
+
+            </div>
+
+
+            <div class="product">
+
+                <div class="product-img">
+
+                    <img
+                        src="${escapeHtml(image)}"
+                        alt="${escapeHtml(productName)}"
+                        onerror="
+                            this.onerror=null;
+                            this.src='logo.png';
+                        "
+                    >
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <div class="product-name">
+
+                        ${escapeHtml(
+                            productName
+                        )}
+
+                    </div>
+
+
+                    <small>
+
+                        Quantity:
+                        ${quantity}
+
+                    </small>
+
+
+                    ${
+                        item.price
+                        ?
+                        `
+                        <small>
+                            Price:
+                            ${money(item.price)}
+                        </small>
+                        `
+                        :
+                        ""
+                    }
+
+
+                    <small>
+
+                        Utkala Mart Product
+
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="order-bottom">
+
+                <div>
+
+                    <div class="amount-label">
+
+                        Total Amount
+
+                    </div>
+
+
+                    <div class="amount">
+
+                        ${money(
+                            order.total
+                        )}
+
+                    </div>
+
+                </div>
+
+
+                <div class="actions">
+
+                    <a
+                        href="order-tracking.html?order=${encodeURIComponent(
+                            order.orderId
+                        )}"
+                        class="btn">
+
+                        🚚 Track
+
+                    </a>
+
+
+                    ${
+                        canCancel
+                        ?
+                        `
+                        <button
+                            class="btn cancel"
+                            onclick="openCancelModal(
+                                '${escapeHtml(
+                                    order.orderId
+                                )}'
+                            )">
+
+                            ❌ Cancel Order
+
+                        </button>
+                        `
+                        :
+                        ""
+                    }
+
+
+                    <button
+                        class="btn primary"
+                        onclick="viewOrder(
+                            '${escapeHtml(
+                                order.orderId
+                            )}'
+                        )">
+
+                        View
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* ===============================
+FILTER
+================================ */
 
 window.filterOrders =
 function(
@@ -2224,11 +1915,13 @@ function(
             ".filter button"
         )
         .forEach(
-            btn =>
+            function(btn){
 
                 btn.classList.remove(
                     "active"
-                )
+                );
+
+            }
         );
 
 
@@ -2242,26 +1935,48 @@ function(
 };
 
 
-/* =====================================
-   VIEW ORDER
-===================================== */
+/* ===============================
+VIEW ORDER
+================================ */
 
 window.viewOrder =
 function(orderId){
 
     const order =
-        demoOrders.find(
-            item =>
-                item.id ===
-                orderId
+        allOrders.find(
+            function(item){
+
+                return (
+                    item.orderId ===
+                    orderId
+                );
+
+            }
         );
 
 
-    if(!order){
-
+    if(!order)
         return;
 
-    }
+
+    const item =
+        order.items?.[0] ||
+        {};
+
+
+    const name =
+        item.name ||
+        item.productName ||
+        item.title ||
+        "Product";
+
+
+    const quantity =
+        Number(
+            item.quantity ||
+            item.qty ||
+            1
+        );
 
 
     alert(
@@ -2269,28 +1984,30 @@ function(orderId){
         "📦 Order Details\n\n" +
 
         "Order: #" +
-        order.id +
+        order.orderId +
 
         "\n\n" +
 
         "Product: " +
-        order.product +
+        name +
 
         "\n" +
 
         "Quantity: " +
-        order.quantity +
+        quantity +
 
         "\n" +
 
         "Amount: " +
-        order.amount +
+        money(order.total) +
 
-        "\n" +
+        "\n\n" +
 
         "Status: " +
-        getStatusText(
-            order.status
+        statusText(
+            normalizeStatus(
+                order.status
+            )
         )
 
     );
@@ -2298,9 +2015,272 @@ function(orderId){
 };
 
 
-/* =====================================
-   OUTSIDE MODAL CLICK
-===================================== */
+/* ===============================
+OPEN CANCEL
+================================ */
+
+window.openCancelModal =
+function(orderId){
+
+    const order =
+        allOrders.find(
+            function(item){
+
+                return (
+                    item.orderId ===
+                    orderId
+                );
+
+            }
+        );
+
+
+    if(!order){
+
+        alert(
+            "Order ମିଳିଲା ନାହିଁ।"
+        );
+
+        return;
+
+    }
+
+
+    const status =
+        normalizeStatus(
+            order.status
+        );
+
+
+    if(
+        status !== "pending" &&
+        status !== "confirmed"
+    ){
+
+        alert(
+            "ଏହି Order ବର୍ତ୍ତମାନ Cancel କରିହେବ ନାହିଁ।"
+        );
+
+        return;
+
+    }
+
+
+    selectedCancelOrder =
+        order;
+
+
+    const item =
+        order.items?.[0] ||
+        {};
+
+
+    const name =
+        item.name ||
+        item.productName ||
+        item.title ||
+        "Product";
+
+
+    document.getElementById(
+        "cancelOrderDetails"
+    ).innerHTML = `
+
+        <b>
+            Order #${escapeHtml(
+                order.orderId
+            )}
+        </b>
+
+        <br><br>
+
+        Product:
+        ${escapeHtml(name)}
+
+        <br>
+
+        Amount:
+        <b>
+            ${money(order.total)}
+        </b>
+
+    `;
+
+
+    document.getElementById(
+        "cancelReason"
+    ).value = "";
+
+
+    document.getElementById(
+        "cancelModal"
+    ).style.display =
+        "block";
+
+};
+
+
+/* ===============================
+CLOSE CANCEL
+================================ */
+
+window.closeCancelModal =
+function(){
+
+    document.getElementById(
+        "cancelModal"
+    ).style.display =
+        "none";
+
+
+    selectedCancelOrder =
+        null;
+
+};
+
+
+/* ===============================
+SUBMIT CANCEL REQUEST
+================================ */
+
+window.submitCancelRequest =
+async function(){
+
+    if(!selectedCancelOrder){
+
+        alert(
+            "Order select କରନ୍ତୁ।"
+        );
+
+        return;
+
+    }
+
+
+    const reason =
+        document
+        .getElementById(
+            "cancelReason"
+        )
+        .value
+        .trim();
+
+
+    if(!reason){
+
+        alert(
+            "Cancel କରିବାର କାରଣ ଲେଖନ୍ତୁ।"
+        );
+
+        return;
+
+    }
+
+
+    const button =
+        document.getElementById(
+            "submitCancelBtn"
+        );
+
+
+    button.disabled =
+        true;
+
+
+    button.textContent =
+        "⏳ Saving...";
+
+
+    try{
+
+        const request = {
+
+            orderId:
+                selectedCancelOrder.orderId,
+
+            product:
+                selectedCancelOrder
+                .items?.[0]?.name ||
+                "Product",
+
+            amount:
+                Number(
+                    selectedCancelOrder.total ||
+                    0
+                ),
+
+            reason:
+                reason,
+
+            status:
+                "Pending",
+
+            date:
+                new Date()
+                .toLocaleDateString(
+                    "en-IN"
+                ),
+
+            createdAt:
+                new Date()
+                .toISOString(),
+
+            updatedAt:
+                new Date()
+                .toISOString()
+
+        };
+
+
+        await addDoc(
+
+            collection(
+                db,
+                "orderCancellations"
+            ),
+
+            request
+
+        );
+
+
+        alert(
+            "✅ Cancel Request ସଫଳତାର ସହିତ Admin ପାଖକୁ ପଠାଯାଇଛି।"
+        );
+
+
+        closeCancelModal();
+
+
+    }
+    catch(error){
+
+        console.error(
+            "Cancel Error:",
+            error
+        );
+
+
+        alert(
+            "❌ Cancel Request save ହୋଇନାହିଁ। Firebase Rules check କରନ୍ତୁ।"
+        );
+
+    }
+
+
+    button.disabled =
+        false;
+
+
+    button.textContent =
+        "❌ Cancel Request Submit";
+
+};
+
+
+/* ===============================
+MODAL OUTSIDE CLICK
+================================ */
 
 window.onclick =
 function(event){
@@ -2323,11 +2303,11 @@ function(event){
 };
 
 
-/* =====================================
-   START
-===================================== */
+/* ===============================
+START
+================================ */
 
-displayOrders();
+loadOrders();
 
 </script>
 
