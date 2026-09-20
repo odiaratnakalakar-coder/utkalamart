@@ -537,8 +537,15 @@ body{
     </div>
 
     <div>
-        <a href="order-track.html">📦 Order Track</a>
-        <a href="seller-login.html">👤 Seller Login</a>
+
+        <a href="order-tracking.html">
+            📦 Order Track
+        </a>
+
+        <a href="seller-login.html">
+            👤 Seller Login
+        </a>
+
     </div>
 
 </div>
@@ -548,10 +555,10 @@ body{
 
 <header class="header">
 
-    <a href="index.html" class="brand"
+    <a href="index.html"
+       class="brand"
        style="text-decoration:none;">
 
-        <!-- ଆପଣଙ୍କ logo file name ଅନୁସାରେ ବଦଳାନ୍ତୁ -->
         <img
             src="logo.png"
             class="logo"
@@ -579,8 +586,13 @@ body{
         <a href="cart.html"
            class="header-btn">
 
-            <div class="icon">🛒</div>
-            <span>My Cart</span>
+            <div class="icon">
+                🛒
+            </div>
+
+            <span>
+                My Cart
+            </span>
 
         </a>
 
@@ -588,8 +600,13 @@ body{
         <a href="wishlist.html"
            class="header-btn">
 
-            <div class="icon">♡</div>
-            <span>ମୋ ପସନ୍ଦ</span>
+            <div class="icon">
+                ♡
+            </div>
+
+            <span>
+                ମୋ ପସନ୍ଦ
+            </span>
 
         </a>
 
@@ -597,8 +614,13 @@ body{
         <a href="account.html"
            class="header-btn">
 
-            <div class="icon">👤</div>
-            <span>ମୋ ଖାତା</span>
+            <div class="icon">
+                👤
+            </div>
+
+            <span>
+                ମୋ ଖାତା
+            </span>
 
         </a>
 
@@ -684,7 +706,7 @@ body{
         </a>
 
 
-        <a href="order-track.html"
+        <a href="order-tracking.html"
            class="quick-card">
 
             <div class="quick-icon">
@@ -783,7 +805,7 @@ body{
 
 
 
-        <a href="order-track.html"
+        <a href="order-tracking.html"
            class="menu-item">
 
             <div class="menu-left">
@@ -1083,7 +1105,9 @@ body{
                 </strong>
 
                 <div style="font-size:12px;color:#888;margin-top:4px;">
+
                     Product କିଣିଲେ ଏଠାରେ Order ଦେଖାଯିବ
+
                 </div>
 
             </div>
@@ -1240,7 +1264,7 @@ body{
     </a>
 
 
-    <a href="order-track.html">
+    <a href="order-tracking.html">
 
         <span class="bn-icon">
             📦
@@ -1271,34 +1295,45 @@ body{
 
 /* =====================================
    LOCAL PROFILE SYSTEM
-   ===================================== */
+===================================== */
 
 function loadProfile(){
 
     const name =
-        localStorage.getItem("utkalaUserName");
+        localStorage.getItem(
+            "utkalaUserName"
+        );
 
     const mobile =
-        localStorage.getItem("utkalaUserMobile");
+        localStorage.getItem(
+            "utkalaUserMobile"
+        );
 
     const photo =
-        localStorage.getItem("utkalaUserPhoto");
+        localStorage.getItem(
+            "utkalaUserPhoto"
+        );
 
 
     if(name){
 
-        document.getElementById("userName")
-        .textContent =
-        "ନମସ୍କାର, " + name + " 👋";
+        document.getElementById(
+            "userName"
+        ).textContent =
+            "ନମସ୍କାର, " +
+            name +
+            " 👋";
 
     }
 
 
     if(mobile){
 
-        document.getElementById("userMobile")
-        .textContent =
-        "📱 " + mobile;
+        document.getElementById(
+            "userMobile"
+        ).textContent =
+            "📱 " +
+            mobile;
 
     }
 
@@ -1306,7 +1341,10 @@ function loadProfile(){
     if(photo){
 
         const box =
-            document.getElementById("profilePhoto");
+            document.getElementById(
+                "profilePhoto"
+            );
+
 
         box.innerHTML =
             '<img src="' +
@@ -1323,27 +1361,45 @@ function loadProfile(){
 function openProfile(){
 
     const name =
-        localStorage.getItem("utkalaUserName") || "";
+        localStorage.getItem(
+            "utkalaUserName"
+        ) || "";
+
 
     const mobile =
-        localStorage.getItem("utkalaUserMobile") || "";
+        localStorage.getItem(
+            "utkalaUserMobile"
+        ) || "";
+
 
     const photo =
-        localStorage.getItem("utkalaUserPhoto") || "";
+        localStorage.getItem(
+            "utkalaUserPhoto"
+        ) || "";
 
 
-    document.getElementById("editName").value =
+    document.getElementById(
+        "editName"
+    ).value =
         name;
 
-    document.getElementById("editMobile").value =
+
+    document.getElementById(
+        "editMobile"
+    ).value =
         mobile;
 
-    document.getElementById("editPhoto").value =
+
+    document.getElementById(
+        "editPhoto"
+    ).value =
         photo;
 
 
-    document.getElementById("profileOverlay")
-        .style.display = "flex";
+    document.getElementById(
+        "profileOverlay"
+    ).style.display =
+        "flex";
 
 }
 
@@ -1352,8 +1408,10 @@ function openProfile(){
 
 function closeProfile(){
 
-    document.getElementById("profileOverlay")
-        .style.display = "none";
+    document.getElementById(
+        "profileOverlay"
+    ).style.display =
+        "none";
 
 }
 
@@ -1363,16 +1421,21 @@ function closeProfile(){
 function saveProfile(){
 
     const name =
-        document.getElementById("editName")
-        .value.trim();
+        document.getElementById(
+            "editName"
+        ).value.trim();
+
 
     const mobile =
-        document.getElementById("editMobile")
-        .value.trim();
+        document.getElementById(
+            "editMobile"
+        ).value.trim();
+
 
     const photo =
-        document.getElementById("editPhoto")
-        .value.trim();
+        document.getElementById(
+            "editPhoto"
+        ).value.trim();
 
 
     if(name){
@@ -1428,17 +1491,20 @@ function logoutUser(){
 
 
     if(!confirmLogout){
+
         return;
+
     }
 
 
     /*
        ବର୍ତ୍ତମାନ local profile data
        delete କରୁନାହିଁ।
-       Firebase Login ଯୋଡିବା ପରେ
-       Firebase signOut() କରାଯିବ।
-    */
 
+       Firebase Login connect
+       କରିବା ପରେ Firebase
+       signOut() ଯୋଡ଼ାଯିବ।
+    */
 
     alert(
         "Logout system Firebase Login connect ପରେ ସମ୍ପୂର୍ଣ୍ଣ ଭାବେ କାମ କରିବ।"
@@ -1455,7 +1521,7 @@ document.addEventListener(
 );
 
 
-/* CLOSE POPUP WHEN OUTSIDE CLICK */
+/* CLOSE POPUP OUTSIDE CLICK */
 
 document.getElementById(
     "profileOverlay"
@@ -1477,4 +1543,4 @@ document.getElementById(
 
 </body>
 
-                      </html>
+</html>
