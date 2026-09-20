@@ -2,12 +2,16 @@
 <html lang="or">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Return & Refund | Utkala Mart</title>
 
-<meta name="theme-color" content="#138a45">
+<meta name="theme-color"
+content="#138a45">
 
 <style>
 
@@ -17,20 +21,25 @@
 
 body{
     margin:0;
-    font-family:Arial,"Noto Sans Odia",sans-serif;
+    font-family:
+        Arial,
+        "Noto Sans Odia",
+        "Noto Sans Oriya",
+        sans-serif;
+
     background:#f5f7f6;
     color:#222;
 }
-
-/* HEADER */
 
 header{
     background:#138a45;
     color:white;
     padding:14px 18px;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
+
     position:sticky;
     top:0;
     z-index:100;
@@ -47,21 +56,20 @@ header{
     font-size:14px;
 }
 
-/* CONTAINER */
-
 .container{
     max-width:950px;
     margin:auto;
     padding:18px;
 }
 
-/* TITLE */
-
 .page-title{
     background:white;
     border-radius:14px;
     padding:20px;
-    box-shadow:0 2px 10px rgba(0,0,0,.06);
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,.06);
+
     margin-bottom:18px;
 }
 
@@ -76,31 +84,37 @@ header{
     font-size:14px;
 }
 
-/* INFO */
-
 .info{
     background:#fff8e1;
     border-left:5px solid #ff9800;
+
     padding:14px;
+
     border-radius:10px;
+
     margin-bottom:18px;
+
     font-size:14px;
 }
 
-/* ORDER CARD */
-
 .order-card{
     background:white;
+
     border-radius:14px;
+
     padding:18px;
+
     margin-bottom:15px;
-    box-shadow:0 2px 10px rgba(0,0,0,.06);
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,.06);
 }
 
 .order-top{
     display:flex;
     justify-content:space-between;
     align-items:center;
+
     gap:10px;
     flex-wrap:wrap;
 }
@@ -112,8 +126,11 @@ header{
 
 .status{
     padding:6px 11px;
+
     border-radius:20px;
+
     font-size:12px;
+
     font-weight:bold;
 }
 
@@ -127,6 +144,16 @@ header{
     color:#856404;
 }
 
+.status.approved{
+    background:#e8f5e9;
+    color:#138a45;
+}
+
+.status.rejected{
+    background:#fde8e8;
+    color:#c62828;
+}
+
 .status.refunded{
     background:#e3f2fd;
     color:#1565c0;
@@ -134,31 +161,43 @@ header{
 
 .product{
     display:flex;
+
     gap:14px;
+
     align-items:center;
+
     margin-top:15px;
 }
 
 .product-img{
     width:75px;
     height:75px;
+
     border-radius:10px;
+
     background:#eee;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
+
     font-size:30px;
+
     flex-shrink:0;
 }
 
 .product-info h3{
     margin:0 0 5px;
+
     font-size:17px;
 }
 
 .product-info p{
     margin:3px 0;
+
     color:#666;
+
     font-size:13px;
 }
 
@@ -167,20 +206,24 @@ header{
     color:#d35400;
 }
 
-/* BUTTON */
-
 .btn{
     border:0;
+
     padding:10px 15px;
+
     border-radius:8px;
+
     cursor:pointer;
+
     font-weight:bold;
+
     font-size:14px;
 }
 
 .return-btn{
     background:#138a45;
     color:white;
+
     margin-top:15px;
 }
 
@@ -188,164 +231,229 @@ header{
     background:#0d6f37;
 }
 
-.cancel-btn{
-    background:#f44336;
-    color:white;
-}
-
 .view-btn{
     background:#eee;
     color:#333;
 }
 
-/* MODAL */
-
 .modal{
     display:none;
+
     position:fixed;
+
     inset:0;
+
     background:rgba(0,0,0,.55);
+
     z-index:999;
+
     padding:20px;
+
     overflow:auto;
 }
 
 .modal-box{
     background:white;
+
     max-width:600px;
+
     margin:30px auto;
+
     border-radius:16px;
+
     padding:22px;
 }
 
 .modal-box h2{
     margin-top:0;
+
     color:#138a45;
 }
 
 .close{
     float:right;
+
     border:0;
+
     background:#eee;
+
     width:34px;
     height:34px;
+
     border-radius:50%;
+
     cursor:pointer;
+
     font-size:18px;
 }
 
 label{
     display:block;
+
     margin:15px 0 6px;
+
     font-weight:bold;
+
     font-size:14px;
 }
 
 select,
 textarea{
     width:100%;
+
     padding:11px;
+
     border:1px solid #ddd;
+
     border-radius:8px;
+
     font-family:inherit;
+
     font-size:14px;
 }
 
 textarea{
     min-height:90px;
+
     resize:vertical;
 }
 
 .refund-box{
     background:#f1f8f4;
+
     padding:13px;
+
     border-radius:10px;
+
     margin-top:15px;
 }
 
 .submit-btn{
     width:100%;
+
     margin-top:18px;
+
     background:#138a45;
+
     color:white;
 }
 
-/* REQUEST HISTORY */
+.submit-btn:disabled{
+    opacity:.6;
+
+    cursor:not-allowed;
+}
 
 .history-title{
     margin-top:28px;
+
     margin-bottom:12px;
 }
 
 .history-card{
     background:white;
+
     border-radius:12px;
+
     padding:16px;
+
     margin-bottom:12px;
-    box-shadow:0 2px 8px rgba(0,0,0,.05);
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,.05);
 }
 
 .history-row{
     display:flex;
+
     justify-content:space-between;
+
     gap:10px;
+
     margin:6px 0;
+
     font-size:14px;
 }
 
 .reason{
     color:#666;
-}
 
-/* EMPTY */
+    text-align:right;
+}
 
 .empty{
     text-align:center;
+
     background:white;
+
     padding:30px;
+
     border-radius:14px;
+
     color:#777;
 }
 
-/* BOTTOM NAV */
+.loading{
+    text-align:center;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:14px;
+
+    color:#777;
+}
 
 .bottom-nav{
     position:fixed;
+
     bottom:0;
     left:0;
     right:0;
+
     height:62px;
+
     background:white;
+
     border-top:1px solid #ddd;
+
     display:flex;
+
     justify-content:space-around;
+
     align-items:center;
+
     z-index:500;
 }
 
 .bottom-nav a{
     text-decoration:none;
+
     color:#555;
+
     font-size:11px;
+
     text-align:center;
 }
 
 .bottom-nav span{
     display:block;
+
     font-size:21px;
+
     margin-bottom:2px;
 }
 
 .bottom-nav .active{
     color:#138a45;
+
     font-weight:bold;
 }
 
 body{
     padding-bottom:70px;
 }
-
-/* MOBILE */
 
 @media(max-width:600px){
 
@@ -375,12 +483,24 @@ body{
         padding:18px;
     }
 
+    .history-row{
+        flex-direction:column;
+        gap:3px;
+    }
+
+    .reason{
+        text-align:left;
+    }
+
 }
 
 </style>
+
 </head>
 
+
 <body>
+
 
 <header>
 
@@ -388,8 +508,12 @@ body{
         🛍️ Utkala Mart
     </div>
 
-    <a href="account.html" class="back">
+    <a
+        href="account.html"
+        class="back">
+
         ← Account
+
     </a>
 
 </header>
@@ -397,12 +521,16 @@ body{
 
 <div class="container">
 
+
     <div class="page-title">
 
-        <h1>🔄 Return & Refund</h1>
+        <h1>
+            🔄 Return & Refund
+        </h1>
 
         <p>
-            ଆପଣଙ୍କ order ର Return / Refund request ଏଠାରୁ କରନ୍ତୁ।
+            ଆପଣଙ୍କ order ର Return / Refund request
+            ଏଠାରୁ କରନ୍ତୁ।
         </p>
 
     </div>
@@ -411,13 +539,17 @@ body{
     <div class="info">
 
         ℹ️ <b>Return Policy:</b>
+
         Product delivery ପରେ eligible order ପାଇଁ
         return request କରିପାରିବେ।
 
     </div>
 
 
-    <h2>📦 Return ପାଇଁ Order</h2>
+    <h2>
+        📦 Return ପାଇଁ Order
+    </h2>
+
 
     <div id="ordersList"></div>
 
@@ -426,20 +558,39 @@ body{
         📋 ମୋ Return Requests
     </h2>
 
-    <div id="historyList"></div>
+
+    <div id="historyList">
+
+        <div class="loading">
+            ⏳ Return Requests Loading...
+        </div>
+
+    </div>
 
 </div>
 
 
 <!-- RETURN MODAL -->
 
-<div class="modal" id="returnModal">
+<div
+    class="modal"
+    id="returnModal">
 
     <div class="modal-box">
 
-        <button class="close" onclick="closeModal()">×</button>
+        <button
+            class="close"
+            onclick="closeModal()">
 
-        <h2>🔄 Return Request</h2>
+            ×
+
+        </button>
+
+
+        <h2>
+            🔄 Return Request
+        </h2>
+
 
         <div id="selectedOrder"></div>
 
@@ -447,6 +598,7 @@ body{
         <label>
             Return କରିବାର କାରଣ
         </label>
+
 
         <select id="returnReason">
 
@@ -485,6 +637,7 @@ body{
             Refund Method
         </label>
 
+
         <select id="refundMethod">
 
             <option value="">
@@ -514,6 +667,7 @@ body{
             ଅଧିକ ବିବରଣୀ
         </label>
 
+
         <textarea
             id="returnNote"
             placeholder="Product ବିଷୟରେ କିଛି ଅଧିକ କହନ୍ତୁ..."
@@ -533,9 +687,11 @@ body{
 
         <button
             class="btn submit-btn"
-            onclick="submitReturn()"
-        >
+            id="submitBtn"
+            onclick="submitReturn()">
+
             ✅ Return Request Submit
+
         </button>
 
     </div>
@@ -548,64 +704,167 @@ body{
 <div class="bottom-nav">
 
     <a href="index.html">
+
         <span>🏠</span>
+
         Home
+
     </a>
+
 
     <a href="orders.html">
+
         <span>📦</span>
+
         Orders
+
     </a>
+
 
     <a href="wishlist.html">
+
         <span>❤️</span>
+
         Wishlist
+
     </a>
+
 
     <a href="order-tracking.html">
+
         <span>🚚</span>
+
         Track
+
     </a>
 
-    <a href="account.html" class="active">
+
+    <a
+        href="account.html"
+        class="active">
+
         <span>👤</span>
+
         Account
+
     </a>
 
 </div>
 
 
-<script>
+<script type="module">
 
-/* DEMO ORDERS */
+
+/* =========================================
+   FIREBASE
+========================================= */
+
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import {
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs,
+    setDoc,
+    doc
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =========================================
+   FIREBASE CONFIG
+========================================= */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyBYJ_KKsS_7SNz108jnw6hpOlmegofRhJg",
+
+    authDomain:
+        "utkalamart-1ec68.firebaseapp.com",
+
+    projectId:
+        "utkalamart-1ec68",
+
+    storageBucket:
+        "utkalamart-1ec68.firebasestorage.app",
+
+    messagingSenderId:
+        "664871353747",
+
+    appId:
+        "1:664871353747:web:96532fdafe78aabe7f3c66"
+
+};
+
+
+/* =========================================
+   INIT
+========================================= */
+
+const app =
+    initializeApp(firebaseConfig);
+
+const db =
+    getFirestore(app);
+
+
+/* =========================================
+   DEMO ORDERS
+========================================= */
 
 const demoOrders = [
 
     {
         id:"UTK10001",
+
         product:"ଗଞ୍ଜାମ ପାପଡ଼",
+
         price:240,
+
         date:"18 Sep 2026",
+
         status:"Delivered",
+
         icon:"🥘"
+
     },
 
     {
         id:"UTK10002",
+
         product:"Handmade Basket",
+
         price:350,
+
         date:"16 Sep 2026",
+
         status:"Shipped",
+
         icon:"🧺"
+
     },
 
     {
         id:"UTK10003",
+
         product:"Sambalpuri Shirt",
+
         price:850,
+
         date:"12 Sep 2026",
+
         status:"Delivered",
+
         icon:"👕"
+
     }
 
 ];
@@ -614,175 +873,306 @@ const demoOrders = [
 let selectedOrder = null;
 
 
-/* LOAD ORDERS */
+/* =========================================
+   LOCAL STORAGE KEY
+========================================= */
+
+const LOCAL_KEY =
+    "utkalaReturns";
+
+
+/* =========================================
+   LOAD ORDERS
+========================================= */
 
 function loadOrders(){
 
     const container =
-        document.getElementById("ordersList");
+        document.getElementById(
+            "ordersList"
+        );
+
 
     container.innerHTML = "";
 
-    demoOrders.forEach(order => {
 
-        let button = "";
+    demoOrders.forEach(
+        order => {
 
-        if(order.status === "Delivered"){
+            let button = "";
 
-            button = `
-                <button
-                    class="btn return-btn"
-                    onclick="openReturn('${order.id}')"
-                >
-                    🔄 Return / Refund
-                </button>
-            `;
 
-        }else{
+            if(
+                order.status ===
+                "Delivered"
+            ){
 
-            button = `
-                <button
-                    class="btn view-btn"
-                    disabled
-                >
-                    Return available after delivery
-                </button>
+                button = `
+
+                    <button
+                        class="btn return-btn"
+                        onclick="openReturn(
+                            '${order.id}'
+                        )">
+
+                        🔄 Return / Refund
+
+                    </button>
+
+                `;
+
+            }
+
+            else{
+
+                button = `
+
+                    <button
+                        class="btn view-btn"
+                        disabled>
+
+                        Return available after delivery
+
+                    </button>
+
+                `;
+
+            }
+
+
+            container.innerHTML += `
+
+                <div class="order-card">
+
+                    <div class="order-top">
+
+                        <div class="order-id">
+
+                            Order #${order.id}
+
+                        </div>
+
+
+                        <div
+                            class="status
+                            ${
+                                order.status ===
+                                "Delivered"
+                                ? "delivered"
+                                : "pending"
+                            }">
+
+                            ${order.status}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="product">
+
+                        <div class="product-img">
+
+                            ${order.icon}
+
+                        </div>
+
+
+                        <div class="product-info">
+
+                            <h3>
+                                ${order.product}
+                            </h3>
+
+                            <p>
+                                Order Date:
+                                ${order.date}
+                            </p>
+
+                            <p class="price">
+                                ₹${order.price}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    ${button}
+
+                </div>
+
             `;
 
         }
-
-
-        container.innerHTML += `
-
-            <div class="order-card">
-
-                <div class="order-top">
-
-                    <div class="order-id">
-                        Order #${order.id}
-                    </div>
-
-                    <div class="status
-                        ${order.status === "Delivered"
-                        ? "delivered"
-                        : "pending"}">
-
-                        ${order.status}
-
-                    </div>
-
-                </div>
-
-
-                <div class="product">
-
-                    <div class="product-img">
-                        ${order.icon}
-                    </div>
-
-                    <div class="product-info">
-
-                        <h3>
-                            ${order.product}
-                        </h3>
-
-                        <p>
-                            Order Date: ${order.date}
-                        </p>
-
-                        <p class="price">
-                            ₹${order.price}
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                ${button}
-
-            </div>
-
-        `;
-
-    });
+    );
 
 }
 
 
-/* OPEN RETURN */
+/* =========================================
+   OPEN RETURN
+========================================= */
 
-function openReturn(orderId){
+window.openReturn =
+function(orderId){
 
     selectedOrder =
         demoOrders.find(
-            order => order.id === orderId
+            order =>
+                order.id === orderId
         );
 
-    if(!selectedOrder) return;
+
+    if(!selectedOrder){
+
+        return;
+
+    }
 
 
-    document.getElementById("selectedOrder").innerHTML = `
+    document.getElementById(
+        "selectedOrder"
+    ).innerHTML = `
 
         <div class="refund-box">
 
-            <b>${selectedOrder.product}</b><br>
+            <b>
+                ${selectedOrder.product}
+            </b>
 
-            Order #${selectedOrder.id}<br>
+            <br>
+
+            Order #
+            ${selectedOrder.id}
+
+            <br>
 
             Amount:
-            <b>₹${selectedOrder.price}</b>
+
+            <b>
+                ₹${selectedOrder.price}
+            </b>
 
         </div>
 
     `;
 
 
-    document.getElementById("refundAmount").textContent =
-        "₹" + selectedOrder.price;
+    document.getElementById(
+        "refundAmount"
+    ).textContent =
+        "₹" +
+        selectedOrder.price;
 
 
-    document.getElementById("returnModal").style.display =
+    document.getElementById(
+        "returnReason"
+    ).value = "";
+
+
+    document.getElementById(
+        "refundMethod"
+    ).value = "";
+
+
+    document.getElementById(
+        "returnNote"
+    ).value = "";
+
+
+    document.getElementById(
+        "returnModal"
+    ).style.display =
         "block";
 
-}
+};
 
 
-/* CLOSE */
+/* =========================================
+   CLOSE MODAL
+========================================= */
 
-function closeModal(){
+window.closeModal =
+function(){
 
-    document.getElementById("returnModal").style.display =
+    document.getElementById(
+        "returnModal"
+    ).style.display =
         "none";
 
+};
+
+
+/* =========================================
+   SAVE TO FIRESTORE
+========================================= */
+
+async function saveToFirestore(
+    request
+){
+
+    const returnDoc =
+        doc(
+            db,
+            "returnRequests",
+            request.id
+        );
+
+
+    await setDoc(
+        returnDoc,
+        request,
+        {
+            merge:true
+        }
+    );
+
 }
 
 
-/* SUBMIT RETURN */
+/* =========================================
+   SUBMIT RETURN
+========================================= */
 
-function submitReturn(){
+window.submitReturn =
+async function(){
 
     if(!selectedOrder){
 
-        alert("Order select କରନ୍ତୁ।");
+        alert(
+            "Order select କରନ୍ତୁ।"
+        );
+
         return;
 
     }
 
 
     const reason =
-        document.getElementById("returnReason").value;
+        document.getElementById(
+            "returnReason"
+        ).value;
+
 
     const refundMethod =
-        document.getElementById("refundMethod").value;
+        document.getElementById(
+            "refundMethod"
+        ).value;
+
 
     const note =
-        document.getElementById("returnNote").value.trim();
+        document.getElementById(
+            "returnNote"
+        ).value.trim();
 
 
     if(!reason){
 
-        alert("Return reason select କରନ୍ତୁ।");
+        alert(
+            "Return reason select କରନ୍ତୁ।"
+        );
+
         return;
 
     }
@@ -790,23 +1180,34 @@ function submitReturn(){
 
     if(!refundMethod){
 
-        alert("Refund method select କରନ୍ତୁ।");
+        alert(
+            "Refund method select କରନ୍ତୁ।"
+        );
+
         return;
 
     }
 
 
+    /* LOCAL CHECK */
+
     let requests =
         JSON.parse(
-            localStorage.getItem("utkalaReturns") || "[]"
+            localStorage.getItem(
+                LOCAL_KEY
+            ) || "[]"
         );
 
 
     const alreadyRequested =
         requests.some(
             item =>
-                item.orderId === selectedOrder.id &&
-                item.status !== "Cancelled"
+
+                item.orderId ===
+                selectedOrder.id &&
+
+                item.status !==
+                "Cancelled"
         );
 
 
@@ -823,11 +1224,19 @@ function submitReturn(){
     }
 
 
+    /* CREATE RETURN ID */
+
+    const returnId =
+        "RET" +
+        Date.now();
+
+
+    /* CREATE REQUEST */
+
     const request = {
 
         id:
-            "RET" +
-            Date.now(),
+            returnId,
 
         orderId:
             selectedOrder.id,
@@ -853,51 +1262,283 @@ function submitReturn(){
         date:
             new Date().toLocaleDateString(
                 "en-IN"
-            )
+            ),
+
+        createdAt:
+            new Date().toISOString(),
+
+        updatedAt:
+            new Date().toISOString()
 
     };
 
 
-    requests.unshift(request);
+    const submitBtn =
+        document.getElementById(
+            "submitBtn"
+        );
 
 
-    localStorage.setItem(
-        "utkalaReturns",
-        JSON.stringify(requests)
-    );
+    submitBtn.disabled =
+        true;
 
 
-    alert(
-        "✅ Return Request ସଫଳତାର ସହିତ Submit ହେଲା।"
-    );
+    submitBtn.textContent =
+        "⏳ Saving...";
 
 
-    document.getElementById("returnReason").value = "";
+    try{
 
-    document.getElementById("refundMethod").value = "";
+        /* FIRESTORE */
 
-    document.getElementById("returnNote").value = "";
+        await saveToFirestore(
+            request
+        );
 
 
-    closeModal();
+        /* LOCAL BACKUP */
 
-    loadHistory();
+        requests.unshift(
+            request
+        );
+
+
+        localStorage.setItem(
+            LOCAL_KEY,
+            JSON.stringify(
+                requests
+            )
+        );
+
+
+        alert(
+            "✅ Return Request ସଫଳତାର ସହିତ Submit ହେଲା।"
+        );
+
+
+        document.getElementById(
+            "returnReason"
+        ).value = "";
+
+
+        document.getElementById(
+            "refundMethod"
+        ).value = "";
+
+
+        document.getElementById(
+            "returnNote"
+        ).value = "";
+
+
+        closeModal();
+
+
+        loadHistory();
+
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Return Request Error:",
+            error
+        );
+
+
+        /*
+           FIRESTORE FAIL ହେଲେ
+           LOCAL DATA ମଧ୍ୟ ରଖିବା
+        */
+
+        requests.unshift(
+            request
+        );
+
+
+        localStorage.setItem(
+            LOCAL_KEY,
+            JSON.stringify(
+                requests
+            )
+        );
+
+
+        alert(
+            "⚠️ Internet/Firebase connection problem। Request phone ରେ save ହୋଇଛି, କିନ୍ତୁ Admin ରେ ଦେଖାଯିବା ପାଇଁ Firebase connection ଦରକାର।"
+        );
+
+
+        closeModal();
+
+
+        loadHistory();
+
+    }
+
+
+    submitBtn.disabled =
+        false;
+
+
+    submitBtn.textContent =
+        "✅ Return Request Submit";
+
+};
+
+
+/* =========================================
+   LOAD FIRESTORE HISTORY
+========================================= */
+
+async function loadFirestoreHistory(){
+
+    try{
+
+        const snapshot =
+            await getDocs(
+                collection(
+                    db,
+                    "returnRequests"
+                )
+            );
+
+
+        const firestoreRequests = [];
+
+
+        snapshot.forEach(
+            item => {
+
+                firestoreRequests.push({
+
+                    ...item.data(),
+
+                    firestoreId:
+                        item.id
+
+                });
+
+            }
+        );
+
+
+        return firestoreRequests;
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Firestore History Error:",
+            error
+        );
+
+
+        return [];
+
+    }
 
 }
 
 
-/* LOAD HISTORY */
+/* =========================================
+   LOAD HISTORY
+========================================= */
 
-function loadHistory(){
+async function loadHistory(){
 
     const container =
-        document.getElementById("historyList");
-
-
-    let requests =
-        JSON.parse(
-            localStorage.getItem("utkalaReturns") || "[]"
+        document.getElementById(
+            "historyList"
         );
+
+
+    container.innerHTML = `
+
+        <div class="loading">
+
+            ⏳ Return Requests Loading...
+
+        </div>
+
+    `;
+
+
+    /* LOCAL */
+
+    let localRequests =
+        JSON.parse(
+            localStorage.getItem(
+                LOCAL_KEY
+            ) || "[]"
+        );
+
+
+    /* FIRESTORE */
+
+    const firestoreRequests =
+        await loadFirestoreHistory();
+
+
+    /*
+       MERGE FIRESTORE + LOCAL
+    */
+
+    const map =
+        new Map();
+
+
+    firestoreRequests.forEach(
+        item => {
+
+            if(item.id){
+
+                map.set(
+                    item.id,
+                    item
+                );
+
+            }
+
+        }
+    );
+
+
+    localRequests.forEach(
+        item => {
+
+            if(
+                item.id &&
+                !map.has(item.id)
+            ){
+
+                map.set(
+                    item.id,
+                    item
+                );
+
+            }
+
+        }
+    );
+
+
+    const requests =
+        Array.from(
+            map.values()
+        );
+
+
+    /* SAVE MERGED LOCAL */
+
+    localStorage.setItem(
+        LOCAL_KEY,
+        JSON.stringify(
+            requests
+        )
+    );
 
 
     if(requests.length === 0){
@@ -906,7 +1547,8 @@ function loadHistory(){
 
             <div class="empty">
 
-                📋 ବର୍ତ୍ତମାନ କୌଣସି Return Request ନାହିଁ।
+                📋 ବର୍ତ୍ତମାନ କୌଣସି
+                Return Request ନାହିଁ।
 
             </div>
 
@@ -917,130 +1559,201 @@ function loadHistory(){
     }
 
 
+    /* SORT */
+
+    requests.sort(
+        (a,b) => {
+
+            const dateA =
+                new Date(
+                    a.createdAt || 0
+                );
+
+            const dateB =
+                new Date(
+                    b.createdAt || 0
+                );
+
+            return dateB - dateA;
+
+        }
+    );
+
+
     container.innerHTML = "";
 
 
-    requests.forEach(item => {
+    requests.forEach(
+        item => {
 
-        let statusClass = "pending";
+            let statusClass =
+                "pending";
 
 
-        if(item.status === "Refunded"){
-            statusClass = "refunded";
+            if(
+                item.status ===
+                "Approved"
+            ){
+
+                statusClass =
+                    "approved";
+
+            }
+
+
+            if(
+                item.status ===
+                "Rejected"
+            ){
+
+                statusClass =
+                    "rejected";
+
+            }
+
+
+            if(
+                item.status ===
+                "Refunded"
+            ){
+
+                statusClass =
+                    "refunded";
+
+            }
+
+
+            container.innerHTML += `
+
+                <div class="history-card">
+
+                    <div class="history-row">
+
+                        <b>
+                            ${item.product || "-"}
+                        </b>
+
+
+                        <span
+                            class="status
+                            ${statusClass}">
+
+                            ${item.status || "Pending"}
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="history-row">
+
+                        <span>
+                            Return ID
+                        </span>
+
+                        <b>
+                            ${item.id || "-"}
+                        </b>
+
+                    </div>
+
+
+                    <div class="history-row">
+
+                        <span>
+                            Order
+                        </span>
+
+                        <b>
+                            #${item.orderId || "-"}
+                        </b>
+
+                    </div>
+
+
+                    <div class="history-row">
+
+                        <span>
+                            Refund
+                        </span>
+
+                        <b>
+                            ₹${item.amount || 0}
+                        </b>
+
+                    </div>
+
+
+                    <div class="history-row">
+
+                        <span>
+                            Reason
+                        </span>
+
+                        <span class="reason">
+
+                            ${item.reason || "-"}
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="history-row">
+
+                        <span>
+                            Request Date
+                        </span>
+
+                        <span>
+
+                            ${item.date || "-"}
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="history-row">
+
+                        <span>
+                            Refund Method
+                        </span>
+
+                        <span>
+
+                            ${item.refundMethod || "-"}
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+            `;
+
         }
-
-
-        container.innerHTML += `
-
-            <div class="history-card">
-
-                <div class="history-row">
-
-                    <b>
-                        ${item.product}
-                    </b>
-
-                    <span class="status ${statusClass}">
-                        ${item.status}
-                    </span>
-
-                </div>
-
-
-                <div class="history-row">
-
-                    <span>
-                        Return ID
-                    </span>
-
-                    <b>
-                        ${item.id}
-                    </b>
-
-                </div>
-
-
-                <div class="history-row">
-
-                    <span>
-                        Order
-                    </span>
-
-                    <b>
-                        #${item.orderId}
-                    </b>
-
-                </div>
-
-
-                <div class="history-row">
-
-                    <span>
-                        Refund
-                    </span>
-
-                    <b>
-                        ₹${item.amount}
-                    </b>
-
-                </div>
-
-
-                <div class="history-row">
-
-                    <span>
-                        Reason
-                    </span>
-
-                    <span class="reason">
-                        ${item.reason}
-                    </span>
-
-                </div>
-
-
-                <div class="history-row">
-
-                    <span>
-                        Request Date
-                    </span>
-
-                    <span>
-                        ${item.date}
-                    </span>
-
-                </div>
-
-
-                <div class="history-row">
-
-                    <span>
-                        Refund Method
-                    </span>
-
-                    <span>
-                        ${item.refundMethod}
-                    </span>
-
-                </div>
-
-            </div>
-
-        `;
-
-    });
+    );
 
 }
 
 
-/* OUTSIDE CLICK */
+/* =========================================
+   OUTSIDE CLICK
+========================================= */
 
-window.onclick = function(event){
+window.onclick =
+function(event){
 
     const modal =
-        document.getElementById("returnModal");
+        document.getElementById(
+            "returnModal"
+        );
 
-    if(event.target === modal){
+
+    if(
+        event.target === modal
+    ){
 
         closeModal();
 
@@ -1049,7 +1762,9 @@ window.onclick = function(event){
 };
 
 
-/* START */
+/* =========================================
+   START
+========================================= */
 
 loadOrders();
 
@@ -1058,4 +1773,5 @@ loadHistory();
 </script>
 
 </body>
+
 </html>
