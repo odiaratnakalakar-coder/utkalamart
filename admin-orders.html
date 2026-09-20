@@ -459,6 +459,17 @@ button{
     color:#b91c1c;
 }
 
+/* NEW DELETE BUTTON */
+
+.delete-btn{
+    background:#dc2626;
+    color:#fff;
+}
+
+.delete-btn:hover{
+    background:#b91c1c;
+}
+
 /* EMPTY */
 
 .empty{
@@ -1105,6 +1116,7 @@ import {
     getDocs,
     doc,
     updateDoc,
+    deleteDoc,
     setDoc,
     serverTimestamp,
     runTransaction,
@@ -1872,6 +1884,10 @@ function createOrderCard(order){
         getFirebaseDocumentId(order);
 
 
+    const firebaseId =
+        getFirebaseDocumentId(order);
+
+
     const customerName =
         customer.name ||
         customer.fullName ||
@@ -2135,7 +2151,7 @@ function createOrderCard(order){
             <button
                 class="action-btn view-btn"
                 onclick="viewOrder('${escapeHtml(
-                    getFirebaseDocumentId(order)
+                    firebaseId
                 )}')">
 
                 👁️ View
@@ -2146,7 +2162,7 @@ function createOrderCard(order){
             <button
                 class="action-btn status-btn"
                 onclick="openStatusModal('${escapeHtml(
-                    getFirebaseDocumentId(order)
+                    firebaseId
                 )}')">
 
                 🔄 Status
@@ -2157,7 +2173,7 @@ function createOrderCard(order){
             <button
                 class="action-btn payment-btn"
                 onclick="openPaymentModal('${escapeHtml(
-                    getFirebaseDocumentId(order)
+                    firebaseId
                 )}')">
 
                 💳 Payment
@@ -2201,10 +2217,29 @@ function createOrderCard(order){
                 <button
                     class="action-btn cancel-btn"
                     onclick="cancelOrder('${escapeHtml(
-                        getFirebaseDocumentId(order)
+                        firebaseId
                     )}')">
 
                     ❌ Cancel
+
+                </button>
+                `
+                :
+                ""
+            }
+
+
+            ${
+                safeStatus==="delivered"
+                ?
+                `
+                <button
+                    class="action-btn delete-btn"
+                    onclick="deleteDeliveredOrder('${escapeHtml(
+                        firebaseId
+                    )}')">
+
+                    🗑️ Delete
 
                 </button>
                 `
@@ -2234,6 +2269,134 @@ function findOrder(firebaseDocumentId){
     );
 
 }
+
+
+/* =====================================================
+   DELETE DELIVERED ORDER
+===================================================== */
+
+window.deleteDeliveredOrder =
+async function(firebaseDocumentId){
+
+    const order =
+        findOrder(firebaseDocumentId);
+
+    if(!order){
+
+        toast(
+            "❌ Order ମିଳିଲା ନାହିଁ।"
+        );
+
+        return;
+
+    }
+
+
+    const status =
+        String(
+            order.orderStatus ||
+            ""
+        ).toLowerCase();
+
+
+    /* ONLY DELIVERED ORDER */
+
+    if(status!=="delivered"){
+
+        toast(
+            "❌ କେବଳ Delivered Order delete କରିହେବ।"
+        );
+
+        return;
+
+    }
+
+
+    const orderId =
+        getCustomerOrderId(order) ||
+        getFirebaseDocumentId(order);
+
+
+    const customer =
+        getCustomer(order);
+
+
+    const customerName =
+        customer.name ||
+        customer.fullName ||
+        "Customer";
+
+
+    const yes =
+        confirm(
+            `🗑️ Delivered Order Delete କରିବେ କି?\n\n`+
+            `Order ID: ${orderId}\n`+
+            `Customer: ${customerName}\n\n`+
+            `ଏହି Order admin order list ରୁ permanently delete ହେବ।\n`+
+            `Customer Tracking record delete ହେବ ନାହିଁ।`
+        );
+
+
+    if(!yes)
+        return;
+
+
+    try{
+
+        toast(
+            "⏳ Delivered Order delete ହେଉଛି..."
+        );
+
+
+        const orderRef =
+            doc(
+                db,
+                "orders",
+                firebaseDocumentId
+            );
+
+
+        await deleteDoc(orderRef);
+
+
+        /* REMOVE FROM LOCAL ARRAY */
+
+        allOrders =
+            allOrders.filter(
+                currentOrder =>
+                    currentOrder.id !==
+                    firebaseDocumentId
+            );
+
+
+        /* UPDATE UI */
+
+        updateStats();
+
+        renderOrders();
+
+
+        toast(
+            "✅ Delivered Order successfully deleted।"
+        );
+
+    }
+    catch(error){
+
+        console.error(
+            "DELETE ORDER ERROR:",
+            error
+        );
+
+
+        toast(
+            "❌ Order Delete failed: "+
+            error.message
+        );
+
+    }
+
+};
 
 
 /* =====================================================
@@ -4246,4 +4409,4 @@ document
 
 </body>
 
-      </html>
+</html>
