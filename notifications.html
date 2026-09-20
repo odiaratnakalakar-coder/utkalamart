@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="or">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Notifications | Utkala Mart</title>
+
+<meta name="theme-color"
+      content="#138a45">
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:
+        Arial,
+        "Noto Sans Odia",
+        sans-serif;
+    background:#f5f7f6;
+    color:#222;
+    padding-bottom:75px;
+}
+
+/* HEADER */
+
+header{
+    background:#138a45;
+    color:white;
+    padding:14px 18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    font-size:21px;
+    font-weight:bold;
+}
+
+.back{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+}
+
+
+/* CONTAINER */
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:18px;
+}
+
+
+/* TITLE */
+
+.title-card{
+    background:white;
+    border-radius:15px;
+    padding:20px;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,.06);
+
+    margin-bottom:15px;
+}
+
+.title-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+}
+
+.title-card h1{
+    margin:0;
+    font-size:24px;
+}
+
+.title-card p{
+    margin:7px 0 0;
+    color:#666;
+    font-size:14px;
+}
+
+
+/* UNREAD COUNT */
+
+.unread-box{
+    background:#e8f5e9;
+    color:#138a45;
+
+    padding:10px 14px;
+
+    border-radius:20px;
+
+    font-weight:bold;
+    font-size:13px;
+
+    white-space:nowrap;
+}
+
+
+/* ACTION BAR */
+
+.action-bar{
+    background:white;
+    padding:12px;
+
+    border-radius:12px;
+
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+
+    margin-bottom:15px;
+}
+
+.action-btn{
+    border:0;
+    padding:9px 13px;
+    border-radius:8px;
+    cursor:pointer;
+
+    font-weight:bold;
+    font-size:13px;
+}
+
+.read-all{
+    background:#138a45;
+    color:white;
+}
+
+.clear-all{
+    background:#f44336;
+    color:white;
+}
+
+.filter-btn{
+    background:#eee;
+    color:#333;
+}
+
+.filter-btn.active{
+    background:#ff9800;
+    color:white;
+}
+
+
+/* NOTIFICATION */
+
+.notification{
+    background:white;
+
+    border-radius:14px;
+
+    padding:16px;
+
+    margin-bottom:12px;
+
+    box-shadow:
+        0 2px 9px rgba(0,0,0,.05);
+
+    position:relative;
+
+    border-left:4px solid transparent;
+}
+
+.notification.unread{
+    border-left-color:#138a45;
+    background:#fbfffc;
+}
+
+.notification-row{
+    display:flex;
+    gap:13px;
+}
+
+.icon{
+    width:48px;
+    height:48px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#e8f5e9;
+
+    font-size:23px;
+
+    flex-shrink:0;
+}
+
+.notification-content{
+    flex:1;
+}
+
+.notification-content h3{
+    margin:0 0 5px;
+    font-size:16px;
+}
+
+.notification-content p{
+    margin:0;
+
+    color:#666;
+
+    font-size:14px;
+
+    line-height:1.5;
+}
+
+.notification-date{
+    margin-top:8px;
+
+    color:#999;
+
+    font-size:12px;
+}
+
+.unread-dot{
+    width:9px;
+    height:9px;
+
+    border-radius:50%;
+
+    background:#138a45;
+
+    position:absolute;
+
+    right:14px;
+    top:15px;
+}
+
+
+/* BUTTONS */
+
+.notification-actions{
+    display:flex;
+
+    gap:7px;
+
+    margin-top:13px;
+
+    flex-wrap:wrap;
+}
+
+.small-btn{
+    border:0;
+
+    padding:8px 11px;
+
+    border-radius:7px;
+
+    cursor:pointer;
+
+    font-size:12px;
+
+    font-weight:bold;
+}
+
+.mark-btn{
+    background:#e8f5e9;
+    color:#138a45;
+}
+
+.delete-btn{
+    background:#ffebee;
+    color:#d32f2f;
+}
+
+.open-btn{
+    background:#fff3e0;
+    color:#e65100;
+}
+
+
+/* EMPTY */
+
+.empty{
+    background:white;
+
+    border-radius:14px;
+
+    padding:40px 20px;
+
+    text-align:center;
+
+    color:#777;
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,.05);
+}
+
+.empty-icon{
+    font-size:45px;
+    margin-bottom:10px;
+}
+
+
+/* BOTTOM NAV */
+
+.bottom-nav{
+    position:fixed;
+
+    bottom:0;
+    left:0;
+    right:0;
+
+    height:62px;
+
+    background:white;
+
+    border-top:1px solid #ddd;
+
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+
+    z-index:500;
+}
+
+.bottom-nav a{
+    text-decoration:none;
+
+    color:#555;
+
+    font-size:11px;
+
+    text-align:center;
+}
+
+.bottom-nav span{
+    display:block;
+
+    font-size:21px;
+
+    margin-bottom:2px;
+}
+
+.bottom-nav .active{
+    color:#138a45;
+    font-weight:bold;
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .container{
+        padding:12px;
+    }
+
+    .title-card h1{
+        font-size:21px;
+    }
+
+    .title-row{
+        align-items:flex-start;
+    }
+
+    .unread-box{
+        font-size:11px;
+        padding:8px 10px;
+    }
+
+    .notification{
+        padding:14px;
+    }
+
+    .icon{
+        width:43px;
+        height:43px;
+        font-size:20px;
+    }
+
+    .notification-content h3{
+        font-size:15px;
+    }
+
+    .notification-content p{
+        font-size:13px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+        🛍️ Utkala Mart
+    </div>
+
+    <a href="account.html"
+       class="back">
+        ← Account
+    </a>
+
+</header>
+
+
+
+<div class="container">
+
+
+    <!-- TITLE -->
+
+    <div class="title-card">
+
+        <div class="title-row">
+
+            <div>
+
+                <h1>
+                    🔔 Notifications
+                </h1>
+
+                <p>
+                    ଆପଣଙ୍କ Utkala Mart update ଗୁଡ଼ିକ ଏଠାରେ।
+                </p>
+
+            </div>
+
+            <div class="unread-box"
+                 id="unreadCount">
+
+                0 Unread
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ACTIONS -->
+
+    <div class="action-bar">
+
+        <button
+            class="action-btn filter-btn active"
+            onclick="setFilter('all',this)">
+
+            ସମସ୍ତ
+
+        </button>
+
+
+        <button
+            class="action-btn filter-btn"
+            onclick="setFilter('unread',this)">
+
+            🔴 Unread
+
+        </button>
+
+
+        <button
+            class="action-btn filter-btn"
+            onclick="setFilter('order',this)">
+
+            📦 Orders
+
+        </button>
+
+
+        <button
+            class="action-btn filter-btn"
+            onclick="setFilter('payment',this)">
+
+            💳 Payment
+
+        </button>
+
+
+        <button
+            class="action-btn filter-btn"
+            onclick="setFilter('offer',this)">
+
+            🎁 Offers
+
+        </button>
+
+
+        <button
+            class="action-btn read-all"
+            onclick="markAllRead()">
+
+            ✅ Read All
+
+        </button>
+
+
+        <button
+            class="action-btn clear-all"
+            onclick="clearAll()">
+
+            🗑️ Clear All
+
+        </button>
+
+    </div>
+
+
+
+    <!-- NOTIFICATIONS -->
+
+    <div id="notificationList"></div>
+
+
+</div>
+
+
+
+<!-- BOTTOM NAV -->
+
+<div class="bottom-nav">
+
+    <a href="index.html">
+
+        <span>🏠</span>
+        Home
+
+    </a>
+
+
+    <a href="orders.html">
+
+        <span>📦</span>
+        Orders
+
+    </a>
+
+
+    <a href="wishlist.html">
+
+        <span>❤️</span>
+        Wishlist
+
+    </a>
+
+
+    <a href="order-tracking.html">
+
+        <span>🚚</span>
+        Track
+
+    </a>
+
+
+    <a href="account.html"
+       class="active">
+
+        <span>👤</span>
+        Account
+
+    </a>
+
+</div>
+
+
+
+<script>
+
+/* --------------------------------
+   DEFAULT NOTIFICATIONS
+-------------------------------- */
+
+const defaultNotifications = [
+
+    {
+        id:"N001",
+
+        type:"order",
+
+        icon:"📦",
+
+        title:"Order Confirmed",
+
+        message:
+        "ଆପଣଙ୍କ order #UTK10001 successfully confirmed ହୋଇଛି।",
+
+        date:"20 Sep 2026",
+
+        read:false,
+
+        link:"orders.html"
+    },
+
+
+    {
+        id:"N002",
+
+        type:"payment",
+
+        icon:"💳",
+
+        title:"Payment Successful",
+
+        message:
+        "Order #UTK10001 ପାଇଁ ₹240 payment successfully received ହୋଇଛି।",
+
+        date:"20 Sep 2026",
+
+        read:false,
+
+        link:"payment-history.html"
+    },
+
+
+    {
+        id:"N003",
+
+        type:"order",
+
+        icon:"🚚",
+
+        title:"Order Shipped",
+
+        message:
+        "ଆପଣଙ୍କ Handmade Basket order #UTK10002 shipped ହୋଇଛି।",
+
+        date:"19 Sep 2026",
+
+        read:true,
+
+        link:"order-tracking.html"
+    },
+
+
+    {
+        id:"N004",
+
+        type:"offer",
+
+        icon:"🎁",
+
+        title:"Special Offer",
+
+        message:
+        "Utkala Mart ରେ selected products ଉପରେ special offer ଚାଲିଛି।",
+
+        date:"18 Sep 2026",
+
+        read:false,
+
+        link:"index.html"
+    },
+
+
+    {
+        id:"N005",
+
+        type:"order",
+
+        icon:"✅",
+
+        title:"Order Delivered",
+
+        message:
+        "ଆପଣଙ୍କ order #UTK10003 delivered ହୋଇଛି।",
+
+        date:"17 Sep 2026",
+
+        read:true,
+
+        link:"orders.html"
+    },
+
+
+    {
+        id:"N006",
+
+        type:"payment",
+
+        icon:"💰",
+
+        title:"Refund Update",
+
+        message:
+        "ଆପଣଙ୍କ refund request ବର୍ତ୍ତମାନ review ରେ ଅଛି।",
+
+        date:"16 Sep 2026",
+
+        read:false,
+
+        link:"returns.html"
+    }
+
+];
+
+
+let notifications = [];
+
+let currentFilter = "all";
+
+
+/* --------------------------------
+   LOAD DATA
+-------------------------------- */
+
+function loadData(){
+
+    const saved =
+        localStorage.getItem(
+            "utkalaNotifications"
+        );
+
+
+    if(saved){
+
+        notifications =
+            JSON.parse(saved);
+
+    }else{
+
+        notifications =
+            defaultNotifications;
+
+        saveData();
+
+    }
+
+}
+
+
+/* --------------------------------
+   SAVE
+-------------------------------- */
+
+function saveData(){
+
+    localStorage.setItem(
+        "utkalaNotifications",
+        JSON.stringify(notifications)
+    );
+
+}
+
+
+/* --------------------------------
+   UNREAD COUNT
+-------------------------------- */
+
+function updateUnread(){
+
+    const unread =
+        notifications.filter(
+            item => item.read === false
+        ).length;
+
+
+    document.getElementById(
+        "unreadCount"
+    ).textContent =
+        unread + " Unread";
+
+}
+
+
+/* --------------------------------
+   FILTER
+-------------------------------- */
+
+function setFilter(filter,button){
+
+    currentFilter = filter;
+
+
+    document
+        .querySelectorAll(".filter-btn")
+        .forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+
+    button.classList.add("active");
+
+
+    renderNotifications();
+
+}
+
+
+/* --------------------------------
+   RENDER
+-------------------------------- */
+
+function renderNotifications(){
+
+    const list =
+        document.getElementById(
+            "notificationList"
+        );
+
+
+    let data =
+        [...notifications];
+
+
+    if(currentFilter === "unread"){
+
+        data =
+            data.filter(
+                item => item.read === false
+            );
+
+    }
+
+
+    if(
+        currentFilter !== "all" &&
+        currentFilter !== "unread"
+    ){
+
+        data =
+            data.filter(
+                item =>
+                    item.type === currentFilter
+            );
+
+    }
+
+
+    if(data.length === 0){
+
+        list.innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-icon">
+                    🔔
+                </div>
+
+                <h3>
+                    କୌଣସି notification ନାହିଁ
+                </h3>
+
+                <p>
+                    ନୂଆ update ଆସିଲେ ଏଠାରେ ଦେଖାଯିବ।
+                </p>
+
+            </div>
+
+        `;
+
+        updateUnread();
+
+        return;
+
+    }
+
+
+    list.innerHTML = "";
+
+
+    data.forEach(item => {
+
+        list.innerHTML += `
+
+            <div
+                class="notification
+                ${item.read ? "" : "unread"}">
+
+                ${
+                    !item.read
+                    ?
+                    `<div class="unread-dot"></div>`
+                    :
+                    ""
+                }
+
+
+                <div class="notification-row">
+
+                    <div class="icon">
+                        ${item.icon}
+                    </div>
+
+
+                    <div class="notification-content">
+
+                        <h3>
+                            ${item.title}
+                        </h3>
+
+                        <p>
+                            ${item.message}
+                        </p>
+
+                        <div class="notification-date">
+                            🕒 ${item.date}
+                        </div>
+
+
+                        <div class="notification-actions">
+
+                            ${
+                                !item.read
+                                ?
+                                `
+                                <button
+                                    class="small-btn mark-btn"
+                                    onclick="markRead('${item.id}')">
+
+                                    ✅ Mark as Read
+
+                                </button>
+                                `
+                                :
+                                ""
+                            }
+
+
+                            <button
+                                class="small-btn open-btn"
+                                onclick="openNotification('${item.id}')">
+
+                                👁️ Open
+
+                            </button>
+
+
+                            <button
+                                class="small-btn delete-btn"
+                                onclick="deleteNotification('${item.id}')">
+
+                                🗑️ Delete
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+
+    updateUnread();
+
+}
+
+
+/* --------------------------------
+   MARK READ
+-------------------------------- */
+
+function markRead(id){
+
+    const item =
+        notifications.find(
+            notification =>
+                notification.id === id
+        );
+
+
+    if(item){
+
+        item.read = true;
+
+        saveData();
+
+        renderNotifications();
+
+    }
+
+}
+
+
+/* --------------------------------
+   MARK ALL READ
+-------------------------------- */
+
+function markAllRead(){
+
+    notifications.forEach(
+        item => item.read = true
+    );
+
+
+    saveData();
+
+    renderNotifications();
+
+}
+
+
+/* --------------------------------
+   OPEN
+-------------------------------- */
+
+function openNotification(id){
+
+    const item =
+        notifications.find(
+            notification =>
+                notification.id === id
+        );
+
+
+    if(!item) return;
+
+
+    item.read = true;
+
+    saveData();
+
+    renderNotifications();
+
+
+    if(item.link){
+
+        window.location.href =
+            item.link;
+
+    }
+
+}
+
+
+/* --------------------------------
+   DELETE
+-------------------------------- */
+
+function deleteNotification(id){
+
+    const confirmDelete =
+        confirm(
+            "ଏହି notification delete କରିବେ?"
+        );
+
+
+    if(!confirmDelete) return;
+
+
+    notifications =
+        notifications.filter(
+            item =>
+                item.id !== id
+        );
+
+
+    saveData();
+
+    renderNotifications();
+
+}
+
+
+/* --------------------------------
+   CLEAR ALL
+-------------------------------- */
+
+function clearAll(){
+
+    if(notifications.length === 0){
+
+        alert(
+            "Delete କରିବା ପାଇଁ notification ନାହିଁ।"
+        );
+
+        return;
+
+    }
+
+
+    const confirmClear =
+        confirm(
+            "ସମସ୍ତ notification delete କରିବେ?"
+        );
+
+
+    if(!confirmClear) return;
+
+
+    notifications = [];
+
+
+    saveData();
+
+    renderNotifications();
+
+}
+
+
+/* --------------------------------
+   START
+-------------------------------- */
+
+loadData();
+
+renderNotifications();
+
+</script>
+
+</body>
+
+</html>
