@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="or">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color"
+      content="#075b3b">
+
+<title>Admin Cancel Requests | Utkala Mart</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+
+    font-family:
+        Arial,
+        "Noto Sans Odia",
+        "Noto Sans Oriya",
+        sans-serif;
+
+    background:#f4f7f5;
+
+    color:#222;
+
+    padding-bottom:40px;
+}
+
+
+/* =====================================
+   HEADER
+===================================== */
+
+.header{
+
+    background:#075b3b;
+
+    color:#fff;
+
+    padding:15px 18px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+}
+
+.logo{
+
+    font-size:20px;
+
+    font-weight:bold;
+}
+
+.header-right{
+
+    display:flex;
+
+    gap:8px;
+
+    align-items:center;
+}
+
+.header-btn{
+
+    color:#fff;
+
+    text-decoration:none;
+
+    border:1px solid
+        rgba(255,255,255,.4);
+
+    padding:7px 10px;
+
+    border-radius:7px;
+
+    font-size:12px;
+}
+
+
+/* =====================================
+   CONTAINER
+===================================== */
+
+.container{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:18px;
+}
+
+
+/* =====================================
+   PAGE TITLE
+===================================== */
+
+.page-title{
+
+    background:#fff;
+
+    border-radius:15px;
+
+    padding:20px;
+
+    margin-bottom:16px;
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,.06);
+}
+
+.page-title h1{
+
+    margin:0;
+
+    color:#075b3b;
+
+    font-size:24px;
+}
+
+.page-title p{
+
+    margin:6px 0 0;
+
+    color:#777;
+
+    font-size:13px;
+}
+
+
+/* =====================================
+   STATS
+===================================== */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:12px;
+
+    margin-bottom:18px;
+}
+
+.stat{
+
+    background:#fff;
+
+    border-radius:13px;
+
+    padding:16px;
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,.05);
+}
+
+.stat-icon{
+
+    font-size:25px;
+
+    margin-bottom:7px;
+}
+
+.stat-label{
+
+    color:#777;
+
+    font-size:12px;
+}
+
+.stat-value{
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    margin-top:3px;
+
+    color:#075b3b;
+}
+
+.stat.pending .stat-value{
+
+    color:#9a6800;
+}
+
+.stat.approved .stat-value{
+
+    color:#08734b;
+}
+
+.stat.rejected .stat-value{
+
+    color:#c62828;
+}
+
+
+/* =====================================
+   FILTER
+===================================== */
+
+.filter{
+
+    background:#fff;
+
+    padding:10px;
+
+    border-radius:13px;
+
+    display:flex;
+
+    gap:7px;
+
+    overflow-x:auto;
+
+    margin-bottom:16px;
+
+    box-shadow:
+        0 2px 7px rgba(0,0,0,.05);
+}
+
+.filter button{
+
+    border:1px solid #ddd;
+
+    background:#fff;
+
+    padding:9px 14px;
+
+    border-radius:20px;
+
+    white-space:nowrap;
+
+    cursor:pointer;
+
+    font-size:12px;
+}
+
+.filter button.active{
+
+    background:#075b3b;
+
+    color:#fff;
+
+    border-color:#075b3b;
+}
+
+
+/* =====================================
+   SEARCH
+===================================== */
+
+.search-box{
+
+    background:#fff;
+
+    padding:12px;
+
+    border-radius:13px;
+
+    margin-bottom:16px;
+
+    box-shadow:
+        0 2px 7px rgba(0,0,0,.05);
+}
+
+.search-box input{
+
+    width:100%;
+
+    padding:11px 13px;
+
+    border:1px solid #ddd;
+
+    border-radius:9px;
+
+    font-family:inherit;
+
+    font-size:14px;
+
+    outline:none;
+}
+
+.search-box input:focus{
+
+    border-color:#075b3b;
+}
+
+
+/* =====================================
+   REQUEST CARD
+===================================== */
+
+.request-card{
+
+    background:#fff;
+
+    border-radius:15px;
+
+    padding:17px;
+
+    margin-bottom:14px;
+
+    box-shadow:
+        0 2px 9px rgba(0,0,0,.06);
+}
+
+.request-head{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+    padding-bottom:12px;
+
+    border-bottom:1px solid #eee;
+}
+
+.request-id{
+
+    color:#075b3b;
+
+    font-weight:bold;
+
+    font-size:14px;
+}
+
+.request-date{
+
+    color:#888;
+
+    font-size:11px;
+
+    margin-top:4px;
+}
+
+
+/* =====================================
+   STATUS
+===================================== */
+
+.status{
+
+    padding:6px 11px;
+
+    border-radius:20px;
+
+    font-size:11px;
+
+    font-weight:bold;
+
+    white-space:nowrap;
+}
+
+.status.pending{
+
+    background:#fff4d6;
+
+    color:#9a6800;
+}
+
+.status.approved{
+
+    background:#e7f7ed;
+
+    color:#08734b;
+}
+
+.status.rejected{
+
+    background:#ffe8e8;
+
+    color:#c62828;
+}
+
+
+/* =====================================
+   DETAILS
+===================================== */
+
+.details{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:10px;
+
+    padding:14px 0;
+}
+
+.detail{
+
+    background:#f7f9f8;
+
+    padding:10px;
+
+    border-radius:9px;
+}
+
+.detail-label{
+
+    color:#777;
+
+    font-size:11px;
+
+    margin-bottom:4px;
+}
+
+.detail-value{
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    word-break:break-word;
+}
+
+.amount{
+
+    color:#075b3b;
+
+    font-size:17px;
+}
+
+
+/* =====================================
+   REASON
+===================================== */
+
+.reason-box{
+
+    background:#fff8e1;
+
+    border-left:4px solid #ff9800;
+
+    padding:11px;
+
+    border-radius:8px;
+
+    margin-bottom:13px;
+
+    font-size:13px;
+}
+
+.reason-title{
+
+    font-weight:bold;
+
+    margin-bottom:5px;
+}
+
+.reason-text{
+
+    color:#555;
+
+    line-height:1.5;
+}
+
+
+/* =====================================
+   ACTIONS
+===================================== */
+
+.actions{
+
+    display:flex;
+
+    gap:8px;
+
+    flex-wrap:wrap;
+
+    padding-top:12px;
+
+    border-top:1px solid #eee;
+}
+
+.btn{
+
+    border:0;
+
+    padding:9px 13px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    font-size:12px;
+
+    font-family:inherit;
+}
+
+.approve-btn{
+
+    background:#075b3b;
+
+    color:#fff;
+}
+
+.reject-btn{
+
+    background:#c62828;
+
+    color:#fff;
+}
+
+.delete-btn{
+
+    background:#eee;
+
+    color:#444;
+}
+
+.btn:hover{
+
+    opacity:.88;
+}
+
+
+/* =====================================
+   EMPTY
+===================================== */
+
+.empty{
+
+    background:#fff;
+
+    padding:45px 20px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    color:#777;
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,.05);
+}
+
+.empty-icon{
+
+    font-size:48px;
+
+    margin-bottom:8px;
+}
+
+
+/* =====================================
+   LOADING
+===================================== */
+
+.loading{
+
+    background:#fff;
+
+    padding:35px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    color:#777;
+}
+
+
+/* =====================================
+   MESSAGE
+===================================== */
+
+.message{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:25px;
+
+    transform:
+        translateX(-50%);
+
+    background:#075b3b;
+
+    color:#fff;
+
+    padding:12px 18px;
+
+    border-radius:9px;
+
+    font-size:13px;
+
+    box-shadow:
+        0 3px 15px rgba(0,0,0,.2);
+
+    display:none;
+
+    z-index:9999;
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media(max-width:700px){
+
+    .stats{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .details{
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .request-head{
+
+        flex-direction:column;
+    }
+
+    .header{
+
+        padding:13px;
+    }
+
+    .logo{
+
+        font-size:17px;
+    }
+
+    .container{
+
+        padding:12px;
+    }
+
+    .page-title h1{
+
+        font-size:20px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     HEADER
+===================================== -->
+
+<header class="header">
+
+    <div class="logo">
+
+        🛍️ Utkala Mart Admin
+
+    </div>
+
+
+    <div class="header-right">
+
+        <a
+            href="admin-orders.html"
+            class="header-btn">
+
+            📦 Orders
+
+        </a>
+
+
+        <a
+            href="admin-returns.html"
+            class="header-btn">
+
+            🔄 Returns
+
+        </a>
+
+
+        <a
+            href="admin-login.html"
+            class="header-btn">
+
+            🚪 Login
+
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================
+     MAIN
+===================================== -->
+
+<main class="container">
+
+
+    <div class="page-title">
+
+        <h1>
+            ❌ Order Cancel Requests
+        </h1>
+
+        <p>
+            Customer ମାନେ କରିଥିବା
+            Order Cancel Request ଏଠାରେ ଦେଖନ୍ତୁ।
+        </p>
+
+    </div>
+
+
+    <!-- =================================
+         STATS
+    ================================== -->
+
+    <div class="stats">
+
+
+        <div class="stat">
+
+            <div class="stat-icon">
+                📋
+            </div>
+
+            <div class="stat-label">
+                Total Requests
+            </div>
+
+            <div
+                class="stat-value"
+                id="totalCount">
+
+                0
+
+            </div>
+
+        </div>
+
+
+        <div class="stat pending">
+
+            <div class="stat-icon">
+                ⏳
+            </div>
+
+            <div class="stat-label">
+                Pending
+            </div>
+
+            <div
+                class="stat-value"
+                id="pendingCount">
+
+                0
+
+            </div>
+
+        </div>
+
+
+        <div class="stat approved">
+
+            <div class="stat-icon">
+                ✅
+            </div>
+
+            <div class="stat-label">
+                Approved
+            </div>
+
+            <div
+                class="stat-value"
+                id="approvedCount">
+
+                0
+
+            </div>
+
+        </div>
+
+
+        <div class="stat rejected">
+
+            <div class="stat-icon">
+                ❌
+            </div>
+
+            <div class="stat-label">
+                Rejected
+            </div>
+
+            <div
+                class="stat-value"
+                id="rejectedCount">
+
+                0
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =================================
+         SEARCH
+    ================================== -->
+
+    <div class="search-box">
+
+        <input
+            type="search"
+            id="searchInput"
+            placeholder="🔎 Order ID / Product / Reason Search କରନ୍ତୁ..."
+            oninput="renderRequests()">
+
+    </div>
+
+
+    <!-- =================================
+         FILTER
+    ================================== -->
+
+    <div class="filter">
+
+
+        <button
+            class="active"
+            onclick="setFilter('all',this)">
+
+            ସମସ୍ତ
+
+        </button>
+
+
+        <button
+            onclick="setFilter('Pending',this)">
+
+            ⏳ Pending
+
+        </button>
+
+
+        <button
+            onclick="setFilter('Approved',this)">
+
+            ✅ Approved
+
+        </button>
+
+
+        <button
+            onclick="setFilter('Rejected',this)">
+
+            ❌ Rejected
+
+        </button>
+
+
+    </div>
+
+
+    <!-- =================================
+         REQUEST LIST
+    ================================== -->
+
+    <div id="requestsContainer">
+
+        <div class="loading">
+
+            ⏳ Cancel Requests Loading...
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+<div
+    class="message"
+    id="message">
+
+</div>
+
+
+<!-- =====================================
+     FIREBASE
+===================================== -->
+
+<script type="module">
+
+
+/* =====================================
+   FIREBASE IMPORT
+===================================== */
+
+import {
+
+    initializeApp
+
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import {
+
+    getAuth,
+    onAuthStateChanged,
+    signOut
+
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+import {
+
+    getFirestore,
+    collection,
+    getDocs,
+    doc,
+    updateDoc,
+    deleteDoc
+
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =====================================
+   FIREBASE CONFIG
+===================================== */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyBYJ_KKsS_7SNz108jnw6hpOlmegofRhJg",
+
+    authDomain:
+        "utkalamart-1ec68.firebaseapp.com",
+
+    projectId:
+        "utkalamart-1ec68",
+
+    storageBucket:
+        "utkalamart-1ec68.firebasestorage.app",
+
+    messagingSenderId:
+        "664871353747",
+
+    appId:
+        "1:664871353747:web:96532fdafe78aabe7f3c66"
+
+};
+
+
+/* =====================================
+   INIT
+===================================== */
+
+const app =
+    initializeApp(
+        firebaseConfig
+    );
+
+
+const auth =
+    getAuth(app);
+
+
+const db =
+    getFirestore(app);
+
+
+/* =====================================
+   ADMIN EMAIL
+===================================== */
+
+const ADMIN_EMAIL =
+    "Suryakantabehera629@gmail.com";
+
+
+/* =====================================
+   VARIABLES
+===================================== */
+
+let requests = [];
+
+let currentFilter =
+    "all";
+
+
+/* =====================================
+   MESSAGE
+===================================== */
+
+function showMessage(
+    text
+){
+
+    const message =
+        document.getElementById(
+            "message"
+        );
+
+
+    message.textContent =
+        text;
+
+
+    message.style.display =
+        "block";
+
+
+    setTimeout(
+        () => {
+
+            message.style.display =
+                "none";
+
+        },
+        2500
+    );
+
+}
+
+
+/* =====================================
+   AUTH CHECK
+===================================== */
+
+onAuthStateChanged(
+
+    auth,
+
+    async user => {
+
+
+        if(!user){
+
+            window.location.href =
+                "admin-login.html";
+
+            return;
+
+        }
+
+
+        if(
+            user.email !==
+            ADMIN_EMAIL
+        ){
+
+            await signOut(auth);
+
+            alert(
+                "Admin access ନାହିଁ।"
+            );
+
+            window.location.href =
+                "admin-login.html";
+
+            return;
+
+        }
+
+
+        loadRequests();
+
+    }
+
+);
+
+
+/* =====================================
+   LOAD REQUESTS
+===================================== */
+
+async function loadRequests(){
+
+    const container =
+        document.getElementById(
+            "requestsContainer"
+        );
+
+
+    container.innerHTML = `
+
+        <div class="loading">
+
+            ⏳ Cancel Requests Loading...
+
+        </div>
+
+    `;
+
+
+    try{
+
+        const snapshot =
+            await getDocs(
+
+                collection(
+                    db,
+                    "orderCancellations"
+                )
+
+            );
+
+
+        requests = [];
+
+
+        snapshot.forEach(
+            item => {
+
+                requests.push({
+
+                    ...item.data(),
+
+                    firestoreId:
+                        item.id
+
+                });
+
+            }
+        );
+
+
+        requests.sort(
+
+            (a,b) => {
+
+                const dateA =
+                    new Date(
+                        a.createdAt || 0
+                    );
+
+
+                const dateB =
+                    new Date(
+                        b.createdAt || 0
+                    );
+
+
+                return dateB - dateA;
+
+            }
+
+        );
+
+
+        updateStats();
+
+        renderRequests();
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Load Cancel Requests Error:",
+            error
+        );
+
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-icon">
+                    ⚠️
+                </div>
+
+                <h3>
+                    Data Load ହୋଇପାରିଲା ନାହିଁ
+                </h3>
+
+                <p>
+                    Firebase connection କିମ୍ବା
+                    Firestore Rules check କରନ୍ତୁ।
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =====================================
+   UPDATE STATS
+===================================== */
+
+function updateStats(){
+
+    const total =
+        requests.length;
+
+
+    const pending =
+        requests.filter(
+            item =>
+                item.status ===
+                "Pending"
+        ).length;
+
+
+    const approved =
+        requests.filter(
+            item =>
+                item.status ===
+                "Approved"
+        ).length;
+
+
+    const rejected =
+        requests.filter(
+            item =>
+                item.status ===
+                "Rejected"
+        ).length;
+
+
+    document.getElementById(
+        "totalCount"
+    ).textContent =
+        total;
+
+
+    document.getElementById(
+        "pendingCount"
+    ).textContent =
+        pending;
+
+
+    document.getElementById(
+        "approvedCount"
+    ).textContent =
+        approved;
+
+
+    document.getElementById(
+        "rejectedCount"
+    ).textContent =
+        rejected;
+
+}
+
+
+/* =====================================
+   FILTER
+===================================== */
+
+window.setFilter =
+function(
+    filter,
+    button
+){
+
+    currentFilter =
+        filter;
+
+
+    document
+        .querySelectorAll(
+            ".filter button"
+        )
+        .forEach(
+            btn =>
+                btn.classList.remove(
+                    "active"
+                )
+        );
+
+
+    button.classList.add(
+        "active"
+    );
+
+
+    renderRequests();
+
+};
+
+
+/* =====================================
+   RENDER REQUESTS
+===================================== */
+
+window.renderRequests =
+function(){
+
+    const container =
+        document.getElementById(
+            "requestsContainer"
+        );
+
+
+    const search =
+        document.getElementById(
+            "searchInput"
+        ).value
+        .trim()
+        .toLowerCase();
+
+
+    let filtered =
+        requests.filter(
+            item => {
+
+
+                const matchesFilter =
+
+                    currentFilter ===
+                    "all"
+
+                    ||
+
+                    item.status ===
+                    currentFilter;
+
+
+                const text = (
+
+                    (item.orderId || "") +
+
+                    " " +
+
+                    (item.product || "") +
+
+                    " " +
+
+                    (item.reason || "") +
+
+                    " " +
+
+                    (item.id || "")
+
+                ).toLowerCase();
+
+
+                const matchesSearch =
+
+                    !search ||
+
+                    text.includes(
+                        search
+                    );
+
+
+                return (
+                    matchesFilter &&
+                    matchesSearch
+                );
+
+            }
+        );
+
+
+    if(
+        filtered.length ===
+        0
+    ){
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-icon">
+                    📋
+                </div>
+
+                <h3>
+                    କୌଣସି Cancel Request ନାହିଁ
+                </h3>
+
+                <p>
+                    ବର୍ତ୍ତମାନ ଏହି filter ରେ
+                    request ମିଳିଲା ନାହିଁ।
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+        filtered.map(
+            item => {
+
+
+                let statusClass =
+                    "pending";
+
+
+                if(
+                    item.status ===
+                    "Approved"
+                ){
+
+                    statusClass =
+                        "approved";
+
+                }
+
+
+                if(
+                    item.status ===
+                    "Rejected"
+                ){
+
+                    statusClass =
+                        "rejected";
+
+                }
+
+
+                let actionButtons =
+                    "";
+
+
+                if(
+                    item.status ===
+                    "Pending"
+                ){
+
+                    actionButtons = `
+
+                        <button
+                            class="btn approve-btn"
+                            onclick="approveRequest(
+                                '${item.firestoreId}'
+                            )">
+
+                            ✅ Approve Cancel
+
+                        </button>
+
+
+                        <button
+                            class="btn reject-btn"
+                            onclick="rejectRequest(
+                                '${item.firestoreId}'
+                            )">
+
+                            ❌ Reject
+
+                        </button>
+
+                    `;
+
+                }
+
+
+                if(
+                    item.status ===
+                    "Approved"
+                ){
+
+                    actionButtons = `
+
+                        <button
+                            class="btn delete-btn"
+                            onclick="deleteRequest(
+                                '${item.firestoreId}'
+                            )">
+
+                            🗑️ Delete
+
+                        </button>
+
+                    `;
+
+                }
+
+
+                if(
+                    item.status ===
+                    "Rejected"
+                ){
+
+                    actionButtons = `
+
+                        <button
+                            class="btn delete-btn"
+                            onclick="deleteRequest(
+                                '${item.firestoreId}'
+                            )">
+
+                            🗑️ Delete
+
+                        </button>
+
+                    `;
+
+                }
+
+
+                return `
+
+                <div class="request-card">
+
+
+                    <div class="request-head">
+
+
+                        <div>
+
+                            <div class="request-id">
+
+                                Cancel ID:
+                                ${item.id || "-"}
+
+                            </div>
+
+
+                            <div class="request-date">
+
+                                📅
+                                ${item.date || "-"}
+
+                            </div>
+
+                        </div>
+
+
+                        <span
+                            class="status
+                            ${statusClass}">
+
+                            ${
+                                item.status ||
+                                "Pending"
+                            }
+
+                        </span>
+
+
+                    </div>
+
+
+                    <div class="details">
+
+
+                        <div class="detail">
+
+                            <div class="detail-label">
+                                Order ID
+                            </div>
+
+                            <div class="detail-value">
+
+                                #${item.orderId || "-"}
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="detail">
+
+                            <div class="detail-label">
+                                Product
+                            </div>
+
+                            <div class="detail-value">
+
+                                ${item.product || "-"}
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="detail">
+
+                            <div class="detail-label">
+                                Quantity
+                            </div>
+
+                            <div class="detail-value">
+
+                                ${item.quantity || 0}
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="detail">
+
+                            <div class="detail-label">
+                                Cancel Amount
+                            </div>
+
+                            <div
+                                class="detail-value amount">
+
+                                ${item.amount || "₹0"}
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="reason-box">
+
+                        <div class="reason-title">
+
+                            📝 Customer Reason
+
+                        </div>
+
+
+                        <div class="reason-text">
+
+                            ${
+                                item.reason ||
+                                "କୌଣସି reason ନାହିଁ"
+                            }
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="actions">
+
+                        ${actionButtons}
+
+                    </div>
+
+
+                </div>
+
+                `;
+
+            }
+        ).join("");
+
+};
+
+
+/* =====================================
+   APPROVE
+===================================== */
+
+window.approveRequest =
+async function(
+    id
+){
+
+    const request =
+        requests.find(
+            item =>
+                item.firestoreId ===
+                id
+        );
+
+
+    if(!request){
+
+        return;
+
+    }
+
+
+    const confirmApprove =
+        confirm(
+
+            "Order #" +
+            request.orderId +
+
+            " ର Cancel Request Approve କରିବେ କି?"
+
+        );
+
+
+    if(!confirmApprove){
+
+        return;
+
+    }
+
+
+    try{
+
+        await updateDoc(
+
+            doc(
+                db,
+                "orderCancellations",
+                id
+            ),
+
+            {
+
+                status:
+                    "Approved",
+
+                updatedAt:
+                    new Date().toISOString()
+
+            }
+
+        );
+
+
+        /*
+        Customer order status
+        ଏଠାରେ ଏବେ demoOrders
+        ଥିବାରୁ orders collection
+        update କରାଯାଉନାହିଁ।
+        */
+
+
+        showMessage(
+            "✅ Cancel Request Approved"
+        );
+
+
+        await loadRequests();
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Approve Error:",
+            error
+        );
+
+
+        alert(
+            "Approve କରିବାରେ error ହେଲା।"
+        );
+
+    }
+
+};
+
+
+/* =====================================
+   REJECT
+===================================== */
+
+window.rejectRequest =
+async function(
+    id
+){
+
+    const request =
+        requests.find(
+            item =>
+                item.firestoreId ===
+                id
+        );
+
+
+    if(!request){
+
+        return;
+
+    }
+
+
+    const confirmReject =
+        confirm(
+
+            "Order #" +
+            request.orderId +
+
+            " ର Cancel Request Reject କରିବେ କି?"
+
+        );
+
+
+    if(!confirmReject){
+
+        return;
+
+    }
+
+
+    try{
+
+        await updateDoc(
+
+            doc(
+                db,
+                "orderCancellations",
+                id
+            ),
+
+            {
+
+                status:
+                    "Rejected",
+
+                updatedAt:
+                    new Date().toISOString()
+
+            }
+
+        );
+
+
+        showMessage(
+            "❌ Cancel Request Rejected"
+        );
+
+
+        await loadRequests();
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Reject Error:",
+            error
+        );
+
+
+        alert(
+            "Reject କରିବାରେ error ହେଲା।"
+        );
+
+    }
+
+};
+
+
+/* =====================================
+   DELETE
+===================================== */
+
+window.deleteRequest =
+async function(
+    id
+){
+
+    const confirmDelete =
+        confirm(
+
+            "ଏହି Cancel Request Delete କରିବେ କି?"
+
+        );
+
+
+    if(!confirmDelete){
+
+        return;
+
+    }
+
+
+    try{
+
+        await deleteDoc(
+
+            doc(
+                db,
+                "orderCancellations",
+                id
+            )
+
+        );
+
+
+        showMessage(
+            "🗑️ Request Deleted"
+        );
+
+
+        await loadRequests();
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Delete Error:",
+            error
+        );
+
+
+        alert(
+            "Delete କରିବାରେ error ହେଲା।"
+        );
+
+    }
+
+};
+
+</script>
+
+
+</body>
+
+</html>
