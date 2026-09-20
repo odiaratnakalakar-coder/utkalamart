@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="or">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#075b3b">
+
+<title>ମୋ Reviews | Utkala Mart</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:
+        Arial,
+        "Noto Sans Odia",
+        "Noto Sans Oriya",
+        sans-serif;
+    background:#f5f7f6;
+    color:#222;
+    padding-bottom:80px;
+}
+
+/* TOP BAR */
+
+.topbar{
+    background:#075b3b;
+    color:#fff;
+    padding:8px 14px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:12px;
+}
+
+.topbar a{
+    color:#fff;
+    text-decoration:none;
+    margin-left:10px;
+}
+
+/* HEADER */
+
+.header{
+    background:#fff;
+    padding:10px 15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #ddd;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    text-decoration:none;
+}
+
+.logo{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.brand h1{
+    margin:0;
+    font-size:24px;
+    color:#e87522;
+}
+
+.brand h1 span{
+    color:#08734b;
+}
+
+.brand p{
+    margin:2px 0 0;
+    font-size:10px;
+    color:#777;
+}
+
+.header-links{
+    display:flex;
+    gap:12px;
+}
+
+.header-links a{
+    text-decoration:none;
+    color:#333;
+    text-align:center;
+    font-size:11px;
+}
+
+.header-links .icon{
+    display:block;
+    font-size:23px;
+}
+
+/* MAIN */
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:15px;
+}
+
+.back{
+    display:inline-block;
+    margin-bottom:12px;
+    color:#075b3b;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* TITLE */
+
+.page-title{
+    background:linear-gradient(
+        135deg,
+        #075b3b,
+        #0b8054
+    );
+    color:#fff;
+    padding:19px;
+    border-radius:16px;
+    margin-bottom:15px;
+}
+
+.page-title h2{
+    margin:0;
+    font-size:22px;
+}
+
+.page-title p{
+    margin:6px 0 0;
+    font-size:13px;
+    opacity:.9;
+}
+
+/* SUMMARY */
+
+.summary{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.summary-card{
+    background:#fff;
+    border-radius:14px;
+    padding:14px;
+    text-align:center;
+    box-shadow:0 2px 7px rgba(0,0,0,.06);
+}
+
+.summary-icon{
+    font-size:27px;
+}
+
+.summary-value{
+    font-size:19px;
+    font-weight:bold;
+    color:#075b3b;
+    margin-top:4px;
+}
+
+.summary-label{
+    color:#777;
+    font-size:11px;
+    margin-top:3px;
+}
+
+/* REVIEW CARD */
+
+.review-card{
+    background:#fff;
+    border-radius:16px;
+    padding:16px;
+    margin-bottom:13px;
+    box-shadow:0 2px 8px rgba(0,0,0,.07);
+}
+
+.review-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:10px;
+}
+
+.product{
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
+
+.product-img{
+    width:65px;
+    height:65px;
+    border-radius:11px;
+    background:#f1f3f2;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:32px;
+    overflow:hidden;
+    flex-shrink:0;
+}
+
+.product-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.product-name{
+    font-weight:bold;
+}
+
+.order-id{
+    color:#888;
+    font-size:11px;
+    margin-top:4px;
+}
+
+.stars{
+    color:#f5a623;
+    font-size:20px;
+    letter-spacing:1px;
+    margin-top:10px;
+}
+
+.review-text{
+    background:#f7f9f8;
+    border-radius:10px;
+    padding:12px;
+    margin-top:10px;
+    font-size:13px;
+    line-height:1.6;
+}
+
+.review-date{
+    color:#888;
+    font-size:11px;
+    margin-top:8px;
+}
+
+.review-status{
+    padding:5px 9px;
+    border-radius:15px;
+    font-size:10px;
+    font-weight:bold;
+}
+
+.published{
+    background:#e6f7ed;
+    color:#08734b;
+}
+
+.pending{
+    background:#fff4d6;
+    color:#9a6800;
+}
+
+.review-actions{
+    display:flex;
+    gap:8px;
+    margin-top:12px;
+    padding-top:12px;
+    border-top:1px solid #eee;
+}
+
+.btn{
+    flex:1;
+    padding:9px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:12px;
+}
+
+.edit-btn{
+    background:#fff;
+    color:#075b3b;
+    border:1px solid #075b3b;
+}
+
+.delete-btn{
+    background:#fff;
+    color:#d32f2f;
+    border:1px solid #d32f2f;
+}
+
+/* EMPTY */
+
+.empty{
+    background:#fff;
+    border-radius:16px;
+    padding:45px 20px;
+    text-align:center;
+}
+
+.empty-icon{
+    font-size:58px;
+}
+
+.empty h3{
+    color:#075b3b;
+}
+
+.empty p{
+    color:#777;
+    font-size:13px;
+}
+
+/* MODAL */
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.5);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    padding:15px;
+    z-index:300;
+}
+
+.modal{
+    width:100%;
+    max-width:500px;
+    max-height:92vh;
+    overflow-y:auto;
+    background:#fff;
+    border-radius:18px;
