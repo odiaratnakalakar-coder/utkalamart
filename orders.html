@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="or">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#075b3b">
+
+<title>ମୋର ଅର୍ଡର | Utkala Mart</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:
+        Arial,
+        "Noto Sans Odia",
+        "Noto Sans Oriya",
+        sans-serif;
+    background:#f5f7f6;
+    color:#222;
+    padding-bottom:80px;
+}
+
+/* TOP BAR */
+
+.topbar{
+    background:#075b3b;
+    color:#fff;
+    padding:8px 14px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:12px;
+}
+
+.topbar a{
+    color:#fff;
+    text-decoration:none;
+    margin-left:10px;
+}
+
+/* HEADER */
+
+.header{
+    background:#fff;
+    padding:10px 15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #ddd;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    text-decoration:none;
+}
+
+.logo{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.brand h1{
+    margin:0;
+    font-size:24px;
+    color:#e87522;
+}
+
+.brand h1 span{
+    color:#08734b;
+}
+
+.brand p{
+    margin:2px 0 0;
+    font-size:10px;
+    color:#777;
+}
+
+.header-links{
+    display:flex;
+    gap:12px;
+}
+
+.header-links a{
+    text-decoration:none;
+    color:#333;
+    text-align:center;
+    font-size:11px;
+}
+
+.header-links .icon{
+    display:block;
+    font-size:23px;
+}
+
+/* MAIN */
+
+.container{
+    max-width:950px;
+    margin:auto;
+    padding:15px;
+}
+
+.back{
+    display:inline-block;
+    margin-bottom:12px;
+    color:#075b3b;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* TITLE */
+
+.page-title{
+    background:linear-gradient(
+        135deg,
+        #075b3b,
+        #0b8054
+    );
+    color:#fff;
+    padding:19px;
+    border-radius:16px;
+    margin-bottom:15px;
+}
+
+.page-title h2{
+    margin:0;
+    font-size:22px;
+}
+
+.page-title p{
+    margin:6px 0 0;
+    font-size:13px;
+    opacity:.9;
+}
+
+/* FILTER */
+
+.filter{
+    background:#fff;
+    padding:10px;
+    border-radius:14px;
+    display:flex;
+    gap:7px;
+    overflow-x:auto;
+    margin-bottom:15px;
+    box-shadow:0 2px 7px rgba(0,0,0,.06);
+}
+
+.filter button{
+    border:1px solid #ddd;
+    background:#fff;
+    color:#333;
+    padding:9px 14px;
+    border-radius:20px;
+    white-space:nowrap;
+    cursor:pointer;
+}
+
+.filter button.active{
+    background:#075b3b;
+    border-color:#075b3b;
+    color:#fff;
+}
+
+/* ORDER CARD */
+
+.order-card{
+    background:#fff;
+    border-radius:16px;
+    padding:15px;
+    margin-bottom:13px;
+    box-shadow:0 2px 8px rgba(0,0,0,.07);
+}
+
+.order-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    border-bottom:1px solid #eee;
+    padding-bottom:11px;
+}
+
+.order-id{
+    color:#075b3b;
+    font-weight:bold;
+}
+
+.order-date{
+    color:#888;
+    font-size:12px;
+    margin-top:4px;
+}
+
+.status{
+    padding:6px 10px;
+    border-radius:18px;
+    font-size:11px;
+    font-weight:bold;
+    white-space:nowrap;
+}
+
+.pending{
+    background:#fff4d6;
+    color:#9a6800;
+}
+
+.confirmed{
+    background:#e7f2ff;
+    color:#1261a0;
+}
+
+.shipped{
+    background:#eee8ff;
+    color:#6240a8;
+}
+
+.delivered{
+    background:#e7f7ed;
+    color:#08734b;
+}
+
+.cancelled{
+    background:#ffe8e8;
+    color:#c62828;
+}
+
+/* PRODUCT */
+
+.product{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:13px 0;
+}
+
+.product-img{
+    width:72px;
+    height:72px;
+    border-radius:12px;
+    background:#f0f3f2;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:35px;
+    overflow:hidden;
+    flex-shrink:0;
+}
+
+.product-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.product-info{
+    flex:1;
+}
+
+.product-name{
+    font-weight:bold;
+    margin-bottom:5px;
+}
+
+.product-info small{
+    display:block;
+    color:#777;
+    margin-top:3px;
+}
+
+.order-bottom{
+    border-top:1px solid #eee;
+    padding-top:12px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+}
+
+.amount-label{
+    color:#888;
+    font-size:11px;
+}
+
+.amount{
+    color:#075b3b;
+    font-weight:bold;
+    font-size:18px;
+    margin-top:2px;
+}
+
+.actions{
+    display:flex;
+    gap:7px;
+}
+
+.btn{
+    border:1px solid #075b3b;
+    background:#fff;
+    color:#075b3b;
+    border-radius:8px;
+    padding:8px 11px;
+    font-size:12px;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+.btn.primary{
+    background:#075b3b;
+    color:#fff;
+}
+
+/* EMPTY */
+
+.empty{
+    background:#fff;
+    border-radius:16px;
+    padding:45px 20px;
+    text-align:center;
+    box-shadow:0 2px 8px rgba(0,0,0,.06);
+}
+
+.empty-icon{
+    font-size:55px;
+}
+
+.empty h3{
+    color:#075b3b;
+    margin:10px 0 5px;
+}
+
+.empty p{
+    color:#777;
+    font-size:13px;
+}
+
+.shop-btn{
+    display:inline-block;
+    margin-top:10px;
+    padding:11px 20px;
+    border-radius:9px;
+    background:#075b3b;
+    color:#fff;
+    text-decoration:none;
+}
+
+/* BOTTOM NAV */
+
+.bottom-nav{
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    height:67px;
+    background:#fff;
+    border-top:1px solid #ddd;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    z-index:100;
+}
+
+.bottom-nav a{
+    color:#555;
+    text-decoration:none;
+    text-align:center;
+    font-size:11px;
+}
+
+.bottom-nav .icon{
+    display:block;
+    font-size:24px;
+    line-height:27px;
+}
+
+.bottom-nav a.active{
+    color:#075b3b;
+    font-weight:bold;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .topbar{
+        font-size:10px;
+    }
+
+    .header{
+        padding:8px 10px;
+    }
+
+    .logo{
+        width:47px;
+        height:47px;
+    }
+
+    .brand h1{
+        font-size:21px;
+    }
+
+    .brand p{
+        font-size:9px;
+    }
+
+    .header-links{
+        gap:6px;
+    }
+
+    .header-links .icon{
+        font-size:20px;
+    }
+
+    .container{
+        padding:12px;
+    }
+
+    .page-title h2{
+        font-size:19px;
+    }
+
+    .order-head{
+        align-items:flex-start;
+    }
+
+    .product-img{
+        width:63px;
+        height:63px;
+    }
+
+    .order-bottom{
+        align-items:flex-start;
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- TOP BAR -->
+
+<div class="topbar">
+
+    <div>
+        ଗଞ୍ଜାମରୁ ସାରା ଓଡ଼ିଶା
+    </div>
+
+    <div>
+
+        <a href="order-tracking.html">
+            📦 Order Track
+        </a>
+
+        <a href="seller.html">
+            👤 Seller Login
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <a href="index.html"
+       class="brand">
+
+        <img
+            src="logo.png"
+            class="logo"
+            alt="Utkala Mart"
+        >
+
+        <div>
+
+            <h1>
+                <span>ଉତ୍କଳ</span> Mart
+            </h1>
+
+            <p>
+                From Ganjam to Every Home
+            </p>
+
+        </div>
+
+    </a>
+
+
+    <div class="header-links">
+
+        <a href="checkout.html">
+
+            <span class="icon">
+                🛒
+            </span>
+
+            Cart
+
+        </a>
+
+
+        <a href="account.html">
+
+            <span class="icon">
+                👤
+            </span>
+
+            ଖାତା
+
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- MAIN -->
+
+<main class="container">
+
+
+    <a href="account.html"
+       class="back">
+
+        ← ମୋ ଖାତାକୁ ଫେରନ୍ତୁ
+
+    </a>
+
+
+    <!-- TITLE -->
+
+    <div class="page-title">
+
+        <h2>
+            📦 ମୋର ଅର୍ଡର
+        </h2>
+
+        <p>
+            ଆପଣ କରିଥିବା ସମସ୍ତ Order ଏଠାରେ ଦେଖନ୍ତୁ
+        </p>
+
+    </div>
+
+
+    <!-- FILTER -->
+
+    <div class="filter">
+
+        <button
+            class="active"
+            onclick="filterOrders('all',this)">
+
+            ସମସ୍ତ
+
+        </button>
+
+
+        <button
+            onclick="filterOrders('pending',this)">
+
+            Pending
+
+        </button>
+
+
+        <button
+            onclick="filterOrders('confirmed',this)">
+
+            Confirmed
+
+        </button>
+
+
+        <button
+            onclick="filterOrders('shipped',this)">
+
+            Shipped
+
+        </button>
+
+
+        <button
+            onclick="filterOrders('delivered',this)">
+
+            Delivered
+
+        </button>
+
+
+        <button
+            onclick="filterOrders('cancelled',this)">
+
+            Cancelled
+
+        </button>
+
+    </div>
+
+
+    <!-- ORDERS -->
+
+    <div id="ordersContainer"></div>
+
+
+</main>
+
+
+<!-- BOTTOM NAV -->
+
+<nav class="bottom-nav">
+
+
+    <a href="index.html">
+
+        <span class="icon">
+            🏠
+        </span>
+
+        Home
+
+    </a>
+
+
+    <a href="index.html#categories">
+
+        <span class="icon">
+            📁
+        </span>
+
+        ବିଭାଗ
+
+    </a>
+
+
+    <a href="checkout.html">
+
+        <span class="icon">
+            🛒
+        </span>
+
+        Cart
+
+    </a>
+
+
+    <a href="order-tracking.html">
+
+        <span class="icon">
+            📦
+        </span>
+
+        Track
+
+    </a>
+
+
+    <a href="account.html"
+       class="active">
+
+        <span class="icon">
+            👤
+        </span>
+
+        ଖାତା
+
+    </a>
+
+
+</nav>
+
+
+<script>
+
+/*
+========================================
+UTKALA MART - MY ORDERS
+========================================
+
+ବର୍ତ୍ତମାନ ଏହା demo order system।
+
+ପରବର୍ତ୍ତୀ step ରେ Firebase
+Firestore "orders" collection
+ସହିତ connect କରାଯିବ।
+
+ପୁରୁଣା data କୁ ଏହି code
+କିଛି change କରୁନାହିଁ।
+*/
+
+
+const demoOrders = [
+
+    {
+        id:"UTK10001",
+        date:"20 Sep 2026",
+        product:"ଗଞ୍ଜାମ ପାପଡ଼",
+        quantity:2,
+        amount:"₹240",
+        status:"delivered",
+        emoji:"🥣"
+    },
+
+    {
+        id:"UTK10002",
+        date:"18 Sep 2026",
+        product:"ହସ୍ତ ତିଆରି ଝୁଡ଼ି",
+        quantity:1,
+        amount:"₹350",
+        status:"shipped",
+        emoji:"🧺"
+    }
+
+];
+
+
+let currentFilter = "all";
+
+
+/* STATUS */
+
+function getStatusText(status){
+
+    const text = {
+
+        pending:"Pending",
+
+        confirmed:"Confirmed",
+
+        shipped:"Shipped",
+
+        delivered:"Delivered",
+
+        cancelled:"Cancelled"
+
+    };
+
+    return text[status] || status;
+
+}
+
+
+/* DISPLAY */
+
+function displayOrders(){
+
+    const container =
+        document.getElementById(
+            "ordersContainer"
+        );
+
+
+    let orders = demoOrders;
+
+
+    if(currentFilter !== "all"){
+
+        orders =
+            demoOrders.filter(
+                order =>
+                order.status === currentFilter
+            );
+
+    }
+
+
+    if(orders.length === 0){
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-icon">
+                    📦
+                </div>
+
+                <h3>
+                    କୌଣସି Order ନାହିଁ
+                </h3>
+
+                <p>
+                    ଏହି category ରେ
+                    ବର୍ତ୍ତମାନ କୌଣସି Order ନାହିଁ।
+                </p>
+
+                <a
+                    href="index.html"
+                    class="shop-btn">
+
+                    🛍️ Shopping କରନ୍ତୁ
+
+                </a>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML = orders.map(
+        order => `
+
+        <div class="order-card">
+
+            <div class="order-head">
+
+                <div>
+
+                    <div class="order-id">
+                        Order #${order.id}
+                    </div>
+
+                    <div class="order-date">
+                        ${order.date}
+                    </div>
+
+                </div>
+
+                <span class="status ${order.status}">
+
+                    ${getStatusText(order.status)}
+
+                </span>
+
+            </div>
+
+
+            <div class="product">
+
+                <div class="product-img">
+
+                    ${order.emoji}
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <div class="product-name">
+                        ${order.product}
+                    </div>
+
+                    <small>
+                        Quantity: ${order.quantity}
+                    </small>
+
+                    <small>
+                        Utkala Mart Product
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="order-bottom">
+
+                <div>
+
+                    <div class="amount-label">
+                        Total Amount
+                    </div>
+
+                    <div class="amount">
+                        ${order.amount}
+                    </div>
+
+                </div>
+
+
+                <div class="actions">
+
+                    <a
+                        href="order-tracking.html?order=${order.id}"
+                        class="btn">
+
+                        🚚 Track
+
+                    </a>
+
+
+                    <button
+                        class="btn primary"
+                        onclick="viewOrder('${order.id}')">
+
+                        View
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        `
+    ).join("");
+
+}
+
+
+/* FILTER */
+
+function filterOrders(status,button){
+
+    currentFilter = status;
+
+
+    document
+        .querySelectorAll(".filter button")
+        .forEach(
+            btn =>
+            btn.classList.remove("active")
+        );
+
+
+    button.classList.add("active");
+
+
+    displayOrders();
+
+}
+
+
+/* VIEW ORDER */
+
+function viewOrder(orderId){
+
+    alert(
+        "Order #" +
+        orderId +
+        "\n\nOrder Details system ପରବର୍ତ୍ତୀ step ରେ Firebase ସହିତ connect ହେବ।"
+    );
+
+}
+
+
+/* START */
+
+displayOrders();
+
+</script>
+
+
+</body>
+
+  </html>
