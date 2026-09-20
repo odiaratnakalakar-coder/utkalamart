@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="or">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#075b3b">
+
+<title>Offers & Coupons | Utkala Mart</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:
+        Arial,
+        "Noto Sans Odia",
+        "Noto Sans Oriya",
+        sans-serif;
+    background:#f5f7f6;
+    color:#222;
+    padding-bottom:80px;
+}
+
+/* TOP BAR */
+
+.topbar{
+    background:#075b3b;
+    color:#fff;
+    padding:8px 14px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:12px;
+}
+
+.topbar a{
+    color:#fff;
+    text-decoration:none;
+    margin-left:10px;
+}
+
+/* HEADER */
+
+.header{
+    background:#fff;
+    padding:10px 15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #ddd;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    text-decoration:none;
+}
+
+.logo{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.brand h1{
+    margin:0;
+    font-size:24px;
+    color:#e87522;
+}
+
+.brand h1 span{
+    color:#08734b;
+}
+
+.brand p{
+    margin:2px 0 0;
+    font-size:10px;
+    color:#777;
+}
+
+.header-links{
+    display:flex;
+    gap:12px;
+}
+
+.header-links a{
+    text-decoration:none;
+    color:#333;
+    text-align:center;
+    font-size:11px;
+}
+
+.header-links .icon{
+    display:block;
+    font-size:23px;
+}
+
+/* MAIN */
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:15px;
+}
+
+.back{
+    display:inline-block;
+    margin-bottom:12px;
+    color:#075b3b;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* TITLE */
+
+.page-title{
+    background:linear-gradient(
+        135deg,
+        #075b3b,
+        #0b8054
+    );
+    color:#fff;
+    padding:19px;
+    border-radius:16px;
+    margin-bottom:15px;
+}
+
+.page-title h2{
+    margin:0;
+    font-size:22px;
+}
+
+.page-title p{
+    margin:6px 0 0;
+    font-size:13px;
+    opacity:.9;
+}
+
+/* COUPON GRID */
+
+.coupon-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(2,1fr);
+    gap:14px;
+}
+
+/* COUPON CARD */
+
+.coupon{
+    background:#fff;
+    border-radius:16px;
+    padding:16px;
+    box-shadow:
+        0 2px 8px rgba(0,0,0,.07);
+    position:relative;
+    overflow:hidden;
+}
+
+.coupon::before{
+    content:"";
+    position:absolute;
+    left:-12px;
+    top:45px;
+    width:24px;
+    height:24px;
+    border-radius:50%;
+    background:#f5f7f6;
+}
+
+.coupon::after{
+    content:"";
+    position:absolute;
+    right:-12px;
+    top:45px;
+    width:24px;
+    height:24px;
+    border-radius:50%;
+    background:#f5f7f6;
+}
+
+.coupon-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:10px;
+}
+
+.discount{
+    color:#075b3b;
+    font-size:25px;
+    font-weight:bold;
+}
+
+.coupon-type{
+    background:#e7f7ed;
+    color:#08734b;
+    padding:5px 9px;
+    border-radius:15px;
+    font-size:11px;
+    font-weight:bold;
+}
+
+.coupon-title{
+    font-size:17px;
+    font-weight:bold;
+    margin:10px 0 5px;
+}
+
+.coupon-description{
+    color:#777;
+    font-size:12px;
+    line-height:1.5;
+}
+
+.coupon-code-box{
+    margin-top:13px;
+    padding:10px;
+    border:1px dashed #0b8054;
+    border-radius:9px;
+    background:#f3faf6;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+}
+
+.code{
+    color:#075b3b;
+    font-weight:bold;
+    letter-spacing:1px;
+    font-size:14px;
+}
+
+.copy-btn{
+    border:0;
+    background:#075b3b;
+    color:#fff;
+    padding:7px 10px;
+    border-radius:7px;
+    font-size:11px;
+    cursor:pointer;
+}
+
+.coupon-info{
+    margin-top:11px;
+    padding-top:10px;
+    border-top:1px solid #eee;
+}
+
+.info-row{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    font-size:11px;
+    padding:3px 0;
+}
+
+.info-label{
+    color:#888;
+}
+
+.info-value{
+    font-weight:bold;
+    text-align:right;
+}
+
+.apply-btn{
+    width:100%;
+    margin-top:12px;
+    padding:10px;
+    border:1px solid #075b3b;
+    background:#075b3b;
+    color:#fff;
+    border-radius:9px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.expired{
+    opacity:.65;
+}
+
+.expired .apply-btn{
+    background:#999;
+    border-color:#999;
+    cursor:not-allowed;
+}
+
+/* EMPTY */
+
+.empty{
+    background:#fff;
+    border-radius:16px;
+    padding:45px 20px;
+    text-align:center;
+}
+
+.empty-icon{
+    font-size:60px;
+}
+
+.empty h3{
+    color:#075b3b;
+}
+
+.empty p{
+    color:#777;
+    font-size:13px;
+}
+
+/* COUPON INPUT */
+
+.apply-box{
+    background:#fff;
+    padding:14px;
+    border-radius:14px;
+    margin-bottom:15px;
+    box-shadow:0 2px 7px rgba(0,0,0,.06);
+}
+
+.apply-box-title{
+    font-weight:bold;
+    color:#075b3b;
+    margin-bottom:9px;
+}
+
+.apply-row{
+    display:flex;
+    gap:8px;
+}
+
+.apply-row input{
+    flex:1;
+    padding:11px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    outline:none;
+    text-transform:uppercase;
+}
+
+.apply-row button{
+    background:#075b3b;
+    color:#fff;
+    border:0;
+    padding:0 16px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+/* TOAST */
+
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:85px;
+    transform:translateX(-50%);
+    background:#222;
+    color:#fff;
+    padding:11px 18px;
+    border-radius:25px;
+    font-size:13px;
+    display:none;
+    z-index:500;
+    white-space:nowrap;
+}
+
+/* BOTTOM */
+
+.bottom-nav{
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    height:67px;
+    background:#fff;
+    border-top:1px solid #ddd;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    z-index:100;
+}
+
+.bottom-nav a{
+    color:#555;
+    text-decoration:none;
+    text-align:center;
+    font-size:11px;
+}
+
+.bottom-nav .icon{
+    display:block;
+    font-size:24px;
+    line-height:27px;
+}
+
+.bottom-nav a.active{
+    color:#075b3b;
+    font-weight:bold;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .topbar{
+        font-size:10px;
+    }
+
+    .header{
+        padding:8px 10px;
+    }
+
+    .logo{
+        width:47px;
+        height:47px;
+    }
+
+    .brand h1{
+        font-size:21px;
+    }
+
+    .brand p{
+        font-size:9px;
+    }
+
+    .header-links{
+        gap:6px;
+    }
+
+    .header-links .icon{
+        font-size:20px;
+    }
+
+    .container{
+        padding:12px;
+    }
+
+    .page-title h2{
+        font-size:19px;
+    }
+
+    .coupon-grid{
+        grid-template-columns:1fr;
+    }
+
+    .discount{
+        font-size:22px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- TOP BAR -->
+
+<div class="topbar">
+
+    <div>
+        ଗଞ୍ଜାମରୁ ସାରା ଓଡ଼ିଶା
+    </div>
+
+    <div>
+
+        <a href="order-tracking.html">
+            📦 Order Track
+        </a>
+
+        <a href="seller.html">
+            👤 Seller Login
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <a href="index.html"
+       class="brand">
+
+        <img
+            src="logo.png"
+            class="logo"
+            alt="Utkala Mart"
+        >
+
+        <div>
+
+            <h1>
+                <span>ଉତ୍କଳ</span> Mart
+            </h1>
+
+            <p>
+                From Ganjam to Every Home
+            </p>
+
+        </div>
+
+    </a>
+
+
+    <div class="header-links">
+
+        <a href="checkout.html">
+
+            <span class="icon">
+                🛒
+            </span>
+
+            Cart
+
+        </a>
+
+
+        <a href="account.html">
+
+            <span class="icon">
+                👤
+            </span>
+
+            ଖାତା
+
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- MAIN -->
+
+<main class="container">
+
+
+    <a href="account.html"
+       class="back">
+
+        ← ମୋ ଖାତାକୁ ଫେରନ୍ତୁ
+
+    </a>
+
+
+    <!-- TITLE -->
+
+    <div class="page-title">
+
+        <h2>
+            🎁 Offers & Coupons
+        </h2>
+
+        <p>
+            Utkala Mart ର Special Offers ଏବଂ Coupons
+        </p>
+
+    </div>
+
+
+    <!-- MANUAL COUPON -->
+
+    <div class="apply-box">
+
+        <div class="apply-box-title">
+
+            🏷️ ଆପଣଙ୍କ Coupon Code ଦିଅନ୍ତୁ
+
+        </div>
+
+
+        <div class="apply-row">
+
+            <input
+                type="text"
+                id="couponInput"
+                placeholder="ଯଥା: UTKALA50"
+            >
+
+
+            <button
+                onclick="applyManualCoupon()">
+
+                Apply
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- COUPONS -->
+
+    <div
+        class="coupon-grid"
+        id="couponContainer">
+    </div>
+
+
+</main>
+
+
+<!-- TOAST -->
+
+<div
+    class="toast"
+    id="toast">
+</div>
+
+
+<!-- BOTTOM NAV -->
+
+<nav class="bottom-nav">
+
+
+    <a href="index.html">
+
+        <span class="icon">
+            🏠
+        </span>
+
+        Home
+
+    </a>
+
+
+    <a href="index.html#categories">
+
+        <span class="icon">
+            📁
+        </span>
+
+        ବିଭାଗ
+
+    </a>
+
+
+    <a href="checkout.html">
+
+        <span class="icon">
+            🛒
+       
