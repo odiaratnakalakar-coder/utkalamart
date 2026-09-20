@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="or">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#075b3b">
+
+<title>ମୋ ଖାତା | Utkala Mart</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:
+        Arial,
+        "Noto Sans Odia",
+        "Noto Sans Oriya",
+        sans-serif;
+    background:#f5f7f6;
+    color:#222;
+    padding-bottom:75px;
+}
+
+/* TOP BAR */
+
+.topbar{
+    background:#075b3b;
+    color:#fff;
+    padding:9px 15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:13px;
+}
+
+.topbar a{
+    color:#fff;
+    text-decoration:none;
+    margin-left:10px;
+}
+
+/* HEADER */
+
+.header{
+    background:#fff;
+    padding:13px 18px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid #ddd;
+    position:sticky;
+    top:0;
+    z-index:50;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo{
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid #ddd;
+}
+
+.brand-text h1{
+    margin:0;
+    font-size:30px;
+    color:#e87522;
+}
+
+.brand-text h1 span{
+    color:#08734b;
+}
+
+.brand-text p{
+    margin:2px 0 0;
+    font-size:12px;
+    color:#777;
+}
+
+.header-buttons{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.header-btn{
+    text-align:center;
+    cursor:pointer;
+    color:#333;
+    text-decoration:none;
+}
+
+.header-btn .icon{
+    font-size:29px;
+    display:block;
+}
+
+.header-btn span{
+    font-size:12px;
+}
+
+/* PAGE */
+
+.container{
+    max-width:1050px;
+    margin:auto;
+    padding:18px;
+}
+
+/* PROFILE */
+
+.profile-card{
+    background:linear-gradient(135deg,#075b3b,#0b7b51);
+    color:white;
+    border-radius:18px;
+    padding:22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    box-shadow:0 4px 14px rgba(0,0,0,.12);
+}
+
+.profile-left{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.profile-photo{
+    width:75px;
+    height:75px;
+    border-radius:50%;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:42px;
+    color:#075b3b;
+    overflow:hidden;
+    border:3px solid rgba(255,255,255,.7);
+}
+
+.profile-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.profile-info h2{
+    margin:0 0 5px;
+    font-size:22px;
+}
+
+.profile-info p{
+    margin:3px 0;
+    opacity:.9;
+    font-size:14px;
+}
+
+.edit-btn{
+    border:1px solid rgba(255,255,255,.7);
+    color:#fff;
+    background:transparent;
+    border-radius:20px;
+    padding:9px 16px;
+    cursor:pointer;
+}
+
+/* TITLE */
+
+.section-title{
+    margin:25px 0 12px;
+    font-size:20px;
+    color:#075b3b;
+}
+
+/* QUICK CARDS */
+
+.quick-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.quick-card{
+    background:#fff;
+    border-radius:14px;
+    padding:17px 10px;
+    text-align:center;
+    text-decoration:none;
+    color:#222;
+    box-shadow:0 2px 8px rgba(0,0,0,.07);
+    border:1px solid #eee;
+    transition:.2s;
+}
+
+.quick-card:hover{
+    transform:translateY(-2px);
+}
+
+.quick-icon{
+    font-size:31px;
+    margin-bottom:7px;
+}
+
+.quick-card strong{
+    display:block;
+    color:#075b3b;
+}
+
+.quick-card small{
+    color:#777;
+}
+
+/* MENU */
+
+.menu-box{
+    background:#fff;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 2px 8px rgba(0,0,0,.07);
+}
+
+.menu-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 18px;
+    border-bottom:1px solid #eee;
+    text-decoration:none;
+    color:#222;
+    cursor:pointer;
+}
+
+.menu-item:last-child{
+    border-bottom:0;
+}
+
+.menu-left{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.menu-icon{
+    width:40px;
+    height:40px;
+    border-radius:11px;
+    background:#eaf6f1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+}
+
+.menu-title{
+    font-weight:bold;
+}
+
+.menu-sub{
+    font-size:12px;
+    color:#888;
+    margin-top:3px;
+}
+
+.arrow{
+    color:#777;
+    font-size:20px;
+}
+
+/* ORDERS */
+
+.order-box{
+    background:#fff;
+    border-radius:16px;
+    padding:18px;
+    box-shadow:0 2px 8px rgba(0,0,0,.07);
+}
+
+.order-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 0;
+}
+
+.status{
+    background:#e9f7ef;
+    color:#08734b;
+    padding:6px 10px;
+    border-radius:15px;
+    font-size:12px;
+}
+
+/* LOGOUT */
+
+.logout{
+    width:100%;
+    margin-top:18px;
+    padding:14px;
+    border:1px solid #e53935;
+    background:#fff;
+    color:#e53935;
+    border-radius:12px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    padding:25px 15px;
+    color:#777;
+    font-size:13px;
+}
+
+/* BOTTOM NAV */
+
+.bottom-nav{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    height:67px;
+    background:#fff;
+    border-top:1px solid #ddd;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    z-index:100;
+}
+
+.bottom-nav a{
+    text-decoration:none;
+    color:#555;
+    text-align:center;
+    font-size:11px;
+    min-width:55px;
+}
+
+.bottom-nav .bn-icon{
+    display:block;
+    font-size:25px;
+    line-height:28px;
+}
+
+.bottom-nav a.active{
+    color:#075b3b;
+    font-weight:bold;
+}
+
+/* POPUP */
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.5);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:200;
+    padding:20px;
+}
+
+.popup{
+    background:#fff;
+    width:100%;
+    max-width:430px;
+    border-radius:18px;
+    padding:22px;
+}
+
+.popup h2{
+    margin-top:0;
+    color:#075b3b;
+}
+
+.popup input{
+    width:100%;
+    padding:13px;
+    margin:7px 0;
+    border:1px solid #ccc;
+    border-radius:9px;
+    font-size:15px;
+}
+
+.popup-buttons{
+    display:flex;
+    gap:10px;
+    margin-top:12px;
+}
+
+.save-btn{
+    flex:1;
+    background:#075b3b;
+    color:#fff;
+    border:0;
+    padding:12px;
+    border-radius:9px;
+    cursor:pointer;
+}
+
+.close-btn{
+    flex:1;
+    background:#eee;
+    border:0;
+    padding:12px;
+    border-radius:9px;
+    cursor:pointer;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .topbar{
+        font-size:11px;
+    }
+
+    .header{
+        padding:9px 12px;
+    }
+
+    .logo{
+        width:52px;
+        height:52px;
+    }
+
+    .brand-text h1{
+        font-size:23px;
+    }
+
+    .brand-text p{
+        font-size:10px;
+    }
+
+    .header-buttons{
+        gap:7px;
+    }
+
+    .header-btn .icon{
+        font-size:23px;
+    }
+
+    .header-btn span{
+        display:none;
+    }
+
+    .container{
+        padding:12px;
+    }
+
+    .profile-card{
+        padding:17px;
+    }
+
+    .profile-photo{
+        width:62px;
+        height:62px;
+        font-size:33px;
+    }
+
+    .profile-info h2{
+        font-size:18px;
+    }
+
+    .edit-btn{
+        padding:7px 10px;
+        font-size:12px;
+    }
+
+    .quick-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .quick-card{
+        padding:14px 8px;
+    }
+
+}
+
+@media(max-width:400px){
+
+    .brand-text h1{
+        font-size:20px;
+    }
+
+    .profile-card{
+        align-items:flex-start;
+    }
+
+    .profile-left{
+        gap:10px;
+    }
+
+    .profile-info h2{
+        font-size:16px;
+    }
+
+    .edit-btn{
+        font-size:11px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- TOP BAR -->
+
+<div class="topbar">
+
+    <div>
+        ଗଞ୍ଜାମରୁ ସାରା ଓଡ଼ିଶା
+    </div>
+
+    <div>
+        <a href="order-track.html">📦 Order Track</a>
+        <a href="seller-login.html">👤 Seller Login</a>
+    </div>
+
+</div>
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <a href="index.html" class="brand"
+       style="text-decoration:none;">
+
+        <!-- ଆପଣଙ୍କ logo file name ଅନୁସାରେ ବଦଳାନ୍ତୁ -->
+        <img
+            src="logo.png"
+            class="logo"
+            alt="Utkala Mart Logo"
+            onerror="this.style.display='none'"
+        >
+
+        <div class="brand-text">
+
+            <h1>
+                <span>ଉତ୍କଳ</span> Mart
+            </h1>
+
+            <p>
+                From Ganjam to Every Home
+            </p>
+
+        </div>
+
+    </a>
+
+
+    <div class="header-buttons">
+
+        <a href="cart.html"
+           class="header-btn">
+
+            <div class="icon">🛒</div>
+            <span>My Cart</span>
+
+        </a>
+
+
+        <a href="wishlist.html"
+           class="header-btn">
+
+            <div class="icon">♡</div>
+            <span>ମୋ ପସନ୍ଦ</span>
+
+        </a>
+
+
+        <a href="account.html"
+           class="header-btn">
+
+            <div class="icon">👤</div>
+            <span>ମୋ ଖାତା</span>
+
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- MAIN -->
+
+<main class="container">
+
+
+    <!-- PROFILE -->
+
+    <div class="profile-card">
+
+        <div class="profile-left">
+
+            <div class="profile-photo"
+                 id="profilePhoto">
+
+                👤
+
+            </div>
+
+
+            <div class="profile-info">
+
+                <h2 id="userName">
+                    ନମସ୍କାର 👋
+                </h2>
+
+                <p id="userMobile">
+                    📱 Mobile Number ଯୋଡନ୍ତୁ
+                </p>
+
+                <p>
+                    Utkala Mart Customer
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <button class="edit-btn"
+                onclick="openProfile()">
+
+            ✏️ Edit
+
+        </button>
+
+    </div>
+
+
+
+    <!-- QUICK ACCESS -->
+
+    <h2 class="section-title">
+        ⚡ ତୁରନ୍ତ ଦେଖନ୍ତୁ
+    </h2>
+
+
+    <div class="quick-grid">
+
+
+        <a href="orders.html"
+           class="quick-card">
+
+            <div class="quick-icon">
+                📦
+            </div>
+
+            <strong>
+                ମୋର ଅର୍ଡର
+            </strong>
+
+            <small>
+                My Orders
+            </small>
+
+        </a>
+
+
+        <a href="order-track.html"
+           class="quick-card">
+
+            <div class="quick-icon">
+                🚚
+            </div>
+
+            <strong>
+                Order Track
+            </strong>
+
+            <small>
+                ଅର୍ଡର ଟ୍ରାକ୍
+            </small>
+
+        </a>
+
+
+        <a href="wishlist.html"
+           class="quick-card">
+
+            <div class="quick-icon">
+                ❤️
+            </div>
+
+            <strong>
+                ମୋ ପସନ୍ଦ
+            </strong>
+
+            <small>
+                Wishlist
+            </small>
+
+        </a>
+
+
+        <a href="cart.html"
+           class="quick-card">
+
+            <div class="quick-icon">
+                🛒
+            </div>
+
+            <strong>
+                ମୋ Cart
+            </strong>
+
+            <small>
+                Shopping Cart
+            </small>
+
+        </a>
+
+
+    </div>
+
+
+
+    <!-- ACCOUNT MENU -->
+
+    <h2 class="section-title">
+        👤 ମୋ ଖାତା
+    </h2>
+
+
+    <div class="menu-box">
+
+
+        <a href="orders.html"
+           class="menu-item">
+
+            <div class="menu-left">
+
+                <div class="menu-icon">
+                    📦
+                </div>
+
+                <div>
+
+                    <div class="menu-title">
+                        ମୋର ଅର୍ଡର
+                    </div>
+
+                    <div class="menu-sub">
+                        ଆପଣଙ୍କ ସମସ୍ତ ଅର୍ଡର ଦେଖନ୍ତୁ
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="arrow">
+                ›
+            </div>
+
+        </a>
+
+
+
+        <a href="order-track.html"
+           class="menu-item">
+
+            <div class="menu-left">
+
+                <div class="menu-icon">
+                    🚚
+                </div>
+
+                <div>
+
+                    <div class="menu-title">
+                        Order Tracking
+                    </div>
+
+                    <div class="menu-sub">
+                        ଅର୍ଡର କେଉଁଠି ପହଞ୍ଚିଛି ଦେଖନ୍ତୁ
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="arrow">
+                ›
+            </div>
+
+        </a>
+
+
+
+        <a href="wishlist.html"
+           class="menu-item">
+
+            <div class="menu-left">
+
+                <div class="menu-icon">
+                    ❤️
+                </div>
+
+                <div>
+
+                    <div class="menu-title">
+                        ମୋ ପସନ୍ଦ
+                    </div>
+
+                    <div class="menu-sub">
+                        Wishlist ର Product
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="arrow">
+                ›
+            </div>
+
+        </a>
+
+
+
+        <a href="address.html"
+           class="menu-item">
+
+            <div class="menu-left">
+
+                <div class="menu-icon">
+                    📍
+                </div>
+
+                <div>
+
+                    <div class="menu-title">
+                        ମୋର Address
+                    </div>
+
+                    <div class="menu-sub">
+                        Delivery Address ଯୋଡନ୍ତୁ
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="arrow">
+                ›
+            </div>
+
+        </a>
+
+
+
+        <a href="payment-history.html"
+           class="menu-item">
+
+            <div class="menu-left">
+
+                <div class="menu-icon">
+                    💰
+                </div>
+
+                <div>
+
+                    <div class="menu-title">
+                        Payment History
+                    </div>
+
+                    <div class="menu-sub">
+                        Payment ର ସମସ୍ତ ତଥ୍ୟ
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="arrow">
+                ›
+            </div>
+
+        </a>
+
+
+
+        <a href="coupons.html"
+           class="menu-item">
+
+            <div class="menu-left">
+
+                <div class="menu-icon">
+                    🎁
+                </div>
+
+                <div>
+
+                    <div class="menu-title">
+                        Offers & Coupons
+                    </div>
+
+                    <div class="menu-sub">
+                        Discount ଏବଂ Coupon
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="arrow">
+                ›
+            </div>
+
+        </a>
+
+
+
+        <a href="reviews.html"
+           class="menu-item">
+
+            <div class="menu-left">
+
+                <div class="menu-icon">
+                    ⭐
+                </div>
+
+                <div>
+
+                    <div class="menu-title">
+                        ମୋ Reviews
+                    </div>
+
+                    <div class="menu-sub">
+                        Product Rating ଏବଂ Review
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="arrow">
+                ›
+            </div>
+
+        </a>
+
+
+
+        <a href="returns.html"
+           class="menu-item">
+
+            <div class="menu-left">
+
+                <div class="menu-icon">
+                    🔄
+                </div>
+
+                <div>
+
+                    <div class="menu-title">
+                        Return / Refund
+                    </div>
+
+                    <div class="menu-sub">
+                        Return ଏବଂ Refund status
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="arrow">
+                ›
+            </div>
+
+        </a>
+
+
+
+        <a href="notifications.html"
+           class="menu-item">
+
+            <div class="menu-left">
+
+                <div class="menu-icon">
+                    🔔
+                </div>
+
+                <div>
+
+                    <div class="menu-title">
+                        Notifications
+                    </div>
+
+                    <div class="menu-sub">
+                        ନୂଆ Update ଏବଂ Offer
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="arrow">
+                ›
+            </div>
+
+        </a>
+
+
+
+        <div class="menu-item"
+             onclick="openProfile()">
+
+            <div class="menu-left">
+
+                <div class="menu-icon">
+                    ⚙️
+                </div>
+
+                <div>
+
+                    <div class="menu-title">
+                        Profile Settings
+                    </div>
+
+                    <div class="menu-sub">
+                        ଆପଣଙ୍କ profile update କରନ୍ତୁ
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="arrow">
+                ›
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- RECENT ORDER -->
+
+    <h2 class="section-title">
+        📦 Recent Order
+    </h2>
+
+
+    <div class="order-box">
+
+        <div class="order-row">
+
+            <div>
+
+                <strong>
+                    ଏପର୍ଯ୍ୟନ୍ତ କୌଣସି Order ନାହିଁ
+                </strong>
+
+                <div style="font-size:12px;color:#888;margin-top:4px;">
+                    Product କିଣିଲେ ଏଠାରେ Order ଦେଖାଯିବ
+                </div>
+
+            </div>
+
+            <span class="status">
+                No Order
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- LOGOUT -->
+
+    <button class="logout"
+            onclick="logoutUser()">
+
+        🚪 Logout
+
+    </button>
+
+
+</main>
+
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+    <strong>
+        ଉତ୍କଳ Mart
+    </strong>
+
+    <br>
+
+    ଗଞ୍ଜାମରୁ ସାରା ଘରକୁ 🇮🇳
+
+    <br><br>
+
+    © 2026 Utkala Mart
+
+</div>
+
+
+
+<!-- PROFILE POPUP -->
+
+<div class="overlay"
+     id="profileOverlay">
+
+    <div class="popup">
+
+        <h2>
+            👤 Profile Update
+        </h2>
+
+
+        <label>
+            ଆପଣଙ୍କ ନାମ
+        </label>
+
+        <input
+            type="text"
+            id="editName"
+            placeholder="ନାମ ଲେଖନ୍ତୁ"
+        >
+
+
+        <label>
+            Mobile Number
+        </label>
+
+        <input
+            type="tel"
+            id="editMobile"
+            placeholder="10 digit mobile number"
+            maxlength="10"
+        >
+
+
+        <label>
+            Profile Photo URL
+        </label>
+
+        <input
+            type="text"
+            id="editPhoto"
+            placeholder="Photo URL (optional)"
+        >
+
+
+        <div class="popup-buttons">
+
+            <button class="save-btn"
+                    onclick="saveProfile()">
+
+                💾 Save
+
+            </button>
+
+
+            <button class="close-btn"
+                    onclick="closeProfile()">
+
+                Cancel
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- BOTTOM NAV -->
+
+<nav class="bottom-nav">
+
+
+    <a href="index.html">
+
+        <span class="bn-icon">
+            🏠
+        </span>
+
+        Home
+
+    </a>
+
+
+    <a href="categories.html">
+
+        <span class="bn-icon">
+            📁
+        </span>
+
+        ବିଭାଗ
+
+    </a>
+
+
+    <a href="cart.html">
+
+        <span class="bn-icon">
+            🛒
+        </span>
+
+        Cart
+
+    </a>
+
+
+    <a href="order-track.html">
+
+        <span class="bn-icon">
+            📦
+        </span>
+
+        Track
+
+    </a>
+
+
+    <a href="account.html"
+       class="active">
+
+        <span class="bn-icon">
+            👤
+        </span>
+
+        ଖାତା
+
+    </a>
+
+
+</nav>
+
+
+
+<script>
+
+/* =====================================
+   LOCAL PROFILE SYSTEM
+   ===================================== */
+
+function loadProfile(){
+
+    const name =
+        localStorage.getItem("utkalaUserName");
+
+    const mobile =
+        localStorage.getItem("utkalaUserMobile");
+
+    const photo =
+        localStorage.getItem("utkalaUserPhoto");
+
+
+    if(name){
+
+        document.getElementById("userName")
+        .textContent =
+        "ନମସ୍କାର, " + name + " 👋";
+
+    }
+
+
+    if(mobile){
+
+        document.getElementById("userMobile")
+        .textContent =
+        "📱 " + mobile;
+
+    }
+
+
+    if(photo){
+
+        const box =
+            document.getElementById("profilePhoto");
+
+        box.innerHTML =
+            '<img src="' +
+            photo +
+            '" alt="Profile">';
+
+    }
+
+}
+
+
+/* OPEN PROFILE */
+
+function openProfile(){
+
+    const name =
+        localStorage.getItem("utkalaUserName") || "";
+
+    const mobile =
+        localStorage.getItem("utkalaUserMobile") || "";
+
+    const photo =
+        localStorage.getItem("utkalaUserPhoto") || "";
+
+
+    document.getElementById("editName").value =
+        name;
+
+    document.getElementById("editMobile").value =
+        mobile;
+
+    document.getElementById("editPhoto").value =
+        photo;
+
+
+    document.getElementById("profileOverlay")
+        .style.display = "flex";
+
+}
+
+
+/* CLOSE PROFILE */
+
+function closeProfile(){
+
+    document.getElementById("profileOverlay")
+        .style.display = "none";
+
+}
+
+
+/* SAVE PROFILE */
+
+function saveProfile(){
+
+    const name =
+        document.getElementById("editName")
+        .value.trim();
+
+    const mobile =
+        document.getElementById("editMobile")
+        .value.trim();
+
+    const photo =
+        document.getElementById("editPhoto")
+        .value.trim();
+
+
+    if(name){
+
+        localStorage.setItem(
+            "utkalaUserName",
+            name
+        );
+
+    }
+
+
+    if(mobile){
+
+        localStorage.setItem(
+            "utkalaUserMobile",
+            mobile
+        );
+
+    }
+
+
+    if(photo){
+
+        localStorage.setItem(
+            "utkalaUserPhoto",
+            photo
+        );
+
+    }
+
+
+    loadProfile();
+
+    closeProfile();
+
+
+    alert(
+        "✅ Profile successfully update ହେଲା"
+    );
+
+}
+
+
+/* LOGOUT */
+
+function logoutUser(){
+
+    const confirmLogout =
+        confirm(
+            "ଆପଣ Logout କରିବାକୁ ଚାହୁଁଛନ୍ତି କି?"
+        );
+
+
+    if(!confirmLogout){
+        return;
+    }
+
+
+    /*
+       ବର୍ତ୍ତମାନ local profile data
+       delete କରୁନାହିଁ।
+       Firebase Login ଯୋଡିବା ପରେ
+       Firebase signOut() କରାଯିବ।
+    */
+
+
+    alert(
+        "Logout system Firebase Login connect ପରେ ସମ୍ପୂର୍ଣ୍ଣ ଭାବେ କାମ କରିବ।"
+    );
+
+}
+
+
+/* LOAD */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    loadProfile
+);
+
+
+/* CLOSE POPUP WHEN OUTSIDE CLICK */
+
+document.getElementById(
+    "profileOverlay"
+).addEventListener(
+    "click",
+    function(e){
+
+        if(e.target === this){
+
+            closeProfile();
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+                      </html>
