@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="or">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#075b3b">
+
+<title>ମୋର Address | Utkala Mart</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:
+        Arial,
+        "Noto Sans Odia",
+        "Noto Sans Oriya",
+        sans-serif;
+    background:#f5f7f6;
+    color:#222;
+    padding-bottom:80px;
+}
+
+/* TOP BAR */
+
+.topbar{
+    background:#075b3b;
+    color:#fff;
+    padding:8px 14px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:12px;
+}
+
+.topbar a{
+    color:#fff;
+    text-decoration:none;
+    margin-left:10px;
+}
+
+/* HEADER */
+
+.header{
+    background:#fff;
+    padding:10px 15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #ddd;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    text-decoration:none;
+}
+
+.logo{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.brand h1{
+    margin:0;
+    font-size:24px;
+    color:#e87522;
+}
+
+.brand h1 span{
+    color:#08734b;
+}
+
+.brand p{
+    margin:2px 0 0;
+    font-size:10px;
+    color:#777;
+}
+
+.header-links{
+    display:flex;
+    gap:12px;
+}
+
+.header-links a{
+    text-decoration:none;
+    color:#333;
+    text-align:center;
+    font-size:11px;
+}
+
+.header-links .icon{
+    display:block;
+    font-size:23px;
+}
+
+/* MAIN */
+
+.container{
+    max-width:850px;
+    margin:auto;
+    padding:15px;
+}
+
+.back{
+    display:inline-block;
+    margin-bottom:12px;
+    color:#075b3b;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* TITLE */
+
+.page-title{
+    background:linear-gradient(
+        135deg,
+        #075b3b,
+        #0b8054
+    );
+    color:#fff;
+    padding:19px;
+    border-radius:16px;
+    margin-bottom:15px;
+}
+
+.page-title h2{
+    margin:0;
+    font-size:22px;
+}
+
+.page-title p{
+    margin:6px 0 0;
+    font-size:13px;
+    opacity:.9;
+}
+
+/* ADD BUTTON */
+
+.add-btn{
+    width:100%;
+    border:2px dashed #0b8054;
+    background:#fff;
+    color:#075b3b;
+    border-radius:14px;
+    padding:15px;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-bottom:15px;
+}
+
+/* ADDRESS CARD */
+
+.address-card{
+    background:#fff;
+    border-radius:16px;
+    padding:17px;
+    margin-bottom:14px;
+    box-shadow:0 2px 8px rgba(0,0,0,.07);
+    border:2px solid transparent;
+}
+
+.address-card.default{
+    border-color:#0b8054;
+}
+
+.address-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:10px;
+}
+
+.person{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.address-icon{
+    width:43px;
+    height:43px;
+    border-radius:11px;
+    background:#eaf6f1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:23px;
+}
+
+.person-name{
+    font-weight:bold;
+}
+
+.person-mobile{
+    color:#777;
+    font-size:12px;
+    margin-top:3px;
+}
+
+.default-badge{
+    background:#e6f6ed;
+    color:#08734b;
+    padding:5px 9px;
+    border-radius:15px;
+    font-size:11px;
+    font-weight:bold;
+}
+
+.address-text{
+    margin:13px 0;
+    padding:12px;
+    background:#f7f9f8;
+    border-radius:10px;
+    line-height:1.6;
+    font-size:13px;
+}
+
+.address-actions{
+    display:flex;
+    gap:8px;
+    border-top:1px solid #eee;
+    padding-top:12px;
+}
+
+.btn{
+    flex:1;
+    padding:9px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:12px;
+}
+
+.edit-btn{
+    background:#fff;
+    color:#075b3b;
+    border:1px solid #075b3b;
+}
+
+.default-btn{
+    background:#075b3b;
+    color:#fff;
+    border:1px solid #075b3b;
+}
+
+.delete-btn{
+    background:#fff;
+    color:#d32f2f;
+    border:1px solid #d32f2f;
+}
+
+/* EMPTY */
+
+.empty{
+    background:#fff;
+    border-radius:16px;
+    padding:45px 20px;
+    text-align:center;
+}
+
+.empty-icon{
+    font-size:55px;
+}
+
+.empty h3{
+    color:#075b3b;
+}
+
+/* OVERLAY */
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.5);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    padding:15px;
+    z-index:300;
+}
+
+.modal{
+    background:#fff;
+    width:100%;
+    max-width:500px;
+    max-height:92vh;
+    overflow-y:auto;
+    border-radius:18px;
+    padding:20px;
+}
+
+.modal h2{
+    margin-top:0;
+    color:#075b3b;
+}
+
+.form-group{
+    margin-bottom:11px;
+}
+
+.form-group label{
+    display:block;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:5px;
+}
+
+.form-group input,
+.form-group select{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:9px;
+    font-size:14px;
+    outline:none;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+    border-color:#075b3b;
+}
+
+.row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.checkbox{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin:12px 0;
+    font-size:13px;
+}
+
+.checkbox input{
+    width:18px;
+    height:18px;
+}
+
+.modal-buttons{
+    display:flex;
+    gap:8px;
+    margin-top:15px;
+}
+
+.save-btn{
+    flex:1;
+    background:#075b3b;
+    color:#fff;
+    border:0;
+    padding:12px;
+    border-radius:9px;
+    font-weight:bold;
+}
+
+.cancel-btn{
+    flex:1;
+    background:#eee;
+    color:#333;
+    border:0;
+    padding:12px;
+    border-radius:9px;
+}
+
+/* TOAST */
+
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:85px;
+    transform:translateX(-50%);
+    background:#222;
+    color:#fff;
+    padding:11px 18px;
+    border-radius:25px;
+    font-size:13px;
+    display:none;
+    z-index:500;
+    white-space:nowrap;
+}
+
+/* BOTTOM */
+
+.bottom-nav{
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    height:67px;
+    background:#fff;
+    border-top:1px solid #ddd;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    z-index:100;
+}
+
+.bottom-nav a{
+    color:#555;
+    text-decoration:none;
+    text-align:center;
+    font-size:11px;
+}
+
+.bottom-nav .icon{
+    display:block;
+    font-size:24px;
+    line-height:27px;
+}
+
+.bottom-nav a.active{
+    color:#075b3b;
+    font-weight:bold;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .topbar{
+        font-size:10px;
+    }
+
+    .header{
+        padding:8px 10px;
+    }
+
+    .logo{
+        width:47px;
+        height:47px;
+    }
+
+    .brand h1{
+        font-size:21px;
+    }
+
+    .brand p{
+        font-size:9px;
+    }
+
+    .header-links{
+        gap:6px;
+    }
+
+    .header-links .icon{
+        font-size:20px;
+    }
+
+    .container{
+        padding:12px;
+    }
+
+    .page-title h2{
+        font-size:19px;
+    }
+
+    .row{
+        grid-template-columns:1fr;
+        gap:0;
+    }
+
+    .address-actions{
+        flex-wrap:wrap;
+    }
+
+    .btn{
+        min-width:30%;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- TOP BAR -->
+
+<div class="topbar">
+
+    <div>
+        ଗଞ୍ଜାମରୁ ସାରା ଓଡ଼ିଶା
+    </div>
+
+    <div>
+
+        <a href="order-tracking.html">
+            📦 Order Track
+        </a>
+
+        <a href="seller.html">
+            👤 Seller Login
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <a href="index.html"
+       class="brand">
+
+        <img
+            src="logo.png"
+            class="logo"
+            alt="Utkala Mart"
+        >
+
+        <div>
+
+            <h1>
+                <span>ଉତ୍କଳ</span> Mart
+            </h1>
+
+            <p>
+                From Ganjam to Every Home
+            </p>
+
+        </div>
+
+    </a>
+
+
+    <div class="header-links">
+
+        <a href="checkout.html">
+
+            <span class="icon">
+                🛒
+            </span>
+
+            Cart
+
+        </a>
+
+
+        <a href="account.html">
+
+            <span class="icon">
+                👤
+            </span>
+
+            ଖାତା
+
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- MAIN -->
+
+<main class="container">
+
+
+    <a href="account.html"
+       class="back">
+
+        ← ମୋ ଖାତାକୁ ଫେରନ୍ତୁ
+
+    </a>
+
+
+    <!-- TITLE -->
+
+    <div class="page-title">
+
+        <h2>
+            📍 ମୋର Address
+        </h2>
+
+        <p>
+            ଆପଣଙ୍କ Delivery Address ଏଠାରେ ରଖନ୍ତୁ
+        </p>
+
+    </div>
+
+
+    <!-- ADD -->
+
+    <button
+        class="add-btn"
+        onclick="openAddAddress()">
+
+        ➕ ନୂଆ Delivery Address ଯୋଡନ୍ତୁ
+
+    </button>
+
+
+    <!-- ADDRESS LIST -->
+
+    <div id="addressContainer"></div>
+
+
+</main>
+
+
+<!-- ADDRESS MODAL -->
+
+<div
+    class="overlay"
+    id="addressOverlay">
+
+    <div class="modal">
+
+        <h2 id="modalTitle">
+            📍 ନୂଆ Address
+        </h2>
+
+
+        <input
+            type="hidden"
+            id="editId"
+        >
+
+
+        <div class="form-group">
+
+            <label>
+                👤 ନାମ *
+            </label>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="ଆପଣଙ୍କ ପୂରା ନାମ"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                📱 Mobile Number *
+            </label>
+
+            <input
+                type="tel"
+                id="mobile"
+                placeholder="10 digit mobile number"
+                maxlength="10"
+                inputmode="numeric"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                🏠 House / Area *
+            </label>
+
+            <input
+                type="text"
+                id="house"
+                placeholder="House No, Street, Area"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                🏘️ Village / City *
+            </label>
+
+            <input
+                type="text"
+                id="city"
+                placeholder="Village / City"
+            >
+
+        </div>
+
+
+        <div class="row">
+
+            <div class="form-group">
+
+                <label>
+                    📌 District *
+                </label>
+
+                <input
+                    type="text"
+                    id="district"
+                    placeholder="District"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    📮 PIN Code *
+                </label>
+
+                <input
+                    type="tel"
+                    id="pin"
+                    placeholder="6 digit PIN"
+                    maxlength="6"
+                    inputmode="numeric"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                🗺️ State
+            </label>
+
+            <select id="state">
+
+                <option value="Odisha">
+                    Odisha
+                </option>
+
+                <option value="Gujarat">
+                    Gujarat
+                </option>
+
+                <option value="West Bengal">
+                    West Bengal
+                </option>
+
+                <option value="Andhra Pradesh">
+                    Andhra Pradesh
+                </option>
+
+                <option value="Chhattisgarh">
+                    Chhattisgarh
+                </option>
+
+                <option value="Other">
+                    Other
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="checkbox">
+
+            <input
+                type="checkbox"
+                id="defaultAddress"
+            >
+
+            <label for="defaultAddress">
+
+                ⭐ ଏହାକୁ Default Delivery Address କରନ୍ତୁ
+
+            </label>
+
+        </div>
+
+
+        <div class="modal-buttons">
+
+            <button
+                class="save-btn"
+                onclick="saveAddress()">
+
+                💾 Save Address
+
+            </button>
+
+
+            <button
+                class="cancel-btn"
+                onclick="closeModal()">
+
+                Cancel
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div
+    class="toast"
+    id="toast">
+</div>
+
+
+<!-- BOTTOM NAV -->
+
+<nav class="bottom-nav">
+
+
+    <a href="index.html">
+
+        <span class="icon">
+            🏠
+        </span>
+
+        Home
+
+    </a>
+
+
+    <a href="index.html#categories">
+
+        <span class="icon">
+            📁
+        </span>
+
+        ବିଭାଗ
+
+    </a>
+
+
+    <a href="checkout.html">
+
+        <span class="icon">
+            🛒
+        </span>
+
+        Cart
+
+    </a>
+
+
+    <a href="order-tracking.html">
+
+        <span class="icon">
+            📦
+        </span>
+
+        Track
+
+    </a>
+
+
+    <a href="account.html"
+       class="active">
+
+        <span class="icon">
+            👤
+        </span>
+
+        ଖାତା
+
+    </a>
+
+
+</nav>
+
+
+<script>
+
+/*
+========================================
+UTKALA MART - ADDRESS SYSTEM
+========================================
+
+ବର୍ତ୍ତମାନ LocalStorage version।
+
+ପରବର୍ତ୍ତୀ step ରେ Firebase
+customer address collection
+ସହିତ connect କରାଯିବ।
+
+ପୁରୁଣା Firebase data କୁ
+ଏହି page କିଛି change କରୁନାହିଁ।
+*/
+
+
+let addresses = [
+
+    {
+        id:"ADDR001",
+
+        name:"Surya kanta behera",
+
+        mobile:"9827275681",
+
+        house:"Demo Address",
+
+        city:"Berhampur",
+
+        district:"Ganjam",
+
+        state:"Odisha",
+
+        pin:"760001",
+
+        isDefault:true
+
+    }
+
+];
+
+
+/* LOAD */
+
+function loadAddresses(){
+
+    const saved =
+        localStorage.getItem(
+            "utkalaAddresses"
+        );
+
+
+    if(saved){
+
+        try{
+
+            addresses =
+                JSON.parse(saved);
+
+        }catch(error){
+
+            console.log(
+                "Address data error"
+            );
+
+        }
+
+    }
+
+
+    displayAddresses();
+
+}
+
+
+/* SAVE LOCAL */
+
+function saveLocal(){
+
+    localStorage.setItem(
+        "utkalaAddresses",
+        JSON.stringify(addresses)
+    );
+
+}
+
+
+/* DISPLAY */
+
+function displayAddresses(){
+
+    const container =
+        document.getElementById(
+            "addressContainer"
+        );
+
+
+    if(addresses.length === 0){
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-icon">
+                    📍
+                </div>
+
+                <h3>
+                    କୌଣସି Address ନାହିଁ
+                </h3>
+
+                <p>
+                    Delivery ପାଇଁ ଆପଣଙ୍କ Address ଯୋଡନ୍ତୁ।
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+        addresses.map(
+            address => `
+
+        <div
+            class="address-card
+            ${address.isDefault ? "default" : ""}">
+
+            <div class="address-top">
+
+                <div class="person">
+
+                    <div class="address-icon">
+                        📍
+                    </div>
+
+                    <div>
+
+                        <div class="person-name">
+                            ${escapeHTML(address.name)}
+                        </div>
+
+                        <div class="person-mobile">
+                            📱 ${escapeHTML(address.mobile)}
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                ${
+                    address.isDefault
+                    ?
+                    `
+                    <span class="default-badge">
+                        ⭐ Default
+                    </span>
+                    `
+                    :
+                    ""
+                }
+
+            </div>
+
+
+            <div class="address-text">
+
+                🏠
+                ${escapeHTML(address.house)}
+                <br>
+
+                🏘️
+                ${escapeHTML(address.city)}
+                ,
+                ${escapeHTML(address.district)}
+                <br>
+
+                🗺️
+                ${escapeHTML(address.state)}
+                -
+                ${escapeHTML(address.pin)}
+
+            </div>
+
+
+            <div class="address-actions">
+
+                <button
+                    class="btn edit-btn"
+                    onclick="
+                    editAddress('${address.id}')
+                    ">
+
+                    ✏️ Edit
+
+                </button>
+
+
+                ${
+                    !address.isDefault
+                    ?
+                    `
+                    <button
+                        class="btn default-btn"
+                        onclick="
+                        makeDefault('${address.id}')
+                        ">
+
+                        ⭐ Default
+
+                    </button>
+                    `
+                    :
+                    ""
+                }
+
+
+                <button
+                    class="btn delete-btn"
+                    onclick="
+                    deleteAddress('${address.id}')
+                    ">
+
+                    🗑️ Delete
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `
+        ).join("");
+
+}
+
+
+/* OPEN ADD */
+
+function openAddAddress(){
+
+    clearForm();
+
+    document.getElementById(
+        "modalTitle"
+    ).textContent =
+        "📍 ନୂଆ Address";
+
+
+    document.getElementById(
+        "addressOverlay"
+    ).style.display = "flex";
+
+}
+
+
+/* EDIT */
+
+function editAddress(id){
+
+    const address =
+        addresses.find(
+            item =>
+            item.id === id
+        );
+
+
+    if(!address){
+        return;
+    }
+
+
+    document.getElementById("editId")
+        .value = address.id;
+
+    document.getElementById("name")
+        .value = address.name;
+
+    document.getElementById("mobile")
+        .value = address.mobile;
+
+    document.getElementById("house")
+        .value = address.house;
+
+    document.getElementById("city")
+        .value = address.city;
+
+    document.getElementById("district")
+        .value = address.district;
+
+    document.getElementById("pin")
+        .value = address.pin;
+
+    document.getElementById("state")
+        .value = address.state;
+
+    document.getElementById("defaultAddress")
+        .checked = address.isDefault;
+
+
+    document.getElementById(
+        "modalTitle"
+    ).textContent =
+        "✏️ Address Edit";
+
+
+    document.getElementById(
+        "addressOverlay"
+    ).style.display = "flex";
+
+}
+
+
+/* SAVE */
+
+function saveAddress(){
+
+    const id =
+        document.getElementById(
+            "editId"
+        ).value;
+
+
+    const name =
+        document.getElementById(
+            "name"
+        ).value.trim();
+
+
+    const mobile =
+        document.getElementById(
+            "mobile"
+        ).value.trim();
+
+
+    const house =
+        document.getElementById(
+            "house"
+        ).value.trim();
+
+
+    const city =
+        document.getElementById(
+            "city"
+        ).value.trim();
+
+
+    const district =
+        document.getElementById(
+            "district"
+        ).value.trim();
+
+
+    const pin =
+        document.getElementById(
+            "pin"
+        ).value.trim();
+
+
+    const state =
+        document.getElementById(
+            "state"
+        ).value;
+
+
+    const isDefault =
+        document.getElementById(
+            "defaultAddress"
+        ).checked;
+
+
+    /* VALIDATION */
+
+    if(
+        !name ||
+        !mobile ||
+        !house ||
+        !city ||
+        !district ||
+        !pin
+    ){
+
+        alert(
+            "⚠️ * ଚିହ୍ନିତ ସମସ୍ତ field ପୂରଣ କରନ୍ତୁ।"
+        );
+
+        return;
+
+    }
+
+
+    if(!/^[0-9]{10}$/.test(mobile)){
+
+        alert(
+            "⚠️ ଠିକ୍ 10 digit Mobile Number ଦିଅନ୍ତୁ।"
+        );
+
+        return;
+
+    }
+
+
+    if(!/^[0-9]{6}$/.test(pin)){
+
+        alert(
+            "⚠️ ଠିକ୍ 6 digit PIN Code ଦିଅନ୍ତୁ।"
+        );
+
+        return;
+
+    }
+
+
+    /*
+      ଯଦି Default select କରାଯାଇଛି,
+      ପୁରୁଣା Default false ହେବ।
+    */
+
+    if(isDefault){
+
+        addresses =
+            addresses.map(
+                item => {
+
+                    item.isDefault =
+                        false;
+
+                    return item;
+
+                }
+            );
+
+    }
+
+
+    const data = {
+
+        id:
+            id ||
+            "ADDR" +
+            Date.now(),
+
+        name:name,
+
+        mobile:mobile,
+
+        house:house,
+
+        city:city,
+
+        district:district,
+
+        state:state,
+
+        pin:pin,
+
+        isDefault:isDefault
+
+    };
+
+
+    if(id){
+
+        const index =
+            addresses.findIndex(
+                item =>
+                item.id === id
+            );
+
+
+        if(index !== -1){
+
+            addresses[index] =
+                data;
+
+        }
+
+    }else{
+
+        /*
+          ପ୍ରଥମ Address କୁ
+          automatically Default କରିବା।
+        */
+
+        if(addresses.length === 0){
+
+            data.isDefault = true;
+
+        }
+
+
+        addresses.push(data);
+
+    }
+
+
+    saveLocal();
+
+    displayAddresses();
+
+    closeModal();
+
+    showToast(
+        "✅ Address Save ହେଲା"
+    );
+
+}
+
+
+/* DEFAULT */
+
+function makeDefault(id){
+
+    addresses =
+        addresses.map(
+            item => {
+
+                item.isDefault =
+                    item.id === id;
+
+                return item;
+
+            }
+        );
+
+
+    saveLocal();
+
+    displayAddresses();
+
+    showToast(
+        "⭐ Default Address ବଦଳାଗଲା"
+    );
+
+}
+
+
+/* DELETE */
+
+function deleteAddress(id){
+
+    const address =
+        addresses.find(
+            item =>
+            item.id === id
+        );
+
+
+    if(!address){
+        return;
+    }
+
+
+    const confirmDelete =
+        confirm(
+            "📍 " +
+            address.name +
+            " ଙ୍କ Address delete କରିବେ କି?"
+        );
+
+
+    if(!confirmDelete){
+        return;
+    }
+
+
+    addresses =
+        addresses.filter(
+            item =>
+            item.id !== id
+        );
+
+
+    /*
+      ଯଦି Default Address delete ହେଲା,
+      ପ୍ରଥମ Address କୁ Default କରିବା।
+    */
+
+    if(
+        addresses.length > 0 &&
+        !addresses.some(
+            item =>
+            item.isDefault
+        )
+    ){
+
+        addresses[0].isDefault =
+            true;
+
+    }
+
+
+    saveLocal();
+
+    displayAddresses();
+
+    showToast(
+        "🗑️ Address delete ହେଲା"
+    );
+
+}
+
+
+/* CLEAR FORM */
+
+function clearForm(){
+
+    document.getElementById(
+        "editId"
+    ).value = "";
+
+    document.getElementById(
+        "name"
+    ).value = "";
+
+    document.getElementById(
+        "mobile"
+    ).value = "";
+
+    document.getElementById(
+        "house"
+    ).value = "";
+
+    document.getElementById(
+        "city"
+    ).value = "";
+
+    document.getElementById(
+        "district"
+    ).value = "";
+
+    document.getElementById(
+        "pin"
+    ).value = "";
+
+    document.getElementById(
+        "state"
+    ).value = "Odisha";
+
+    document.getElementById(
+        "defaultAddress"
+    ).checked =
+        addresses.length === 0;
+
+}
+
+
+/* CLOSE */
+
+function closeModal(){
+
+    document.getElementById(
+        "addressOverlay"
+    ).style.display =
+        "none";
+
+}
+
+
+/* TOAST */
+
+function showToast(message){
+
+    const toast =
+        document.getElementById(
+            "toast"
+        );
+
+
+    toast.textContent =
+        message;
+
+
+    toast.style.display =
+        "block";
+
+
+    clearTimeout(
+        window.toastTimer
+    );
+
+
+    window.toastTimer =
+        setTimeout(
+            function(){
+
+                toast.style.display =
+                    "none";
+
+            },
+            2200
+        );
+
+}
+
+
+/* HTML SECURITY */
+
+function escapeHTML(value){
+
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* CLOSE OUTSIDE */
+
+document.getElementById(
+    "addressOverlay"
+).addEventListener(
+    "click",
+    function(event){
+
+        if(event.target === this){
+
+            closeModal();
+
+        }
+
+    }
+);
+
+
+/* START */
+
+loadAddresses();
+
+</script>
+
+
+</body>
+
+  </html>
