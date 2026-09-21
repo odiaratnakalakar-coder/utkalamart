@@ -20,7 +20,6 @@
 
 <title>ଉତ୍କଳ Mart | ଗଞ୍ଜାମରୁ ଆରମ୍ଭ</title>
 
-
 <style>
 
 *{
@@ -2388,7 +2387,6 @@ function isClothing(product){
     const value =
         getCategoryText(product);
 
-
     return (
 
         value.includes("cloth") ||
@@ -2426,7 +2424,6 @@ function(productId){
         return;
     }
 
-
     window.location.href =
         "product.html?id=" +
         encodeURIComponent(productId);
@@ -2450,7 +2447,6 @@ function updateCart(){
 
         );
 
-
     const desktop =
         document.getElementById(
             "cartCount"
@@ -2460,7 +2456,6 @@ function updateCart(){
         document.getElementById(
             "mobileCartCount"
         );
-
 
     if(desktop)
         desktop.innerText = count;
@@ -2482,7 +2477,6 @@ function categoryMatch(
 
     const value =
         getCategoryText(product);
-
 
     if(category === "food"){
 
@@ -2541,7 +2535,6 @@ function categoryMatch(
 
     }
 
-
     return false;
 
 }
@@ -2558,20 +2551,16 @@ function toast(message){
             "toast"
         );
 
-
     el.innerText =
         message;
-
 
     el.classList.add(
         "show"
     );
 
-
     clearTimeout(
         window.toastTimer
     );
-
 
     window.toastTimer =
         setTimeout(
@@ -2604,15 +2593,12 @@ function toggleWishlist(
                 x => x !== id
             );
 
-
         button.classList.remove(
             "liked"
         );
 
-
         button.innerText =
             "♡";
-
 
         toast(
             "♡ Wishlist ରୁ ବାହାର କରାଗଲା"
@@ -2623,22 +2609,18 @@ function toggleWishlist(
 
         wishlist.push(id);
 
-
         button.classList.add(
             "liked"
         );
 
-
         button.innerText =
             "♥";
-
 
         toast(
             "♥ Wishlist ରେ ଯୋଡାଗଲା"
         );
 
     }
-
 
     localStorage.setItem(
         "utkalaWishlist",
@@ -2664,7 +2646,6 @@ function getField(
         const value =
             product[field];
 
-
         if(
             value !== undefined &&
             value !== null &&
@@ -2676,7 +2657,6 @@ function getField(
         }
 
     }
-
 
     return "";
 
@@ -2757,10 +2737,8 @@ function getWeight(product){
             ]
         );
 
-
     if(!weight)
         return "";
-
 
     const unit =
         getField(
@@ -2770,7 +2748,6 @@ function getWeight(product){
                 "unit"
             ]
         );
-
 
     return unit
         ? weight + " " + unit
@@ -2794,7 +2771,6 @@ function createProductCard(
     card.className =
         "product-card";
 
-
     card.onclick =
         () =>
             openProductPage(
@@ -2810,23 +2786,18 @@ function createProductCard(
     imageBox.className =
         "product-image";
 
-
     const img =
         document.createElement("img");
 
-
     img.src =
         getImage(product);
-
 
     img.alt =
         product.name ||
         "Utkala Mart Product";
 
-
     img.loading =
         "lazy";
-
 
     img.onerror =
         function(){
@@ -2846,7 +2817,6 @@ function createProductCard(
 
     badge.className =
         "product-badge";
-
 
     badge.innerText =
         product.location ||
@@ -2870,7 +2840,6 @@ function createProductCard(
             : ""
         );
 
-
     wish.innerText =
         wishlist.includes(
             product.id
@@ -2878,12 +2847,10 @@ function createProductCard(
         ? "♥"
         : "♡";
 
-
     wish.onclick =
         function(e){
 
             e.stopPropagation();
-
 
             toggleWishlist(
                 product.id,
@@ -2917,7 +2884,6 @@ function createProductCard(
     name.className =
         "product-name";
 
-
     name.innerText =
         product.name ||
         "ପ୍ରଡକ୍ଟ";
@@ -2930,7 +2896,6 @@ function createProductCard(
 
     category.className =
         "product-category";
-
 
     category.innerText =
         product.subcategoryName ||
@@ -3057,12 +3022,10 @@ function createProductCard(
     const stock =
         getStock(product);
 
-
     const stockSpan =
         document.createElement(
             "span"
         );
-
 
     stockSpan.className =
         "product-detail";
@@ -3101,7 +3064,6 @@ function createProductCard(
 
     }
 
-
     details.appendChild(
         stockSpan
     );
@@ -3116,7 +3078,6 @@ function createProductCard(
 
     price.className =
         "product-price";
-
 
     price.innerText =
         "₹" +
@@ -3169,16 +3130,13 @@ function createProductCard(
     view.className =
         "view-product";
 
-
     view.innerText =
         "👁️ ପ୍ରଡକ୍ଟ ଦେଖନ୍ତୁ";
-
 
     view.onclick =
         function(e){
 
             e.stopPropagation();
-
 
             openProductPage(
                 product.id
@@ -3194,7 +3152,6 @@ function createProductCard(
             "button"
         );
 
-
     add.className =
         "add-cart";
 
@@ -3203,7 +3160,6 @@ function createProductCard(
 
         add.disabled =
             true;
-
 
         add.innerText =
             "❌ Stock Out";
@@ -3214,12 +3170,10 @@ function createProductCard(
         add.innerText =
             "🛒 କାର୍ଟରେ ଯୋଡନ୍ତୁ";
 
-
         add.onclick =
             function(e){
 
                 e.stopPropagation();
-
 
                 addToCart(
                     product
@@ -3279,12 +3233,10 @@ function renderProducts(
             "productGrid"
         );
 
-
     const loading =
         document.getElementById(
             "loading"
         );
-
 
     grid.innerHTML =
         "";
@@ -3295,10 +3247,8 @@ function renderProducts(
         loading.style.display =
             "block";
 
-
         loading.innerText =
             "🛍️ ଏହି ବିଭାଗରେ ପ୍ରଡକ୍ଟ ମିଳିଲା ନାହିଁ।";
-
 
         return;
 
@@ -3543,12 +3493,10 @@ function addToCart(
     const id =
         product.id;
 
-
     const stock =
         getStock(
             product
         );
-
 
     const old =
         cart.find(
@@ -3571,7 +3519,6 @@ function addToCart(
             return;
 
         }
-
 
         old.qty++;
 
@@ -3648,7 +3595,6 @@ function(
 
     const item =
         cart[index];
-
 
     if(!item)
         return;
@@ -4138,7 +4084,7 @@ function(element){
 
 
 /* =========================
-LOAD PRODUCTS
+LOAD PRODUCTS - FIXED
 ========================= */
 
 async function loadProducts(){
@@ -4176,14 +4122,10 @@ async function loadProducts(){
                         productDoc.data();
 
 
-                    const approved =
-                        data.approved === true &&
-
-                        data.active === true &&
-
-                        data.status ===
-                        "approved";
-
+                    /*
+                     * Seller products
+                     * Approved + Active only
+                     */
 
                     const hasApprovalFields =
 
@@ -4196,6 +4138,23 @@ async function loadProducts(){
                         data.active !==
                         undefined;
 
+
+                    const approved =
+
+                        data.approved === true &&
+
+                        data.active === true &&
+
+                        String(
+                            data.status || ""
+                        ).toLowerCase() ===
+                        "approved";
+
+
+                    /*
+                     * Old product
+                     * ଯେଉଁଥିରେ approval fields ନାହିଁ
+                     */
 
                     const oldProduct =
 
@@ -4214,6 +4173,9 @@ async function loadProducts(){
                             id:
                                 productDoc.id,
 
+                            source:
+                                "products",
+
                             ...data
 
                         });
@@ -4227,7 +4189,7 @@ async function loadProducts(){
         catch(error){
 
             console.log(
-                "products unavailable",
+                "products collection unavailable:",
                 error
             );
 
@@ -4235,63 +4197,141 @@ async function loadProducts(){
 
 
         /* =========================
-        OLD PRODUCTS
+        MART PRODUCTS
         ========================= */
 
-        if(!products.length){
+        try{
 
-            try{
-
-                const snapshot =
-                    await getDocs(
-                        collection(
-                            db,
-                            "martProducts"
-                        )
-                    );
+            const snapshot =
+                await getDocs(
+                    collection(
+                        db,
+                        "martProducts"
+                    )
+                );
 
 
-                snapshot.forEach(
-                    productDoc => {
+            snapshot.forEach(
+                productDoc => {
 
-                        products.push({
+                    const data =
+                        productDoc.data();
 
-                            id:
-                                productDoc.id,
 
-                            ...productDoc.data()
+                    /*
+                     * active:false product
+                     * Homepage ରେ ଦେଖାଇବା ନାହିଁ
+                     */
 
-                        });
+                    if(
+                        data.active === false
+                    ){
+
+                        return;
 
                     }
-                );
 
-            }
-            catch(error){
 
-                console.log(
-                    "martProducts unavailable",
-                    error
-                );
+                    products.push({
 
-            }
+                        id:
+                            productDoc.id,
+
+                        source:
+                            "martProducts",
+
+                        ...data
+
+                    });
+
+                }
+            );
+
+        }
+        catch(error){
+
+            console.log(
+                "martProducts collection unavailable:",
+                error
+            );
 
         }
 
 
-        allProducts =
-            products;
+        /* =========================
+        REMOVE EXACT DUPLICATES
+        ========================= */
 
+        const uniqueProducts = [];
+
+        const seen = new Set();
+
+
+        products.forEach(
+            product => {
+
+                const key =
+
+                    String(
+                        product.source ||
+                        "products"
+                    ) +
+
+                    "_" +
+
+                    String(
+                        product.id
+                    );
+
+
+                if(
+                    !seen.has(key)
+                ){
+
+                    seen.add(key);
+
+                    uniqueProducts.push(
+                        product
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* =========================
+        FINAL LIST
+        ========================= */
+
+        allProducts =
+            uniqueProducts;
+
+
+        /* =========================
+        SHOW PRODUCTS
+        ========================= */
 
         renderProducts(
             allProducts
         );
 
 
+        loading.style.display =
+            "none";
+
+
         console.log(
-            "Utkala Mart Products:",
+            "Utkala Mart ALL Products:",
             allProducts
         );
+
+
+        console.log(
+            "Total Products:",
+            allProducts.length
+        );
+
 
     }
     catch(error){
