@@ -2,9 +2,14 @@
 <html lang="or">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#075b3b">
+
+<meta name="viewport"
+      content="width=device-width,initial-scale=1.0">
+
+<meta name="theme-color"
+      content="#075b3b">
 
 <title>Daily Market Price | Utkala Mart</title>
 
@@ -16,7 +21,11 @@
 
 body{
     margin:0;
-    font-family:Arial,"Noto Sans Odia","Noto Sans Oriya",sans-serif;
+    font-family:
+        Arial,
+        "Noto Sans Odia",
+        "Noto Sans Oriya",
+        sans-serif;
     background:#f3f7f5;
     color:#18352a;
 }
@@ -68,6 +77,11 @@ header p{
     border:1px solid #ccd9d3;
     border-radius:10px;
     font-size:15px;
+    outline:none;
+}
+
+.search:focus{
+    border-color:#07834f;
 }
 
 .refresh{
@@ -77,6 +91,7 @@ header p{
     padding:12px 18px;
     border-radius:10px;
     font-weight:bold;
+    cursor:pointer;
 }
 
 .status{
@@ -129,6 +144,7 @@ header p{
     object-fit:cover;
     border-radius:12px;
     background:#eee;
+    flex-shrink:0;
 }
 
 .product-name{
@@ -155,7 +171,8 @@ header p{
 
 .price-grid{
     display:grid;
-    grid-template-columns:1fr 1fr 1fr;
+    grid-template-columns:
+        1fr 1fr 1fr;
     gap:10px;
     margin-top:15px;
 }
@@ -167,12 +184,20 @@ header p{
     margin-bottom:5px;
 }
 
-.field input{
+.field input,
+.field select{
     width:100%;
     padding:11px;
     border:1px solid #ccd9d3;
     border-radius:9px;
     font-size:15px;
+    background:white;
+    outline:none;
+}
+
+.field input:focus,
+.field select:focus{
+    border-color:#07834f;
 }
 
 .final-price{
@@ -196,10 +221,17 @@ header p{
 }
 
 .saving{
-    margin-top:8px;
-    color:#08713f;
+    margin-top:9px;
     font-weight:bold;
     font-size:13px;
+}
+
+.saving.down{
+    color:#08713f;
+}
+
+.saving.up{
+    color:#a45b00;
 }
 
 .old-price{
@@ -218,20 +250,35 @@ header p{
     color:white;
     font-size:15px;
     font-weight:bold;
+    cursor:pointer;
 }
 
 .update-btn:disabled{
     opacity:.6;
 }
 
-@media(max-width:650px){
+.rule-box{
+    background:#f7faf8;
+    border:1px solid #dce8e2;
+    border-radius:10px;
+    padding:10px;
+    margin-top:12px;
+    font-size:12px;
+    color:#527064;
+}
 
-    .topbar{
-        flex-direction:column;
-    }
+@media(max-width:700px){
 
     .price-grid{
         grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .topbar{
+        flex-direction:column;
     }
 
     .product-image{
@@ -242,13 +289,16 @@ header p{
     .product-name{
         font-size:16px;
     }
+
 }
 
 </style>
+
 </head>
 
 
 <body>
+
 
 <header>
 
@@ -263,10 +313,13 @@ header p{
 
 <div class="container">
 
+
 <div class="date-box">
 
 📅 ଆଜିର ତାରିଖ:
-<strong id="todayDate">Loading...</strong>
+<strong id="todayDate">
+Loading...
+</strong>
 
 </div>
 
@@ -276,6 +329,7 @@ header p{
 <input
 id="searchBox"
 class="search"
+type="text"
 placeholder="🔎 Product ଖୋଜନ୍ତୁ..."
 >
 
@@ -289,18 +343,36 @@ onclick="loadProducts()"
 </div>
 
 
-<div id="status" class="status"></div>
-
-<div id="loading" class="loading">
-⏳ Products Loading...
+<div
+id="status"
+class="status">
 </div>
 
-<div id="productList" class="product-list"></div>
+
+<div
+id="loading"
+class="loading">
+
+⏳ Products Loading...
+
+</div>
+
+
+<div
+id="productList"
+class="product-list">
+</div>
+
 
 </div>
 
 
 <script type="module">
+
+
+/* =====================================================
+   FIREBASE
+===================================================== */
 
 import {
     initializeApp
@@ -330,10 +402,6 @@ from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-/* =========================================
-   FIREBASE
-========================================= */
-
 const firebaseConfig = {
 
     apiKey:
@@ -357,11 +425,14 @@ const firebaseConfig = {
 };
 
 
-const app = initializeApp(firebaseConfig);
+const app =
+initializeApp(firebaseConfig);
 
-const auth = getAuth(app);
+const auth =
+getAuth(app);
 
-const db = getFirestore(app);
+const db =
+getFirestore(app);
 
 
 const ADMIN_EMAIL =
@@ -371,52 +442,65 @@ const ADMIN_EMAIL =
 let allProducts=[];
 
 
-/* =========================================
+/* =====================================================
    DATE
-========================================= */
+===================================================== */
 
 function getToday(){
 
     const d=new Date();
 
-    return String(d.getDate()).padStart(2,"0")
+    return String(
+        d.getDate()
+    ).padStart(2,"0")
     +"/"+
-    String(d.getMonth()+1).padStart(2,"0")
+    String(
+        d.getMonth()+1
+    ).padStart(2,"0")
     +"/"+
     d.getFullYear();
 
 }
 
-document.getElementById("todayDate").innerText =
-getToday();
+
+document.getElementById(
+    "todayDate"
+).innerText=getToday();
 
 
-/* =========================================
+/* =====================================================
    STATUS
-========================================= */
+===================================================== */
 
-function showStatus(message,type){
+function showStatus(
+    message,
+    type
+){
 
-    const box=document.getElementById("status");
+    const box=
+    document.getElementById(
+        "status"
+    );
 
     box.innerText=message;
 
-    box.className="status "+type;
+    box.className=
+    "status "+type;
 
     setTimeout(()=>{
 
         box.className="status";
 
-    },4000);
+    },5000);
 
 }
 
 
-/* =========================================
+/* =====================================================
    HELPERS
-========================================= */
+===================================================== */
 
-function nameOf(p){
+function productName(p){
 
     return String(
         p.name ||
@@ -428,7 +512,7 @@ function nameOf(p){
 }
 
 
-function categoryOf(p){
+function categoryName(p){
 
     return String(
         p.categoryName ||
@@ -439,7 +523,7 @@ function categoryOf(p){
 }
 
 
-function imageOf(p){
+function productImage(p){
 
     return String(
         p.imageUrl ||
@@ -451,124 +535,116 @@ function imageOf(p){
 }
 
 
-function numberOf(value){
+function num(value){
 
     const n=Number(value);
 
-    return Number.isFinite(n) ? n : 0;
+    return Number.isFinite(n)
+    ? n
+    : 0;
 
 }
 
 
-/* =========================================
-   LOAD PRODUCTS
-========================================= */
+/* =====================================================
+   CALCULATE PRICE
+===================================================== */
 
-window.loadProducts=async function(){
+function calculate(
+    market,
+    direction,
+    type,
+    value
+){
 
-    const loading=
-    document.getElementById("loading");
+    market=num(market);
 
-    const list=
-    document.getElementById("productList");
-
-    loading.style.display="block";
-
-    list.innerHTML="";
-
-    allProducts=[];
+    value=num(value);
 
 
-    try{
+    if(market<=0){
 
-        const productsSnap=
-        await getDocs(
-            collection(db,"products")
-        );
-
-
-        productsSnap.forEach(item=>{
-
-            allProducts.push({
-
-                id:item.id,
-
-                source:"products",
-
-                ...item.data()
-
-            });
-
-        });
-
-
-        try{
-
-            const martSnap=
-            await getDocs(
-                collection(db,"martProducts")
-            );
-
-
-            martSnap.forEach(item=>{
-
-                allProducts.push({
-
-                    id:item.id,
-
-                    source:"martProducts",
-
-                    ...item.data()
-
-                });
-
-            });
-
-        }catch(e){
-
-            console.log(
-                "martProducts unavailable"
-            );
-
-        }
-
-
-        loading.style.display="none";
-
-        renderProducts(allProducts);
-
-
-    }catch(error){
-
-        loading.style.display="none";
-
-        showStatus(
-            "❌ Products load ହେଲା ନାହିଁ: "
-            +error.message,
-            "error"
-        );
+        return 0;
 
     }
 
-};
+
+    let change=0;
 
 
-/* =========================================
-   RENDER
-========================================= */
+    if(type==="percent"){
 
-function renderProducts(products){
+        change=
+        market *
+        value /
+        100;
+
+    }else{
+
+        change=value;
+
+    }
+
+
+    let finalPrice=market;
+
+
+    if(direction==="decrease"){
+
+        finalPrice=
+        market-change;
+
+    }else{
+
+        finalPrice=
+        market+change;
+
+    }
+
+
+    /*
+       Price 0 ଠାରୁ କମ୍ ହେବ ନାହିଁ
+    */
+
+    finalPrice=
+    Math.max(
+        0,
+        finalPrice
+    );
+
+
+    return Math.round(
+        finalPrice*100
+    )/100;
+
+}
+
+
+/* =====================================================
+   RENDER PRODUCTS
+===================================================== */
+
+function renderProducts(
+    products
+){
 
     const list=
-    document.getElementById("productList");
+    document.getElementById(
+        "productList"
+    );
 
 
     if(!products.length){
 
-        list.innerHTML=
-        `<div class="loading">
+        list.innerHTML=`
+
+        <div class="loading">
+
         ❌ କୌଣସି Product ମିଳିଲା ନାହିଁ।
-        </div>`;
+
+        </div>
+
+        `;
 
         return;
 
@@ -576,216 +652,457 @@ function renderProducts(products){
 
 
     list.innerHTML=
-    products.map((p,index)=>{
+
+    products.map(
+        (p,index)=>{
+
 
         const market=
-        numberOf(p.marketPrice);
-
-        const discount=
-        numberOf(
-            p.discount ??
-            p.utkalaDiscount
+        num(
+            p.marketPrice
         );
 
 
-        const currentPrice=
-        numberOf(
+        const oldPrice=
+        num(
             p.utkalaPrice ??
             p.sellingPrice ??
             p.price
         );
 
 
+        const direction=
+        p.priceDirection ||
+        "decrease";
+
+
+        const type=
+        p.priceAdjustmentType ||
+        "fixed";
+
+
+        const value=
+        num(
+            p.priceAdjustmentValue
+        );
+
+
         const finalPrice=
         market>0
-        ? Math.max(0,market-discount)
-        : currentPrice;
+        ?
+        calculate(
+            market,
+            direction,
+            type,
+            value
+        )
+        :
+        oldPrice;
 
 
-        const saving=
-        market>finalPrice
-        ? market-finalPrice
-        : 0;
+        let adjustmentText="";
+
+
+        if(value>0){
+
+            adjustmentText=
+            direction==="decrease"
+            ?
+            "କମ୍"
+            :
+            "ବଢ଼ିବ";
+
+            if(type==="percent"){
+
+                adjustmentText+=
+                " "+value+"%";
+
+            }else{
+
+                adjustmentText+=
+                " ₹"+value;
+
+            }
+
+        }
 
 
         return `
 
-        <div class="product-card">
-
-            <div class="product-top">
-
-                ${
-                    imageOf(p)
-                    ?
-                    `<img
-                    class="product-image"
-                    src="${imageOf(p)}"
-                    alt="${nameOf(p)}"
-                    >`
-                    :
-                    `<div
-                    class="product-image"
-                    style="
-                    display:flex;
-                    align-items:center;
-                    justify-content:center;
-                    font-size:28px;
-                    ">
-                    🛍️
-                    </div>`
-                }
-
-                <div>
-
-                    <div class="product-name">
-                    ${nameOf(p)}
-                    </div>
-
-                    <div class="category">
-                    ${categoryOf(p)}
-                    </div>
-
-                    <div class="source">
-                    ${p.source}
-                    </div>
-
-                </div>
-
-            </div>
+        <div
+        class="product-card"
+        data-index="${index}"
+        >
 
 
-            <div class="price-grid">
+        <div class="product-top">
 
-
-                <div class="field">
-
-                    <label>
-                    🏪 Today's Market Price
-                    </label>
-
-                    <input
-                    type="number"
-                    min="0"
-                    step="0.01"
-                    id="market-${index}"
-                    value="${market || ""}"
-                    placeholder="ଯଥା ₹60"
-                    oninput="calculatePrice(${index})"
-                    >
-
-                </div>
-
-
-                <div class="field">
-
-                    <label>
-                    🎁 Customer Discount
-                    </label>
-
-                    <input
-                    type="number"
-                    min="0"
-                    step="0.01"
-                    id="discount-${index}"
-                    value="${discount || ""}"
-                    placeholder="ଯଥା ₹5"
-                    oninput="calculatePrice(${index})"
-                    >
-
-                </div>
-
-
-                <div
-                class="final-price">
-
-                    <label>
-                    🛒 Utkala Mart Price
-                    </label>
-
-                    <strong id="final-${index}">
-                    ₹${finalPrice.toFixed(2)}
-                    </strong>
-
-                </div>
-
-
-            </div>
-
-
-            <div
-            class="saving"
-            id="saving-${index}">
 
             ${
-                saving>0
+                productImage(p)
                 ?
-                `🎉 Customer Saving: ₹${saving.toFixed(2)}`
+
+                `<img
+                class="product-image"
+                src="${productImage(p)}"
+                alt="${productName(p)}"
+                onerror="
+                this.style.display='none'
+                "
+                >`
+
                 :
-                ""
+
+                `<div
+                class="product-image"
+                style="
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                font-size:28px;
+                "
+                >
+                🛍️
+                </div>`
             }
 
+
+            <div>
+
+                <div class="product-name">
+
+                ${productName(p)}
+
+                </div>
+
+
+                <div class="category">
+
+                ${categoryName(p)}
+
+                </div>
+
+
+                <div class="source">
+
+                ${p.source}
+
+                </div>
+
             </div>
 
 
-            <div class="old-price">
+        </div>
 
-            ପୁରୁଣା Utkala Price:
-            ₹${currentPrice.toFixed(2)}
+
+        <div class="price-grid">
+
+
+            <!-- MARKET PRICE -->
+
+            <div class="field">
+
+                <label>
+
+                🏪 Today's Market Price
+
+                </label>
+
+
+                <input
+                type="number"
+                min="0"
+                step="0.01"
+                id="market-${index}"
+                value="${market || ""}"
+                placeholder="ଯଥା ₹70"
+                oninput="
+                calculatePrice(${index})
+                "
+                >
 
             </div>
 
 
-            <button
-            class="update-btn"
-            id="update-${index}"
-            onclick="updatePrice(${index})">
+            <!-- DIRECTION -->
 
-            💾 Today's Price Save
+            <div class="field">
 
-            </button>
+                <label>
+
+                ↕️ Price Rule
+
+                </label>
+
+
+                <select
+                id="direction-${index}"
+                onchange="
+                calculatePrice(${index})
+                "
+                >
+
+                    <option
+                    value="decrease"
+                    ${
+                        direction==="decrease"
+                        ?
+                        "selected"
+                        :
+                        ""
+                    }
+                    >
+                    ⬇️ Market ଠାରୁ କମ୍
+                    </option>
+
+
+                    <option
+                    value="increase"
+                    ${
+                        direction==="increase"
+                        ?
+                        "selected"
+                        :
+                        ""
+                    }
+                    >
+                    ⬆️ Market ଠାରୁ ଅଧିକ
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- TYPE -->
+
+            <div class="field">
+
+                <label>
+
+                📐 Adjustment Type
+
+                </label>
+
+
+                <select
+                id="type-${index}"
+                onchange="
+                calculatePrice(${index})
+                "
+                >
+
+                    <option
+                    value="fixed"
+                    ${
+                        type==="fixed"
+                        ?
+                        "selected"
+                        :
+                        ""
+                    }
+                    >
+                    ₹ Fixed
+                    </option>
+
+
+                    <option
+                    value="percent"
+                    ${
+                        type==="percent"
+                        ?
+                        "selected"
+                        :
+                        ""
+                    }
+                    >
+                    % Percentage
+                    </option>
+
+                </select>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="price-grid">
+
+
+            <!-- VALUE -->
+
+            <div class="field">
+
+                <label>
+
+                ✏️ Amount / Percentage
+
+                </label>
+
+
+                <input
+                type="number"
+                min="0"
+                step="0.01"
+                id="value-${index}"
+                value="${value || ""}"
+                placeholder="ଯଥା 5"
+                oninput="
+                calculatePrice(${index})
+                "
+                >
+
+            </div>
+
+
+            <!-- FINAL -->
+
+            <div
+            class="final-price"
+            >
+
+                <label>
+
+                🛒 Utkala Mart Price
+
+                </label>
+
+
+                <strong
+                id="final-${index}"
+                >
+
+                ₹${finalPrice.toFixed(2)}
+
+                </strong>
+
+            </div>
+
+
+            <!-- SAVING -->
+
+            <div
+            class="final-price"
+            >
+
+                <label>
+
+                🎉 Customer Difference
+
+                </label>
+
+
+                <strong
+                id="saving-${index}"
+                >
+
+                ₹${Math.abs(
+                    market-finalPrice
+                ).toFixed(2)}
+
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+        <div
+        class="rule-box"
+        id="rule-${index}"
+        >
+
+        ${
+            adjustmentText
+            ?
+            "📌 ବର୍ତ୍ତମାନ Rule: Market Price ଠାରୁ "
+            +adjustmentText
+            :
+            "📌 Rule set କରନ୍ତୁ"
+        }
+
+        </div>
+
+
+        <div class="old-price">
+
+        ପୁରୁଣା Utkala Price:
+        ₹${oldPrice.toFixed(2)}
+
+        </div>
+
+
+        <button
+        class="update-btn"
+        id="update-${index}"
+        onclick="
+        updatePrice(${index})
+        "
+        >
+
+        💾 Today's Price Save
+
+        </button>
 
 
         </div>
 
         `;
 
-    }).join("");
+        }
+    ).join("");
 
 }
 
 
-/* =========================================
-   CALCULATE
-========================================= */
+/* =====================================================
+   LIVE CALCULATION
+===================================================== */
 
-window.calculatePrice=function(index){
+window.calculatePrice=
+function(index){
 
     const market=
-    numberOf(
+    num(
         document.getElementById(
             `market-${index}`
         ).value
     );
 
 
-    const discount=
-    numberOf(
+    const direction=
+    document.getElementById(
+        `direction-${index}`
+    ).value;
+
+
+    const type=
+    document.getElementById(
+        `type-${index}`
+    ).value;
+
+
+    const value=
+    num(
         document.getElementById(
-            `discount-${index}`
+            `value-${index}`
         ).value
     );
 
 
     const finalPrice=
-    Math.max(
-        0,
-        market-discount
+    calculate(
+        market,
+        direction,
+        type,
+        value
     );
 
 
-    const saving=
-    Math.max(
-        0,
+    const difference=
+    Math.abs(
         market-finalPrice
     );
 
@@ -793,46 +1110,114 @@ window.calculatePrice=function(index){
     document.getElementById(
         `final-${index}`
     ).innerText=
-    "₹"+finalPrice.toFixed(2);
+    "₹"+
+    finalPrice.toFixed(2);
 
 
     document.getElementById(
         `saving-${index}`
     ).innerText=
-    saving>0
-    ?
-    `🎉 Customer Saving: ₹${saving.toFixed(2)}`
-    :
-    "";
+    "₹"+
+    difference.toFixed(2);
+
+
+    let text="";
+
+
+    if(value>0){
+
+        text=
+        direction==="decrease"
+        ?
+        "📌 Market Price ଠାରୁ "
+        :
+        "📌 Market Price ଠାରୁ ";
+
+
+        if(direction==="decrease"){
+
+            text+="କମ୍ ";
+
+        }else{
+
+            text+="ଅଧିକ ";
+
+        }
+
+
+        if(type==="percent"){
+
+            text+=value+"%";
+
+        }else{
+
+            text+="₹"+value;
+
+        }
+
+    }else{
+
+        text=
+        "📌 Rule set କରନ୍ତୁ";
+
+    }
+
+
+    document.getElementById(
+        `rule-${index}`
+    ).innerText=text;
 
 };
 
 
-/* =========================================
-   SAVE PRICE
-========================================= */
+/* =====================================================
+   UPDATE PRICE
+===================================================== */
 
-window.updatePrice=async function(index){
+window.updatePrice=
+async function(index){
 
     const product=
     allProducts[index];
 
 
-    if(!product) return;
+    if(!product){
+
+        return;
+
+    }
+
+
+    const button=
+    document.getElementById(
+        `update-${index}`
+    );
 
 
     const market=
-    numberOf(
+    num(
         document.getElementById(
             `market-${index}`
         ).value
     );
 
 
-    const discount=
-    numberOf(
+    const direction=
+    document.getElementById(
+        `direction-${index}`
+    ).value;
+
+
+    const type=
+    document.getElementById(
+        `type-${index}`
+    ).value;
+
+
+    const value=
+    num(
         document.getElementById(
-            `discount-${index}`
+            `value-${index}`
         ).value
     );
 
@@ -849,10 +1234,10 @@ window.updatePrice=async function(index){
     }
 
 
-    if(discount<0){
+    if(value<0){
 
         showStatus(
-            "⚠️ Discount ଠିକ୍ ଭାବରେ ଦିଅନ୍ତୁ।",
+            "⚠️ Amount ଠିକ୍ ଭାବରେ ଦିଅନ୍ତୁ।",
             "error"
         );
 
@@ -861,10 +1246,14 @@ window.updatePrice=async function(index){
     }
 
 
-    if(discount>=market){
+    if(
+        type==="percent" &&
+        value>100 &&
+        direction==="decrease"
+    ){
 
         showStatus(
-            "⚠️ Discount Market Price ଠାରୁ କମ୍ ହେବା ଦରକାର।",
+            "⚠️ Decrease percentage 100% ଠାରୁ ଅଧିକ ହୋଇପାରିବ ନାହିଁ।",
             "error"
         );
 
@@ -874,12 +1263,11 @@ window.updatePrice=async function(index){
 
 
     const finalPrice=
-    market-discount;
-
-
-    const button=
-    document.getElementById(
-        `update-${index}`
+    calculate(
+        market,
+        direction,
+        type,
+        value
     );
 
 
@@ -891,7 +1279,10 @@ window.updatePrice=async function(index){
 
     try{
 
-        /* PRODUCT UPDATE */
+
+        /* =============================================
+           UPDATE PRODUCT
+        ============================================= */
 
         await updateDoc(
 
@@ -912,11 +1303,16 @@ window.updatePrice=async function(index){
                 marketPriceUpdatedAt:
                 serverTimestamp(),
 
-                discount:
-                discount,
 
-                utkalaDiscount:
-                discount,
+                priceDirection:
+                direction,
+
+                priceAdjustmentType:
+                type,
+
+                priceAdjustmentValue:
+                value,
+
 
                 utkalaPrice:
                 finalPrice,
@@ -927,6 +1323,7 @@ window.updatePrice=async function(index){
                 price:
                 finalPrice,
 
+
                 lastPriceUpdate:
                 getToday()
 
@@ -935,7 +1332,9 @@ window.updatePrice=async function(index){
         );
 
 
-        /* HISTORY */
+        /* =============================================
+           HISTORY
+        ============================================= */
 
         const historyId=
         product.id+
@@ -957,22 +1356,35 @@ window.updatePrice=async function(index){
                 product.id,
 
                 productName:
-                nameOf(product),
+                productName(product),
 
                 source:
                 product.source,
 
+
                 marketPrice:
                 market,
 
-                discount:
-                discount,
+
+                priceDirection:
+                direction,
+
+                priceAdjustmentType:
+                type,
+
+                priceAdjustmentValue:
+                value,
+
 
                 utkalaPrice:
                 finalPrice,
 
-                customerSaving:
-                discount,
+
+                customerDifference:
+                Math.abs(
+                    market-finalPrice
+                ),
+
 
                 date:
                 getToday(),
@@ -985,16 +1397,21 @@ window.updatePrice=async function(index){
         );
 
 
-        /* LOCAL UPDATE */
+        /* =============================================
+           LOCAL UPDATE
+        ============================================= */
 
         product.marketPrice=
         market;
 
-        product.discount=
-        discount;
+        product.priceDirection=
+        direction;
 
-        product.utkalaDiscount=
-        discount;
+        product.priceAdjustmentType=
+        type;
+
+        product.priceAdjustmentValue=
+        value;
 
         product.utkalaPrice=
         finalPrice;
@@ -1008,7 +1425,7 @@ window.updatePrice=async function(index){
 
         showStatus(
 
-            `✅ ${nameOf(product)} update ହେଲା — Market ₹${market} → Utkala Mart ₹${finalPrice} | Saving ₹${discount}`,
+            `✅ ${productName(product)} update ହେଲା — Market ₹${market} → Utkala Mart ₹${finalPrice}`,
 
             "success"
 
@@ -1033,10 +1450,14 @@ window.updatePrice=async function(index){
 
         console.error(error);
 
+
         showStatus(
+
             "❌ Price save ହେଲା ନାହିଁ: "
             +error.message,
+
             "error"
+
         );
 
 
@@ -1050,9 +1471,9 @@ window.updatePrice=async function(index){
 };
 
 
-/* =========================================
+/* =====================================================
    SEARCH
-========================================= */
+===================================================== */
 
 document.getElementById(
     "searchBox"
@@ -1079,28 +1500,36 @@ document.getElementById(
 
 
         const filtered=
-        allProducts.filter(p=>
+        allProducts.filter(
+            p=>{
 
-            (
-                nameOf(p)
-                +" "+
-                categoryOf(p)
-            )
-            .toLowerCase()
-            .includes(value)
+                const text=
+                (
+                    productName(p)
+                    +" "+
+                    categoryName(p)
+                ).toLowerCase();
 
+
+                return text.includes(
+                    value
+                );
+
+            }
         );
 
 
-        renderProducts(filtered);
+        renderProducts(
+            filtered
+        );
 
     }
 );
 
 
-/* =========================================
-   ADMIN AUTH
-========================================= */
+/* =====================================================
+   AUTH
+===================================================== */
 
 onAuthStateChanged(
     auth,
@@ -1139,7 +1568,134 @@ onAuthStateChanged(
     }
 );
 
+
+/* =====================================================
+   LOAD
+===================================================== */
+
+window.loadProducts=
+async function(){
+
+    const loading=
+    document.getElementById(
+        "loading"
+    );
+
+    const list=
+    document.getElementById(
+        "productList"
+    );
+
+
+    loading.style.display=
+    "block";
+
+
+    list.innerHTML="";
+
+    allProducts=[];
+
+
+    try{
+
+
+        /* PRODUCTS */
+
+        const productsSnap=
+        await getDocs(
+            collection(
+                db,
+                "products"
+            )
+        );
+
+
+        productsSnap.forEach(
+            item=>{
+
+                allProducts.push({
+
+                    id:item.id,
+
+                    source:"products",
+
+                    ...item.data()
+
+                });
+
+            }
+        );
+
+
+        /* MART PRODUCTS */
+
+        try{
+
+            const martSnap=
+            await getDocs(
+                collection(
+                    db,
+                    "martProducts"
+                )
+            );
+
+
+            martSnap.forEach(
+                item=>{
+
+                    allProducts.push({
+
+                        id:item.id,
+
+                        source:"martProducts",
+
+                        ...item.data()
+
+                    });
+
+                }
+            );
+
+        }catch(e){
+
+            console.log(
+                "martProducts unavailable"
+            );
+
+        }
+
+
+        loading.style.display=
+        "none";
+
+
+        renderProducts(
+            allProducts
+        );
+
+
+    }catch(error){
+
+        loading.style.display=
+        "none";
+
+
+        showStatus(
+
+            "❌ Products load ହେଲା ନାହିଁ: "
+            +error.message,
+
+            "error"
+
+        );
+
+    }
+
+};
+
+
 </script>
 
 </body>
+
 </html>
