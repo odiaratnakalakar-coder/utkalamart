@@ -23,10 +23,6 @@
 
 <style>
 
-/* =========================
-   RESET
-========================= */
-
 *{
     margin:0;
     padding:0;
@@ -67,7 +63,7 @@ a{
 
 
 /* =========================
-   TOP BAR
+TOP BAR
 ========================= */
 
 .topbar{
@@ -94,7 +90,9 @@ a{
 
 .top-track{
     background:#0a8755;
+
     padding:5px 10px;
+
     border-radius:7px;
 }
 
@@ -104,7 +102,7 @@ a{
 
 
 /* =========================
-   HEADER
+HEADER
 ========================= */
 
 .header{
@@ -128,6 +126,7 @@ a{
 .brand{
     display:flex;
     align-items:center;
+
     gap:9px;
 
     min-width:245px;
@@ -159,12 +158,13 @@ a{
     font-size:10px;
 
     color:#666;
+
     font-weight:700;
 }
 
 
 /* =========================
-   SEARCH
+SEARCH
 ========================= */
 
 .search{
@@ -181,6 +181,7 @@ a{
     height:45px;
 
     border:2px solid #d7dfda;
+
     border-right:0;
 
     border-radius:10px 0 0 10px;
@@ -212,12 +213,14 @@ a{
 
 
 /* =========================
-   ACTIONS
+ACTIONS
 ========================= */
 
 .actions{
     display:flex;
+
     align-items:center;
+
     gap:8px;
 }
 
@@ -225,6 +228,7 @@ a{
     position:relative;
 
     border:0;
+
     background:#fff;
 
     text-align:center;
@@ -232,6 +236,7 @@ a{
     color:#333;
 
     font-size:10px;
+
     font-weight:800;
 
     padding:4px;
@@ -261,6 +266,7 @@ a{
     justify-content:center;
 
     background:#e53935;
+
     color:#fff;
 
     font-size:10px;
@@ -268,13 +274,14 @@ a{
 
 
 /* =========================
-   NAV
+NAV
 ========================= */
 
 .nav{
     background:#fff;
 
     display:flex;
+
     align-items:center;
 
     gap:22px;
@@ -288,6 +295,7 @@ a{
     white-space:nowrap;
 
     font-size:13px;
+
     font-weight:800;
 }
 
@@ -318,13 +326,14 @@ a{
 
 
 /* =========================
-   HERO
+HERO
 ========================= */
 
 .hero{
     min-height:365px;
 
     display:flex;
+
     align-items:center;
 
     position:relative;
@@ -392,7 +401,7 @@ a{
 
 
 /* =========================
-   CATEGORY
+CATEGORY
 ========================= */
 
 .categories{
@@ -493,6 +502,7 @@ a{
     color:#fff;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
@@ -501,7 +511,7 @@ a{
 
 
 /* =========================
-   TRUST
+TRUST
 ========================= */
 
 .trust{
@@ -542,7 +552,7 @@ a{
 
 
 /* =========================
-   SECTION
+SECTION
 ========================= */
 
 .section{
@@ -580,7 +590,7 @@ a{
 
 
 /* =========================
-   PRODUCT GRID
+PRODUCT GRID
 ========================= */
 
 .product-grid{
@@ -618,7 +628,7 @@ a{
 
 
 /* =========================
-   PRODUCT IMAGE
+PRODUCT IMAGE
 ========================= */
 
 .product-image{
@@ -656,11 +666,13 @@ a{
     padding:4px 7px;
 
     background:#16834f;
+
     color:#fff;
 
     border-radius:5px;
 
     font-size:9px;
+
     font-weight:900;
 }
 
@@ -693,7 +705,7 @@ a{
 
 
 /* =========================
-   PRODUCT INFO
+PRODUCT INFO
 ========================= */
 
 .product-info{
@@ -718,20 +730,25 @@ a{
     font-size:10px;
 }
 
-.product-meta{
+
+/* =========================
+PRODUCT DETAILS
+========================= */
+
+.product-details{
     display:flex;
 
     flex-wrap:wrap;
 
     gap:5px;
 
-    margin-top:6px;
+    margin-top:7px;
 }
 
-.product-meta span{
-    padding:4px 6px;
+.product-detail{
+    padding:5px 7px;
 
-    border-radius:5px;
+    border-radius:6px;
 
     background:#f1f7f4;
 
@@ -740,24 +757,17 @@ a{
     font-size:10px;
 
     font-weight:800;
+
+    border:1px solid #e0eee8;
 }
 
-.stock-ok{
-    color:#16834f!important;
-}
 
-.stock-low{
-    color:#d66a00!important;
-}
-
-.stock-out{
-    color:#d9272e!important;
-
-    background:#fff0f0!important;
-}
+/* =========================
+PRICE
+========================= */
 
 .product-price{
-    margin-top:7px;
+    margin-top:8px;
 
     color:#075b3b;
 
@@ -773,6 +783,30 @@ a{
 
     font-size:10px;
 }
+
+
+/* =========================
+STOCK
+========================= */
+
+.stock-ok{
+    color:#16834f;
+}
+
+.stock-low{
+    color:#d66a00;
+}
+
+.stock-out{
+    color:#d9272e;
+
+    background:#fff0f0;
+}
+
+
+/* =========================
+BUTTONS
+========================= */
 
 .view-product,
 .add-cart{
@@ -815,6 +849,11 @@ a{
     cursor:not-allowed;
 }
 
+
+/* =========================
+LOADING
+========================= */
+
 .loading{
     grid-column:1/-1;
 
@@ -831,7 +870,7 @@ a{
 
 
 /* =========================
-   FARMER
+FARMER
 ========================= */
 
 .farmer-banner{
@@ -886,7 +925,7 @@ a{
 
 
 /* =========================
-   ABOUT
+ABOUT
 ========================= */
 
 .about{
@@ -917,7 +956,7 @@ a{
 
 
 /* =========================
-   VALUES
+VALUES
 ========================= */
 
 .values{
@@ -947,7 +986,7 @@ a{
 
 
 /* =========================
-   FOOTER
+FOOTER
 ========================= */
 
 footer{
@@ -968,7 +1007,7 @@ footer strong{
 
 
 /* =========================
-   CART
+CART
 ========================= */
 
 .overlay{
@@ -1088,7 +1127,7 @@ footer strong{
 
 
 /* =========================
-   TOAST
+TOAST
 ========================= */
 
 .toast{
@@ -1130,7 +1169,7 @@ footer strong{
 
 
 /* =========================
-   MOBILE BOTTOM
+MOBILE BOTTOM
 ========================= */
 
 .mobile-bottom{
@@ -1139,7 +1178,7 @@ footer strong{
 
 
 /* =========================
-   RESPONSIVE
+RESPONSIVE
 ========================= */
 
 @media(max-width:1100px){
@@ -1348,6 +1387,12 @@ footer strong{
         font-size:17px;
     }
 
+    .product-detail{
+        font-size:8px;
+
+        padding:4px 5px;
+    }
+
     .add-cart,
     .view-product{
         font-size:9px;
@@ -1452,6 +1497,7 @@ footer strong{
         color:#fff;
 
         display:flex;
+
         align-items:center;
         justify-content:center;
 
@@ -1477,6 +1523,7 @@ footer strong{
     .product-image{
         height:132px;
     }
+
 }
 
 </style>
@@ -1487,9 +1534,7 @@ footer strong{
 <body>
 
 
-<!-- =========================
-     TOP BAR
-========================= -->
+<!-- TOP BAR -->
 
 <div class="topbar">
 
@@ -1528,9 +1573,7 @@ footer strong{
 </div>
 
 
-<!-- =========================
-     HEADER
-========================= -->
+<!-- HEADER -->
 
 <header class="header">
 
@@ -1546,16 +1589,12 @@ footer strong{
         <div>
 
             <div class="brand-name">
-
                 ଉତ୍କଳ
                 <span>Mart</span>
-
             </div>
 
             <div class="brand-sub">
-
                 From Ganjam to Every Home
-
             </div>
 
         </div>
@@ -1647,9 +1686,7 @@ footer strong{
 </header>
 
 
-<!-- =========================
-     NAV
-========================= -->
+<!-- NAV -->
 
 <nav class="nav">
 
@@ -1709,16 +1746,12 @@ footer strong{
 
 
     <a href="order-tracking.html">
-
         📦 Order Track
-
     </a>
 
 
     <a href="#about">
-
         ଆମ ବିଷୟରେ
-
     </a>
 
 
@@ -1733,9 +1766,7 @@ footer strong{
 </nav>
 
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- HERO -->
 
 <section class="hero">
 
@@ -1776,9 +1807,7 @@ footer strong{
 </section>
 
 
-<!-- =========================
-     CATEGORIES
-========================= -->
+<!-- CATEGORIES -->
 
 <section class="categories">
 
@@ -1897,14 +1926,11 @@ footer strong{
 </section>
 
 
-<!-- =========================
-     TRUST
-========================= -->
+<!-- TRUST -->
 
 <section class="trust">
 
     <div class="trust-item">
-
         <span class="trust-icon">✔️</span>
 
         <span>
@@ -1912,12 +1938,10 @@ footer strong{
             <br>
             Authentic & Original
         </span>
-
     </div>
 
 
     <div class="trust-item">
-
         <span class="trust-icon">🚚</span>
 
         <span>
@@ -1925,12 +1949,10 @@ footer strong{
             <br>
             Safe Delivery
         </span>
-
     </div>
 
 
     <div class="trust-item">
-
         <span class="trust-icon">🛡️</span>
 
         <span>
@@ -1938,12 +1960,10 @@ footer strong{
             <br>
             Verified Sellers
         </span>
-
     </div>
 
 
     <div class="trust-item">
-
         <span class="trust-icon">👥</span>
 
         <span>
@@ -1951,15 +1971,12 @@ footer strong{
             <br>
             Support Local People
         </span>
-
     </div>
 
 </section>
 
 
-<!-- =========================
-     PRODUCTS
-========================= -->
+<!-- PRODUCTS -->
 
 <section
     class="section"
@@ -1967,7 +1984,7 @@ footer strong{
 
     <div class="section-title">
 
-        <h2>
+        <h2 id="sectionHeading">
             🌿 ବିଶେଷ ଉତ୍ପାଦ
         </h2>
 
@@ -1998,9 +2015,7 @@ footer strong{
 </section>
 
 
-<!-- =========================
-     FARMER BANNER
-========================= -->
+<!-- FARMER -->
 
 <section class="farmer-banner">
 
@@ -2027,9 +2042,7 @@ footer strong{
 </section>
 
 
-<!-- =========================
-     ABOUT
-========================= -->
+<!-- ABOUT -->
 
 <section
     class="about"
@@ -2061,9 +2074,7 @@ footer strong{
 </section>
 
 
-<!-- =========================
-     VALUES
-========================= -->
+<!-- VALUES -->
 
 <section class="values">
 
@@ -2090,9 +2101,7 @@ footer strong{
 </section>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- FOOTER -->
 
 <footer>
 
@@ -2128,9 +2137,7 @@ footer strong{
 </footer>
 
 
-<!-- =========================
-     MOBILE NAV
-========================= -->
+<!-- MOBILE NAV -->
 
 <div class="mobile-bottom">
 
@@ -2138,7 +2145,9 @@ footer strong{
         class="active"
         onclick="goHome()">
 
-        <span class="mi">🏠</span>
+        <span class="mi">
+            🏠
+        </span>
 
         Home
 
@@ -2148,7 +2157,9 @@ footer strong{
     <button
         onclick="scrollCategories()">
 
-        <span class="mi">📂</span>
+        <span class="mi">
+            📂
+        </span>
 
         ବିଭାଗ
 
@@ -2158,7 +2169,9 @@ footer strong{
     <button
         onclick="openCart()">
 
-        <span class="mi">🛒</span>
+        <span class="mi">
+            🛒
+        </span>
 
         <span
             class="mobile-cart-badge"
@@ -2176,7 +2189,9 @@ footer strong{
     <button
         onclick="goOrderTracking()">
 
-        <span class="mi">📦</span>
+        <span class="mi">
+            📦
+        </span>
 
         Track
 
@@ -2186,7 +2201,9 @@ footer strong{
     <button
         onclick="goAccount()">
 
-        <span class="mi">👤</span>
+        <span class="mi">
+            👤
+        </span>
 
         ଖାତା
 
@@ -2195,9 +2212,7 @@ footer strong{
 </div>
 
 
-<!-- =========================
-     TOAST
-========================= -->
+<!-- TOAST -->
 
 <div
     class="toast"
@@ -2205,9 +2220,7 @@ footer strong{
 </div>
 
 
-<!-- =========================
-     CART
-========================= -->
+<!-- CART -->
 
 <div
     class="overlay"
@@ -2260,9 +2273,7 @@ footer strong{
 </div>
 
 
-<!-- =========================
-     FIREBASE
-========================= -->
+<!-- FIREBASE -->
 
 <script type="module">
 
@@ -2277,7 +2288,7 @@ from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
 /* =========================
-   GLOBAL DATA
+GLOBAL DATA
 ========================= */
 
 let allProducts = [];
@@ -2294,57 +2305,113 @@ let wishlist =
 
 
 /* =========================
-   IMAGE
+IMAGE
 ========================= */
 
 function getImage(product){
 
     return String(
+
         product.imageUrl ||
         product.image ||
         product.photoUrl ||
         product.photo ||
+        product.thumbnail ||
         "logo.png"
+
     ).trim() || "logo.png";
 
 }
 
 
 /* =========================
-   STOCK
+STOCK
 ========================= */
 
 function getStock(product){
 
     return Number(
+
         product.stockQty ??
         product.availableStock ??
         product.stock ??
         product.quantity ??
         0
+
     );
 
 }
 
 
 /* =========================
-   PRICE
+PRICE
 ========================= */
 
 function getPrice(product){
 
     return Number(
+
         product.utkalaPrice ??
         product.price ??
         product.sellingPrice ??
         0
+
     );
 
 }
 
 
 /* =========================
-   PRODUCT LINK
+CATEGORY TEXT
+========================= */
+
+function getCategoryText(product){
+
+    return String(
+
+        product.categoryId ||
+        product.category ||
+        product.categoryName ||
+        ""
+
+    ).toLowerCase();
+
+}
+
+
+/* =========================
+IS CLOTHING
+========================= */
+
+function isClothing(product){
+
+    const value =
+        getCategoryText(product);
+
+
+    return (
+
+        value.includes("cloth") ||
+        value.includes("clothing") ||
+        value.includes("textile") ||
+        value.includes("fashion") ||
+        value.includes("dress") ||
+        value.includes("wear") ||
+        value.includes("saree") ||
+        value.includes("shirt") ||
+        value.includes("ବସ୍ତ୍ର") ||
+        value.includes("ପୋଷାକ") ||
+        value.includes("କପଡା") ||
+        value.includes("କପଡ଼ା") ||
+        value.includes("ଲୁଗା")
+
+    );
+
+}
+
+
+/* =========================
+PRODUCT LINK
 ========================= */
 
 window.openProductPage =
@@ -2368,24 +2435,31 @@ function(productId){
 
 
 /* =========================
-   CART COUNT
+CART COUNT
 ========================= */
 
 function updateCart(){
 
     const count =
         cart.reduce(
+
             (sum,item) =>
                 sum + Number(item.qty || 0),
+
             0
+
         );
 
 
     const desktop =
-        document.getElementById("cartCount");
+        document.getElementById(
+            "cartCount"
+        );
 
     const mobile =
-        document.getElementById("mobileCartCount");
+        document.getElementById(
+            "mobileCartCount"
+        );
 
 
     if(desktop)
@@ -2398,7 +2472,7 @@ function updateCart(){
 
 
 /* =========================
-   CATEGORY MATCH
+CATEGORY MATCH
 ========================= */
 
 function categoryMatch(
@@ -2407,21 +2481,22 @@ function categoryMatch(
 ){
 
     const value =
-        String(
-            product.categoryId ||
-            product.category ||
-            product.categoryName ||
-            ""
-        ).toLowerCase();
+        getCategoryText(product);
 
 
     if(category === "food"){
 
         return (
+
             value.includes("food") ||
             value.includes("grocery") ||
+            value.includes("organic") ||
+            value.includes("snack") ||
+            value.includes("pickle") ||
+            value.includes("papad") ||
             value.includes("ଖାଦ୍ୟ") ||
             value.includes("ଗ୍ରୋସରୀ")
+
         );
 
     }
@@ -2430,11 +2505,14 @@ function categoryMatch(
     if(category === "handicraft"){
 
         return (
+
             value.includes("craft") ||
             value.includes("handmade") ||
             value.includes("hand made") ||
+            value.includes("handicraft") ||
             value.includes("ହାତ") ||
             value.includes("ହସ୍ତ")
+
         );
 
     }
@@ -2442,15 +2520,7 @@ function categoryMatch(
 
     if(category === "clothing"){
 
-        return (
-            value.includes("cloth") ||
-            value.includes("textile") ||
-            value.includes("fashion") ||
-            value.includes("ବସ୍ତ୍ର") ||
-            value.includes("ପୋଷାକ") ||
-            value.includes("କପଡା") ||
-            value.includes("କପଡ଼ା")
-        );
+        return isClothing(product);
 
     }
 
@@ -2458,6 +2528,7 @@ function categoryMatch(
     if(category === "farmer"){
 
         return (
+
             value.includes("farmer") ||
             value.includes("agri") ||
             value.includes("agriculture") ||
@@ -2465,6 +2536,7 @@ function categoryMatch(
             value.includes("କୃଷକ") ||
             value.includes("କୃଷି") ||
             value.includes("ଗ୍ରାମ")
+
         );
 
     }
@@ -2476,32 +2548,48 @@ function categoryMatch(
 
 
 /* =========================
-   TOAST
+TOAST
 ========================= */
 
 function toast(message){
 
     const el =
-        document.getElementById("toast");
+        document.getElementById(
+            "toast"
+        );
 
-    el.innerText = message;
 
-    el.classList.add("show");
+    el.innerText =
+        message;
 
-    clearTimeout(window.toastTimer);
+
+    el.classList.add(
+        "show"
+    );
+
+
+    clearTimeout(
+        window.toastTimer
+    );
+
 
     window.toastTimer =
         setTimeout(
+
             () =>
-                el.classList.remove("show"),
+                el.classList.remove(
+                    "show"
+                ),
+
             1800
+
         );
 
 }
 
 
 /* =========================
-   WISHLIST
+WISHLIST
 ========================= */
 
 function toggleWishlist(
@@ -2516,9 +2604,15 @@ function toggleWishlist(
                 x => x !== id
             );
 
-        button.classList.remove("liked");
 
-        button.innerText = "♡";
+        button.classList.remove(
+            "liked"
+        );
+
+
+        button.innerText =
+            "♡";
+
 
         toast(
             "♡ Wishlist ରୁ ବାହାର କରାଗଲା"
@@ -2529,9 +2623,15 @@ function toggleWishlist(
 
         wishlist.push(id);
 
-        button.classList.add("liked");
 
-        button.innerText = "♥";
+        button.classList.add(
+            "liked"
+        );
+
+
+        button.innerText =
+            "♥";
+
 
         toast(
             "♥ Wishlist ରେ ଯୋଡାଗଲା"
@@ -2549,7 +2649,138 @@ function toggleWishlist(
 
 
 /* =========================
-   PRODUCT CARD
+GET FIELD
+========================= */
+
+function getField(
+    product,
+    fields
+){
+
+    for(
+        const field of fields
+    ){
+
+        const value =
+            product[field];
+
+
+        if(
+            value !== undefined &&
+            value !== null &&
+            String(value).trim() !== ""
+        ){
+
+            return String(value).trim();
+
+        }
+
+    }
+
+
+    return "";
+
+}
+
+
+/* =========================
+GET COLORS
+========================= */
+
+function getColors(product){
+
+    return getField(
+        product,
+        [
+            "color",
+            "colour",
+            "colors",
+            "colours",
+            "colorName",
+            "colourName"
+        ]
+    );
+
+}
+
+
+/* =========================
+GET SIZE
+========================= */
+
+function getSizes(product){
+
+    return getField(
+        product,
+        [
+            "size",
+            "sizes",
+            "sizeName",
+            "availableSizes"
+        ]
+    );
+
+}
+
+
+/* =========================
+GET FABRIC
+========================= */
+
+function getFabric(product){
+
+    return getField(
+        product,
+        [
+            "fabric",
+            "material",
+            "fabricName",
+            "clothMaterial"
+        ]
+    );
+
+}
+
+
+/* =========================
+GET WEIGHT
+========================= */
+
+function getWeight(product){
+
+    const weight =
+        getField(
+            product,
+            [
+                "weight",
+                "productWeight"
+            ]
+        );
+
+
+    if(!weight)
+        return "";
+
+
+    const unit =
+        getField(
+            product,
+            [
+                "weightUnit",
+                "unit"
+            ]
+        );
+
+
+    return unit
+        ? weight + " " + unit
+        : weight;
+
+}
+
+
+/* =========================
+PRODUCT CARD
 ========================= */
 
 function createProductCard(
@@ -2566,7 +2797,9 @@ function createProductCard(
 
     card.onclick =
         () =>
-            openProductPage(product.id);
+            openProductPage(
+                product.id
+            );
 
 
     /* IMAGE */
@@ -2581,14 +2814,18 @@ function createProductCard(
     const img =
         document.createElement("img");
 
+
     img.src =
         getImage(product);
+
 
     img.alt =
         product.name ||
         "Utkala Mart Product";
 
-    img.loading = "lazy";
+
+    img.loading =
+        "lazy";
 
 
     img.onerror =
@@ -2596,7 +2833,8 @@ function createProductCard(
 
             this.onerror = null;
 
-            this.src = "logo.png";
+            this.src =
+                "logo.png";
 
         };
 
@@ -2608,6 +2846,7 @@ function createProductCard(
 
     badge.className =
         "product-badge";
+
 
     badge.innerText =
         product.location ||
@@ -2622,14 +2861,20 @@ function createProductCard(
 
     wish.className =
         "wishlist" +
+
         (
-            wishlist.includes(product.id)
+            wishlist.includes(
+                product.id
+            )
             ? " liked"
             : ""
         );
 
+
     wish.innerText =
-        wishlist.includes(product.id)
+        wishlist.includes(
+            product.id
+        )
         ? "♥"
         : "♡";
 
@@ -2638,6 +2883,7 @@ function createProductCard(
         function(e){
 
             e.stopPropagation();
+
 
             toggleWishlist(
                 product.id,
@@ -2663,22 +2909,28 @@ function createProductCard(
         "product-info";
 
 
+    /* NAME */
+
     const name =
         document.createElement("div");
 
     name.className =
         "product-name";
 
+
     name.innerText =
         product.name ||
         "ପ୍ରଡକ୍ଟ";
 
+
+    /* CATEGORY */
 
     const category =
         document.createElement("div");
 
     category.className =
         "product-category";
+
 
     category.innerText =
         product.subcategoryName ||
@@ -2688,31 +2940,114 @@ function createProductCard(
         "";
 
 
-    /* META */
+    /* DETAILS */
 
-    const meta =
+    const details =
         document.createElement("div");
 
-    meta.className =
-        "product-meta";
+    details.className =
+        "product-details";
 
 
-    if(product.weight){
+    /* CLOTHING DETAILS */
+
+    if(isClothing(product)){
+
+        const color =
+            getColors(product);
+
+        const size =
+            getSizes(product);
+
+        const fabric =
+            getFabric(product);
 
         const weight =
-            document.createElement("span");
+            getWeight(product);
 
-        weight.innerText =
-            "⚖️ " +
-            product.weight +
-            " " +
-            (
-                product.weightUnit ||
-                product.unit ||
-                ""
+
+        if(color){
+
+            const span =
+                document.createElement(
+                    "span"
+                );
+
+            span.className =
+                "product-detail";
+
+            span.innerText =
+                "🎨 Color: " +
+                color;
+
+            details.appendChild(
+                span
             );
 
-        meta.appendChild(weight);
+        }
+
+
+        if(size){
+
+            const span =
+                document.createElement(
+                    "span"
+                );
+
+            span.className =
+                "product-detail";
+
+            span.innerText =
+                "📏 Size: " +
+                size;
+
+            details.appendChild(
+                span
+            );
+
+        }
+
+
+        if(fabric){
+
+            const span =
+                document.createElement(
+                    "span"
+                );
+
+            span.className =
+                "product-detail";
+
+            span.innerText =
+                "🧵 Fabric: " +
+                fabric;
+
+            details.appendChild(
+                span
+            );
+
+        }
+
+
+        if(weight){
+
+            const span =
+                document.createElement(
+                    "span"
+                );
+
+            span.className =
+                "product-detail";
+
+            span.innerText =
+                "⚖️ Weight: " +
+                weight;
+
+            details.appendChild(
+                span
+            );
+
+        }
 
     }
 
@@ -2722,14 +3057,22 @@ function createProductCard(
     const stock =
         getStock(product);
 
+
     const stockSpan =
-        document.createElement("span");
+        document.createElement(
+            "span"
+        );
+
+
+    stockSpan.className =
+        "product-detail";
 
 
     if(stock <= 0){
 
-        stockSpan.className =
-            "stock-out";
+        stockSpan.classList.add(
+            "stock-out"
+        );
 
         stockSpan.innerText =
             "❌ Stock Out";
@@ -2737,59 +3080,81 @@ function createProductCard(
     }
     else if(stock <= 5){
 
-        stockSpan.className =
-            "stock-low";
+        stockSpan.classList.add(
+            "stock-low"
+        );
 
         stockSpan.innerText =
-            "⚠️ Stock: " + stock;
+            "⚠️ Stock: " +
+            stock;
 
     }
     else{
 
-        stockSpan.className =
-            "stock-ok";
+        stockSpan.classList.add(
+            "stock-ok"
+        );
 
         stockSpan.innerText =
-            "📦 Stock: " + stock;
+            "📦 Stock: " +
+            stock;
 
     }
 
 
-    meta.appendChild(stockSpan);
+    details.appendChild(
+        stockSpan
+    );
 
 
     /* PRICE */
 
     const price =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
     price.className =
         "product-price";
 
+
     price.innerText =
         "₹" +
-        getPrice(product).toLocaleString("en-IN");
+
+        getPrice(
+            product
+        ).toLocaleString(
+            "en-IN"
+        );
 
 
     /* SELLER PRICE */
 
     const seller =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
     seller.className =
         "seller-price";
 
 
     if(
-        product.sellerPrice !== undefined &&
-        product.sellerPrice !== ""
+        product.sellerPrice !==
+        undefined &&
+
+        product.sellerPrice !==
+        ""
     ){
 
         seller.innerText =
             "Seller Price: ₹" +
+
             Number(
                 product.sellerPrice
-            ).toLocaleString("en-IN");
+            ).toLocaleString(
+                "en-IN"
+            );
 
     }
 
@@ -2797,10 +3162,13 @@ function createProductCard(
     /* VIEW */
 
     const view =
-        document.createElement("button");
+        document.createElement(
+            "button"
+        );
 
     view.className =
         "view-product";
+
 
     view.innerText =
         "👁️ ପ୍ରଡକ୍ଟ ଦେଖନ୍ତୁ";
@@ -2811,15 +3179,21 @@ function createProductCard(
 
             e.stopPropagation();
 
-            openProductPage(product.id);
+
+            openProductPage(
+                product.id
+            );
 
         };
 
 
-    /* ADD CART */
+    /* CART */
 
     const add =
-        document.createElement("button");
+        document.createElement(
+            "button"
+        );
+
 
     add.className =
         "add-cart";
@@ -2827,7 +3201,9 @@ function createProductCard(
 
     if(stock <= 0){
 
-        add.disabled = true;
+        add.disabled =
+            true;
+
 
         add.innerText =
             "❌ Stock Out";
@@ -2844,7 +3220,10 @@ function createProductCard(
 
                 e.stopPropagation();
 
-                addToCart(product);
+
+                addToCart(
+                    product
+                );
 
             };
 
@@ -2853,8 +3232,20 @@ function createProductCard(
 
     info.append(
         name,
-        category,
-        meta,
+        category
+    );
+
+
+    if(details.children.length){
+
+        info.appendChild(
+            details
+        );
+
+    }
+
+
+    info.append(
         price,
         seller,
         view,
@@ -2868,13 +3259,15 @@ function createProductCard(
     );
 
 
-    container.appendChild(card);
+    container.appendChild(
+        card
+    );
 
 }
 
 
 /* =========================
-   RENDER PRODUCTS
+RENDER
 ========================= */
 
 function renderProducts(
@@ -2886,13 +3279,15 @@ function renderProducts(
             "productGrid"
         );
 
+
     const loading =
         document.getElementById(
             "loading"
         );
 
 
-    grid.innerHTML = "";
+    grid.innerHTML =
+        "";
 
 
     if(!products.length){
@@ -2900,8 +3295,10 @@ function renderProducts(
         loading.style.display =
             "block";
 
+
         loading.innerText =
-            "🛍️ ପ୍ରଡକ୍ଟ ମିଳିଲା ନାହିଁ।";
+            "🛍️ ଏହି ବିଭାଗରେ ପ୍ରଡକ୍ଟ ମିଳିଲା ନାହିଁ।";
+
 
         return;
 
@@ -2926,7 +3323,7 @@ function renderProducts(
 
 
 /* =========================
-   SHOW CATEGORY
+SHOW CATEGORY
 ========================= */
 
 window.showCategory =
@@ -2942,7 +3339,41 @@ function(category){
         );
 
 
-    renderProducts(items);
+    const heading =
+        document.getElementById(
+            "sectionHeading"
+        );
+
+
+    const titles = {
+
+        food:
+            "🍚 ଖାଦ୍ୟ ଉତ୍ପାଦ",
+
+        handicraft:
+            "🏺 ହାତ ତିଆରି ଜିନିଷ",
+
+        clothing:
+            "👗 ପୋଷାକ ଏବଂ କପଡା",
+
+        farmer:
+            "🌾 କୃଷକ ଉତ୍ପାଦ"
+
+    };
+
+
+    if(heading){
+
+        heading.innerText =
+            titles[category] ||
+            "🌿 ବିଶେଷ ଉତ୍ପାଦ";
+
+    }
+
+
+    renderProducts(
+        items
+    );
 
 
     document
@@ -2957,11 +3388,19 @@ function(category){
 
 
 /* =========================
-   SHOW ALL
+SHOW ALL
 ========================= */
 
 window.showAllProducts =
 function(){
+
+    document
+        .getElementById(
+            "sectionHeading"
+        )
+        .innerText =
+            "🌿 ବିଶେଷ ଉତ୍ପାଦ";
+
 
     renderProducts(
         allProducts
@@ -2980,7 +3419,7 @@ function(){
 
 
 /* =========================
-   SEARCH
+SEARCH
 ========================= */
 
 window.searchProducts =
@@ -3002,44 +3441,74 @@ function(){
             allProducts
         );
 
-    }
-    else{
-
-        const result =
-            allProducts.filter(
-                product => {
-
-                    const text = [
-
-                        product.name,
-                        product.category,
-                        product.categoryName,
-                        product.subcategory,
-                        product.subcategoryName,
-                        product.description,
-                        product.sellerName,
-                        product.location,
-                        product.sellerLocation
-
-                    ]
-                    .map(
-                        value =>
-                            String(
-                                value || ""
-                            ).toLowerCase()
-                    )
-                    .join(" ");
-
-
-                    return text.includes(q);
-
-                }
-            );
-
-
-        renderProducts(result);
+        return;
 
     }
+
+
+    const result =
+        allProducts.filter(
+            product => {
+
+                const text = [
+
+                    product.name,
+
+                    product.category,
+
+                    product.categoryName,
+
+                    product.subcategory,
+
+                    product.subcategoryName,
+
+                    product.description,
+
+                    product.sellerName,
+
+                    product.location,
+
+                    product.sellerLocation,
+
+                    getColors(product),
+
+                    getSizes(product),
+
+                    getFabric(product),
+
+                    getWeight(product)
+
+                ]
+
+                .map(
+                    value =>
+                        String(
+                            value || ""
+                        ).toLowerCase()
+                )
+
+                .join(" ");
+
+
+                return text.includes(
+                    q
+                );
+
+            }
+        );
+
+
+    document
+        .getElementById(
+            "sectionHeading"
+        )
+        .innerText =
+            "🔍 Search Result";
+
+
+    renderProducts(
+        result
+    );
 
 
     document
@@ -3064,16 +3533,21 @@ document
 
 
 /* =========================
-   ADD TO CART
+ADD CART
 ========================= */
 
-function addToCart(product){
+function addToCart(
+    product
+){
 
     const id =
         product.id;
 
+
     const stock =
-        getStock(product);
+        getStock(
+            product
+        );
 
 
     const old =
@@ -3098,6 +3572,7 @@ function addToCart(product){
 
         }
 
+
         old.qty++;
 
     }
@@ -3112,14 +3587,33 @@ function addToCart(product){
                 "Product",
 
             price:
-                getPrice(product),
+                getPrice(
+                    product
+                ),
 
             qty:1,
 
             image:
-                getImage(product),
+                getImage(
+                    product
+                ),
 
-            stock:stock
+            stock:stock,
+
+            color:
+                getColors(
+                    product
+                ),
+
+            size:
+                getSizes(
+                    product
+                ),
+
+            fabric:
+                getFabric(
+                    product
+                )
 
         });
 
@@ -3143,14 +3637,18 @@ function addToCart(product){
 
 
 /* =========================
-   CHANGE QTY
+CHANGE QTY
 ========================= */
 
 window.changeQty =
-function(index,delta){
+function(
+    index,
+    delta
+){
 
     const item =
         cart[index];
+
 
     if(!item)
         return;
@@ -3158,12 +3656,15 @@ function(index,delta){
 
     const stock =
         Number(
-            item.stock || 999999
+            item.stock ||
+            999999
         );
 
 
     const newQty =
-        Number(item.qty || 1) +
+        Number(
+            item.qty || 1
+        ) +
         delta;
 
 
@@ -3206,7 +3707,7 @@ function(index,delta){
 
 
 /* =========================
-   OPEN CART
+OPEN CART
 ========================= */
 
 window.openCart =
@@ -3220,7 +3721,9 @@ function(){
 
     let total = 0;
 
-    box.innerHTML = "";
+
+    box.innerHTML =
+        "";
 
 
     if(!cart.length){
@@ -3235,15 +3738,25 @@ function(){
 
 
     cart.forEach(
-        function(item,index){
+        function(
+            item,
+            index
+        ){
 
             total +=
-                Number(item.price) *
-                Number(item.qty);
+                Number(
+                    item.price
+                ) *
+                Number(
+                    item.qty
+                );
 
 
             const row =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
+
 
             row.className =
                 "cart-item";
@@ -3252,8 +3765,13 @@ function(){
             row.innerHTML =
                 `
                 <img
-                    src="${String(item.image)
-                        .replace(/"/g,"&quot;")}"
+                    src="${String(
+                        item.image
+                    ).replace(
+                        /"/g,
+                        "&quot;"
+                    )}"
+
                     onerror="
                         this.onerror=null;
                         this.src='logo.png';
@@ -3263,39 +3781,78 @@ function(){
                 <div style="flex:1">
 
                     <b>
-                        ${String(item.name)}
+                        ${String(
+                            item.name
+                        )}
                     </b>
 
                     <br>
 
-                    ₹${Number(item.price)
-                        .toLocaleString("en-IN")}
+                    ₹${Number(
+                        item.price
+                    ).toLocaleString(
+                        "en-IN"
+                    )}
 
-                    × ${Number(item.qty)}
+                    × ${Number(
+                        item.qty
+                    )}
+
+                    ${
+                        item.color
+                        ?
+                        `
+                        <br>
+                        🎨 ${item.color}
+                        `
+                        :
+                        ""
+                    }
+
+                    ${
+                        item.size
+                        ?
+                        `
+                        <br>
+                        📏 ${item.size}
+                        `
+                        :
+                        ""
+                    }
 
                     <div class="qty-row">
 
                         <button
                             onclick="
-                                changeQty(${index},-1)
+                                changeQty(
+                                    ${index},
+                                    -1
+                                )
                             ">
                             −
                         </button>
 
                         <b>
-                            ${Number(item.qty)}
+                            ${Number(
+                                item.qty
+                            )}
                         </b>
 
                         <button
                             onclick="
-                                changeQty(${index},1)
+                                changeQty(
+                                    ${index},
+                                    1
+                                )
                             ">
                             +
                         </button>
 
                         <button
                             onclick="
-                                removeCart(${index})
+                                removeCart(
+                                    ${index}
+                                )
                             "
                             style="
                                 width:auto;
@@ -3311,7 +3868,9 @@ function(){
                 `;
 
 
-            box.appendChild(row);
+            box.appendChild(
+                row
+            );
 
         }
     );
@@ -3323,7 +3882,9 @@ function(){
         )
         .innerText =
             "ମୋଟ: ₹" +
-            total.toLocaleString("en-IN");
+            total.toLocaleString(
+                "en-IN"
+            );
 
 
     document
@@ -3337,7 +3898,7 @@ function(){
 
 
 /* =========================
-   REMOVE CART
+REMOVE CART
 ========================= */
 
 window.removeCart =
@@ -3363,7 +3924,7 @@ function(index){
 
 
 /* =========================
-   CLOSE CART
+CLOSE CART
 ========================= */
 
 window.closeCart =
@@ -3388,7 +3949,7 @@ function(event){
 
 
 /* =========================
-   CHECKOUT
+CHECKOUT
 ========================= */
 
 window.checkout =
@@ -3412,7 +3973,7 @@ function(){
 
 
 /* =========================
-   WISHLIST PAGE
+WISHLIST PAGE
 ========================= */
 
 window.toggleWishlistPage =
@@ -3438,7 +3999,17 @@ function(){
         );
 
 
-    renderProducts(items);
+    document
+        .getElementById(
+            "sectionHeading"
+        )
+        .innerText =
+            "❤️ ମୋ ପସନ୍ଦ";
+
+
+    renderProducts(
+        items
+    );
 
 
     document
@@ -3453,7 +4024,7 @@ function(){
 
 
 /* =========================
-   ACCOUNT
+ACCOUNT
 ========================= */
 
 window.goAccount =
@@ -3466,7 +4037,7 @@ function(){
 
 
 /* =========================
-   TRACK
+TRACK
 ========================= */
 
 window.goOrderTracking =
@@ -3479,22 +4050,25 @@ function(){
 
 
 /* =========================
-   HOME
+HOME
 ========================= */
 
 window.goHome =
 function(){
 
     window.scrollTo({
+
         top:0,
+
         behavior:"smooth"
+
     });
 
 };
 
 
 /* =========================
-   PRODUCTS
+PRODUCTS
 ========================= */
 
 window.goToProducts =
@@ -3505,14 +4079,16 @@ function(){
             "specialSection"
         )
         .scrollIntoView({
+
             behavior:"smooth"
+
         });
 
 };
 
 
 /* =========================
-   CATEGORIES SCROLL
+CATEGORY SCROLL
 ========================= */
 
 window.scrollCategories =
@@ -3523,14 +4099,16 @@ function(){
             ".categories"
         )
         .scrollIntoView({
+
             behavior:"smooth"
+
         });
 
 };
 
 
 /* =========================
-   ACTIVE NAV
+ACTIVE NAV
 ========================= */
 
 window.setActiveNav =
@@ -3548,14 +4126,19 @@ function(element){
         );
 
 
-    if(element)
-        element.classList.add("active");
+    if(element){
+
+        element.classList.add(
+            "active"
+        );
+
+    }
 
 };
 
 
 /* =========================
-   LOAD PRODUCTS
+LOAD PRODUCTS
 ========================= */
 
 async function loadProducts(){
@@ -3572,7 +4155,7 @@ async function loadProducts(){
 
 
         /* =========================
-           NEW PRODUCTS
+        PRODUCTS COLLECTION
         ========================= */
 
         try{
@@ -3595,18 +4178,29 @@ async function loadProducts(){
 
                     const approved =
                         data.approved === true &&
+
                         data.active === true &&
-                        data.status === "approved";
+
+                        data.status ===
+                        "approved";
 
 
                     const hasApprovalFields =
-                        data.status !== undefined ||
-                        data.approved !== undefined ||
-                        data.active !== undefined;
+
+                        data.status !==
+                        undefined ||
+
+                        data.approved !==
+                        undefined ||
+
+                        data.active !==
+                        undefined;
 
 
                     const oldProduct =
+
                         !hasApprovalFields &&
+
                         data.active !== false;
 
 
@@ -3641,7 +4235,7 @@ async function loadProducts(){
 
 
         /* =========================
-           OLD PRODUCTS
+        OLD PRODUCTS
         ========================= */
 
         if(!products.length){
@@ -3711,6 +4305,7 @@ async function loadProducts(){
         loading.style.display =
             "block";
 
+
         loading.innerText =
             "⚠️ Product load ହୋଇପାରିଲା ନାହିଁ।";
 
@@ -3720,7 +4315,7 @@ async function loadProducts(){
 
 
 /* =========================
-   START
+START
 ========================= */
 
 updateCart();
@@ -3731,4 +4326,4 @@ loadProducts();
 
 </body>
 
-                  </html>
+      </html>
