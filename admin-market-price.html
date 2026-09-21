@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="or">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width,initial-scale=1.0">
+
+<meta name="theme-color"
+      content="#075b3b">
+
+<title>Daily Market Price | Utkala Mart</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:
+        Arial,
+        "Noto Sans Odia",
+        "Noto Sans Oriya",
+        sans-serif;
+    background:#f3f7f5;
+    color:#18352a;
+}
+
+header{
+    background:#075b3b;
+    color:white;
+    padding:18px 15px;
+    text-align:center;
+}
+
+header h1{
+    margin:0;
+    font-size:23px;
+}
+
+header p{
+    margin:6px 0 0;
+    opacity:.9;
+    font-size:13px;
+}
+
+.container{
+    width:95%;
+    max-width:1100px;
+    margin:20px auto;
+}
+
+.topbar{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:15px;
+}
+
+.search{
+    flex:1;
+    min-width:220px;
+    padding:13px;
+    border:1px solid #ccd9d3;
+    border-radius:10px;
+    font-size:15px;
+    outline:none;
+}
+
+.search:focus{
+    border-color:#07834f;
+}
+
+.refresh{
+    border:0;
+    background:#07834f;
+    color:white;
+    padding:12px 18px;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.date-box{
+    background:white;
+    border-radius:12px;
+    padding:13px 16px;
+    margin-bottom:15px;
+    box-shadow:0 2px 8px rgba(0,0,0,.06);
+}
+
+.date-box strong{
+    color:#075b3b;
+}
+
+.status{
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:15px;
+    display:none;
+}
+
+.status.success{
+    display:block;
+    background:#e6f7ed;
+    color:#08713f;
+}
+
+.status.error{
+    display:block;
+    background:#ffe9e9;
+    color:#a40000;
+}
+
+.loading{
+    text-align:center;
+    padding:35px;
+    background:white;
+    border-radius:12px;
+}
+
+.product-list{
+    display:grid;
+    gap:15px;
+}
+
+.product-card{
+    background:white;
+    border-radius:15px;
+    padding:16px;
+    box-shadow:0 3px 12px rgba(0,0,0,.07);
+}
+
+.product-top{
+    display:flex;
+    gap:14px;
+    align-items:center;
+}
+
+.product-image{
+    width:80px;
+    height:80px;
+    border-radius:12px;
+    object-fit:cover;
+    background:#eee;
+    flex-shrink:0;
+}
+
+.product-name{
+    font-size:18px;
+    font-weight:bold;
+    color:#075b3b;
+    margin-bottom:5px;
+}
+
+.category{
+    font-size:12px;
+    color:#777;
+}
+
+.source{
+    display:inline-block;
+    background:#eef5f1;
+    color:#075b3b;
+    padding:3px 7px;
+    border-radius:6px;
+    font-size:10px;
+    margin-top:5px;
+}
+
+.price-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(3,1fr);
+    gap:10px;
+    margin-top:15px;
+}
+
+.field label{
+    display:block;
+    font-size:12px;
+    color:#666;
+    margin-bottom:5px;
+}
+
+.field input{
+    width:100%;
+    padding:11px;
+    border:1px solid #ccd9d3;
+    border-radius:9px;
+    font-size:15px;
+    outline:none;
+}
+
+.field input:focus{
+    border-color:#07834f;
+}
+
+.final-price{
+    background:#eef9f2;
+    border:1px solid #c7ead5;
+    padding:11px;
+    border-radius:9px;
+}
+
+.final-price label{
+    display:block;
+    font-size:12px;
+    color:#47715e;
+}
+
+.final-price strong{
+    display:block;
+    font-size:20px;
+    color:#08713f;
+    margin-top:3px;
+}
+
+.update-btn{
+    width:100%;
+    margin-top:14px;
+    border:0;
+    padding:13px;
+    border-radius:10px;
+    background:#07834f;
+    color:white;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.update-btn:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+}
+
+.old-price{
+    margin-top:10px;
+    font-size:12px;
+    color:#777;
+}
+
+@media(max-width:650px){
+
+    .price-grid{
+        grid-template-columns:1fr;
+    }
+
+    .product-top{
+        align-items:flex-start;
+    }
+
+    .product-image{
+        width:65px;
+        height:65px;
+    }
+
+    .product-name{
+        font-size:16px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h1>📊 Daily Market Price</h1>
+
+    <p>
+        ଉତ୍କଳ Mart — ପ୍ରତିଦିନ Market Price Update
+    </p>
+
+</header>
+
+
+<div class="container">
+
+
+    <div class="date-box">
+
+        📅 ଆଜିର ତାରିଖ:
+        <strong id="todayDate">
+            Loading...
+        </strong>
+
+    </div>
+
+
+    <div class="topbar">
+
+        <input
+            id="searchBox"
+            class="search"
+            type="text"
+            placeholder="🔎 Product ଖୋଜନ୍ତୁ..."
+        >
+
+        <button
+            class="refresh"
+            onclick="loadProducts()"
+        >
+            🔄 Refresh
+        </button>
+
+    </div>
+
+
+    <div
+        id="status"
+        class="status">
+    </div>
+
+
+    <div
+        id="loading"
+        class="loading">
+        ⏳ Products Loading...
+    </div>
+
+
+    <div
+        id="productList"
+        class="product-list">
+    </div>
+
+
+</div>
+
+
+<script type="module">
+
+
+/* =====================================================
+   FIREBASE
+===================================================== */
+
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import {
+    getAuth,
+    onAuthStateChanged
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+import {
+    getFirestore,
+    collection,
+    getDocs,
+    doc,
+    updateDoc,
+    setDoc,
+    serverTimestamp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+const firebaseConfig = {
+
+    apiKey:
+    "AIzaSyBYJ_KKsS_7SNz108jnw6hpOlmegofRhJg",
+
+    authDomain:
+    "utkalamart-1ec68.firebaseapp.com",
+
+    projectId:
+    "utkalamart-1ec68",
+
+    storageBucket:
+    "utkalamart-1ec68.firebasestorage.app",
+
+    messagingSenderId:
+    "664871353747",
+
+    appId:
+    "1:664871353747:web:96532fdafe78aabe7f3c66"
+
+};
+
+
+const app =
+    initializeApp(firebaseConfig);
+
+
+const auth =
+    getAuth(app);
+
+
+const db =
+    getFirestore(app);
+
+
+/* =====================================================
+   ADMIN
+===================================================== */
+
+const ADMIN_EMAIL =
+    "Suryakantabehera629@gmail.com";
+
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+let allProducts = [];
+
+
+/* =====================================================
+   TODAY DATE
+===================================================== */
+
+function getToday(){
+
+    const d = new Date();
+
+    const day =
+        String(d.getDate())
+        .padStart(2,"0");
+
+    const month =
+        String(d.getMonth()+1)
+        .padStart(2,"0");
+
+    const year =
+        d.getFullYear();
+
+    return `${day}/${month}/${year}`;
+
+}
+
+
+document.getElementById("todayDate")
+.innerText = getToday();
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+function showStatus(message,type="success"){
+
+    const box =
+        document.getElementById("status");
+
+    box.innerText = message;
+
+    box.className =
+        "status " + type;
+
+    setTimeout(()=>{
+
+        box.className="status";
+
+    },4000);
+
+}
+
+
+/* =====================================================
+   SAFE VALUE
+===================================================== */
+
+function safe(value){
+
+    if(
+        value === undefined ||
+        value === null
+    ){
+        return "";
+    }
+
+    return String(value);
+
+}
+
+
+/* =====================================================
+   PRODUCT NAME
+===================================================== */
+
+function getProductName(p){
+
+    return safe(
+        p.name ||
+        p.productName ||
+        p.title ||
+        "Unnamed Product"
+    );
+
+}
+
+
+/* =====================================================
+   CATEGORY
+===================================================== */
+
+function getCategory(p){
+
+    return safe(
+        p.categoryName ||
+        p.category ||
+        "Product"
+    );
+
+}
+
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+function getImage(p){
+
+    return safe(
+        p.imageUrl ||
+        p.image ||
+        p.photo ||
+        ""
+    );
+
+}
+
+
+/* =====================================================
+   MARKET PRICE
+===================================================== */
+
+function getMarketPrice(p){
+
+    const value =
+        p.marketPrice ??
+        p.market_price ??
+        "";
+
+    const number =
+        Number(value);
+
+    return Number.isFinite(number)
+        ? number
+        : 0;
+
+}
+
+
+/* =====================================================
+   MARGIN
+===================================================== */
+
+function getMargin(p){
+
+    const value =
+        p.utkalaMargin ??
+        p.margin ??
+        "";
+
+    const number =
+        Number(value);
+
+    return Number.isFinite(number)
+        ? number
+        : 0;
+
+}
+
+
+/* =====================================================
+   CURRENT UTKALA PRICE
+===================================================== */
+
+function getCurrentPrice(p){
+
+    const value =
+        p.utkalaPrice ??
+        p.sellingPrice ??
+        p.price ??
+        0;
+
+    const number =
+        Number(value);
+
+    return Number.isFinite(number)
+        ? number
+        : 0;
+
+}
+
+
+/* =====================================================
+   LOAD PRODUCTS
+===================================================== */
+
+window.loadProducts =
+async function(){
+
+    const loading =
+        document.getElementById("loading");
+
+    const list =
+        document.getElementById("productList");
+
+    loading.style.display="block";
+
+    list.innerHTML="";
+
+    allProducts=[];
+
+
+    try{
+
+        /* ---------------------------------------------
+           PRODUCTS
+        --------------------------------------------- */
+
+        const productsSnap =
+            await getDocs(
+                collection(db,"products")
+            );
+
+
+        productsSnap.forEach(item=>{
+
+            const data =
+                item.data();
+
+            allProducts.push({
+
+                id:item.id,
+
+                source:"products",
+
+                ...data
+
+            });
+
+        });
+
+
+        /* ---------------------------------------------
+           MART PRODUCTS
+        --------------------------------------------- */
+
+        try{
+
+            const martSnap =
+                await getDocs(
+                    collection(db,"martProducts")
+                );
+
+
+            martSnap.forEach(item=>{
+
+                const data =
+                    item.data();
+
+                allProducts.push({
+
+                    id:item.id,
+
+                    source:"martProducts",
+
+                    ...data
+
+                });
+
+            });
+
+        }catch(error){
+
+            console.log(
+                "martProducts not available",
+                error
+            );
+
+        }
+
+
+        /* ---------------------------------------------
+           REMOVE DUPLICATES
+        --------------------------------------------- */
+
+        const unique = [];
+
+        const seen = new Set();
+
+        allProducts.forEach(p=>{
+
+            const key =
+                p.source + "_" + p.id;
+
+            if(!seen.has(key)){
+
+                seen.add(key);
+
+                unique.push(p);
+
+            }
+
+        });
+
+        allProducts = unique;
+
+
+        loading.style.display="none";
+
+
+        renderProducts(allProducts);
+
+
+    }catch(error){
+
+        console.error(error);
+
+        loading.style.display="none";
+
+        showStatus(
+            "❌ Products load ହେଲା ନାହିଁ: "
+            + error.message,
+            "error"
+        );
+
+    }
+
+};
+
+
+/* =====================================================
+   RENDER PRODUCTS
+===================================================== */
+
+function renderProducts(products){
+
+    const list =
+        document.getElementById("productList");
+
+
+    if(!products.length){
+
+        list.innerHTML = `
+
+            <div class="loading">
+
+                ❌ କୌଣସି Product ମିଳିଲା ନାହିଁ।
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    list.innerHTML =
+        products.map((p,index)=>{
+
+            const name =
+                getProductName(p);
+
+            const category =
+                getCategory(p);
+
+            const image =
+                getImage(p);
+
+            const market =
+                getMarketPrice(p);
+
+            const margin =
+                getMargin(p);
+
+            const current =
+                getCurrentPrice(p);
+
+            const calculated =
+                market + margin;
+
+
+            return `
+
+            <div
+                class="product-card"
+                data-index="${index}"
+            >
+
+                <div class="product-top">
+
+                    ${
+                        image
+                        ?
+                        `
+                        <img
+                            class="product-image"
+                            src="${image}"
+                            alt="${name}"
+                            onerror="
+                                this.style.display='none'
+                            "
+                        >
+                        `
+                        :
+                        `
+                        <div
+                            class="product-image"
+                            style="
+                                display:flex;
+                                align-items:center;
+                                justify-content:center;
+                                font-size:28px;
+                            "
+                        >
+                            🛍️
+                        </div>
+                        `
+                    }
+
+
+                    <div>
+
+                        <div class="product-name">
+
+                            ${name}
+
+                        </div>
+
+                        <div class="category">
+
+                            ${category}
+
+                        </div>
+
+                        <div class="source">
+
+                            ${p.source}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="price-grid">
+
+
+                    <div class="field">
+
+                        <label>
+                            🏪 Today's Market Price
+                        </label>
+
+                        <input
+                            type="number"
+                            min="0"
+                            step="0.01"
+                            id="market-${index}"
+                            value="${market || ""}"
+                            placeholder="ଯଥା ₹60"
+                            oninput="calculatePrice(${index})"
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            ➕ Utkala Mart Margin
+                        </label>
+
+                        <input
+                            type="number"
+                            min="0"
+                            step="0.01"
+                            id="margin-${index}"
+                            value="${margin || ""}"
+                            placeholder="ଯଥା ₹10"
+                            oninput="calculatePrice(${index})"
+                        >
+
+                    </div>
+
+
+                    <div
+                        class="final-price"
+                        id="final-box-${index}"
+                    >
+
+                        <label>
+                            🛒 Utkala Mart Price
+                        </label>
+
+                        <strong
+                            id="final-${index}"
+                        >
+                            ₹${calculated.toFixed(2)}
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="old-price">
+
+                    ପୁରୁଣା Utkala Price:
+                    ₹${current.toFixed(2)}
+
+                </div>
+
+
+                <button
+                    class="update-btn"
+                    id="update-${index}"
+                    onclick="updatePrice(${index})"
+                >
+
+                    💾 Today's Price Save
+
+                </button>
+
+
+            </div>
+
+            `;
+
+        }).join("");
+
+}
+
+
+/* =====================================================
+   CALCULATE
+===================================================== */
+
+window.calculatePrice =
+function(index){
+
+    const marketInput =
+        document.getElementById(
+            `market-${index}`
+        );
+
+    const marginInput =
+        document.getElementById(
+            `margin-${index}`
+        );
+
+    const finalBox =
+        document.getElementById(
+            `final-${index}`
+        );
+
+
+    const market =
+        Number(marketInput.value) || 0;
+
+    const margin =
+        Number(marginInput.value) || 0;
+
+
+    const finalPrice =
+        market + margin;
+
+
+    finalBox.innerText =
+        "₹" + finalPrice.toFixed(2);
+
+};
+
+
+/* =====================================================
+   UPDATE PRICE
+===================================================== */
+
+window.updatePrice =
+async function(index){
+
+    const product =
+        allProducts[index];
+
+
+    if(!product){
+
+        return;
+
+    }
+
+
+    const marketInput =
+        document.getElementById(
+            `market-${index}`
+        );
+
+    const marginInput =
+        document.getElementById(
+            `margin-${index}`
+        );
+
+    const button =
+        document.getElementById(
+            `update-${index}`
+        );
+
+
+    const market =
+        Number(marketInput.value);
+
+
+    const margin =
+        Number(marginInput.value);
+
+
+    if(
+        !Number.isFinite(market) ||
+        market < 0
+    ){
+
+        showStatus(
+            "⚠️ Market Price ଦିଅନ୍ତୁ।",
+            "error"
+        );
+
+        marketInput.focus();
+
+        return;
+
+    }
+
+
+    if(
+        !Number.isFinite(margin) ||
+        margin < 0
+    ){
+
+        showStatus(
+            "⚠️ Margin ଦିଅନ୍ତୁ।",
+            "error"
+        );
+
+        marginInput.focus();
+
+        return;
+
+    }
+
+
+    const finalPrice =
+        market + margin;
+
+
+    button.disabled=true;
+
+    button.innerText =
+        "⏳ Saving...";
+
+
+    try{
+
+        /* ---------------------------------------------
+           PRODUCT DATA
+        --------------------------------------------- */
+
+        const productRef =
+            doc(
+                db,
+                product.source,
+                product.id
+            );
+
+
+        await updateDoc(
+            productRef,
+            {
+
+                marketPrice:market,
+
+                marketPriceDate:
+                    getToday(),
+
+                marketPriceUpdatedAt:
+                    serverTimestamp(),
+
+                utkalaMargin:margin,
+
+                margin:margin,
+
+                utkalaPrice:finalPrice,
+
+                sellingPrice:finalPrice,
+
+                price:finalPrice,
+
+                lastPriceUpdate:
+                    getToday()
+
+            }
+        );
+
+
+        /* ---------------------------------------------
+           PRICE HISTORY
+        --------------------------------------------- */
+
+        const historyId =
+            product.id +
+            "_" +
+            Date.now();
+
+
+        const historyRef =
+            doc(
+                db,
+                "marketPriceHistory",
+                historyId
+            );
+
+
+        await setDoc(
+            historyRef,
+            {
+
+                productId:
+                    product.id,
+
+                productName:
+                    getProductName(product),
+
+                source:
+                    product.source,
+
+                marketPrice:
+                    market,
+
+                margin:
+                    margin,
+
+                utkalaPrice:
+                    finalPrice,
+
+                date:
+                    getToday(),
+
+                createdAt:
+                    serverTimestamp()
+
+            }
+        );
+
+
+        /* ---------------------------------------------
+           UPDATE LOCAL DATA
+        --------------------------------------------- */
+
+        product.marketPrice =
+            market;
+
+        product.marketPriceDate =
+            getToday();
+
+        product.utkalaMargin =
+            margin;
+
+        product.margin =
+            margin;
+
+        product.utkalaPrice =
+            finalPrice;
+
+        product.sellingPrice =
+            finalPrice;
+
+        product.price =
+            finalPrice;
+
+
+        showStatus(
+            `✅ ${getProductName(product)} ର Today's Market Price ₹${market} ଏବଂ Utkala Price ₹${finalPrice} Save ହେଲା।`,
+            "success"
+        );
+
+
+        button.innerText =
+            "✅ Updated";
+
+
+        setTimeout(()=>{
+
+            button.disabled=false;
+
+            button.innerText =
+                "💾 Today's Price Save";
+
+        },1800);
+
+
+    }catch(error){
+
+        console.error(error);
+
+        showStatus(
+            "❌ Price save ହେଲା ନାହିଁ: "
+            + error.message,
+            "error"
+        );
+
+
+        button.disabled=false;
+
+        button.innerText =
+            "💾 Today's Price Save";
+
+    }
+
+};
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+document.getElementById("searchBox")
+.addEventListener(
+    "input",
+    function(){
+
+        const value =
+            this.value
+            .trim()
+            .toLowerCase();
+
+
+        if(!value){
+
+            renderProducts(allProducts);
+
+            return;
+
+        }
+
+
+        const filtered =
+            allProducts.filter(p=>{
+
+                const text = (
+
+                    getProductName(p)
+                    + " "
+                    + getCategory(p)
+
+                ).toLowerCase();
+
+
+                return text.includes(value);
+
+            });
+
+
+        renderProducts(filtered);
+
+    }
+);
+
+
+/* =====================================================
+   AUTH
+===================================================== */
+
+onAuthStateChanged(
+    auth,
+    user=>{
+
+        if(!user){
+
+            window.location.href =
+                "admin-login.html";
+
+            return;
+
+        }
+
+
+        if(
+            user.email.toLowerCase()
+            !==
+            ADMIN_EMAIL.toLowerCase()
+        ){
+
+            alert(
+                "❌ Admin Access ନାହିଁ।"
+            );
+
+            window.location.href =
+                "admin-login.html";
+
+            return;
+
+        }
+
+
+        loadProducts();
+
+    }
+);
+
+
+</script>
+
+</body>
+
+</html>
