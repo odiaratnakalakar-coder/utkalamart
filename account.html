@@ -8,26 +8,18 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<meta name="theme-color"
-      content="#075b3b">
+<meta name="theme-color" content="#075b3b">
 
 <title>ମୋ ଖାତା | Utkala Mart</title>
 
-
 <style>
-
-/* =====================================
-   GLOBAL
-===================================== */
 
 *{
     box-sizing:border-box;
 }
 
 body{
-
     margin:0;
-
     font-family:
         Arial,
         "Noto Sans Odia",
@@ -35,16 +27,15 @@ body{
         sans-serif;
 
     background:#f5f7f6;
-
     color:#222;
 
     padding-bottom:75px;
 }
 
 
-/* =====================================
+/* =========================
    TOP BAR
-===================================== */
+========================= */
 
 .topbar{
 
@@ -73,9 +64,9 @@ body{
 }
 
 
-/* =====================================
+/* =========================
    HEADER
-===================================== */
+========================= */
 
 .header{
 
@@ -158,6 +149,8 @@ body{
 
     text-align:center;
 
+    cursor:pointer;
+
     color:#333;
 
     text-decoration:none;
@@ -176,9 +169,9 @@ body{
 }
 
 
-/* =====================================
+/* =========================
    MAIN
-===================================== */
+========================= */
 
 .container{
 
@@ -190,9 +183,9 @@ body{
 }
 
 
-/* =====================================
-   PROFILE CARD
-===================================== */
+/* =========================
+   PROFILE
+========================= */
 
 .profile-card{
 
@@ -238,6 +231,8 @@ body{
 
     height:75px;
 
+    min-width:75px;
+
     border-radius:50%;
 
     background:#fff;
@@ -254,11 +249,7 @@ body{
 
     overflow:hidden;
 
-    border:
-        3px solid
-        rgba(255,255,255,.7);
-
-    flex-shrink:0;
+    border:3px solid rgba(255,255,255,.7);
 }
 
 .profile-photo img{
@@ -268,6 +259,8 @@ body{
     height:100%;
 
     object-fit:cover;
+
+    display:block;
 }
 
 .profile-info{
@@ -295,9 +288,7 @@ body{
 
 .edit-btn{
 
-    border:
-        1px solid
-        rgba(255,255,255,.7);
+    border:1px solid rgba(255,255,255,.7);
 
     color:#fff;
 
@@ -313,9 +304,9 @@ body{
 }
 
 
-/* =====================================
+/* =========================
    SECTION TITLE
-===================================== */
+========================= */
 
 .section-title{
 
@@ -327,9 +318,9 @@ body{
 }
 
 
-/* =====================================
+/* =========================
    QUICK GRID
-===================================== */
+========================= */
 
 .quick-grid{
 
@@ -359,6 +350,13 @@ body{
         0 2px 8px rgba(0,0,0,.07);
 
     border:1px solid #eee;
+
+    transition:.2s;
+}
+
+.quick-card:hover{
+
+    transform:translateY(-2px);
 }
 
 .quick-icon{
@@ -381,9 +379,9 @@ body{
 }
 
 
-/* =====================================
+/* =========================
    MENU
-===================================== */
+========================= */
 
 .menu-box{
 
@@ -447,8 +445,6 @@ body{
     justify-content:center;
 
     font-size:22px;
-
-    flex-shrink:0;
 }
 
 .menu-title{
@@ -473,9 +469,9 @@ body{
 }
 
 
-/* =====================================
-   ORDER
-===================================== */
+/* =========================
+   RECENT ORDER
+========================= */
 
 .order-box{
 
@@ -514,9 +510,9 @@ body{
 }
 
 
-/* =====================================
+/* =========================
    LOGOUT
-===================================== */
+========================= */
 
 .logout{
 
@@ -526,9 +522,7 @@ body{
 
     padding:14px;
 
-    border:
-        1px solid
-        #e53935;
+    border:1px solid #e53935;
 
     background:#fff;
 
@@ -544,9 +538,9 @@ body{
 }
 
 
-/* =====================================
+/* =========================
    FOOTER
-===================================== */
+========================= */
 
 .footer{
 
@@ -560,9 +554,9 @@ body{
 }
 
 
-/* =====================================
+/* =========================
    BOTTOM NAV
-===================================== */
+========================= */
 
 .bottom-nav{
 
@@ -619,9 +613,9 @@ body{
 }
 
 
-/* =====================================
+/* =========================
    POPUP
-===================================== */
+========================= */
 
 .overlay{
 
@@ -641,8 +635,6 @@ body{
     z-index:200;
 
     padding:15px;
-
-    overflow:auto;
 }
 
 .popup{
@@ -653,13 +645,16 @@ body{
 
     max-width:430px;
 
+    max-height:90vh;
+
+    overflow:auto;
+
     border-radius:18px;
 
-    padding:22px;
+    padding:20px;
 
     box-shadow:
-        0 10px 35px
-        rgba(0,0,0,.25);
+        0 10px 35px rgba(0,0,0,.25);
 }
 
 .popup h2{
@@ -667,15 +662,17 @@ body{
     margin-top:0;
 
     color:#075b3b;
+
+    font-size:20px;
 }
 
 .popup label{
 
     display:block;
 
-    font-size:13px;
-
     margin-top:10px;
+
+    font-size:13px;
 
     font-weight:bold;
 }
@@ -695,48 +692,49 @@ body{
 
     font-size:15px;
 
-    font-family:inherit;
+    outline:none;
+}
+
+.popup input:focus{
+
+    border-color:#075b3b;
 }
 
 
-/* =====================================
-   PHOTO UPLOAD
-===================================== */
+/* =========================
+   PHOTO UPLOAD BOX
+========================= */
 
-.photo-upload-box{
+.photo-upload{
 
-    margin-top:7px;
-
-    border:
-        2px dashed
-        #b8d8ca;
+    border:2px dashed #b8d8ca;
 
     background:#f5fbf8;
 
     border-radius:12px;
 
-    padding:14px;
+    padding:12px;
+
+    margin-top:7px;
 
     text-align:center;
 }
 
 .photo-preview{
 
-    width:100px;
+    width:85px;
 
-    height:100px;
-
-    border-radius:50%;
+    height:85px;
 
     margin:0 auto 10px;
 
+    border-radius:50%;
+
     overflow:hidden;
 
-    background:#eaf6f1;
+    background:#fff;
 
-    border:
-        3px solid
-        #075b3b;
+    border:3px solid #08734b;
 
     display:flex;
 
@@ -744,7 +742,7 @@ body{
 
     justify-content:center;
 
-    font-size:45px;
+    font-size:42px;
 
     color:#075b3b;
 }
@@ -756,19 +754,21 @@ body{
     height:100%;
 
     object-fit:cover;
+
+    display:block;
 }
 
-.file-label{
+.photo-upload-label{
 
-    display:inline-block;
+    display:block;
 
     background:#075b3b;
 
     color:#fff;
 
-    padding:10px 16px;
+    padding:9px;
 
-    border-radius:9px;
+    border-radius:8px;
 
     cursor:pointer;
 
@@ -777,23 +777,23 @@ body{
     font-weight:bold;
 }
 
-#photoFile{
+.photo-upload input{
 
     display:none;
 }
 
-.photo-help{
+.photo-note{
 
-    margin:8px 0 0;
-
-    font-size:11px;
+    font-size:10px;
 
     color:#777;
+
+    margin-top:7px;
 }
 
 .remove-photo{
 
-    margin-top:8px;
+    margin-top:7px;
 
     border:0;
 
@@ -801,21 +801,19 @@ body{
 
     color:#c62828;
 
-    padding:7px 12px;
+    padding:6px 10px;
 
     border-radius:7px;
 
     cursor:pointer;
 
-    font-size:12px;
-
-    display:none;
+    font-size:11px;
 }
 
 
-/* =====================================
-   POPUP BUTTONS
-===================================== */
+/* =========================
+   BUTTONS
+========================= */
 
 .popup-buttons{
 
@@ -823,7 +821,7 @@ body{
 
     gap:10px;
 
-    margin-top:15px;
+    margin-top:13px;
 }
 
 .save-btn{
@@ -868,9 +866,9 @@ body{
 }
 
 
-/* =====================================
+/* =========================
    MOBILE
-===================================== */
+========================= */
 
 @media(max-width:700px){
 
@@ -932,6 +930,8 @@ body{
 
         height:62px;
 
+        min-width:62px;
+
         font-size:33px;
     }
 
@@ -963,8 +963,14 @@ body{
         padding:14px 8px;
     }
 
-}
+    .popup{
 
+        padding:17px;
+
+        border-radius:16px;
+    }
+
+}
 
 @media(max-width:400px){
 
@@ -993,29 +999,6 @@ body{
         font-size:11px;
     }
 
-    .popup{
-
-        padding:17px;
-    }
-
-}
-
-
-/* =====================================
-   SAVING
-===================================== */
-
-.saving-text{
-
-    display:none;
-
-    text-align:center;
-
-    color:#075b3b;
-
-    font-size:12px;
-
-    margin-top:8px;
 }
 
 </style>
@@ -1026,9 +1009,9 @@ body{
 <body>
 
 
-<!-- =====================================
+<!-- =========================
      TOP BAR
-===================================== -->
+========================= -->
 
 <div class="topbar">
 
@@ -1051,15 +1034,14 @@ body{
 </div>
 
 
-<!-- =====================================
+<!-- =========================
      HEADER
-===================================== -->
+========================= -->
 
 <header class="header">
 
-    <a
-        href="index.html"
-        class="brand">
+    <a href="index.html"
+       class="brand">
 
         <img
             src="logo.png"
@@ -1071,7 +1053,9 @@ body{
         <div class="brand-text">
 
             <h1>
+
                 <span>ଉତ୍କଳ</span> Mart
+
             </h1>
 
             <p>
@@ -1134,9 +1118,9 @@ body{
 </header>
 
 
-<!-- =====================================
+<!-- =========================
      MAIN
-===================================== -->
+========================= -->
 
 <main class="container">
 
@@ -1159,23 +1143,15 @@ body{
             <div class="profile-info">
 
                 <h2 id="userName">
-
                     ନମସ୍କାର 👋
-
                 </h2>
 
-
                 <p id="userMobile">
-
                     📱 Mobile Number ଯୋଡନ୍ତୁ
-
                 </p>
 
-
                 <p>
-
                     Utkala Mart Customer
-
                 </p>
 
             </div>
@@ -1194,10 +1170,7 @@ body{
     </div>
 
 
-
-    <!-- =====================================
-         QUICK ACCESS
-    ===================================== -->
+    <!-- QUICK ACCESS -->
 
     <h2 class="section-title">
 
@@ -1284,14 +1257,10 @@ body{
 
         </a>
 
-
     </div>
 
 
-
-    <!-- =====================================
-         ACCOUNT MENU
-    ===================================== -->
+    <!-- ACCOUNT MENU -->
 
     <h2 class="section-title">
 
@@ -1612,14 +1581,10 @@ body{
 
         </div>
 
-
     </div>
 
 
-
-    <!-- =====================================
-         RECENT ORDER
-    ===================================== -->
+    <!-- RECENT ORDER -->
 
     <h2 class="section-title">
 
@@ -1645,7 +1610,8 @@ body{
                     margin-top:4px;
                     ">
 
-                    Product କିଣିଲେ ଏଠାରେ Order ଦେଖାଯିବ
+                    Product କିଣିଲେ
+                    ଏଠାରେ Order ଦେଖାଯିବ
 
                 </div>
 
@@ -1663,7 +1629,6 @@ body{
     </div>
 
 
-
     <!-- LOGOUT -->
 
     <button
@@ -1678,9 +1643,9 @@ body{
 </main>
 
 
-<!-- =====================================
+<!-- =========================
      FOOTER
-===================================== -->
+========================= -->
 
 <div class="footer">
 
@@ -1699,34 +1664,26 @@ body{
 </div>
 
 
-
-<!-- =====================================
+<!-- =========================
      PROFILE POPUP
-===================================== -->
+========================= -->
 
 <div
     class="overlay"
     id="profileOverlay">
 
-
     <div class="popup">
 
-
         <h2>
-
             👤 Profile Update
-
         </h2>
 
 
         <!-- NAME -->
 
         <label>
-
             ଆପଣଙ୍କ ନାମ
-
         </label>
-
 
         <input
             type="text"
@@ -1738,31 +1695,25 @@ body{
         <!-- MOBILE -->
 
         <label>
-
             Mobile Number
-
         </label>
-
 
         <input
             type="tel"
             id="editMobile"
             placeholder="10 digit mobile number"
             maxlength="10"
-            inputmode="numeric"
         >
 
 
         <!-- PHOTO -->
 
         <label>
-
             📷 Profile Photo
-
         </label>
 
 
-        <div class="photo-upload-box">
+        <div class="photo-upload">
 
 
             <div
@@ -1776,9 +1727,9 @@ body{
 
             <label
                 for="photoFile"
-                class="file-label">
+                class="photo-upload-label">
 
-                📷 Photo ବାଛନ୍ତୁ
+                📷 Photo ନିଅନ୍ତୁ / Gallery ରୁ ବାଛନ୍ତୁ
 
             </label>
 
@@ -1786,13 +1737,14 @@ body{
             <input
                 type="file"
                 id="photoFile"
-                accept="image/*"
+                accept="image/jpeg,image/png,image/webp"
             >
 
 
-            <div class="photo-help">
+            <div class="photo-note">
 
-                JPG / PNG / WEBP • Photo automatically compressed
+                JPG / PNG / WEBP
+                • Photo automatically compressed
 
             </div>
 
@@ -1801,7 +1753,7 @@ body{
                 type="button"
                 class="remove-photo"
                 id="removePhotoBtn"
-                onclick="removeProfilePhoto()">
+                onclick="removePhoto()">
 
                 🗑️ Photo Remove
 
@@ -1811,19 +1763,9 @@ body{
         </div>
 
 
-        <div
-            class="saving-text"
-            id="savingText">
-
-            ⏳ Photo processing...
-
-        </div>
-
-
         <!-- BUTTONS -->
 
         <div class="popup-buttons">
-
 
             <button
                 class="save-btn"
@@ -1843,19 +1785,16 @@ body{
 
             </button>
 
-
         </div>
-
 
     </div>
 
 </div>
 
 
-
-<!-- =====================================
+<!-- =========================
      BOTTOM NAV
-===================================== -->
+========================= -->
 
 <nav class="bottom-nav">
 
@@ -1916,41 +1855,60 @@ body{
 
     </a>
 
-
 </nav>
-
 
 
 <script>
 
-/* =====================================
-   GLOBAL PHOTO DATA
-===================================== */
+
+/* =====================================================
+   PROFILE PHOTO TEMPORARY DATA
+===================================================== */
 
 let selectedPhotoData = "";
 
-let removePhotoRequested = false;
+let removePhotoFlag = false;
 
 
-/* =====================================
+/* =====================================================
    LOAD PROFILE
-===================================== */
+===================================================== */
 
 function loadProfile(){
 
     const name =
         localStorage.getItem(
             "utkalaUserName"
-        );
+        ) || "";
+
 
     const mobile =
         localStorage.getItem(
             "utkalaUserMobile"
-        );
+        ) || "";
+
 
     const photo =
         localStorage.getItem(
             "utkalaUserPhoto"
+        ) || "";
+
+
+    const nameBox =
+        document.getElementById(
+            "userName"
+        );
+
+
+    const mobileBox =
+        document.getElementById(
+            "userMobile"
+        );
+
+
+    const photoBox =
+        document.getElementById(
+            "profilePhoto"
         );
 
 
@@ -1958,9 +1916,7 @@ function loadProfile(){
 
     if(name){
 
-        document.getElementById(
-            "userName"
-        ).textContent =
+        nameBox.textContent =
             "ନମସ୍କାର, " +
             name +
             " 👋";
@@ -1968,9 +1924,7 @@ function loadProfile(){
     }
     else{
 
-        document.getElementById(
-            "userName"
-        ).textContent =
+        nameBox.textContent =
             "ନମସ୍କାର 👋";
 
     }
@@ -1980,18 +1934,14 @@ function loadProfile(){
 
     if(mobile){
 
-        document.getElementById(
-            "userMobile"
-        ).textContent =
+        mobileBox.textContent =
             "📱 " +
             mobile;
 
     }
     else{
 
-        document.getElementById(
-            "userMobile"
-        ).textContent =
+        mobileBox.textContent =
             "📱 Mobile Number ଯୋଡନ୍ତୁ";
 
     }
@@ -1999,31 +1949,51 @@ function loadProfile(){
 
     /* PHOTO */
 
-    const box =
-        document.getElementById(
-            "profilePhoto"
-        );
-
-
     if(photo){
 
-        box.innerHTML = `
+        photoBox.innerHTML = "";
 
-            <img
-                src="${photo}"
-                alt="Profile Photo"
-                onerror="
-                    this.onerror=null;
-                    this.parentElement.innerHTML='👤';
-                "
-            >
 
-        `;
+        const img =
+            document.createElement(
+                "img"
+            );
+
+
+        img.src =
+            photo;
+
+
+        img.alt =
+            "Profile Photo";
+
+
+        img.onload =
+            function(){
+
+                img.style.display =
+                    "block";
+
+            };
+
+
+        img.onerror =
+            function(){
+
+                photoBox.innerHTML =
+                    "👤";
+
+            };
+
+
+        photoBox.appendChild(
+            img
+        );
 
     }
     else{
 
-        box.innerHTML =
+        photoBox.innerHTML =
             "👤";
 
     }
@@ -2031,9 +2001,9 @@ function loadProfile(){
 }
 
 
-/* =====================================
+/* =====================================================
    OPEN PROFILE
-===================================== */
+===================================================== */
 
 function openProfile(){
 
@@ -2071,7 +2041,7 @@ function openProfile(){
         photo;
 
 
-    removePhotoRequested =
+    removePhotoFlag =
         false;
 
 
@@ -2088,9 +2058,9 @@ function openProfile(){
 }
 
 
-/* =====================================
+/* =====================================================
    CLOSE PROFILE
-===================================== */
+===================================================== */
 
 function closeProfile(){
 
@@ -2099,26 +2069,69 @@ function closeProfile(){
     ).style.display =
         "none";
 
-
-    document.getElementById(
-        "photoFile"
-    ).value =
-        "";
+}
 
 
-    selectedPhotoData =
-        "";
+/* =====================================================
+   SHOW PHOTO PREVIEW
+===================================================== */
+
+function showPhotoPreview(
+    photo
+){
+
+    const preview =
+        document.getElementById(
+            "photoPreview"
+        );
 
 
-    removePhotoRequested =
-        false;
+    if(photo){
+
+        preview.innerHTML = "";
+
+
+        const img =
+            document.createElement(
+                "img"
+            );
+
+
+        img.src =
+            photo;
+
+
+        img.alt =
+            "Profile Photo";
+
+
+        img.onerror =
+            function(){
+
+                preview.innerHTML =
+                    "👤";
+
+            };
+
+
+        preview.appendChild(
+            img
+        );
+
+    }
+    else{
+
+        preview.innerHTML =
+            "👤";
+
+    }
 
 }
 
 
-/* =====================================
-   PHOTO FILE CHANGE
-===================================== */
+/* =====================================================
+   PHOTO FILE SELECT
+===================================================== */
 
 document.getElementById(
     "photoFile"
@@ -2127,7 +2140,7 @@ document.getElementById(
     function(event){
 
         const file =
-            event.target.files?.[0];
+            event.target.files[0];
 
 
         if(!file){
@@ -2146,7 +2159,7 @@ document.getElementById(
         ){
 
             alert(
-                "❌ କେବଳ Image File ବାଛନ୍ତୁ।"
+                "❌ କେବଳ Photo file ବାଛନ୍ତୁ।"
             );
 
             event.target.value =
@@ -2176,285 +2189,193 @@ document.getElementById(
         }
 
 
-        const savingText =
-            document.getElementById(
-                "savingText"
-            );
+        const reader =
+            new FileReader();
 
 
-        savingText.style.display =
-            "block";
+        reader.onload =
+            function(e){
+
+                const original =
+                    e.target.result;
 
 
-        compressImage(
+                compressImage(
+                    original,
+                    function(compressed){
+
+                        selectedPhotoData =
+                            compressed;
+
+                        removePhotoFlag =
+                            false;
+
+                        showPhotoPreview(
+                            compressed
+                        );
+
+                    }
+                );
+
+            };
+
+
+        reader.readAsDataURL(
             file
-        )
-        .then(
-            function(result){
-
-                selectedPhotoData =
-                    result;
-
-                removePhotoRequested =
-                    false;
-
-
-                showPhotoPreview(
-                    result
-                );
-
-
-                document.getElementById(
-                    "removePhotoBtn"
-                ).style.display =
-                    "inline-block";
-
-
-                savingText.style.display =
-                    "none";
-
-            }
-        )
-        .catch(
-            function(error){
-
-                console.error(
-                    error
-                );
-
-
-                savingText.style.display =
-                    "none";
-
-
-                alert(
-                    "❌ Photo process ହୋଇପାରିଲା ନାହିଁ।"
-                );
-
-            }
         );
 
     }
 );
 
 
-/* =====================================
+/* =====================================================
    COMPRESS IMAGE
-===================================== */
+===================================================== */
 
-function compressImage(file){
+function compressImage(
+    dataUrl,
+    callback
+){
 
-    return new Promise(
-        function(resolve,reject){
-
-            const reader =
-                new FileReader();
-
-
-            reader.onload =
-                function(event){
-
-                    const img =
-                        new Image();
+    const img =
+        new Image();
 
 
-                    img.onload =
-                        function(){
+    img.onload =
+        function(){
 
-                            const maxSize =
-                                600;
-
-
-                            let width =
-                                img.width;
-
-                            let height =
-                                img.height;
+            const MAX_WIDTH =
+                500;
 
 
-                            if(
-                                width >
-                                height
-                            ){
-
-                                if(
-                                    width >
-                                    maxSize
-                                ){
-
-                                    height =
-                                        Math.round(
-                                            height *
-                                            maxSize /
-                                            width
-                                        );
-
-                                    width =
-                                        maxSize;
-
-                                }
-
-                            }
-                            else{
-
-                                if(
-                                    height >
-                                    maxSize
-                                ){
-
-                                    width =
-                                        Math.round(
-                                            width *
-                                            maxSize /
-                                            height
-                                        );
-
-                                    height =
-                                        maxSize;
-
-                                }
-
-                            }
+            const MAX_HEIGHT =
+                500;
 
 
-                            const canvas =
-                                document.createElement(
-                                    "canvas"
-                                );
+            let width =
+                img.width;
 
 
-                            canvas.width =
-                                width;
-
-                            canvas.height =
-                                height;
+            let height =
+                img.height;
 
 
-                            const ctx =
-                                canvas.getContext(
-                                    "2d"
-                                );
+            /* RESIZE */
+
+            if(
+                width >
+                height
+            ){
+
+                if(
+                    width >
+                    MAX_WIDTH
+                ){
+
+                    height =
+                        height *
+                        (
+                            MAX_WIDTH /
+                            width
+                        );
+
+                    width =
+                        MAX_WIDTH;
+
+                }
+
+            }
+            else{
+
+                if(
+                    height >
+                    MAX_HEIGHT
+                ){
+
+                    width =
+                        width *
+                        (
+                            MAX_HEIGHT /
+                            height
+                        );
+
+                    height =
+                        MAX_HEIGHT;
+
+                }
+
+            }
 
 
-                            ctx.drawImage(
-                                img,
-                                0,
-                                0,
-                                width,
-                                height
-                            );
+            const canvas =
+                document.createElement(
+                    "canvas"
+                );
 
 
-                            const compressed =
-                                canvas.toDataURL(
-                                    "image/jpeg",
-                                    0.78
-                                );
+            canvas.width =
+                Math.round(width);
 
 
-                            resolve(
-                                compressed
-                            );
-
-                        };
+            canvas.height =
+                Math.round(height);
 
 
-                    img.onerror =
-                        function(){
-
-                            reject(
-                                new Error(
-                                    "Image load failed"
-                                )
-                            );
-
-                        };
+            const ctx =
+                canvas.getContext(
+                    "2d"
+                );
 
 
-                    img.src =
-                        event.target.result;
-
-                };
-
-
-            reader.onerror =
-                function(){
-
-                    reject(
-                        reader.error
-                    );
-
-                };
-
-
-            reader.readAsDataURL(
-                file
+            ctx.drawImage(
+                img,
+                0,
+                0,
+                canvas.width,
+                canvas.height
             );
 
-        }
-    );
+
+            const compressed =
+                canvas.toDataURL(
+                    "image/jpeg",
+                    0.72
+                );
+
+
+            callback(
+                compressed
+            );
+
+        };
+
+
+    img.onerror =
+        function(){
+
+            alert(
+                "❌ Photo process ହୋଇପାରିଲା ନାହିଁ।"
+            );
+
+        };
+
+
+    img.src =
+        dataUrl;
 
 }
 
 
-/* =====================================
-   SHOW PHOTO PREVIEW
-===================================== */
-
-function showPhotoPreview(photo){
-
-    const preview =
-        document.getElementById(
-            "photoPreview"
-        );
-
-
-    const removeBtn =
-        document.getElementById(
-            "removePhotoBtn"
-        );
-
-
-    if(photo){
-
-        preview.innerHTML = `
-
-            <img
-                src="${photo}"
-                alt="Photo Preview"
-            >
-
-        `;
-
-
-        removeBtn.style.display =
-            "inline-block";
-
-    }
-    else{
-
-        preview.innerHTML =
-            "👤";
-
-
-        removeBtn.style.display =
-            "none";
-
-    }
-
-}
-
-
-/* =====================================
+/* =====================================================
    REMOVE PHOTO
-===================================== */
+===================================================== */
 
-function removeProfilePhoto(){
+function removePhoto(){
 
     selectedPhotoData =
         "";
 
-    removePhotoRequested =
+    removePhotoFlag =
         true;
 
 
@@ -2471,9 +2392,9 @@ function removeProfilePhoto(){
 }
 
 
-/* =====================================
+/* =====================================================
    SAVE PROFILE
-===================================== */
+===================================================== */
 
 function saveProfile(){
 
@@ -2487,6 +2408,12 @@ function saveProfile(){
         document.getElementById(
             "editMobile"
         ).value.trim();
+
+
+    const button =
+        document.getElementById(
+            "saveProfileBtn"
+        );
 
 
     /* NAME CHECK */
@@ -2512,7 +2439,7 @@ function saveProfile(){
     ){
 
         alert(
-            "❌ Mobile Number 10 digit ହେବା ଦରକାର।"
+            "❌ 10 digit Mobile Number ଦିଅନ୍ତୁ।"
         );
 
         return;
@@ -2520,17 +2447,11 @@ function saveProfile(){
     }
 
 
-    const saveBtn =
-        document.getElementById(
-            "saveProfileBtn"
-        );
-
-
-    saveBtn.disabled =
+    button.disabled =
         true;
 
 
-    saveBtn.textContent =
+    button.textContent =
         "⏳ Saving...";
 
 
@@ -2563,20 +2484,16 @@ function saveProfile(){
         }
 
 
-        /* PHOTO */
+        /* SAVE PHOTO */
 
-        if(
-            removePhotoRequested
-        ){
+        if(removePhotoFlag){
 
             localStorage.removeItem(
                 "utkalaUserPhoto"
             );
 
         }
-        else if(
-            selectedPhotoData
-        ){
+        else if(selectedPhotoData){
 
             localStorage.setItem(
                 "utkalaUserPhoto",
@@ -2586,8 +2503,12 @@ function saveProfile(){
         }
 
 
+        /* UPDATE SCREEN */
+
         loadProfile();
 
+
+        /* CLOSE */
 
         closeProfile();
 
@@ -2606,25 +2527,25 @@ function saveProfile(){
 
 
         alert(
-            "❌ Profile save ହୋଇପାରିଲା ନାହିଁ। Photo size ଅଧିକ ହୋଇପାରେ।"
+            "❌ Profile save ହୋଇପାରିଲା ନାହିଁ। Photo ବହୁତ ବଡ଼ ହୋଇପାରେ।"
         );
 
     }
 
 
-    saveBtn.disabled =
+    button.disabled =
         false;
 
 
-    saveBtn.textContent =
+    button.textContent =
         "💾 Save";
 
 }
 
 
-/* =====================================
+/* =====================================================
    LOGOUT
-===================================== */
+===================================================== */
 
 function logoutUser(){
 
@@ -2648,23 +2569,9 @@ function logoutUser(){
 }
 
 
-/* =====================================
-   PAGE LOAD
-===================================== */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function(){
-
-        loadProfile();
-
-    }
-);
-
-
-/* =====================================
-   OUTSIDE CLICK
-===================================== */
+/* =====================================================
+   OUTSIDE POPUP CLICK
+===================================================== */
 
 document.getElementById(
     "profileOverlay"
@@ -2684,9 +2591,44 @@ document.getElementById(
     }
 );
 
+
+/* =====================================================
+   ESC KEY
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key ===
+            "Escape"
+        ){
+
+            closeProfile();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   PAGE LOAD
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        loadProfile();
+
+    }
+);
+
 </script>
 
 
 </body>
 
-      </html>
+              </html>
