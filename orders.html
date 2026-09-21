@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width,initial-scale=1.0">
+      content="width=device-width, initial-scale=1.0">
 
 <meta name="theme-color"
       content="#075b3b">
@@ -33,13 +33,15 @@ body{
     padding-bottom:80px;
 }
 
-/* ===============================
-TOP BAR
-================================ */
+
+/* =========================
+   TOP BAR
+========================= */
 
 .topbar{
     background:#075b3b;
     color:#fff;
+
     padding:8px 14px;
 
     display:flex;
@@ -55,12 +57,14 @@ TOP BAR
     margin-left:10px;
 }
 
-/* ===============================
-HEADER
-================================ */
+
+/* =========================
+   HEADER
+========================= */
 
 .header{
     background:#fff;
+
     padding:10px 15px;
 
     display:flex;
@@ -73,20 +77,26 @@ HEADER
 .brand{
     display:flex;
     align-items:center;
+
     gap:9px;
+
     text-decoration:none;
 }
 
 .logo{
     width:55px;
     height:55px;
+
     border-radius:50%;
+
     object-fit:cover;
 }
 
 .brand h1{
     margin:0;
+
     font-size:24px;
+
     color:#e87522;
 }
 
@@ -96,7 +106,9 @@ HEADER
 
 .brand p{
     margin:2px 0 0;
+
     font-size:10px;
+
     color:#777;
 }
 
@@ -107,40 +119,52 @@ HEADER
 
 .header-links a{
     text-decoration:none;
+
     color:#333;
+
     text-align:center;
+
     font-size:11px;
 }
 
 .header-links .icon{
     display:block;
+
     font-size:23px;
 }
 
-/* ===============================
-MAIN
-================================ */
+
+/* =========================
+   MAIN
+========================= */
 
 .container{
     max-width:950px;
+
     margin:auto;
+
     padding:15px;
 }
 
 .back{
     display:inline-block;
+
     margin-bottom:12px;
 
     color:#075b3b;
+
     text-decoration:none;
+
     font-weight:bold;
 }
 
-/* ===============================
-TITLE
-================================ */
+
+/* =========================
+   PAGE TITLE
+========================= */
 
 .page-title{
+
     background:
         linear-gradient(
             135deg,
@@ -149,35 +173,47 @@ TITLE
         );
 
     color:#fff;
+
     padding:19px;
+
     border-radius:16px;
+
     margin-bottom:15px;
 }
 
 .page-title h2{
     margin:0;
+
     font-size:22px;
 }
 
 .page-title p{
     margin:6px 0 0;
+
     font-size:13px;
+
     opacity:.9;
 }
 
-/* ===============================
-FILTER
-================================ */
+
+/* =========================
+   FILTER
+========================= */
 
 .filter{
+
     background:#fff;
+
     padding:10px;
+
     border-radius:14px;
 
     display:flex;
+
     gap:7px;
 
     overflow-x:auto;
+
     margin-bottom:15px;
 
     box-shadow:
@@ -185,32 +221,46 @@ FILTER
 }
 
 .filter button{
+
     border:1px solid #ddd;
+
     background:#fff;
+
     color:#333;
 
     padding:9px 14px;
+
     border-radius:20px;
 
     white-space:nowrap;
+
     cursor:pointer;
+
     font-family:inherit;
 }
 
 .filter button.active{
+
     background:#075b3b;
+
     border-color:#075b3b;
+
     color:#fff;
 }
 
-/* ===============================
-ORDER CARD
-================================ */
+
+/* =========================
+   ORDER CARD
+========================= */
 
 .order-card{
+
     background:#fff;
+
     border-radius:16px;
+
     padding:15px;
+
     margin-bottom:13px;
 
     box-shadow:
@@ -218,156 +268,222 @@ ORDER CARD
 }
 
 .order-head{
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 
     gap:10px;
 
     border-bottom:1px solid #eee;
+
     padding-bottom:11px;
 }
 
 .order-id{
+
     color:#075b3b;
+
     font-weight:bold;
+
     word-break:break-word;
 }
 
 .order-date{
+
     color:#888;
+
     font-size:12px;
+
     margin-top:4px;
 }
 
-/* ===============================
-STATUS
-================================ */
+
+/* =========================
+   STATUS
+========================= */
 
 .status{
+
     padding:6px 10px;
+
     border-radius:18px;
 
     font-size:11px;
+
     font-weight:bold;
+
     white-space:nowrap;
 }
 
 .pending{
+
     background:#fff4d6;
+
     color:#9a6800;
 }
 
 .confirmed{
+
     background:#e7f2ff;
+
     color:#1261a0;
 }
 
 .shipped{
+
     background:#eee8ff;
+
     color:#6240a8;
 }
 
 .delivered{
+
     background:#e7f7ed;
+
     color:#08734b;
 }
 
 .cancelled{
+
     background:#ffe8e8;
+
     color:#c62828;
 }
 
-/* ===============================
-PRODUCT
-================================ */
+
+/* =========================
+   PRODUCT
+========================= */
 
 .product{
+
     display:flex;
+
     align-items:center;
+
     gap:12px;
+
     padding:13px 0;
 }
 
 .product-img{
+
     width:72px;
+
     height:72px;
 
     border-radius:12px;
+
     background:#f0f3f2;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
-    font-size:35px;
     overflow:hidden;
+
     flex-shrink:0;
+
+    font-size:35px;
 }
 
 .product-img img{
+
     width:100%;
+
     height:100%;
+
     object-fit:cover;
 }
 
 .product-info{
+
     flex:1;
+
     min-width:0;
 }
 
 .product-name{
+
     font-weight:bold;
+
     margin-bottom:5px;
 }
 
 .product-info small{
+
     display:block;
+
     color:#777;
+
     margin-top:3px;
 }
 
-/* ===============================
-ORDER BOTTOM
-================================ */
+
+/* =========================
+   ORDER BOTTOM
+========================= */
 
 .order-bottom{
+
     border-top:1px solid #eee;
+
     padding-top:12px;
 
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 
     gap:10px;
 }
 
 .amount-label{
+
     color:#888;
+
     font-size:11px;
 }
 
 .amount{
+
     color:#075b3b;
+
     font-weight:bold;
+
     font-size:18px;
+
     margin-top:2px;
 }
 
 .actions{
+
     display:flex;
+
     gap:7px;
+
     flex-wrap:wrap;
+
     justify-content:flex-end;
 }
 
-/* ===============================
-BUTTON
-================================ */
+
+/* =========================
+   BUTTON
+========================= */
 
 .btn{
+
     border:1px solid #075b3b;
+
     background:#fff;
+
     color:#075b3b;
 
     border-radius:8px;
@@ -375,34 +491,77 @@ BUTTON
     padding:8px 11px;
 
     font-size:12px;
+
     text-decoration:none;
 
     cursor:pointer;
+
     font-family:inherit;
 }
 
 .btn.primary{
+
     background:#075b3b;
+
     color:#fff;
 }
 
 .btn.cancel{
+
     border-color:#c62828;
+
     color:#c62828;
+
     background:#fff;
 }
 
 .btn.cancel:hover{
+
     background:#c62828;
+
     color:#fff;
 }
 
-/* ===============================
-EMPTY
-================================ */
+.btn.disabled{
+
+    border-color:#aaa;
+
+    color:#777;
+
+    background:#f3f3f3;
+
+    cursor:not-allowed;
+}
+
+
+/* =========================
+   CANCEL INFO
+========================= */
+
+.cancel-info{
+
+    margin-top:10px;
+
+    padding:10px 12px;
+
+    background:#fff8dc;
+
+    border-radius:9px;
+
+    color:#856404;
+
+    font-size:12px;
+}
+
+
+/* =========================
+   EMPTY
+========================= */
 
 .empty{
+
     background:#fff;
+
     border-radius:16px;
 
     padding:45px 20px;
@@ -414,20 +573,26 @@ EMPTY
 }
 
 .empty-icon{
+
     font-size:55px;
 }
 
 .empty h3{
+
     color:#075b3b;
+
     margin:10px 0 5px;
 }
 
 .empty p{
+
     color:#777;
+
     font-size:13px;
 }
 
 .shop-btn{
+
     display:inline-block;
 
     margin-top:10px;
@@ -437,31 +602,39 @@ EMPTY
     border-radius:9px;
 
     background:#075b3b;
+
     color:#fff;
 
     text-decoration:none;
 }
 
-/* ===============================
-LOADING
-================================ */
+
+/* =========================
+   LOADING
+========================= */
 
 .loading{
+
     background:#fff;
+
     border-radius:16px;
 
     padding:35px;
 
     text-align:center;
+
     color:#777;
 }
 
-/* ===============================
-ERROR
-================================ */
+
+/* =========================
+   ERROR
+========================= */
 
 .error-box{
+
     background:#fff;
+
     border-radius:16px;
 
     padding:30px 20px;
@@ -473,17 +646,23 @@ ERROR
 }
 
 .error-box h3{
+
     color:#c62828;
 }
 
 .error-box p{
+
     color:#777;
+
     font-size:13px;
 }
 
 .retry-btn{
+
     border:0;
+
     background:#075b3b;
+
     color:#fff;
 
     padding:11px 20px;
@@ -493,11 +672,13 @@ ERROR
     cursor:pointer;
 }
 
-/* ===============================
-MODAL
-================================ */
+
+/* =========================
+   MODAL
+========================= */
 
 .modal{
+
     display:none;
 
     position:fixed;
@@ -514,6 +695,7 @@ MODAL
 }
 
 .modal-box{
+
     max-width:520px;
 
     margin:40px auto;
@@ -526,17 +708,22 @@ MODAL
 }
 
 .modal-box h2{
+
     margin-top:0;
+
     color:#075b3b;
 }
 
 .close{
+
     float:right;
 
     width:34px;
+
     height:34px;
 
     border:0;
+
     border-radius:50%;
 
     background:#eee;
@@ -547,6 +734,7 @@ MODAL
 }
 
 .modal-order{
+
     background:#f5f7f6;
 
     padding:13px;
@@ -557,6 +745,7 @@ MODAL
 }
 
 .modal-label{
+
     display:block;
 
     margin:12px 0 6px;
@@ -567,6 +756,7 @@ MODAL
 }
 
 .modal textarea{
+
     width:100%;
 
     min-height:100px;
@@ -585,6 +775,7 @@ MODAL
 }
 
 .submit-cancel{
+
     width:100%;
 
     margin-top:15px;
@@ -604,15 +795,26 @@ MODAL
     cursor:pointer;
 }
 
-/* ===============================
-BOTTOM NAV
-================================ */
+.submit-cancel:disabled{
+
+    opacity:.6;
+
+    cursor:not-allowed;
+}
+
+
+/* =========================
+   BOTTOM NAV
+========================= */
 
 .bottom-nav{
+
     position:fixed;
 
     left:0;
+
     right:0;
+
     bottom:0;
 
     height:67px;
@@ -622,13 +824,16 @@ BOTTOM NAV
     border-top:1px solid #ddd;
 
     display:flex;
+
     justify-content:space-around;
+
     align-items:center;
 
     z-index:100;
 }
 
 .bottom-nav a{
+
     color:#555;
 
     text-decoration:none;
@@ -639,6 +844,7 @@ BOTTOM NAV
 }
 
 .bottom-nav .icon{
+
     display:block;
 
     font-size:24px;
@@ -647,74 +853,96 @@ BOTTOM NAV
 }
 
 .bottom-nav a.active{
+
     color:#075b3b;
+
     font-weight:bold;
 }
 
-/* ===============================
-MOBILE
-================================ */
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:600px){
 
     .topbar{
+
         font-size:10px;
     }
 
     .header{
+
         padding:8px 10px;
     }
 
     .logo{
+
         width:47px;
+
         height:47px;
     }
 
     .brand h1{
+
         font-size:21px;
     }
 
     .brand p{
+
         font-size:9px;
     }
 
     .header-links{
+
         gap:6px;
     }
 
     .header-links .icon{
+
         font-size:20px;
     }
 
     .container{
+
         padding:12px;
     }
 
     .page-title h2{
+
         font-size:19px;
     }
 
     .order-head{
+
         align-items:flex-start;
     }
 
     .product-img{
+
         width:63px;
+
         height:63px;
     }
 
     .order-bottom{
+
         align-items:flex-start;
+
         flex-direction:column;
     }
 
     .actions{
+
         width:100%;
+
         justify-content:flex-start;
     }
 
     .modal-box{
+
         margin:20px auto;
+
         padding:17px;
     }
 
@@ -728,9 +956,9 @@ MOBILE
 <body>
 
 
-<!-- ===============================
+<!-- =========================
 TOP BAR
-================================ -->
+========================= -->
 
 <div class="topbar">
 
@@ -753,9 +981,9 @@ TOP BAR
 </div>
 
 
-<!-- ===============================
+<!-- =========================
 HEADER
-================================ -->
+========================= -->
 
 <header class="header">
 
@@ -813,9 +1041,9 @@ HEADER
 </header>
 
 
-<!-- ===============================
+<!-- =========================
 MAIN
-================================ -->
+========================= -->
 
 <main class="container">
 
@@ -912,9 +1140,9 @@ MAIN
 </main>
 
 
-<!-- ===============================
+<!-- =========================
 CANCEL MODAL
-================================ -->
+========================= -->
 
 <div
     class="modal"
@@ -970,11 +1198,12 @@ CANCEL MODAL
 </div>
 
 
-<!-- ===============================
+<!-- =========================
 BOTTOM NAV
-================================ -->
+========================= -->
 
 <nav class="bottom-nav">
+
 
     <a href="index.html">
 
@@ -1035,9 +1264,9 @@ BOTTOM NAV
 </nav>
 
 
-<!-- ===============================
+<!-- =========================
 FIREBASE
-================================ -->
+========================= -->
 
 <script type="module">
 
@@ -1053,16 +1282,16 @@ import {
     getFirestore,
     collection,
     getDocs,
-    addDoc,
-    serverTimestamp
+    doc,
+    setDoc
 }
 from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-/* ===============================
+/* =========================
 FIREBASE CONFIG
-================================ */
+========================= */
 
 const firebaseConfig = {
 
@@ -1097,9 +1326,9 @@ const db =
     getFirestore(app);
 
 
-/* ===============================
+/* =========================
 VARIABLES
-================================ */
+========================= */
 
 let allOrders = [];
 
@@ -1108,15 +1337,15 @@ let currentFilter = "all";
 let selectedCancelOrder = null;
 
 
-/* ===============================
-STATUS
-================================ */
+/* =========================
+STATUS NORMALIZE
+========================= */
 
 function normalizeStatus(status){
 
     let value =
         String(
-            status || "placed"
+            status || "pending"
         )
         .toLowerCase()
         .trim();
@@ -1124,7 +1353,8 @@ function normalizeStatus(status){
 
     if(
         value === "placed" ||
-        value === "order placed"
+        value === "order placed" ||
+        value === "pending"
     ){
 
         return "pending";
@@ -1178,6 +1408,10 @@ function normalizeStatus(status){
 }
 
 
+/* =========================
+STATUS TEXT
+========================= */
+
 function statusText(status){
 
     const map = {
@@ -1196,16 +1430,16 @@ function statusText(status){
 
 
     return (
-        map[status] ||
+        map[normalizeStatus(status)] ||
         status
     );
 
 }
 
 
-/* ===============================
-ESCAPE
-================================ */
+/* =========================
+ESCAPE HTML
+========================= */
 
 function escapeHtml(value){
 
@@ -1234,9 +1468,9 @@ function escapeHtml(value){
 }
 
 
-/* ===============================
+/* =========================
 DATE
-================================ */
+========================= */
 
 function formatDate(value){
 
@@ -1254,12 +1488,22 @@ function formatDate(value){
 
         if(
             value &&
-            typeof value.toDate ===
-            "function"
+            typeof value.toDate === "function"
         ){
 
             date =
                 value.toDate();
+
+        }
+        else if(
+            value &&
+            typeof value.toDate === "object"
+        ){
+
+            date =
+                new Date(
+                    value.toDate()
+                );
 
         }
         else{
@@ -1300,9 +1544,61 @@ function formatDate(value){
 }
 
 
-/* ===============================
-NUMBER
-================================ */
+/* =========================
+TIME
+========================= */
+
+function getTime(value){
+
+    if(!value){
+
+        return 0;
+
+    }
+
+
+    try{
+
+        if(
+            value &&
+            typeof value.toMillis ===
+            "function"
+        ){
+
+            return value.toMillis();
+
+        }
+
+
+        if(
+            value &&
+            typeof value.toDate ===
+            "function"
+        ){
+
+            return value.toDate().getTime();
+
+        }
+
+
+        return (
+            new Date(value).getTime()
+            || 0
+        );
+
+    }
+    catch(error){
+
+        return 0;
+
+    }
+
+}
+
+
+/* =========================
+MONEY
+========================= */
 
 function money(value){
 
@@ -1318,9 +1614,9 @@ function money(value){
 }
 
 
-/* ===============================
+/* =========================
 IMAGE
-================================ */
+========================= */
 
 function productImage(item){
 
@@ -1342,9 +1638,9 @@ function productImage(item){
 }
 
 
-/* ===============================
-LOAD FIREBASE ORDERS
-================================ */
+/* =========================
+LOAD ORDERS
+========================= */
 
 async function loadOrders(){
 
@@ -1414,17 +1710,63 @@ async function loadOrders(){
                     [];
 
 
+                /*
+                If single product data
+                exists instead of items[]
+                */
+
+                if(
+                    !items.length &&
+                    (
+                        data.productName ||
+                        data.product ||
+                        data.name
+                    )
+                ){
+
+                    items = [
+
+                        {
+
+                            name:
+                                data.productName ||
+                                data.product ||
+                                data.name,
+
+                            quantity:
+                                data.quantity ||
+                                data.qty ||
+                                1,
+
+                            price:
+                                data.price ||
+                                0,
+
+                            image:
+                                data.image ||
+                                data.imageUrl ||
+                                data.photo ||
+                                ""
+
+                        }
+
+                    ];
+
+                }
+
+
                 allOrders.push({
 
                     firestoreId:
                         orderDoc.id,
 
                     orderId:
-                        orderId,
+                        String(orderId),
 
                     status:
                         normalizeStatus(
-                            data.orderStatus
+                            data.orderStatus ||
+                            data.status
                         ),
 
                     items:
@@ -1434,12 +1776,14 @@ async function loadOrders(){
                         Number(
                             data.total ||
                             data.amount ||
+                            data.totalAmount ||
                             0
                         ),
 
                     createdAt:
                         data.createdAt ||
                         data.placedAt ||
+                        data.orderDate ||
                         null,
 
                     updatedAt:
@@ -1465,26 +1809,14 @@ async function loadOrders(){
         );
 
 
-        /* =========================
-           NEWEST FIRST
-        ========================= */
-
         allOrders.sort(
             function(a,b){
 
-                const aTime =
-                    getTime(
-                        a.createdAt
-                    );
-
-
-                const bTime =
-                    getTime(
-                        b.createdAt
-                    );
-
-
-                return bTime - aTime;
+                return (
+                    getTime(b.createdAt)
+                    -
+                    getTime(a.createdAt)
+                );
 
             }
         );
@@ -1540,59 +1872,66 @@ async function loadOrders(){
 }
 
 
-/* ===============================
-TIME
-================================ */
+/* =========================
+CHECK EXISTING CANCEL
+========================= */
 
-function getTime(value){
-
-    if(!value)
-        return 0;
-
+async function getCancelRequests(){
 
     try{
 
-        if(
-            value &&
-            typeof value.toMillis ===
-            "function"
-        ){
+        const snapshot =
+            await getDocs(
 
-            return value.toMillis();
+                collection(
+                    db,
+                    "orderCancellations"
+                )
 
-        }
-
-
-        if(
-            value &&
-            typeof value.toDate ===
-            "function"
-        ){
-
-            return value.toDate().getTime();
-
-        }
+            );
 
 
-        return new Date(
-            value
-        ).getTime() || 0;
+        const list = [];
+
+
+        snapshot.forEach(
+            function(item){
+
+                list.push({
+
+                    id:
+                        item.id,
+
+                    ...item.data()
+
+                });
+
+            }
+        );
+
+
+        return list;
 
     }
     catch(error){
 
-        return 0;
+        console.error(
+            "Cancel Request Load Error:",
+            error
+        );
+
+        return [];
 
     }
 
 }
 
 
-/* ===============================
-DISPLAY
-================================ */
+/* =========================
+DISPLAY ORDERS
+========================= */
 
-function displayOrders(){
+async function displayOrders(){
 
     const container =
         document.getElementById(
@@ -1661,28 +2000,38 @@ function displayOrders(){
     }
 
 
+    const cancelRequests =
+        await getCancelRequests();
+
+
     container.innerHTML =
         orders
         .map(
-            createOrderCard
+            function(order){
+
+                return createOrderCard(
+                    order,
+                    cancelRequests
+                );
+
+            }
         )
         .join("");
 
 }
 
 
-/* ===============================
+/* =========================
 CREATE ORDER CARD
-================================ */
+========================= */
 
-function createOrderCard(order){
+function createOrderCard(
+    order,
+    cancelRequests
+){
 
     const item =
-        order.items &&
-        order.items.length
-        ?
-        order.items[0]
-        :
+        order.items?.[0] ||
         {};
 
 
@@ -1702,9 +2051,7 @@ function createOrderCard(order){
 
 
     const image =
-        productImage(
-            item
-        );
+        productImage(item);
 
 
     const status =
@@ -1716,6 +2063,97 @@ function createOrderCard(order){
     const canCancel =
         status === "pending" ||
         status === "confirmed";
+
+
+    const cancelRequest =
+        cancelRequests.find(
+            function(request){
+
+                return (
+                    String(
+                        request.orderId
+                    ) ===
+                    String(
+                        order.orderId
+                    )
+                );
+
+            }
+        );
+
+
+    let cancelButton = "";
+
+
+    if(canCancel){
+
+        if(cancelRequest){
+
+            cancelButton = `
+
+                <button
+                    class="btn disabled"
+                    disabled>
+
+                    ⏳ Cancel Pending
+
+                </button>
+
+            `;
+
+        }
+        else{
+
+            cancelButton = `
+
+                <button
+                    class="btn cancel"
+                    onclick="openCancelModal(
+                        '${escapeHtml(
+                            order.orderId
+                        )}'
+                    )">
+
+                    ❌ Cancel Order
+
+                </button>
+
+            `;
+
+        }
+
+    }
+
+
+    let cancelInfo = "";
+
+
+    if(cancelRequest){
+
+        cancelInfo = `
+
+            <div class="cancel-info">
+
+                ⏳ Cancel Request:
+                <b>
+                    ${escapeHtml(
+                        cancelRequest.status ||
+                        "Pending"
+                    )}
+                </b>
+
+                <br>
+
+                Cancel ID:
+                ${escapeHtml(
+                    cancelRequest.id || ""
+                )}
+
+            </div>
+
+        `;
+
+    }
 
 
     return `
@@ -1748,9 +2186,7 @@ function createOrderCard(order){
                 <span
                     class="status ${status}">
 
-                    ${statusText(
-                        status
-                    )}
+                    ${statusText(status)}
 
                 </span>
 
@@ -1797,8 +2233,12 @@ function createOrderCard(order){
                         ?
                         `
                         <small>
+
                             Price:
-                            ${money(item.price)}
+                            ${money(
+                                item.price
+                            )}
+
                         </small>
                         `
                         :
@@ -1841,6 +2281,7 @@ function createOrderCard(order){
 
                 <div class="actions">
 
+
                     <a
                         href="order-tracking.html?order=${encodeURIComponent(
                             order.orderId
@@ -1852,25 +2293,7 @@ function createOrderCard(order){
                     </a>
 
 
-                    ${
-                        canCancel
-                        ?
-                        `
-                        <button
-                            class="btn cancel"
-                            onclick="openCancelModal(
-                                '${escapeHtml(
-                                    order.orderId
-                                )}'
-                            )">
-
-                            ❌ Cancel Order
-
-                        </button>
-                        `
-                        :
-                        ""
-                    }
+                    ${cancelButton}
 
 
                     <button
@@ -1885,9 +2308,13 @@ function createOrderCard(order){
 
                     </button>
 
+
                 </div>
 
             </div>
+
+
+            ${cancelInfo}
 
         </div>
 
@@ -1896,9 +2323,9 @@ function createOrderCard(order){
 }
 
 
-/* ===============================
+/* =========================
 FILTER
-================================ */
+========================= */
 
 window.filterOrders =
 function(
@@ -1935,9 +2362,9 @@ function(
 };
 
 
-/* ===============================
+/* =========================
 VIEW ORDER
-================================ */
+========================= */
 
 window.viewOrder =
 function(orderId){
@@ -1947,16 +2374,25 @@ function(orderId){
             function(item){
 
                 return (
-                    item.orderId ===
-                    orderId
+                    String(
+                        item.orderId
+                    ) ===
+                    String(orderId)
                 );
 
             }
         );
 
 
-    if(!order)
+    if(!order){
+
+        alert(
+            "Order ମିଳିଲା ନାହିଁ।"
+        );
+
         return;
+
+    }
 
 
     const item =
@@ -2005,9 +2441,7 @@ function(orderId){
 
         "Status: " +
         statusText(
-            normalizeStatus(
-                order.status
-            )
+            order.status
         )
 
     );
@@ -2015,20 +2449,22 @@ function(orderId){
 };
 
 
-/* ===============================
-OPEN CANCEL
-================================ */
+/* =========================
+OPEN CANCEL MODAL
+========================= */
 
 window.openCancelModal =
-function(orderId){
+async function(orderId){
 
     const order =
         allOrders.find(
             function(item){
 
                 return (
-                    item.orderId ===
-                    orderId
+                    String(
+                        item.orderId
+                    ) ===
+                    String(orderId)
                 );
 
             }
@@ -2066,6 +2502,48 @@ function(orderId){
     }
 
 
+    /*
+    Check existing request
+    */
+
+    const requests =
+        await getCancelRequests();
+
+
+    const existing =
+        requests.find(
+            function(request){
+
+                return (
+                    String(
+                        request.orderId
+                    ) ===
+                    String(
+                        order.orderId
+                    ) &&
+
+                    String(
+                        request.status
+                    ).toLowerCase()
+                    !==
+                    "rejected"
+                );
+
+            }
+        );
+
+
+    if(existing){
+
+        alert(
+            "ଏହି Order ପାଇଁ Cancel Request ପୂର୍ବରୁ ପଠାଯାଇଛି।"
+        );
+
+        return;
+
+    }
+
+
     selectedCancelOrder =
         order;
 
@@ -2082,6 +2560,14 @@ function(orderId){
         "Product";
 
 
+    const quantity =
+        Number(
+            item.quantity ||
+            item.qty ||
+            1
+        );
+
+
     document.getElementById(
         "cancelOrderDetails"
     ).innerHTML = `
@@ -2096,6 +2582,11 @@ function(orderId){
 
         Product:
         ${escapeHtml(name)}
+
+        <br>
+
+        Quantity:
+        ${quantity}
 
         <br>
 
@@ -2120,9 +2611,9 @@ function(orderId){
 };
 
 
-/* ===============================
-CLOSE CANCEL
-================================ */
+/* =========================
+CLOSE CANCEL MODAL
+========================= */
 
 window.closeCancelModal =
 function(){
@@ -2139,9 +2630,9 @@ function(){
 };
 
 
-/* ===============================
+/* =========================
 SUBMIT CANCEL REQUEST
-================================ */
+========================= */
 
 window.submitCancelRequest =
 async function(){
@@ -2193,15 +2684,47 @@ async function(){
 
     try{
 
+        const item =
+            selectedCancelOrder
+            .items?.[0] ||
+            {};
+
+
+        const cancelId =
+            "CNL" +
+            Date.now();
+
+
+        /*
+        IMPORTANT:
+        All required Firebase
+        Rules fields included.
+        */
+
         const request = {
 
+            id:
+                cancelId,
+
             orderId:
-                selectedCancelOrder.orderId,
+                String(
+                    selectedCancelOrder.orderId
+                ),
 
             product:
-                selectedCancelOrder
-                .items?.[0]?.name ||
-                "Product",
+                String(
+                    item.name ||
+                    item.productName ||
+                    item.title ||
+                    "Product"
+                ),
+
+            quantity:
+                Number(
+                    item.quantity ||
+                    item.qty ||
+                    1
+                ),
 
             amount:
                 Number(
@@ -2210,7 +2733,7 @@ async function(){
                 ),
 
             reason:
-                reason,
+                String(reason),
 
             status:
                 "Pending",
@@ -2232,14 +2755,27 @@ async function(){
         };
 
 
-        await addDoc(
+        /*
+        SAVE TO:
+        orderCancellations
 
-            collection(
+        Document ID:
+        CNL + timestamp
+        */
+
+        await setDoc(
+
+            doc(
                 db,
-                "orderCancellations"
+                "orderCancellations",
+                cancelId
             ),
 
-            request
+            request,
+
+            {
+                merge:true
+            }
 
         );
 
@@ -2252,17 +2788,23 @@ async function(){
         closeCancelModal();
 
 
+        /*
+        Refresh order list
+        */
+
+        displayOrders();
+
     }
     catch(error){
 
         console.error(
-            "Cancel Error:",
+            "Cancel Request Error:",
             error
         );
 
 
         alert(
-            "❌ Cancel Request save ହୋଇନାହିଁ। Firebase Rules check କରନ୍ତୁ।"
+            "❌ Cancel Request save ହୋଇନାହିଁ।\n\nFirebase Rules କିମ୍ବା Firestore permission check କରନ୍ତୁ।"
         );
 
     }
@@ -2278,9 +2820,9 @@ async function(){
 };
 
 
-/* ===============================
-MODAL OUTSIDE CLICK
-================================ */
+/* =========================
+OUTSIDE MODAL CLICK
+========================= */
 
 window.onclick =
 function(event){
@@ -2303,9 +2845,9 @@ function(event){
 };
 
 
-/* ===============================
+/* =========================
 START
-================================ */
+========================= */
 
 loadOrders();
 
