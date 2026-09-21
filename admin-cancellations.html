@@ -215,6 +215,47 @@ body{
 
 
 /* =====================================
+   SEARCH
+===================================== */
+
+.search-box{
+
+    background:#fff;
+
+    padding:12px;
+
+    border-radius:13px;
+
+    margin-bottom:16px;
+
+    box-shadow:
+        0 2px 7px rgba(0,0,0,.05);
+}
+
+.search-box input{
+
+    width:100%;
+
+    padding:11px 13px;
+
+    border:1px solid #ddd;
+
+    border-radius:9px;
+
+    font-family:inherit;
+
+    font-size:14px;
+
+    outline:none;
+}
+
+.search-box input:focus{
+
+    border-color:#075b3b;
+}
+
+
+/* =====================================
    FILTER
 ===================================== */
 
@@ -253,6 +294,8 @@ body{
     cursor:pointer;
 
     font-size:12px;
+
+    font-family:inherit;
 }
 
 .filter button.active{
@@ -260,47 +303,6 @@ body{
     background:#075b3b;
 
     color:#fff;
-
-    border-color:#075b3b;
-}
-
-
-/* =====================================
-   SEARCH
-===================================== */
-
-.search-box{
-
-    background:#fff;
-
-    padding:12px;
-
-    border-radius:13px;
-
-    margin-bottom:16px;
-
-    box-shadow:
-        0 2px 7px rgba(0,0,0,.05);
-}
-
-.search-box input{
-
-    width:100%;
-
-    padding:11px 13px;
-
-    border:1px solid #ddd;
-
-    border-radius:9px;
-
-    font-family:inherit;
-
-    font-size:14px;
-
-    outline:none;
-}
-
-.search-box input:focus{
 
     border-color:#075b3b;
 }
@@ -479,6 +481,8 @@ body{
     color:#555;
 
     line-height:1.5;
+
+    word-break:break-word;
 }
 
 
@@ -620,6 +624,10 @@ body{
     display:none;
 
     z-index:9999;
+
+    max-width:90%;
+
+    text-align:center;
 }
 
 
@@ -664,6 +672,61 @@ body{
     .page-title h1{
 
         font-size:20px;
+    }
+
+    .header-right{
+
+        gap:4px;
+    }
+
+    .header-btn{
+
+        padding:6px 7px;
+
+        font-size:10px;
+    }
+
+}
+
+
+/* =====================================
+   SMALL MOBILE
+===================================== */
+
+@media(max-width:420px){
+
+    .stats{
+
+        gap:8px;
+    }
+
+    .stat{
+
+        padding:12px;
+    }
+
+    .stat-icon{
+
+        font-size:21px;
+    }
+
+    .stat-value{
+
+        font-size:19px;
+    }
+
+    .header{
+
+        align-items:flex-start;
+
+        gap:8px;
+    }
+
+    .header-right{
+
+        flex-wrap:wrap;
+
+        justify-content:flex-end;
     }
 
 }
@@ -993,7 +1056,7 @@ const firebaseConfig = {
 
 
 /* =====================================
-   INIT
+   INITIALIZE
 ===================================== */
 
 const app =
@@ -1064,15 +1127,17 @@ function showMessage(
 
 
 /* =====================================
-   AUTH CHECK
+   AUTH CHECK - FIXED
 ===================================== */
 
 onAuthStateChanged(
 
     auth,
 
-    async user => {
+    async (user) => {
 
+
+        /* NOT LOGGED IN */
 
         if(!user){
 
@@ -1084,23 +1149,75 @@ onAuthStateChanged(
         }
 
 
+        /* FIREBASE USER EMAIL */
+
+        const loginEmail =
+            String(
+                user.email || ""
+            )
+            .trim()
+            .toLowerCase();
+
+
+        /* ADMIN EMAIL */
+
+        const adminEmail =
+            String(
+                ADMIN_EMAIL
+            )
+            .trim()
+            .toLowerCase();
+
+
+        console.log(
+            "Firebase Login:",
+            loginEmail
+        );
+
+        console.log(
+            "Required Admin:",
+            adminEmail
+        );
+
+
+        /* ADMIN VERIFY */
+
         if(
-            user.email !==
-            ADMIN_EMAIL
+            loginEmail !==
+            adminEmail
         ){
 
-            await signOut(auth);
+            console.error(
+                "Admin Email Mismatch"
+            );
+
+
+            await signOut(
+                auth
+            );
+
 
             alert(
-                "Admin access ନାହିଁ।"
+                "❌ Admin access ନାହିଁ।"
             );
+
 
             window.location.href =
                 "admin-login.html";
 
+
             return;
 
         }
+
+
+        /* =================================
+           ADMIN VERIFIED
+        ================================= */
+
+        console.log(
+            "✅ ADMIN VERIFIED"
+        );
 
 
         loadRequests();
@@ -1164,6 +1281,8 @@ async function loadRequests(){
             }
         );
 
+
+        /* NEWEST FIRST */
 
         requests.sort(
 
@@ -1241,24 +1360,33 @@ function updateStats(){
     const pending =
         requests.filter(
             item =>
-                item.status ===
-                "Pending"
+                String(
+                    item.status || ""
+                )
+                .toLowerCase() ===
+                "pending"
         ).length;
 
 
     const approved =
         requests.filter(
             item =>
-                item.status ===
-                "Approved"
+                String(
+                    item.status || ""
+                )
+                .toLowerCase() ===
+                "approved"
         ).length;
 
 
     const rejected =
         requests.filter(
             item =>
-                item.status ===
-                "Rejected"
+                String(
+                    item.status || ""
+                )
+                .toLowerCase() ===
+                "rejected"
         ).length;
 
 
@@ -1325,6 +1453,43 @@ function(
 
 
 /* =====================================
+   ESCAPE HTML
+===================================== */
+
+function escapeHtml(
+    value
+){
+
+    return String(
+        value ?? ""
+    )
+    .replace(
+        /[&<>"']/g,
+        function(match){
+
+            const map = {
+
+                "&":"&amp;",
+
+                "<":"&lt;",
+
+                ">":"&gt;",
+
+                '"':"&quot;",
+
+                "'":"&#039;"
+
+            };
+
+            return map[match];
+
+        }
+    );
+
+}
+
+
+/* =====================================
    RENDER REQUESTS
 ===================================== */
 
@@ -1340,7 +1505,8 @@ function(){
     const search =
         document.getElementById(
             "searchInput"
-        ).value
+        )
+        .value
         .trim()
         .toLowerCase();
 
@@ -1350,6 +1516,14 @@ function(){
             item => {
 
 
+                const itemStatus =
+                    String(
+                        item.status ||
+                        "Pending"
+                    )
+                    .trim();
+
+
                 const matchesFilter =
 
                     currentFilter ===
@@ -1357,7 +1531,7 @@ function(){
 
                     ||
 
-                    item.status ===
+                    itemStatus ===
                     currentFilter;
 
 
@@ -1377,7 +1551,8 @@ function(){
 
                     (item.id || "")
 
-                ).toLowerCase();
+                )
+                .toLowerCase();
 
 
                 const matchesSearch =
@@ -1397,6 +1572,8 @@ function(){
             }
         );
 
+
+    /* NO REQUEST */
 
     if(
         filtered.length ===
@@ -1429,9 +1606,19 @@ function(){
     }
 
 
+    /* REQUEST CARDS */
+
     container.innerHTML =
-        filtered.map(
+        filtered
+        .map(
             item => {
+
+
+                const itemStatus =
+                    String(
+                        item.status ||
+                        "Pending"
+                    );
 
 
                 let statusClass =
@@ -1439,7 +1626,7 @@ function(){
 
 
                 if(
-                    item.status ===
+                    itemStatus ===
                     "Approved"
                 ){
 
@@ -1450,7 +1637,7 @@ function(){
 
 
                 if(
-                    item.status ===
+                    itemStatus ===
                     "Rejected"
                 ){
 
@@ -1464,8 +1651,10 @@ function(){
                     "";
 
 
+                /* PENDING */
+
                 if(
-                    item.status ===
+                    itemStatus ===
                     "Pending"
                 ){
 
@@ -1474,7 +1663,9 @@ function(){
                         <button
                             class="btn approve-btn"
                             onclick="approveRequest(
-                                '${item.firestoreId}'
+                                '${escapeHtml(
+                                    item.firestoreId
+                                )}'
                             )">
 
                             ✅ Approve Cancel
@@ -1485,7 +1676,9 @@ function(){
                         <button
                             class="btn reject-btn"
                             onclick="rejectRequest(
-                                '${item.firestoreId}'
+                                '${escapeHtml(
+                                    item.firestoreId
+                                )}'
                             )">
 
                             ❌ Reject
@@ -1497,8 +1690,10 @@ function(){
                 }
 
 
+                /* APPROVED */
+
                 if(
-                    item.status ===
+                    itemStatus ===
                     "Approved"
                 ){
 
@@ -1507,7 +1702,9 @@ function(){
                         <button
                             class="btn delete-btn"
                             onclick="deleteRequest(
-                                '${item.firestoreId}'
+                                '${escapeHtml(
+                                    item.firestoreId
+                                )}'
                             )">
 
                             🗑️ Delete
@@ -1519,8 +1716,10 @@ function(){
                 }
 
 
+                /* REJECTED */
+
                 if(
-                    item.status ===
+                    itemStatus ===
                     "Rejected"
                 ){
 
@@ -1529,7 +1728,9 @@ function(){
                         <button
                             class="btn delete-btn"
                             onclick="deleteRequest(
-                                '${item.firestoreId}'
+                                '${escapeHtml(
+                                    item.firestoreId
+                                )}'
                             )">
 
                             🗑️ Delete
@@ -1554,7 +1755,9 @@ function(){
                             <div class="request-id">
 
                                 Cancel ID:
-                                ${item.id || "-"}
+                                ${escapeHtml(
+                                    item.id || "-"
+                                )}
 
                             </div>
 
@@ -1562,7 +1765,9 @@ function(){
                             <div class="request-date">
 
                                 📅
-                                ${item.date || "-"}
+                                ${escapeHtml(
+                                    item.date || "-"
+                                )}
 
                             </div>
 
@@ -1573,10 +1778,9 @@ function(){
                             class="status
                             ${statusClass}">
 
-                            ${
-                                item.status ||
-                                "Pending"
-                            }
+                            ${escapeHtml(
+                                itemStatus
+                            )}
 
                         </span>
 
@@ -1595,7 +1799,9 @@ function(){
 
                             <div class="detail-value">
 
-                                #${item.orderId || "-"}
+                                #${escapeHtml(
+                                    item.orderId || "-"
+                                )}
 
                             </div>
 
@@ -1610,7 +1816,9 @@ function(){
 
                             <div class="detail-value">
 
-                                ${item.product || "-"}
+                                ${escapeHtml(
+                                    item.product || "-"
+                                )}
 
                             </div>
 
@@ -1625,7 +1833,9 @@ function(){
 
                             <div class="detail-value">
 
-                                ${item.quantity || 0}
+                                ${escapeHtml(
+                                    item.quantity || 1
+                                )}
 
                             </div>
 
@@ -1641,7 +1851,9 @@ function(){
                             <div
                                 class="detail-value amount">
 
-                                ${item.amount || "₹0"}
+                                ${escapeHtml(
+                                    item.amount || "₹0"
+                                )}
 
                             </div>
 
@@ -1662,10 +1874,10 @@ function(){
 
                         <div class="reason-text">
 
-                            ${
+                            ${escapeHtml(
                                 item.reason ||
                                 "କୌଣସି reason ନାହିଁ"
-                            }
+                            )}
 
                         </div>
 
@@ -1684,13 +1896,14 @@ function(){
                 `;
 
             }
-        ).join("");
+        )
+        .join("");
 
 };
 
 
 /* =====================================
-   APPROVE
+   APPROVE REQUEST
 ===================================== */
 
 window.approveRequest =
@@ -1707,6 +1920,10 @@ async function(
 
 
     if(!request){
+
+        alert(
+            "Request ମିଳିଲା ନାହିଁ।"
+        );
 
         return;
 
@@ -1733,6 +1950,11 @@ async function(
 
     try{
 
+
+        /* =================================
+           UPDATE CANCEL REQUEST
+        ================================= */
+
         await updateDoc(
 
             doc(
@@ -1754,12 +1976,93 @@ async function(
         );
 
 
-        /*
-        Customer order status
-        ଏଠାରେ ଏବେ demoOrders
-        ଥିବାରୁ orders collection
-        update କରାଯାଉନାହିଁ।
-        */
+        /* =================================
+           UPDATE CUSTOMER ORDER
+           orderTracking
+        ================================= */
+
+        try{
+
+            const orderSnapshot =
+                await getDocs(
+
+                    collection(
+                        db,
+                        "orderTracking"
+                    )
+
+                );
+
+
+            let foundOrderId =
+                null;
+
+
+            orderSnapshot.forEach(
+                orderDoc => {
+
+                    const data =
+                        orderDoc.data();
+
+
+                    if(
+                        String(
+                            data.orderId ||
+                            ""
+                        ) ===
+                        String(
+                            request.orderId ||
+                            ""
+                        )
+                    ){
+
+                        foundOrderId =
+                            orderDoc.id;
+
+                    }
+
+                }
+            );
+
+
+            if(foundOrderId){
+
+                await updateDoc(
+
+                    doc(
+                        db,
+                        "orderTracking",
+                        foundOrderId
+                    ),
+
+                    {
+
+                        orderStatus:
+                            "cancelled",
+
+                        cancelledAt:
+                            new Date()
+                            .toISOString(),
+
+                        updatedAt:
+                            new Date()
+                            .toISOString()
+
+                    }
+
+                );
+
+            }
+
+        }
+        catch(orderError){
+
+            console.error(
+                "Order Tracking Update Error:",
+                orderError
+            );
+
+        }
 
 
         showMessage(
@@ -1780,7 +2083,7 @@ async function(
 
 
         alert(
-            "Approve କରିବାରେ error ହେଲା।"
+            "❌ Approve କରିବାରେ error ହେଲା।"
         );
 
     }
@@ -1789,7 +2092,7 @@ async function(
 
 
 /* =====================================
-   REJECT
+   REJECT REQUEST
 ===================================== */
 
 window.rejectRequest =
@@ -1832,6 +2135,7 @@ async function(
 
     try{
 
+
         await updateDoc(
 
             doc(
@@ -1871,7 +2175,7 @@ async function(
 
 
         alert(
-            "Reject କରିବାରେ error ହେଲା।"
+            "❌ Reject କରିବାରେ error ହେଲା।"
         );
 
     }
@@ -1880,7 +2184,7 @@ async function(
 
 
 /* =====================================
-   DELETE
+   DELETE REQUEST
 ===================================== */
 
 window.deleteRequest =
@@ -1904,6 +2208,7 @@ async function(
 
 
     try{
+
 
         await deleteDoc(
 
@@ -1934,7 +2239,7 @@ async function(
 
 
         alert(
-            "Delete କରିବାରେ error ହେଲା।"
+            "❌ Delete କରିବାରେ error ହେଲା।"
         );
 
     }
