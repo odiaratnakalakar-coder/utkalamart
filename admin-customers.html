@@ -1,0 +1,1906 @@
+<!DOCTYPE html>
+<html lang="or">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width,initial-scale=1.0">
+
+<meta name="theme-color"
+      content="#075b3b">
+
+<title>Utkala Mart - Customer Management</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:
+        Arial,
+        "Noto Sans Odia",
+        "Noto Sans Oriya",
+        "Nirmala UI",
+        sans-serif;
+
+    background:#f4f7f5;
+    color:#222;
+}
+
+button{
+    font:inherit;
+    cursor:pointer;
+}
+
+
+/* HEADER */
+
+.header{
+
+    background:#075b3b;
+    color:#fff;
+
+    padding:15px 4%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:15px;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,.15);
+}
+
+.header h1{
+    font-size:23px;
+    font-weight:900;
+}
+
+.header p{
+    margin-top:4px;
+    font-size:12px;
+    opacity:.9;
+}
+
+.dashboardBtn{
+
+    border:0;
+
+    background:white;
+    color:#075b3b;
+
+    padding:12px 18px;
+
+    border-radius:10px;
+
+    font-weight:900;
+}
+
+
+/* CONTAINER */
+
+.container{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:18px;
+}
+
+
+/* ADMIN BOX */
+
+.adminBox{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:18px;
+
+    margin-bottom:18px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+
+    box-shadow:
+        0 3px 12px rgba(0,0,0,.07);
+}
+
+.adminBox h2{
+
+    color:#075b3b;
+
+    font-size:20px;
+}
+
+.adminEmail{
+
+    margin-top:5px;
+
+    color:#777;
+
+    font-size:13px;
+}
+
+.logoutBtn{
+
+    border:0;
+
+    background:#dc3545;
+
+    color:white;
+
+    padding:11px 17px;
+
+    border-radius:9px;
+
+    font-weight:900;
+}
+
+
+/* STATS */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:12px;
+
+    margin-bottom:18px;
+}
+
+.stat{
+
+    background:white;
+
+    padding:18px 10px;
+
+    border-radius:14px;
+
+    text-align:center;
+
+    box-shadow:
+        0 3px 12px rgba(0,0,0,.07);
+}
+
+.statIcon{
+
+    font-size:28px;
+
+    margin-bottom:5px;
+}
+
+.statValue{
+
+    color:#075b3b;
+
+    font-size:27px;
+
+    font-weight:900;
+}
+
+.statLabel{
+
+    color:#777;
+
+    margin-top:4px;
+
+    font-size:12px;
+}
+
+
+/* SEARCH */
+
+.searchBox{
+
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid #ccc;
+
+    border-radius:11px;
+
+    font-size:15px;
+
+    margin-bottom:18px;
+
+    outline:none;
+}
+
+.searchBox:focus{
+
+    border-color:#075b3b;
+}
+
+
+/* SECTION */
+
+.sectionTitle{
+
+    background:#07845f;
+
+    color:white;
+
+    padding:13px;
+
+    border-radius:11px 11px 0 0;
+
+    font-size:18px;
+
+    font-weight:900;
+}
+
+
+/* CUSTOMER GRID */
+
+.customerGrid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:15px;
+
+    margin-top:15px;
+}
+
+
+/* CUSTOMER CARD */
+
+.customerCard{
+
+    background:white;
+
+    border-radius:14px;
+
+    padding:17px;
+
+    box-shadow:
+        0 3px 12px rgba(0,0,0,.08);
+
+    border-left:
+        5px solid #07845f;
+}
+
+.customerTop{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+    align-items:flex-start;
+
+    border-bottom:
+        1px solid #eee;
+
+    padding-bottom:12px;
+
+    margin-bottom:12px;
+}
+
+.customerName{
+
+    color:#075b3b;
+
+    font-size:20px;
+
+    font-weight:900;
+}
+
+.customerId{
+
+    color:#888;
+
+    font-size:11px;
+
+    margin-top:4px;
+
+    word-break:break-all;
+}
+
+.customerBadge{
+
+    background:#e6f7ee;
+
+    color:#087d5b;
+
+    padding:6px 9px;
+
+    border-radius:20px;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    white-space:nowrap;
+}
+
+
+/* INFO */
+
+.infoRow{
+
+    display:flex;
+
+    gap:8px;
+
+    padding:7px 0;
+
+    font-size:14px;
+
+    line-height:1.5;
+}
+
+.infoIcon{
+
+    width:25px;
+
+    flex-shrink:0;
+
+}
+
+.infoLabel{
+
+    color:#777;
+
+}
+
+.infoValue{
+
+    font-weight:700;
+
+    word-break:break-word;
+}
+
+
+/* ORDER SUMMARY */
+
+.orderSummary{
+
+    margin-top:12px;
+
+    background:#f5faf7;
+
+    border:
+        1px solid #dcece4;
+
+    border-radius:10px;
+
+    padding:12px;
+}
+
+.orderSummaryTitle{
+
+    color:#075b3b;
+
+    font-weight:900;
+
+    margin-bottom:8px;
+}
+
+.summaryRow{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:5px 0;
+
+    font-size:13px;
+}
+
+.summaryRow strong{
+
+    color:#075b3b;
+}
+
+
+/* ACTION */
+
+.actions{
+
+    display:flex;
+
+    gap:8px;
+
+    margin-top:12px;
+}
+
+.actionBtn{
+
+    flex:1;
+
+    border:0;
+
+    padding:10px;
+
+    border-radius:8px;
+
+    font-weight:900;
+}
+
+.callBtn{
+
+    background:#07845f;
+
+    color:white;
+}
+
+.ordersBtn{
+
+    background:#1769aa;
+
+    color:white;
+}
+
+
+/* EMPTY */
+
+.empty{
+
+    background:white;
+
+    padding:35px 20px;
+
+    text-align:center;
+
+    color:#777;
+
+    border-radius:
+        0 0 11px 11px;
+}
+
+
+/* LOADING */
+
+.loading{
+
+    background:white;
+
+    padding:30px;
+
+    text-align:center;
+
+    color:#777;
+}
+
+
+/* ERROR */
+
+.errorBox{
+
+    background:#fff0f0;
+
+    color:#b00020;
+
+    padding:18px;
+
+    border-radius:10px;
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .stats{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .customerGrid{
+
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .header{
+
+        padding:12px;
+
+        align-items:flex-start;
+    }
+
+    .header h1{
+
+        font-size:18px;
+    }
+
+    .header p{
+
+        font-size:10px;
+    }
+
+    .dashboardBtn{
+
+        padding:9px 11px;
+
+        font-size:11px;
+    }
+
+    .container{
+
+        padding:12px;
+    }
+
+    .adminBox{
+
+        align-items:flex-start;
+    }
+
+    .adminBox h2{
+
+        font-size:17px;
+    }
+
+    .logoutBtn{
+
+        padding:9px 11px;
+
+        font-size:11px;
+    }
+
+    .customerName{
+
+        font-size:18px;
+    }
+
+    .infoRow{
+
+        font-size:13px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <div>
+
+        <h1>
+            👥 Utkala Mart - Customer Management
+        </h1>
+
+        <p>
+            Office / Admin Management
+        </p>
+
+    </div>
+
+
+    <button
+        class="dashboardBtn"
+        onclick="goDashboard()">
+
+        ← Dashboard
+
+    </button>
+
+</header>
+
+
+<div class="container">
+
+
+<!-- ADMIN -->
+
+<div class="adminBox">
+
+    <div>
+
+        <h2>
+            👥 Customer Management
+        </h2>
+
+        <div class="adminEmail">
+
+            Admin:
+            <span id="adminEmail">
+                Loading...
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <button
+        class="logoutBtn"
+        onclick="logout()">
+
+        🚪 Logout
+
+    </button>
+
+</div>
+
+
+<!-- STATS -->
+
+<div class="stats">
+
+
+    <div class="stat">
+
+        <div class="statIcon">
+            👥
+        </div>
+
+        <div
+            id="totalCustomers"
+            class="statValue">
+
+            0
+
+        </div>
+
+        <div class="statLabel">
+            Total Customers
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="statIcon">
+            📦
+        </div>
+
+        <div
+            id="totalOrders"
+            class="statValue">
+
+            0
+
+        </div>
+
+        <div class="statLabel">
+            Total Orders
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="statIcon">
+            💰
+        </div>
+
+        <div
+            id="totalSales"
+            class="statValue">
+
+            ₹0
+
+        </div>
+
+        <div class="statLabel">
+            Total Order Value
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="statIcon">
+            📱
+        </div>
+
+        <div
+            id="mobileCustomers"
+            class="statValue">
+
+            0
+
+        </div>
+
+        <div class="statLabel">
+            Mobile Customers
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- SEARCH -->
+
+<input
+    id="searchBox"
+    class="searchBox"
+    type="search"
+    placeholder="🔎 Customer / Mobile / Email search..."
+>
+
+
+<!-- CUSTOMER SECTION -->
+
+<div class="sectionTitle">
+
+    👥 Customers
+
+</div>
+
+
+<div id="customerArea">
+
+    <div class="loading">
+
+        ⏳ Customer data loading...
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+<script type="module">
+
+
+/* =====================================================
+   FIREBASE
+===================================================== */
+
+import {
+    initializeApp
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import {
+    getAuth,
+    onAuthStateChanged,
+    signOut
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+import {
+    getFirestore,
+    collection,
+    getDocs
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =====================================================
+   CONFIG
+===================================================== */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyBYJ_KKsS_7SNz108jnw6hpOlmegofRhJg",
+
+    authDomain:
+        "utkalamart-1ec68.firebaseapp.com",
+
+    projectId:
+        "utkalamart-1ec68",
+
+    storageBucket:
+        "utkalamart-1ec68.firebasestorage.app",
+
+    messagingSenderId:
+        "664871353747",
+
+    appId:
+        "1:664871353747:web:96532fdafe78aabe7f3c66"
+
+};
+
+
+/* =====================================================
+   INIT
+===================================================== */
+
+const app =
+    initializeApp(
+        firebaseConfig
+    );
+
+const auth =
+    getAuth(app);
+
+const db =
+    getFirestore(app);
+
+
+/* =====================================================
+   ADMIN
+===================================================== */
+
+const ADMIN_EMAIL =
+    "Suryakantabehera629@gmail.com";
+
+
+/* =====================================================
+   DATA
+===================================================== */
+
+let customers = [];
+
+let orders = [];
+
+
+/* =====================================================
+   AUTH
+===================================================== */
+
+onAuthStateChanged(
+    auth,
+    async function(user){
+
+        if(!user){
+
+            window.location.href =
+                "admin-login.html";
+
+            return;
+
+        }
+
+
+        const email =
+            String(
+                user.email || ""
+            ).toLowerCase();
+
+
+        if(
+            email !==
+            ADMIN_EMAIL.toLowerCase()
+        ){
+
+            await signOut(auth);
+
+            window.location.href =
+                "admin-login.html";
+
+            return;
+
+        }
+
+
+        document.getElementById(
+            "adminEmail"
+        ).textContent =
+            user.email;
+
+
+        loadCustomers();
+
+    }
+);
+
+
+/* =====================================================
+   LOAD CUSTOMERS
+===================================================== */
+
+async function loadCustomers(){
+
+    const area =
+        document.getElementById(
+            "customerArea"
+        );
+
+    area.innerHTML =
+        `<div class="loading">
+            ⏳ Customer data loading...
+        </div>`;
+
+
+    customers = [];
+
+    orders = [];
+
+
+    try{
+
+
+        /* =================================================
+           LOAD ORDERS
+        ================================================= */
+
+        const orderSnap =
+            await getDocs(
+                collection(
+                    db,
+                    "orders"
+                )
+            );
+
+
+        orderSnap.forEach(
+            function(orderDoc){
+
+                orders.push({
+
+                    id:
+                        orderDoc.id,
+
+                    ...orderDoc.data()
+
+                });
+
+            }
+        );
+
+
+        /* =================================================
+           CUSTOMER MAP
+        ================================================= */
+
+        const customerMap =
+            new Map();
+
+
+        orders.forEach(
+            function(order){
+
+                const name =
+                    getCustomerName(
+                        order
+                    );
+
+                const mobile =
+                    getMobile(
+                        order
+                    );
+
+                const email =
+                    getEmail(
+                        order
+                    );
+
+                const address =
+                    getAddress(
+                        order
+                    );
+
+                const key =
+                    mobile ||
+                    email ||
+                    name;
+
+
+                if(!key){
+                    return;
+                }
+
+
+                if(
+                    !customerMap.has(
+                        key
+                    )
+                ){
+
+                    customerMap.set(
+                        key,
+                        {
+
+                            id:key,
+
+                            name:
+                                name ||
+                                "Unknown Customer",
+
+                            mobile:
+                                mobile,
+
+                            email:
+                                email,
+
+                            address:
+                                address,
+
+                            orderCount:0,
+
+                            totalValue:0,
+
+                            lastOrder:""
+
+                        }
+                    );
+
+                }
+
+
+                const customer =
+                    customerMap.get(
+                        key
+                    );
+
+
+                customer.orderCount++;
+
+
+                customer.totalValue +=
+                    getOrderAmount(
+                        order
+                    );
+
+
+                const date =
+                    getOrderDate(
+                        order
+                    );
+
+
+                if(
+                    date &&
+                    (
+                        !customer.lastOrder ||
+                        date >
+                        customer.lastOrder
+                    )
+                ){
+
+                    customer.lastOrder =
+                        date;
+
+                }
+
+
+                if(
+                    !customer.mobile &&
+                    mobile
+                ){
+
+                    customer.mobile =
+                        mobile;
+
+                }
+
+
+                if(
+                    !customer.email &&
+                    email
+                ){
+
+                    customer.email =
+                        email;
+
+                }
+
+
+                if(
+                    !customer.address &&
+                    address
+                ){
+
+                    customer.address =
+                        address;
+
+                }
+
+            }
+        );
+
+
+        customers =
+            Array.from(
+                customerMap.values()
+            );
+
+
+        updateStats();
+
+        renderCustomers();
+
+
+    }catch(error){
+
+        console.error(
+            error
+        );
+
+
+        area.innerHTML =
+            `<div class="errorBox">
+
+                ❌ Customer data load ହେଲା ନାହିଁ।
+
+                <br><br>
+
+                Firebase Firestore permission
+                ଯାଞ୍ଚ କରନ୍ତୁ।
+
+            </div>`;
+
+    }
+
+}
+
+
+/* =====================================================
+   CUSTOMER NAME
+===================================================== */
+
+function getCustomerName(order){
+
+    return (
+        order.customerName ||
+        order.customer ||
+        order.name ||
+        order.fullName ||
+        order.userName ||
+        order.buyerName ||
+        ""
+    );
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+function getMobile(order){
+
+    return (
+        order.mobile ||
+        order.phone ||
+        order.customerMobile ||
+        order.customerPhone ||
+        order.mobileNumber ||
+        ""
+    );
+
+}
+
+
+/* =====================================================
+   EMAIL
+===================================================== */
+
+function getEmail(order){
+
+    return (
+        order.email ||
+        order.customerEmail ||
+        order.userEmail ||
+        ""
+    );
+
+}
+
+
+/* =====================================================
+   ADDRESS
+===================================================== */
+
+function getAddress(order){
+
+    if(
+        typeof order.address ===
+        "string"
+    ){
+
+        return order.address;
+
+    }
+
+
+    if(
+        order.address &&
+        typeof order.address ===
+        "object"
+    ){
+
+        return [
+
+            order.address.address,
+
+            order.address.area,
+
+            order.address.city,
+
+            order.address.district,
+
+            order.address.state,
+
+            order.address.pincode,
+
+            order.address.pin
+
+        ]
+        .filter(Boolean)
+        .join(", ");
+
+    }
+
+
+    return (
+
+        order.deliveryAddress ||
+
+        order.fullAddress ||
+
+        ""
+
+    );
+
+}
+
+
+/* =====================================================
+   ORDER AMOUNT
+===================================================== */
+
+function getOrderAmount(order){
+
+    const value =
+        Number(
+            order.total ??
+            order.grandTotal ??
+            order.amount ??
+            order.totalAmount ??
+            order.price ??
+            0
+        );
+
+
+    return Number.isFinite(
+        value
+    )
+    ? value
+    : 0;
+
+}
+
+
+/* =====================================================
+   ORDER DATE
+===================================================== */
+
+function getOrderDate(order){
+
+    const value =
+        order.createdAt ||
+        order.placedAt ||
+        order.orderDate ||
+        order.date ||
+        "";
+
+
+    if(
+        value &&
+        typeof value.toDate ===
+        "function"
+    ){
+
+        return value.toDate();
+
+    }
+
+
+    if(
+        value instanceof Date
+    ){
+
+        return value;
+
+    }
+
+
+    const date =
+        new Date(
+            value
+        );
+
+
+    if(
+        isNaN(
+            date.getTime()
+        )
+    ){
+
+        return null;
+
+    }
+
+
+    return date;
+
+}
+
+
+/* =====================================================
+   UPDATE STATS
+===================================================== */
+
+function updateStats(){
+
+    document.getElementById(
+        "totalCustomers"
+    ).textContent =
+        customers.length;
+
+
+    document.getElementById(
+        "totalOrders"
+    ).textContent =
+        orders.length;
+
+
+    const totalSales =
+        orders.reduce(
+            function(sum,order){
+
+                return (
+                    sum +
+                    getOrderAmount(
+                        order
+                    )
+                );
+
+            },
+            0
+        );
+
+
+    document.getElementById(
+        "totalSales"
+    ).textContent =
+        "₹" +
+        totalSales.toLocaleString(
+            "en-IN"
+        );
+
+
+    const mobileCount =
+        customers.filter(
+            function(customer){
+
+                return Boolean(
+                    customer.mobile
+                );
+
+            }
+        ).length;
+
+
+    document.getElementById(
+        "mobileCustomers"
+    ).textContent =
+        mobileCount;
+
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+document.getElementById(
+    "searchBox"
+)
+.addEventListener(
+    "input",
+    renderCustomers
+);
+
+
+/* =====================================================
+   RENDER
+===================================================== */
+
+function renderCustomers(){
+
+    const area =
+        document.getElementById(
+            "customerArea"
+        );
+
+
+    const search =
+        document.getElementById(
+            "searchBox"
+        )
+        .value
+        .trim()
+        .toLowerCase();
+
+
+    let list =
+        customers;
+
+
+    if(search){
+
+        list =
+            customers.filter(
+                function(customer){
+
+                    const text = (
+
+                        customer.name +
+                        " " +
+                        customer.mobile +
+                        " " +
+                        customer.email +
+                        " " +
+                        customer.address
+
+                    ).toLowerCase();
+
+
+                    return text.includes(
+                        search
+                    );
+
+                }
+            );
+
+    }
+
+
+    if(!list.length){
+
+        area.innerHTML =
+            `<div class="empty">
+
+                🔎 କୌଣସି Customer ମିଳିଲା ନାହିଁ।
+
+            </div>`;
+
+        return;
+
+    }
+
+
+    const grid =
+        document.createElement(
+            "div"
+        );
+
+
+    grid.className =
+        "customerGrid";
+
+
+    list.forEach(
+        function(customer){
+
+            grid.appendChild(
+                createCustomerCard(
+                    customer
+                )
+            );
+
+        }
+    );
+
+
+    area.innerHTML = "";
+
+    area.appendChild(
+        grid
+    );
+
+}
+
+
+/* =====================================================
+   CUSTOMER CARD
+===================================================== */
+
+function createCustomerCard(customer){
+
+    const card =
+        document.createElement(
+            "div"
+        );
+
+
+    card.className =
+        "customerCard";
+
+
+    const lastOrderText =
+        customer.lastOrder
+        ? formatDate(
+            customer.lastOrder
+          )
+        : "N/A";
+
+
+    card.innerHTML = `
+
+        <div class="customerTop">
+
+            <div>
+
+                <div class="customerName">
+
+                    👤
+                    ${escapeHtml(
+                        customer.name
+                    )}
+
+                </div>
+
+                <div class="customerId">
+
+                    Customer ID:
+                    ${escapeHtml(
+                        customer.id
+                    )}
+
+                </div>
+
+            </div>
+
+
+            <div class="customerBadge">
+
+                Customer
+
+            </div>
+
+        </div>
+
+
+        <div class="infoRow">
+
+            <span class="infoIcon">
+                📱
+            </span>
+
+            <span>
+
+                <span class="infoLabel">
+                    Mobile:
+                </span>
+
+                <span class="infoValue">
+                    ${escapeHtml(
+                        customer.mobile ||
+                        "N/A"
+                    )}
+                </span>
+
+            </span>
+
+        </div>
+
+
+        <div class="infoRow">
+
+            <span class="infoIcon">
+                📧
+            </span>
+
+            <span>
+
+                <span class="infoLabel">
+                    Email:
+                </span>
+
+                <span class="infoValue">
+                    ${escapeHtml(
+                        customer.email ||
+                        "N/A"
+                    )}
+                </span>
+
+            </span>
+
+        </div>
+
+
+        <div class="infoRow">
+
+            <span class="infoIcon">
+                📍
+            </span>
+
+            <span>
+
+                <span class="infoLabel">
+                    Address:
+                </span>
+
+                <span class="infoValue">
+                    ${escapeHtml(
+                        customer.address ||
+                        "N/A"
+                    )}
+                </span>
+
+            </span>
+
+        </div>
+
+
+        <div class="orderSummary">
+
+            <div class="orderSummaryTitle">
+
+                📦 Order Summary
+
+            </div>
+
+
+            <div class="summaryRow">
+
+                <span>
+                    Total Orders
+                </span>
+
+                <strong>
+                    ${customer.orderCount}
+                </strong>
+
+            </div>
+
+
+            <div class="summaryRow">
+
+                <span>
+                    Total Value
+                </span>
+
+                <strong>
+                    ₹${customer.totalValue.toLocaleString(
+                        "en-IN"
+                    )}
+                </strong>
+
+            </div>
+
+
+            <div class="summaryRow">
+
+                <span>
+                    Last Order
+                </span>
+
+                <strong>
+                    ${lastOrderText}
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="actions">
+
+            ${
+                customer.mobile
+
+                ? `
+
+                <button
+                    class="actionBtn callBtn">
+
+                    📞 Call
+
+                </button>
+
+                `
+
+                : ""
+
+            }
+
+
+            <button
+                class="actionBtn ordersBtn">
+
+                📦 Orders
+
+            </button>
+
+        </div>
+
+    `;
+
+
+    const callBtn =
+        card.querySelector(
+            ".callBtn"
+        );
+
+
+    if(callBtn){
+
+        callBtn.addEventListener(
+            "click",
+            function(){
+
+                window.location.href =
+                    "tel:" +
+                    customer.mobile;
+
+            }
+        );
+
+    }
+
+
+    const ordersBtn =
+        card.querySelector(
+            ".ordersBtn"
+        );
+
+
+    ordersBtn.addEventListener(
+        "click",
+        function(){
+
+            window.location.href =
+                "admin-orders.html";
+
+        }
+    );
+
+
+    return card;
+
+}
+
+
+/* =====================================================
+   DATE FORMAT
+===================================================== */
+
+function formatDate(date){
+
+    try{
+
+        const d =
+            date instanceof Date
+            ? date
+            : new Date(date);
+
+
+        if(
+            isNaN(
+                d.getTime()
+            )
+        ){
+
+            return "N/A";
+
+        }
+
+
+        return d.toLocaleDateString(
+            "en-IN",
+            {
+                day:"2-digit",
+                month:"2-digit",
+                year:"numeric"
+            }
+        );
+
+    }catch(e){
+
+        return "N/A";
+
+    }
+
+}
+
+
+/* =====================================================
+   ESCAPE
+===================================================== */
+
+function escapeHtml(value){
+
+    return String(
+        value ?? ""
+    )
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+    .replace(
+        /</g,
+        "&lt;"
+    )
+    .replace(
+        />/g,
+        "&gt;"
+    )
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+
+}
+
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+window.goDashboard =
+function(){
+
+    window.location.href =
+        "admin-dashboard.html";
+
+};
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+window.logout =
+async function(){
+
+    const ok =
+        confirm(
+            "ଆପଣ Admin Panel ରୁ Logout କରିବାକୁ ଚାହୁଁଛନ୍ତି କି?"
+        );
+
+
+    if(!ok){
+        return;
+    }
+
+
+    await signOut(
+        auth
+    );
+
+
+    window.location.href =
+        "admin-login.html";
+
+};
+
+</script>
+
+</body>
+  </html>
