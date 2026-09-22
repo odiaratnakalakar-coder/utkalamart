@@ -1,450 +1,4293 @@
 <!DOCTYPE html>
 <html lang="or">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#075b3b">
-<meta name="description" content="Utkala Mart — ଗଞ୍ଜାମରୁ ଆରମ୍ଭ, ଭାରତର ପ୍ରତ୍ୟେକ ଘରେ">
-<link rel="icon" type="image/png" href="logo.png">
+
+<meta name="viewport"
+      content="width=device-width,initial-scale=1.0">
+
+<meta name="theme-color"
+      content="#075b3b">
+
+<meta name="description"
+      content="Utkala Mart — ଗଞ୍ଜାମରୁ ଆରମ୍ଭ, ଭାରତର ପ୍ରତ୍ୟେକ ଘରେ">
+
+<link rel="icon"
+      type="image/png"
+      href="logo.png">
+
 <title>ଉତ୍କଳ Mart | ଗଞ୍ଜାମରୁ ଆରମ୍ଭ</title>
 
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Arial,"Noto Sans Odia","Noto Sans Oriya","Nirmala UI",sans-serif;background:#f7faf8;color:#222;padding-bottom:70px}
-button,input{font:inherit}button{cursor:pointer}a{text-decoration:none;color:inherit}
 
-/* TOP / HEADER */
-.topbar{background:#075b3b;color:#fff;min-height:34px;padding:7px 3%;display:flex;align-items:center;justify-content:space-between;font-size:12px;font-weight:700}
-.top-right{display:flex;align-items:center;gap:14px}.top-track{background:#0a8755;padding:5px 10px;border-radius:7px}.top-track:hover{background:#ef761d}
-.header{background:#fff;padding:9px 3%;display:flex;align-items:center;gap:18px;border-bottom:1px solid #ddd;position:sticky;top:0;z-index:1000}
-.brand{display:flex;align-items:center;gap:9px;min-width:245px}.brand img{width:64px;height:64px;object-fit:contain}
-.brand-name{font-size:29px;line-height:1;font-weight:900;color:#16834f}.brand-name span{color:#ef761d}.brand-sub{margin-top:5px;font-size:10px;color:#666;font-weight:700}
-.search{flex:1;display:flex;max-width:700px}.search input{flex:1;height:45px;border:2px solid #d7dfda;border-right:0;border-radius:10px 0 0 10px;outline:none;padding:0 14px;font-size:14px}.search input:focus{border-color:#075b3b}.search button{width:55px;border:0;border-radius:0 10px 10px 0;background:#075b3b;color:#fff;font-size:20px}
-.actions{display:flex;align-items:center;gap:8px}.action{position:relative;border:0;background:#fff;text-align:center;color:#333;font-size:10px;font-weight:800;padding:4px}.action-icon{display:block;font-size:25px;line-height:27px}.cart-badge,.mobile-cart-badge{position:absolute;background:#e53935;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px}.cart-badge{top:-3px;right:-2px;width:20px;height:20px}
-
-/* NAV */
-.nav{background:#fff;display:flex;align-items:center;gap:22px;padding:9px 3%;border-bottom:1px solid #ddd;overflow-x:auto;white-space:nowrap;font-size:13px;font-weight:800}.nav a{padding-bottom:5px}.nav a:hover,.nav a.active{color:#075b3b;border-bottom:3px solid #075b3b}.seller-link{margin-left:auto;background:#d9272e;color:#fff!important;border-radius:8px;padding:8px 14px!important}
-
-/* HERO */
-.hero{min-height:365px;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(90deg,rgba(255,255,255,.95),rgba(255,255,255,.65),rgba(255,255,255,.08)),url("ganjam-hero.jpg") center/cover no-repeat}
-.hero-content{max-width:650px;padding:35px 7%}.hero h1{color:#075b3b;font-size:48px;line-height:1.15;font-weight:900}.hero h1 span{color:#ef761d}.hero p{margin-top:13px;font-size:17px;font-weight:800}.hero-btn{margin-top:20px;padding:12px 24px;border:0;border-radius:9px;background:#075b3b;color:#fff;font-weight:900}.hero-btn:hover{background:#ef761d}
-
-/* CATEGORY */
-.categories{padding:15px 3%;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.category{height:205px;position:relative;overflow:hidden;border-radius:15px;cursor:pointer;box-shadow:0 3px 12px rgba(0,0,0,.10)}.category img{width:100%;height:100%;object-fit:cover;transition:.3s}.category:hover img{transform:scale(1.05)}.category:after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent,rgba(0,0,0,.75))}.category-text{position:absolute;left:16px;bottom:13px;z-index:2;color:#fff}.category-text h3{font-size:21px;text-shadow:0 1px 4px #000}.category-text p{margin-top:3px;font-size:11px;font-weight:700}.category-arrow{position:absolute;z-index:3;right:11px;top:11px;width:32px;height:32px;border-radius:50%;background:#075b3b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px}
-
-/* TRUST */
-.trust{margin:0 3% 18px;padding:12px;background:#eff8f3;border-radius:13px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.trust-item{display:flex;justify-content:center;align-items:center;gap:7px;text-align:center;font-size:11px;font-weight:800}.trust-icon{font-size:25px}
-
-/* PRODUCTS */
-.section{padding:5px 3% 25px}.section-title{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ddd;padding-bottom:8px;margin-bottom:13px}.section-title h2{color:#075b3b;font-size:24px}.section-title button{border:0;background:none;color:#075b3b;font-weight:900}
-.product-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.product-card{background:#fff;border:1px solid #e0e6e2;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.07);cursor:pointer;transition:.2s}.product-card:hover{transform:translateY(-3px);box-shadow:0 5px 15px rgba(0,0,0,.13)}
-.product-image{height:185px;position:relative;background:#f5f2eb;overflow:hidden}.product-image img{width:100%;height:100%;object-fit:cover;display:block;transition:.25s}.product-card:hover .product-image img{transform:scale(1.03)}
-.product-badge{position:absolute;left:8px;top:8px;padding:4px 7px;background:#16834f;color:#fff;border-radius:5px;font-size:9px;font-weight:900}.wishlist{position:absolute;right:8px;top:8px;width:31px;height:31px;border:0;border-radius:50%;background:#fff;font-size:19px;box-shadow:0 2px 7px rgba(0,0,0,.15);z-index:5}.wishlist.liked{color:#d9272e}
-.product-info{padding:9px}.product-name{min-height:40px;font-size:14px;line-height:1.4;font-weight:900}.product-category{margin-top:3px;color:#777;font-size:10px}
-.product-details{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}.product-detail{padding:5px 7px;border-radius:6px;background:#f1f7f4;color:#075b3b;font-size:10px;font-weight:800;border:1px solid #e0eee8}
-.stock-ok{color:#16834f}.stock-low{color:#d66a00}.stock-out{color:#d9272e;background:#fff0f0}
-
-/* CUSTOMER PRICE */
-.price-box{margin-top:8px;padding:8px;border-radius:8px;background:#f7fbf8;border:1px solid #dcece3}
-.mart-price{color:#075b3b;font-size:18px;font-weight:900}
-.market-price{margin-top:4px;color:#777;font-size:11px}
-.market-price span{text-decoration:line-through}
-.saving{display:inline-block;margin-top:5px;padding:5px 8px;border-radius:6px;background:#e8f7ed;color:#16834f;font-size:11px;font-weight:900}
-
-.view-product,.add-cart{width:100%;margin-top:7px;padding:8px;border-radius:7px;font-size:11px;font-weight:900}.view-product{background:#fff;color:#075b3b;border:1px solid #075b3b}.add-cart{border:0;background:#0a8755;color:#fff}.add-cart:hover{background:#075b3b}.add-cart:disabled{background:#aaa;cursor:not-allowed}
-.loading{grid-column:1/-1;padding:30px;text-align:center;background:#f7faf8;color:#777;border-radius:12px}
-
-/* FARMER / ABOUT / VALUES / FOOTER */
-.farmer-banner{margin:0 3% 22px;min-height:165px;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(90deg,rgba(255,255,255,.92),rgba(255,255,255,.40)),url("farmer.jpg") center/cover no-repeat}.farmer-banner h2{color:#075b3b;font-size:30px}.farmer-banner p{margin:7px 0 12px;font-weight:bold}.farmer-banner button{border:0;background:#ef761d;color:#fff;border-radius:8px;padding:10px 20px;font-weight:900}
-.about{padding:30px 6%;background:#fff8ed;text-align:center}.about h2{color:#075b3b;font-size:27px;margin-bottom:10px}.about p{max-width:900px;margin:auto;line-height:1.9;color:#555}
-.values{padding:22px 3%;display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.value{text-align:center;font-size:13px;font-weight:900}.value-icon{font-size:30px;margin-bottom:5px}
-footer{padding:28px 15px;background:#075b3b;color:#fff;text-align:center;line-height:1.9}footer strong{font-size:25px}
-
-/* CART */
-.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:3000}.cart{position:absolute;top:0;right:0;width:min(410px,94%);height:100%;background:#fff;padding:18px;overflow:auto}.cart-header{display:flex;align-items:center;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid #eee}.close-cart{width:35px;height:35px;border:0;border-radius:50%;font-size:20px}.cart-item{display:flex;gap:10px;padding:12px 0;border-bottom:1px solid #eee}.cart-item img{width:65px;height:65px;border-radius:8px;object-fit:cover}.qty-row{display:flex;align-items:center;gap:7px;margin-top:6px}.qty-row button{width:28px;height:28px;border:1px solid #ddd;background:#fff;border-radius:5px}.cart-total{margin:18px 0;font-size:20px;font-weight:900}.checkout{width:100%;border:0;background:#ef761d;color:#fff;padding:12px;border-radius:9px;font-weight:900}
-.toast{position:fixed;left:50%;bottom:85px;transform:translate(-50%,20px);background:#075b3b;color:#fff;padding:11px 17px;border-radius:9px;font-size:13px;font-weight:800;opacity:0;pointer-events:none;z-index:5000;transition:.25s}.toast.show{opacity:1;transform:translate(-50%,0)}
-.mobile-bottom{display:none}
-
-/* RESPONSIVE */
-@media(max-width:1100px){.product-grid{grid-template-columns:repeat(4,1fr)}.categories{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:760px){
-.topbar{font-size:8px;padding:6px 9px}.top-right{gap:5px}.top-right span{display:none}
-.header{padding:7px 10px;gap:7px;flex-wrap:wrap}.brand{min-width:0;flex:1}.brand img{width:45px;height:45px}.brand-name{font-size:21px}.brand-sub{font-size:7px}.actions{gap:2px}.action{font-size:8px}.action-icon{font-size:20px}.track-action{display:none}.search{order:3;flex-basis:100%}.search input{height:41px;font-size:12px}.search button{height:41px;width:48px}
-.nav{gap:18px;padding:8px 12px;font-size:10px}.seller-link{display:none}.hero{min-height:290px}.hero-content{padding:24px 6%}.hero h1{font-size:30px}.hero p{font-size:12px;line-height:1.6}.hero-btn{margin-top:13px;padding:10px 18px;font-size:12px}
-.categories{padding:9px;gap:9px}.category{height:132px}.category-text{left:9px;bottom:8px}.category-text h3{font-size:15px}.category-text p{font-size:8px}.category-arrow{width:27px;height:27px;top:7px;right:7px}
-.trust{margin:3px 9px 14px;padding:9px;grid-template-columns:repeat(2,1fr)}.trust-item{font-size:8px}.trust-icon{font-size:20px}
-.section{padding:5px 9px 19px}.section-title h2{font-size:19px}.product-grid{grid-template-columns:repeat(2,1fr);gap:8px}.product-image{height:140px}.product-name{font-size:12px;min-height:36px}.mart-price{font-size:16px}.product-detail{font-size:8px;padding:4px 5px}.add-cart,.view-product{font-size:9px}
-.farmer-banner{margin:0 9px 18px;min-height:145px}.farmer-banner h2{font-size:22px}.farmer-banner p{font-size:12px}.values{grid-template-columns:repeat(2,1fr);padding:18px 10px}.about{padding:24px 6%}.about h2{font-size:21px}.about p{font-size:13px}
-.mobile-bottom{position:fixed;left:0;right:0;bottom:0;height:64px;display:grid;grid-template-columns:repeat(5,1fr);background:#fff;border-top:1px solid #ddd;z-index:2000;box-shadow:0 -3px 12px rgba(0,0,0,.08)}.mobile-bottom button{border:0;background:#fff;color:#555;font-size:9px;font-weight:800;position:relative}.mobile-bottom .mi{display:block;font-size:21px;line-height:25px}.mobile-bottom .active{color:#075b3b}.mobile-cart-badge{top:3px;right:20%;min-width:16px;height:16px;font-size:8px}
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
-@media(max-width:420px){.hero{min-height:275px}.hero h1{font-size:27px}.category{height:122px}.product-image{height:132px}}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+        Arial,
+        "Noto Sans Odia",
+        "Noto Sans Oriya",
+        "Nirmala UI",
+        sans-serif;
+
+    background:#f7faf8;
+    color:#222;
+
+    padding-bottom:70px;
+}
+
+button,
+input{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+
+/* =====================================================
+   TOP BAR
+===================================================== */
+
+.topbar{
+
+    background:#075b3b;
+    color:#fff;
+
+    min-height:34px;
+
+    padding:7px 3%;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    font-size:12px;
+    font-weight:700;
+}
+
+.top-right{
+
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.top-track{
+
+    background:#0a8755;
+
+    padding:5px 10px;
+
+    border-radius:7px;
+}
+
+.top-track:hover{
+    background:#ef761d;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header{
+
+    background:#fff;
+
+    padding:9px 3%;
+
+    display:flex;
+    align-items:center;
+
+    gap:18px;
+
+    border-bottom:1px solid #ddd;
+
+    position:sticky;
+    top:0;
+
+    z-index:1000;
+}
+
+.brand{
+
+    display:flex;
+    align-items:center;
+
+    gap:9px;
+
+    min-width:245px;
+}
+
+.brand img{
+
+    width:64px;
+    height:64px;
+
+    object-fit:contain;
+}
+
+.brand-name{
+
+    font-size:29px;
+    line-height:1;
+
+    font-weight:900;
+
+    color:#16834f;
+}
+
+.brand-name span{
+    color:#ef761d;
+}
+
+.brand-sub{
+
+    margin-top:5px;
+
+    font-size:10px;
+
+    color:#666;
+
+    font-weight:700;
+}
+
+
+.search{
+
+    flex:1;
+
+    display:flex;
+
+    max-width:700px;
+}
+
+.search input{
+
+    flex:1;
+
+    height:45px;
+
+    border:2px solid #d7dfda;
+
+    border-right:0;
+
+    border-radius:10px 0 0 10px;
+
+    outline:none;
+
+    padding:0 14px;
+
+    font-size:14px;
+}
+
+.search input:focus{
+    border-color:#075b3b;
+}
+
+.search button{
+
+    width:55px;
+
+    border:0;
+
+    border-radius:0 10px 10px 0;
+
+    background:#075b3b;
+
+    color:#fff;
+
+    font-size:20px;
+}
+
+
+.actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+}
+
+.action{
+
+    position:relative;
+
+    border:0;
+
+    background:#fff;
+
+    text-align:center;
+
+    color:#333;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    padding:4px;
+}
+
+.action-icon{
+
+    display:block;
+
+    font-size:25px;
+
+    line-height:27px;
+}
+
+.cart-badge,
+.mobile-cart-badge{
+
+    position:absolute;
+
+    background:#e53935;
+
+    color:#fff;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:10px;
+}
+
+.cart-badge{
+
+    top:-3px;
+    right:-2px;
+
+    width:20px;
+    height:20px;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.nav{
+
+    background:#fff;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:22px;
+
+    padding:9px 3%;
+
+    border-bottom:1px solid #ddd;
+
+    overflow-x:auto;
+
+    white-space:nowrap;
+
+    font-size:13px;
+
+    font-weight:800;
+}
+
+.nav a{
+    padding-bottom:5px;
+}
+
+.nav a:hover,
+.nav a.active{
+
+    color:#075b3b;
+
+    border-bottom:3px solid #075b3b;
+}
+
+.seller-link{
+
+    margin-left:auto;
+
+    background:#d9272e;
+
+    color:#fff!important;
+
+    border-radius:8px;
+
+    padding:8px 14px!important;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+
+    min-height:365px;
+
+    display:flex;
+
+    align-items:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.95),
+            rgba(255,255,255,.65),
+            rgba(255,255,255,.08)
+        ),
+        url("ganjam-hero.jpg")
+        center/cover
+        no-repeat;
+}
+
+.hero-content{
+
+    max-width:650px;
+
+    padding:35px 7%;
+}
+
+.hero h1{
+
+    color:#075b3b;
+
+    font-size:48px;
+
+    line-height:1.15;
+
+    font-weight:900;
+}
+
+.hero h1 span{
+    color:#ef761d;
+}
+
+.hero p{
+
+    margin-top:13px;
+
+    font-size:17px;
+
+    font-weight:800;
+}
+
+.hero-btn{
+
+    margin-top:20px;
+
+    padding:12px 24px;
+
+    border:0;
+
+    border-radius:9px;
+
+    background:#075b3b;
+
+    color:#fff;
+
+    font-weight:900;
+}
+
+.hero-btn:hover{
+    background:#ef761d;
+}
+
+
+/* =====================================================
+   CATEGORY
+===================================================== */
+
+.categories{
+
+    padding:15px 3%;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:14px;
+}
+
+.category{
+
+    height:205px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 3px 12px
+        rgba(0,0,0,.10);
+}
+
+.category img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.3s;
+}
+
+.category:hover img{
+    transform:scale(1.05);
+}
+
+.category:after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            rgba(0,0,0,.75)
+        );
+}
+
+.category-text{
+
+    position:absolute;
+
+    left:16px;
+    bottom:13px;
+
+    z-index:2;
+
+    color:#fff;
+}
+
+.category-text h3{
+
+    font-size:21px;
+
+    text-shadow:
+        0 1px 4px #000;
+}
+
+.category-text p{
+
+    margin-top:3px;
+
+    font-size:11px;
+
+    font-weight:700;
+}
+
+.category-arrow{
+
+    position:absolute;
+
+    z-index:3;
+
+    right:11px;
+    top:11px;
+
+    width:32px;
+    height:32px;
+
+    border-radius:50%;
+
+    background:#075b3b;
+
+    color:#fff;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:18px;
+}
+
+
+/* =====================================================
+   TRUST
+===================================================== */
+
+.trust{
+
+    margin:0 3% 18px;
+
+    padding:12px;
+
+    background:#eff8f3;
+
+    border-radius:13px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:8px;
+}
+
+.trust-item{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:7px;
+
+    text-align:center;
+
+    font-size:11px;
+
+    font-weight:800;
+}
+
+.trust-icon{
+    font-size:25px;
+}
+
+
+/* =====================================================
+   PRODUCTS
+===================================================== */
+
+.section{
+
+    padding:5px 3% 25px;
+}
+
+.section-title{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    border-bottom:1px solid #ddd;
+
+    padding-bottom:8px;
+
+    margin-bottom:13px;
+}
+
+.section-title h2{
+
+    color:#075b3b;
+
+    font-size:24px;
+}
+
+.section-title button{
+
+    border:0;
+
+    background:none;
+
+    color:#075b3b;
+
+    font-weight:900;
+}
+
+.product-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(6,1fr);
+
+    gap:12px;
+}
+
+.product-card{
+
+    background:#fff;
+
+    border:1px solid #e0e6e2;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 2px 8px
+        rgba(0,0,0,.07);
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.product-card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 5px 15px
+        rgba(0,0,0,.13);
+}
+
+.product-image{
+
+    height:185px;
+
+    position:relative;
+
+    background:#f5f2eb;
+
+    overflow:hidden;
+}
+
+.product-image img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:.25s;
+}
+
+.product-card:hover
+.product-image img{
+
+    transform:scale(1.03);
+}
+
+.product-badge{
+
+    position:absolute;
+
+    left:8px;
+    top:8px;
+
+    padding:4px 7px;
+
+    background:#16834f;
+
+    color:#fff;
+
+    border-radius:5px;
+
+    font-size:9px;
+
+    font-weight:900;
+}
+
+.wishlist{
+
+    position:absolute;
+
+    right:8px;
+    top:8px;
+
+    width:31px;
+    height:31px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    font-size:19px;
+
+    box-shadow:
+        0 2px 7px
+        rgba(0,0,0,.15);
+
+    z-index:5;
+}
+
+.wishlist.liked{
+    color:#d9272e;
+}
+
+.product-info{
+    padding:9px;
+}
+
+.product-name{
+
+    min-height:40px;
+
+    font-size:14px;
+
+    line-height:1.4;
+
+    font-weight:900;
+}
+
+.product-category{
+
+    margin-top:3px;
+
+    color:#777;
+
+    font-size:10px;
+}
+
+.product-details{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:5px;
+
+    margin-top:7px;
+}
+
+.product-detail{
+
+    padding:5px 7px;
+
+    border-radius:6px;
+
+    background:#f1f7f4;
+
+    color:#075b3b;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    border:1px solid #e0eee8;
+}
+
+.stock-ok{
+    color:#16834f;
+}
+
+.stock-low{
+    color:#d66a00;
+}
+
+.stock-out{
+
+    color:#d9272e;
+
+    background:#fff0f0;
+}
+
+
+/* =====================================================
+   CUSTOMER PRICE
+===================================================== */
+
+.price-box{
+
+    margin-top:8px;
+
+    padding:9px;
+
+    border-radius:8px;
+
+    background:#f7fbf8;
+
+    border:1px solid #dcece3;
+}
+
+.mart-price{
+
+    color:#075b3b;
+
+    font-size:18px;
+
+    font-weight:900;
+
+    line-height:1.4;
+}
+
+.market-price{
+
+    margin-bottom:4px;
+
+    color:#777;
+
+    font-size:11px;
+
+    font-weight:700;
+}
+
+.market-price span{
+
+    text-decoration:line-through;
+
+    color:#777;
+}
+
+.saving{
+
+    display:inline-block;
+
+    margin-top:5px;
+
+    padding:5px 8px;
+
+    border-radius:6px;
+
+    background:#e8f7ed;
+
+    color:#16834f;
+
+    font-size:11px;
+
+    font-weight:900;
+}
+
+
+/* TODAY OFFER */
+
+.today-offer{
+
+    margin-top:5px;
+
+    color:#d66a00;
+
+    font-size:10px;
+
+    font-weight:900;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.view-product,
+.add-cart{
+
+    width:100%;
+
+    margin-top:7px;
+
+    padding:8px;
+
+    border-radius:7px;
+
+    font-size:11px;
+
+    font-weight:900;
+}
+
+.view-product{
+
+    background:#fff;
+
+    color:#075b3b;
+
+    border:1px solid #075b3b;
+}
+
+.add-cart{
+
+    border:0;
+
+    background:#0a8755;
+
+    color:#fff;
+}
+
+.add-cart:hover{
+    background:#075b3b;
+}
+
+.add-cart:disabled{
+
+    background:#aaa;
+
+    cursor:not-allowed;
+}
+
+.loading{
+
+    grid-column:1/-1;
+
+    padding:30px;
+
+    text-align:center;
+
+    background:#f7faf8;
+
+    color:#777;
+
+    border-radius:12px;
+}
+
+
+/* =====================================================
+   FARMER / ABOUT / VALUES
+===================================================== */
+
+.farmer-banner{
+
+    margin:0 3% 22px;
+
+    min-height:165px;
+
+    border-radius:16px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.92),
+            rgba(255,255,255,.40)
+        ),
+        url("farmer.jpg")
+        center/cover
+        no-repeat;
+}
+
+.farmer-banner h2{
+
+    color:#075b3b;
+
+    font-size:30px;
+}
+
+.farmer-banner p{
+
+    margin:7px 0 12px;
+
+    font-weight:bold;
+}
+
+.farmer-banner button{
+
+    border:0;
+
+    background:#ef761d;
+
+    color:#fff;
+
+    border-radius:8px;
+
+    padding:10px 20px;
+
+    font-weight:900;
+}
+
+.about{
+
+    padding:30px 6%;
+
+    background:#fff8ed;
+
+    text-align:center;
+}
+
+.about h2{
+
+    color:#075b3b;
+
+    font-size:27px;
+
+    margin-bottom:10px;
+}
+
+.about p{
+
+    max-width:900px;
+
+    margin:auto;
+
+    line-height:1.9;
+
+    color:#555;
+}
+
+.values{
+
+    padding:22px 3%;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:15px;
+}
+
+.value{
+
+    text-align:center;
+
+    font-size:13px;
+
+    font-weight:900;
+}
+
+.value-icon{
+
+    font-size:30px;
+
+    margin-bottom:5px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    padding:28px 15px;
+
+    background:#075b3b;
+
+    color:#fff;
+
+    text-align:center;
+
+    line-height:1.9;
+}
+
+footer strong{
+    font-size:25px;
+}
+
+
+/* =====================================================
+   CART
+===================================================== */
+
+.overlay{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.5);
+
+    z-index:3000;
+}
+
+.cart{
+
+    position:absolute;
+
+    top:0;
+    right:0;
+
+    width:min(410px,94%);
+
+    height:100%;
+
+    background:#fff;
+
+    padding:18px;
+
+    overflow:auto;
+}
+
+.cart-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding-bottom:12px;
+
+    border-bottom:1px solid #eee;
+}
+
+.close-cart{
+
+    width:35px;
+    height:35px;
+
+    border:0;
+
+    border-radius:50%;
+
+    font-size:20px;
+}
+
+.cart-item{
+
+    display:flex;
+
+    gap:10px;
+
+    padding:12px 0;
+
+    border-bottom:1px solid #eee;
+}
+
+.cart-item img{
+
+    width:65px;
+    height:65px;
+
+    border-radius:8px;
+
+    object-fit:cover;
+}
+
+.qty-row{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    margin-top:6px;
+}
+
+.qty-row button{
+
+    width:28px;
+    height:28px;
+
+    border:1px solid #ddd;
+
+    background:#fff;
+
+    border-radius:5px;
+}
+
+.cart-total{
+
+    margin:18px 0;
+
+    font-size:20px;
+
+    font-weight:900;
+}
+
+.checkout{
+
+    width:100%;
+
+    border:0;
+
+    background:#ef761d;
+
+    color:#fff;
+
+    padding:12px;
+
+    border-radius:9px;
+
+    font-weight:900;
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+.toast{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:85px;
+
+    transform:
+        translate(-50%,20px);
+
+    background:#075b3b;
+
+    color:#fff;
+
+    padding:11px 17px;
+
+    border-radius:9px;
+
+    font-size:13px;
+
+    font-weight:800;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    z-index:5000;
+
+    transition:.25s;
+}
+
+.toast.show{
+
+    opacity:1;
+
+    transform:
+        translate(-50%,0);
+}
+
+
+/* =====================================================
+   MOBILE BOTTOM
+===================================================== */
+
+.mobile-bottom{
+
+    display:none;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1100px){
+
+    .product-grid{
+        grid-template-columns:
+            repeat(4,1fr);
+    }
+
+    .categories{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+}
+
+
+@media(max-width:760px){
+
+    .topbar{
+
+        font-size:8px;
+
+        padding:6px 9px;
+    }
+
+    .top-right{
+        gap:5px;
+    }
+
+    .top-right span{
+        display:none;
+    }
+
+    .header{
+
+        padding:7px 10px;
+
+        gap:7px;
+
+        flex-wrap:wrap;
+    }
+
+    .brand{
+
+        min-width:0;
+
+        flex:1;
+    }
+
+    .brand img{
+
+        width:45px;
+        height:45px;
+    }
+
+    .brand-name{
+        font-size:21px;
+    }
+
+    .brand-sub{
+        font-size:7px;
+    }
+
+    .actions{
+        gap:2px;
+    }
+
+    .action{
+        font-size:8px;
+    }
+
+    .action-icon{
+        font-size:20px;
+    }
+
+    .track-action{
+        display:none;
+    }
+
+    .search{
+
+        order:3;
+
+        flex-basis:100%;
+    }
+
+    .search input{
+
+        height:41px;
+
+        font-size:12px;
+    }
+
+    .search button{
+
+        height:41px;
+
+        width:48px;
+    }
+
+
+    .nav{
+
+        gap:18px;
+
+        padding:8px 12px;
+
+        font-size:10px;
+    }
+
+    .seller-link{
+        display:none;
+    }
+
+
+    .hero{
+
+        min-height:290px;
+    }
+
+    .hero-content{
+
+        padding:24px 6%;
+    }
+
+    .hero h1{
+
+        font-size:30px;
+    }
+
+    .hero p{
+
+        font-size:12px;
+
+        line-height:1.6;
+    }
+
+    .hero-btn{
+
+        margin-top:13px;
+
+        padding:10px 18px;
+
+        font-size:12px;
+    }
+
+
+    .categories{
+
+        padding:9px;
+
+        gap:9px;
+    }
+
+    .category{
+
+        height:132px;
+    }
+
+    .category-text{
+
+        left:9px;
+        bottom:8px;
+    }
+
+    .category-text h3{
+        font-size:15px;
+    }
+
+    .category-text p{
+        font-size:8px;
+    }
+
+    .category-arrow{
+
+        width:27px;
+        height:27px;
+
+        top:7px;
+        right:7px;
+    }
+
+
+    .trust{
+
+        margin:3px 9px 14px;
+
+        padding:9px;
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .trust-item{
+        font-size:8px;
+    }
+
+    .trust-icon{
+        font-size:20px;
+    }
+
+
+    .section{
+
+        padding:5px 9px 19px;
+    }
+
+    .section-title h2{
+        font-size:19px;
+    }
+
+    .product-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap:8px;
+    }
+
+    .product-image{
+        height:140px;
+    }
+
+    .product-name{
+
+        font-size:12px;
+
+        min-height:36px;
+    }
+
+    .mart-price{
+        font-size:15px;
+    }
+
+    .market-price{
+        font-size:9px;
+    }
+
+    .saving{
+        font-size:9px;
+        padding:4px 6px;
+    }
+
+    .today-offer{
+        font-size:8px;
+    }
+
+    .product-detail{
+
+        font-size:8px;
+
+        padding:4px 5px;
+    }
+
+    .add-cart,
+    .view-product{
+        font-size:9px;
+    }
+
+
+    .farmer-banner{
+
+        margin:0 9px 18px;
+
+        min-height:145px;
+    }
+
+    .farmer-banner h2{
+        font-size:22px;
+    }
+
+    .farmer-banner p{
+        font-size:12px;
+    }
+
+
+    .values{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+        padding:18px 10px;
+    }
+
+    .about{
+        padding:24px 6%;
+    }
+
+    .about h2{
+        font-size:21px;
+    }
+
+    .about p{
+        font-size:13px;
+    }
+
+
+    .mobile-bottom{
+
+        position:fixed;
+
+        left:0;
+        right:0;
+        bottom:0;
+
+        height:64px;
+
+        display:grid;
+
+        grid-template-columns:
+            repeat(5,1fr);
+
+        background:#fff;
+
+        border-top:1px solid #ddd;
+
+        z-index:2000;
+
+        box-shadow:
+            0 -3px 12px
+            rgba(0,0,0,.08);
+    }
+
+    .mobile-bottom button{
+
+        border:0;
+
+        background:#fff;
+
+        color:#555;
+
+        font-size:9px;
+
+        font-weight:800;
+
+        position:relative;
+    }
+
+    .mobile-bottom .mi{
+
+        display:block;
+
+        font-size:21px;
+
+        line-height:25px;
+    }
+
+    .mobile-bottom .active{
+        color:#075b3b;
+    }
+
+    .mobile-cart-badge{
+
+        top:3px;
+        right:20%;
+
+        min-width:16px;
+        height:16px;
+
+        font-size:8px;
+    }
+}
+
+
+@media(max-width:420px){
+
+    .hero{
+        min-height:275px;
+    }
+
+    .hero h1{
+        font-size:27px;
+    }
+
+    .category{
+        height:122px;
+    }
+
+    .product-image{
+        height:132px;
+    }
+}
+
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- =====================================================
+     TOP BAR
+===================================================== -->
+
 <div class="topbar">
-<div>ଗଞ୍ଜାମର ଗର୍ବ &nbsp;|&nbsp; ଓଡ଼ିଆ ପରିବାର &nbsp;|&nbsp; ଆମର ଉତ୍ପାଦ, ଆମର ଘର</div>
-<div class="top-right">
-<a href="order-tracking.html" class="top-track">📦 Order Track</a>
-<span>Support</span><span>🛒 100% ଓଡ଼ିଆ ପ୍ରଡକ୍ଟ</span>
-<a href="seller.html">👤 Seller Login</a>
+
+    <div>
+        ଗଞ୍ଜାମର ଗର୍ବ
+        &nbsp;|&nbsp;
+        ଓଡ଼ିଆ ପରିବାର
+        &nbsp;|&nbsp;
+        ଆମର ଉତ୍ପାଦ, ଆମର ଘର
+    </div>
+
+    <div class="top-right">
+
+        <a href="order-tracking.html"
+           class="top-track">
+            📦 Order Track
+        </a>
+
+        <span>Support</span>
+
+        <span>
+            🛒 100% ଓଡ଼ିଆ ପ୍ରଡକ୍ଟ
+        </span>
+
+        <a href="seller.html">
+            👤 Seller Login
+        </a>
+
+    </div>
+
 </div>
-</div>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header class="header">
-<a href="#" class="brand" onclick="goHome();return false;">
-<img src="logo.png" alt="Utkala Mart">
-<div><div class="brand-name">ଉତ୍କଳ <span>Mart</span></div><div class="brand-sub">From Ganjam to Every Home</div></div>
-</a>
 
-<div class="search">
-<input id="searchInput" type="search" placeholder="ପ୍ରଡକ୍ଟ ଓ ସ୍ଥାନୀୟ ଉତ୍ପାଦ ଖୋଜନ୍ତୁ..." autocomplete="off">
-<button onclick="searchProducts()">🔍</button>
-</div>
+    <a href="#"
+       class="brand"
+       onclick="goHome();return false;">
 
-<div class="actions">
-<a class="action track-action" href="order-tracking.html"><span class="action-icon">📦</span>Order Track</a>
-<button class="action" onclick="openCart()"><span class="action-icon">🛒</span>My Cart<span class="cart-badge" id="cartCount">0</span></button>
-<button class="action" onclick="toggleWishlistPage()"><span class="action-icon">♡</span>ମୋ ପସନ୍ଦ</button>
-<button class="action" onclick="goAccount()"><span class="action-icon">👤</span>ମୋ ଖାତା</button>
-</div>
+        <img src="logo.png"
+             alt="Utkala Mart">
+
+        <div>
+
+            <div class="brand-name">
+                ଉତ୍କଳ <span>Mart</span>
+            </div>
+
+            <div class="brand-sub">
+                From Ganjam to Every Home
+            </div>
+
+        </div>
+
+    </a>
+
+
+    <div class="search">
+
+        <input
+            id="searchInput"
+            type="search"
+            placeholder="ପ୍ରଡକ୍ଟ ଓ ସ୍ଥାନୀୟ ଉତ୍ପାଦ ଖୋଜନ୍ତୁ..."
+            autocomplete="off">
+
+        <button onclick="searchProducts()">
+            🔍
+        </button>
+
+    </div>
+
+
+    <div class="actions">
+
+        <a class="action track-action"
+           href="order-tracking.html">
+
+            <span class="action-icon">
+                📦
+            </span>
+
+            Order Track
+
+        </a>
+
+
+        <button class="action"
+                onclick="openCart()">
+
+            <span class="action-icon">
+                🛒
+            </span>
+
+            My Cart
+
+            <span class="cart-badge"
+                  id="cartCount">
+                0
+            </span>
+
+        </button>
+
+
+        <button class="action"
+                onclick="toggleWishlistPage()">
+
+            <span class="action-icon">
+                ♡
+            </span>
+
+            ମୋ ପସନ୍ଦ
+
+        </button>
+
+
+        <button class="action"
+                onclick="goAccount()">
+
+            <span class="action-icon">
+                👤
+            </span>
+
+            ମୋ ଖାତା
+
+        </button>
+
+    </div>
+
 </header>
 
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
 <nav class="nav">
-<a class="active" href="#" onclick="goHome();setActiveNav(this);return false;">🏠 Home</a>
-<a href="#" onclick="showCategory('food');setActiveNav(this);return false;">🍚 ଖାଦ୍ୟ</a>
-<a href="#" onclick="showCategory('handicraft');setActiveNav(this);return false;">🏺 ହାତ ତିଆରି ଜିନିଷ</a>
-<a href="#" onclick="showCategory('clothing');setActiveNav(this);return false;">👗 ପୋଷାକ ଏବଂ କପଡା</a>
-<a href="#" onclick="showCategory('farmer');setActiveNav(this);return false;">🌾 କୃଷକ ଉତ୍ପାଦ</a>
-<a href="#" onclick="showAllProducts();setActiveNav(this);return false;">⭐ ବିଶେଷ ଉତ୍ପାଦ</a>
-<a href="order-tracking.html">📦 Order Track</a>
-<a href="#about">ଆମ ବିଷୟରେ</a>
-<a class="seller-link" href="seller.html">🛍️ ମୋର ଉତ୍ପାଦ</a>
+
+    <a class="active"
+       href="#"
+       onclick="goHome();setActiveNav(this);return false;">
+        🏠 Home
+    </a>
+
+
+    <a href="#"
+       onclick="showCategory('food');setActiveNav(this);return false;">
+        🍚 ଖାଦ୍ୟ
+    </a>
+
+
+    <a href="#"
+       onclick="showCategory('handicraft');setActiveNav(this);return false;">
+        🏺 ହାତ ତିଆରି ଜିନିଷ
+    </a>
+
+
+    <a href="#"
+       onclick="showCategory('clothing');setActiveNav(this);return false;">
+        👗 ପୋଷାକ ଏବଂ କପଡା
+    </a>
+
+
+    <a href="#"
+       onclick="showCategory('farmer');setActiveNav(this);return false;">
+        🌾 କୃଷକ ଉତ୍ପାଦ
+    </a>
+
+
+    <a href="#"
+       onclick="showAllProducts();setActiveNav(this);return false;">
+        ⭐ ବିଶେଷ ଉତ୍ପାଦ
+    </a>
+
+
+    <a href="order-tracking.html">
+        📦 Order Track
+    </a>
+
+
+    <a href="#about">
+        ଆମ ବିଷୟରେ
+    </a>
+
+
+    <a class="seller-link"
+       href="seller.html">
+        🛍️ ମୋର ଉତ୍ପାଦ
+    </a>
+
 </nav>
 
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
 <section class="hero">
-<div class="hero-content">
-<h1>ଗଞ୍ଜାମର ମାଟିରୁ<br><span>ଆପଣଙ୍କ ଘରେ...</span></h1>
-<p>ସ୍ଥାନୀୟ ଉତ୍ପାଦ &nbsp;|&nbsp; ସ୍ଥାନୀୟ ଲୋକ &nbsp;|&nbsp; ସ୍ଥାନୀୟ ଜିନିଷ</p>
-<button class="hero-btn" onclick="goToProducts()">ଏବେ କିଣନ୍ତୁ →</button>
-</div>
+
+    <div class="hero-content">
+
+        <h1>
+            ଗଞ୍ଜାମର ମାଟିରୁ
+            <br>
+            <span>
+                ଆପଣଙ୍କ ଘରେ...
+            </span>
+        </h1>
+
+        <p>
+            ସ୍ଥାନୀୟ ଉତ୍ପାଦ
+            &nbsp;|&nbsp;
+            ସ୍ଥାନୀୟ ଲୋକ
+            &nbsp;|&nbsp;
+            ସ୍ଥାନୀୟ ଜିନିଷ
+        </p>
+
+        <button class="hero-btn"
+                onclick="goToProducts()">
+
+            ଏବେ କିଣନ୍ତୁ →
+
+        </button>
+
+    </div>
+
 </section>
+
+
+<!-- =====================================================
+     CATEGORIES
+===================================================== -->
 
 <section class="categories">
-<div class="category" onclick="showCategory('food')"><span class="category-arrow">→</span><img src="food.jpg" alt="Food Products" loading="lazy"><div class="category-text"><h3>🍚 ଖାଦ୍ୟ ଉତ୍ପାଦ</h3><p>Food Products</p></div></div>
-<div class="category" onclick="showCategory('handicraft')"><span class="category-arrow">→</span><img src="handicraft.jpg" alt="Handicraft Products" loading="lazy"><div class="category-text"><h3>🏺 ହାତ ତିଆରି ଜିନିଷ</h3><p>Handicraft Products</p></div></div>
-<div class="category" onclick="showCategory('clothing')"><span class="category-arrow">→</span><img src="clothing.jpg" alt="Clothing Products" loading="lazy"><div class="category-text"><h3>👗 ପୋଷାକ ଏବଂ କପଡା</h3><p>Clothing & Textiles</p></div></div>
-<div class="category" onclick="showCategory('farmer')"><span class="category-arrow">→</span><img src="farmer.jpg" alt="Farmer Products" loading="lazy"><div class="category-text"><h3>🌾 କୃଷକ ଉତ୍ପାଦ</h3><p>Farmer Products</p></div></div>
+
+
+    <div class="category"
+         onclick="showCategory('food')">
+
+        <span class="category-arrow">
+            →
+        </span>
+
+        <img src="food.jpg"
+             alt="Food Products"
+             loading="lazy">
+
+        <div class="category-text">
+
+            <h3>
+                🍚 ଖାଦ୍ୟ ଉତ୍ପାଦ
+            </h3>
+
+            <p>
+                Food Products
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="category"
+         onclick="showCategory('handicraft')">
+
+        <span class="category-arrow">
+            →
+        </span>
+
+        <img src="handicraft.jpg"
+             alt="Handicraft Products"
+             loading="lazy">
+
+        <div class="category-text">
+
+            <h3>
+                🏺 ହାତ ତିଆରି ଜିନିଷ
+            </h3>
+
+            <p>
+                Handicraft Products
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="category"
+         onclick="showCategory('clothing')">
+
+        <span class="category-arrow">
+            →
+        </span>
+
+        <img src="clothing.jpg"
+             alt="Clothing Products"
+             loading="lazy">
+
+        <div class="category-text">
+
+            <h3>
+                👗 ପୋଷାକ ଏବଂ କପଡା
+            </h3>
+
+            <p>
+                Clothing & Textiles
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="category"
+         onclick="showCategory('farmer')">
+
+        <span class="category-arrow">
+            →
+        </span>
+
+        <img src="farmer.jpg"
+             alt="Farmer Products"
+             loading="lazy">
+
+        <div class="category-text">
+
+            <h3>
+                🌾 କୃଷକ ଉତ୍ପାଦ
+            </h3>
+
+            <p>
+                Farmer Products
+            </p>
+
+        </div>
+
+    </div>
+
 </section>
+
+
+<!-- =====================================================
+     TRUST
+===================================================== -->
 
 <section class="trust">
-<div class="trust-item"><span class="trust-icon">✔️</span><span>100% ଓଡ଼ିଆ ଉତ୍ପାଦ<br>Authentic & Original</span></div>
-<div class="trust-item"><span class="trust-icon">🚚</span><span>ସୁରକ୍ଷିତ ଡେଲିଭରି<br>Safe Delivery</span></div>
-<div class="trust-item"><span class="trust-icon">🛡️</span><span>ଯାଞ୍ଚକରା Seller<br>Verified Sellers</span></div>
-<div class="trust-item"><span class="trust-icon">👥</span><span>ସ୍ଥାନୀୟ ଲୋକଙ୍କ ସହାୟତା<br>Support Local People</span></div>
+
+    <div class="trust-item">
+
+        <span class="trust-icon">
+            ✔️
+        </span>
+
+        <span>
+            100% ଓଡ଼ିଆ ଉତ୍ପାଦ
+            <br>
+            Authentic & Original
+        </span>
+
+    </div>
+
+
+    <div class="trust-item">
+
+        <span class="trust-icon">
+            🚚
+        </span>
+
+        <span>
+            ସୁରକ୍ଷିତ ଡେଲିଭରି
+            <br>
+            Safe Delivery
+        </span>
+
+    </div>
+
+
+    <div class="trust-item">
+
+        <span class="trust-icon">
+            🛡️
+        </span>
+
+        <span>
+            ଯାଞ୍ଚକରା Seller
+            <br>
+            Verified Sellers
+        </span>
+
+    </div>
+
+
+    <div class="trust-item">
+
+        <span class="trust-icon">
+            👥
+        </span>
+
+        <span>
+            ସ୍ଥାନୀୟ ଲୋକଙ୍କ ସହାୟତା
+            <br>
+            Support Local People
+        </span>
+
+    </div>
+
 </section>
 
-<section class="section" id="specialSection">
-<div class="section-title"><h2 id="sectionHeading">🌿 ବିଶେଷ ଉତ୍ପାଦ</h2><button onclick="showAllProducts()">ସବୁ ଦେଖନ୍ତୁ →</button></div>
-<div class="product-grid" id="productGrid"></div>
-<div class="loading" id="loading">⏳ ପ୍ରଡକ୍ଟ ଲୋଡ୍ ହେଉଛି...</div>
+
+<!-- =====================================================
+     PRODUCTS
+===================================================== -->
+
+<section class="section"
+         id="specialSection">
+
+    <div class="section-title">
+
+        <h2 id="sectionHeading">
+            🌿 ବିଶେଷ ଉତ୍ପାଦ
+        </h2>
+
+        <button onclick="showAllProducts()">
+            ସବୁ ଦେଖନ୍ତୁ →
+        </button>
+
+    </div>
+
+
+    <div class="product-grid"
+         id="productGrid">
+    </div>
+
+
+    <div class="loading"
+         id="loading">
+
+        ⏳ ପ୍ରଡକ୍ଟ ଲୋଡ୍ ହେଉଛି...
+
+    </div>
+
 </section>
+
+
+<!-- =====================================================
+     FARMER
+===================================================== -->
 
 <section class="farmer-banner">
-<div><h2>🧑‍🌾 “ଆମ କୃଷକ, ଆମ ଗର୍ବ”</h2><p>ଗାଁରୁ ସିଧା ଆପଣଙ୍କ ଘରକୁ Utkala Mart ମାଧ୍ୟମରେ</p><button onclick="showCategory('farmer')">କୃଷକ ଉତ୍ପାଦ ଦେଖନ୍ତୁ →</button></div>
+
+    <div>
+
+        <h2>
+            🧑‍🌾 “ଆମ କୃଷକ, ଆମ ଗର୍ବ”
+        </h2>
+
+        <p>
+            ଗାଁରୁ ସିଧା ଆପଣଙ୍କ ଘରକୁ
+            Utkala Mart ମାଧ୍ୟମରେ
+        </p>
+
+        <button onclick="showCategory('farmer')">
+            କୃଷକ ଉତ୍ପାଦ ଦେଖନ୍ତୁ →
+        </button>
+
+    </div>
+
 </section>
 
-<section class="about" id="about">
-<h2>🌿 ଗଞ୍ଜାମରୁ ଆରମ୍ଭ, ପୁରା ଭାରତରେ 🇮🇳</h2>
-<p>Utkala Mart ର ଲକ୍ଷ୍ୟ ହେଉଛି ଗଞ୍ଜାମର କୃଷକ, କାରିଗର, ଛୋଟ ବିକ୍ରେତା ଓ ସ୍ଥାନୀୟ ଉତ୍ପାଦକଙ୍କ ପ୍ରଡକ୍ଟକୁ ଏକ ଡିଜିଟାଲ marketplace ମାଧ୍ୟମରେ ଭାରତର ପ୍ରତ୍ୟେକ ଘରେ ପହଞ୍ଚାଇବା।<br><br>ଗାଁରୁ ଭାରତ — ଓଡ଼ିଆ ଉତ୍ପାଦ ଆପଣଙ୍କ ଘରେ।</p>
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section class="about"
+         id="about">
+
+    <h2>
+        🌿 ଗଞ୍ଜାମରୁ ଆରମ୍ଭ,
+        ପୁରା ଭାରତରେ 🇮🇳
+    </h2>
+
+    <p>
+
+        Utkala Mart ର ଲକ୍ଷ୍ୟ ହେଉଛି
+        ଗଞ୍ଜାମର କୃଷକ, କାରିଗର,
+        ଛୋଟ ବିକ୍ରେତା ଓ ସ୍ଥାନୀୟ
+        ଉତ୍ପାଦକଙ୍କ ପ୍ରଡକ୍ଟକୁ
+        ଏକ ଡିଜିଟାଲ marketplace
+        ମାଧ୍ୟମରେ ଭାରତର ପ୍ରତ୍ୟେକ
+        ଘରେ ପହଞ୍ଚାଇବା।
+
+        <br><br>
+
+        ଗାଁରୁ ଭାରତ —
+        ଓଡ଼ିଆ ଉତ୍ପାଦ ଆପଣଙ୍କ ଘରେ।
+
+    </p>
+
 </section>
+
+
+<!-- =====================================================
+     VALUES
+===================================================== -->
 
 <section class="values">
-<div class="value"><div class="value-icon">📍</div>ଗଞ୍ଜାମ ପାଇଁ</div>
-<div class="value"><div class="value-icon">❤️</div>ଓଡ଼ିଆ ଲୋକଙ୍କ ପାଇଁ</div>
-<div class="value"><div class="value-icon">👥</div>ଆମ ଲୋକଙ୍କ ପାଇଁ</div>
-<div class="value"><div class="value-icon">🌱</div>ଭଲ ଭବିଷ୍ୟତ ପାଇଁ</div>
+
+    <div class="value">
+
+        <div class="value-icon">
+            📍
+        </div>
+
+        ଗଞ୍ଜାମ ପାଇଁ
+
+    </div>
+
+
+    <div class="value">
+
+        <div class="value-icon">
+            ❤️
+        </div>
+
+        ଓଡ଼ିଆ ଲୋକଙ୍କ ପାଇଁ
+
+    </div>
+
+
+    <div class="value">
+
+        <div class="value-icon">
+            👥
+        </div>
+
+        ଆମ ଲୋକଙ୍କ ପାଇଁ
+
+    </div>
+
+
+    <div class="value">
+
+        <div class="value-icon">
+            🌱
+        </div>
+
+        ଭଲ ଭବିଷ୍ୟତ ପାଇଁ
+
+    </div>
+
 </section>
 
-<footer><strong>🌿 Utkala Mart</strong><br>ଗଞ୍ଜାମର ନିଜସ୍ୱ ପ୍ରଡକ୍ଟ<br>ଗାଁରୁ ଭାରତ — ଆପଣଙ୍କ ଘରେ<br><br>📦 <a href="order-tracking.html" style="font-weight:900">Order Track</a><br><br>© 2026 Utkala Mart</footer>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <strong>
+        🌿 Utkala Mart
+    </strong>
+
+    <br>
+
+    ଗଞ୍ଜାମର ନିଜସ୍ୱ ପ୍ରଡକ୍ଟ
+
+    <br>
+
+    ଗାଁରୁ ଭାରତ —
+    ଆପଣଙ୍କ ଘରେ
+
+    <br><br>
+
+    📦
+
+    <a href="order-tracking.html"
+       style="font-weight:900">
+
+        Order Track
+
+    </a>
+
+    <br><br>
+
+    © 2026 Utkala Mart
+
+</footer>
+
+
+<!-- =====================================================
+     MOBILE BOTTOM
+===================================================== -->
 
 <div class="mobile-bottom">
-<button class="active" onclick="goHome()"><span class="mi">🏠</span>Home</button>
-<button onclick="scrollCategories()"><span class="mi">📂</span>ବିଭାଗ</button>
-<button onclick="openCart()"><span class="mi">🛒</span><span class="mobile-cart-badge" id="mobileCartCount">0</span>Cart</button>
-<button onclick="goOrderTracking()"><span class="mi">📦</span>Track</button>
-<button onclick="goAccount()"><span class="mi">👤</span>ଖାତା</button>
+
+    <button class="active"
+            onclick="goHome()">
+
+        <span class="mi">
+            🏠
+        </span>
+
+        Home
+
+    </button>
+
+
+    <button onclick="scrollCategories()">
+
+        <span class="mi">
+            📂
+        </span>
+
+        ବିଭାଗ
+
+    </button>
+
+
+    <button onclick="openCart()">
+
+        <span class="mi">
+            🛒
+        </span>
+
+        <span class="mobile-cart-badge"
+              id="mobileCartCount">
+            0
+        </span>
+
+        Cart
+
+    </button>
+
+
+    <button onclick="goOrderTracking()">
+
+        <span class="mi">
+            📦
+        </span>
+
+        Track
+
+    </button>
+
+
+    <button onclick="goAccount()">
+
+        <span class="mi">
+            👤
+        </span>
+
+        ଖାତା
+
+    </button>
+
 </div>
 
-<div class="toast" id="toast"></div>
 
-<div class="overlay" id="cartOverlay" onclick="closeCart(event)">
-<div class="cart" onclick="event.stopPropagation()">
-<div class="cart-header"><h2>🛒 My Cart</h2><button class="close-cart" onclick="closeCart()">×</button></div>
-<div id="cartItems"></div>
-<div class="cart-total" id="cartTotal">ମୋଟ: ₹0</div>
-<button class="checkout" onclick="checkout()">ଅର୍ଡର କରନ୍ତୁ →</button>
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div class="toast"
+     id="toast">
 </div>
+
+
+<!-- =====================================================
+     CART OVERLAY
+===================================================== -->
+
+<div class="overlay"
+     id="cartOverlay"
+     onclick="closeCart(event)">
+
+    <div class="cart"
+         onclick="event.stopPropagation()">
+
+
+        <div class="cart-header">
+
+            <h2>
+                🛒 My Cart
+            </h2>
+
+            <button class="close-cart"
+                    onclick="closeCart()">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <div id="cartItems">
+        </div>
+
+
+        <div class="cart-total"
+             id="cartTotal">
+
+            ମୋଟ: ₹0
+
+        </div>
+
+
+        <button class="checkout"
+                onclick="checkout()">
+
+            ଅର୍ଡର କରନ୍ତୁ →
+
+        </button>
+
+    </div>
+
 </div>
+
+
+<!-- =====================================================
+     FIREBASE
+===================================================== -->
 
 <script type="module">
-import {db} from "./js/firebase-config.js";
-import {collection,getDocs} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+import {
+    db
+} from "./js/firebase-config.js";
+
+
+import {
+    collection,
+    getDocs
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =====================================================
+   GLOBAL DATA
+===================================================== */
 
 let allProducts=[];
-let cart=JSON.parse(localStorage.getItem("utkalaCart")||"[]");
-let wishlist=JSON.parse(localStorage.getItem("utkalaWishlist")||"[]");
 
-function getImage(p){return String(p.imageUrl||p.image||p.photoUrl||p.photo||p.thumbnail||"logo.png").trim()||"logo.png"}
-function getStock(p){return Number(p.stockQty??p.availableStock??p.stock??p.quantity??0)}
-function getPrice(p){return Number(p.utkalaPrice??p.price??p.sellingPrice??0)}
-function getCategoryText(p){return String(p.categoryId||p.category||p.categoryName||"").toLowerCase()}
+let cart=
+    JSON.parse(
+        localStorage.getItem("utkalaCart")||"[]"
+    );
 
-function getMarketPrice(p){
+let wishlist=
+    JSON.parse(
+        localStorage.getItem("utkalaWishlist")||"[]"
+    );
+
+
+/* =====================================================
+   PRODUCT HELPERS
+===================================================== */
+
+function getImage(p){
+
+    return String(
+        p.imageUrl||
+        p.image||
+        p.photoUrl||
+        p.photo||
+        p.thumbnail||
+        "logo.png"
+    ).trim() || "logo.png";
+}
+
+
+function getStock(p){
+
     return Number(
-        p.marketPrice ??
-        p.todayMarketPrice ??
-        p.currentMarketPrice ??
-        p.market_price ??
-        p.marketPriceToday ??
-        p.mrp ??
-        p.originalPrice ??
-        p.oldPrice ??
+        p.stockQty ??
+        p.availableStock ??
+        p.stock ??
+        p.quantity ??
         0
     );
 }
 
-function isClothing(p){
-    const v=getCategoryText(p);
-    return ["cloth","clothing","textile","fashion","dress","wear","saree","shirt","ବସ୍ତ୍ର","ପୋଷାକ","କପଡା","କପଡ଼ା","ଲୁଗା"].some(x=>v.includes(x));
+
+/*
+   CUSTOMER PRICE
+
+   Priority:
+   1. utkalaPrice
+   2. sellingPrice
+   3. price
+*/
+
+function getPrice(p){
+
+    return Number(
+        p.utkalaPrice ??
+        p.sellingPrice ??
+        p.price ??
+        0
+    );
 }
+
+
+/*
+   MARKET PRICE
+
+   Admin daily market price
+*/
+
+function getMarketPrice(p){
+
+    return Number(
+
+        p.marketPrice ??
+
+        p.todayMarketPrice ??
+
+        p.currentMarketPrice ??
+
+        p.market_price ??
+
+        p.marketPriceToday ??
+
+        p.mrp ??
+
+        p.originalPrice ??
+
+        p.oldPrice ??
+
+        0
+
+    );
+}
+
+
+function getCategoryText(p){
+
+    return String(
+        p.categoryId||
+        p.category||
+        p.categoryName||
+        ""
+    ).toLowerCase();
+}
+
+
+/* =====================================================
+   CLOTHING
+===================================================== */
+
+function isClothing(p){
+
+    const v=
+        getCategoryText(p);
+
+    return [
+
+        "cloth",
+        "clothing",
+        "textile",
+        "fashion",
+        "dress",
+        "wear",
+        "saree",
+        "shirt",
+
+        "ବସ୍ତ୍ର",
+        "ପୋଷାକ",
+        "କପଡା",
+        "କପଡ଼ା",
+        "ଲୁଗା"
+
+    ].some(
+        x=>v.includes(x)
+    );
+}
+
+
+/* =====================================================
+   GENERIC FIELD
+===================================================== */
 
 function getField(p,fields){
-    for(const f of fields){
-        if(p[f]!==undefined&&p[f]!==null&&String(p[f]).trim()!=="")return String(p[f]).trim();
+
+    for(
+        const f of fields
+    ){
+
+        if(
+            p[f]!==undefined &&
+            p[f]!==null &&
+            String(p[f]).trim()!==""
+        ){
+
+            return String(
+                p[f]
+            ).trim();
+        }
     }
+
     return "";
 }
-function getColors(p){return getField(p,["color","colour","colors","colours","colorName","colourName"])}
-function getSizes(p){return getField(p,["size","sizes","sizeName","availableSizes"])}
-function getFabric(p){return getField(p,["fabric","material","fabricName","clothMaterial"])}
-function getWeight(p){
-    const w=getField(p,["weight","productWeight"]);
-    if(!w)return "";
-    const u=getField(p,["weightUnit","unit"]);
-    return u?w+" "+u:w;
+
+
+function getColors(p){
+
+    return getField(
+        p,
+        [
+            "color",
+            "colour",
+            "colors",
+            "colours",
+            "colorName",
+            "colourName"
+        ]
+    );
 }
+
+
+function getSizes(p){
+
+    return getField(
+        p,
+        [
+            "size",
+            "sizes",
+            "sizeName",
+            "availableSizes"
+        ]
+    );
+}
+
+
+function getFabric(p){
+
+    return getField(
+        p,
+        [
+            "fabric",
+            "material",
+            "fabricName",
+            "clothMaterial"
+        ]
+    );
+}
+
+
+function getWeight(p){
+
+    const w=
+        getField(
+            p,
+            [
+                "weight",
+                "productWeight"
+            ]
+        );
+
+    if(!w){
+        return "";
+    }
+
+    const u=
+        getField(
+            p,
+            [
+                "weightUnit",
+                "unit"
+            ]
+        );
+
+    return u
+        ? w+" "+u
+        : w;
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
 
 function toast(message){
-    const e=document.getElementById("toast");
-    e.innerText=message;e.classList.add("show");
-    clearTimeout(window.toastTimer);
-    window.toastTimer=setTimeout(()=>e.classList.remove("show"),1800);
+
+    const e=
+        document.getElementById("toast");
+
+    e.innerText=message;
+
+    e.classList.add("show");
+
+    clearTimeout(
+        window.toastTimer
+    );
+
+    window.toastTimer=
+        setTimeout(
+            ()=>{
+                e.classList.remove("show");
+            },
+            1800
+        );
 }
 
-window.openProductPage=function(id){
-    if(!id){toast("⚠️ Product ID ମିଳିଲା ନାହିଁ।");return}
-    window.location.href="product.html?id="+encodeURIComponent(id);
+
+/* =====================================================
+   PRODUCT PAGE
+===================================================== */
+
+window.openProductPage=
+function(id){
+
+    if(!id){
+
+        toast(
+            "⚠️ Product ID ମିଳିଲା ନାହିଁ।"
+        );
+
+        return;
+    }
+
+    window.location.href=
+        "product.html?id="+
+        encodeURIComponent(id);
 };
 
+
+/* =====================================================
+   CART COUNT
+===================================================== */
+
 function updateCart(){
-    const n=cart.reduce((s,i)=>s+Number(i.qty||0),0);
-    document.getElementById("cartCount").innerText=n;
-    document.getElementById("mobileCartCount").innerText=n;
+
+    const n=
+        cart.reduce(
+            (s,i)=>
+                s+
+                Number(i.qty||0),
+            0
+        );
+
+    document.getElementById(
+        "cartCount"
+    ).innerText=n;
+
+
+    document.getElementById(
+        "mobileCartCount"
+    ).innerText=n;
 }
 
+
+/* =====================================================
+   CATEGORY MATCH
+===================================================== */
+
 function categoryMatch(p,c){
-    const v=getCategoryText(p);
-    if(c==="food")return ["food","grocery","organic","snack","pickle","papad","ଖାଦ୍ୟ","ଗ୍ରୋସରୀ"].some(x=>v.includes(x));
-    if(c==="handicraft")return ["craft","handmade","hand made","handicraft","ହାତ","ହସ୍ତ"].some(x=>v.includes(x));
-    if(c==="clothing")return isClothing(p);
-    if(c==="farmer")return ["farmer","agri","agriculture","village","କୃଷକ","କୃଷି","ଗ୍ରାମ"].some(x=>v.includes(x));
+
+    const v=
+        getCategoryText(p);
+
+
+    if(c==="food"){
+
+        return [
+
+            "food",
+            "grocery",
+            "organic",
+            "snack",
+            "pickle",
+            "papad",
+            "ଖାଦ୍ୟ",
+            "ଗ୍ରୋସରୀ"
+
+        ].some(
+            x=>v.includes(x)
+        );
+    }
+
+
+    if(c==="handicraft"){
+
+        return [
+
+            "craft",
+            "handmade",
+            "hand made",
+            "handicraft",
+            "ହାତ",
+            "ହସ୍ତ"
+
+        ].some(
+            x=>v.includes(x)
+        );
+    }
+
+
+    if(c==="clothing"){
+
+        return isClothing(p);
+    }
+
+
+    if(c==="farmer"){
+
+        return [
+
+            "farmer",
+            "agri",
+            "agriculture",
+            "village",
+            "କୃଷକ",
+            "କୃଷି",
+            "ଗ୍ରାମ"
+
+        ].some(
+            x=>v.includes(x)
+        );
+    }
+
+
     return false;
 }
 
-function toggleWishlist(id,button){
-    if(wishlist.includes(id)){
-        wishlist=wishlist.filter(x=>x!==id);button.classList.remove("liked");button.innerText="♡";toast("♡ Wishlist ରୁ ବାହାର କରାଗଲା");
+
+/* =====================================================
+   WISHLIST
+===================================================== */
+
+function toggleWishlist(
+    id,
+    button
+){
+
+    if(
+        wishlist.includes(id)
+    ){
+
+        wishlist=
+            wishlist.filter(
+                x=>x!==id
+            );
+
+        button.classList.remove(
+            "liked"
+        );
+
+        button.innerText="♡";
+
+        toast(
+            "♡ Wishlist ରୁ ବାହାର କରାଗଲା"
+        );
+
     }else{
-        wishlist.push(id);button.classList.add("liked");button.innerText="♥";toast("♥ Wishlist ରେ ଯୋଡାଗଲା");
+
+        wishlist.push(id);
+
+        button.classList.add(
+            "liked"
+        );
+
+        button.innerText="♥";
+
+        toast(
+            "♥ Wishlist ରେ ଯୋଡାଗଲା"
+        );
     }
-    localStorage.setItem("utkalaWishlist",JSON.stringify(wishlist));
+
+
+    localStorage.setItem(
+        "utkalaWishlist",
+        JSON.stringify(wishlist)
+    );
 }
 
-function createProductCard(p,container){
-    const card=document.createElement("div");card.className="product-card";card.onclick=()=>openProductPage(p.id);
 
-    const imageBox=document.createElement("div");imageBox.className="product-image";
-    const img=document.createElement("img");img.src=getImage(p);img.alt=p.name||"Utkala Mart Product";img.loading="lazy";
-    img.onerror=function(){this.onerror=null;this.src="logo.png"};
+/* =====================================================
+   CREATE PRODUCT CARD
+===================================================== */
 
-    const badge=document.createElement("span");badge.className="product-badge";badge.innerText=p.location||p.sellerLocation||"ଓଡ଼ିଆ";
-    const wish=document.createElement("button");wish.className="wishlist"+(wishlist.includes(p.id)?" liked":"");wish.innerText=wishlist.includes(p.id)?"♥":"♡";
-    wish.onclick=e=>{e.stopPropagation();toggleWishlist(p.id,wish)};
-    imageBox.append(img,badge,wish);
+function createProductCard(
+    p,
+    container
+){
 
-    const info=document.createElement("div");info.className="product-info";
-    const name=document.createElement("div");name.className="product-name";name.innerText=p.name||"ପ୍ରଡକ୍ଟ";
-    const cat=document.createElement("div");cat.className="product-category";cat.innerText=p.subcategoryName||p.subcategory||p.categoryName||p.category||"";
-    info.append(name,cat);
+    const card=
+        document.createElement("div");
 
-    const details=document.createElement("div");details.className="product-details";
-    if(isClothing(p)){
-        const fields=[["🎨 Color: ",getColors(p)],["📏 Size: ",getSizes(p)],["🧵 Fabric: ",getFabric(p)],["⚖️ Weight: ",getWeight(p)]];
-        fields.forEach(([label,val])=>{if(val){const s=document.createElement("span");s.className="product-detail";s.innerText=label+val;details.appendChild(s)}});
+    card.className=
+        "product-card";
+
+    card.onclick=
+        ()=>openProductPage(p.id);
+
+
+    /* ================================================
+       IMAGE
+    ================================================= */
+
+    const imageBox=
+        document.createElement("div");
+
+    imageBox.className=
+        "product-image";
+
+
+    const img=
+        document.createElement("img");
+
+    img.src=
+        getImage(p);
+
+    img.alt=
+        p.name||
+        "Utkala Mart Product";
+
+    img.loading="lazy";
+
+
+    img.onerror=
+        function(){
+
+            this.onerror=null;
+
+            this.src="logo.png";
+        };
+
+
+    const badge=
+        document.createElement("span");
+
+    badge.className=
+        "product-badge";
+
+    badge.innerText=
+        p.location||
+        p.sellerLocation||
+        "ଓଡ଼ିଆ";
+
+
+    const wish=
+        document.createElement("button");
+
+    wish.className=
+        "wishlist"+
+        (
+            wishlist.includes(p.id)
+            ? " liked"
+            : ""
+        );
+
+
+    wish.innerText=
+        wishlist.includes(p.id)
+        ? "♥"
+        : "♡";
+
+
+    wish.onclick=
+        e=>{
+
+            e.stopPropagation();
+
+            toggleWishlist(
+                p.id,
+                wish
+            );
+        };
+
+
+    imageBox.append(
+        img,
+        badge,
+        wish
+    );
+
+
+    /* ================================================
+       PRODUCT INFO
+    ================================================= */
+
+    const info=
+        document.createElement("div");
+
+    info.className=
+        "product-info";
+
+
+    const name=
+        document.createElement("div");
+
+    name.className=
+        "product-name";
+
+    name.innerText=
+        p.name||
+        "ପ୍ରଡକ୍ଟ";
+
+
+    const cat=
+        document.createElement("div");
+
+    cat.className=
+        "product-category";
+
+    cat.innerText=
+        p.subcategoryName||
+        p.subcategory||
+        p.categoryName||
+        p.category||
+        "";
+
+
+    info.append(
+        name,
+        cat
+    );
+
+
+    /* ================================================
+       CLOTHING DETAILS
+    ================================================= */
+
+    const details=
+        document.createElement("div");
+
+    details.className=
+        "product-details";
+
+
+    if(
+        isClothing(p)
+    ){
+
+        const fields=[
+
+            [
+                "🎨 Color: ",
+                getColors(p)
+            ],
+
+            [
+                "📏 Size: ",
+                getSizes(p)
+            ],
+
+            [
+                "🧵 Fabric: ",
+                getFabric(p)
+            ],
+
+            [
+                "⚖️ Weight: ",
+                getWeight(p)
+            ]
+
+        ];
+
+
+        fields.forEach(
+            ([label,val])=>{
+
+                if(val){
+
+                    const s=
+                        document.createElement(
+                            "span"
+                        );
+
+                    s.className=
+                        "product-detail";
+
+                    s.innerText=
+                        label+val;
+
+                    details.appendChild(s);
+                }
+
+            }
+        );
     }
-    const stock=getStock(p);const ss=document.createElement("span");ss.className="product-detail";
-    if(stock<=0){ss.classList.add("stock-out");ss.innerText="❌ Stock Out"}else if(stock<=5){ss.classList.add("stock-low");ss.innerText="⚠️ Stock: "+stock}else{ss.classList.add("stock-ok");ss.innerText="📦 Stock: "+stock}
-    details.appendChild(ss);if(details.children.length)info.appendChild(details);
 
-    /* CUSTOMER PRICE: Seller Price is intentionally NOT displayed */
-    const utkalaPrice=getPrice(p);
-    const marketPrice=getMarketPrice(p);
-    const saving=marketPrice>utkalaPrice?marketPrice-utkalaPrice:0;
 
-    const priceBox=document.createElement("div");priceBox.className="price-box";
-    const mart=document.createElement("div");mart.className="mart-price";mart.innerText="🛒 Utkala Mart: ₹"+utkalaPrice.toLocaleString("en-IN");
-    priceBox.appendChild(mart);
+    /* ================================================
+       STOCK
+    ================================================= */
 
-    if(marketPrice>utkalaPrice){
-        const market=document.createElement("div");market.className="market-price";
-        market.innerHTML="🏷️ Market Price: <span>₹"+marketPrice.toLocaleString("en-IN")+"</span>";
-        priceBox.appendChild(market);
-        const save=document.createElement("div");save.className="saving";save.innerText="🎉 You Save: ₹"+saving.toLocaleString("en-IN");
-        priceBox.appendChild(save);
+    const stock=
+        getStock(p);
+
+
+    const ss=
+        document.createElement("span");
+
+    ss.className=
+        "product-detail";
+
+
+    if(stock<=0){
+
+        ss.classList.add(
+            "stock-out"
+        );
+
+        ss.innerText=
+            "❌ Stock Out";
+
+    }else if(stock<=5){
+
+        ss.classList.add(
+            "stock-low"
+        );
+
+        ss.innerText=
+            "⚠️ Stock: "+stock;
+
+    }else{
+
+        ss.classList.add(
+            "stock-ok"
+        );
+
+        ss.innerText=
+            "📦 Stock: "+stock;
     }
-    info.appendChild(priceBox);
 
-    const view=document.createElement("button");view.className="view-product";view.innerText="👁️ ପ୍ରଡକ୍ଟ ଦେଖନ୍ତୁ";view.onclick=e=>{e.stopPropagation();openProductPage(p.id)};
-    const add=document.createElement("button");add.className="add-cart";
-    if(stock<=0){add.disabled=true;add.innerText="❌ Stock Out"}else{add.innerText="🛒 କାର୍ଟରେ ଯୋଡନ୍ତୁ";add.onclick=e=>{e.stopPropagation();addToCart(p)}}
-    info.append(view,add);card.append(imageBox,info);container.appendChild(card);
+
+    details.appendChild(ss);
+
+
+    if(
+        details.children.length
+    ){
+
+        info.appendChild(
+            details
+        );
+    }
+
+
+    /* =================================================
+       DAILY CUSTOMER PRICE
+    ================================================= */
+
+    const utkalaPrice=
+        getPrice(p);
+
+
+    const marketPrice=
+        getMarketPrice(p);
+
+
+    let saving=0;
+
+
+    if(
+        marketPrice>0 &&
+        utkalaPrice>0 &&
+        marketPrice>utkalaPrice
+    ){
+
+        saving=
+            Math.round(
+                (
+                    marketPrice-
+                    utkalaPrice
+                )*100
+            )/100;
+    }
+
+
+    /* ================================================
+       PRICE BOX
+    ================================================= */
+
+    const priceBox=
+        document.createElement("div");
+
+    priceBox.className=
+        "price-box";
+
+
+    /*
+       MARKET PRICE
+    */
+
+    if(
+        marketPrice>0 &&
+        marketPrice>utkalaPrice
+    ){
+
+        const market=
+            document.createElement("div");
+
+        market.className=
+            "market-price";
+
+
+        market.innerHTML=
+            "🏷️ Market Price: "+
+            "<span>₹"+
+            marketPrice.toLocaleString(
+                "en-IN"
+            )+
+            "</span>";
+
+
+        priceBox.appendChild(
+            market
+        );
+    }
+
+
+    /*
+       UTKALA MART PRICE
+    */
+
+    const mart=
+        document.createElement("div");
+
+    mart.className=
+        "mart-price";
+
+
+    mart.innerText=
+        "🛒 Utkala Mart Price: ₹"+
+        utkalaPrice.toLocaleString(
+            "en-IN"
+        );
+
+
+    priceBox.appendChild(
+        mart
+    );
+
+
+    /*
+       CUSTOMER SAVING
+    */
+
+    if(
+        saving>0
+    ){
+
+        const save=
+            document.createElement("div");
+
+        save.className=
+            "saving";
+
+
+        save.innerText=
+            "🎉 You Save: ₹"+
+            saving.toLocaleString(
+                "en-IN"
+            );
+
+
+        priceBox.appendChild(
+            save
+        );
+
+
+        /*
+           TODAY'S OFFER %
+        */
+
+        const discount=
+            Math.round(
+                (
+                    saving/
+                    marketPrice
+                )*100
+            );
+
+
+        const todayOffer=
+            document.createElement(
+                "div"
+            );
+
+        todayOffer.className=
+            "today-offer";
+
+
+        todayOffer.innerText=
+            "🔥 Today's Offer: "+
+            discount+
+            "% OFF";
+
+
+        priceBox.appendChild(
+            todayOffer
+        );
+    }
+
+
+    info.appendChild(
+        priceBox
+    );
+
+
+    /* ================================================
+       VIEW PRODUCT
+    ================================================= */
+
+    const view=
+        document.createElement(
+            "button"
+        );
+
+    view.className=
+        "view-product";
+
+    view.innerText=
+        "👁️ ପ୍ରଡକ୍ଟ ଦେଖନ୍ତୁ";
+
+
+    view.onclick=
+        e=>{
+
+            e.stopPropagation();
+
+            openProductPage(
+                p.id
+            );
+        };
+
+
+    /* ================================================
+       ADD CART
+    ================================================= */
+
+    const add=
+        document.createElement(
+            "button"
+        );
+
+    add.className=
+        "add-cart";
+
+
+    if(stock<=0){
+
+        add.disabled=true;
+
+        add.innerText=
+            "❌ Stock Out";
+
+    }else{
+
+        add.innerText=
+            "🛒 କାର୍ଟରେ ଯୋଡନ୍ତୁ";
+
+
+        add.onclick=
+            e=>{
+
+                e.stopPropagation();
+
+                addToCart(p);
+            };
+    }
+
+
+    info.append(
+        view,
+        add
+    );
+
+
+    card.append(
+        imageBox,
+        info
+    );
+
+
+    container.appendChild(
+        card
+    );
 }
+
+
+/* =====================================================
+   RENDER PRODUCTS
+===================================================== */
 
 function renderProducts(list){
-    const grid=document.getElementById("productGrid"),loading=document.getElementById("loading");
+
+    const grid=
+        document.getElementById(
+            "productGrid"
+        );
+
+    const loading=
+        document.getElementById(
+            "loading"
+        );
+
+
     grid.innerHTML="";
-    if(!list.length){loading.style.display="block";loading.innerText="🛍️ ଏହି ବିଭାଗରେ ପ୍ରଡକ୍ଟ ମିଳିଲା ନାହିଁ।";return}
-    loading.style.display="none";list.slice(0,12).forEach(p=>createProductCard(p,grid));
+
+
+    if(
+        !list.length
+    ){
+
+        loading.style.display=
+            "block";
+
+        loading.innerText=
+            "🛍️ ଏହି ବିଭାଗରେ ପ୍ରଡକ୍ଟ ମିଳିଲା ନାହିଁ।";
+
+        return;
+    }
+
+
+    loading.style.display=
+        "none";
+
+
+    list
+        .slice(0,12)
+        .forEach(
+            p=>
+                createProductCard(
+                    p,
+                    grid
+                )
+        );
 }
 
-window.showCategory=function(c){
-    const titles={food:"🍚 ଖାଦ୍ୟ ଉତ୍ପାଦ",handicraft:"🏺 ହାତ ତିଆରି ଜିନିଷ",clothing:"👗 ପୋଷାକ ଏବଂ କପଡା",farmer:"🌾 କୃଷକ ଉତ୍ପାଦ"};
-    document.getElementById("sectionHeading").innerText=titles[c]||"🌿 ବିଶେଷ ଉତ୍ପାଦ";
-    renderProducts(allProducts.filter(p=>categoryMatch(p,c)));
-    document.getElementById("specialSection").scrollIntoView({behavior:"smooth"});
+
+/* =====================================================
+   SHOW CATEGORY
+===================================================== */
+
+window.showCategory=
+function(c){
+
+    const titles={
+
+        food:
+            "🍚 ଖାଦ୍ୟ ଉତ୍ପାଦ",
+
+        handicraft:
+            "🏺 ହାତ ତିଆରି ଜିନିଷ",
+
+        clothing:
+            "👗 ପୋଷାକ ଏବଂ କପଡା",
+
+        farmer:
+            "🌾 କୃଷକ ଉତ୍ପାଦ"
+    };
+
+
+    document.getElementById(
+        "sectionHeading"
+    ).innerText=
+        titles[c]||
+        "🌿 ବିଶେଷ ଉତ୍ପାଦ";
+
+
+    renderProducts(
+        allProducts.filter(
+            p=>categoryMatch(p,c)
+        )
+    );
+
+
+    document.getElementById(
+        "specialSection"
+    ).scrollIntoView({
+        behavior:"smooth"
+    });
 };
-window.showAllProducts=function(){
-    document.getElementById("sectionHeading").innerText="🌿 ବିଶେଷ ଉତ୍ପାଦ";renderProducts(allProducts);
-    document.getElementById("specialSection").scrollIntoView({behavior:"smooth"});
+
+
+/* =====================================================
+   SHOW ALL
+===================================================== */
+
+window.showAllProducts=
+function(){
+
+    document.getElementById(
+        "sectionHeading"
+    ).innerText=
+        "🌿 ବିଶେଷ ଉତ୍ପାଦ";
+
+
+    renderProducts(
+        allProducts
+    );
+
+
+    document.getElementById(
+        "specialSection"
+    ).scrollIntoView({
+        behavior:"smooth"
+    });
 };
-window.searchProducts=function(){
-    const q=document.getElementById("searchInput").value.trim().toLowerCase();
-    if(!q){renderProducts(allProducts);return}
-    const result=allProducts.filter(p=>[
-        p.name,p.category,p.categoryName,p.subcategory,p.subcategoryName,p.description,p.location,p.sellerLocation,
-        getColors(p),getSizes(p),getFabric(p),getWeight(p)
-    ].map(v=>String(v||"").toLowerCase()).join(" ").includes(q));
-    document.getElementById("sectionHeading").innerText="🔍 Search Result";renderProducts(result);
-    document.getElementById("specialSection").scrollIntoView({behavior:"smooth"});
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+window.searchProducts=
+function(){
+
+    const q=
+        document.getElementById(
+            "searchInput"
+        ).value
+        .trim()
+        .toLowerCase();
+
+
+    if(!q){
+
+        renderProducts(
+            allProducts
+        );
+
+        return;
+    }
+
+
+    const result=
+        allProducts.filter(
+            p=>[
+
+                p.name,
+                p.category,
+                p.categoryName,
+                p.subcategory,
+                p.subcategoryName,
+                p.description,
+                p.location,
+                p.sellerLocation,
+
+                getColors(p),
+                getSizes(p),
+                getFabric(p),
+                getWeight(p)
+
+            ]
+            .map(
+                v=>
+                    String(
+                        v||""
+                    ).toLowerCase()
+            )
+            .join(" ")
+            .includes(q)
+        );
+
+
+    document.getElementById(
+        "sectionHeading"
+    ).innerText=
+        "🔍 Search Result";
+
+
+    renderProducts(
+        result
+    );
+
+
+    document.getElementById(
+        "specialSection"
+    ).scrollIntoView({
+        behavior:"smooth"
+    });
 };
-document.getElementById("searchInput").addEventListener("input",searchProducts);
+
+
+document.getElementById(
+    "searchInput"
+)
+.addEventListener(
+    "input",
+    searchProducts
+);
+
+
+/* =====================================================
+   ADD TO CART
+===================================================== */
 
 function addToCart(p){
-    const id=p.id,stock=getStock(p),old=cart.find(i=>i.id===id);
-    if(old){if(Number(old.qty)+1>stock){toast("⚠️ ଏତିକି Stock ମାତ୍ର ଅଛି।");return}old.qty++}
-    else cart.push({id,name:p.name||"Product",price:getPrice(p),qty:1,image:getImage(p),stock,color:getColors(p),size:getSizes(p),fabric:getFabric(p)});
-    localStorage.setItem("utkalaCart",JSON.stringify(cart));updateCart();toast("✅ ପ୍ରଡକ୍ଟ କାର୍ଟରେ ଯୋଡାଗଲା।");
+
+    const id=p.id;
+
+    const stock=
+        getStock(p);
+
+    const old=
+        cart.find(
+            i=>i.id===id
+        );
+
+
+    if(old){
+
+        if(
+            Number(old.qty)+1>
+            stock
+        ){
+
+            toast(
+                "⚠️ ଏତିକି Stock ମାତ୍ର ଅଛି।"
+            );
+
+            return;
+        }
+
+
+        old.qty++;
+
+    }else{
+
+        cart.push({
+
+            id,
+
+            name:
+                p.name||
+                "Product",
+
+            price:
+                getPrice(p),
+
+            qty:1,
+
+            image:
+                getImage(p),
+
+            stock,
+
+            color:
+                getColors(p),
+
+            size:
+                getSizes(p),
+
+            fabric:
+                getFabric(p)
+        });
+    }
+
+
+    localStorage.setItem(
+        "utkalaCart",
+        JSON.stringify(cart)
+    );
+
+
+    updateCart();
+
+
+    toast(
+        "✅ ପ୍ରଡକ୍ଟ କାର୍ଟରେ ଯୋଡାଗଲା।"
+    );
 }
 
-window.changeQty=function(index,delta){
-    const item=cart[index];if(!item)return;
-    const newQty=Number(item.qty||1)+delta,stock=Number(item.stock||999999);
-    if(newQty>stock){toast("⚠️ ଏତିକି Stock ମାତ୍ର ଅଛି।");return}
-    item.qty=newQty;if(item.qty<=0)cart.splice(index,1);
-    localStorage.setItem("utkalaCart",JSON.stringify(cart));updateCart();openCart();
+
+/* =====================================================
+   CHANGE QTY
+===================================================== */
+
+window.changeQty=
+function(index,delta){
+
+    const item=
+        cart[index];
+
+    if(!item){
+        return;
+    }
+
+
+    const newQty=
+        Number(
+            item.qty||1
+        )+
+        delta;
+
+
+    const stock=
+        Number(
+            item.stock||
+            999999
+        );
+
+
+    if(
+        newQty>stock
+    ){
+
+        toast(
+            "⚠️ ଏତିକି Stock ମାତ୍ର ଅଛି।"
+        );
+
+        return;
+    }
+
+
+    item.qty=
+        newQty;
+
+
+    if(
+        item.qty<=0
+    ){
+
+        cart.splice(
+            index,
+            1
+        );
+    }
+
+
+    localStorage.setItem(
+        "utkalaCart",
+        JSON.stringify(cart)
+    );
+
+
+    updateCart();
+
+    openCart();
 };
 
-window.removeCart=function(index){cart.splice(index,1);localStorage.setItem("utkalaCart",JSON.stringify(cart));updateCart();openCart()};
 
-window.openCart=function(){
-    const box=document.getElementById("cartItems");let total=0;box.innerHTML="";
-    if(!cart.length)box.innerHTML="<br>🛒 କାର୍ଟ ଖାଲି ଅଛି।";
-    cart.forEach((item,index)=>{
-        total+=Number(item.price)*Number(item.qty);
-        const row=document.createElement("div");row.className="cart-item";
-        row.innerHTML=`<img src="${String(item.image).replace(/"/g,"&quot;")}" onerror="this.onerror=null;this.src='logo.png'">
-        <div style="flex:1"><b>${String(item.name)}</b><br>₹${Number(item.price).toLocaleString("en-IN")} × ${Number(item.qty)}
-        ${item.color?`<br>🎨 ${item.color}`:""}${item.size?`<br>📏 ${item.size}`:""}
-        <div class="qty-row"><button onclick="changeQty(${index},-1)">−</button><b>${Number(item.qty)}</b><button onclick="changeQty(${index},1)">+</button><button onclick="removeCart(${index})" style="width:auto;padding:0 7px;color:#d33">Remove</button></div></div>`;
-        box.appendChild(row);
+/* =====================================================
+   REMOVE CART
+===================================================== */
+
+window.removeCart=
+function(index){
+
+    cart.splice(
+        index,
+        1
+    );
+
+
+    localStorage.setItem(
+        "utkalaCart",
+        JSON.stringify(cart)
+    );
+
+
+    updateCart();
+
+    openCart();
+};
+
+
+/* =====================================================
+   OPEN CART
+===================================================== */
+
+window.openCart=
+function(){
+
+    const box=
+        document.getElementById(
+            "cartItems"
+        );
+
+
+    let total=0;
+
+    box.innerHTML="";
+
+
+    if(
+        !cart.length
+    ){
+
+        box.innerHTML=
+            "<br>🛒 କାର୍ଟ ଖାଲି ଅଛି।";
+    }
+
+
+    cart.forEach(
+        (item,index)=>{
+
+            total+=
+                Number(item.price)*
+                Number(item.qty);
+
+
+            const row=
+                document.createElement(
+                    "div"
+                );
+
+            row.className=
+                "cart-item";
+
+
+            row.innerHTML=`
+
+                <img
+                    src="${String(item.image)
+                        .replace(/"/g,"&quot;")}"
+
+                    onerror="
+                        this.onerror=null;
+                        this.src='logo.png'
+                    "
+                >
+
+                <div style="flex:1">
+
+                    <b>
+                        ${String(item.name)}
+                    </b>
+
+                    <br>
+
+                    ₹${Number(item.price)
+                        .toLocaleString("en-IN")}
+                    ×
+                    ${Number(item.qty)}
+
+                    ${
+                        item.color
+                        ? `<br>🎨 ${item.color}`
+                        : ""
+                    }
+
+                    ${
+                        item.size
+                        ? `<br>📏 ${item.size}`
+                        : ""
+                    }
+
+                    ${
+                        item.fabric
+                        ? `<br>🧵 ${item.fabric}`
+                        : ""
+                    }
+
+
+                    <div class="qty-row">
+
+                        <button
+                            onclick="
+                                changeQty(
+                                    ${index},
+                                    -1
+                                )
+                            "
+                        >
+                            −
+                        </button>
+
+
+                        <b>
+                            ${Number(item.qty)}
+                        </b>
+
+
+                        <button
+                            onclick="
+                                changeQty(
+                                    ${index},
+                                    1
+                                )
+                            "
+                        >
+                            +
+                        </button>
+
+
+                        <button
+                            onclick="
+                                removeCart(
+                                    ${index}
+                                )
+                            "
+                            style="
+                                width:auto;
+                                padding:0 7px;
+                                color:#d33
+                            "
+                        >
+                            Remove
+                        </button>
+
+                    </div>
+
+                </div>
+            `;
+
+
+            box.appendChild(
+                row
+            );
+        }
+    );
+
+
+    document.getElementById(
+        "cartTotal"
+    ).innerText=
+        "ମୋଟ: ₹"+
+        total.toLocaleString(
+            "en-IN"
+        );
+
+
+    document.getElementById(
+        "cartOverlay"
+    ).style.display=
+        "block";
+};
+
+
+/* =====================================================
+   CLOSE CART
+===================================================== */
+
+window.closeCart=
+function(e){
+
+    if(
+        !e||
+        e.target.id===
+        "cartOverlay"
+    ){
+
+        document.getElementById(
+            "cartOverlay"
+        ).style.display=
+            "none";
+    }
+};
+
+
+/* =====================================================
+   CHECKOUT
+===================================================== */
+
+window.checkout=
+function(){
+
+    if(
+        !cart.length
+    ){
+
+        toast(
+            "🛒 ପ୍ରଥମେ Product Cart ରେ ଯୋଡନ୍ତୁ।"
+        );
+
+        return;
+    }
+
+
+    window.location.href=
+        "checkout.html";
+};
+
+
+/* =====================================================
+   WISHLIST PAGE
+===================================================== */
+
+window.toggleWishlistPage=
+function(){
+
+    if(
+        !wishlist.length
+    ){
+
+        toast(
+            "♡ Wishlist ଖାଲି ଅଛି"
+        );
+
+        return;
+    }
+
+
+    document.getElementById(
+        "sectionHeading"
+    ).innerText=
+        "❤️ ମୋ ପସନ୍ଦ";
+
+
+    renderProducts(
+        allProducts.filter(
+            p=>wishlist.includes(
+                p.id
+            )
+        )
+    );
+
+
+    document.getElementById(
+        "specialSection"
+    ).scrollIntoView({
+        behavior:"smooth"
     });
-    document.getElementById("cartTotal").innerText="ମୋଟ: ₹"+total.toLocaleString("en-IN");
-    document.getElementById("cartOverlay").style.display="block";
-};
-window.closeCart=function(e){if(!e||e.target.id==="cartOverlay")document.getElementById("cartOverlay").style.display="none"};
-window.checkout=function(){if(!cart.length){toast("🛒 ପ୍ରଥମେ Product Cart ରେ ଯୋଡନ୍ତୁ।");return}window.location.href="checkout.html"};
-
-window.toggleWishlistPage=function(){
-    if(!wishlist.length){toast("♡ Wishlist ଖାଲି ଅଛି");return}
-    document.getElementById("sectionHeading").innerText="❤️ ମୋ ପସନ୍ଦ";
-    renderProducts(allProducts.filter(p=>wishlist.includes(p.id)));
-    document.getElementById("specialSection").scrollIntoView({behavior:"smooth"});
 };
 
-window.goAccount=()=>window.location.href="account.html";
-window.goOrderTracking=()=>window.location.href="order-tracking.html";
-window.goHome=()=>window.scrollTo({top:0,behavior:"smooth"});
-window.goToProducts=()=>document.getElementById("specialSection").scrollIntoView({behavior:"smooth"});
-window.scrollCategories=()=>document.querySelector(".categories").scrollIntoView({behavior:"smooth"});
-window.setActiveNav=function(el){document.querySelectorAll(".nav a").forEach(a=>a.classList.remove("active"));if(el)el.classList.add("active")};
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+window.goAccount=
+    ()=>{
+        window.location.href=
+            "account.html";
+    };
+
+
+window.goOrderTracking=
+    ()=>{
+        window.location.href=
+            "order-tracking.html";
+    };
+
+
+window.goHome=
+    ()=>{
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+    };
+
+
+window.goToProducts=
+    ()=>{
+        document.getElementById(
+            "specialSection"
+        ).scrollIntoView({
+            behavior:"smooth"
+        });
+    };
+
+
+window.scrollCategories=
+    ()=>{
+        document.querySelector(
+            ".categories"
+        ).scrollIntoView({
+            behavior:"smooth"
+        });
+    };
+
+
+window.setActiveNav=
+function(el){
+
+    document
+        .querySelectorAll(
+            ".nav a"
+        )
+        .forEach(
+            a=>
+                a.classList.remove(
+                    "active"
+                )
+        );
+
+
+    if(el){
+
+        el.classList.add(
+            "active"
+        );
+    }
+};
+
+
+/* =====================================================
+   LOAD PRODUCTS
+===================================================== */
 
 async function loadProducts(){
-    const loading=document.getElementById("loading");
+
+    const loading=
+        document.getElementById(
+            "loading"
+        );
+
+
     try{
+
         const combined=[];
 
-        try{
-            const snap=await getDocs(collection(db,"products"));
-            snap.forEach(d=>{
-                const data=d.data();
-                const hasApproval=data.status!==undefined||data.approved!==undefined||data.active!==undefined;
-                const approved=data.approved===true&&data.active===true&&String(data.status||"").toLowerCase()==="approved";
-                const oldProduct=!hasApproval&&data.active!==false;
-                if(approved||oldProduct)combined.push({id:d.id,source:"products",...data});
-            });
-        }catch(e){console.error("products:",e)}
+
+        /* ==========================================
+           PRODUCTS COLLECTION
+        ========================================== */
 
         try{
-            const snap=await getDocs(collection(db,"martProducts"));
-            snap.forEach(d=>{
-                const data=d.data();
-                if(data.active===false)return;
-                combined.push({id:d.id,source:"martProducts",...data});
-            });
-        }catch(e){console.error("martProducts:",e)}
 
-        const seen=new Set();
-        allProducts=combined.filter(p=>{
-            const key=String(p.source)+"_"+String(p.id);
-            if(seen.has(key))return false;seen.add(key);return true;
-        });
+            const snap=
+                await getDocs(
+                    collection(
+                        db,
+                        "products"
+                    )
+                );
 
-        renderProducts(allProducts);
-        loading.style.display="none";
-        console.log("Utkala Mart ALL Products:",allProducts);
-        console.log("Total Products:",allProducts.length);
+
+            snap.forEach(
+                d=>{
+
+                    const data=
+                        d.data();
+
+
+                    const hasApproval=
+                        data.status!==undefined||
+                        data.approved!==undefined||
+                        data.active!==undefined;
+
+
+                    const approved=
+                        data.approved===true&&
+                        data.active===true&&
+                        String(
+                            data.status||""
+                        ).toLowerCase()
+                        ==="approved";
+
+
+                    const oldProduct=
+                        !hasApproval&&
+                        data.active!==false;
+
+
+                    if(
+                        approved||
+                        oldProduct
+                    ){
+
+                        combined.push({
+
+                            id:d.id,
+
+                            source:
+                                "products",
+
+                            ...data
+                        });
+                    }
+
+                }
+            );
+
+        }catch(e){
+
+            console.error(
+                "products:",
+                e
+            );
+        }
+
+
+        /* ==========================================
+           MART PRODUCTS COLLECTION
+        ========================================== */
+
+        try{
+
+            const snap=
+                await getDocs(
+                    collection(
+                        db,
+                        "martProducts"
+                    )
+                );
+
+
+            snap.forEach(
+                d=>{
+
+                    const data=
+                        d.data();
+
+
+                    if(
+                        data.active===false
+                    ){
+
+                        return;
+                    }
+
+
+                    combined.push({
+
+                        id:d.id,
+
+                        source:
+                            "martProducts",
+
+                        ...data
+                    });
+
+                }
+            );
+
+        }catch(e){
+
+            console.error(
+                "martProducts:",
+                e
+            );
+        }
+
+
+        /* ==========================================
+           REMOVE DUPLICATES
+        ========================================== */
+
+        const seen=
+            new Set();
+
+
+        allProducts=
+            combined.filter(
+                p=>{
+
+                    const key=
+                        String(p.source)+
+                        "_"+
+                        String(p.id);
+
+
+                    if(
+                        seen.has(key)
+                    ){
+
+                        return false;
+                    }
+
+
+                    seen.add(key);
+
+                    return true;
+                }
+            );
+
+
+        /* ==========================================
+           DISPLAY
+        ========================================== */
+
+        renderProducts(
+            allProducts
+        );
+
+
+        loading.style.display=
+            "none";
+
+
+        console.log(
+            "Utkala Mart ALL Products:",
+            allProducts
+        );
+
+
+        console.log(
+            "Total Products:",
+            allProducts.length
+        );
+
+
     }catch(e){
-        console.error("PRODUCT LOAD ERROR:",e);
-        loading.style.display="block";
-        loading.innerText="⚠️ Product load ହୋଇପାରିଲା ନାହିଁ।";
+
+        console.error(
+            "PRODUCT LOAD ERROR:",
+            e
+        );
+
+
+        loading.style.display=
+            "block";
+
+
+        loading.innerText=
+            "⚠️ Product load ହୋଇପାରିଲା ନାହିଁ।";
     }
 }
 
+
+/* =====================================================
+   START
+===================================================== */
+
 updateCart();
+
 loadProducts();
+
 </script>
+
 </body>
-</html>
+    </html>
