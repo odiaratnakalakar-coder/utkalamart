@@ -1,0 +1,2197 @@
+<!DOCTYPE html>
+<html lang="or">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color"
+      content="#075b3b">
+
+<title>Utkala Mart | Stock Management</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:
+        Arial,
+        "Noto Sans Odia",
+        "Noto Sans Oriya",
+        "Nirmala UI",
+        sans-serif;
+
+    background:#f4f7f5;
+    color:#222;
+}
+
+button{
+    font:inherit;
+    cursor:pointer;
+}
+
+
+/* HEADER */
+
+header{
+
+    background:#075b3b;
+    color:#fff;
+
+    padding:16px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:10px;
+}
+
+.headerTitle{
+    font-size:22px;
+    font-weight:900;
+}
+
+.headerSub{
+    font-size:12px;
+    margin-top:4px;
+    opacity:.9;
+}
+
+.backBtn{
+
+    border:0;
+
+    background:#fff;
+    color:#075b3b;
+
+    padding:10px 14px;
+
+    border-radius:9px;
+
+    font-weight:900;
+}
+
+
+/* CONTAINER */
+
+.container{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:18px;
+}
+
+
+/* ADMIN BOX */
+
+.adminBox{
+
+    background:#fff;
+
+    padding:15px;
+
+    border-radius:14px;
+
+    box-shadow:
+        0 3px 12px rgba(0,0,0,.07);
+
+    margin-bottom:15px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:10px;
+}
+
+.adminBox h2{
+
+    color:#075b3b;
+
+    font-size:19px;
+}
+
+.adminEmail{
+
+    color:#777;
+
+    font-size:12px;
+
+    margin-top:4px;
+}
+
+.logoutBtn{
+
+    border:0;
+
+    background:#dc3545;
+
+    color:white;
+
+    padding:10px 15px;
+
+    border-radius:8px;
+
+    font-weight:900;
+}
+
+
+/* STATS */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:12px;
+
+    margin-bottom:15px;
+}
+
+.stat{
+
+    background:#fff;
+
+    border-radius:13px;
+
+    padding:17px 10px;
+
+    text-align:center;
+
+    box-shadow:
+        0 3px 10px rgba(0,0,0,.06);
+}
+
+.statIcon{
+
+    font-size:25px;
+
+    margin-bottom:5px;
+}
+
+.statNumber{
+
+    color:#075b3b;
+
+    font-size:25px;
+
+    font-weight:900;
+}
+
+.statLabel{
+
+    color:#777;
+
+    font-size:12px;
+
+    margin-top:3px;
+}
+
+
+/* SEARCH */
+
+.controls{
+
+    background:#fff;
+
+    padding:15px;
+
+    border-radius:14px;
+
+    box-shadow:
+        0 3px 10px rgba(0,0,0,.06);
+
+    margin-bottom:18px;
+}
+
+.search{
+
+    width:100%;
+
+    padding:13px;
+
+    border:1px solid #ccc;
+
+    border-radius:9px;
+
+    font-size:15px;
+}
+
+.filterRow{
+
+    display:flex;
+
+    gap:8px;
+
+    margin-top:10px;
+
+    flex-wrap:wrap;
+}
+
+.filterBtn{
+
+    border:1px solid #cbdad4;
+
+    background:#f7fbf8;
+
+    color:#075b3b;
+
+    padding:9px 13px;
+
+    border-radius:8px;
+
+    font-weight:800;
+}
+
+.filterBtn.active{
+
+    background:#075b3b;
+
+    color:white;
+}
+
+
+/* SECTION */
+
+.sectionTitle{
+
+    background:#07845f;
+
+    color:#fff;
+
+    padding:13px;
+
+    border-radius:10px 10px 0 0;
+
+    font-size:18px;
+
+    font-weight:900;
+}
+
+
+/* PRODUCTS */
+
+.products{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:15px;
+
+    margin-top:15px;
+}
+
+.card{
+
+    background:#fff;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 3px 12px rgba(0,0,0,.08);
+}
+
+.image{
+
+    width:100%;
+
+    height:200px;
+
+    object-fit:cover;
+
+    background:#eee;
+
+    display:block;
+}
+
+.body{
+
+    padding:14px;
+}
+
+.badge{
+
+    display:inline-block;
+
+    padding:5px 9px;
+
+    border-radius:7px;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    background:#e7f5ef;
+
+    color:#087d5b;
+
+    margin-bottom:8px;
+}
+
+.name{
+
+    color:#075b3b;
+
+    font-size:18px;
+
+    font-weight:900;
+
+    margin-bottom:8px;
+}
+
+.info{
+
+    font-size:13px;
+
+    line-height:1.7;
+
+    color:#555;
+}
+
+.price{
+
+    margin-top:7px;
+
+    font-size:18px;
+
+    color:#e65100;
+
+    font-weight:900;
+}
+
+
+/* STOCK STATUS */
+
+.stockBox{
+
+    margin-top:10px;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    text-align:center;
+}
+
+.stockNumber{
+
+    font-size:25px;
+
+    font-weight:900;
+}
+
+.stockText{
+
+    font-size:12px;
+
+    font-weight:900;
+
+    margin-top:3px;
+}
+
+.inStock{
+
+    background:#e5f8ed;
+
+    color:#087d5b;
+}
+
+.lowStock{
+
+    background:#fff5dc;
+
+    color:#c27b00;
+}
+
+.outStock{
+
+    background:#ffe7e7;
+
+    color:#dc3545;
+}
+
+
+/* ACTIONS */
+
+.actions{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:8px;
+
+    margin-top:12px;
+}
+
+.editBtn{
+
+    border:0;
+
+    background:#1769aa;
+
+    color:white;
+
+    padding:11px;
+
+    border-radius:8px;
+
+    font-weight:900;
+}
+
+.deleteBtn{
+
+    border:0;
+
+    background:#dc3545;
+
+    color:white;
+
+    padding:11px;
+
+    border-radius:8px;
+
+    font-weight:900;
+}
+
+.openBtn{
+
+    grid-column:1 / -1;
+
+    border:0;
+
+    background:#07845f;
+
+    color:white;
+
+    padding:11px;
+
+    border-radius:8px;
+
+    font-weight:900;
+}
+
+
+/* EMPTY */
+
+.empty{
+
+    background:#fff;
+
+    padding:35px;
+
+    text-align:center;
+
+    color:#777;
+
+    border-radius:0 0 10px 10px;
+
+    font-size:16px;
+}
+
+
+/* MODAL */
+
+.modal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.65);
+
+    z-index:5000;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:18px;
+}
+
+.modalBox{
+
+    width:100%;
+
+    max-width:420px;
+
+    background:white;
+
+    border-radius:16px;
+
+    padding:22px;
+}
+
+.modalBox h3{
+
+    color:#075b3b;
+
+    font-size:20px;
+
+    margin-bottom:8px;
+}
+
+.modalProduct{
+
+    color:#666;
+
+    font-size:13px;
+
+    margin-bottom:15px;
+}
+
+.stockInput{
+
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid #bbb;
+
+    border-radius:9px;
+
+    font-size:18px;
+}
+
+.modalActions{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:15px;
+}
+
+.modalActions button{
+
+    flex:1;
+
+    border:0;
+
+    padding:12px;
+
+    border-radius:9px;
+
+    font-weight:900;
+}
+
+.cancelBtn{
+
+    background:#777;
+
+    color:white;
+}
+
+.saveBtn{
+
+    background:#07845f;
+
+    color:white;
+}
+
+
+/* LOADING */
+
+.loading{
+
+    background:#fff;
+
+    padding:30px;
+
+    text-align:center;
+
+    color:#777;
+
+    border-radius:10px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .products{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .stats{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:600px){
+
+    header{
+
+        align-items:flex-start;
+    }
+
+    .headerTitle{
+
+        font-size:17px;
+    }
+
+    .headerSub{
+
+        font-size:10px;
+    }
+
+    .backBtn{
+
+        padding:8px 10px;
+
+        font-size:11px;
+    }
+
+    .adminBox{
+
+        align-items:flex-start;
+    }
+
+    .adminBox h2{
+
+        font-size:16px;
+    }
+
+    .logoutBtn{
+
+        padding:8px 10px;
+
+        font-size:11px;
+    }
+
+    .products{
+
+        grid-template-columns:1fr;
+    }
+
+    .image{
+
+        height:220px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div>
+
+        <div class="headerTitle">
+            📊 Utkala Mart - Stock Management
+        </div>
+
+        <div class="headerSub">
+            Office / Admin Management
+        </div>
+
+    </div>
+
+
+    <button
+        class="backBtn"
+        onclick="goDashboard()">
+
+        ← Dashboard
+
+    </button>
+
+</header>
+
+
+<div class="container">
+
+
+<!-- ADMIN -->
+
+<div class="adminBox">
+
+    <div>
+
+        <h2>
+            📦 Stock Management
+        </h2>
+
+        <div class="adminEmail">
+
+            Admin:
+            <span id="adminEmail">
+                Loading...
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <button
+        class="logoutBtn"
+        onclick="logout()">
+
+        🚪 Logout
+
+    </button>
+
+</div>
+
+
+<!-- STATS -->
+
+<div class="stats">
+
+
+    <div class="stat">
+
+        <div class="statIcon">
+            📦
+        </div>
+
+        <div
+            class="statNumber"
+            id="totalCount">
+
+            0
+
+        </div>
+
+        <div class="statLabel">
+            Total Products
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="statIcon">
+            🟢
+        </div>
+
+        <div
+            class="statNumber"
+            id="inStockCount">
+
+            0
+
+        </div>
+
+        <div class="statLabel">
+            In Stock
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="statIcon">
+            🟠
+        </div>
+
+        <div
+            class="statNumber"
+            id="lowStockCount">
+
+            0
+
+        </div>
+
+        <div class="statLabel">
+            Low Stock
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="statIcon">
+            🔴
+        </div>
+
+        <div
+            class="statNumber"
+            id="outStockCount">
+
+            0
+
+        </div>
+
+        <div class="statLabel">
+            Out of Stock
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- SEARCH -->
+
+<div class="controls">
+
+    <input
+        id="search"
+        class="search"
+        type="search"
+        placeholder="🔎 Product / Category / Seller search..."
+    >
+
+
+    <div class="filterRow">
+
+        <button
+            class="filterBtn active"
+            data-filter="all">
+
+            All
+
+        </button>
+
+        <button
+            class="filterBtn"
+            data-filter="in">
+
+            🟢 In Stock
+
+        </button>
+
+        <button
+            class="filterBtn"
+            data-filter="low">
+
+            🟠 Low Stock
+
+        </button>
+
+        <button
+            class="filterBtn"
+            data-filter="out">
+
+            🔴 Out of Stock
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- PRODUCT LIST -->
+
+<div class="sectionTitle">
+
+    📦 Product Stock
+
+</div>
+
+
+<div id="productArea">
+
+    <div class="loading">
+
+        ⏳ Products loading...
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+<!-- STOCK MODAL -->
+
+<div
+    id="stockModal"
+    class="modal">
+
+    <div class="modalBox">
+
+        <h3>
+            ✏️ Edit Stock
+        </h3>
+
+        <div
+            id="modalProduct"
+            class="modalProduct">
+
+        </div>
+
+
+        <input
+            id="stockInput"
+            class="stockInput"
+            type="number"
+            min="0"
+            step="1"
+            placeholder="Stock"
+        >
+
+
+        <div class="modalActions">
+
+            <button
+                class="cancelBtn"
+                onclick="closeModal()">
+
+                Cancel
+
+            </button>
+
+
+            <button
+                id="saveBtn"
+                class="saveBtn"
+                onclick="saveStock()">
+
+                💾 Save Stock
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script type="module">
+
+
+/* =====================================================
+   FIREBASE
+===================================================== */
+
+import {
+    initializeApp
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import {
+    getAuth,
+    onAuthStateChanged,
+    signOut
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+import {
+    getFirestore,
+    collection,
+    getDocs,
+    doc,
+    updateDoc,
+    deleteDoc
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =====================================================
+   CONFIG
+===================================================== */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyBYJ_KKsS_7SNz108jnw6hpOlmegofRhJg",
+
+    authDomain:
+        "utkalamart-1ec68.firebaseapp.com",
+
+    projectId:
+        "utkalamart-1ec68",
+
+    storageBucket:
+        "utkalamart-1ec68.firebasestorage.app",
+
+    messagingSenderId:
+        "664871353747",
+
+    appId:
+        "1:664871353747:web:96532fdafe78aabe7f3c66"
+
+};
+
+
+const app =
+    initializeApp(
+        firebaseConfig
+    );
+
+
+const auth =
+    getAuth(app);
+
+
+const db =
+    getFirestore(app);
+
+
+/* =====================================================
+   ADMIN
+===================================================== */
+
+const ADMIN_EMAIL =
+    "Suryakantabehera629@gmail.com";
+
+
+/* =====================================================
+   DATA
+===================================================== */
+
+let products = [];
+
+let currentProduct = null;
+
+let currentFilter = "all";
+
+
+/* =====================================================
+   AUTH
+===================================================== */
+
+onAuthStateChanged(
+    auth,
+    async user => {
+
+        if(!user){
+
+            window.location.href =
+                "admin-login.html";
+
+            return;
+
+        }
+
+
+        const email =
+            String(
+                user.email || ""
+            ).toLowerCase();
+
+
+        if(
+            email !==
+            ADMIN_EMAIL.toLowerCase()
+        ){
+
+            await signOut(auth);
+
+            window.location.href =
+                "admin-login.html";
+
+            return;
+
+        }
+
+
+        document.getElementById(
+            "adminEmail"
+        ).textContent =
+            user.email;
+
+
+        loadProducts();
+
+    }
+);
+
+
+/* =====================================================
+   LOAD PRODUCTS
+===================================================== */
+
+async function loadProducts(){
+
+    const area =
+        document.getElementById(
+            "productArea"
+        );
+
+
+    area.innerHTML =
+        `
+        <div class="loading">
+            ⏳ Products loading...
+        </div>
+        `;
+
+
+    products = [];
+
+
+    try{
+
+        /* PRODUCTS */
+
+        const productSnap =
+            await getDocs(
+                collection(
+                    db,
+                    "products"
+                )
+            );
+
+
+        productSnap.forEach(
+            item => {
+
+                const data =
+                    item.data();
+
+
+                products.push({
+
+                    id:
+                        item.id,
+
+                    source:
+                        "products",
+
+                    ...data
+
+                });
+
+            }
+        );
+
+
+        /* MART PRODUCTS */
+
+        const martSnap =
+            await getDocs(
+                collection(
+                    db,
+                    "martProducts"
+                )
+            );
+
+
+        martSnap.forEach(
+            item => {
+
+                const data =
+                    item.data();
+
+
+                products.push({
+
+                    id:
+                        item.id,
+
+                    source:
+                        "martProducts",
+
+                    ...data
+
+                });
+
+            }
+        );
+
+
+        updateStats();
+
+        renderProducts();
+
+
+    }catch(error){
+
+        console.error(error);
+
+
+        area.innerHTML =
+            `
+            <div class="empty">
+
+                ❌ Products load ହେଲା ନାହିଁ।
+
+                <br><br>
+
+                Firestore permission
+                ଯାଞ୍ଚ କରନ୍ତୁ।
+
+            </div>
+            `;
+
+    }
+
+}
+
+
+/* =====================================================
+   STOCK
+===================================================== */
+
+function getStock(product){
+
+    return Number(
+        product.stock ??
+        product.stockQty ??
+        product.quantity ??
+        product.availableStock ??
+        0
+    );
+
+}
+
+
+/* =====================================================
+   NAME
+===================================================== */
+
+function getName(product){
+
+    return (
+        product.name ||
+        product.productName ||
+        "Unnamed Product"
+    );
+
+}
+
+
+/* =====================================================
+   CATEGORY
+===================================================== */
+
+function getCategory(product){
+
+    return (
+        product.category ||
+        product.categoryName ||
+        "-"
+    );
+
+}
+
+
+/* =====================================================
+   SELLER
+===================================================== */
+
+function getSeller(product){
+
+    return (
+        product.sellerName ||
+        product.sellerEmail ||
+        product.sellerLocation ||
+        product.location ||
+        "-"
+    );
+
+}
+
+
+/* =====================================================
+   PRICE
+===================================================== */
+
+function getPrice(product){
+
+    return Number(
+        product.utkalaPrice ??
+        product.sellingPrice ??
+        product.price ??
+        0
+    );
+
+}
+
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+function getImage(product){
+
+    return (
+        product.image ||
+        product.imageUrl ||
+        product.photo ||
+        "https://via.placeholder.com/600x400?text=No+Image"
+    );
+
+}
+
+
+/* =====================================================
+   STOCK TYPE
+===================================================== */
+
+function getStockType(product){
+
+    const stock =
+        getStock(product);
+
+
+    if(stock <= 0){
+
+        return "out";
+
+    }
+
+
+    if(stock <= 5){
+
+        return "low";
+
+    }
+
+
+    return "in";
+
+}
+
+
+/* =====================================================
+   STATS
+===================================================== */
+
+function updateStats(){
+
+    let inStock = 0;
+
+    let lowStock = 0;
+
+    let outStock = 0;
+
+
+    products.forEach(
+        product => {
+
+            const type =
+                getStockType(product);
+
+
+            if(type === "in"){
+
+                inStock++;
+
+            }
+
+            if(type === "low"){
+
+                lowStock++;
+
+            }
+
+            if(type === "out"){
+
+                outStock++;
+
+            }
+
+        }
+    );
+
+
+    document.getElementById(
+        "totalCount"
+    ).textContent =
+        products.length;
+
+
+    document.getElementById(
+        "inStockCount"
+    ).textContent =
+        inStock;
+
+
+    document.getElementById(
+        "lowStockCount"
+    ).textContent =
+        lowStock;
+
+
+    document.getElementById(
+        "outStockCount"
+    ).textContent =
+        outStock;
+
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+document.getElementById(
+    "search"
+).addEventListener(
+    "input",
+    renderProducts
+);
+
+
+/* =====================================================
+   FILTER
+===================================================== */
+
+document.querySelectorAll(
+    ".filterBtn"
+).forEach(
+    button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                document
+                    .querySelectorAll(
+                        ".filterBtn"
+                    )
+                    .forEach(
+                        b =>
+                            b.classList.remove(
+                                "active"
+                            )
+                    );
+
+
+                button.classList.add(
+                    "active"
+                );
+
+
+                currentFilter =
+                    button.dataset.filter;
+
+
+                renderProducts();
+
+            }
+        );
+
+    }
+);
+
+
+/* =====================================================
+   RENDER
+===================================================== */
+
+function renderProducts(){
+
+    const area =
+        document.getElementById(
+            "productArea"
+        );
+
+
+    const search =
+        document.getElementById(
+            "search"
+        )
+        .value
+        .trim()
+        .toLowerCase();
+
+
+    let list =
+        products.filter(
+            product => {
+
+                const type =
+                    getStockType(product);
+
+
+                if(
+                    currentFilter !==
+                    "all" &&
+                    type !==
+                    currentFilter
+                ){
+
+                    return false;
+
+                }
+
+
+                if(!search){
+
+                    return true;
+
+                }
+
+
+                const text = (
+
+                    getName(product) +
+                    " " +
+                    getCategory(product) +
+                    " " +
+                    getSeller(product)
+
+                )
+                .toLowerCase();
+
+
+                return text.includes(
+                    search
+                );
+
+            }
+        );
+
+
+    if(!list.length){
+
+        area.innerHTML =
+            `
+            <div class="empty">
+
+                🎉 କୌଣସି Product ମିଳିଲା ନାହିଁ।
+
+            </div>
+            `;
+
+        return;
+
+    }
+
+
+    const grid =
+        document.createElement(
+            "div"
+        );
+
+
+    grid.className =
+        "products";
+
+
+    list.forEach(
+        product => {
+
+            grid.appendChild(
+                createCard(
+                    product
+                )
+            );
+
+        }
+    );
+
+
+    area.innerHTML = "";
+
+    area.appendChild(
+        grid
+    );
+
+}
+
+
+/* =====================================================
+   CREATE CARD
+===================================================== */
+
+function createCard(product){
+
+    const card =
+        document.createElement(
+            "div"
+        );
+
+
+    card.className =
+        "card";
+
+
+    const stock =
+        getStock(product);
+
+
+    const type =
+        getStockType(product);
+
+
+    let stockClass =
+        "inStock";
+
+    let stockText =
+        "In Stock 🟢";
+
+
+    if(type === "low"){
+
+        stockClass =
+            "lowStock";
+
+        stockText =
+            "Low Stock 🟠";
+
+    }
+
+
+    if(type === "out"){
+
+        stockClass =
+            "outStock";
+
+        stockText =
+            "Out of Stock 🔴";
+
+    }
+
+
+    card.innerHTML =
+        `
+
+        <img
+            class="image"
+            src="${escapeHtml(
+                getImage(product)
+            )}"
+            alt=""
+        >
+
+
+        <div class="body">
+
+
+            <span class="badge">
+
+                ${
+                    product.source ===
+                    "martProducts"
+
+                    ? "📦 Existing Product"
+
+                    : "🛍️ Seller Product"
+
+                }
+
+            </span>
+
+
+            <div class="name">
+
+                ${escapeHtml(
+                    getName(product)
+                )}
+
+            </div>
+
+
+            <div class="info">
+
+                📁 Category:
+                ${escapeHtml(
+                    getCategory(product)
+                )}
+
+            </div>
+
+
+            <div class="info">
+
+                👤 Seller:
+                ${escapeHtml(
+                    getSeller(product)
+                )}
+
+            </div>
+
+
+            <div class="price">
+
+                💰 ₹${getPrice(product)}
+
+            </div>
+
+
+            <div
+                class="stockBox ${stockClass}"
+            >
+
+                <div class="stockNumber">
+
+                    ${stock}
+
+                </div>
+
+                <div class="stockText">
+
+                    ${stockText}
+
+                </div>
+
+            </div>
+
+
+            <div class="actions">
+
+
+                <button
+                    class="editBtn"
+                    data-edit
+                >
+
+                    ✏️ Edit Stock
+
+                </button>
+
+
+                <button
+                    class="deleteBtn"
+                    data-delete
+                >
+
+                    🗑️ Delete
+
+                </button>
+
+
+                <button
+                    class="openBtn"
+                    data-open
+                >
+
+                    🔗 Open Product
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+        `;
+
+
+    card.querySelector(
+        "[data-edit]"
+    ).addEventListener(
+        "click",
+        () => {
+
+            openModal(
+                product
+            );
+
+        }
+    );
+
+
+    card.querySelector(
+        "[data-delete]"
+    ).addEventListener(
+        "click",
+        () => {
+
+            deleteProduct(
+                product
+            );
+
+        }
+    );
+
+
+    card.querySelector(
+        "[data-open]"
+    ).addEventListener(
+        "click",
+        () => {
+
+            openProduct(
+                product
+            );
+
+        }
+    );
+
+
+    return card;
+
+}
+
+
+/* =====================================================
+   OPEN PRODUCT
+===================================================== */
+
+function openProduct(product){
+
+    const link =
+        "product.html?id=" +
+        encodeURIComponent(
+            product.id
+        ) +
+        "&source=" +
+        encodeURIComponent(
+            product.source
+        );
+
+
+    window.open(
+        link,
+        "_blank"
+    );
+
+}
+
+
+/* =====================================================
+   STOCK MODAL
+===================================================== */
+
+function openModal(product){
+
+    currentProduct =
+        product;
+
+
+    document.getElementById(
+        "modalProduct"
+    ).textContent =
+        "Product: " +
+        getName(product);
+
+
+    document.getElementById(
+        "stockInput"
+    ).value =
+        getStock(product);
+
+
+    document.getElementById(
+        "stockModal"
+    ).style.display =
+        "flex";
+
+
+    document.getElementById(
+        "stockInput"
+    ).focus();
+
+}
+
+
+/* =====================================================
+   CLOSE MODAL
+===================================================== */
+
+window.closeModal =
+function(){
+
+    document.getElementById(
+        "stockModal"
+    ).style.display =
+        "none";
+
+
+    currentProduct =
+        null;
+
+};
+
+
+/* =====================================================
+   SAVE STOCK
+===================================================== */
+
+window.saveStock =
+async function(){
+
+    if(!currentProduct){
+
+        return;
+
+    }
+
+
+    const input =
+        document.getElementById(
+            "stockInput"
+        );
+
+
+    const value =
+        Number(
+            input.value
+        );
+
+
+    if(
+        !Number.isInteger(value) ||
+        value < 0
+    ){
+
+        alert(
+            "❌ Valid stock number ଦିଅନ୍ତୁ।"
+        );
+
+        return;
+
+    }
+
+
+    const saveBtn =
+        document.getElementById(
+            "saveBtn"
+        );
+
+
+    saveBtn.disabled =
+        true;
+
+
+    saveBtn.textContent =
+        "⏳ Saving...";
+
+
+    try{
+
+        await updateDoc(
+
+            doc(
+                db,
+                currentProduct.source,
+                currentProduct.id
+            ),
+
+            {
+
+                stock:
+                    value,
+
+                stockQty:
+                    value,
+
+                quantity:
+                    value,
+
+                availableStock:
+                    value,
+
+                updatedAt:
+                    new Date().toISOString()
+
+            }
+
+        );
+
+
+        alert(
+            "✅ Stock successfully updated!"
+        );
+
+
+        closeModal();
+
+
+        await loadProducts();
+
+
+    }catch(error){
+
+        console.error(error);
+
+
+        alert(
+            "❌ Stock update failed:\n" +
+            error.message
+        );
+
+    }
+
+
+    saveBtn.disabled =
+        false;
+
+    saveBtn.textContent =
+        "💾 Save Stock";
+
+};
+
+
+/* =====================================================
+   DELETE PRODUCT
+===================================================== */
+
+async function deleteProduct(product){
+
+    const name =
+        getName(product);
+
+
+    const ok =
+        confirm(
+
+            "⚠️ Product Delete କରିବେ?\n\n" +
+
+            name +
+
+            "\n\n" +
+
+            "ଏହି Product Firestore ରୁ permanently delete ହେବ।"
+
+        );
+
+
+    if(!ok){
+
+        return;
+
+    }
+
+
+    try{
+
+        await deleteDoc(
+
+            doc(
+                db,
+                product.source,
+                product.id
+            )
+
+        );
+
+
+        alert(
+            "🗑️ Product deleted successfully!"
+        );
+
+
+        await loadProducts();
+
+
+    }catch(error){
+
+        console.error(error);
+
+
+        alert(
+            "❌ Delete failed:\n" +
+            error.message
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+window.goDashboard =
+function(){
+
+    window.location.href =
+        "admin-dashboard.html";
+
+};
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+window.logout =
+async function(){
+
+    const ok =
+        confirm(
+            "Admin Panel ରୁ Logout କରିବେ?"
+        );
+
+
+    if(!ok){
+
+        return;
+
+    }
+
+
+    await signOut(
+        auth
+    );
+
+
+    window.location.href =
+        "admin-login.html";
+
+};
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHtml(value){
+
+    return String(
+        value ?? ""
+    )
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+    .replace(
+        /</g,
+        "&lt;"
+    )
+    .replace(
+        />/g,
+        "&gt;"
+    )
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+
+}
+
+</script>
+
+
+</body>
+
+  </html>
