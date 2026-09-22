@@ -336,9 +336,17 @@ header p{
   color:white;
 }
 
-/* =========================
-   PRODUCT LINK BOX
-========================= */
+.editProductBtn{
+  background:#0d6efd;
+  color:white;
+}
+
+.deleteProductBtn{
+  background:#dc3545;
+  color:white;
+}
+
+/* PRODUCT LINK */
 
 .productLinkBox{
   margin-top:13px;
@@ -412,14 +420,17 @@ header p{
   justify-content:center;
   align-items:center;
   padding:20px;
+  overflow:auto;
 }
 
 .modalBox{
   width:100%;
-  max-width:400px;
+  max-width:430px;
   background:white;
   border-radius:15px;
   padding:22px;
+  max-height:90vh;
+  overflow:auto;
 }
 
 .modalBox h3{
@@ -427,12 +438,26 @@ header p{
   color:#087d5b;
 }
 
-.modalBox input{
+.modalLabel{
+  display:block;
+  font-weight:bold;
+  margin:12px 0 6px;
+}
+
+.modalBox input,
+.modalBox select,
+.modalBox textarea{
   width:100%;
-  padding:13px;
+  padding:12px;
   border:1px solid #bbb;
   border-radius:9px;
-  font-size:17px;
+  font-size:15px;
+  font-family:inherit;
+}
+
+.modalBox textarea{
+  min-height:90px;
+  resize:vertical;
 }
 
 .modalActions{
@@ -447,6 +472,7 @@ header p{
   border:0;
   border-radius:9px;
   font-weight:bold;
+  cursor:pointer;
 }
 
 .saveBtn{
@@ -456,6 +482,11 @@ header p{
 
 .cancelBtn{
   background:#777;
+  color:white;
+}
+
+.deleteConfirmBtn{
+  background:#dc3545;
   color:white;
 }
 
@@ -519,14 +550,13 @@ header p{
 }
 
 </style>
+
 </head>
 
 <body>
 
 
-<!-- =========================
-     LOGIN PAGE
-========================= -->
+<!-- LOGIN -->
 
 <div id="loginPage">
 
@@ -568,7 +598,6 @@ header p{
           id="eyeBtn"
           class="eyeBtn"
           type="button"
-          aria-label="Show password"
         >👁️</button>
 
       </div>
@@ -593,9 +622,7 @@ header p{
 </div>
 
 
-<!-- =========================
-     ADMIN PAGE
-========================= -->
+<!-- ADMIN -->
 
 <div id="adminPage">
 
@@ -724,9 +751,7 @@ header p{
 </div>
 
 
-<!-- =========================
-     STOCK MODAL
-========================= -->
+<!-- STOCK MODAL -->
 
 <div
   id="stockModal"
@@ -770,9 +795,137 @@ header p{
 </div>
 
 
-<!-- =========================
-     FIREBASE
-========================= -->
+<!-- EDIT PRODUCT MODAL -->
+
+<div
+  id="editProductModal"
+  class="modal"
+>
+
+  <div class="modalBox">
+
+    <h3>✏️ Edit Product</h3>
+
+    <p id="editProductSource"></p>
+
+    <label class="modalLabel">
+      🛍️ Product Name
+    </label>
+
+    <input
+      id="editNameInput"
+      type="text"
+      placeholder="Product Name"
+    >
+
+    <label class="modalLabel">
+      📁 Category
+    </label>
+
+    <input
+      id="editCategoryInput"
+      type="text"
+      placeholder="Category"
+    >
+
+    <label class="modalLabel">
+      💰 Price
+    </label>
+
+    <input
+      id="editPriceInput"
+      type="number"
+      min="0"
+      step="0.01"
+      placeholder="Price"
+    >
+
+    <label class="modalLabel">
+      📦 Stock
+    </label>
+
+    <input
+      id="editStockInput"
+      type="number"
+      min="0"
+      step="1"
+      placeholder="Stock"
+    >
+
+    <div class="modalActions">
+
+      <button
+        id="cancelEditBtn"
+        class="cancelBtn"
+      >
+        Cancel
+      </button>
+
+      <button
+        id="saveEditBtn"
+        class="saveBtn"
+      >
+        💾 Save Product
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- DELETE CONFIRM MODAL -->
+
+<div
+  id="deleteModal"
+  class="modal"
+>
+
+  <div class="modalBox">
+
+    <h3 style="color:#dc3545;">
+      🗑️ Delete Product
+    </h3>
+
+    <p>
+      ଆପଣ ଏହି Product କୁ Delete କରିବାକୁ ନିଶ୍ଚିତ କି?
+    </p>
+
+    <p
+      id="deleteProductName"
+      style="font-weight:bold;color:#087d5b;"
+    ></p>
+
+    <p style="font-size:13px;color:#777;">
+      ⚠️ Delete କଲା ପରେ ଏହି Firebase document
+      ଆଉ ରହିବ ନାହିଁ।
+    </p>
+
+    <div class="modalActions">
+
+      <button
+        id="cancelDeleteBtn"
+        class="cancelBtn"
+      >
+        Cancel
+      </button>
+
+      <button
+        id="confirmDeleteBtn"
+        class="deleteConfirmBtn"
+      >
+        🗑️ Delete
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- FIREBASE -->
 
 <script type="module">
 
@@ -794,14 +947,13 @@ import {
   collection,
   getDocs,
   doc,
-  updateDoc
+  updateDoc,
+  deleteDoc
 } from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-/* =========================
-   FIREBASE CONFIG
-========================= */
+/* FIREBASE CONFIG */
 
 const firebaseConfig = {
 
@@ -826,9 +978,7 @@ const firebaseConfig = {
 };
 
 
-/* =========================
-   FIREBASE INIT
-========================= */
+/* INIT */
 
 const app =
   initializeApp(firebaseConfig);
@@ -840,17 +990,13 @@ const db =
   getFirestore(app);
 
 
-/* =========================
-   ADMIN EMAIL
-========================= */
+/* ADMIN */
 
 const ADMIN_EMAIL =
   "suryakantabehera629@gmail.com";
 
 
-/* =========================
-   ELEMENTS
-========================= */
+/* ELEMENTS */
 
 const loginPage =
   document.getElementById("loginPage");
@@ -897,6 +1043,9 @@ const pendingCount =
 const approvedCount =
   document.getElementById("approvedCount");
 
+
+/* STOCK ELEMENTS */
+
 const stockModal =
   document.getElementById("stockModal");
 
@@ -913,35 +1062,62 @@ const cancelStockBtn =
   document.getElementById("cancelStockBtn");
 
 
-/* =========================
-   DATA
-========================= */
+/* EDIT ELEMENTS */
+
+const editProductModal =
+  document.getElementById("editProductModal");
+
+const editProductSource =
+  document.getElementById("editProductSource");
+
+const editNameInput =
+  document.getElementById("editNameInput");
+
+const editCategoryInput =
+  document.getElementById("editCategoryInput");
+
+const editPriceInput =
+  document.getElementById("editPriceInput");
+
+const editStockInput =
+  document.getElementById("editStockInput");
+
+const saveEditBtn =
+  document.getElementById("saveEditBtn");
+
+const cancelEditBtn =
+  document.getElementById("cancelEditBtn");
+
+
+/* DELETE ELEMENTS */
+
+const deleteModal =
+  document.getElementById("deleteModal");
+
+const deleteProductName =
+  document.getElementById("deleteProductName");
+
+const confirmDeleteBtn =
+  document.getElementById("confirmDeleteBtn");
+
+const cancelDeleteBtn =
+  document.getElementById("cancelDeleteBtn");
+
+
+/* DATA */
 
 let allProducts = [];
 
 let currentStockProduct = null;
 
+let currentEditProduct = null;
 
-/* =========================
-   AUTOMATIC PRODUCT LINK
-========================= */
+let currentDeleteProduct = null;
+
+
+/* PRODUCT LINK */
 
 function getProductLink(product){
-
-  /*
-   * admin-products.html ଏବଂ product.html
-   * ଏକେ folder ରେ ଅଛି ବୋଲି ଧରାଯାଇଛି।
-   *
-   * Example:
-   *
-   * https://your-site.github.io/utkalamart/
-   *
-   * + product.html
-   *
-   * + ?id=FirebaseDocumentID
-   *
-   * + source=products
-   */
 
   const currentPath =
     window.location.pathname;
@@ -971,9 +1147,7 @@ function getProductLink(product){
 }
 
 
-/* =========================
-   PRODUCT SHARE MESSAGE
-========================= */
+/* SHARE MESSAGE */
 
 function getShareMessage(product){
 
@@ -1001,9 +1175,7 @@ ${link}
 }
 
 
-/* =========================
-   COPY PRODUCT LINK
-========================= */
+/* COPY LINK */
 
 async function copyProductLink(product){
 
@@ -1021,12 +1193,6 @@ async function copyProductLink(product){
     );
 
   }catch(error){
-
-    console.error(error);
-
-    /*
-     * Fallback
-     */
 
     const textarea =
       document.createElement("textarea");
@@ -1055,9 +1221,7 @@ async function copyProductLink(product){
 }
 
 
-/* =========================
-   OPEN PRODUCT
-========================= */
+/* OPEN */
 
 function openProduct(product){
 
@@ -1072,9 +1236,7 @@ function openProduct(product){
 }
 
 
-/* =========================
-   WHATSAPP SHARE
-========================= */
+/* WHATSAPP */
 
 function shareWhatsApp(product){
 
@@ -1095,9 +1257,7 @@ function shareWhatsApp(product){
 }
 
 
-/* =========================
-   FACEBOOK SHARE
-========================= */
+/* FACEBOOK */
 
 function shareFacebook(product){
 
@@ -1119,9 +1279,7 @@ function shareFacebook(product){
 }
 
 
-/* =========================
-   PRODUCT LINK HTML
-========================= */
+/* PRODUCT LINK BOX */
 
 function createProductLinkBox(product){
 
@@ -1253,9 +1411,7 @@ function createProductLinkBox(product){
 }
 
 
-/* =========================
-   PASSWORD SHOW / HIDE
-========================= */
+/* PASSWORD */
 
 eyeBtn.addEventListener(
   "click",
@@ -1286,9 +1442,7 @@ eyeBtn.addEventListener(
 );
 
 
-/* =========================
-   LOGIN
-========================= */
+/* LOGIN */
 
 loginBtn.addEventListener(
   "click",
@@ -1352,9 +1506,7 @@ loginBtn.addEventListener(
 );
 
 
-/* =========================
-   FIREBASE ERROR
-========================= */
+/* FIREBASE ERROR */
 
 function getFirebaseError(error){
 
@@ -1430,9 +1582,7 @@ function getFirebaseError(error){
 }
 
 
-/* =========================
-   AUTH STATE
-========================= */
+/* AUTH */
 
 onAuthStateChanged(
   auth,
@@ -1451,8 +1601,6 @@ onAuthStateChanged(
     }
 
 
-    /* ADMIN EMAIL CHECK */
-
     if(
       user.email?.toLowerCase() !==
       ADMIN_EMAIL.toLowerCase()
@@ -1467,8 +1615,6 @@ onAuthStateChanged(
 
     }
 
-
-    /* SHOW ADMIN */
 
     loginPage.style.display =
       "none";
@@ -1486,9 +1632,7 @@ onAuthStateChanged(
 );
 
 
-/* =========================
-   LOGOUT
-========================= */
+/* LOGOUT */
 
 logoutBtn.addEventListener(
   "click",
@@ -1500,9 +1644,7 @@ logoutBtn.addEventListener(
 );
 
 
-/* =========================
-   LOAD PRODUCTS
-========================= */
+/* LOAD PRODUCTS */
 
 async function loadProducts(){
 
@@ -1522,7 +1664,7 @@ async function loadProducts(){
 
   try{
 
-    /* SELLER PRODUCTS */
+    /* PRODUCTS */
 
     const productSnapshot =
       await getDocs(
@@ -1555,7 +1697,7 @@ async function loadProducts(){
     );
 
 
-    /* OLD MART PRODUCTS */
+    /* MART PRODUCTS */
 
     const martSnapshot =
       await getDocs(
@@ -1612,9 +1754,7 @@ async function loadProducts(){
 }
 
 
-/* =========================
-   STOCK
-========================= */
+/* STOCK */
 
 function getStock(product){
 
@@ -1629,9 +1769,7 @@ function getStock(product){
 }
 
 
-/* =========================
-   PRICE
-========================= */
+/* PRICE */
 
 function getPrice(product){
 
@@ -1645,9 +1783,7 @@ function getPrice(product){
 }
 
 
-/* =========================
-   IMAGE
-========================= */
+/* IMAGE */
 
 function getImage(product){
 
@@ -1661,9 +1797,7 @@ function getImage(product){
 }
 
 
-/* =========================
-   NAME
-========================= */
+/* NAME */
 
 function getName(product){
 
@@ -1676,9 +1810,7 @@ function getName(product){
 }
 
 
-/* =========================
-   CATEGORY
-========================= */
+/* CATEGORY */
 
 function getCategory(product){
 
@@ -1691,9 +1823,7 @@ function getCategory(product){
 }
 
 
-/* =========================
-   SELLER
-========================= */
+/* SELLER */
 
 function getSeller(product){
 
@@ -1708,9 +1838,7 @@ function getSeller(product){
 }
 
 
-/* =========================
-   APPROVED CHECK
-========================= */
+/* APPROVED */
 
 function isApproved(product){
 
@@ -1738,9 +1866,7 @@ function isApproved(product){
 }
 
 
-/* =========================
-   PENDING CHECK
-========================= */
+/* PENDING */
 
 function isPending(product){
 
@@ -1755,9 +1881,7 @@ function isPending(product){
 }
 
 
-/* =========================
-   STATS
-========================= */
+/* STATS */
 
 function updateStats(){
 
@@ -1784,9 +1908,7 @@ function updateStats(){
 }
 
 
-/* =========================
-   SEARCH
-========================= */
+/* SEARCH */
 
 searchBox.addEventListener(
   "input",
@@ -1798,9 +1920,7 @@ searchBox.addEventListener(
 );
 
 
-/* =========================
-   RENDER
-========================= */
+/* RENDER */
 
 function renderProducts(){
 
@@ -1847,9 +1967,7 @@ function renderProducts(){
 }
 
 
-/* =========================
-   SEARCH MATCH
-========================= */
+/* SEARCH MATCH */
 
 function productMatches(product){
 
@@ -1873,9 +1991,7 @@ function productMatches(product){
 }
 
 
-/* =========================
-   PENDING RENDER
-========================= */
+/* PENDING */
 
 function renderPending(products){
 
@@ -1922,9 +2038,7 @@ function renderPending(products){
 }
 
 
-/* =========================
-   PENDING CARD
-========================= */
+/* PENDING CARD */
 
 function createPendingCard(product){
 
@@ -2039,9 +2153,7 @@ function createPendingCard(product){
 }
 
 
-/* =========================
-   APPROVED RENDER
-========================= */
+/* APPROVED */
 
 function renderApproved(products){
 
@@ -2088,9 +2200,7 @@ function renderApproved(products){
 }
 
 
-/* =========================
-   APPROVED CARD
-========================= */
+/* APPROVED CARD */
 
 function createApprovedCard(product){
 
@@ -2180,8 +2290,23 @@ function createApprovedCard(product){
 
         <button
           class="editBtn"
+          data-action="stock"
         >
           ✏️ Edit Stock
+        </button>
+
+        <button
+          class="editProductBtn"
+          data-action="edit-product"
+        >
+          📝 Edit Product
+        </button>
+
+        <button
+          class="deleteProductBtn"
+          data-action="delete-product"
+        >
+          🗑️ Delete
         </button>
 
       </div>
@@ -2190,9 +2315,7 @@ function createApprovedCard(product){
   `;
 
 
-  /*
-   * Automatic Product Link
-   */
+  /* PRODUCT LINK */
 
   const linkBox =
     createProductLinkBox(
@@ -2208,9 +2331,11 @@ function createApprovedCard(product){
     );
 
 
+  /* STOCK */
+
   card
     .querySelector(
-      ".editBtn"
+      '[data-action="stock"]'
     )
     .addEventListener(
       "click",
@@ -2224,14 +2349,48 @@ function createApprovedCard(product){
     );
 
 
+  /* EDIT PRODUCT */
+
+  card
+    .querySelector(
+      '[data-action="edit-product"]'
+    )
+    .addEventListener(
+      "click",
+      function(){
+
+        openEditProductModal(
+          product
+        );
+
+      }
+    );
+
+
+  /* DELETE */
+
+  card
+    .querySelector(
+      '[data-action="delete-product"]'
+    )
+    .addEventListener(
+      "click",
+      function(){
+
+        openDeleteModal(
+          product
+        );
+
+      }
+    );
+
+
   return card;
 
 }
 
 
-/* =========================
-   APPROVE
-========================= */
+/* APPROVE */
 
 async function approveProduct(product){
 
@@ -2291,9 +2450,7 @@ async function approveProduct(product){
 }
 
 
-/* =========================
-   REJECT
-========================= */
+/* REJECT */
 
 async function rejectProduct(product){
 
@@ -2353,9 +2510,7 @@ async function rejectProduct(product){
 }
 
 
-/* =========================
-   STOCK MODAL
-========================= */
+/* STOCK MODAL */
 
 function openStockModal(product){
 
@@ -2388,7 +2543,7 @@ function closeStockModal(){
 }
 
 
-/* CANCEL */
+/* CANCEL STOCK */
 
 cancelStockBtn.addEventListener(
   "click",
@@ -2400,9 +2555,7 @@ cancelStockBtn.addEventListener(
 );
 
 
-/* =========================
-   SAVE STOCK
-========================= */
+/* SAVE STOCK */
 
 saveStockBtn.addEventListener(
   "click",
@@ -2505,8 +2658,367 @@ saveStockBtn.addEventListener(
 
 
 /* =========================
-   ESCAPE HTML
+   EDIT PRODUCT MODAL
 ========================= */
+
+function openEditProductModal(product){
+
+  currentEditProduct =
+    product;
+
+  editProductSource.textContent =
+    "Source: " +
+    product.source;
+
+  editNameInput.value =
+    getName(product);
+
+  editCategoryInput.value =
+    getCategory(product);
+
+  editPriceInput.value =
+    getPrice(product);
+
+  editStockInput.value =
+    getStock(product);
+
+  editProductModal.style.display =
+    "flex";
+
+  editNameInput.focus();
+
+}
+
+
+function closeEditProductModal(){
+
+  editProductModal.style.display =
+    "none";
+
+  currentEditProduct =
+    null;
+
+}
+
+
+/* CANCEL EDIT */
+
+cancelEditBtn.addEventListener(
+  "click",
+  function(){
+
+    closeEditProductModal();
+
+  }
+);
+
+
+/* SAVE EDIT */
+
+saveEditBtn.addEventListener(
+  "click",
+  async function(){
+
+    if(
+      !currentEditProduct
+    ){
+
+      return;
+
+    }
+
+
+    const name =
+      editNameInput.value.trim();
+
+    const category =
+      editCategoryInput.value.trim();
+
+    const price =
+      Number(
+        editPriceInput.value
+      );
+
+    const stock =
+      Number(
+        editStockInput.value
+      );
+
+
+    if(!name){
+
+      alert(
+        "❌ Product Name ଦିଅନ୍ତୁ।"
+      );
+
+      return;
+
+    }
+
+
+    if(!category){
+
+      alert(
+        "❌ Category ଦିଅନ୍ତୁ।"
+      );
+
+      return;
+
+    }
+
+
+    if(
+      !Number.isFinite(price) ||
+      price < 0
+    ){
+
+      alert(
+        "❌ Valid Price ଦିଅନ୍ତୁ।"
+      );
+
+      return;
+
+    }
+
+
+    if(
+      !Number.isInteger(stock) ||
+      stock < 0
+    ){
+
+      alert(
+        "❌ Valid Stock ଦିଅନ୍ତୁ।"
+      );
+
+      return;
+
+    }
+
+
+    if(
+      !confirm(
+        "ଏହି Product ର information update କରିବେ?"
+      )
+    ){
+
+      return;
+
+    }
+
+
+    saveEditBtn.disabled =
+      true;
+
+    saveEditBtn.textContent =
+      "⏳ Saving...";
+
+
+    try{
+
+      const productRef =
+        doc(
+          db,
+          currentEditProduct.source,
+          currentEditProduct.id
+        );
+
+
+      /*
+       * ଏଠାରେ existing data delete ହେବ ନାହିଁ।
+       * କେବଳ ଏହି fields update ହେବ।
+       */
+
+      await updateDoc(
+
+        productRef,
+
+        {
+
+          name:
+            name,
+
+          productName:
+            name,
+
+          category:
+            category,
+
+          categoryName:
+            category,
+
+          price:
+            price,
+
+          sellingPrice:
+            price,
+
+          utkalaPrice:
+            price,
+
+          stock:
+            stock,
+
+          stockQty:
+            stock,
+
+          quantity:
+            stock,
+
+          availableStock:
+            stock,
+
+          updatedAt:
+            new Date().toISOString()
+
+        }
+
+      );
+
+
+      alert(
+        "✅ Product updated successfully!"
+      );
+
+
+      closeEditProductModal();
+
+      await loadProducts();
+
+    }catch(error){
+
+      console.error(error);
+
+      alert(
+        "❌ Product update failed:\n" +
+        getFirebaseError(error)
+      );
+
+    }
+
+
+    saveEditBtn.disabled =
+      false;
+
+    saveEditBtn.textContent =
+      "💾 Save Product";
+
+  }
+);
+
+
+/* =========================
+   DELETE PRODUCT
+========================= */
+
+function openDeleteModal(product){
+
+  currentDeleteProduct =
+    product;
+
+  deleteProductName.textContent =
+    "🛍️ " +
+    getName(product);
+
+  deleteModal.style.display =
+    "flex";
+
+}
+
+
+function closeDeleteModal(){
+
+  deleteModal.style.display =
+    "none";
+
+  currentDeleteProduct =
+    null;
+
+}
+
+
+/* CANCEL DELETE */
+
+cancelDeleteBtn.addEventListener(
+  "click",
+  function(){
+
+    closeDeleteModal();
+
+  }
+);
+
+
+/* CONFIRM DELETE */
+
+confirmDeleteBtn.addEventListener(
+  "click",
+  async function(){
+
+    if(
+      !currentDeleteProduct
+    ){
+
+      return;
+
+    }
+
+
+    const product =
+      currentDeleteProduct;
+
+
+    confirmDeleteBtn.disabled =
+      true;
+
+    confirmDeleteBtn.textContent =
+      "⏳ Deleting...";
+
+
+    try{
+
+      await deleteDoc(
+
+        doc(
+          db,
+          product.source,
+          product.id
+        )
+
+      );
+
+
+      alert(
+        "🗑️ Product deleted successfully!"
+      );
+
+
+      closeDeleteModal();
+
+      await loadProducts();
+
+    }catch(error){
+
+      console.error(error);
+
+      alert(
+        "❌ Delete failed:\n" +
+        getFirebaseError(error)
+      );
+
+    }
+
+
+    confirmDeleteBtn.disabled =
+      false;
+
+    confirmDeleteBtn.textContent =
+      "🗑️ Delete";
+
+  }
+);
+
+
+/* ESCAPE HTML */
 
 function escapeHtml(value){
 
@@ -2539,4 +3051,5 @@ function escapeHtml(value){
 </script>
 
 </body>
+
       </html>
