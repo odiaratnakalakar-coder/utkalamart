@@ -1,0 +1,2070 @@
+<!DOCTYPE html>
+<html lang="or">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width,initial-scale=1.0">
+
+<meta name="theme-color"
+      content="#075b3b">
+
+<title>Utkala Mart - Delete Management</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:
+        Arial,
+        "Noto Sans Odia",
+        "Noto Sans Oriya",
+        "Nirmala UI",
+        sans-serif;
+
+    background:#f4f7f5;
+    color:#222;
+}
+
+button{
+    font:inherit;
+    cursor:pointer;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+
+    background:#075b3b;
+    color:#fff;
+
+    padding:14px 4%;
+
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    gap:12px;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,.15);
+}
+
+.header h1{
+    font-size:22px;
+    font-weight:900;
+}
+
+.header p{
+    margin-top:4px;
+    font-size:11px;
+    opacity:.9;
+}
+
+.dashboardBtn{
+
+    border:0;
+
+    background:#fff;
+    color:#075b3b;
+
+    padding:10px 15px;
+
+    border-radius:9px;
+
+    font-weight:900;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:15px;
+}
+
+
+/* =========================
+   ADMIN BOX
+========================= */
+
+.adminBox{
+
+    background:#fff;
+
+    border-radius:15px;
+
+    padding:16px;
+
+    margin-bottom:15px;
+
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    gap:12px;
+
+    box-shadow:
+        0 3px 12px rgba(0,0,0,.07);
+}
+
+.adminBox h2{
+
+    color:#075b3b;
+
+    font-size:19px;
+}
+
+.adminEmail{
+
+    margin-top:5px;
+
+    color:#777;
+
+    font-size:12px;
+}
+
+.logoutBtn{
+
+    border:0;
+
+    background:#dc3545;
+
+    color:#fff;
+
+    padding:10px 15px;
+
+    border-radius:9px;
+
+    font-weight:900;
+}
+
+
+/* =========================
+   WARNING
+========================= */
+
+.warning{
+
+    background:#fff4e5;
+
+    border:1px solid #ffd08a;
+
+    color:#8a4b00;
+
+    padding:13px;
+
+    border-radius:10px;
+
+    margin-bottom:15px;
+
+    font-size:13px;
+
+    line-height:1.6;
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:12px;
+
+    margin-bottom:15px;
+}
+
+.stat{
+
+    background:#fff;
+
+    border-radius:13px;
+
+    padding:16px 10px;
+
+    text-align:center;
+
+    box-shadow:
+        0 3px 12px rgba(0,0,0,.07);
+}
+
+.statIcon{
+
+    font-size:27px;
+
+    margin-bottom:5px;
+}
+
+.statValue{
+
+    color:#075b3b;
+
+    font-size:25px;
+
+    font-weight:900;
+}
+
+.statLabel{
+
+    color:#777;
+
+    font-size:11px;
+
+    margin-top:4px;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.searchBox{
+
+    width:100%;
+
+    padding:13px;
+
+    border:1px solid #ccc;
+
+    border-radius:10px;
+
+    font-size:14px;
+
+    outline:none;
+
+    margin-bottom:12px;
+}
+
+.searchBox:focus{
+
+    border-color:#075b3b;
+}
+
+
+/* =========================
+   TABS
+========================= */
+
+.tabs{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:8px;
+
+    margin-bottom:15px;
+}
+
+.tab{
+
+    border:1px solid #cfded7;
+
+    background:#fff;
+
+    color:#075b3b;
+
+    padding:11px 7px;
+
+    border-radius:9px;
+
+    font-weight:900;
+
+    font-size:12px;
+}
+
+.tab.active{
+
+    background:#075b3b;
+
+    color:#fff;
+
+    border-color:#075b3b;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.sectionTitle{
+
+    background:#07845f;
+
+    color:#fff;
+
+    padding:12px;
+
+    border-radius:10px 10px 0 0;
+
+    font-size:17px;
+
+    font-weight:900;
+}
+
+
+/* =========================
+   DATA GRID
+========================= */
+
+.dataGrid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:12px;
+
+    margin-top:12px;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.dataCard{
+
+    background:#fff;
+
+    border-radius:12px;
+
+    padding:14px;
+
+    box-shadow:
+        0 3px 12px rgba(0,0,0,.08);
+
+    border-left:
+        5px solid #dc3545;
+}
+
+.cardTop{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:8px;
+
+    align-items:flex-start;
+
+    border-bottom:
+        1px solid #eee;
+
+    padding-bottom:10px;
+
+    margin-bottom:10px;
+}
+
+.cardTitle{
+
+    color:#075b3b;
+
+    font-size:17px;
+
+    font-weight:900;
+
+    word-break:break-word;
+}
+
+.cardId{
+
+    color:#888;
+
+    font-size:10px;
+
+    margin-top:4px;
+
+    word-break:break-all;
+}
+
+.typeBadge{
+
+    background:#fff0f0;
+
+    color:#dc3545;
+
+    padding:5px 8px;
+
+    border-radius:15px;
+
+    font-size:10px;
+
+    font-weight:900;
+
+    white-space:nowrap;
+}
+
+
+/* =========================
+   INFO
+========================= */
+
+.infoRow{
+
+    display:flex;
+
+    gap:7px;
+
+    padding:5px 0;
+
+    font-size:12px;
+
+    line-height:1.5;
+}
+
+.infoLabel{
+
+    color:#777;
+}
+
+.infoValue{
+
+    font-weight:700;
+
+    word-break:break-word;
+}
+
+
+/* =========================
+   DELETE
+========================= */
+
+.deleteBtn{
+
+    width:100%;
+
+    border:0;
+
+    background:#dc3545;
+
+    color:#fff;
+
+    padding:11px;
+
+    border-radius:8px;
+
+    font-weight:900;
+
+    margin-top:10px;
+}
+
+.deleteBtn:hover{
+
+    background:#b92332;
+}
+
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty{
+
+    background:#fff;
+
+    padding:35px 20px;
+
+    text-align:center;
+
+    color:#777;
+
+    border-radius:
+        0 0 10px 10px;
+}
+
+
+/* =========================
+   LOADING
+========================= */
+
+.loading{
+
+    background:#fff;
+
+    padding:30px;
+
+    text-align:center;
+
+    color:#777;
+
+    border-radius:
+        0 0 10px 10px;
+}
+
+
+/* =========================
+   ERROR
+========================= */
+
+.errorBox{
+
+    background:#fff0f0;
+
+    color:#b00020;
+
+    padding:18px;
+
+    border-radius:10px;
+
+    line-height:1.6;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:800px){
+
+    .stats{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .dataGrid{
+
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .header{
+
+        padding:11px;
+
+        align-items:flex-start;
+    }
+
+    .header h1{
+
+        font-size:17px;
+    }
+
+    .header p{
+
+        font-size:9px;
+    }
+
+    .dashboardBtn{
+
+        padding:8px 10px;
+
+        font-size:10px;
+    }
+
+    .adminBox{
+
+        align-items:flex-start;
+    }
+
+    .adminBox h2{
+
+        font-size:16px;
+    }
+
+    .logoutBtn{
+
+        padding:8px 10px;
+
+        font-size:10px;
+    }
+
+    .tabs{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="header">
+
+    <div>
+
+        <h1>
+            🗑️ Utkala Mart - Delete Management
+        </h1>
+
+        <p>
+            Office / Admin Management
+        </p>
+
+    </div>
+
+
+    <button
+        class="dashboardBtn"
+        onclick="goDashboard()">
+
+        ← Dashboard
+
+    </button>
+
+</header>
+
+
+<div class="container">
+
+
+<!-- =========================
+     ADMIN
+========================= -->
+
+<div class="adminBox">
+
+    <div>
+
+        <h2>
+            🗑️ Delete Management
+        </h2>
+
+        <div class="adminEmail">
+
+            Admin:
+            <span id="adminEmail">
+                Loading...
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <button
+        class="logoutBtn"
+        onclick="logout()">
+
+        🚪 Logout
+
+    </button>
+
+</div>
+
+
+<!-- =========================
+     WARNING
+========================= -->
+
+<div class="warning">
+
+    ⚠️ <strong>ସାବଧାନ:</strong>
+    Delete କରାଯାଇଥିବା Firestore data
+    ପୁଣି restore କରିବା ସହଜ ନୁହେଁ।
+    Delete କରିବା ପୂର୍ବରୁ ଭଲଭାବେ ଯାଞ୍ଚ କରନ୍ତୁ।
+
+</div>
+
+
+<!-- =========================
+     STATS
+========================= -->
+
+<div class="stats">
+
+
+    <div class="stat">
+
+        <div class="statIcon">
+            📦
+        </div>
+
+        <div
+            id="orderCount"
+            class="statValue">
+
+            0
+
+        </div>
+
+        <div class="statLabel">
+            Orders
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="statIcon">
+            🛍️
+        </div>
+
+        <div
+            id="productCount"
+            class="statValue">
+
+            0
+
+        </div>
+
+        <div class="statLabel">
+            Products
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="statIcon">
+            👤
+        </div>
+
+        <div
+            id="sellerCount"
+            class="statValue">
+
+            0
+
+        </div>
+
+        <div class="statLabel">
+            Sellers
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="statIcon">
+            🔄
+        </div>
+
+        <div
+            id="returnCount"
+            class="statValue">
+
+            0
+
+        </div>
+
+        <div class="statLabel">
+            Returns
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     SEARCH
+========================= -->
+
+<input
+    id="searchBox"
+    class="searchBox"
+    type="search"
+    placeholder="🔎 Search data..."
+>
+
+
+<!-- =========================
+     TABS
+========================= -->
+
+<div class="tabs">
+
+    <button
+        class="tab active"
+        data-type="orders">
+
+        📦 Orders
+
+    </button>
+
+
+    <button
+        class="tab"
+        data-type="products">
+
+        🛍️ Products
+
+    </button>
+
+
+    <button
+        class="tab"
+        data-type="sellers">
+
+        👤 Sellers
+
+    </button>
+
+
+    <button
+        class="tab"
+        data-type="returns">
+
+        🔄 Returns
+
+    </button>
+
+</div>
+
+
+<!-- =========================
+     DATA
+========================= -->
+
+<div class="sectionTitle">
+
+    <span id="sectionTitle">
+        📦 Orders
+
+    </span>
+
+</div>
+
+
+<div id="dataArea">
+
+    <div class="loading">
+
+        ⏳ Data loading...
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+<script type="module">
+
+
+/* =====================================================
+   FIREBASE
+===================================================== */
+
+import {
+    initializeApp
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import {
+    getAuth,
+    onAuthStateChanged,
+    signOut
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+import {
+    getFirestore,
+    collection,
+    getDocs,
+    deleteDoc,
+    doc
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =====================================================
+   CONFIG
+===================================================== */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyBYJ_KKsS_7SNz108jnw6hpOlmegofRhJg",
+
+    authDomain:
+        "utkalamart-1ec68.firebaseapp.com",
+
+    projectId:
+        "utkalamart-1ec68",
+
+    storageBucket:
+        "utkalamart-1ec68.firebasestorage.app",
+
+    messagingSenderId:
+        "664871353747",
+
+    appId:
+        "1:664871353747:web:96532fdafe78aabe7f3c66"
+
+};
+
+
+/* =====================================================
+   INIT
+===================================================== */
+
+const app =
+    initializeApp(
+        firebaseConfig
+    );
+
+const auth =
+    getAuth(app);
+
+const db =
+    getFirestore(app);
+
+
+/* =====================================================
+   ADMIN
+===================================================== */
+
+const ADMIN_EMAIL =
+    "Suryakantabehera629@gmail.com";
+
+
+/* =====================================================
+   DATA
+===================================================== */
+
+let data = {
+
+    orders:[],
+
+    products:[],
+
+    sellers:[],
+
+    returns:[]
+
+};
+
+
+let currentType =
+    "orders";
+
+
+/* =====================================================
+   AUTH
+===================================================== */
+
+onAuthStateChanged(
+    auth,
+    async function(user){
+
+        if(!user){
+
+            window.location.href =
+                "admin-login.html";
+
+            return;
+
+        }
+
+
+        const email =
+            String(
+                user.email || ""
+            ).toLowerCase();
+
+
+        if(
+            email !==
+            ADMIN_EMAIL.toLowerCase()
+        ){
+
+            await signOut(auth);
+
+            window.location.href =
+                "admin-login.html";
+
+            return;
+
+        }
+
+
+        document.getElementById(
+            "adminEmail"
+        ).textContent =
+            user.email;
+
+
+        loadAllData();
+
+    }
+);
+
+
+/* =====================================================
+   LOAD ALL DATA
+===================================================== */
+
+async function loadAllData(){
+
+    const area =
+        document.getElementById(
+            "dataArea"
+        );
+
+
+    area.innerHTML =
+        `<div class="loading">
+            ⏳ Data loading...
+        </div>`;
+
+
+    try{
+
+        const [
+            orderSnap,
+            productSnap,
+            sellerSnap,
+            returnSnap
+        ] = await Promise.all([
+
+            getDocs(
+                collection(
+                    db,
+                    "orders"
+                )
+            ),
+
+            getDocs(
+                collection(
+                    db,
+                    "products"
+                )
+            ),
+
+            getDocs(
+                collection(
+                    db,
+                    "sellers"
+                )
+            ),
+
+            getDocs(
+                collection(
+                    db,
+                    "returnRequests"
+                )
+            )
+
+        ]);
+
+
+        data.orders = [];
+
+        data.products = [];
+
+        data.sellers = [];
+
+        data.returns = [];
+
+
+        orderSnap.forEach(
+            function(item){
+
+                data.orders.push({
+
+                    id:item.id,
+
+                    ...item.data()
+
+                });
+
+            }
+        );
+
+
+        productSnap.forEach(
+            function(item){
+
+                data.products.push({
+
+                    id:item.id,
+
+                    ...item.data()
+
+                });
+
+            }
+        );
+
+
+        sellerSnap.forEach(
+            function(item){
+
+                data.sellers.push({
+
+                    id:item.id,
+
+                    ...item.data()
+
+                });
+
+            }
+        );
+
+
+        returnSnap.forEach(
+            function(item){
+
+                data.returns.push({
+
+                    id:item.id,
+
+                    ...item.data()
+
+                });
+
+            }
+        );
+
+
+        updateStats();
+
+        render();
+
+
+    }catch(error){
+
+        console.error(error);
+
+
+        area.innerHTML =
+            `<div class="errorBox">
+
+                ❌ Data load ହେଲା ନାହିଁ।
+
+                <br><br>
+
+                Firebase Firestore permission
+                ଯାଞ୍ଚ କରନ୍ତୁ।
+
+                <br><br>
+
+                ${escapeHtml(
+                    error.message || ""
+                )}
+
+            </div>`;
+
+    }
+
+}
+
+
+/* =====================================================
+   STATS
+===================================================== */
+
+function updateStats(){
+
+    document.getElementById(
+        "orderCount"
+    ).textContent =
+        data.orders.length;
+
+
+    document.getElementById(
+        "productCount"
+    ).textContent =
+        data.products.length;
+
+
+    document.getElementById(
+        "sellerCount"
+    ).textContent =
+        data.sellers.length;
+
+
+    document.getElementById(
+        "returnCount"
+    ).textContent =
+        data.returns.length;
+
+}
+
+
+/* =====================================================
+   TABS
+===================================================== */
+
+document.querySelectorAll(
+    ".tab"
+).forEach(
+    function(button){
+
+        button.addEventListener(
+            "click",
+            function(){
+
+                document.querySelectorAll(
+                    ".tab"
+                ).forEach(
+                    function(btn){
+
+                        btn.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                button.classList.add(
+                    "active"
+                );
+
+
+                currentType =
+                    button.dataset.type;
+
+
+                const titles = {
+
+                    orders:
+                        "📦 Orders",
+
+                    products:
+                        "🛍️ Products",
+
+                    sellers:
+                        "👤 Sellers",
+
+                    returns:
+                        "🔄 Returns"
+
+                };
+
+
+                document.getElementById(
+                    "sectionTitle"
+                ).textContent =
+                    titles[currentType];
+
+
+                document.getElementById(
+                    "searchBox"
+                ).value = "";
+
+
+                render();
+
+            }
+        );
+
+    }
+);
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+document.getElementById(
+    "searchBox"
+)
+.addEventListener(
+    "input",
+    render
+);
+
+
+/* =====================================================
+   RENDER
+===================================================== */
+
+function render(){
+
+    const area =
+        document.getElementById(
+            "dataArea"
+        );
+
+
+    const search =
+        document.getElementById(
+            "searchBox"
+        )
+        .value
+        .trim()
+        .toLowerCase();
+
+
+    let list =
+        data[currentType];
+
+
+    if(search){
+
+        list =
+            list.filter(
+                function(item){
+
+                    return JSON.stringify(
+                        item
+                    )
+                    .toLowerCase()
+                    .includes(
+                        search
+                    );
+
+                }
+            );
+
+    }
+
+
+    if(!list.length){
+
+        area.innerHTML =
+            `<div class="empty">
+
+                🎉 ଏଠାରେ କୌଣସି data ନାହିଁ।
+
+            </div>`;
+
+        return;
+
+    }
+
+
+    const grid =
+        document.createElement(
+            "div"
+        );
+
+
+    grid.className =
+        "dataGrid";
+
+
+    list.forEach(
+        function(item){
+
+            grid.appendChild(
+                createCard(
+                    item,
+                    currentType
+                )
+            );
+
+        }
+    );
+
+
+    area.innerHTML = "";
+
+    area.appendChild(
+        grid
+    );
+
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+function createCard(
+    item,
+    type
+){
+
+    const card =
+        document.createElement(
+            "div"
+        );
+
+
+    card.className =
+        "dataCard";
+
+
+    let title =
+        "";
+
+    let info =
+        "";
+
+
+    /* =====================
+       ORDER
+    ===================== */
+
+    if(type === "orders"){
+
+        title =
+            item.orderId ||
+            item.id ||
+            "Order";
+
+
+        info = `
+
+            <div class="infoRow">
+                <span>👤</span>
+                <span>
+                    <span class="infoLabel">
+                        Customer:
+                    </span>
+                    <span class="infoValue">
+                        ${escapeHtml(
+                            item.customerName ||
+                            item.name ||
+                            item.customer ||
+                            "N/A"
+                        )}
+                    </span>
+                </span>
+            </div>
+
+            <div class="infoRow">
+                <span>📱</span>
+                <span>
+                    <span class="infoLabel">
+                        Mobile:
+                    </span>
+                    <span class="infoValue">
+                        ${escapeHtml(
+                            item.mobile ||
+                            item.phone ||
+                            "N/A"
+                        )}
+                    </span>
+                </span>
+            </div>
+
+            <div class="infoRow">
+                <span>💰</span>
+                <span>
+                    <span class="infoLabel">
+                        Amount:
+                    </span>
+                    <span class="infoValue">
+                        ₹${escapeHtml(
+                            item.total ||
+                            item.grandTotal ||
+                            item.amount ||
+                            0
+                        )}
+                    </span>
+                </span>
+            </div>
+
+            <div class="infoRow">
+                <span>📌</span>
+                <span>
+                    <span class="infoLabel">
+                        Status:
+                    </span>
+                    <span class="infoValue">
+                        ${escapeHtml(
+                            item.status ||
+                            item.orderStatus ||
+                            "N/A"
+                        )}
+                    </span>
+                </span>
+            </div>
+
+        `;
+
+    }
+
+
+    /* =====================
+       PRODUCT
+    ===================== */
+
+    if(type === "products"){
+
+        title =
+            item.name ||
+            item.productName ||
+            item.id ||
+            "Product";
+
+
+        info = `
+
+            <div class="infoRow">
+                <span>📁</span>
+                <span>
+                    <span class="infoLabel">
+                        Category:
+                    </span>
+                    <span class="infoValue">
+                        ${escapeHtml(
+                            item.category ||
+                            item.categoryName ||
+                            "N/A"
+                        )}
+                    </span>
+                </span>
+            </div>
+
+            <div class="infoRow">
+                <span>💰</span>
+                <span>
+                    <span class="infoLabel">
+                        Price:
+                    </span>
+                    <span class="infoValue">
+                        ₹${escapeHtml(
+                            item.utkalaPrice ||
+                            item.sellingPrice ||
+                            item.price ||
+                            0
+                        )}
+                    </span>
+                </span>
+            </div>
+
+            <div class="infoRow">
+                <span>📦</span>
+                <span>
+                    <span class="infoLabel">
+                        Stock:
+                    </span>
+                    <span class="infoValue">
+                        ${escapeHtml(
+                            item.stock ??
+                            item.quantity ??
+                            0
+                        )}
+                    </span>
+                </span>
+            </div>
+
+            <div class="infoRow">
+                <span>👤</span>
+                <span>
+                    <span class="infoLabel">
+                        Seller:
+                    </span>
+                    <span class="infoValue">
+                        ${escapeHtml(
+                            item.sellerName ||
+                            item.sellerEmail ||
+                            "N/A"
+                        )}
+                    </span>
+                </span>
+            </div>
+
+        `;
+
+    }
+
+
+    /* =====================
+       SELLER
+    ===================== */
+
+    if(type === "sellers"){
+
+        title =
+            item.name ||
+            item.sellerName ||
+            item.fullName ||
+            item.email ||
+            item.id ||
+            "Seller";
+
+
+        info = `
+
+            <div class="infoRow">
+                <span>📧</span>
+                <span>
+                    <span class="infoLabel">
+                        Email:
+                    </span>
+                    <span class="infoValue">
+                        ${escapeHtml(
+                            item.email ||
+                            "N/A"
+                        )}
+                    </span>
+                </span>
+            </div>
+
+            <div class="infoRow">
+                <span>📱</span>
+                <span>
+                    <span class="infoLabel">
+                        Mobile:
+                    </span>
+                    <span class="infoValue">
+                        ${escapeHtml(
+                            item.mobile ||
+                            item.phone ||
+                            "N/A"
+                        )}
+                    </span>
+                </span>
+            </div>
+
+            <div class="infoRow">
+                <span>📌</span>
+                <span>
+                    <span class="infoLabel">
+                        Status:
+                    </span>
+                    <span class="infoValue">
+                        ${escapeHtml(
+                            item.status ||
+                            item.sellerStatus ||
+                            "N/A"
+                        )}
+                    </span>
+                </span>
+            </div>
+
+        `;
+
+    }
+
+
+    /* =====================
+       RETURN
+    ===================== */
+
+    if(type === "returns"){
+
+        title =
+            item.id ||
+            item.returnId ||
+            "Return Request";
+
+
+        info = `
+
+            <div class="infoRow">
+                <span>📦</span>
+                <span>
+                    <span class="infoLabel">
+                        Order:
+                    </span>
+                    <span class="infoValue">
+                        ${escapeHtml(
+                            item.orderId ||
+                            "N/A"
+                        )}
+                    </span>
+                </span>
+            </div>
+
+            <div class="infoRow">
+                <span>🛍️</span>
+                <span>
+                    <span class="infoLabel">
+                        Product:
+                    </span>
+                    <span class="infoValue">
+                        ${escapeHtml(
+                            item.product ||
+                            item.productName ||
+                            "N/A"
+                        )}
+                    </span>
+                </span>
+            </div>
+
+            <div class="infoRow">
+                <span>💰</span>
+                <span>
+                    <span class="infoLabel">
+                        Amount:
+                    </span>
+                    <span class="infoValue">
+                        ₹${escapeHtml(
+                            item.amount ||
+                            item.refundAmount ||
+                            0
+                        )}
+                    </span>
+                </span>
+            </div>
+
+            <div class="infoRow">
+                <span>📌</span>
+                <span>
+                    <span class="infoLabel">
+                        Status:
+                    </span>
+                    <span class="infoValue">
+                        ${escapeHtml(
+                            item.status ||
+                            "N/A"
+                        )}
+                    </span>
+                </span>
+            </div>
+
+        `;
+
+    }
+
+
+    card.innerHTML = `
+
+        <div class="cardTop">
+
+            <div>
+
+                <div class="cardTitle">
+
+                    ${escapeHtml(
+                        title
+                    )}
+
+                </div>
+
+                <div class="cardId">
+
+                    ID:
+                    ${escapeHtml(
+                        item.id
+                    )}
+
+                </div>
+
+            </div>
+
+
+            <div class="typeBadge">
+
+                🗑️ Delete
+
+            </div>
+
+        </div>
+
+
+        ${info}
+
+
+        <button
+            class="deleteBtn">
+
+            🗑️ Delete Permanently
+
+        </button>
+
+    `;
+
+
+    card
+        .querySelector(
+            ".deleteBtn"
+        )
+        .addEventListener(
+            "click",
+            function(){
+
+                deleteItem(
+                    item,
+                    type
+                );
+
+            }
+        );
+
+
+    return card;
+
+}
+
+
+/* =====================================================
+   DELETE ITEM
+===================================================== */
+
+async function deleteItem(
+    item,
+    type
+){
+
+    const collectionName = {
+
+        orders:
+            "orders",
+
+        products:
+            "products",
+
+        sellers:
+            "sellers",
+
+        returns:
+            "returnRequests"
+
+    }[type];
+
+
+    if(!collectionName){
+
+        return;
+
+    }
+
+
+    const title =
+        item.name ||
+        item.productName ||
+        item.orderId ||
+        item.sellerName ||
+        item.email ||
+        item.returnId ||
+        item.id ||
+        "this data";
+
+
+    const firstConfirm =
+        confirm(
+            "⚠️ ସାବଧାନ!\n\n" +
+            "\"" +
+            title +
+            "\" କୁ Delete କରିବେ କି?"
+        );
+
+
+    if(!firstConfirm){
+
+        return;
+
+    }
+
+
+    const secondConfirm =
+        confirm(
+            "🚨 FINAL CONFIRMATION\n\n" +
+            "ଏହି data permanently delete ହେବ।\n\n" +
+            "Delete କରିବାକୁ OK ଦିଅନ୍ତୁ।"
+        );
+
+
+    if(!secondConfirm){
+
+        return;
+
+    }
+
+
+    try{
+
+        await deleteDoc(
+            doc(
+                db,
+                collectionName,
+                item.id
+            )
+        );
+
+
+        alert(
+            "✅ Data successfully deleted!"
+        );
+
+
+        await loadAllData();
+
+
+    }catch(error){
+
+        console.error(
+            error
+        );
+
+
+        alert(
+            "❌ Delete failed!\n\n" +
+            getFirebaseError(
+                error
+            )
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   FIREBASE ERROR
+===================================================== */
+
+function getFirebaseError(error){
+
+    const code =
+        error?.code || "";
+
+
+    if(
+        code.includes(
+            "permission-denied"
+        )
+    ){
+
+        return (
+            "Firestore permission denied.\n" +
+            "Admin Firestore Rules ଯାଞ୍ଚ କରନ୍ତୁ।"
+        );
+
+    }
+
+
+    if(
+        code.includes(
+            "not-found"
+        )
+    ){
+
+        return (
+            "Data ମିଳିଲା ନାହିଁ।"
+        );
+
+    }
+
+
+    return (
+        error?.message ||
+        "Unknown Firebase error"
+    );
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHtml(value){
+
+    return String(
+        value ?? ""
+    )
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+    .replace(
+        /</g,
+        "&lt;"
+    )
+    .replace(
+        />/g,
+        "&gt;"
+    )
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+
+}
+
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+window.goDashboard =
+function(){
+
+    window.location.href =
+        "admin-dashboard.html";
+
+};
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+window.logout =
+async function(){
+
+    const ok =
+        confirm(
+            "ଆପଣ Admin Panel ରୁ Logout କରିବାକୁ ଚାହୁଁଛନ୍ତି କି?"
+        );
+
+
+    if(!ok){
+
+        return;
+
+    }
+
+
+    try{
+
+        await signOut(
+            auth
+        );
+
+
+        window.location.href =
+            "admin-login.html";
+
+
+    }catch(error){
+
+        console.error(
+            error
+        );
+
+        alert(
+            "Logout ସମୟରେ ସମସ୍ୟା ହେଲା।"
+        );
+
+    }
+
+};
+
+</script>
+
+
+</body>
+
+  </html>
