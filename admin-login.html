@@ -22,6 +22,7 @@ content="#138a45">
 body{
   margin:0;
   min-height:100vh;
+
   display:flex;
   align-items:center;
   justify-content:center;
@@ -29,6 +30,7 @@ body{
   font-family:
     Arial,
     "Noto Sans Odia",
+    "Noto Sans Oriya",
     sans-serif;
 
   background:
@@ -40,6 +42,7 @@ body{
 }
 
 .login-box{
+
   width:92%;
   max-width:420px;
 
@@ -55,47 +58,71 @@ body{
 }
 
 .logo{
+
   text-align:center;
+
   font-size:45px;
+
   margin-bottom:5px;
 }
 
 h1{
+
   text-align:center;
+
   color:#138a45;
+
   margin:5px 0;
+
   font-size:25px;
 }
 
 .subtitle{
+
   text-align:center;
+
   color:#777;
+
   margin-bottom:25px;
 }
 
 label{
+
   display:block;
+
   font-weight:bold;
+
   margin-bottom:7px;
 }
 
 input{
+
   width:100%;
+
   padding:13px;
 
   border:1px solid #ccc;
+
   border-radius:9px;
 
   font-size:16px;
+
   margin-bottom:15px;
 }
 
 input:focus{
+
   outline:none;
+
   border-color:#138a45;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(19,138,69,.08);
 }
 
 .login-btn{
+
   width:100%;
 
   border:0;
@@ -105,35 +132,53 @@ input:focus{
   border-radius:9px;
 
   background:#138a45;
+
   color:#fff;
 
   font-size:17px;
+
   font-weight:bold;
 
   cursor:pointer;
 }
 
+.login-btn:hover{
+
+  background:#0d7138;
+}
+
 .login-btn:disabled{
+
   opacity:.6;
+
   cursor:not-allowed;
 }
 
 .message{
+
   margin-top:15px;
+
   text-align:center;
+
   font-size:14px;
+
   line-height:1.5;
+
+  min-height:20px;
 }
 
 .success{
+
   color:#138a45;
 }
 
 .error{
+
   color:#d32f2f;
 }
 
 .back{
+
   display:block;
 
   text-align:center;
@@ -145,6 +190,30 @@ input:focus{
   text-decoration:none;
 }
 
+.back:hover{
+
+  text-decoration:underline;
+}
+
+.security{
+
+  margin-top:18px;
+
+  padding:10px;
+
+  border-radius:8px;
+
+  background:#f5faf7;
+
+  color:#777;
+
+  text-align:center;
+
+  font-size:10px;
+
+  line-height:1.5;
+}
+
 </style>
 
 </head>
@@ -152,25 +221,32 @@ input:focus{
 
 <body>
 
+
 <div class="login-box">
+
 
   <div class="logo">
     🛒
   </div>
 
+
   <h1>
     Utkala Mart
   </h1>
+
 
   <div class="subtitle">
     🔐 Admin Login
   </div>
 
+
   <form id="loginForm">
+
 
     <label>
       📧 Email
     </label>
+
 
     <input
       type="email"
@@ -179,9 +255,11 @@ input:focus{
       required
       autocomplete="username">
 
+
     <label>
       🔑 Password
     </label>
+
 
     <input
       type="password"
@@ -189,6 +267,7 @@ input:focus{
       placeholder="Password"
       required
       autocomplete="current-password">
+
 
     <button
       type="submit"
@@ -199,12 +278,26 @@ input:focus{
 
     </button>
 
+
   </form>
+
 
   <div
     id="message"
     class="message">
   </div>
+
+
+  <div class="security">
+
+    🔒 Secure Admin Access<br>
+
+    କେବଳ authorized Utkala Mart
+    administrator Office Panel
+    ବ୍ୟବହାର କରିପାରିବେ।
+
+  </div>
+
 
   <a
     href="index.html"
@@ -214,10 +307,13 @@ input:focus{
 
   </a>
 
+
 </div>
 
 
+
 <script type="module">
+
 
 /* =====================================
    FIREBASE SDK
@@ -228,6 +324,7 @@ import {
 }
 from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
 
 import {
   getAuth,
@@ -241,7 +338,6 @@ from
 
 /* =====================================
    FIREBASE CONFIG
-   DIRECT CONFIG FOR ADMIN LOGIN
 ===================================== */
 
 const firebaseConfig = {
@@ -272,11 +368,13 @@ const firebaseConfig = {
 ===================================== */
 
 const app =
-  initializeApp(firebaseConfig);
+  initializeApp(
+    firebaseConfig
+  );
 
 
 /* =====================================
-   FIREBASE AUTH
+   AUTH
 ===================================== */
 
 const auth =
@@ -296,28 +394,46 @@ const ADMIN_EMAIL =
 ===================================== */
 
 const form =
-  document.getElementById("loginForm");
+  document.getElementById(
+    "loginForm"
+  );
+
 
 const emailInput =
-  document.getElementById("email");
+  document.getElementById(
+    "email"
+  );
+
 
 const passwordInput =
-  document.getElementById("password");
+  document.getElementById(
+    "password"
+  );
+
 
 const loginBtn =
-  document.getElementById("loginBtn");
+  document.getElementById(
+    "loginBtn"
+  );
+
 
 const message =
-  document.getElementById("message");
+  document.getElementById(
+    "message"
+  );
 
 
 /* =====================================
    MESSAGE
 ===================================== */
 
-function showMessage(text, type = "") {
+function showMessage(
+  text,
+  type=""
+){
 
-  message.textContent = text;
+  message.textContent =
+    text;
 
   message.className =
     "message " + type;
@@ -326,30 +442,53 @@ function showMessage(text, type = "") {
 
 
 /* =====================================
-   CHECK EXISTING LOGIN
+   EXISTING LOGIN CHECK
 ===================================== */
 
 onAuthStateChanged(
   auth,
-  async (user) => {
+  async (user)=>{
 
-    if (!user) {
+    if(!user){
+
       return;
     }
 
-    if (
-      user.email &&
-      user.email.toLowerCase() ===
+
+    const userEmail =
+      String(
+        user.email || ""
+      ).toLowerCase();
+
+
+    /* ================================
+       ADMIN CHECK
+    ================================= */
+
+    if(
+      userEmail ===
       ADMIN_EMAIL.toLowerCase()
-    ) {
+    ){
+
+      /*
+        Already logged in admin
+        → Office Dashboard
+      */
 
       window.location.href =
-        "admin-orders.html";
+        "admin-dashboard.html";
 
       return;
     }
 
-    await signOut(auth);
+
+    /* ================================
+       NON ADMIN
+    ================================= */
+
+    await signOut(
+      auth
+    );
 
   }
 );
@@ -361,24 +500,29 @@ onAuthStateChanged(
 
 form.addEventListener(
   "submit",
-  async (e) => {
+  async (e)=>{
 
     e.preventDefault();
 
 
     const email =
-      emailInput.value.trim();
+      emailInput.value
+        .trim()
+        .toLowerCase();
+
 
     const password =
       passwordInput.value;
 
 
-    /* ADMIN EMAIL CHECK */
+    /* =================================
+       EMAIL CHECK
+    ================================= */
 
-    if (
-      email.toLowerCase() !==
+    if(
+      email !==
       ADMIN_EMAIL.toLowerCase()
-    ) {
+    ){
 
       showMessage(
         "❌ ଏହା Admin Email ନୁହେଁ।",
@@ -389,9 +533,11 @@ form.addEventListener(
     }
 
 
-    /* PASSWORD CHECK */
+    /* =================================
+       PASSWORD CHECK
+    ================================= */
 
-    if (!password) {
+    if(!password){
 
       showMessage(
         "❌ Password ଦିଅନ୍ତୁ।",
@@ -402,19 +548,28 @@ form.addEventListener(
     }
 
 
-    /* BUTTON LOADING */
+    /* =================================
+       BUTTON LOADING
+    ================================= */
 
-    loginBtn.disabled = true;
+    loginBtn.disabled =
+      true;
 
     loginBtn.textContent =
       "⏳ Login...";
 
-    showMessage("");
+
+    showMessage(
+      ""
+    );
 
 
-    try {
+    try{
 
-      /* FIREBASE LOGIN */
+
+      /* ===============================
+         FIREBASE LOGIN
+      =============================== */
 
       const result =
         await signInWithEmailAndPassword(
@@ -428,52 +583,77 @@ form.addEventListener(
         result.user;
 
 
-      /* ADMIN VERIFICATION */
+      /* ===============================
+         FINAL ADMIN CHECK
+      =============================== */
 
-      if (
-        !user.email ||
-        user.email.toLowerCase() !==
+      const loggedEmail =
+        String(
+          user.email || ""
+        ).toLowerCase();
+
+
+      if(
+        loggedEmail !==
         ADMIN_EMAIL.toLowerCase()
-      ) {
+      ){
 
-        await signOut(auth);
+        await signOut(
+          auth
+        );
+
 
         showMessage(
           "❌ Admin access ନାହିଁ।",
           "error"
         );
 
-        loginBtn.disabled = false;
+
+        loginBtn.disabled =
+          false;
+
 
         loginBtn.textContent =
           "🔐 Login";
+
 
         return;
       }
 
 
-      /* SUCCESS */
+      /* ===============================
+         SUCCESS
+      =============================== */
 
       showMessage(
-        "✅ Login successful...",
+        "✅ Login successful... Office Dashboard ଖୋଲୁଛି।",
         "success"
       );
 
 
+      /*
+        IMPORTANT:
+        Admin login ପରେ
+        Orders page ନୁହେଁ,
+        Dashboard ଖୋଲିବ।
+      */
+
       setTimeout(
-        () => {
+        ()=>{
 
           window.location.href =
-            "admin-orders.html";
+            "admin-dashboard.html";
 
         },
-        500
+        700
       );
 
 
     }
 
-    catch (error) {
+
+    catch(error){
+
 
       console.error(
         "Firebase Login Error:",
@@ -485,12 +665,14 @@ form.addEventListener(
         "❌ Login failed.";
 
 
-      /* API KEY ERROR */
+      /* =================================
+         API KEY
+      ================================= */
 
-      if (
+      if(
         error.code ===
         "auth/api-key-not-valid"
-      ) {
+      ){
 
         text =
           "❌ Firebase API Key valid ନୁହେଁ।";
@@ -498,12 +680,14 @@ form.addEventListener(
       }
 
 
-      /* INVALID CREDENTIAL */
+      /* =================================
+         INVALID CREDENTIAL
+      ================================= */
 
-      else if (
+      else if(
         error.code ===
         "auth/invalid-credential"
-      ) {
+      ){
 
         text =
           "❌ Email କିମ୍ବା Password ଭୁଲ।";
@@ -511,12 +695,14 @@ form.addEventListener(
       }
 
 
-      /* USER NOT FOUND */
+      /* =================================
+         USER NOT FOUND
+      ================================= */
 
-      else if (
+      else if(
         error.code ===
         "auth/user-not-found"
-      ) {
+      ){
 
         text =
           "❌ ଏହି Email ରେ Firebase account ନାହିଁ।";
@@ -524,12 +710,14 @@ form.addEventListener(
       }
 
 
-      /* WRONG PASSWORD */
+      /* =================================
+         WRONG PASSWORD
+      ================================= */
 
-      else if (
+      else if(
         error.code ===
         "auth/wrong-password"
-      ) {
+      ){
 
         text =
           "❌ Password ଭୁଲ।";
@@ -537,12 +725,14 @@ form.addEventListener(
       }
 
 
-      /* INVALID EMAIL */
+      /* =================================
+         INVALID EMAIL
+      ================================= */
 
-      else if (
+      else if(
         error.code ===
         "auth/invalid-email"
-      ) {
+      ){
 
         text =
           "❌ Email ଠିକ୍ ନୁହେଁ।";
@@ -550,12 +740,14 @@ form.addEventListener(
       }
 
 
-      /* TOO MANY REQUESTS */
+      /* =================================
+         TOO MANY REQUESTS
+      ================================= */
 
-      else if (
+      else if(
         error.code ===
         "auth/too-many-requests"
-      ) {
+      ){
 
         text =
           "⚠️ ବହୁତଥର Login try ହୋଇଛି। କିଛି ସମୟ ପରେ ପୁଣି try କରନ୍ତୁ।";
@@ -563,12 +755,14 @@ form.addEventListener(
       }
 
 
-      /* NETWORK */
+      /* =================================
+         NETWORK
+      ================================= */
 
-      else if (
+      else if(
         error.code ===
         "auth/network-request-failed"
-      ) {
+      ){
 
         text =
           "🌐 Internet connection କିମ୍ବା Firebase network problem।";
@@ -576,12 +770,14 @@ form.addEventListener(
       }
 
 
-      /* PROVIDER DISABLED */
+      /* =================================
+         LOGIN DISABLED
+      ================================= */
 
-      else if (
+      else if(
         error.code ===
         "auth/operation-not-allowed"
-      ) {
+      ){
 
         text =
           "⚠️ Firebase Console ରେ Email/Password Login enable ହୋଇନାହିଁ।";
@@ -589,12 +785,14 @@ form.addEventListener(
       }
 
 
-      /* DOMAIN */
+      /* =================================
+         DOMAIN
+      ================================= */
 
-      else if (
+      else if(
         error.code ===
         "auth/unauthorized-domain"
-      ) {
+      ){
 
         text =
           "⚠️ ଏହି website domain Firebase ରେ authorized ନୁହେଁ।";
@@ -602,13 +800,19 @@ form.addEventListener(
       }
 
 
+      /* =================================
+         SHOW ERROR
+      ================================= */
+
       showMessage(
         text,
         "error"
       );
 
 
-      loginBtn.disabled = false;
+      loginBtn.disabled =
+        false;
+
 
       loginBtn.textContent =
         "🔐 Login";
@@ -619,6 +823,7 @@ form.addEventListener(
 );
 
 </script>
+
 
 </body>
 
