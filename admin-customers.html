@@ -4,6 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport"
       content="width=device-width,initial-scale=1.0">
 
@@ -38,7 +39,9 @@ button{
 }
 
 
-/* HEADER */
+/* =====================================================
+   HEADER
+===================================================== */
 
 .header{
 
@@ -48,6 +51,7 @@ button{
     padding:15px 4%;
 
     display:flex;
+
     justify-content:space-between;
     align-items:center;
 
@@ -83,7 +87,9 @@ button{
 }
 
 
-/* CONTAINER */
+/* =====================================================
+   CONTAINER
+===================================================== */
 
 .container{
 
@@ -95,7 +101,9 @@ button{
 }
 
 
-/* ADMIN BOX */
+/* =====================================================
+   ADMIN BOX
+===================================================== */
 
 .adminBox{
 
@@ -151,7 +159,9 @@ button{
 }
 
 
-/* STATS */
+/* =====================================================
+   STATS
+===================================================== */
 
 .stats{
 
@@ -205,7 +215,9 @@ button{
 }
 
 
-/* SEARCH */
+/* =====================================================
+   SEARCH
+===================================================== */
 
 .searchBox{
 
@@ -230,7 +242,9 @@ button{
 }
 
 
-/* SECTION */
+/* =====================================================
+   SECTION
+===================================================== */
 
 .sectionTitle{
 
@@ -248,7 +262,9 @@ button{
 }
 
 
-/* CUSTOMER GRID */
+/* =====================================================
+   CUSTOMER GRID
+===================================================== */
 
 .customerGrid{
 
@@ -263,7 +279,9 @@ button{
 }
 
 
-/* CUSTOMER CARD */
+/* =====================================================
+   CUSTOMER CARD
+===================================================== */
 
 .customerCard{
 
@@ -305,6 +323,8 @@ button{
     font-size:20px;
 
     font-weight:900;
+
+    word-break:break-word;
 }
 
 .customerId{
@@ -336,7 +356,9 @@ button{
 }
 
 
-/* INFO */
+/* =====================================================
+   INFO
+===================================================== */
 
 .infoRow{
 
@@ -356,13 +378,11 @@ button{
     width:25px;
 
     flex-shrink:0;
-
 }
 
 .infoLabel{
 
     color:#777;
-
 }
 
 .infoValue{
@@ -373,7 +393,9 @@ button{
 }
 
 
-/* ORDER SUMMARY */
+/* =====================================================
+   ORDER SUMMARY
+===================================================== */
 
 .orderSummary{
 
@@ -415,7 +437,9 @@ button{
 }
 
 
-/* ACTION */
+/* =====================================================
+   ACTION
+===================================================== */
 
 .actions{
 
@@ -454,7 +478,9 @@ button{
 }
 
 
-/* EMPTY */
+/* =====================================================
+   EMPTY
+===================================================== */
 
 .empty{
 
@@ -471,7 +497,9 @@ button{
 }
 
 
-/* LOADING */
+/* =====================================================
+   LOADING
+===================================================== */
 
 .loading{
 
@@ -485,7 +513,9 @@ button{
 }
 
 
-/* ERROR */
+/* =====================================================
+   ERROR
+===================================================== */
 
 .errorBox{
 
@@ -496,11 +526,12 @@ button{
     padding:18px;
 
     border-radius:10px;
-
 }
 
 
-/* MOBILE */
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media(max-width:800px){
 
@@ -516,6 +547,7 @@ button{
     }
 
 }
+
 
 @media(max-width:600px){
 
@@ -585,7 +617,9 @@ button{
 <body>
 
 
-<!-- HEADER -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header class="header">
 
@@ -616,7 +650,9 @@ button{
 <div class="container">
 
 
-<!-- ADMIN -->
+<!-- =====================================================
+     ADMIN
+===================================================== -->
 
 <div class="adminBox">
 
@@ -629,6 +665,7 @@ button{
         <div class="adminEmail">
 
             Admin:
+
             <span id="adminEmail">
                 Loading...
             </span>
@@ -649,7 +686,9 @@ button{
 </div>
 
 
-<!-- STATS -->
+<!-- =====================================================
+     STATS
+===================================================== -->
 
 <div class="stats">
 
@@ -740,7 +779,9 @@ button{
 </div>
 
 
-<!-- SEARCH -->
+<!-- =====================================================
+     SEARCH
+===================================================== -->
 
 <input
     id="searchBox"
@@ -750,7 +791,9 @@ button{
 >
 
 
-<!-- CUSTOMER SECTION -->
+<!-- =====================================================
+     CUSTOMER SECTION
+===================================================== -->
 
 <div class="sectionTitle">
 
@@ -803,7 +846,7 @@ import {
 
 
 /* =====================================================
-   CONFIG
+   FIREBASE CONFIG
 ===================================================== */
 
 const firebaseConfig = {
@@ -863,6 +906,546 @@ let orders = [];
 
 
 /* =====================================================
+   SAFE VALUE
+===================================================== */
+
+function safeValue(value){
+
+    if(
+        value === null ||
+        value === undefined
+    ){
+
+        return "";
+
+    }
+
+
+    if(
+        typeof value === "string" ||
+        typeof value === "number"
+    ){
+
+        return String(value);
+
+    }
+
+
+    if(
+        typeof value === "object"
+    ){
+
+        return (
+
+            value.name ||
+
+            value.fullName ||
+
+            value.displayName ||
+
+            value.customerName ||
+
+            value.userName ||
+
+            value.buyerName ||
+
+            value.phone ||
+
+            value.mobile ||
+
+            value.email ||
+
+            value.address ||
+
+            value.value ||
+
+            ""
+
+        );
+
+    }
+
+
+    return "";
+
+}
+
+
+/* =====================================================
+   CUSTOMER NAME
+===================================================== */
+
+function getCustomerName(order){
+
+    /* Direct fields */
+
+    const directFields = [
+
+        order.customerName,
+
+        order.customer,
+
+        order.name,
+
+        order.fullName,
+
+        order.userName,
+
+        order.buyerName
+
+    ];
+
+
+    for(
+        const value of directFields
+    ){
+
+        const result =
+            safeValue(value);
+
+        if(result){
+
+            return result;
+
+        }
+
+    }
+
+
+    /* Nested customer object */
+
+    if(
+        order.customer &&
+        typeof order.customer ===
+        "object"
+    ){
+
+        const customer =
+            order.customer;
+
+
+        const nestedName =
+
+            customer.name ||
+
+            customer.fullName ||
+
+            customer.displayName ||
+
+            customer.customerName ||
+
+            customer.userName ||
+
+            customer.buyerName ||
+
+            "";
+
+
+        if(nestedName){
+
+            return String(
+                nestedName
+            );
+
+        }
+
+
+        if(
+            customer.firstName ||
+            customer.lastName
+        ){
+
+            return (
+
+                String(
+                    customer.firstName ||
+                    ""
+                ) +
+
+                " " +
+
+                String(
+                    customer.lastName ||
+                    ""
+                )
+
+            ).trim();
+
+        }
+
+    }
+
+
+    return "";
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+function getMobile(order){
+
+    const directFields = [
+
+        order.mobile,
+
+        order.phone,
+
+        order.customerMobile,
+
+        order.customerPhone,
+
+        order.mobileNumber,
+
+        order.phoneNumber
+
+    ];
+
+
+    for(
+        const value of directFields
+    ){
+
+        const result =
+            safeValue(value);
+
+        if(result){
+
+            return result;
+
+        }
+
+    }
+
+
+    /* Nested customer */
+
+    if(
+        order.customer &&
+        typeof order.customer ===
+        "object"
+    ){
+
+        const customer =
+            order.customer;
+
+
+        return (
+
+            safeValue(
+                customer.mobile
+            ) ||
+
+            safeValue(
+                customer.phone
+            ) ||
+
+            safeValue(
+                customer.mobileNumber
+            ) ||
+
+            ""
+
+        );
+
+    }
+
+
+    return "";
+
+}
+
+
+/* =====================================================
+   EMAIL
+===================================================== */
+
+function getEmail(order){
+
+    const directFields = [
+
+        order.email,
+
+        order.customerEmail,
+
+        order.userEmail,
+
+        order.customer_email
+
+    ];
+
+
+    for(
+        const value of directFields
+    ){
+
+        const result =
+            safeValue(value);
+
+        if(result){
+
+            return result;
+
+        }
+
+    }
+
+
+    if(
+        order.customer &&
+        typeof order.customer ===
+        "object"
+    ){
+
+        return (
+
+            safeValue(
+                order.customer.email
+            ) ||
+
+            ""
+
+        );
+
+    }
+
+
+    return "";
+
+}
+
+
+/* =====================================================
+   ADDRESS
+===================================================== */
+
+function getAddress(order){
+
+    const value =
+        order.address ||
+        order.deliveryAddress ||
+        order.fullAddress ||
+        order.customerAddress ||
+        "";
+
+
+    if(
+        typeof value ===
+        "string"
+    ){
+
+        return value;
+
+    }
+
+
+    if(
+        typeof value ===
+        "number"
+    ){
+
+        return String(value);
+
+    }
+
+
+    if(
+        value &&
+        typeof value ===
+        "object"
+    ){
+
+        return [
+
+            value.address,
+
+            value.fullAddress,
+
+            value.house,
+
+            value.houseNo,
+
+            value.street,
+
+            value.area,
+
+            value.locality,
+
+            value.village,
+
+            value.town,
+
+            value.city,
+
+            value.district,
+
+            value.state,
+
+            value.pincode,
+
+            value.pin,
+
+            value.zip
+
+        ]
+
+        .map(
+            safeValue
+        )
+
+        .filter(Boolean)
+
+        .join(", ");
+
+    }
+
+
+    return "";
+
+}
+
+
+/* =====================================================
+   ORDER AMOUNT
+===================================================== */
+
+function getOrderAmount(order){
+
+    const values = [
+
+        order.total,
+
+        order.grandTotal,
+
+        order.amount,
+
+        order.totalAmount,
+
+        order.orderTotal,
+
+        order.price
+
+    ];
+
+
+    for(
+        const value of values
+    ){
+
+        const number =
+            Number(
+                safeValue(value)
+            );
+
+
+        if(
+            Number.isFinite(number) &&
+            number > 0
+        ){
+
+            return number;
+
+        }
+
+    }
+
+
+    return 0;
+
+}
+
+
+/* =====================================================
+   ORDER DATE
+===================================================== */
+
+function getOrderDate(order){
+
+    const value =
+
+        order.createdAt ||
+
+        order.placedAt ||
+
+        order.orderDate ||
+
+        order.date ||
+
+        "";
+
+
+    if(
+        value &&
+        typeof value.toDate ===
+        "function"
+    ){
+
+        return value.toDate();
+
+    }
+
+
+    if(
+        value instanceof Date
+    ){
+
+        return value;
+
+    }
+
+
+    if(
+        typeof value ===
+        "number"
+    ){
+
+        const date =
+            new Date(value);
+
+
+        if(
+            !isNaN(
+                date.getTime()
+            )
+        ){
+
+            return date;
+
+        }
+
+    }
+
+
+    if(
+        typeof value ===
+        "string"
+    ){
+
+        const date =
+            new Date(value);
+
+
+        if(
+            !isNaN(
+                date.getTime()
+            )
+        ){
+
+            return date;
+
+        }
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =====================================================
    AUTH
 ===================================================== */
 
@@ -907,7 +1490,7 @@ onAuthStateChanged(
             user.email;
 
 
-        loadCustomers();
+        await loadCustomers();
 
     }
 );
@@ -924,9 +1507,12 @@ async function loadCustomers(){
             "customerArea"
         );
 
+
     area.innerHTML =
         `<div class="loading">
+
             ⏳ Customer data loading...
+
         </div>`;
 
 
@@ -954,12 +1540,16 @@ async function loadCustomers(){
         orderSnap.forEach(
             function(orderDoc){
 
+                const data =
+                    orderDoc.data();
+
+
                 orders.push({
 
                     id:
                         orderDoc.id,
 
-                    ...orderDoc.data()
+                    ...data
 
                 });
 
@@ -983,43 +1573,58 @@ async function loadCustomers(){
                         order
                     );
 
+
                 const mobile =
                     getMobile(
                         order
                     );
+
 
                 const email =
                     getEmail(
                         order
                     );
 
+
                 const address =
                     getAddress(
                         order
                     );
 
+
+                /*
+                 * IMPORTANT:
+                 * object କୁ Map key କରିବା ନାହିଁ।
+                 */
+
                 const key =
                     mobile ||
                     email ||
-                    name;
+                    name ||
+                    order.id;
 
 
                 if(!key){
+
                     return;
+
                 }
 
 
                 if(
                     !customerMap.has(
-                        key
+                        String(key)
                     )
                 ){
 
                     customerMap.set(
-                        key,
+
+                        String(key),
+
                         {
 
-                            id:key,
+                            id:
+                                String(key),
 
                             name:
                                 name ||
@@ -1034,13 +1639,17 @@ async function loadCustomers(){
                             address:
                                 address,
 
-                            orderCount:0,
+                            orderCount:
+                                0,
 
-                            totalValue:0,
+                            totalValue:
+                                0,
 
-                            lastOrder:""
+                            lastOrder:
+                                null
 
                         }
+
                     );
 
                 }
@@ -1048,7 +1657,7 @@ async function loadCustomers(){
 
                 const customer =
                     customerMap.get(
-                        key
+                        String(key)
                     );
 
 
@@ -1056,6 +1665,7 @@ async function loadCustomers(){
 
 
                 customer.totalValue +=
+
                     getOrderAmount(
                         order
                     );
@@ -1114,6 +1724,27 @@ async function loadCustomers(){
 
                 }
 
+
+                /*
+                 * ଯଦି ପ୍ରଥମ order ରେ
+                 * name ମିଳିନଥାଏ ଏବଂ
+                 * ପରବର୍ତ୍ତୀ order ରେ ମିଳେ
+                 */
+
+                if(
+                    (
+                        !customer.name ||
+                        customer.name ===
+                        "Unknown Customer"
+                    ) &&
+                    name
+                ){
+
+                    customer.name =
+                        name;
+
+                }
+
             }
         );
 
@@ -1124,6 +1755,26 @@ async function loadCustomers(){
             );
 
 
+        /*
+         * Alphabetical / Name sort
+         */
+
+        customers.sort(
+            function(a,b){
+
+                return String(
+                    a.name || ""
+                ).localeCompare(
+                    String(
+                        b.name || ""
+                    ),
+                    "or"
+                );
+
+            }
+        );
+
+
         updateStats();
 
         renderCustomers();
@@ -1132,11 +1783,13 @@ async function loadCustomers(){
     }catch(error){
 
         console.error(
+            "Customer Load Error:",
             error
         );
 
 
         area.innerHTML =
+
             `<div class="errorBox">
 
                 ❌ Customer data load ହେଲା ନାହିଁ।
@@ -1144,204 +1797,19 @@ async function loadCustomers(){
                 <br><br>
 
                 Firebase Firestore permission
+                କିମ୍ବା Orders data structure
                 ଯାଞ୍ଚ କରନ୍ତୁ।
+
+                <br><br>
+
+                ${escapeHtml(
+                    error?.message ||
+                    ""
+                )}
 
             </div>`;
 
     }
-
-}
-
-
-/* =====================================================
-   CUSTOMER NAME
-===================================================== */
-
-function getCustomerName(order){
-
-    return (
-        order.customerName ||
-        order.customer ||
-        order.name ||
-        order.fullName ||
-        order.userName ||
-        order.buyerName ||
-        ""
-    );
-
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-function getMobile(order){
-
-    return (
-        order.mobile ||
-        order.phone ||
-        order.customerMobile ||
-        order.customerPhone ||
-        order.mobileNumber ||
-        ""
-    );
-
-}
-
-
-/* =====================================================
-   EMAIL
-===================================================== */
-
-function getEmail(order){
-
-    return (
-        order.email ||
-        order.customerEmail ||
-        order.userEmail ||
-        ""
-    );
-
-}
-
-
-/* =====================================================
-   ADDRESS
-===================================================== */
-
-function getAddress(order){
-
-    if(
-        typeof order.address ===
-        "string"
-    ){
-
-        return order.address;
-
-    }
-
-
-    if(
-        order.address &&
-        typeof order.address ===
-        "object"
-    ){
-
-        return [
-
-            order.address.address,
-
-            order.address.area,
-
-            order.address.city,
-
-            order.address.district,
-
-            order.address.state,
-
-            order.address.pincode,
-
-            order.address.pin
-
-        ]
-        .filter(Boolean)
-        .join(", ");
-
-    }
-
-
-    return (
-
-        order.deliveryAddress ||
-
-        order.fullAddress ||
-
-        ""
-
-    );
-
-}
-
-
-/* =====================================================
-   ORDER AMOUNT
-===================================================== */
-
-function getOrderAmount(order){
-
-    const value =
-        Number(
-            order.total ??
-            order.grandTotal ??
-            order.amount ??
-            order.totalAmount ??
-            order.price ??
-            0
-        );
-
-
-    return Number.isFinite(
-        value
-    )
-    ? value
-    : 0;
-
-}
-
-
-/* =====================================================
-   ORDER DATE
-===================================================== */
-
-function getOrderDate(order){
-
-    const value =
-        order.createdAt ||
-        order.placedAt ||
-        order.orderDate ||
-        order.date ||
-        "";
-
-
-    if(
-        value &&
-        typeof value.toDate ===
-        "function"
-    ){
-
-        return value.toDate();
-
-    }
-
-
-    if(
-        value instanceof Date
-    ){
-
-        return value;
-
-    }
-
-
-    const date =
-        new Date(
-            value
-        );
-
-
-    if(
-        isNaN(
-            date.getTime()
-        )
-    ){
-
-        return null;
-
-    }
-
-
-    return date;
 
 }
 
@@ -1365,32 +1833,43 @@ function updateStats(){
 
 
     const totalSales =
+
         orders.reduce(
+
             function(sum,order){
 
                 return (
+
                     sum +
+
                     getOrderAmount(
                         order
                     )
+
                 );
 
             },
+
             0
+
         );
 
 
     document.getElementById(
         "totalSales"
     ).textContent =
+
         "₹" +
+
         totalSales.toLocaleString(
             "en-IN"
         );
 
 
     const mobileCount =
+
         customers.filter(
+
             function(customer){
 
                 return Boolean(
@@ -1398,6 +1877,7 @@ function updateStats(){
                 );
 
             }
+
         ).length;
 
 
@@ -1423,7 +1903,7 @@ document.getElementById(
 
 
 /* =====================================================
-   RENDER
+   RENDER CUSTOMERS
 ===================================================== */
 
 function renderCustomers(){
@@ -1455,13 +1935,31 @@ function renderCustomers(){
 
                     const text = (
 
-                        customer.name +
+                        String(
+                            customer.name ||
+                            ""
+                        ) +
+
                         " " +
-                        customer.mobile +
+
+                        String(
+                            customer.mobile ||
+                            ""
+                        ) +
+
                         " " +
-                        customer.email +
+
+                        String(
+                            customer.email ||
+                            ""
+                        ) +
+
                         " " +
-                        customer.address
+
+                        String(
+                            customer.address ||
+                            ""
+                        )
 
                     ).toLowerCase();
 
@@ -1479,6 +1977,7 @@ function renderCustomers(){
     if(!list.length){
 
         area.innerHTML =
+
             `<div class="empty">
 
                 🔎 କୌଣସି Customer ମିଳିଲା ନାହିଁ।
@@ -1504,9 +2003,11 @@ function renderCustomers(){
         function(customer){
 
             grid.appendChild(
+
                 createCustomerCard(
                     customer
                 )
+
             );
 
         }
@@ -1539,10 +2040,13 @@ function createCustomerCard(customer){
 
 
     const lastOrderText =
+
         customer.lastOrder
+
         ? formatDate(
             customer.lastOrder
           )
+
         : "N/A";
 
 
@@ -1556,10 +2060,12 @@ function createCustomerCard(customer){
 
                     👤
                     ${escapeHtml(
-                        customer.name
+                        customer.name ||
+                        "Unknown Customer"
                     )}
 
                 </div>
+
 
                 <div class="customerId">
 
@@ -1595,10 +2101,12 @@ function createCustomerCard(customer){
                 </span>
 
                 <span class="infoValue">
+
                     ${escapeHtml(
                         customer.mobile ||
                         "N/A"
                     )}
+
                 </span>
 
             </span>
@@ -1619,10 +2127,12 @@ function createCustomerCard(customer){
                 </span>
 
                 <span class="infoValue">
+
                     ${escapeHtml(
                         customer.email ||
                         "N/A"
                     )}
+
                 </span>
 
             </span>
@@ -1643,10 +2153,12 @@ function createCustomerCard(customer){
                 </span>
 
                 <span class="infoValue">
+
                     ${escapeHtml(
                         customer.address ||
                         "N/A"
                     )}
+
                 </span>
 
             </span>
@@ -1670,7 +2182,9 @@ function createCustomerCard(customer){
                 </span>
 
                 <strong>
+
                     ${customer.orderCount}
+
                 </strong>
 
             </div>
@@ -1683,9 +2197,11 @@ function createCustomerCard(customer){
                 </span>
 
                 <strong>
+
                     ₹${customer.totalValue.toLocaleString(
                         "en-IN"
                     )}
+
                 </strong>
 
             </div>
@@ -1698,7 +2214,9 @@ function createCustomerCard(customer){
                 </span>
 
                 <strong>
+
                     ${lastOrderText}
+
                 </strong>
 
             </div>
@@ -1708,10 +2226,13 @@ function createCustomerCard(customer){
 
         <div class="actions">
 
+
             ${
                 customer.mobile
 
-                ? `
+                ?
+
+                `
 
                 <button
                     class="actionBtn callBtn">
@@ -1722,7 +2243,9 @@ function createCustomerCard(customer){
 
                 `
 
-                : ""
+                :
+
+                ""
 
             }
 
@@ -1734,10 +2257,15 @@ function createCustomerCard(customer){
 
             </button>
 
+
         </div>
 
     `;
 
+
+    /* =================================================
+       CALL
+    ================================================= */
 
     const callBtn =
         card.querySelector(
@@ -1753,13 +2281,19 @@ function createCustomerCard(customer){
 
                 window.location.href =
                     "tel:" +
-                    customer.mobile;
+                    encodeURIComponent(
+                        customer.mobile
+                    );
 
             }
         );
 
     }
 
+
+    /* =================================================
+       ORDERS
+    ================================================= */
 
     const ordersBtn =
         card.querySelector(
@@ -1792,9 +2326,14 @@ function formatDate(date){
     try{
 
         const d =
+
             date instanceof Date
+
             ? date
-            : new Date(date);
+
+            : new Date(
+                date
+              );
 
 
         if(
@@ -1809,12 +2348,22 @@ function formatDate(date){
 
 
         return d.toLocaleDateString(
+
             "en-IN",
+
             {
-                day:"2-digit",
-                month:"2-digit",
-                year:"numeric"
+
+                day:
+                    "2-digit",
+
+                month:
+                    "2-digit",
+
+                year:
+                    "numeric"
+
             }
+
         );
 
     }catch(e){
@@ -1827,7 +2376,7 @@ function formatDate(date){
 
 
 /* =====================================================
-   ESCAPE
+   ESCAPE HTML
 ===================================================== */
 
 function escapeHtml(value){
@@ -1835,22 +2384,27 @@ function escapeHtml(value){
     return String(
         value ?? ""
     )
+
     .replace(
         /&/g,
         "&amp;"
     )
+
     .replace(
         /</g,
         "&lt;"
     )
+
     .replace(
         />/g,
         "&gt;"
     )
+
     .replace(
         /"/g,
         "&quot;"
     )
+
     .replace(
         /'/g,
         "&#039;"
@@ -1886,21 +2440,40 @@ async function(){
 
 
     if(!ok){
+
         return;
+
     }
 
 
-    await signOut(
-        auth
-    );
+    try{
+
+        await signOut(
+            auth
+        );
 
 
-    window.location.href =
-        "admin-login.html";
+        window.location.href =
+            "admin-login.html";
+
+
+    }catch(error){
+
+        console.error(
+            error
+        );
+
+
+        alert(
+            "Logout ସମୟରେ ସମସ୍ୟା ହେଲା।"
+        );
+
+    }
 
 };
 
 </script>
 
 </body>
-  </html>
+
+      </html>
