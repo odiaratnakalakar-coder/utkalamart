@@ -1526,11 +1526,6 @@ async function loadProduct(){
             sourceParam;
 
 
-        /*
-         * source ଠିକ୍ ଥିଲେ
-         * ସେହି collection କୁ direct read
-         */
-
         if(
             source &&
             allowedSources.includes(source)
@@ -1584,11 +1579,6 @@ async function loadProduct(){
 
         }
 
-
-        /*
-         * ପୁରୁଣା link ଯଦି source ବିନା ଥାଏ,
-         * fallback ଭାବରେ products ପରେ martProducts
-         */
 
         for(
             const collectionName
@@ -2342,10 +2332,6 @@ function(){
     saveCart();
 
 
-    /*
-     * Direct Checkout
-     */
-
     window.location.href =
         "checkout.html";
 
@@ -2762,6 +2748,7 @@ function(){
 
 /* =====================================================
    SHARE PRODUCT
+   PHOTO + TEXT + LINK
 ===================================================== */
 
 window.shareProduct =
@@ -2785,8 +2772,12 @@ async function(){
         getPrice(product);
 
 
+    const imageUrl =
+        getImage(product);
+
+
     const text =
-        `🌿 Utkala Mart
+`🌿 Utkala Mart
 
 ${title}
 
@@ -2797,6 +2788,123 @@ ${title}
 🛒 Buy Now:
 ${url}`;
 
+
+    /* =================================================
+       STEP 1
+       PRODUCT PHOTO SHARE
+    ================================================= */
+
+    try{
+
+        if(
+            navigator.share &&
+            imageUrl &&
+            imageUrl !== "logo.png"
+        ){
+
+            const response =
+                await fetch(
+                    imageUrl,
+                    {
+                        mode:"cors"
+                    }
+                );
+
+
+            if(response.ok){
+
+                const blob =
+                    await response.blob();
+
+
+                let extension =
+                    "jpg";
+
+
+                if(
+                    blob.type ===
+                    "image/png"
+                ){
+
+                    extension =
+                        "png";
+
+                }
+                else if(
+                    blob.type ===
+                    "image/webp"
+                ){
+
+                    extension =
+                        "webp";
+
+                }
+
+
+                const file =
+                    new File(
+                        [blob],
+                        "utkala-mart-product." +
+                        extension,
+                        {
+                            type:
+                                blob.type ||
+                                "image/jpeg"
+                        }
+                    );
+
+
+                /* =====================================
+                   CHECK FILE SHARE SUPPORT
+                ===================================== */
+
+                if(
+                    navigator.canShare &&
+                    navigator.canShare({
+                        files:[
+                            file
+                        ]
+                    })
+                ){
+
+                    await navigator.share({
+
+                        title:
+                            title,
+
+                        text:
+                            text,
+
+                        files:[
+                            file
+                        ]
+
+                    });
+
+
+                    return;
+
+                }
+
+            }
+
+        }
+
+    }
+    catch(error){
+
+        console.log(
+            "Photo share unavailable:",
+            error
+        );
+
+    }
+
+
+    /* =================================================
+       STEP 2
+       NORMAL LINK SHARE
+    ================================================= */
 
     if(
         navigator.share
@@ -2823,24 +2931,35 @@ ${url}`;
         }
         catch(error){
 
-            /*
-             * User cancelled.
-             */
+            if(
+                error &&
+                error.name ===
+                "AbortError"
+            ){
+
+                return;
+
+            }
 
         }
 
     }
 
 
+    /* =================================================
+       STEP 3
+       COPY TEXT + LINK
+    ================================================= */
+
     try{
 
         await navigator.clipboard.writeText(
-            url
+            text
         );
 
 
         toast(
-            "🔗 Product Link Copy ହୋଇଗଲା।"
+            "✅ Product Text + Link Copy ହୋଇଗଲା।"
         );
 
     }
