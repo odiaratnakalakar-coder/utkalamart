@@ -1372,10 +1372,8 @@ const params =
         window.location.search
     );
 
-
 const productId =
     params.get("id");
-
 
 const sourceParam =
     params.get("source");
@@ -1522,9 +1520,13 @@ async function loadProduct(){
 
     try{
 
-        let source =
+        const source =
             sourceParam;
 
+
+        /* =============================================
+           DIRECT SOURCE
+        ============================================= */
 
         if(
             source &&
@@ -1579,6 +1581,10 @@ async function loadProduct(){
 
         }
 
+
+        /* =============================================
+           FALLBACK
+        ============================================= */
 
         for(
             const collectionName
@@ -1716,9 +1722,7 @@ function displayProduct(){
 
 
     const category =
-        getCategory(
-            product
-        );
+        getCategory(product);
 
 
     document
@@ -1738,9 +1742,7 @@ function displayProduct(){
 
 
     const price =
-        getPrice(
-            product
-        );
+        getPrice(product);
 
 
     document
@@ -1754,9 +1756,9 @@ function displayProduct(){
             );
 
 
-    /* =================================================
+    /* =============================================
        SELLER PRICE
-    ================================================= */
+    ============================================= */
 
     const sellerPrice =
         Number(
@@ -1828,14 +1830,12 @@ function displayProduct(){
     }
 
 
-    /* =================================================
+    /* =============================================
        META
-    ================================================= */
+    ============================================= */
 
     const location =
-        getLocation(
-            product
-        );
+        getLocation(product);
 
 
     document
@@ -1859,9 +1859,7 @@ function displayProduct(){
             "productWeight"
         )
         .innerText =
-            getWeight(
-                product
-            );
+            getWeight(product);
 
 
     document
@@ -1869,21 +1867,19 @@ function displayProduct(){
             "productSeller"
         )
         .innerText =
-            getSeller(
-                product
-            );
+            getSeller(product);
 
 
-    /* =================================================
+    /* =============================================
        STOCK
-    ================================================= */
+    ============================================= */
 
     updateStock();
 
 
-    /* =================================================
+    /* =============================================
        DESCRIPTION
-    ================================================= */
+    ============================================= */
 
     document
         .getElementById(
@@ -1897,9 +1893,9 @@ function displayProduct(){
             "ଏହି ପ୍ରଡକ୍ଟ ବିଷୟରେ ବିସ୍ତୃତ ସୂଚନା ଖୁବ ଶୀଘ୍ର ଆସିବ।";
 
 
-    /* =================================================
+    /* =============================================
        BREADCRUMB
-    ================================================= */
+    ============================================= */
 
     document
         .getElementById(
@@ -2748,7 +2744,7 @@ function(){
 
 /* =====================================================
    SHARE PRODUCT
-   PHOTO + TEXT + LINK
+   TEXT + LINK FIRST
 ===================================================== */
 
 window.shareProduct =
@@ -2776,6 +2772,12 @@ async function(){
         getImage(product);
 
 
+    /*
+     * IMPORTANT:
+     * Link କୁ text ଭିତରେ ରଖାଯାଇଛି।
+     * ଏହାଦ୍ୱାରା WhatsApp ରେ link ଦେଖାଯିବ।
+     */
+
     const text =
 `🌿 Utkala Mart
 
@@ -2790,120 +2792,8 @@ ${url}`;
 
 
     /* =================================================
-       STEP 1
-       PRODUCT PHOTO SHARE
-    ================================================= */
-
-    try{
-
-        if(
-            navigator.share &&
-            imageUrl &&
-            imageUrl !== "logo.png"
-        ){
-
-            const response =
-                await fetch(
-                    imageUrl,
-                    {
-                        mode:"cors"
-                    }
-                );
-
-
-            if(response.ok){
-
-                const blob =
-                    await response.blob();
-
-
-                let extension =
-                    "jpg";
-
-
-                if(
-                    blob.type ===
-                    "image/png"
-                ){
-
-                    extension =
-                        "png";
-
-                }
-                else if(
-                    blob.type ===
-                    "image/webp"
-                ){
-
-                    extension =
-                        "webp";
-
-                }
-
-
-                const file =
-                    new File(
-                        [blob],
-                        "utkala-mart-product." +
-                        extension,
-                        {
-                            type:
-                                blob.type ||
-                                "image/jpeg"
-                        }
-                    );
-
-
-                /* =====================================
-                   CHECK FILE SHARE SUPPORT
-                ===================================== */
-
-                if(
-                    navigator.canShare &&
-                    navigator.canShare({
-                        files:[
-                            file
-                        ]
-                    })
-                ){
-
-                    await navigator.share({
-
-                        title:
-                            title,
-
-                        text:
-                            text,
-
-                        files:[
-                            file
-                        ]
-
-                    });
-
-
-                    return;
-
-                }
-
-            }
-
-        }
-
-    }
-    catch(error){
-
-        console.log(
-            "Photo share unavailable:",
-            error
-        );
-
-    }
-
-
-    /* =================================================
-       STEP 2
-       NORMAL LINK SHARE
+       ANDROID / BROWSER SHARE
+       TEXT + URL
     ================================================= */
 
     if(
@@ -2911,6 +2801,11 @@ ${url}`;
     ){
 
         try{
+
+            /*
+             * ପ୍ରଥମେ text + url share।
+             * ଏଥିରେ link ହରାଇବ ନାହିଁ।
+             */
 
             await navigator.share({
 
@@ -2931,6 +2826,10 @@ ${url}`;
         }
         catch(error){
 
+            /*
+             * User share cancel କଲେ stop
+             */
+
             if(
                 error &&
                 error.name ===
@@ -2941,13 +2840,49 @@ ${url}`;
 
             }
 
+            console.log(
+                "Native share error:",
+                error
+            );
+
         }
 
     }
 
 
     /* =================================================
-       STEP 3
+       WHATSAPP DIRECT SHARE
+    ================================================= */
+
+    try{
+
+        const whatsappUrl =
+            "https://wa.me/?text=" +
+            encodeURIComponent(
+                text
+            );
+
+
+        window.open(
+            whatsappUrl,
+            "_blank"
+        );
+
+
+        return;
+
+    }
+    catch(error){
+
+        console.log(
+            "WhatsApp share error:",
+            error
+        );
+
+    }
+
+
+    /* =================================================
        COPY TEXT + LINK
     ================================================= */
 
@@ -2959,7 +2894,7 @@ ${url}`;
 
 
         toast(
-            "✅ Product Text + Link Copy ହୋଇଗଲା।"
+            "✅ Product Name + Price + Link Copy ହୋଇଗଲା।"
         );
 
     }
