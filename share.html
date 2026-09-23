@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="or">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width,initial-scale=1.0">
+
+<meta name="theme-color"
+      content="#075b3b">
+
+<title>Utkala Mart | Product</title>
+
+<!--
+=========================================================
+SOCIAL SHARE PREVIEW
+=========================================================
+-->
+
+<meta property="og:type"
+      content="product">
+
+<meta property="og:site_name"
+      content="Utkala Mart">
+
+<meta property="og:title"
+      id="ogTitle"
+      content="Utkala Mart Product">
+
+<meta property="og:description"
+      id="ogDescription"
+      content="ଓଡ଼ିଆ ପ୍ରଡକ୍ଟ — Utkala Mart">
+
+<meta property="og:image"
+      id="ogImage"
+      content="logo.png">
+
+<meta property="og:url"
+      id="ogUrl"
+      content="">
+
+<meta name="twitter:card"
+      content="summary_large_image">
+
+<meta name="twitter:title"
+      id="twitterTitle"
+      content="Utkala Mart Product">
+
+<meta name="twitter:description"
+      id="twitterDescription"
+      content="ଓଡ଼ିଆ ପ୍ରଡକ୍ଟ — Utkala Mart">
+
+<meta name="twitter:image"
+      id="twitterImage"
+      content="logo.png">
+
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:
+        Arial,
+        "Noto Sans Oriya",
+        "Nirmala UI",
+        sans-serif;
+
+    background:#f5f7f6;
+    color:#222;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header{
+
+    background:#075b3b;
+    color:#fff;
+
+    padding:12px 5%;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+}
+
+.logo{
+
+    width:45px;
+    height:45px;
+
+    object-fit:contain;
+
+    background:#fff;
+
+    border-radius:8px;
+
+}
+
+.brand{
+
+    font-size:22px;
+    font-weight:900;
+
+}
+
+.brand span{
+
+    color:#ef761d;
+
+}
+
+
+/* =====================================================
+   PRODUCT
+===================================================== */
+
+.container{
+
+    width:min(900px,94%);
+
+    margin:30px auto;
+
+}
+
+
+.card{
+
+    background:#fff;
+
+    border-radius:16px;
+
+    padding:20px;
+
+    box-shadow:
+        0 5px 25px
+        rgba(0,0,0,.08);
+
+}
+
+
+.product-image{
+
+    width:100%;
+
+    max-height:500px;
+
+    object-fit:contain;
+
+    border-radius:12px;
+
+    background:#f5f2eb;
+
+    display:block;
+
+}
+
+
+.product-name{
+
+    margin-top:20px;
+
+    font-size:27px;
+
+    line-height:1.4;
+
+    color:#075b3b;
+
+    font-weight:900;
+
+}
+
+
+.product-price{
+
+    margin-top:12px;
+
+    font-size:28px;
+
+    color:#075b3b;
+
+    font-weight:900;
+
+}
+
+
+.description{
+
+    margin-top:15px;
+
+    color:#666;
+
+    line-height:1.8;
+
+    font-size:14px;
+
+}
+
+
+.buy-btn{
+
+    display:block;
+
+    margin-top:20px;
+
+    width:100%;
+
+    text-align:center;
+
+    background:#ef761d;
+
+    color:#fff;
+
+    padding:14px;
+
+    border-radius:9px;
+
+    font-weight:900;
+
+    text-decoration:none;
+
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.loading{
+
+    text-align:center;
+
+    padding:80px 10px;
+
+    color:#777;
+
+    font-size:16px;
+
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+.error{
+
+    text-align:center;
+
+    padding:60px 15px;
+
+    color:#b91c1c;
+
+    font-weight:800;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    margin-top:40px;
+
+    background:#075b3b;
+
+    color:#fff;
+
+    text-align:center;
+
+    padding:25px;
+
+    line-height:1.8;
+
+    font-size:12px;
+
+}
+
+footer strong{
+
+    font-size:22px;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:600px){
+
+    .brand{
+
+        font-size:19px;
+
+    }
+
+    .product-name{
+
+        font-size:22px;
+
+    }
+
+    .product-price{
+
+        font-size:25px;
+
+    }
+
+    .card{
+
+        padding:12px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <img
+        id="logo"
+        class="logo"
+        src="logo.png"
+        alt="Utkala Mart">
+
+    <div class="brand">
+
+        ଉତ୍କଳ
+        <span>Mart</span>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     PRODUCT
+===================================================== -->
+
+<main class="container">
+
+    <div
+        id="loading"
+        class="loading">
+
+        ⏳ Product load ହେଉଛି...
+
+    </div>
+
+
+    <div
+        id="productCard"
+        class="card"
+        style="display:none;">
+
+        <img
+            id="productImage"
+            class="product-image"
+            src="logo.png"
+            alt="Utkala Mart Product">
+
+
+        <h1
+            id="productName"
+            class="product-name">
+
+            Utkala Mart Product
+
+        </h1>
+
+
+        <div
+            id="productPrice"
+            class="product-price">
+
+            ₹0
+
+        </div>
+
+
+        <div
+            id="productDescription"
+            class="description">
+
+            ଓଡ଼ିଆ ପ୍ରଡକ୍ଟ
+
+        </div>
+
+
+        <a
+            id="buyButton"
+            class="buy-btn"
+            href="#">
+
+            🛒 Buy Now
+
+        </a>
+
+    </div>
+
+
+    <div
+        id="errorBox"
+        class="error"
+        style="display:none;">
+
+        ❌ Product ମିଳିଲା ନାହିଁ।
+
+    </div>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <strong>
+        🌿 Utkala Mart
+    </strong>
+
+    <br>
+
+    ଗଞ୍ଜାମରୁ ଆରମ୍ଭ —
+    ଭାରତର ପ୍ରତ୍ୟେକ ଘରେ
+
+    <br>
+
+    © 2026 Utkala Mart
+
+</footer>
+
+
+<!-- =====================================================
+     FIREBASE
+===================================================== -->
+
+<script type="module">
+
+import { db } from "./js/firebase-config.js";
+
+import {
+    doc,
+    getDoc
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =====================================================
+   URL
+===================================================== */
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+const productId =
+    params.get("id");
+
+
+const sourceParam =
+    params.get("source");
+
+
+const allowedSources = [
+
+    "products",
+
+    "martProducts"
+
+];
+
+
+/* =====================================================
+   GET IMAGE
+===================================================== */
+
+function getImage(product){
+
+    return String(
+
+        product.imageUrl ||
+
+        product.image ||
+
+        product.photoUrl ||
+
+        product.photo ||
+
+        "logo.png"
+
+    ).trim() || "logo.png";
+
+}
+
+
+/* =====================================================
+   GET PRICE
+===================================================== */
+
+function getPrice(product){
+
+    return Number(
+
+        product.utkalaPrice ??
+
+        product.price ??
+
+        product.sellingPrice ??
+
+        0
+
+    );
+
+}
+
+
+/* =====================================================
+   GET NAME
+===================================================== */
+
+function getName(product){
+
+    return (
+
+        product.name ||
+
+        product.productName ||
+
+        "Utkala Mart Product"
+
+    );
+
+}
+
+
+/* =====================================================
+   GET DESCRIPTION
+===================================================== */
+
+function getDescription(product){
+
+    return (
+
+        product.description ||
+
+        product.details ||
+
+        product.productDescription ||
+
+        "ଓଡ଼ିଆ ପ୍ରଡକ୍ଟ — Utkala Mart"
+
+    );
+
+}
+
+
+/* =====================================================
+   ESCAPE
+===================================================== */
+
+function escapeHtml(value){
+
+    return String(
+        value ?? ""
+    )
+    .replace(
+        /[&<>"']/g,
+        function(match){
+
+            return {
+
+                "&":"&amp;",
+
+                "<":"&lt;",
+
+                ">":"&gt;",
+
+                '"':"&quot;",
+
+                "'":"&#039;"
+
+            }[match];
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   LOAD PRODUCT
+===================================================== */
+
+async function loadProduct(){
+
+    if(!productId){
+
+        showError();
+
+        return;
+
+    }
+
+
+    try{
+
+        let product = null;
+
+        let source = null;
+
+
+        /* =================================================
+           DIRECT SOURCE
+        ================================================= */
+
+        if(
+
+            sourceParam &&
+
+            allowedSources.includes(
+                sourceParam
+            )
+
+        ){
+
+            const ref =
+                doc(
+                    db,
+                    sourceParam,
+                    productId
+                );
+
+
+            const snap =
+                await getDoc(ref);
+
+
+            if(snap.exists()){
+
+                product = {
+
+                    id:
+                        snap.id,
+
+                    source:
+                        sourceParam,
+
+                    ...snap.data()
+
+                };
+
+                source =
+                    sourceParam;
+
+            }
+
+        }
+
+
+        /* =================================================
+           FALLBACK
+        ================================================= */
+
+        if(!product){
+
+            for(
+                const collectionName
+                of
+                allowedSources
+            ){
+
+                try{
+
+                    const ref =
+                        doc(
+                            db,
+                            collectionName,
+                            productId
+                        );
+
+
+                    const snap =
+                        await getDoc(ref);
+
+
+                    if(snap.exists()){
+
+                        product = {
+
+                            id:
+                                snap.id,
+
+                            source:
+                                collectionName,
+
+                            ...snap.data()
+
+                        };
+
+                        source =
+                            collectionName;
+
+                        break;
+
+                    }
+
+                }
+                catch(error){
+
+                    console.log(
+                        "Read error:",
+                        error
+                    );
+
+                }
+
+            }
+
+        }
+
+
+        if(!product){
+
+            showError();
+
+            return;
+
+        }
+
+
+        displayProduct(
+            product,
+            source
+        );
+
+    }
+    catch(error){
+
+        console.error(
+            "Share Product Error:",
+            error
+        );
+
+        showError();
+
+    }
+
+}
+
+
+/* =====================================================
+   DISPLAY
+===================================================== */
+
+function displayProduct(
+    product,
+    source
+){
+
+    const name =
+        getName(product);
+
+
+    const price =
+        getPrice(product);
+
+
+    const image =
+        getImage(product);
+
+
+    const description =
+        getDescription(product);
+
+
+    /* =================================================
+       PRODUCT URL
+    ================================================= */
+
+    const productUrl =
+        window.location.origin +
+        window.location.pathname
+        .replace(
+            "share.html",
+            "product.html"
+        ) +
+        "?id=" +
+        encodeURIComponent(
+            product.id
+        ) +
+        "&source=" +
+        encodeURIComponent(
+            source
+        );
+
+
+    /* =================================================
+       PAGE TITLE
+    ================================================= */
+
+    document.title =
+        name +
+        " | Utkala Mart";
+
+
+    /* =================================================
+       PAGE
+    ================================================= */
+
+    document
+        .getElementById(
+            "productImage"
+        )
+        .src =
+            image;
+
+
+    document
+        .getElementById(
+            "productImage"
+        )
+        .alt =
+            name;
+
+
+    document
+        .getElementById(
+            "productName"
+        )
+        .innerText =
+            name;
+
+
+    document
+        .getElementById(
+            "productPrice"
+        )
+        .innerText =
+            "₹" +
+            price.toLocaleString(
+                "en-IN"
+            );
+
+
+    document
+        .getElementById(
+            "productDescription"
+        )
+        .innerText =
+            description;
+
+
+    document
+        .getElementById(
+            "buyButton"
+        )
+        .href =
+            productUrl;
+
+
+    /* =================================================
+       OPEN GRAPH
+    ================================================= */
+
+    setMeta(
+        "ogTitle",
+        name +
+        " | Utkala Mart"
+    );
+
+
+    setMeta(
+        "ogDescription",
+        "💰 Price: ₹" +
+        price.toLocaleString(
+            "en-IN"
+        ) +
+        " | 🌿 Utkala Mart"
+    );
+
+
+    setMeta(
+        "ogImage",
+        image
+    );
+
+
+    setMeta(
+        "ogUrl",
+        productUrl
+    );
+
+
+    /* =================================================
+       TWITTER
+    ================================================= */
+
+    setMeta(
+        "twitterTitle",
+        name +
+        " | Utkala Mart"
+    );
+
+
+    setMeta(
+        "twitterDescription",
+        "💰 Price: ₹" +
+        price.toLocaleString(
+            "en-IN"
+        ) +
+        " | 🌿 Utkala Mart"
+    );
+
+
+    setMeta(
+        "twitterImage",
+        image
+    );
+
+
+    /* =================================================
+       SHOW
+    ================================================= */
+
+    document
+        .getElementById(
+            "loading"
+        )
+        .style.display =
+            "none";
+
+
+    document
+        .getElementById(
+            "productCard"
+        )
+        .style.display =
+            "block";
+
+
+    /*
+     * Browser ରେ open କଲେ
+     * original product page କୁ
+     * redirect କରିବା ନାହିଁ।
+     *
+     * User Buy Now କଲେ
+     * product.html କୁ ଯିବେ।
+     */
+
+}
+
+
+/* =====================================================
+   SET META
+===================================================== */
+
+function setMeta(
+    id,
+    value
+){
+
+    const element =
+        document.getElementById(
+            id
+        );
+
+
+    if(element){
+
+        element.setAttribute(
+            "content",
+            value
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+function showError(){
+
+    document
+        .getElementById(
+            "loading"
+        )
+        .style.display =
+            "none";
+
+
+    document
+        .getElementById(
+            "errorBox"
+        )
+        .style.display =
+            "block";
+
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+loadProduct();
+
+</script>
+
+</body>
+
+</html>
