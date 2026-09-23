@@ -1,0 +1,2165 @@
+<!DOCTYPE html>
+<html lang="or">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width,initial-scale=1.0">
+
+<meta name="theme-color"
+      content="#075b3b">
+
+<title>Utkala Mart - Reports</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:
+        Arial,
+        "Noto Sans Odia",
+        "Noto Sans Oriya",
+        "Nirmala UI",
+        sans-serif;
+
+    background:#f4f7f5;
+    color:#222;
+}
+
+button{
+    font:inherit;
+    cursor:pointer;
+}
+
+.header{
+
+    background:#075b3b;
+    color:#fff;
+
+    padding:14px 4%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:15px;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,.15);
+}
+
+.headerTitle{
+    font-size:22px;
+    font-weight:900;
+}
+
+.headerSub{
+    margin-top:4px;
+    font-size:11px;
+    opacity:.9;
+}
+
+.dashboardBtn{
+
+    border:0;
+
+    background:#fff;
+    color:#075b3b;
+
+    padding:11px 17px;
+
+    border-radius:9px;
+
+    font-weight:900;
+}
+
+.container{
+
+    max-width:1150px;
+
+    margin:auto;
+
+    padding:18px;
+}
+
+.adminBox{
+
+    background:#fff;
+
+    border-radius:15px;
+
+    padding:17px;
+
+    margin-bottom:18px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+
+    box-shadow:
+        0 3px 12px rgba(0,0,0,.07);
+}
+
+.adminTitle{
+
+    color:#075b3b;
+
+    font-size:20px;
+
+    font-weight:900;
+}
+
+.adminEmail{
+
+    margin-top:5px;
+
+    color:#777;
+
+    font-size:12px;
+}
+
+.logoutBtn{
+
+    border:0;
+
+    background:#dc3545;
+
+    color:#fff;
+
+    padding:10px 16px;
+
+    border-radius:8px;
+
+    font-weight:900;
+}
+
+
+/* DATE FILTER */
+
+.filterBox{
+
+    background:#fff;
+
+    border-radius:14px;
+
+    padding:16px;
+
+    margin-bottom:18px;
+
+    box-shadow:
+        0 3px 12px rgba(0,0,0,.06);
+}
+
+.filterTitle{
+
+    color:#075b3b;
+
+    font-size:16px;
+
+    font-weight:900;
+
+    margin-bottom:12px;
+}
+
+.dateGrid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:10px;
+}
+
+.dateGrid label{
+
+    display:block;
+
+    color:#666;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    margin-bottom:5px;
+}
+
+.dateGrid input{
+
+    width:100%;
+
+    padding:11px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    font-size:14px;
+}
+
+.filterActions{
+
+    display:flex;
+
+    gap:8px;
+
+    margin-top:12px;
+
+    flex-wrap:wrap;
+}
+
+.filterBtn{
+
+    border:0;
+
+    background:#075b3b;
+
+    color:#fff;
+
+    padding:10px 16px;
+
+    border-radius:8px;
+
+    font-weight:900;
+}
+
+.resetBtn{
+
+    border:0;
+
+    background:#777;
+
+    color:#fff;
+
+    padding:10px 16px;
+
+    border-radius:8px;
+
+    font-weight:900;
+}
+
+
+/* STATS */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:12px;
+
+    margin-bottom:18px;
+}
+
+.stat{
+
+    background:#fff;
+
+    border-radius:14px;
+
+    padding:17px 10px;
+
+    text-align:center;
+
+    box-shadow:
+        0 3px 12px rgba(0,0,0,.07);
+}
+
+.statIcon{
+
+    font-size:27px;
+
+    margin-bottom:5px;
+}
+
+.statValue{
+
+    color:#075b3b;
+
+    font-size:25px;
+
+    font-weight:900;
+}
+
+.statLabel{
+
+    margin-top:4px;
+
+    color:#777;
+
+    font-size:11px;
+
+}
+
+
+/* SEARCH */
+
+.searchBox{
+
+    width:100%;
+
+    padding:13px;
+
+    border:1px solid #ccc;
+
+    border-radius:10px;
+
+    font-size:14px;
+
+    margin-bottom:15px;
+}
+
+
+/* SECTION */
+
+.sectionTitle{
+
+    background:#07845f;
+
+    color:#fff;
+
+    padding:12px;
+
+    border-radius:10px 10px 0 0;
+
+    font-size:17px;
+
+    font-weight:900;
+}
+
+
+/* STATUS */
+
+.statusGrid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(5,1fr);
+
+    gap:10px;
+
+    margin-top:12px;
+
+    margin-bottom:18px;
+}
+
+.statusCard{
+
+    background:#fff;
+
+    border-radius:11px;
+
+    padding:14px;
+
+    text-align:center;
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,.06);
+}
+
+.statusNumber{
+
+    color:#075b3b;
+
+    font-size:23px;
+
+    font-weight:900;
+}
+
+.statusLabel{
+
+    margin-top:4px;
+
+    color:#777;
+
+    font-size:11px;
+}
+
+
+/* ORDERS */
+
+.ordersArea{
+
+    margin-top:0;
+}
+
+.orderCard{
+
+    background:#fff;
+
+    padding:14px;
+
+    border-bottom:1px solid #eee;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:12px;
+}
+
+.orderLeft{
+
+    min-width:0;
+}
+
+.orderId{
+
+    color:#075b3b;
+
+    font-weight:900;
+
+    font-size:15px;
+}
+
+.orderCustomer{
+
+    margin-top:4px;
+
+    font-size:13px;
+
+    color:#555;
+}
+
+.orderDate{
+
+    margin-top:3px;
+
+    font-size:11px;
+
+    color:#888;
+}
+
+.orderRight{
+
+    text-align:right;
+}
+
+.orderAmount{
+
+    color:#e65100;
+
+    font-size:17px;
+
+    font-weight:900;
+}
+
+.orderStatus{
+
+    display:inline-block;
+
+    margin-top:5px;
+
+    padding:5px 8px;
+
+    border-radius:15px;
+
+    background:#e8f7ef;
+
+    color:#087d5b;
+
+    font-size:10px;
+
+    font-weight:900;
+}
+
+
+/* INFO */
+
+.infoGrid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:15px;
+
+    margin-top:18px;
+}
+
+.infoCard{
+
+    background:#fff;
+
+    border-radius:13px;
+
+    padding:17px;
+
+    box-shadow:
+        0 3px 12px rgba(0,0,0,.06);
+}
+
+.infoCard h3{
+
+    color:#075b3b;
+
+    font-size:16px;
+
+    margin-bottom:10px;
+}
+
+.infoRow{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:8px 0;
+
+    border-bottom:1px solid #eee;
+
+    font-size:12px;
+}
+
+.infoRow:last-child{
+    border-bottom:0;
+}
+
+.infoRow strong{
+    color:#075b3b;
+}
+
+
+/* LOADING */
+
+.loading{
+
+    background:#fff;
+
+    padding:30px;
+
+    text-align:center;
+
+    color:#777;
+}
+
+
+/* EMPTY */
+
+.empty{
+
+    background:#fff;
+
+    padding:30px;
+
+    text-align:center;
+
+    color:#777;
+}
+
+
+/* ERROR */
+
+.errorBox{
+
+    background:#fff0f0;
+
+    color:#b00020;
+
+    padding:18px;
+
+    border-radius:10px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .stats{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .statusGrid{
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+    .dateGrid{
+        grid-template-columns:
+            1fr;
+    }
+
+    .infoGrid{
+        grid-template-columns:
+            1fr;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .header{
+        padding:11px;
+    }
+
+    .headerTitle{
+        font-size:17px;
+    }
+
+    .headerSub{
+        font-size:9px;
+    }
+
+    .dashboardBtn{
+        padding:8px 10px;
+        font-size:10px;
+    }
+
+    .container{
+        padding:12px;
+    }
+
+    .adminBox{
+        align-items:flex-start;
+    }
+
+    .adminTitle{
+        font-size:16px;
+    }
+
+    .logoutBtn{
+        padding:8px 10px;
+        font-size:10px;
+    }
+
+    .stats{
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap:9px;
+    }
+
+    .stat{
+        padding:13px 7px;
+    }
+
+    .statValue{
+        font-size:21px;
+    }
+
+    .statusGrid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .orderCard{
+        flex-direction:column;
+    }
+
+    .orderRight{
+        text-align:left;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <div>
+
+        <div class="headerTitle">
+            📈 Utkala Mart - Reports
+        </div>
+
+        <div class="headerSub">
+            Office / Admin Management
+        </div>
+
+    </div>
+
+
+    <button
+        class="dashboardBtn"
+        onclick="goDashboard()">
+
+        ← Dashboard
+
+    </button>
+
+</header>
+
+
+<div class="container">
+
+
+<!-- ADMIN -->
+
+<div class="adminBox">
+
+    <div>
+
+        <div class="adminTitle">
+            📈 Office Reports
+        </div>
+
+        <div class="adminEmail">
+            Admin:
+            <span id="adminEmail">
+                Loading...
+            </span>
+        </div>
+
+    </div>
+
+
+    <button
+        class="logoutBtn"
+        onclick="logout()">
+
+        🚪 Logout
+
+    </button>
+
+</div>
+
+
+<!-- DATE FILTER -->
+
+<div class="filterBox">
+
+    <div class="filterTitle">
+        📅 Report Date Filter
+    </div>
+
+
+    <div class="dateGrid">
+
+        <div>
+
+            <label>
+                From Date
+            </label>
+
+            <input
+                id="fromDate"
+                type="date">
+
+        </div>
+
+
+        <div>
+
+            <label>
+                To Date
+            </label>
+
+            <input
+                id="toDate"
+                type="date">
+
+        </div>
+
+
+        <div>
+
+            <label>
+                Search
+            </label>
+
+            <input
+                id="searchBox"
+                type="search"
+                placeholder="Order / Customer / Mobile...">
+
+        </div>
+
+    </div>
+
+
+    <div class="filterActions">
+
+        <button
+            class="filterBtn"
+            onclick="applyFilter()">
+
+            🔎 Apply Report
+
+        </button>
+
+
+        <button
+            class="resetBtn"
+            onclick="resetFilter()">
+
+            🔄 Reset
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- STATS -->
+
+<div class="stats">
+
+
+    <div class="stat">
+
+        <div class="statIcon">
+            📦
+        </div>
+
+        <div
+            id="totalOrders"
+            class="statValue">
+
+            0
+
+        </div>
+
+        <div class="statLabel">
+            Total Orders
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="statIcon">
+            💰
+        </div>
+
+        <div
+            id="totalSales"
+            class="statValue">
+
+            ₹0
+
+        </div>
+
+        <div class="statLabel">
+            Total Sales
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="statIcon">
+            👤
+        </div>
+
+        <div
+            id="totalSellers"
+            class="statValue">
+
+            0
+
+        </div>
+
+        <div class="statLabel">
+            Sellers
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="statIcon">
+            🛍️
+        </div>
+
+        <div
+            id="totalProducts"
+            class="statValue">
+
+            0
+
+        </div>
+
+        <div class="statLabel">
+            Products
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!-- STATUS -->
+
+<div class="sectionTitle">
+
+    📊 Order Status Report
+
+</div>
+
+
+<div class="statusGrid">
+
+
+    <div class="statusCard">
+
+        <div
+            id="pendingCount"
+            class="statusNumber">
+
+            0
+
+        </div>
+
+        <div class="statusLabel">
+            ⏳ Pending
+        </div>
+
+    </div>
+
+
+    <div class="statusCard">
+
+        <div
+            id="confirmedCount"
+            class="statusNumber">
+
+            0
+
+        </div>
+
+        <div class="statusLabel">
+            ✅ Confirmed
+        </div>
+
+    </div>
+
+
+    <div class="statusCard">
+
+        <div
+            id="shippedCount"
+            class="statusNumber">
+
+            0
+
+        </div>
+
+        <div class="statusLabel">
+            🚚 Shipped
+        </div>
+
+    </div>
+
+
+    <div class="statusCard">
+
+        <div
+            id="deliveredCount"
+            class="statusNumber">
+
+            0
+
+        </div>
+
+        <div class="statusLabel">
+            📦 Delivered
+        </div>
+
+    </div>
+
+
+    <div class="statusCard">
+
+        <div
+            id="cancelledCount"
+            class="statusNumber">
+
+            0
+
+        </div>
+
+        <div class="statusLabel">
+            ❌ Cancelled
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ORDERS -->
+
+<div class="sectionTitle">
+
+    📦 Order Report
+
+</div>
+
+
+<div id="ordersArea"
+     class="ordersArea">
+
+    <div class="loading">
+        ⏳ Report loading...
+    </div>
+
+</div>
+
+
+<!-- INFO -->
+
+<div class="infoGrid">
+
+
+    <div class="infoCard">
+
+        <h3>
+            🏢 Office Summary
+        </h3>
+
+
+        <div class="infoRow">
+
+            <span>
+                Total Customers
+            </span>
+
+            <strong id="customerCount">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="infoRow">
+
+            <span>
+                Total Returns
+            </span>
+
+            <strong id="returnCount">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="infoRow">
+
+            <span>
+                Pending Returns
+            </span>
+
+            <strong id="pendingReturnCount">
+                0
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="infoCard">
+
+        <h3>
+            💵 Sales Summary
+        </h3>
+
+
+        <div class="infoRow">
+
+            <span>
+                Order Value
+            </span>
+
+            <strong id="orderValue">
+                ₹0
+            </strong>
+
+        </div>
+
+
+        <div class="infoRow">
+
+            <span>
+                Delivered Value
+            </span>
+
+            <strong id="deliveredValue">
+                ₹0
+            </strong>
+
+        </div>
+
+
+        <div class="infoRow">
+
+            <span>
+                Average Order
+            </span>
+
+            <strong id="averageOrder">
+                ₹0
+            </strong>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+<script type="module">
+
+
+/* =====================================================
+   FIREBASE
+===================================================== */
+
+import {
+    initializeApp
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import {
+    getAuth,
+    onAuthStateChanged,
+    signOut
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+import {
+    getFirestore,
+    collection,
+    getDocs
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =====================================================
+   CONFIG
+===================================================== */
+
+const firebaseConfig={
+
+    apiKey:
+        "AIzaSyBYJ_KKsS_7SNz108jnw6hpOlmegofRhJg",
+
+    authDomain:
+        "utkalamart-1ec68.firebaseapp.com",
+
+    projectId:
+        "utkalamart-1ec68",
+
+    storageBucket:
+        "utkalamart-1ec68.firebasestorage.app",
+
+    messagingSenderId:
+        "664871353747",
+
+    appId:
+        "1:664871353747:web:96532fdafe78aabe7f3c66"
+};
+
+
+/* =====================================================
+   INIT
+===================================================== */
+
+const app=
+    initializeApp(
+        firebaseConfig
+    );
+
+const auth=
+    getAuth(app);
+
+const db=
+    getFirestore(app);
+
+
+/* =====================================================
+   ADMIN
+===================================================== */
+
+const ADMIN_EMAIL=
+    "Suryakantabehera629@gmail.com";
+
+
+/* =====================================================
+   DATA
+===================================================== */
+
+let allOrders=[];
+
+let filteredOrders=[];
+
+
+/* =====================================================
+   AUTH
+===================================================== */
+
+onAuthStateChanged(
+    auth,
+    async user=>{
+
+        if(!user){
+
+            window.location.href=
+                "admin-login.html";
+
+            return;
+        }
+
+
+        const email=
+            String(
+                user.email||""
+            ).toLowerCase();
+
+
+        if(
+            email !==
+            ADMIN_EMAIL.toLowerCase()
+        ){
+
+            await signOut(auth);
+
+            window.location.href=
+                "admin-login.html";
+
+            return;
+        }
+
+
+        document.getElementById(
+            "adminEmail"
+        ).textContent=
+            user.email;
+
+
+        loadReports();
+
+    }
+);
+
+
+/* =====================================================
+   LOAD REPORTS
+===================================================== */
+
+async function loadReports(){
+
+    document.getElementById(
+        "ordersArea"
+    ).innerHTML=
+        `<div class="loading">
+            ⏳ Reports loading...
+        </div>`;
+
+
+    try{
+
+        /* ORDERS */
+
+        const orderSnap=
+            await getDocs(
+                collection(
+                    db,
+                    "orders"
+                )
+            );
+
+
+        allOrders=[];
+
+
+        orderSnap.forEach(
+            orderDoc=>{
+
+                allOrders.push({
+
+                    id:
+                        orderDoc.id,
+
+                    ...orderDoc.data()
+
+                });
+
+            }
+        );
+
+
+        /* PRODUCTS */
+
+        try{
+
+            const productSnap=
+                await getDocs(
+                    collection(
+                        db,
+                        "products"
+                    )
+                );
+
+            document.getElementById(
+                "totalProducts"
+            ).textContent=
+                productSnap.size;
+
+        }catch(e){
+
+            console.error(e);
+
+        }
+
+
+        /* SELLERS */
+
+        try{
+
+            const sellerSnap=
+                await getDocs(
+                    collection(
+                        db,
+                        "sellers"
+                    )
+                );
+
+            document.getElementById(
+                "totalSellers"
+            ).textContent=
+                sellerSnap.size;
+
+        }catch(e){
+
+            console.error(e);
+
+        }
+
+
+        /* RETURNS */
+
+        try{
+
+            const returnSnap=
+                await getDocs(
+                    collection(
+                        db,
+                        "returnRequests"
+                    )
+                );
+
+
+            let pending=0;
+
+
+            returnSnap.forEach(
+                doc=>{
+
+                    const status=
+                        String(
+                            doc.data().status||""
+                        ).toLowerCase();
+
+
+                    if(
+                        status==="pending"
+                    ){
+
+                        pending++;
+
+                    }
+
+                }
+            );
+
+
+            document.getElementById(
+                "returnCount"
+            ).textContent=
+                returnSnap.size;
+
+
+            document.getElementById(
+                "pendingReturnCount"
+            ).textContent=
+                pending;
+
+        }catch(e){
+
+            console.error(e);
+
+        }
+
+
+        /* CUSTOMER COUNT */
+
+        const customerMap=
+            new Set();
+
+
+        allOrders.forEach(
+            order=>{
+
+                const mobile=
+                    getMobile(order);
+
+                const email=
+                    getEmail(order);
+
+                const name=
+                    getCustomerName(order);
+
+
+                const key=
+                    mobile ||
+                    email ||
+                    name;
+
+
+                if(key){
+
+                    customerMap.add(
+                        key
+                    );
+
+                }
+
+            }
+        );
+
+
+        document.getElementById(
+            "customerCount"
+        ).textContent=
+            customerMap.size;
+
+
+        filteredOrders=
+            [...allOrders];
+
+
+        renderReport();
+
+    }catch(error){
+
+        console.error(error);
+
+
+        document.getElementById(
+            "ordersArea"
+        ).innerHTML=
+            `<div class="errorBox">
+
+                ❌ Report load ହେଲା ନାହିଁ।
+
+                <br><br>
+
+                Firestore Rules / Permission
+                ଯାଞ୍ଚ କରନ୍ତୁ।
+
+            </div>`;
+
+    }
+
+}
+
+
+/* =====================================================
+   CUSTOMER
+===================================================== */
+
+function getCustomerName(order){
+
+    return (
+        order.customerName||
+        order.customer||
+        order.name||
+        order.fullName||
+        order.userName||
+        order.buyerName||
+        "Unknown"
+    );
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+function getMobile(order){
+
+    return (
+        order.mobile||
+        order.phone||
+        order.customerMobile||
+        order.customerPhone||
+        order.mobileNumber||
+        ""
+    );
+
+}
+
+
+/* =====================================================
+   EMAIL
+===================================================== */
+
+function getEmail(order){
+
+    return (
+        order.email||
+        order.customerEmail||
+        order.userEmail||
+        ""
+    );
+
+}
+
+
+/* =====================================================
+   AMOUNT
+===================================================== */
+
+function getAmount(order){
+
+    const amount=
+        Number(
+            order.total??
+            order.grandTotal??
+            order.amount??
+            order.totalAmount??
+            order.price??
+            0
+        );
+
+
+    return Number.isFinite(
+        amount
+    )
+    ? amount
+    : 0;
+
+}
+
+
+/* =====================================================
+   DATE
+===================================================== */
+
+function getDate(order){
+
+    const value=
+        order.createdAt||
+        order.placedAt||
+        order.orderDate||
+        order.date||
+        "";
+
+
+    if(
+        value &&
+        typeof value.toDate==="function"
+    ){
+
+        return value.toDate();
+
+    }
+
+
+    if(value instanceof Date){
+
+        return value;
+
+    }
+
+
+    const date=
+        new Date(value);
+
+
+    if(
+        isNaN(
+            date.getTime()
+        )
+    ){
+
+        return null;
+
+    }
+
+
+    return date;
+
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+function getStatus(order){
+
+    return String(
+        order.status||
+        order.orderStatus||
+        "pending"
+    )
+    .toLowerCase()
+    .trim();
+
+}
+
+
+/* =====================================================
+   FILTER
+===================================================== */
+
+window.applyFilter=
+function(){
+
+    const from=
+        document.getElementById(
+            "fromDate"
+        ).value;
+
+
+    const to=
+        document.getElementById(
+            "toDate"
+        ).value;
+
+
+    const search=
+        document.getElementById(
+            "searchBox"
+        ).value
+        .trim()
+        .toLowerCase();
+
+
+    filteredOrders=
+        allOrders.filter(
+            order=>{
+
+                const date=
+                    getDate(order);
+
+
+                if(
+                    from &&
+                    date
+                ){
+
+                    const fromDate=
+                        new Date(
+                            from+
+                            "T00:00:00"
+                        );
+
+
+                    if(
+                        date < fromDate
+                    ){
+
+                        return false;
+
+                    }
+
+                }
+
+
+                if(
+                    to &&
+                    date
+                ){
+
+                    const toDate=
+                        new Date(
+                            to+
+                            "T23:59:59"
+                        );
+
+
+                    if(
+                        date > toDate
+                    ){
+
+                        return false;
+
+                    }
+
+                }
+
+
+                if(search){
+
+                    const text=(
+
+                        order.id+
+                        " "+
+                        getCustomerName(order)+
+                        " "+
+                        getMobile(order)+
+                        " "+
+                        getEmail(order)+
+                        " "+
+                        getStatus(order)
+
+                    ).toLowerCase();
+
+
+                    if(
+                        !text.includes(search)
+                    ){
+
+                        return false;
+
+                    }
+
+                }
+
+
+                return true;
+
+            }
+        );
+
+
+    renderReport();
+
+};
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+window.resetFilter=
+function(){
+
+    document.getElementById(
+        "fromDate"
+    ).value="";
+
+
+    document.getElementById(
+        "toDate"
+    ).value="";
+
+
+    document.getElementById(
+        "searchBox"
+    ).value="";
+
+
+    filteredOrders=
+        [...allOrders];
+
+
+    renderReport();
+
+};
+
+
+/* =====================================================
+   RENDER REPORT
+===================================================== */
+
+function renderReport(){
+
+    const total=
+        filteredOrders.length;
+
+
+    const sales=
+        filteredOrders.reduce(
+            (sum,order)=>
+                sum+
+                getAmount(order),
+            0
+        );
+
+
+    const delivered=
+        filteredOrders
+        .filter(
+            order=>
+                getStatus(order)==="delivered"
+        )
+        .reduce(
+            (sum,order)=>
+                sum+
+                getAmount(order),
+            0
+        );
+
+
+    document.getElementById(
+        "totalOrders"
+    ).textContent=
+        total;
+
+
+    document.getElementById(
+        "totalSales"
+    ).textContent=
+        "₹"+
+        sales.toLocaleString(
+            "en-IN"
+        );
+
+
+    document.getElementById(
+        "orderValue"
+    ).textContent=
+        "₹"+
+        sales.toLocaleString(
+            "en-IN"
+        );
+
+
+    document.getElementById(
+        "deliveredValue"
+    ).textContent=
+        "₹"+
+        delivered.toLocaleString(
+            "en-IN"
+        );
+
+
+    const average=
+        total
+        ? sales/total
+        : 0;
+
+
+    document.getElementById(
+        "averageOrder"
+    ).textContent=
+        "₹"+
+        Math.round(
+            average
+        ).toLocaleString(
+            "en-IN"
+        );
+
+
+    updateStatusCounts();
+
+
+    renderOrders();
+
+}
+
+
+/* =====================================================
+   STATUS COUNTS
+===================================================== */
+
+function updateStatusCounts(){
+
+    const count=
+        status=>{
+
+            return filteredOrders.filter(
+                order=>
+                    getStatus(order)===status
+            ).length;
+
+        };
+
+
+    document.getElementById(
+        "pendingCount"
+    ).textContent=
+        count("pending")+
+        count("new")+
+        count("placed");
+
+
+    document.getElementById(
+        "confirmedCount"
+    ).textContent=
+        count("confirmed")+
+        count("processing");
+
+
+    document.getElementById(
+        "shippedCount"
+    ).textContent=
+        count("shipped");
+
+
+    document.getElementById(
+        "deliveredCount"
+    ).textContent=
+        count("delivered");
+
+
+    document.getElementById(
+        "cancelledCount"
+    ).textContent=
+        count("cancelled");
+
+}
+
+
+/* =====================================================
+   RENDER ORDERS
+===================================================== */
+
+function renderOrders(){
+
+    const area=
+        document.getElementById(
+            "ordersArea"
+        );
+
+
+    if(!filteredOrders.length){
+
+        area.innerHTML=
+            `<div class="empty">
+
+                📭 କୌଣସି Order ମିଳିଲା ନାହିଁ।
+
+            </div>`;
+
+        return;
+
+    }
+
+
+    const sorted=
+        [...filteredOrders]
+        .sort(
+            (a,b)=>{
+
+                const da=
+                    getDate(a)?.getTime()||
+                    0;
+
+                const db=
+                    getDate(b)?.getTime()||
+                    0;
+
+                return db-da;
+
+            }
+        );
+
+
+    area.innerHTML="";
+
+
+    sorted.forEach(
+        order=>{
+
+            const card=
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className=
+                "orderCard";
+
+
+            const date=
+                getDate(order);
+
+
+            const dateText=
+                date
+                ? formatDate(date)
+                : "N/A";
+
+
+            card.innerHTML=`
+
+                <div class="orderLeft">
+
+                    <div class="orderId">
+
+                        📦 Order:
+                        ${escapeHtml(
+                            order.id
+                        )}
+
+                    </div>
+
+                    <div class="orderCustomer">
+
+                        👤
+                        ${escapeHtml(
+                            getCustomerName(order)
+                        )}
+
+                    </div>
+
+                    <div class="orderDate">
+
+                        📅 ${dateText}
+
+                    </div>
+
+                </div>
+
+
+                <div class="orderRight">
+
+                    <div class="orderAmount">
+
+                        ₹${getAmount(order)
+                        .toLocaleString("en-IN")}
+
+                    </div>
+
+                    <div class="orderStatus">
+
+                        ${escapeHtml(
+                            getStatus(order)
+                        )}
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            area.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   DATE FORMAT
+===================================================== */
+
+function formatDate(date){
+
+    return date.toLocaleDateString(
+        "en-IN",
+        {
+            day:"2-digit",
+            month:"2-digit",
+            year:"numeric"
+        }
+    );
+
+}
+
+
+/* =====================================================
+   ESCAPE
+===================================================== */
+
+function escapeHtml(value){
+
+    return String(
+        value??""
+    )
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+    .replace(
+        /</g,
+        "&lt;"
+    )
+    .replace(
+        />/g,
+        "&gt;"
+    )
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+
+}
+
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+window.goDashboard=
+function(){
+
+    window.location.href=
+        "admin-dashboard.html";
+
+};
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+window.logout=
+async function(){
+
+    const ok=
+        confirm(
+            "ଆପଣ Admin Panel ରୁ Logout କରିବାକୁ ଚାହୁଁଛନ୍ତି କି?"
+        );
+
+
+    if(!ok){
+        return;
+    }
+
+
+    await signOut(
+        auth
+    );
+
+
+    window.location.href=
+        "admin-login.html";
+
+};
+
+</script>
+
+</body>
+
+  </html>
